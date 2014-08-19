@@ -49,7 +49,9 @@ class EqoT
 
       
   # From init.rb:<br>
-  # Initialize @data loads nutation data with safe_yaml and is frozen.    
+  # Initialize loads nutation data with safe_yaml and is frozen, atrributes are set.
+  # You may use GeoLatLng to set up @latitude and @longitude but you need to have
+  # internet so that is commented out for now.    
   def initialize(addr=nil)
 
     file_path     = File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )

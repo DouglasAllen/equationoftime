@@ -58,3 +58,23 @@ require "rake/win32"
   # Rake::Win32.rake_system("rspec ./tests/spec/vars_spec.rb")
   
 # end
+
+require 'yard'
+
+YARD::Rake::YardocTask.new(:yardoc) do |t|
+  t.files = ['lib/**/*.rb']
+#  puts t.methods
+end
+
+require 'rdoc/task'
+
+desc 'generate API documentation to rdocs/index.html'
+Rake::RDocTask.new(:rdox) do |rd|
+
+  rd.rdoc_dir = 'rdocs'
+
+  rd.rdoc_files.include 'lib/**/*.rb', 'README.md', 'README.txt', 'wiki.md'
+ 
+  rd.options << '--line-numbers'
+  
+end

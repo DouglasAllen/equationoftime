@@ -4,7 +4,7 @@ require 'mutex_m'
 
 class EqoT
 
-  # From nutation.rb<br>  
+    
   # nutation data terms are used here.
   # arc seconds are used for these terms
   # see http://aa.usno.navy.mil/publications/docs/Circular_179.pdf page 46 (5.19)  
@@ -75,6 +75,7 @@ class EqoT
     
   # end
   
+  # From nutation.rb<br>
   # nutation data terms are used here.
   # arc seconds are used for these terms
   # see http://aa.usno.navy.mil/publications/docs/Circular_179.pdf page 46 (5.19) 

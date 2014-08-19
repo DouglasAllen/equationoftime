@@ -39,11 +39,11 @@ Or install it yourself as:
 
 Usage:
 
-irb --simple-prompt
+        $ irb --simple-prompt
 
-1. >> require 'eot'
-2. >> eot = EqoT.new  #(note: in irb you'll see nutation data loading. This is normal.)
-3. >> eot.string_eot()
+        require 'eot'
+        eot = EqoT.new  #(note: in irb you'll see nutation data loading. This is normal.)
+        eot.string_eot()
 
 
 Notes:
@@ -57,7 +57,7 @@ Suggestions:
 
 1. Itererate through a years worth of dates and compute analemma data. see: http://equationoftime.herokuapp.com/analemma
 2. A file is included in examples named analemma_data.rb and may help you get started.
-3. see the [*astro dog*](https://github.com/DouglasAllen/Sinatra-projects/tree/master/astro_dog) project here and the web post of it on [*Heroku*](http://equationoftime.herokuapp.com/) for more info about the Equation of Time.
+3. see the astro dog (https://github.com/DouglasAllen/Sinatra-projects/tree/master/astro_dog) project here and the web post of it on Heroku (http://equationoftime.herokuapp.com/) for more info about the Equation of Time.
 4. see the wikis for more usage examples.
 
 Contributing:

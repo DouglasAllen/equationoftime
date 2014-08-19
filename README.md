@@ -6,8 +6,8 @@
 ##[*Web Calculator*](http://www.nature1st.net/bogan/astro/time/jsjdetst.html)
 # equationoftime gem
 ##[*Equation of Time download*](https://rubygems.org/gems/equationoftime)
-###Using the Julian Period Day Number system for a date object Date.jd 
-###Equation of Time for that date will be calculated at UTC Noon.
+###Using the Julian Period Day Number(JD) system for a date object Date.jd 
+###Equation of Time for that date will be calculated at UTC Noon or any time by using AJD.(DateTime.ajd) 
 ###Review date.rb in older Ruby libraries or /src/ruby-1.9.3-px/ext/date/ for more info. 
 ##[*Equation of Time Ruby Sinatra Website*](http://equationoftime.herokuapp.com/)
 ## Installation    
@@ -51,11 +51,11 @@ Or install it yourself as:
 
 ## Usage
 
-irb --simple-prompt
+        $ irb --simple-prompt
 
-1. >> require 'eot'
-2. >> eot = EqoT.new   #(note: in irb you'll see nutation data loading. This is normal.)
-3. >> eot.string_eot()
+        require 'eot'
+        eot = EqoT.new; "note: nutation data loading is normal if you leave this off."
+        eot.string_eot()
 
 
 ## Notes
