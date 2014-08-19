@@ -4,7 +4,7 @@
 ##[*Graphic Plot 2*](https://github.com/DouglasAllen/equationoftime-2.3.8/blob/master/examples/Equation_of_Time.jpg) created from [*R script*](http://en.wikipedia.org/wiki/File:Zeitgleichung.png)
 ##[*Solar Time*](http://www.maa.mhn.de/Scholar/times.html#solar)
 ##[*Web Calculator*](http://www.nature1st.net/bogan/astro/time/jsjdetst.html)
-# Equation_of_Time
+# equationoftime gem
 ##[*Equation of Time download*](https://rubygems.org/gems/equationoftime)
 ###Using the Julian Period Day Number system for a date object Date.jd 
 ###Equation of Time for that date will be calculated at UTC Noon.
