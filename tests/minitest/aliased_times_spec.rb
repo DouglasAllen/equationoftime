@@ -12,9 +12,12 @@ Eot_aliased_times = EqoT.new
 
 describe 'Eot_aliased_times defaults' do
 
-  it 'is         [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] returned by Eot_aliased_times.deg_to_rad() ' do
+  Eot_aliased_times.ajd = 2456885.0
+
+  it 'expected   [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] returned by Eot_aliased_times.deg_to_rad() ' do
     assert_equal [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], Eot_aliased_times.time_julian_centurey()
     assert_equal [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], Eot_aliased_times.time_julian_centurey(nil)
     assert_equal [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], Eot_aliased_times.time_julian_centurey(0)
   end
+
 end

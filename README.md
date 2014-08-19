@@ -53,9 +53,9 @@ Or install it yourself as:
 
 irb --simple-prompt
 
-1. >> require 'equation_of_time'
-2. >> eot = Equation_of_Time.new #(note: in irb you'll see nutation data loading. This is normal because nutation uses it.)
-3. >> Time.now.utc.to_s + " " + eot.now.to_s
+1. >> require 'eot'
+2. >> eot = EqoT.new   #(note: in irb you'll see nutation data loading. This is normal.)
+3. >> eot.string_eot()
 
 
 ## Notes

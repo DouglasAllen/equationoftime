@@ -3,11 +3,11 @@
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'equation_of_time'
+require 'eot'
 
-eot = Equation_of_Time.new(0.0, 0.0, "2000-01-01")
+eot = EqoT.new()
 p eot.date
 p eot.longitude
 p eot.latitude
-p eot.sunrise_time
-p eot.sunset_time
+p eot.sunrise_dt
+p eot.sunset_dt

@@ -13,24 +13,22 @@ Eot_aliased_utilities = EqoT.new
 
 describe 'Eot_aliased_utilities defaults' do
 
-  it 'is         0.0 returned by Eot_aliased_utilities.deg_to_rad() ' do
+  it 'expected   0.0 returned by Eot_aliased_utilities.degrees_to_radians() ' do
     assert_equal 0.0, Eot_aliased_utilities.degrees_to_radians()
     assert_equal 0.0, Eot_aliased_utilities.degrees_to_radians(nil)
     assert_equal 0.0, Eot_aliased_utilities.degrees_to_radians(0)
   end
   
-  it 'is         0.0 returned by Eot_aliased_utilities.radians_to_degrees() ' do
+  it 'expected   0.0 returned by Eot_aliased_utilities.radians_to_degrees() ' do
     assert_equal 0.0, Eot_aliased_utilities.radians_to_degrees()
     assert_equal 0.0, Eot_aliased_utilities.radians_to_degrees(nil)
     assert_equal 0.0, Eot_aliased_utilities.radians_to_degrees(0)
   end  
 
-  it 'is         0.0 returned by Eot_aliased_utilities.truncate() ' do
+  it 'expected   0.0 returned by Eot_aliased_utilities.truncate() ' do
     assert_equal 0.0, Eot_aliased_utilities.truncate()
     assert_equal 0.0, Eot_aliased_utilities.truncate(nil)
     assert_equal 0.0, Eot_aliased_utilities.truncate(0)
   end    
 
 end
-
-#139.43434184626486,  90.86266511703538   

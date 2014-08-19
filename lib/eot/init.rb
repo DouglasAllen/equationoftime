@@ -2,94 +2,79 @@
 
 class EqoT    
 
+  # From init.rb:<br>
   # Astronomical Julian Day Number is an instance of Date class.
-  # When new Equation_of_Time class is initialized @ajd = nil.
-  # Has getter and setter in vars.rb to override attribute accessor.
-  # in init.rb
+  # When new Equation of Time class is initialized @ajd = jd = today DateTime.jd
+  # Used for getting the equation of time now if it is set for that. There is 
+  # always a slight delay in the computation though.
   attr_accessor :ajd
-  
-  # EOT Constants
-  # Instance of Array class
-  #    @constants = [
-  #                  :A2000,  
-  #                  :ARCSEC,
-  #                  :D2000, 
-  #                  :DAY_HOURS, 
-  #                  :DAY_MINUTES, 
-  #                  :DAY_SECONDS, 
-  #                  :DAY_USECS,
-  #                  :DT2000  
-  #                  :DTR,
-  #                  :J2000,
-  #                  :MJD0  
-  #                  :RTD                  
-  #                 ]    
-  # in init.rb  
-  attr_reader :constants
 
+  # From init.rb:<br>
   # Nutation Data is an instance of Array class.
   # @data = nutation_table5_3a.yaml 
-  # File loaded when new Equation_of_Time class is initialized.  
-  # Has getter in vars.rb    
-  # in init.rb
+  # YAML File loaded when new Equation of Time class is initialized.
   attr_reader :data  
 
-  # Date is an instance of Date class.  
-  # When new Equation_of_Time class is initialized without date parameter @date = nil
-  # May be set when new Equation_of_Time class is initialized or
-  # has getter and setter in vars.rb to override attribute accessor.
-  # in init.rb  
+  # From init.rb:<br>
+  # @date is an instance of Date class.  
+  # When new Equation of Time class is initialized @date = today  
   attr_accessor :date
-  
+
+  # From init.rb:<br>
   # Julian Day Number is an instance of Date class.
-  # When new Equation_of_Time class is initialized @jd = nil and
-  # has getter and setter in vars.rb to override attribute accessor.
-  # in init.rb  
+  # When new Equation of Time class is initialized @jd = jd today  
   attr_accessor :jd
 
+  # From init.rb:<br>
   # Latitude input is an instance of Float class.
-  # When new Equation_of_Time class is initialized  without latitude parameter @latitude = nil and
-  # may be set when new Equation_of_Time class is initialized.
-  # Has getter and setter in vars.rb to override attribute accessor.
-  # in init.rb  
+  # When new Equation of Time class is initialized @latitude = 0.0
+  # May use GeoLatLng class to set it also but is commented out or will fail if no 
+  # internet connection is present.  
   attr_accessor :latitude
   
+  # From init.rb:<br>
   # Longitude input is an instance of Float class.
-  # When new Equation_of_Time class is initialized  without longitude parameter @longitude = nil and
-  # may be set when new Equation_of_Time class is initialized.
-  # Has getter and setter in vars.rb to override attribute accessor.
-  # in init.rb 
+  # When new Equation of Time class is initialized @longitude = 0.0
+  # May use GeoLatLng class to set it also but is commented out or will fail if no 
+  # internet connection is present.  
   attr_accessor :longitude
 
-  # Mean Anomaly gets called a lot so let's set it somewhere
-    # in init.rb 
+  # From init.rb:<br>
+  # Mean Anomaly gets called a lot so attribute accessor saves time 
   attr_accessor :ma
 
-      
+  # From init.rb:<br>
+  # address used for GeoLatLng.addr when used.(commented out) 
+  attr_accessor :addr
 
-  # Initialize method >>
-  # All attributes are defaulted. @data loads with safe_yaml and is frozen.
-    
+      
+  # From init.rb:<br>
+  # Initialize @data loads nutation data with safe_yaml and is frozen.    
   def initialize(addr=nil)
 
     file_path     = File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )
     @data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
-    #@constants = [ A2000, ARCSEC, D2000, DT2000, DAY_HOURS, DAY_MINUTES, DAY_SECONDS, DAY_USECS, DTR, J2000, MJD0, RTD]
-    date.nil? ? @ajd  = DateTime.now.to_time.utc.to_datetime.jd.to_f : @ajd = date.ajd.to_f      
-    date.nil? ? @date = DateTime.now.to_time.utc.to_datetime : @date = date
-    date.nil? ? @jd  = DateTime.now.to_time.utc.to_datetime.jd.to_f : @ajd = date.jd.to_f
-    latitude.nil? ? @latitude = 0.0 : @latitude = latitude
-    longitude.nil? ? @longitude = 0.0 : @longitude = longitude    
+ 
+    @ajd.nil? ? @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f : @ajd = self.ajd      
+    @date.nil? ? @date = DateTime.now.to_time.utc.to_date : @date = self.date
+    @jd.nil? ? @jd  = DateTime.now.to_time.utc.to_datetime.jd.to_f : @jd = self.jd
+    @latitude.nil? ? @latitude = 0.0 : @latitude = self.latitude
+    @longitude.nil? ? @longitude = 0.0 : @longitude = self.longitude    
     @ma.nil? ? @ma = ma_Sun() : @ma
-    geo = GeoLatLng.new
-    addr.nil? ? geo.addr=(geo.default_int) : geo.addr=addr
-    geo.get_coordinates_from_address
-    @latitude = geo.lat.to_f
-    @longitude = geo.lng.to_f
+
+    #geo = GeoLatLng.new
+    @addr = addr
+    #addr.nil? ? geo.addr=(geo.default_int) : geo.addr=addr
+# uncomment below if you have internet connection
+    #geo.get_coordinates_from_address
+    #@latitude = geo.lat.to_f
+    #@longitude = geo.lng.to_f
   end
   
 end
 
+
+# we can run some tests from inside this file.
 if __FILE__ == $PROGRAM_NAME
 
   lib = File.expand_path('../../../lib', __FILE__)

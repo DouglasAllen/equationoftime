@@ -1,9 +1,9 @@
 irb --simple-prompt
 
-1. >> require 'equation_of_time';eot = Equation_of_Time.new
-2. >> eot.date = Date.today.to_s
-3. >> loop do
-4. >> puts eot.display_time_string(eot.true_longitude_aries(eot.time_julian_century(eot.ajd_time(Time.now.utc))) / 15.0)
+1. >> require 'eot';eot = EqoT.new
+2. >> loop do
+3. >> eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd
+4. >> puts eot.string_time(eot.tl_Aries(eot.time_julian_century(eot.ajd)) / 15.0)
 5. >> sleep 0.73
 6. >> end
 

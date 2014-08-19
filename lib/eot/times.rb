@@ -3,28 +3,28 @@
 
 class EqoT    
 
-  # From times.rb:
+  # From times.rb:<br>
   # Pass in an AJD number
   # Returns a DateTime object
   def ajd_to_datetime(ajd)
     DateTime.jd(ajd + 0.5)
   end
 
-  # From times.rb:
+  # From times.rb:<br>
   # Uses @ajd attribute
   # Returns EOT as an AJD Julian number
   def eot_jd
     time_eot() / DAY_MINUTES 
   end
 
-  # From times.rb:
+  # From times.rb:<br>
   # Uses @ajd and @longitude attributes
   # Returns DateTime object of local mean noon or solar transit
   def mean_local_noon_dt()
-    ajd_to_datetime(@ajd + @longitude / 360.0)
+    ajd_to_datetime(@ajd - @longitude / 360.0)
   end
   
-  # From times.rb:
+  # From times.rb:<br>
   # Uses changed @ajd attribute
   # Returns EOT (equation of time) now in decimal minutes time
   def now()
@@ -32,7 +32,7 @@ class EqoT
     time_eot()
   end
 
-  # From times.rb:
+  # From times.rb:<br>
   # Uses @ajd attribute
   # Returns a DateTime object of local sunrise
   def sunrise_dt()
@@ -44,14 +44,14 @@ class EqoT
     ajd_to_datetime(local_noon_dt - lha_dt)      
   end
 
-  # From times.rb: 
+  # From times.rb:<br> 
   # Uses @ajd attribute
   # Returns Sunrise as a Julian number
   def sunrise_jd()    
     sunrise_dt.ajd.to_f
   end 	
 
-  # From times.rb:
+  # From times.rb:<br>
   # Uses @ajd attribute
   # Returns a DateTime object of local sunset
   def sunset_dt()                               
@@ -62,14 +62,14 @@ class EqoT
     ajd_to_datetime(local_noon_dt - lha_dt)      
   end
 
-  # From times.rb:
+  # From times.rb:<br>
   # Uses @ajd attribute
   # Returns Sunset as a Julian number
   def sunset_jd()
     sunset_dt.ajd.to_f  
   end
   
-  # From times.rb:
+  # From times.rb:<br>
   # Uses @ajd attribute
   # Returns Oblique component of EOT in decimal minutes time  
   def time_delta_oblique()
@@ -79,7 +79,7 @@ class EqoT
      ra_Sun( ta )) * SM        
   end
 
-  # From times.rb:
+  # From times.rb:<br>
   # Uses @ajd attribute
   # Returns Orbit component of EOT in decimal minutes time 
   def time_delta_orbit()
@@ -88,14 +88,14 @@ class EqoT
     (@ma - ta_Sun( ta )) * SM
   end  
   
-  # From times.rb:
+  # From times.rb:<br>
   # Uses @ajd attribute
   # Returns EOT as a float for decimal minutes time
   def time_eot()
     eot() * SM	  
   end
 
-  # From times.rb:
+  # From times.rb:<br>
   # All calculations with ( ta )  based on this.
   # Julian Century Time is a fractional century
   # Julian Day Number J2000 is subtracted
@@ -116,6 +116,7 @@ class EqoT
     t10 = t5 * t5
     [ t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 ]      
   end
+  alias_method :time_julian_centurey, :time_julian_century
       
 end
 

@@ -30,11 +30,11 @@ for jd in start_jd..finish_jd
   e2 = eot.delta_oblique(timejc) 
   #~ tl = eot. true_longitude(timejc) 
      
-  equation_of_time = eot.eot(timejc)    
+  equation_of_time = eot.eot()    
   degrees_declination = eot.declination(timejc)
-  delta_1 = eot.display_equation_of_time(e1)
-  delta_2 = eot.display_equation_of_time(e2)
-  delta_t = eot.display_equation_of_time(e1 + e2)
+  delta_1 = eot.string_time(e1)
+  delta_2 = eot.string_time(e2)
+  delta_t = eot.string_time(e1 + e2)
   declination = eot.degrees_to_s(degrees_declination)
   transit = eot.display_time_string((12 - (e1 + e2) / 60))[0..9]
   local = Time.parse(transit)

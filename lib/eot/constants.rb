@@ -157,6 +157,7 @@ class EqoT
   TURNAS      = 1296000.0  
   
 end
+
 if __FILE__ == $PROGRAM_NAME
 
   spec = File.expand_path('../../../tests/minitest', __FILE__)

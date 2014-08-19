@@ -2,8 +2,8 @@
 
 class EqoT
 
+  # From displays.rb<br>
   # String formatter for d:m:s display 
-    # in displays.rb  
   def degrees_to_s( degrees = 0.0 )
     degrees.nil? ? degrees = 0.0 : degrees
     degrees < 0 ? sign_string      = "-" : sign_string = "+"    
@@ -38,8 +38,8 @@ class EqoT
       "%3.3d" % absolute_milli_seconds_integer
   end  
   
+  # From displays.rb<br>
   # String formatter for + and - time 
-    # in displays.rb 
   def show_minutes(min = 0.0)
     min.nil? ? min = 0.0 : min
     time = Time.utc(1, 1, 1, 0, 0, 0, 0.0)
@@ -52,20 +52,21 @@ class EqoT
     time.strftime("#{sign}%M:%S.%3N")
   end
 
+  # From displays.rb<br>
   # String for time now
-    # in displays.rb 
   def show_now(now = now(Time.now.utc))
     show_minutes(now)
   end  
   
+  # From displays.rb<br>
   # String format of apparent longitude 
-    # in displays.rb
   def string_al_Sun( ta = A2000 )
     degrees_to_s( al_Sun( ta ) )
   end
+  alias_method :apparent_longitude_string, :string_al_Sun
 
+  # From displays.rb<br>
   # String formatter for fraction of Julian day number
-    # in displays.rb    
   def string_day_fraction_to_time( jpd_time = 0.0 )
     jpd_time.nil? ? jpd_time = 0.0 : jpd_time
     fraction = jpd_time + 0.5 - Integer( jpd_time )
@@ -77,36 +78,38 @@ class EqoT
     "%02d" % minutes +
     ":"              +
     "%02d" % seconds
-  end  
+  end 
+  alias_method :julian_period_day_fraction_to_time, :string_day_fraction_to_time 
 
+  # From displays.rb<br>
   # String format of declination 
-    # in displays.rb
   def string_dec_Sun( ta = A2000 )
     degrees_to_s( dec_Sun( ta ) )
   end
+  alias_method :declination_string, :string_dec_Sun
   
+  # From displays.rb<br>
   # String format for delta oblique
-     # in displays.rb
   def string_delta_oblique( ta = A2000 )
     show_minutes(delta_oblique( ta ))
   end
   
+  # From displays.rb<br>
   # String format for delta orbit
-     # in displays.rb
   def string_delta_orbit( ta = A2000 )
     show_minutes(delta_orbit( ta ))
   end
   
-   # String format for centre
-     # in displays.rb
+  # From displays.rb<br>
+  # String format for centre
   def string_eqc( ta = A2000 )
     degrees_to_s( center( ta ))
   end
   
+  # From displays.rb<br>
   # Equation of time output for minutes and seconds
-    # in displays.rb 
-  def string_eot( dt = DT2000 )    
-    eot = time_eot( dt )  
+  def string_eot()    
+    eot = time_eot()  
     min_eot = eot
     if min_eot < 0.0
       sign = "-"
@@ -121,35 +124,40 @@ class EqoT
     sec = "%02d" %  seconds
     dec_sec = "%01d" % decimal_seconds
     sign << min << "m, " << sec << "." << dec_sec << "s"
-  end  
+  end 
+  alias_method :display_equation_of_time, :string_eot 
   
+  # From displays.rb<br>
   # String format conversion of jd to date
-    # in displays.rb  
   def string_jd_to_date( jd = J2000 )
     jd = check_jd_zero( jd )
     Date.jd( jd ).to_s
-  end  
-
-  # String format of mean anomaly 
-    # in displays.rb      
-  def string_ma_Sun( ta = A2000 )
-    degrees_to_s( ma_Sun( ta ) )
   end 
+  alias_method :jd_to_date_string, :string_jd_to_date 
 
+  # From displays.rb<br>
+  # String format of mean anomaly    
+  def string_ma_Sun()
+    degrees_to_s( @ma )
+  end
+  alias_method :mean_anomaly_string, :string_ma_Sun 
+
+  # From displays.rb<br>
   # String format of right ascension
-    # in displays.rb  
   def string_ra_Sun( ta = A2000 )
     degrees_to_s( ra_Sun( ta ) )
-  end     
+  end
+  alias_method :right_ascension_string, :string_ra_Sun     
 
+  # From displays.rb<br>
   # String format of true anomaly  
-  # in displays.rb 
   def string_ta_Sun( ta = A2000 )
     degrees_to_s( ta_Sun( ta ) )
   end
+  alias_method :true_anomaly_string, :string_ta_Sun
 
+  # From displays.rb<br>
   # String formatter for h:m:s display 
-    # in displays.rb  
   def string_time( dt = DT2000 )
     dt = check_t_zero( dt )
     
@@ -176,20 +184,25 @@ class EqoT
     "%02d" % intsecs +
                  "." +
     "%3.3d" % decsecs
-  end    
+  end
+  alias_method :display_time_string, :string_time    
 
+  # From displays.rb<br>
   # String format of true longitude 
-    # in displays.rb 
   def string_tl_Sun( ta = A2000 )
     degrees_to_s( tl_Sun( ta ) )
-  end 
+  end
+  alias_method :true_longitude_string, :string_tl_Sun 
 
+  # From displays.rb<br>
   # String format of true obliquity 
-    # in displays.rb 
   def string_to_Earth( ta = A2000 )
     degrees_to_s( to_Earth( ta ) )
-  end 
+  end
+  alias_method :true_obliquity_string, :string_to_Earth 
+
 end
+
 if __FILE__ == $PROGRAM_NAME
 
   spec = File.expand_path('../../../tests/minitest', __FILE__)

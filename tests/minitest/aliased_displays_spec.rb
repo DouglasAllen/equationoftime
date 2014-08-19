@@ -15,71 +15,68 @@ describe 'assert_equal Eot aliased_displays default, nil' do
 
   # set ma attribute first it gets tested anyway but a lot of methods
   # now rely on @ma and the only one really neding it is equation_of_time
-  before(:each) do  
+  before(:each) do
+    Eot_aliased_displays.ajd = 2456885.0
     Eot_aliased_displays.mean_anomaly()
   end
   
-  it 'is         "+280:22:21.183" returned by Eot_aliased_displays.apparent_longitude_string()? ' do
-    assert_equal "+280:22:21.183", Eot_aliased_displays.apparent_longitude_string()
-    assert_equal "+280:22:21.183", Eot_aliased_displays.apparent_longitude_string(nil)
-    assert_equal "+280:22:21.183", Eot_aliased_displays.apparent_longitude_string(0)	
+  it 'expected   "+279:13:46.271" returned by Eot_aliased_displays.apparent_longitude_string()? ' do
+    assert_equal "+279:13:46.271", Eot_aliased_displays.apparent_longitude_string()
+    assert_equal "+279:13:46.271", Eot_aliased_displays.apparent_longitude_string(nil)
+    assert_equal "+279:13:46.271", Eot_aliased_displays.apparent_longitude_string(0)	
   end  
   
-  it 'is         "-023:01:56.578" returned by Eot_aliased_displays.declination_string()? ' do
-    assert_equal "-023:01:56.578", Eot_aliased_displays.declination_string()
-    assert_equal "-023:01:56.578", Eot_aliased_displays.declination_string(nil)
-    assert_equal "-023:01:56.578", Eot_aliased_displays.declination_string(0)	
+  it 'expected   "-023:06:59.415" returned by Eot_aliased_displays.declination_string()? ' do
+    assert_equal "-023:06:59.415", Eot_aliased_displays.declination_string()
+    assert_equal "-023:06:59.415", Eot_aliased_displays.declination_string(nil)
+    assert_equal "-023:06:59.415", Eot_aliased_displays.declination_string(0)	
   end
   
-  it 'is         "-03m, 15.27s" returned by Eot_aliased_displays.display_equation_of_time()? ' do
-    assert_equal "-03m, 15.27s", Eot_aliased_displays.display_equation_of_time() 
-    assert_equal "-03m, 15.27s", Eot_aliased_displays.display_equation_of_time(nil) 
-    assert_equal "-03m, 15.27s", Eot_aliased_displays.display_equation_of_time(0)  	
+  it 'expected   "-04m, 28.9s" returned by Eot_aliased_displays.display_equation_of_time()? ' do
+    assert_equal "-04m, 28.9s", Eot_aliased_displays.display_equation_of_time() 	
   end
   
-  it 'is         "12:00:00.000" returned by Eot_aliased_displays.display_time_string()? ' do
+  it 'expected   "12:00:00.000" returned by Eot_aliased_displays.display_time_string()? ' do
     assert_equal "12:00:00.000", Eot_aliased_displays.display_time_string()
     assert_equal "12:00:00.000", Eot_aliased_displays.display_time_string(nil)
     assert_equal "12:00:00.000", Eot_aliased_displays.display_time_string(0)	
   end 
   
-  it 'is         "2000-01-01" returned by Eot_aliased_displays.jd_to_date_string()? ' do
+  it 'expected   "2000-01-01" returned by Eot_aliased_displays.jd_to_date_string()? ' do
     assert_equal "2000-01-01", Eot_aliased_displays.jd_to_date_string()
     assert_equal "2000-01-01", Eot_aliased_displays.jd_to_date_string(nil)
     assert_equal "2000-01-01", Eot_aliased_displays.jd_to_date_string(0)
   end
   
-  it 'is         "12:00:00" returned by Eot_aliased_displays.julian_period_day_fraction_to_time()? ' do
+  it 'expected   "12:00:00" returned by Eot_aliased_displays.julian_period_day_fraction_to_time()? ' do
     assert_equal "12:00:00", Eot_aliased_displays.julian_period_day_fraction_to_time()
     assert_equal "12:00:00", Eot_aliased_displays.julian_period_day_fraction_to_time(nil)
     assert_equal "12:00:00", Eot_aliased_displays.julian_period_day_fraction_to_time(0)	
   end
   
-  it 'is         "+357:31:44.793" returned by Eot_aliased_displays.mean_anomaly_string()? ' do
-    assert_equal "+357:31:44.793", Eot_aliased_displays.mean_anomaly_string()
-    assert_equal "+357:31:44.793", Eot_aliased_displays.mean_anomaly_string(nil)
-    assert_equal "+357:31:44.793", Eot_aliased_displays.mean_anomaly_string(0)	
+  it 'expected   "+220:38:04.597" returned by Eot_aliased_displays.mean_anomaly_string()? ' do
+    assert_equal "+220:38:04.597", Eot_aliased_displays.mean_anomaly_string()
   end
   
-  it 'is         "+281:16:56.425" returned by Eot_aliased_displays.right_ascension_string()? ' do
-    assert_equal "+281:16:56.425", Eot_aliased_displays.right_ascension_string()  
-    assert_equal "+281:16:56.425", Eot_aliased_displays.right_ascension_string(nil) 
-    assert_equal "+281:16:56.425", Eot_aliased_displays.right_ascension_string(0) 
+  it 'expected   "+280:02:35.793" returned by Eot_aliased_displays.right_ascension_string()? ' do
+    assert_equal "+280:02:35.793", Eot_aliased_displays.right_ascension_string()  
+    assert_equal "+280:02:35.793", Eot_aliased_displays.right_ascension_string(nil) 
+    assert_equal "+280:02:35.793", Eot_aliased_displays.right_ascension_string(0) 
   end
   
-  it 'is         "+357:26:41.304" returned by Eot_aliased_displays.true_anomaly_string()? ' do
-    assert_equal "+357:26:41.304", Eot_aliased_displays.true_anomaly_string() 
-    assert_equal "+357:26:41.304", Eot_aliased_displays.true_anomaly_string(nil) 
-    assert_equal "+357:26:41.304", Eot_aliased_displays.true_anomaly_string(0) 	
+  it 'expected   "+219:24:26.197" returned by Eot_aliased_displays.true_anomaly_string()? ' do
+    assert_equal "+219:24:26.197", Eot_aliased_displays.true_anomaly_string() 
+    assert_equal "+219:24:26.197", Eot_aliased_displays.true_anomaly_string(nil) 
+    assert_equal "+219:24:26.197", Eot_aliased_displays.true_anomaly_string(0) 	
   end 
   
-  it 'is         "+280:22:55.755" returned by Eot_aliased_displays.true_longitude_string()? ' do
-    assert_equal "+280:22:55.755", Eot_aliased_displays.true_longitude_string() 
-    assert_equal "+280:22:55.755", Eot_aliased_displays.true_longitude_string(nil) 
-    assert_equal "+280:22:55.755", Eot_aliased_displays.true_longitude_string(0) 
+  it 'expected   "+279:14:20.844" returned by Eot_aliased_displays.true_longitude_string()? ' do
+    assert_equal "+279:14:20.844", Eot_aliased_displays.true_longitude_string() 
+    assert_equal "+279:14:20.844", Eot_aliased_displays.true_longitude_string(nil) 
+    assert_equal "+279:14:20.844", Eot_aliased_displays.true_longitude_string(0) 
   end
   
-  it 'is         "+023:26:15.667" returned by Eot_aliased_displays.true_obliquity_string()? ' do
+  it 'expected   "+023:26:15.667" returned by Eot_aliased_displays.true_obliquity_string()? ' do
     assert_equal "+023:26:15.667", Eot_aliased_displays.true_obliquity_string() 
     assert_equal "+023:26:15.667",  Eot_aliased_displays.true_obliquity_string(nil) 
     assert_equal "+023:26:15.667", Eot_aliased_displays.true_obliquity_string(0)  	
@@ -89,11 +86,11 @@ end
 
 describe 'Eot aliased displays explicit values' do
 
-  it 'is         "16:40:40.800" returned by Eot_aliased_displays.display_time_string(16.6780)? ' do
+  it 'expected   "16:40:40.800" returned by Eot_aliased_displays.display_time_string(16.6780)? ' do
     assert_equal "16:40:40.800", Eot_aliased_displays.display_time_string(16.6780)
   end 
 
-  it 'is         "17:59:16.800" returned by Eot_aliased_displays.display_time_string(17988)? ' do
+  it 'expected   "17:59:16.800" returned by Eot_aliased_displays.display_time_string(17988)? ' do
     Eot_aliased_displays.date = Date.today.to_s
     assert_equal "17:59:16.800", Eot_aliased_displays.display_time_string(17.988)
   end

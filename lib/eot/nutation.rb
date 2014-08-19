@@ -4,23 +4,22 @@ require 'mutex_m'
 
 class EqoT
 
+  # From nutation.rb<br>  
   # nutation data terms are used here.
   # arc seconds are used for these terms
-  #
-  # see http://aa.usno.navy.mil/publications/docs/Circular_179.pdf page 46 (5.19)
-  # in nutation.rb  
+  # see http://aa.usno.navy.mil/publications/docs/Circular_179.pdf page 46 (5.19)  
   # def delta_equinox( ta = A2000 )
     # ta = check_jct_zero( ta )    
     
-    # ma_moon = [-0.00024470, 0.051635, 31.8792, 1717915923.2178, 485868.249036].poly_eval(ta[ 0 ])			
+    # ma_moon = [-0.00024470, 0.051635, 31.8792, 1717915923.2178, 485868.249036].inject(0.0) {|p, a| p * ta[0] + a}			
 
-    # ma_sun = [-0.00001149, 0.000136, -0.5532, 129596581.0481, 1287104.79305].poly_eval(ta[ 0 ])	
+    # ma_sun = [-0.00001149, 0.000136, -0.5532, 129596581.0481, 1287104.79305].inject(0.0) {|p, a| p * ta[0] + a}	
                     
-    # md_moon = [0.00000417, -0.001037, -12.7512, 1739527262.8478, 335779.526232].poly_eval(ta[ 0 ])
+    # md_moon = [0.00000417, -0.001037, -12.7512, 1739527262.8478, 335779.526232].inject(0.0) {|p, a| p * ta[0] + a}
             
-    # me_moon = [-0.00003169, 0.006593, -6.3706, 1602961601.2090, 1072260.70369].poly_eval(ta[ 0 ]) 
+    # me_moon = [-0.00003169, 0.006593, -6.3706, 1602961601.2090, 1072260.70369].inject(0.0) {|p, a| p * ta[0] + a} 
            
-    # omega = [-0.00005939, 0.007702, 7.4722, -6962890.5431, 450160.398036].poly_eval(ta[ 0 ])            
+    # omega = [-0.00005939, 0.007702, 7.4722, -6962890.5431, 450160.398036].inject(0.0) {|p, a| p * ta[0] + a}            
 
     ##declare and clear these two variables for the sigma loop
     # delta_psi, delta_eps = 0, 0
@@ -78,21 +77,19 @@ class EqoT
   
   # nutation data terms are used here.
   # arc seconds are used for these terms
-  #
-  # see http://aa.usno.navy.mil/publications/docs/Circular_179.pdf page 46 (5.19)
-    # in nutation.rb  
+  # see http://aa.usno.navy.mil/publications/docs/Circular_179.pdf page 46 (5.19) 
   def delta_equinox( ta = A2000 )
     ta = check_jct_zero( ta )    
     
-    ma_moon = [-0.00024470, 0.051635, 31.8792, 1717915923.2178, 485868.249036].poly_eval(ta[ 0 ])			
+    ma_moon = [-0.00024470, 0.051635, 31.8792, 1717915923.2178, 485868.249036].inject(0.0) {|p, a| p * ta[0] + a}		
 
-    ma_sun  = [-0.00001149, 0.000136, -0.5532, 129596581.0481, 1287104.79305].poly_eval(ta[ 0 ])	
+    ma_sun  = [-0.00001149, 0.000136, -0.5532, 129596581.0481, 1287104.79305].inject(0.0) {|p, a| p * ta[0] + a}	
                     
-    md_moon = [0.00000417, -0.001037, -12.7512, 1739527262.8478, 335779.526232].poly_eval(ta[ 0 ])
+    md_moon = [0.00000417, -0.001037, -12.7512, 1739527262.8478, 335779.526232].inject(0.0) {|p, a| p * ta[0] + a}
             
-    me_moon = [-0.00003169, 0.006593, -6.3706, 1602961601.2090, 1072260.70369].poly_eval(ta[ 0 ]) 
+    me_moon = [-0.00003169, 0.006593, -6.3706, 1602961601.2090, 1072260.70369].inject(0.0) {|p, a| p * ta[0] + a} 
            
-    omega   = [-0.00005939, 0.007702, 7.4722, -6962890.5431, 450160.398036].poly_eval(ta[ 0 ])            
+    omega   = [-0.00005939, 0.007702, 7.4722, -6962890.5431, 450160.398036].inject(0.0) {|p, a| p * ta[0] + a}            
     
 	# declare and clear these two variables for the sigma loop
     delta_psi, delta_eps = 0, 0

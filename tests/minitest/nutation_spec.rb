@@ -13,9 +13,10 @@ Eot_nutation = EqoT.new
 
 describe "Eot_nutation default" do    
 
-  it "is         [-0.0015940313608572006, -0.0038550497869660255] from Eot_nutation.delta_equinox() for default" do
+  it "expected   [-0.0015940313608572006, -0.0038550497869660255] from Eot_nutation.delta_equinox() for default" do
     assert_equal [-0.0015940313608572006, -0.0038550497869660255], Eot_nutation.delta_equinox()[0..1]
     assert_equal [-0.0015940313608572006, -0.0038550497869660255], Eot_nutation.delta_equinox(nil)[0..1]
     assert_equal [-0.0015940313608572006, -0.0038550497869660255], Eot_nutation.delta_equinox(0)[0..1]
   end
+
 end

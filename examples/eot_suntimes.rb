@@ -71,7 +71,7 @@ def sunset_jd(arg)
 end
 
 
-require 'equation_of_time'
+require 'eot'
 
 addr = "8000 South Michigan Ave., Chicago, IL"
 loc = GeoLatLng.new
@@ -79,24 +79,24 @@ loc.addr = addr
 loc.get_coordinates_from_address
 puts loc.lat, loc.lng
 
-eot = Equation_of_Time.new
-eot.set_longitude(loc.lng)
-eot.date = Date.today
-eot.set_latitude(loc.lat)
+eot = EqoT.new
+eot.longitude = loc.lng
+eot.ajd = Date.today.jd
+eot.latitude = loc.lat
 
 puts "Using this files methods"
-puts sunrise_jd(eot)
+puts sunrise_jd()
 
 # Note: DateTime.jd() renders time from midnight not noon
 #       so 12 hours need to be added for correct time.
-puts DateTime.jd(sunrise_jd(eot) + 0.5)
-puts DateTime.jd(sunrise_jd(eot) + 0.5).to_time.utc
+puts DateTime.jd(sunrise_jd() + 0.5)
+puts DateTime.jd(sunrise_jd() + 0.5).to_time.utc
 
 puts
-puts sunset_jd(eot)
+puts sunset_jd()
 
-puts DateTime.jd(sunset_jd(eot) + 0.5)
-puts DateTime.jd(sunset_jd(eot) + 0.5).to_time.utc
+puts DateTime.jd(sunset_jd() + 0.5)
+puts DateTime.jd(sunset_jd() + 0.5).to_time.utc
 
 OUT =<<EOS
 

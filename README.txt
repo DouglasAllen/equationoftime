@@ -1,21 +1,8 @@
-= equation_of_time
-
-[![Gem Version](https://badge.fury.io/rb/equation_of_time.png)](http://badge.fury.io/rb/equation_of_time)
-##[*Graphic Plot 1*](https://github.com/DouglasAllen/equation_of_time/blob/master/examples/figure_1.jpg) created from [*equation_of_time.py*](https://bitbucket.org/cmcqueen1975/sundials/src/26a0f54a7c18fc3b54a3a4cff4f79192fcef1a91/equation_of_time.py?at=default)
-##[*Graphic Plot 2*](https://github.com/DouglasAllen/equation_of_time/blob/master/examples/Equation_of_Time.jpg) created from [*R script*](http://en.wikipedia.org/wiki/File:Zeitgleichung.png)
-##[*Solar Time*](http://www.maa.mhn.de/Scholar/times.html#solar)
-##[*Web Calculator*](http://www.nature1st.net/bogan/astro/time/jsjdetst.html)
-# Equation_of_Time
-##[*Equation of Time download*](https://rubygems.org/gems/equation_of_time)
-###Using the Julian Period Day Number system for a date object Date.jd 
-###Equation of Time for that date will be calculated at UTC Noon.
-###Review date.rb in older Ruby libraries or /src/ruby-1.9.3-px/ext/date/ for more info. 
-##[*Equation of Time Ruby Sinatra Website*](http://equationoftime.herokuapp.com/)
-## Installation    
+Installation:    
  
 Fork it and Clone it:
 
-	$ git clone git@github.com:DouglasAllen/equation_of_time.git
+	$ git clone git@github.com:DouglasAllen/equationoftime-2.3.8.git
    
 Enter dir:
 
@@ -25,22 +12,22 @@ Execute:
 
 	$ bundle install
 
-Run rspec tests:
+Run minitest tests:
 
 	$ rake
 
 Build gem:
 
-	$ gem build equation_of_time.gemspec    
+	$ gem build equationoftime.gemspec    
 
 Local install of gem build:
  
-	$ gem install equation_of_time-2.3.6.gem -l
+	$ gem install equationoftime-2.3.8.gem -l
 
 
 Add this line to your application's Gemfile:
 
-	gem 'equation_of_time'
+	gem 'equationoftime'
 
 And then execute:
 
@@ -48,18 +35,18 @@ And then execute:
 
 Or install it yourself as:
 
-	$ gem install equation_of_time  Note: newer versions not deployed yet.
+	$ gem install equationoftime  
 
-## Usage
+Usage:
 
 irb --simple-prompt
 
-1. >> require 'equation_of_time'
-2. >> eot = Equation_of_Time.new #(note: in irb you'll see nutation data loading. This is normal because nutation uses it.)
-3. >> Time.now.utc.to_s + " " + eot.now.to_s
+1. >> require 'eot'
+2. >> eot = EqoT.new  #(note: in irb you'll see nutation data loading. This is normal.)
+3. >> eot.string_eot()
 
 
-## Notes
+Notes:
 
 1. Many other methods are useful. Try eot.methods
 2. Peek inside /lib directory 
@@ -73,7 +60,7 @@ Suggestions:
 3. see the [*astro dog*](https://github.com/DouglasAllen/Sinatra-projects/tree/master/astro_dog) project here and the web post of it on [*Heroku*](http://equationoftime.herokuapp.com/) for more info about the Equation of Time.
 4. see the wikis for more usage examples.
 
-## Contributing
+Contributing:
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)

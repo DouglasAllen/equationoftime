@@ -3,7 +3,7 @@
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'equation_of_time'
+require 'eot'
 
 geo = GeoLatLng.new
 geo.addr = "8000 South Michigan Ave., Chicago, IL"

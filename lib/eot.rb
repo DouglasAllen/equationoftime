@@ -3,23 +3,23 @@
 require 'eot/version'
 require 'eot/constants'
 require 'eot/init'
-require 'eot/vars'
+#require 'eot/vars' removed as is redundant
 require 'eot/utilities'
 require 'eot/angles'
 require 'eot/times'
 require 'eot/displays'
 require 'eot/nutation'
 require 'eot/geo_lat_lng_smt'
-require 'eot/aliased_angles'
-require 'eot/aliased_displays'
-require 'eot/aliased_times'
-require 'eot/aliased_utilities'
-require 'astro-algo'
-require 'lunaryear'
-class EqoT
-  include Astro
-  include LunarYear
-end
+#require 'eot/aliased_angles' removed
+#require 'eot/aliased_displays'
+#require 'eot/aliased_times'
+#require 'eot/aliased_utilities' removed
+#require 'astro-algo'
+#require 'lunaryear'
+# class EqoT removed but is still included in gemspec download
+#  include Astro
+#  include LunarYear
+# end
 #require 'bigdecimal'
 #require 'safe_yaml'
 # 'time' can do some parsing.

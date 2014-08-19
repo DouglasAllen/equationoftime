@@ -18,8 +18,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
     # end
 # end
 
-require 'equation_of_time'
-eot = Equation_of_Time.new
+require 'eot'
+eot = EqoT.new
 
 @current = DateTime.now.to_time.utc
 # comparing the difference for two methods of day_fraction

@@ -3,11 +3,11 @@
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'equation_of_time'
+require 'eot'
 #~ require 'safe_yaml'
 
 # create an instance of Equation_of_Time class
-eot = Equation_of_Time.new
+eot = EqoT.new
 
 
 =begin

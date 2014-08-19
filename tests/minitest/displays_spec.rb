@@ -15,77 +15,74 @@ describe 'Eot displays default, nil, 0' do
 
   # set ma attribute first it gets tested anyway but a lot of methods
   # now rely on @ma and the only one really needing it is eot
-  before(:each) do  
+  before(:each) do
+    Eot_displays.ajd = 2456885.0  
     Eot_displays.mean_anomaly()
   end    
 
-  it 'is         "+000:00:00.000" returned by Eot_displays.degrees_to_s() ' do
+  it 'expected   "+000:00:00.000" returned by Eot_displays.degrees_to_s() ' do
     assert_equal "+000:00:00.000", Eot_displays.degrees_to_s()  
     assert_equal "+000:00:00.000", Eot_displays.degrees_to_s(nil)
     assert_equal "+000:00:00.000", Eot_displays.degrees_to_s(0)	
   end 
   
-  it 'is         "+280:22:21.183" returned by Eot_displays.string_al_Sun() ' do
-    assert_equal "+280:22:21.183", Eot_displays.string_al_Sun()  
-    assert_equal "+280:22:21.183", Eot_displays.string_al_Sun(nil)
-    assert_equal "+280:22:21.183", Eot_displays.string_al_Sun(0)	
+  it 'expected   "+279:13:46.271" returned by Eot_displays.string_al_Sun() ' do
+    assert_equal "+279:13:46.271", Eot_displays.string_al_Sun()  
+    assert_equal "+279:13:46.271", Eot_displays.string_al_Sun(nil)
+    assert_equal "+279:13:46.271", Eot_displays.string_al_Sun(0)	
   end
   
-  it 'is         "12:00:00" returned by Eot_displays.string_day_fraction_to_time() ' do
+  it 'expected   "12:00:00" returned by Eot_displays.string_day_fraction_to_time() ' do
     assert_equal "12:00:00", Eot_displays.string_day_fraction_to_time()  
     assert_equal "12:00:00", Eot_displays.string_day_fraction_to_time(nil)
     assert_equal "12:00:00", Eot_displays.string_day_fraction_to_time(0)	
   end
   
-  it 'is         "-023:01:56.578" returned by Eot_displays.string_dec_Sun() ' do
-    assert_equal "-023:01:56.578", Eot_displays.string_dec_Sun()
-    assert_equal "-023:01:56.578", Eot_displays.string_dec_Sun(nil)
-    assert_equal "-023:01:56.578", Eot_displays.string_dec_Sun(0)	
+  it 'expected   "-023:06:59.415" returned by Eot_displays.string_dec_Sun() ' do
+    assert_equal "-023:06:59.415", Eot_displays.string_dec_Sun()
+    assert_equal "-023:06:59.415", Eot_displays.string_dec_Sun(nil)
+    assert_equal "-023:06:59.415", Eot_displays.string_dec_Sun(0)	
   end
   
-  it 'is         "-03m, 15.27s" returned by Eot_displays.string_eot() ' do
-    assert_equal "-03m, 15.27s", Eot_displays.string_eot()
-    assert_equal "-03m, 15.27s", Eot_displays.string_eot(nil)  
-    assert_equal "-03m, 15.27s", Eot_displays.string_eot(0)   	
+  it 'expected   "-04m, 28.9s" returned by Eot_displays.string_eot() ' do
+    assert_equal "-04m, 28.9s", Eot_displays.string_eot()
   end
   
-  it 'is         "2000-01-01" returned by Eot_displays.string_jd_to_date() ' do
+  it 'expected   "2000-01-01" returned by Eot_displays.string_jd_to_date() ' do
     assert_equal "2000-01-01", Eot_displays.string_jd_to_date()
     assert_equal "2000-01-01", Eot_displays.string_jd_to_date(nil)
     assert_equal "2000-01-01", Eot_displays.string_jd_to_date(0)
   end
   
-  it 'is         "+357:31:44.793" returned by Eot_displays.string_ma_Sun() ' do
-    assert_equal "+357:31:44.793", Eot_displays.string_ma_Sun()
-    assert_equal "+357:31:44.793", Eot_displays.string_ma_Sun(nil)
-    assert_equal "+357:31:44.793", Eot_displays.string_ma_Sun(0)	
+  it 'expected   "+220:38:04.597" returned by Eot_displays.string_ma_Sun() ' do
+    assert_equal "+220:38:04.597", Eot_displays.string_ma_Sun()	
   end
   
-  it 'is         "+281:16:56.425" returned by Eot_displays.string_ra_Sun() ' do
-    assert_equal "+281:16:56.425", Eot_displays.string_ra_Sun()
-    assert_equal "+281:16:56.425", Eot_displays.string_ra_Sun(nil)
-    assert_equal "+281:16:56.425", Eot_displays.string_ra_Sun(0)
+  it 'expected   "+280:02:35.793" returned by Eot_displays.string_ra_Sun() ' do
+    assert_equal "+280:02:35.793", Eot_displays.string_ra_Sun()
+    assert_equal "+280:02:35.793", Eot_displays.string_ra_Sun(nil)
+    assert_equal "+280:02:35.793", Eot_displays.string_ra_Sun(0)
   end
   
-  it 'is         "+357:26:41.304" returned by Eot_displays.string_ta_Sun() ' do
-    assert_equal "+357:26:41.304", Eot_displays.string_ta_Sun()
-    assert_equal "+357:26:41.304", Eot_displays.string_ta_Sun(nil)
-    assert_equal "+357:26:41.304", Eot_displays.string_ta_Sun(0)	
+  it 'expected   "+219:24:26.197" returned by Eot_displays.string_ta_Sun() ' do
+    assert_equal "+219:24:26.197", Eot_displays.string_ta_Sun()
+    assert_equal "+219:24:26.197", Eot_displays.string_ta_Sun(nil)
+    assert_equal "+219:24:26.197", Eot_displays.string_ta_Sun(0)	
   end
   
-  it 'is         "12:00:00.000" returned by Eot_displays.string_time() ' do
+  it 'expected   "12:00:00.000" returned by Eot_displays.string_time() ' do
     assert_equal "12:00:00.000", Eot_displays.string_time()
     assert_equal "12:00:00.000", Eot_displays.string_time(nil)
     assert_equal "12:00:00.000", Eot_displays.string_time(0)	
   end 
   
-  it 'is         "+280:22:55.755" returned by Eot_displays.string_tl_Sun() ' do
-    assert_equal "+280:22:55.755", Eot_displays.string_tl_Sun()
-    assert_equal "+280:22:55.755", Eot_displays.string_tl_Sun(nil)
-    assert_equal "+280:22:55.755", Eot_displays.string_tl_Sun(0)	
+  it 'expected   "+279:14:20.844" returned by Eot_displays.string_tl_Sun() ' do
+    assert_equal "+279:14:20.844", Eot_displays.string_tl_Sun()
+    assert_equal "+279:14:20.844", Eot_displays.string_tl_Sun(nil)
+    assert_equal "+279:14:20.844", Eot_displays.string_tl_Sun(0)	
   end
   
-  it 'is         "+023:26:15.667" returned by Eot_displays.string_to_Earth() ' do
+  it 'expected   "+023:26:15.667" returned by Eot_displays.string_to_Earth() ' do
     assert_equal "+023:26:15.667", Eot_displays.string_to_Earth()
     assert_equal "+023:26:15.667", Eot_displays.string_to_Earth(nil) 
     assert_equal "+023:26:15.667",  Eot_displays.string_to_Earth(0)	
@@ -95,11 +92,11 @@ end
 
 describe 'Eot displays explicit values' do
 
-  it 'is         "16:40:40.800" returned by Eot_displays.string_time(16.6780) ' do
+  it 'expected   "16:40:40.800" returned by Eot_displays.string_time(16.6780) ' do
     assert_equal "16:40:40.800", Eot_displays.string_time(16.6780)
   end 
 
-  it 'is         "17:59:16.800" returned by Eot_displays.string_time(17988) ' do
+  it 'expected   "17:59:16.800" returned by Eot_displays.string_time(17988) ' do
     Eot_displays.date= Date.today.to_s
     assert_equal "17:59:16.800", Eot_displays.string_time(17.988)
   end

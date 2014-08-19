@@ -1,6 +1,6 @@
-require_relative 'lib/equation_of_time'
+require 'eot'
 
-eot = Equation_of_Time.new()
+eot = EqoT.new()
 
 start = "2013-3-20"
 finish = "2013-3-20"

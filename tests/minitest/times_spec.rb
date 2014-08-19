@@ -15,20 +15,20 @@ describe ' Eot times default, nil, 0' do
 
   Eot_times.ajd = 2456885.0  
   
-  it 'expected   "2014-08-15T04:45:44+00:00", returned by Eot_times.sunrise_dt() ' do
-    assert_equal "2014-08-15T04:45:44+00:00", Eot_times.sunrise_dt().to_s
+  it 'expected   "2014-08-15T06:01:02+00:00", returned by Eot_times.sunrise_dt() ' do
+    assert_equal "2014-08-15T06:01:02+00:00", Eot_times.sunrise_dt().to_s
   end
 
-  it 'expected   2456884.6984327845, returned by Eot_times.sunrise_jd() ' do
-    assert_equal 2456884.6984327845, Eot_times.sunrise_jd()	  
+  it 'expected   2456884.7507175957, returned by Eot_times.sunrise_jd() ' do
+    assert_equal 2456884.7507175957, Eot_times.sunrise_jd()	  
   end
 
-  it 'expected   "2014-08-15T19:23:11+00:00", returned by Eot_times.sunset_dt() ' do
-    assert_equal "2014-08-15T19:23:11+00:00", Eot_times.sunset_dt().to_s
+  it 'expected   "2014-08-15T18:07:54+00:00", returned by Eot_times.sunset_dt() ' do
+    assert_equal "2014-08-15T18:07:54+00:00", Eot_times.sunset_dt().to_s
   end
 
-  it 'expected   2456885.3077729377, returned by Eot_times.sunset_jd() ' do
-    assert_equal 2456885.3077729377, Eot_times.sunset_jd()	  
+  it 'expected   2456885.25548836, returned by Eot_times.sunset_jd() ' do
+    assert_equal 2456885.25548836, Eot_times.sunset_jd()	  
   end
   
   it 'expected   -9.362443838775045, returned by Eot_times.time_delta_oblique() ' do
@@ -69,24 +69,24 @@ describe 'Eot times for ajd 2455055.0 a non default value' do
     assert_equal -0.0035798034147912243, Eot_times.eot_jd()
   end
 
-  it 'expected   "2009-08-11T11:59:59+00:00", returned by Eot_times.mean_local_noon_dt().to_s' do
-    assert_equal "2009-08-11T11:59:59+00:00", Eot_times.mean_local_noon_dt().to_s
+  it 'expected   "2009-08-11T12:00:00+00:00", returned by Eot_times.mean_local_noon_dt().to_s' do
+    assert_equal "2009-08-11T12:00:00+00:00", Eot_times.mean_local_noon_dt().to_s
   end 
   
-  it 'expected   "2009-08-11T04:39:45+00:00" returned by Eot_times.sunrise_dt().to_s' do
-    assert_equal "2009-08-11T04:39:45+00:00", Eot_times.sunrise_dt().to_s	
+  it 'expected   "2009-08-11T06:01:42+00:00" returned by Eot_times.sunrise_dt().to_s' do
+    assert_equal "2009-08-11T06:01:42+00:00", Eot_times.sunrise_dt().to_s	
   end
   
-  it 'expected   2455054.694272856 returned by Eot_times.sunrise_jd()' do
-    assert_equal 2455054.694272856, Eot_times.sunrise_jd()	
+  it 'expected   2455054.7511818386 returned by Eot_times.sunrise_jd()' do
+    assert_equal 2455054.7511818386, Eot_times.sunrise_jd()	
   end
 
-  it 'expected   "2009-08-11T19:30:33+00:00" returned by Eot_times.sunset_dt()' do
-    assert_equal "2009-08-11T19:30:33+00:00", Eot_times.sunset_dt().to_s	
+  it 'expected   "2009-08-11T18:08:36+00:00" returned by Eot_times.sunset_dt()' do
+    assert_equal "2009-08-11T18:08:36+00:00", Eot_times.sunset_dt().to_s	
   end
 
-  it 'expected   2455055.312886517 returned by Eot_times.sunset_jd() ' do
-    assert_equal 2455055.312886517, Eot_times.sunset_jd()	
+  it 'expected   2455055.255977768 returned by Eot_times.sunset_jd() ' do
+    assert_equal 2455055.255977768, Eot_times.sunset_jd()	
   end
   
   it 'expected   -5.154916917299363 is returned by Eot_times.time_eot() ' do
