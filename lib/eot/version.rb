@@ -1,6 +1,6 @@
 # version.rb
 
 class EqoT
-  # in version.rb
+  # From version.rb<br>
   VERSION = "2.3.8"
 end
