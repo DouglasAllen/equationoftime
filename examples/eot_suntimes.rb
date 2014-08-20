@@ -79,7 +79,7 @@ loc.addr = addr
 loc.get_coordinates_from_address
 puts loc.lat, loc.lng
 
-eot = EqoT.new
+eot = Eot.new
 eot.longitude = loc.lng
 eot.ajd = Date.today.jd
 eot.latitude = loc.lat

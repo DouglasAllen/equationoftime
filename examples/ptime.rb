@@ -1,8 +1,7 @@
 require 'date'
 require 'bigdecimal'
 include Math
-#~ require 'solar'
-#~ include Solar
+
 
 def degrees_to_radians(degrees)
     bd(degrees * PI / 180.0)

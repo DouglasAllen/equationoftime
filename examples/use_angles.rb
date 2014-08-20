@@ -1,5 +1,5 @@
 # use_angles.rb
-#
+
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
@@ -11,8 +11,8 @@ file = <<EOS
 This will explain how the equation of time is derived by showing
 each method that comprises the formula.
 
-eot = EqoT.new
-#{eot = EqoT.new}
+eot = Eot.new
+#{eot = Eot.new}
 
 Set the ajd instance to the deisired date ex : eot.ajd = Date.parse("yyyy, mm, dd").jd
 

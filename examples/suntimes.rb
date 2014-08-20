@@ -1,12 +1,12 @@
 # suntimes.rb
-#
+
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 # The following gem is not in rubygems.org yet. Please use the gem on github. Thanks!
 require 'eot'
 
-eot = EqoT.new
+eot = Eot.new
 # Change these for your geo location
 @latitude = 41.9474  # + in Northern Hemishere,  - in Southern Hemisphere
 @longitude = -88.74467  # + East of zulu time zone, - West of zulu time zone

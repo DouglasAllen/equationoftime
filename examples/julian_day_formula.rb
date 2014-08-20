@@ -1,5 +1,5 @@
 # julian_day_formula.rb
-#
+
 # 3) Dropping the fractional part of all results of all multiplications and divisions, let
 require 'date'
 

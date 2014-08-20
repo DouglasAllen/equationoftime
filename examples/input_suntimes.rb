@@ -1,11 +1,11 @@
 # input_suntimes.rb
-#
+
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'eot'
 
-eot = EqoT.new
+eot = Eot.new
 
 @date = Date.today.to_s
 @zone = -5

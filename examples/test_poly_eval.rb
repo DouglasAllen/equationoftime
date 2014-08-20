@@ -1,5 +1,5 @@
 # test_poly_eval.rb
-#
+
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
@@ -19,7 +19,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 # end
 
 require 'eot'
-eot = EqoT.new
+eot = Eot.new
 
 @current = DateTime.now.to_time.utc
 # comparing the difference for two methods of day_fraction

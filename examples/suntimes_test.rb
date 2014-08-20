@@ -1,11 +1,11 @@
 # suntimes_test.rb
-#
+
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'eot'
 
-eot = EqoT.new
+eot = Eot.new
 
 # Change these for your geographic location Ex: of mine.
 # Note the two coordinate parameters must be passed as floats.

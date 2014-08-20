@@ -1,5 +1,5 @@
 # read_nutation_data.rb
-#
+
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
@@ -7,7 +7,7 @@ require 'eot'
 #~ require 'safe_yaml'
 
 # create an instance of Equation_of_Time class
-eot = EqoT.new
+eot = Eot.new
 
 
 =begin

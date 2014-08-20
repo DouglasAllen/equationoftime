@@ -1,5 +1,5 @@
 # my_time_conversion.rb
-#
+
 # This method will convert hours decimal into a Time object and let you see H:M:S format
 def decimal_to_strf(time_in)
   t = Time.now
