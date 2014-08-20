@@ -9,7 +9,7 @@ lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
-Eot_aliased_angles = EqoT.new
+Eot_aliased_angles = Eot.new
 
 
 describe 'EOT aliased_angles default, nil, 0' do

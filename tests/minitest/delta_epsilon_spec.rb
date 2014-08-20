@@ -8,7 +8,7 @@ lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
-Eot_first = EqoT.new
+Eot_first = Eot.new
 
 describe 'Eot_first default, nil, 0' do
   it 'expected   -0.0015940313608572006 returned by delta_epsilon()' do

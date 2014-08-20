@@ -9,7 +9,7 @@ lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
-Eot_nutation = EqoT.new
+Eot_nutation = Eot.new
 
 describe "Eot_nutation default" do    
 

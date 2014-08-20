@@ -1,7 +1,7 @@
 # times.rb
 #
 
-class EqoT    
+class Eot    
 
   # From times.rb:<br>
   # Pass in an AJD number
@@ -37,10 +37,10 @@ class EqoT
   # Returns a DateTime object of local sunrise
   def sunrise_dt()
     eot_jd()                
-    eot_dt             = ajd_to_datetime(eot_jd())
-    local_noon_dt      = ajd_to_datetime(mean_local_noon_dt() - eot_dt)
-    tjca               = time_julian_century( local_noon_dt.ajd )
-    lha_dt             = ajd_to_datetime(ha_Sun( tjca ) / 360.0)                      
+    eot_dt        = ajd_to_datetime(eot_jd())
+    local_noon_dt = ajd_to_datetime(mean_local_noon_dt() - eot_dt)
+    tjca          = time_julian_century( local_noon_dt.ajd )
+    lha_dt        = ajd_to_datetime(ha_Sun( tjca ) / 360.0)                      
     ajd_to_datetime(local_noon_dt - lha_dt)      
   end
 
@@ -55,10 +55,10 @@ class EqoT
   # Uses @ajd attribute
   # Returns a DateTime object of local sunset
   def sunset_dt()                               
-    eot_dt             = ajd_to_datetime(eot_jd())
-    local_noon_dt      = ajd_to_datetime(mean_local_noon_dt() - eot_dt)
-    tjca               = time_julian_century( local_noon_dt.ajd )
-    lha_dt             = ajd_to_datetime(-ha_Sun( tjca ) / 360.0)                      
+    eot_dt        = ajd_to_datetime(eot_jd())
+    local_noon_dt = ajd_to_datetime(mean_local_noon_dt() - eot_dt)
+    tjca          = time_julian_century( local_noon_dt.ajd )
+    lha_dt        = ajd_to_datetime(-ha_Sun( tjca ) / 360.0)                      
     ajd_to_datetime(local_noon_dt - lha_dt)      
   end
 
@@ -74,7 +74,7 @@ class EqoT
   # Returns Oblique component of EOT in decimal minutes time  
   def time_delta_oblique()
     ta  = time_julian_century(@ajd)
-    @ma =         ma_Sun()       
+    @ma = ma_Sun()       
     (tl_Sun( ta ) - 
      ra_Sun( ta )) * SM        
   end
@@ -84,7 +84,7 @@ class EqoT
   # Returns Orbit component of EOT in decimal minutes time 
   def time_delta_orbit()
     ta  = time_julian_century(@ajd)    
-    @ma   =         ma_Sun()       
+    @ma = ma_Sun()       
     (@ma - ta_Sun( ta )) * SM
   end  
   
@@ -125,5 +125,6 @@ if __FILE__ == $PROGRAM_NAME
   spec = File.expand_path('../../../tests/minitest', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
   require 'times_spec'
+  require 'aliased_times_spec'
 
 end

@@ -1,7 +1,8 @@
 # constants.rb
 require 'date'
 
-class EqoT
+class Eot
+
   include Math
   
   # Array result for time_julian_century default = [0.0, 0.0, 0.0, 0.0, 0.0]    

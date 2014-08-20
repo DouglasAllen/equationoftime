@@ -1,7 +1,8 @@
 # utilities.rb
-#
 
-class EqoT
+require 'bigdecimal'
+
+class Eot
 
   # From utilities.rb:<br>
   # if you want to use BigDecimal math
@@ -117,10 +118,12 @@ class EqoT
   end  
   
 end
+
 if __FILE__ == $PROGRAM_NAME
 
   spec = File.expand_path('../../../tests/minitest', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
   require 'utilities_spec'
+  require 'aliased_utilities_spec'
 
 end

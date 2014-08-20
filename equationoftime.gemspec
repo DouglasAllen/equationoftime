@@ -6,7 +6,7 @@ require 'eot/version'
 Gem::Specification.new do |spec|
      # Metadata
      spec.name          = "equationoftime"
-     spec.version       = EqoT::VERSION
+     spec.version       = Eot::VERSION
      spec.authors       = ["DouglasAllen"]
      spec.email         = ["kb9agt@gmail.com"]
      spec.summary       = %q{Equation of Time calculates time of solar transition.}

@@ -1,7 +1,6 @@
 # angles.rb
-#
 
-class EqoT
+class Eot
 
   # From angles.rb:<br> 
   # Apparent solar longitude = true longitude - aberation   

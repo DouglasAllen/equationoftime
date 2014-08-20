@@ -9,9 +9,9 @@ lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
-Eot_initialize = EqoT.new 
+Eot_initialize = Eot.new 
 
-describe 'Equation of Time methods for init.rb' do   
+describe 'Eot methods for init.rb' do   
 
   it 'expected   defaults returned by Eot_initialize() ?' do    
     
@@ -25,7 +25,7 @@ describe 'Equation of Time methods for init.rb' do
   end  
 
   it 'expected   0.0 returned by Eot_initialize.initialize(addr) ' do
-    @test6 = EqoT.new("some comma seperated address")
+    @test6 = Eot.new("some comma seperated address")
     assert_equal "some comma seperated address",  @test6.addr
   end    
   

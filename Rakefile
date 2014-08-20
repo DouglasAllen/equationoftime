@@ -4,10 +4,10 @@ require 'rspec/core/rake_task'
 
 task :default => [ :test ]
 
-RSpec::Core::RakeTask.new(:spec) do | t |
-  t.pattern = "./tests/spec/*_spec.rb"
-  t.rspec_opts = []
-end
+#RSpec::Core::RakeTask.new(:spec) do | t |
+#  t.pattern = "./tests/spec/*_spec.rb"
+#  t.rspec_opts = []
+#end
 
 require 'rake/testtask'
 

@@ -9,7 +9,7 @@ lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
-Eot_times = EqoT.new
+Eot_times = Eot.new
 
 describe ' Eot times default, nil, 0' do
 

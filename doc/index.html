@@ -61,10 +61,116 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'>Installation:    <br/> <br/>Fork it and Clone it:<br/><br/>	$ git clone git@github.com:DouglasAllen/equationoftime-2.3.8.git<br/>   <br/>Enter dir:<br/><br/>	$ cd  equation_of_time<br/><br/>Execute:<br/><br/>	$ bundle install<br/><br/>Run minitest tests:<br/><br/>	$ rake<br/><br/>Build gem:<br/><br/>	$ gem build equationoftime.gemspec    <br/><br/>Local install of gem build:<br/> <br/>	$ gem install equationoftime-2.3.8.gem -l<br/><br/><br/>Add this line to your application&#39;s Gemfile:<br/><br/>	gem &#39;equationoftime&#39;<br/><br/>And then execute:<br/><br/>	$ bundle<br/><br/>Or install it yourself as:<br/><br/>	$ gem install equationoftime  <br/><br/>Usage:<br/><br/>irb --simple-prompt<br/><br/>1. &gt;&gt; require &#39;eot&#39;<br/>2. &gt;&gt; eot = EqoT.new  #(note: in irb you&#39;ll see nutation data loading. This is normal.)<br/>3. &gt;&gt; eot.string_eot()<br/><br/><br/>Notes:<br/><br/>1. Many other methods are useful. Try eot.methods<br/>2. Peek inside /lib directory <br/>3. Run the provided examples.<br/>4. Look in the wikis<br/><br/>Suggestions:<br/><br/>1. Itererate through a years worth of dates and compute analemma data. see: http://equationoftime.herokuapp.com/analemma<br/>2. A file is included in examples named analemma_data.rb and may help you get started.<br/>3. see the [*astro dog*](https://github.com/DouglasAllen/Sinatra-projects/tree/master/astro_dog) project here and the web post of it on [*Heroku*](http://equationoftime.herokuapp.com/) for more info about the Equation of Time.<br/>4. see the wikis for more usage examples.<br/><br/>Contributing:<br/><br/>1. Fork it<br/>2. Create your feature branch (`git checkout -b my-new-feature`)<br/>3. Commit your changes (`git commit -am &quot;Added some feature&quot;`)<br/>4. Push to the branch (`git push origin my-new-feature`)<br/>5. Create new Pull Request<br/> </div></div>
+    <div id="content"><div id='filecontents'>
+<p><a href="http://badge.fury.io/rb/equationoftime"><img
+src="https://badge.fury.io/rb/equationoftime.png"></a></p>
+
+<h2 id="label-RDocs"><a href="http://rubydoc.info/gems/equationoftime/3.0.0/frames">RDocs</a></h2>
+
+<h2 id="label-Graphic+Plot+1+created+from+equation_of_time.py"><img src="https://github.com/DouglasAllen/equationoftime-3.0.0/blob/master/examples/figure_1.jpg" /> created from <a href="https://bitbucket.org/cmcqueen1975/sundials/src/26a0f54a7c18fc3b54a3a4cff4f79192fcef1a91/equation_of_time.py?at=default">equation_of_time.py</a></h2>
+
+<h2 id="label-Graphic+Plot+2+created+from+R+script"><img src="https://github.com/DouglasAllen/equationoftime-3.0.0/blob/master/examples/Equation_of_Time.jpg" /> created from <img src="http://en.wikipedia.org/wiki/File:Zeitgleichung.png" /></h2>
+
+<h2 id="label-Solar+Time"><a href="http://www.maa.mhn.de/Scholar/times.html#solar">Solar Time</a></h2>
+
+<h2 id="label-Web+Calculator"><a href="http://www.nature1st.net/bogan/astro/time/jsjdetst.html">Web Calculator</a></h2>
+
+<h1 id="label-equationoftime+gem">equationoftime gem</h1>
+
+<h2 id="label-Equation+of+Time+download"><a href="https://rubygems.org/gems/equationoftime">Equation of Time download</a></h2>
+
+<h2 id="label-Equation+of+Time+Ruby+Sinatra+Website"><a href="http://equationoftime.herokuapp.com/">Equation of Time Ruby Sinatra Website</a></h2>
+
+<h1 id="label-Installation%3A">Installation:</h1>
+
+<p>Fork it and Clone it:</p>
+
+<pre class="code ruby"><code class="ruby">$ git clone git@github.com:DouglasAllen/equationoftime-3.0.0.git</code></pre>
+
+<p>Enter dir:</p>
+
+<pre class="code ruby"><code class="ruby">$ cd  equationoftime-3.0.0</code></pre>
+
+<p>Execute:</p>
+
+<pre class="code ruby"><code class="ruby">$ bundle</code></pre>
+
+<p>Run minitest tests:</p>
+
+<pre class="code ruby"><code class="ruby">$ rake</code></pre>
+
+<p>Build gem:</p>
+
+<pre class="code ruby"><code class="ruby">$ rake build</code></pre>
+
+<p>Local install of gem build:</p>
+
+<pre class="code ruby"><code class="ruby">$ rake install</code></pre>
+
+<p>Add this line to your application&#39;s Gemfile:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>equationoftime</span><span class='tstring_end'>&#39;</span></span></code></pre>
+
+<p>And then execute:</p>
+
+<pre class="code ruby"><code class="ruby">$ bundle</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre class="code ruby"><code class="ruby">$ gem install equationoftime</code></pre>
+
+<h1 id="label-Usage%3A">Usage:</h1>
+
+<pre class="code ruby"><code class="ruby">$ irb --simple-prompt
+
+require &#39;eot&#39;
+eot = Eot.new; &quot;note: nutation data loading is normal if you leave this off.&quot;
+eot.string_eot()
+</code></pre>
+
+<h1 id="label-Wikis"><a href="https://github.com/DouglasAllen/equationoftime-2.3.8/blob/master/wiki.md">Wikis</a></h1>
+
+<p>Notes:</p>
+<ol><li>
+<p>for other time equations see:<a href="https://gist.github.com/2032003">gist
+2032003</a></p>
+</li></ol>
+
+<p>Suggestions:</p>
+<ol><li>
+<p><a
+href="http://equationoftime.herokuapp.com/analemma">equationoftime.herokuapp.com/analemma</a>
+Itererates through a years worth of dates and computes analemma data.</p>
+</li><li>
+<p>A file is included in examples named analemma_data_generator.rb and may
+help you get started.</p>
+</li><li>
+<p>see the <a
+href="https://github.com/DouglasAllen/Sinatra-projects/tree/master/astro_dog">astro
+dog</a> project here and the web post of it on <a
+href="http://equationoftime.herokuapp.com/">Heroku</a> for more info about
+the Equation of Time.</p>
+</li><li>
+<p>see the wikis for more usage examples.</p>
+</li></ol>
+
+<p>Contributing:</p>
+<ol><li>
+<p>Fork it</p>
+</li><li>
+<p>Create your feature branch (<code>git checkout -b my-new-feature</code>)</p>
+</li><li>
+<p>Commit your changes (<code>git commit -am &quot;Added some
+feature&quot;</code>)</p>
+</li><li>
+<p>Push to the branch (<code>git push origin my-new-feature</code>)</p>
+</li><li>
+<p>Create new Pull Request</p>
+</li></ol>
+</div></div>
 
     <div id="footer">
-  Generated on Mon Aug 18 22:54:47 2014 by
+  Generated on Wed Aug 20 13:59:04 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.1.2).
 </div>

@@ -1,6 +1,6 @@
 # init.rb
 
-class EqoT    
+class Eot    
 
   # From init.rb:<br>
   # Astronomical Julian Day Number is an instance of Date class.
@@ -12,29 +12,29 @@ class EqoT
   # From init.rb:<br>
   # Nutation Data is an instance of Array class.
   # @data = nutation_table5_3a.yaml 
-  # YAML File loaded when new Equation of Time class is initialized.
+  # YAML File loaded when new Eot class is initialized.
   attr_reader :data  
 
   # From init.rb:<br>
   # @date is an instance of Date class.  
-  # When new Equation of Time class is initialized @date = today  
+  # When new Eot class is initialized @date = today  
   attr_accessor :date
 
   # From init.rb:<br>
   # Julian Day Number is an instance of Date class.
-  # When new Equation of Time class is initialized @jd = jd today  
+  # When new Eot class is initialized @jd = jd today  
   attr_accessor :jd
 
   # From init.rb:<br>
   # Latitude input is an instance of Float class.
-  # When new Equation of Time class is initialized @latitude = 0.0
+  # When new Eot class is initialized @latitude = 0.0
   # May use GeoLatLng class to set it also but is commented out or will fail if no 
   # internet connection is present.  
   attr_accessor :latitude
   
   # From init.rb:<br>
   # Longitude input is an instance of Float class.
-  # When new Equation of Time class is initialized @longitude = 0.0
+  # When new Eot class is initialized @longitude = 0.0
   # May use GeoLatLng class to set it also but is commented out or will fail if no 
   # internet connection is present.  
   attr_accessor :longitude
@@ -83,7 +83,7 @@ if __FILE__ == $PROGRAM_NAME
   puts "Loading gem from #{lib}/eot.rb"
   $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
   require 'eot'
-  e = EqoT.new
+  e = Eot.new
   p e.date
 
   spec = File.expand_path('../../../tests/minitest', __FILE__)

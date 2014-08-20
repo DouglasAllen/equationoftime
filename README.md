@@ -1,24 +1,22 @@
 [![Gem Version](https://badge.fury.io/rb/equationoftime.png)](http://badge.fury.io/rb/equationoftime)
-##[*RDocs*](http://rubydoc.info/gems/equationoftime/2.3.8/frames)
-##[*Graphic Plot 1*](https://github.com/DouglasAllen/equationoftime-2.3.8/blob/master/examples/figure_1.jpg) created from [*equation_of_time.py*](https://bitbucket.org/cmcqueen1975/sundials/src/26a0f54a7c18fc3b54a3a4cff4f79192fcef1a91/equation_of_time.py?at=default)
-##[*Graphic Plot 2*](https://github.com/DouglasAllen/equationoftime-2.3.8/blob/master/examples/Equation_of_Time.jpg) created from [*R script*](http://en.wikipedia.org/wiki/File:Zeitgleichung.png)
+##[*RDocs*](http://rubydoc.info/gems/equationoftime/3.0.0/frames)
+##[*Graphic Plot 1*](https://github.com/DouglasAllen/equationoftime-3.0.0/blob/master/examples/figure_1.jpg) created from [*equation_of_time.py*](https://bitbucket.org/cmcqueen1975/sundials/src/26a0f54a7c18fc3b54a3a4cff4f79192fcef1a91/equation_of_time.py?at=default)
+##[*Graphic Plot 2*](https://github.com/DouglasAllen/equationoftime-3.0.0/blob/master/examples/Equation_of_Time.jpg) created from [*R script*](http://en.wikipedia.org/wiki/File:Zeitgleichung.png)
 ##[*Solar Time*](http://www.maa.mhn.de/Scholar/times.html#solar)
 ##[*Web Calculator*](http://www.nature1st.net/bogan/astro/time/jsjdetst.html)
 # equationoftime gem
 ##[*Equation of Time download*](https://rubygems.org/gems/equationoftime)
-###Using the Julian Period Day Number(JD) system for a date object Date.jd 
-###Equation of Time for that date will be calculated at UTC Noon or any time by using AJD.(DateTime.ajd) 
-###Review date.rb in older Ruby libraries or /src/ruby-1.9.3-px/ext/date/ for more info. 
 ##[*Equation of Time Ruby Sinatra Website*](http://equationoftime.herokuapp.com/)
-## Installation    
+
+#Installation:    
  
 Fork it and Clone it:
 
-	$ git clone git@github.com:DouglasAllen/equation_of_time.git
+	$ git clone git@github.com:DouglasAllen/equationoftime-3.0.0.git
    
 Enter dir:
 
-	$ cd  equation_of_time
+	$ cd  equationoftime-3.0.0
 
 Execute:
 
@@ -39,7 +37,7 @@ Local install of gem build:
 
 Add this line to your application's Gemfile:
 
-	gem 'equation_of_time'
+	gem 'equationoftime'
 
 And then execute:
 
@@ -47,34 +45,32 @@ And then execute:
 
 Or install it yourself as:
 
-	$ gem install equation_of_time  Note: newer versions not deployed yet.
+	$ gem install equationoftime
 
-## Usage
+#Usage:
 
-        $ irb --simple-prompt
+	$ irb --simple-prompt
 
-        require 'eot'
-        eot = EqoT.new; "note: nutation data loading is normal if you leave this off."
-        eot.string_eot()
+	require 'eot'
+	eot = Eot.new; "note: nutation data loading is normal if you leave this off."
+	eot.string_eot()
+
+#[Wikis](https://github.com/DouglasAllen/equationoftime-3.0.0/blob/master/wiki.md)
 
 
-## Notes
+Notes:
 
-1. Many other methods are useful. Try eot.methods
-2. Peek inside /lib directory 
-3. Run the provided examples.
-4. Look in the wikis
-5. for other time equations see:[*gist 2032003*](https://gist.github.com/2032003)
+1. for other time equations see:[*gist 2032003*](https://gist.github.com/2032003)
 
 
 Suggestions:
 
-1. Itererate through a years worth of dates and compute analemma data. see: http://equationoftime.herokuapp.com/analemma
-2. A file is included in examples named analemma_data.rb and may help you get started.
-3. see the [*astro dog*](https://github.com/DouglasAllen/Sinatra-projects/tree/master/astro_dog) project here and the web post of it on [*Heroku*](http://equationoftime.herokuapp.com/) for more info about the Equation of Time.
-4. see the wikis for more usage examples.
+1. http://equationoftime.herokuapp.com/analemma Itererates through a years worth of dates and computes analemma data.
+2. A file is included in examples named analemma_data_generator.rb and may help you get started.
+3. See the [*astro dog*](https://github.com/DouglasAllen/Sinatra-projects/tree/master/astro_dog) project here and the web post of it on [*Heroku*](http://equationoftime.herokuapp.com/) for more info about the Equation of Time.
+4. See the wikis for more usage examples.
 
-## Contributing
+Contributing:
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)

@@ -167,7 +167,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>set base address.</p>
+<p>Base Google URL.</p>
 </div></span>
   
 </li>
@@ -196,7 +196,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Default set to PARCS.</p>
+<p>Default International set to GMT Museum.</p>
 </div></span>
   
 </li>
@@ -225,7 +225,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Default set to PARCS.</p>
+<p>Default US set to PARCS.</p>
 </div></span>
   
 </li>
@@ -380,7 +380,6 @@
       <pre class="lines">
 
 
-31
 32
 33
 34
@@ -389,18 +388,19 @@
 37
 38
 39
-40</pre>
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
      
-  <span class='ivar'>@base_google_url</span> <span class='op'>=</span> <span class='id identifier rubyid_base'>base</span>
-  <span class='ivar'>@default_us</span>      <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3333 Coyote Hill Road, Palo Alto, CA, 94304, USA</span><span class='tstring_end'>&quot;</span></span><span class='comment'>#do you copy? :D
-</span>  <span class='ivar'>@default_int</span>     <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Blackheath Ave, London SE10 8XJ, UK</span><span class='tstring_end'>&quot;</span></span>
-  <span class='ivar'>@lat</span>             <span class='op'>=</span> <span class='float'>0.0</span>
-  <span class='ivar'>@lng</span>             <span class='op'>=</span> <span class='float'>0.0</span>
+  <span class='ivar'>@base</span>           <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://maps.googleapis.com/maps/api/geocode/xml?sensor=false&amp;address=</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@default_us</span>     <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3333 Coyote Hill Road, Palo Alto, CA, 94304, USA</span><span class='tstring_end'>&quot;</span></span><span class='comment'>#do you copy? :D
+</span>  <span class='ivar'>@default_int</span>    <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Blackheath Ave, London SE10 8XJ, UK</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@lat</span>            <span class='op'>=</span> <span class='float'>0.0</span>
+  <span class='ivar'>@lng</span>            <span class='op'>=</span> <span class='float'>0.0</span>
   <span class='const'>MultiXml</span><span class='period'>.</span><span class='id identifier rubyid_parser'>parser</span> <span class='op'>=</span> <span class='symbol'>:rexml</span><span class='comment'>#:libxml#:ox # :nokogiri
 </span>
 <span class='kw'>end</span></pre>
@@ -442,12 +442,12 @@
       <pre class="lines">
 
 
-17
-18
-19</pre>
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_addr'>addr</span>
   <span class='ivar'>@addr</span>
@@ -471,7 +471,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>set base address</p>
+<p>Base Google URL</p>
 
 
   </div>
@@ -514,7 +514,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Default set to PARCS</p>
+<p>Default International set to GMT Museum</p>
 
 
   </div>
@@ -528,12 +528,12 @@
       <pre class="lines">
 
 
-14
-15
-16</pre>
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_int'>default_int</span>
   <span class='ivar'>@default_int</span>
@@ -557,7 +557,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Default set to PARCS</p>
+<p>Default US set to PARCS</p>
 
 
   </div>
@@ -614,12 +614,12 @@
       <pre class="lines">
 
 
-20
-21
-22</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lat'>lat</span>
   <span class='ivar'>@lat</span>
@@ -657,12 +657,12 @@
       <pre class="lines">
 
 
-23
-24
-25</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lng'>lng</span>
   <span class='ivar'>@lng</span>
@@ -705,7 +705,6 @@
       <pre class="lines">
 
 
-48
 49
 50
 51
@@ -725,15 +724,16 @@
 65
 66
 67
-68</pre>
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/eot/geo_lat_lng_smt.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_coordinates_from_address'>get_coordinates_from_address</span>       
   <span class='id identifier rubyid_res'>res</span>        <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span>
                               <span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span>
-                                         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span> <span class='ivar'>@base_google_url</span> <span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span> <span class='ivar'>@addr</span> <span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+                                         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span> <span class='ivar'>@base</span> <span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span> <span class='ivar'>@addr</span> <span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
                                         <span class='rparen'>)</span>
                              <span class='rparen'>)</span>    
   <span class='id identifier rubyid_parsed_res'>parsed_res</span> <span class='op'>=</span> <span class='const'>MultiXml</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span> <span class='id identifier rubyid_res'>res</span> <span class='rparen'>)</span>
@@ -761,7 +761,7 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Aug 18 22:54:57 2014 by
+  Generated on Wed Aug 20 13:59:12 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.1.2).
 </div>

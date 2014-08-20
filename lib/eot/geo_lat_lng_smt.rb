@@ -10,8 +10,11 @@ class GeoLatLng
   # Base address for Google maps api
   attr_reader :base
 
-  # Default set to PARCS
-  attr_reader :default_us, :default_int
+  # Default US set to PARCS
+  attr_reader :default_us
+  
+  # Default International set to GMT Museum
+  attr_reader :default_int
   
   # Address entered
   attr_accessor :addr
@@ -22,19 +25,17 @@ class GeoLatLng
   # Longitude returned
   attr_accessor :lng
 
-  # set base address
-  def base
-    "http://maps.googleapis.com/maps/api/geocode/xml?sensor=false&address="
-  end  
+  # Base Google URL
+  attr_reader :base
 
   # Instance variables
   def initialize
        
-    @base_google_url = base
-    @default_us      = "3333 Coyote Hill Road, Palo Alto, CA, 94304, USA"#do you copy? :D
-    @default_int     = "Blackheath Ave, London SE10 8XJ, UK"
-    @lat             = 0.0
-    @lng             = 0.0
+    @base           = "http://maps.googleapis.com/maps/api/geocode/xml?sensor=false&address="
+    @default_us     = "3333 Coyote Hill Road, Palo Alto, CA, 94304, USA"#do you copy? :D
+    @default_int    = "Blackheath Ave, London SE10 8XJ, UK"
+    @lat            = 0.0
+    @lng            = 0.0
     MultiXml.parser = :rexml#:libxml#:ox # :nokogiri
   
   end   
@@ -48,7 +49,7 @@ class GeoLatLng
   def get_coordinates_from_address       
     res        = RestClient.get(
                                 URI.encode(
-                                           "#{ @base_google_url }#{ @addr }"
+                                           "#{ @base }#{ @addr }"
                                           )
                                )    
     parsed_res = MultiXml.parse( res )
@@ -68,8 +69,12 @@ class GeoLatLng
   end
 
 end
+
 if __FILE__ == $PROGRAM_NAME
 
+  spec = File.expand_path('../../../tests/minitest', __FILE__)
+  $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
+  require 'geo_spec'
   
 end
 

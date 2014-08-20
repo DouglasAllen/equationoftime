@@ -1,6 +1,6 @@
 # displays.rb
 
-class EqoT
+class Eot
 
   # From displays.rb<br>
   # String formatter for d:m:s display 
@@ -208,5 +208,6 @@ if __FILE__ == $PROGRAM_NAME
   spec = File.expand_path('../../../tests/minitest', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
   require 'displays_spec'
+  require 'aliased_displays_spec'
 
 end

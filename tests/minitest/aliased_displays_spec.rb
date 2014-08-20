@@ -9,7 +9,7 @@ lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
-Eot_aliased_displays = EqoT.new
+Eot_aliased_displays = Eot.new
 
 describe 'assert_equal Eot aliased_displays default, nil' do
 
