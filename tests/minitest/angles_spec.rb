@@ -7,19 +7,23 @@ require 'minitest/autorun'
 lib = File.expand_path('../../../lib', __FILE__)
 # puts "Loading gem from #{lib}/eot.rb"
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eot'
-
-Eot_angles = Eot.new
-  
-
+require 'eot' 
+Eot_angles = Eot.new 
 describe 'Eot angles default, nil, 0' do
 
-  # set ma attribute first it gets tested anyway but a lot of methods
-  # now rely on @ma and the only one really neding it is eot
+  # set ma attribute first as it gets tested anyway but a lot of methods
+  # now rely on @ma so we don't have to keep calling it unless we change 
+  # @ajd attribute. 
   
   before(:each) do
-    Eot_angles.ajd = 2456885.0
-    Eot_angles.mean_anomaly()    
+    @ajd           = 2456885.0
+    Eot_angles.ajd = @ajd
+    Eot_angles.ma_Sun()    
+  end
+
+  it 'expected   2456885.0 for Eot_angles.ajd'do
+    assert_equal 2456885.0, Eot_angles.ajd
+    assert_equal 220.63461047326172, Eot_angles.ma
   end    
   
   it 'expected   279.2295199333757 returned by Eot_angles.al_Sun()? ' do
@@ -179,120 +183,131 @@ end
 
 describe ' Eot angles tjc array for jd 2455055.5 a non default value' do
 
-  Eot_angles.ajd = 2455055.5
-  ajd = Eot_angles.ajd
-  ta  = Eot_angles.time_julian_century(ajd)
-
   # set ma attribute first as it gets tested anyway but a lot of methods
-  # now rely on @ma so we don't have to keep calling it unless we change some parameter
-  # like location or date. The only method really needing @ma is equation_of_time method 
-  # with all the dependencies of calculating it.
-
-  before(:each) do  
-    Eot_angles.mean_anomaly()
+  # now rely on @ma so we don't have to keep calling it unless we change 
+  # @ajd attribute
+  before(:each) do
+    @ajd            = 2455055.0     
+    Eot_angles.ajd  = @ajd
+    @dt             = Eot_angles.ajd_to_datetime(@ajd)
+    Eot_angles.date = @dt
+    Eot_angles.ma_Sun
+    @ta             = Eot_angles.time_julian_century(@ajd)
+  end
+  
+  it 'expected   2455055.0, returned by Eot_angles.' do
+    assert_equal 2455055.0, Eot_angles.ajd
+  end
+  
+  it 'expected   "2009-08-11T12:00:00+00:00", returned by Eot_angles.date.to_s' do
+    assert_equal "2009-08-11T12:00:00+00:00", Eot_angles.date.to_s
+  end
+  
+  it 'expected   216.98609672514223, returned by Eot_angles.' do
+    assert_equal 216.98609672514223, Eot_angles.ma
+  end   
+  
+  it 'expected   138.95453031575755 returned by Eot_angles.al_Sun(@ta)? ' do
+    assert_equal 138.95453031575755, Eot_angles.al_Sun(@ta)
   end  
   
-  it 'expected   139.43434184626486 returned by Eot_angles.al_Sun(ta)? ' do
-    assert_equal 139.43434184626486, Eot_angles.al_Sun(ta)
+  it 'expected   -1.1326466587538162 returned by Eot_angles.centre(@ta)? ' do
+    assert_equal -1.1326466587538162, Eot_angles.center(@ta)  
+  end
+  
+  it 'expected   -0.7541886969973313 returned by Eot_angles.cosine_al_Sun(@ta)? ' do
+    assert_equal -0.7541886969973313, Eot_angles.cosine_al_Sun(@ta)
   end  
   
-  it 'expected   -1.1456598854951456 returned by Eot_angles.centre(ta)? ' do
-    assert_equal -1.1456598854951456, Eot_angles.center(ta)  
+  it 'expected   -0.7542060769934986 returned by Eot_angles.cosine_tl_Sun(@ta)? ' do
+    assert_equal -0.7542060769934986, Eot_angles.cosine_tl_Sun(@ta)
   end
   
-  it 'expected   -0.759661230862344 returned by Eot_angles.cosine_al_Sun(ta)? ' do
-    assert_equal -0.759661230862344, Eot_angles.cosine_al_Sun(ta)
-  end  
-  
-  it 'expected   -0.7596784308671858 returned by Eot_angles.cosine_tl_Sun(ta)? ' do
-    assert_equal -0.7596784308671858, Eot_angles.cosine_tl_Sun(ta)
+  it 'expected   0.9174818406562965 returned by Eot_angles.cosine_to_Earth(@ta)? ' do
+    assert_equal 0.9174818406562965, Eot_angles.cosine_to_Earth(@ta)
   end
   
-  it 'expected   0.9174818675792462 returned by Eot_angles.cosine_to_Earth(ta)? ' do
-    assert_equal 0.9174818675792462, Eot_angles.cosine_to_Earth(ta)
+  it 'expected    15.141502782959178 returned by Eot_angles.dec_Sun(@ta)? ' do
+     assert_equal 15.141502782959178, Eot_angles.dec_Sun(@ta)
   end
   
-  it 'expected    14.991891095131638 returned by Eot_angles.dec_Sun(ta)? ' do
-     assert_equal 14.991891095131638, Eot_angles.dec_Sun(ta)
+  it 'expected   0.001293821738156411 returned by Eot_angles.delta_epsilon(@ta)? ' do
+    assert_equal 0.001293821738156411, Eot_angles.delta_epsilon(@ta).round(18)
   end
   
-  it 'expected   0.001290121864043651 returned by Eot_angles.delta_epsilon(ta)? ' do
-    assert_equal 0.001290121864043651, Eot_angles.delta_epsilon(ta)
+  it 'expected   -2.42490431188628 returned by Eot_angles.delta_oblique(@ta)? ' do
+    assert_equal -2.42490431188628, Eot_angles.delta_oblique(@ta)    	
   end
   
-  it 'expected   -2.417213472457888 returned by Eot_angles.delta_oblique(ta)? ' do
-    assert_equal -2.417213472457888, Eot_angles.delta_oblique(ta)    	
-  end
-  
-  it 'expected   1.1456598854951494 returned by Eot_angles.delta_orbit(ta)? ' do
-    assert_equal 1.1456598854951494, Eot_angles.delta_orbit(ta)	
-  end  
-
-  it 'expected   0.004371284343373657 returned by Eot_angles.delta_psi(ta)? ' do
-    assert_equal 0.004371284343373657, Eot_angles.delta_psi(ta)
-  end  
-  
-  it 'expected    0.01670457558842835 returned by Eot_angles.eccentricity_Earth(ta)? ' do
-     assert_equal 0.01670457558842835, Eot_angles.eccentricity_Earth(ta)
-  end
-  
-  it 'expected   0.004010574123078382 returned by Eot_angles.eq_of_equinox(ta)? ' do
-    assert_equal 0.004010574123078382, Eot_angles.eq_of_equinox(ta)
-  end
-
-  it 'expected   -1.2715535869627388 returned by Eot_angles.eot()? ' do
-    assert_equal -1.2715535869627388, Eot_angles.eot()
-  end  
-  
-  it 'expected   140.5815171463405 returned by  Eot_angles.gml_Sun(ta)? ' do
-    assert_equal 140.5815171463405, Eot_angles.gml_Sun(ta)
-  end
-
-  it 'expected   90.86266511703538 returned by Eot_angles.ha_Sun(ta)? ' do
-    assert_equal 90.86266511703538, Eot_angles.ha_Sun(ta)
-  end  
-  
-  it 'expected   217.47889686561615 returned by Eot_angles.ma_Sun()? ' do
-    assert_equal 217.47889686561615, Eot_angles.ma_Sun() 
-  end
-  
-  it 'expected   320.5756979962098 returned by Eot_angles.ml_Aries(ta)? ' do
-    assert_equal 320.5756979962098, Eot_angles.ml_Aries(ta)
-  end
-  
-  it 'expected   23.43802900354105 returned by Eot_angles.mo_Earth(ta)? ' do
-    assert_equal 23.43802900354105, Eot_angles.mo_Earth(ta)
-  end
-  
-  it 'expected   -60.849617399820495 returned by Eot_angles.omega(ta)? ' do
-    assert_equal -60.849617399820495, Eot_angles.omega(ta)
-  end
-  
-  it 'expected   141.85307073330324 returned by Eot_angles.ra_Sun(ta)? ' do
-    assert_equal 141.85307073330324, Eot_angles.ra_Sun(ta)
-  end
-  
-  it 'expected   0.6503190096596503 returned by Eot_angles.sine_al_Sun(ta)? ' do
-    assert_equal 0.6503190096596503, Eot_angles.sine_al_Sun(ta)
+  it 'expected   1.1326466587538278 returned by Eot_angles.delta_orbit(@ta)? ' do
+    assert_equal 1.1326466587538278, Eot_angles.delta_orbit(@ta)	
   end  
 
-  it 'expected   0.6502989171720728 returned by Eot_angles.sine_tl_Sun(ta)? ' do
-    assert_equal 0.6502989171720728, Eot_angles.sine_tl_Sun(ta)
-  end
-
-  it 'expected   216.333236980121 returned by Eot_angles.ta_Sun(ta)? ' do
-    assert_equal 216.333236980121, Eot_angles.ta_Sun(ta)
-  end
-
-  it 'expected   320.57970857033285 returned by Eot_angles.tl_Aries(ta)? ' do
-    assert_equal 320.57970857033285, Eot_angles.tl_Aries(ta)
-  end  
-
-  it 'expected   139.43585726084535 returned by Eot_angles.tl_Sun(ta)? ' do
-    assert_equal 139.43585726084535, Eot_angles.tl_Sun(ta)
+  it 'expected   0.0043768851558214535 returned by Eot_angles.delta_psi(@ta)? ' do
+    assert_equal 0.0043768851558214535, Eot_angles.delta_psi(@ta)
   end  
   
-  it 'expected   23.439319125405095 returned by Eot_angles.to_Earth(ta)? ' do
-    assert_equal 23.439319125405095, Eot_angles.to_Earth(ta)
+  it 'expected    0.016704576164208475 returned by Eot_angles.eccentricity_Earth(@ta)? ' do
+     assert_equal 0.016704576164208475, Eot_angles.eccentricity_Earth(@ta)
+  end
+  
+  it 'expected   0.004015712649104288 returned by Eot_angles.eq_of_equinox(@ta)? ' do
+    assert_equal 0.004015712649104288, Eot_angles.eq_of_equinox(@ta)
+  end
+
+  it 'expected   -1.2922576531324523 returned by Eot_angles.eot()? ' do
+    assert_equal -1.2922576531324523, Eot_angles.eot()
+  end  
+  
+  it 'expected   140.08869346549056 returned by  Eot_angles.gml_Sun(@ta)? ' do
+    assert_equal 140.08869346549056, Eot_angles.gml_Sun(@ta)
+  end
+
+  it 'expected   90.86327177163999 returned by Eot_angles.ha_Sun(@ta)? ' do
+    assert_equal 90.86327177163999, Eot_angles.ha_Sun(@ta)
+  end  
+  
+  it 'expected   216.98609672514223 returned by Eot_angles.ma_Sun()? ' do
+    assert_equal 216.98609672514223, Eot_angles.ma_Sun() 
+  end
+  
+  it 'expected   140.08287431273857 returned by Eot_angles.ml_Aries(@ta)? ' do
+    assert_equal 140.08287431273857, Eot_angles.ml_Aries(@ta)
+  end
+  
+  it 'expected   23.43802918164109 returned by Eot_angles.mo_Earth(@ta)? ' do
+    assert_equal 23.43802918164109, Eot_angles.mo_Earth(@ta)
+  end
+  
+  it 'expected   -60.82314052284639 returned by Eot_angles.omega(@ta)? ' do
+    assert_equal -60.82314052284639, Eot_angles.omega(@ta)
+  end
+  
+  it 'expected   141.38095111862302 returned by Eot_angles.ra_Sun(@ta)? ' do
+    assert_equal 141.38095111862302, Eot_angles.ra_Sun(@ta)
+  end
+  
+  it 'expected   0.6566577566141039 returned by Eot_angles.sine_al_Sun(@ta)? ' do
+    assert_equal 0.6566577566141039, Eot_angles.sine_al_Sun(@ta)
+  end  
+
+  it 'expected   0.6566377946981706 returned by Eot_angles.sine_tl_Sun(@ta)? ' do
+    assert_equal 0.6566377946981706, Eot_angles.sine_tl_Sun(@ta)
+  end
+
+  it 'expected   215.8534500663884 returned by Eot_angles.ta_Sun(@ta)? ' do
+    assert_equal 215.8534500663884, Eot_angles.ta_Sun(@ta)
+  end
+
+  it 'expected   140.08689002538767 returned by Eot_angles.tl_Aries(@ta)? ' do
+    assert_equal 140.08689002538767, Eot_angles.tl_Aries(@ta)
+  end  
+
+  it 'expected   138.95604680673674 returned by Eot_angles.tl_Sun(@ta)? ' do
+    assert_equal 138.95604680673674, Eot_angles.tl_Sun(@ta)
+  end  
+  
+  it 'expected   23.439323003379247 returned by Eot_angles.to_Earth(@ta)? ' do
+    assert_equal 23.439323003379247, Eot_angles.to_Earth(@ta)
   end  
 end

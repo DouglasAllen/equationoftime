@@ -13,12 +13,19 @@ Eot_displays = Eot.new
 
 describe 'Eot displays default, nil, 0' do
 
-  # set ma attribute first it gets tested anyway but a lot of methods
-  # now rely on @ma and the only one really needing it is eot
+  # set ma attribute first as it gets tested anyway but a lot of methods
+  # now rely on @ma so we don't have to keep calling it unless we change 
+  # @ajd attribute. 
   before(:each) do
-    Eot_displays.ajd = 2456885.0  
-    Eot_displays.mean_anomaly()
-  end    
+    @ajd             = 2456885.0
+    Eot_displays.ajd = @ajd
+    Eot_displays.ma_Sun()    
+  end 
+
+  it 'expected   2456885.0 for Eot_displays.ajd'do
+    assert_equal 2456885.0, Eot_displays.ajd
+    assert_equal 220.63461047326172, Eot_displays.ma
+  end  
 
   it 'expected   "+000:00:00.000" returned by Eot_displays.degrees_to_s() ' do
     assert_equal "+000:00:00.000", Eot_displays.degrees_to_s()  

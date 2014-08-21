@@ -13,6 +13,21 @@ Eot_aliased_utilities = Eot.new
 
 describe 'Eot_aliased_utilities defaults' do
 
+  # set ma attribute first as it gets tested anyway but a lot of methods
+  # now rely on @ma so we don't have to keep calling it unless we change 
+  # @ajd attribute. 
+  
+  before(:each) do
+    @ajd           = 2456885.0
+    Eot_aliased_utilities.ajd = @ajd
+    Eot_aliased_utilities.ma_Sun()    
+  end
+
+  it 'expected   2456885.0 for Eot_aliased_utilities.ajd'do
+    assert_equal 2456885.0, Eot_aliased_utilities.ajd
+    assert_equal 220.63461047326172, Eot_aliased_utilities.ma
+  end    
+
   it 'expected   0.0 returned by Eot_aliased_utilities.degrees_to_radians() ' do
     assert_equal 0.0, Eot_aliased_utilities.degrees_to_radians()
     assert_equal 0.0, Eot_aliased_utilities.degrees_to_radians(nil)

@@ -14,12 +14,20 @@ Eot_aliased_angles = Eot.new
 
 describe 'EOT aliased_angles default, nil, 0' do
   
-  # set ma attribute first it gets tested anyway but a lot of methods
-  # now rely on @ma and the only one really neding it is equation_of_time
+  # set ma attribute first as it gets tested anyway but a lot of methods
+  # now rely on @ma so we don't have to keep calling it unless we change 
+  # @ajd attribute.
+  
   before(:each) do 
-    Eot_aliased_angles.ajd = 2456885.0  
+    @ajd                    = 2456885.0
+    Eot_aliased_angles.ajd  = @ajd  
     Eot_aliased_angles.mean_anomaly()
-  end  
+  end 
+
+  it 'expected   2456885.0 for Eot_aliased_angles.ajd'do
+    assert_equal 2456885.0, Eot_aliased_angles.ajd
+    assert_equal 220.63461047326172, Eot_aliased_angles.ma
+  end    
 
   it 'expected   279.2295199333757 returned by Eot_aliased_angles.apparent_longitude()? ' do
     assert_equal 279.2295199333757, Eot_aliased_angles.apparent_longitude() 
@@ -160,105 +168,120 @@ end
 
 describe 'EOT angles tjc array for jd 2455055.5 a non default value' do
 
-  Eot_aliased_angles.ajd = 2455055.5
-  ajd = Eot_aliased_angles.ajd
-  ta  = Eot_aliased_angles.time_julian_century(ajd)
-
   # set ma attribute first as it gets tested anyway but a lot of methods
-  # now rely on @ma so we don't have to keep calling it unless we change some parameter
-  # like location or date. The only method really needing @ma is equation_of_time method 
-  # with all the dependencies of calculating it.
-
-  before(:each) do  
-    Eot_aliased_angles.mean_anomaly()
-  end  
-  
-  it 'expected   139.35296056018754 returned by Eot_aliased_angles.apparent_longitude(ta)? ' do
-    assert_equal 139.35296056018754, Eot_aliased_angles.apparent_longitude(ta)
-  end  
-  
-  it 'expected   -1.2270411715724636 returned by Eot_aliased_angles.equation_of_center(ta)? ' do
-    assert_equal -1.2270411715724636, Eot_aliased_angles.equation_of_center(ta)
+  # now rely on @ma so we don't have to keep calling it unless we change 
+  # @ajd attribute
+  before(:each) do
+    @ajd                    = 2455055.0     
+    Eot_aliased_angles.ajd  = @ajd
+    @dt                     = Eot_aliased_angles.ajd_to_datetime(@ajd)
+    Eot_aliased_angles.date = @dt
+    Eot_aliased_angles.ma_Sun
+    @ta                     = Eot_aliased_angles.time_julian_century(@ajd)
   end
   
-  it 'expected   -0.7587367703652198 returned by Eot_aliased_angles.cosine_apparent_longitude(ta)? ' do
-    assert_equal -0.7587367703652198, Eot_aliased_angles.cosine_apparent_longitude(ta)
-  end  
-  
-  it 'expected   -0.7587539988914966 returned by Eot_aliased_angles.cosine_true_longitude(ta)? ' do
-    assert_equal -0.7587539988914966, Eot_aliased_angles.cosine_true_longitude(ta)
+  it 'expected   2455055.0, returned by Eot_aliased_angles.' do
+    assert_equal 2455055.0, Eot_aliased_angles.ajd
   end
   
-  it 'expected   0.9174818675792462 returned by Eot_aliased_angles.cosine_true_obliquity(ta)? ' do
-    assert_equal 0.9174818675792462, Eot_aliased_angles.cosine_true_obliquity(ta)
+  it 'expected   "2009-08-11T12:00:00+00:00", returned by Eot_aliased_angles.date.to_s' do
+    assert_equal "2009-08-11T12:00:00+00:00", Eot_aliased_angles.date.to_s
   end
   
-  it 'expected    15.017335141237837 returned by Eot_aliased_angles.declination(ta)? ' do
-     assert_equal 15.017335141237837, Eot_aliased_angles.declination(ta)
-  end
-  
-  it 'expected   -2.418564680136626 returned by Eot_aliased_angles.delta_t_ecliptic(ta)? ' do
-    assert_equal -2.418564680136626, Eot_aliased_angles.delta_t_ecliptic(ta)    	
-  end
-  
-  it 'expected   1.2270411715724663 returned by Eot_aliased_angles.delta_t_elliptic(ta)? ' do
-    assert_equal 1.2270411715724663, Eot_aliased_angles.delta_t_elliptic(ta)
-  end 
-  
-  it 'expected    0.01670457558842835 returned by Eot_aliased_angles.eccentricity_earth_orbit(ta)? ' do
-     assert_equal 0.01670457558842835, Eot_aliased_angles.eccentricity_earth_orbit(ta)
+  it 'expected   216.98609672514223, returned by Eot_aliased_angles.' do
+    assert_equal 216.98609672514223, Eot_aliased_angles.ma
   end 
 
-  it 'expected   140.5815171463405 returned by Eot_aliased_angles.geometric_mean_longitude(ta)? ' do
-    assert_equal 140.5815171463405, Eot_aliased_angles.geometric_mean_longitude(ta)
+  it 'expected   Eot_aliased_angles.ma  returned by Eot_angles.mean_anomaly()' do
+    assert_equal Eot_aliased_angles.ma, Eot_aliased_angles.mean_anomaly()
+  end   
+  
+  it 'expected   138.95453031575755 returned by Eot_aliased_angles.apparent_longitude(@ta)? ' do
+    assert_equal 138.95453031575755, Eot_aliased_angles.apparent_longitude(@ta)
   end
-
-  it 'expected   90.86276781379927 returned by Eot_aliased_angles.horizon_angle(ta)? ' do
-    assert_equal 90.86276781379927, Eot_aliased_angles.horizon_angle(ta) 
-  end
-
-  it 'expected   220.63461047326172 returned by Eot_aliased_angles.mean_anomaly()? ' do
-    assert_equal 220.63461047326172, Eot_aliased_angles.mean_anomaly() 
+  
+  it 'expected   -0.7541886969973313 returned by Eot_aliased_angles.cosine_apparent_longitude(@ta)? ' do
+    assert_equal -0.7541886969973313, Eot_aliased_angles.cosine_apparent_longitude(@ta)
   end  
   
-  it 'expected   320.5756979962098 returned by Eot_aliased_angles.mean_longitude_aries(ta)? ' do
-    assert_equal 320.5756979962098, Eot_aliased_angles.mean_longitude_aries(ta)
+  it 'expected   -0.7542060769934986 returned by Eot_aliased_angles.cosine_true_longitude(@ta)? ' do
+    assert_equal -0.7542060769934986, Eot_aliased_angles.cosine_true_longitude(@ta)
   end
   
-  it 'expected   23.43802900354105 returned by Eot_aliased_angles.mean_obliquity(ta)? ' do
-    assert_equal 23.43802900354105, Eot_aliased_angles.mean_obliquity(ta) 
+  it 'expected   0.9174818406562965 returned by Eot_aliased_angles.cosine_true_obliquity(@ta)? ' do
+    assert_equal 0.9174818406562965, Eot_aliased_angles.cosine_true_obliquity(@ta)
   end
   
-  it 'expected   23.439319125405095 returned by Eot_aliased_angles.obliquity_correction(ta)? ' do
-    assert_equal 23.439319125405095, Eot_aliased_angles.obliquity_correction(ta)
-  end  
-  
-  it 'expected   141.77304065490466 returned by Eot_aliased_angles.right_ascension(ta)? ' do
-    assert_equal 141.77304065490466, Eot_aliased_angles.right_ascension(ta) 
+  it 'expected    15.141502782959178 returned by Eot_aliased_angles.declination(@ta)? ' do
+     assert_equal 15.141502782959178, Eot_aliased_angles.declination(@ta)
   end
   
-  it 'expected   0.6513973543819132 returned by Eot_aliased_angles.sine_apparent_longitude(ta)? ' do
-    assert_equal 0.6513973543819132, Eot_aliased_angles.sine_apparent_longitude(ta) 
-  end  
-
-  it 'expected   0.6513772863449897 returned by Eot_aliased_angles.sine_true_longitude(ta)? ' do
-    assert_equal 0.6513772863449897, Eot_aliased_angles.sine_true_longitude(ta)
-  end
-
-  it 'expected   219.40756930168925 returned by Eot_aliased_angles.true_anomaly(ta)? ' do
-    assert_equal 219.40756930168925, Eot_aliased_angles.true_anomaly(ta)
+  it 'expected   -2.42490431188628 returned by Eot_aliased_angles.delta_t_ecliptic(@ta)? ' do
+    assert_equal -2.42490431188628, Eot_aliased_angles.delta_t_ecliptic(@ta)    	
   end
   
-  it 'expected   139.35447597476804 returned by Eot_aliased_angles.true_longitude(ta)? ' do
-    assert_equal 139.35447597476804, Eot_aliased_angles.true_longitude(ta)
+  it 'expected   1.1326466587538278 returned by Eot_aliased_angles.delta_t_elliptic(@ta)? ' do
+    assert_equal 1.1326466587538278, Eot_aliased_angles.delta_t_elliptic(@ta)
   end 
   
-  it 'expected   320.57970857033285 returned by Eot_aliased_angles.true_longitude_aries(ta)? ' do
-    assert_equal 320.57970857033285, Eot_aliased_angles.true_longitude_aries(ta) 
+  it 'expected    0.016704576164208475 returned by Eot_aliased_angles.eccentricity_earth_orbit(@ta)? ' do
+     assert_equal 0.016704576164208475, Eot_aliased_angles.eccentricity_earth_orbit(@ta)
+  end 
+  
+  it 'expected   -1.1326466587538162 returned by Eot_aliased_angles.equation_of_center(@ta)? ' do
+    assert_equal -1.1326466587538162, Eot_aliased_angles.equation_of_center(@ta)
   end
 
-  it 'expected   23.439319125405095 returned by Eot_aliased_angles.true_obliquity(ta)? ' do
-    assert_equal 23.439319125405095, Eot_aliased_angles.true_obliquity(ta)	
+  it 'expected   140.08869346549056 returned by Eot_aliased_angles.geometric_mean_longitude(@ta)? ' do
+    assert_equal 140.08869346549056, Eot_aliased_angles.geometric_mean_longitude(@ta)
+  end
+
+  it 'expected   90.86327177163999 returned by Eot_aliased_angles.horizon_angle(@ta)? ' do
+    assert_equal 90.86327177163999, Eot_aliased_angles.horizon_angle(@ta) 
+  end
+
+  it 'expected   216.98609672514223 returned by Eot_aliased_angles.mean_anomaly()? ' do
+    assert_equal 216.98609672514223, Eot_aliased_angles.mean_anomaly() 
+  end  
+  
+  it 'expected   140.08287431273857 returned by Eot_aliased_angles.mean_longitude_aries(@ta)? ' do
+    assert_equal 140.08287431273857, Eot_aliased_angles.mean_longitude_aries(@ta)
+  end
+  
+  it 'expected   23.43802918164109 returned by Eot_aliased_angles.mean_obliquity(@ta)? ' do
+    assert_equal 23.43802918164109, Eot_aliased_angles.mean_obliquity(@ta) 
+  end
+  
+  it 'expected   23.439323003379247 returned by Eot_aliased_angles.obliquity_correction(@ta)? ' do
+    assert_equal 23.439323003379247, Eot_aliased_angles.obliquity_correction(@ta)
+  end  
+  
+  it 'expected   141.38095111862302 returned by Eot_aliased_angles.right_ascension(@ta)? ' do
+    assert_equal 141.38095111862302, Eot_aliased_angles.right_ascension(@ta) 
+  end
+  
+  it 'expected   0.6566577566141039 returned by Eot_aliased_angles.sine_apparent_longitude(@ta)? ' do
+    assert_equal 0.6566577566141039, Eot_aliased_angles.sine_apparent_longitude(@ta) 
+  end  
+
+  it 'expected   0.6566377946981706 returned by Eot_aliased_angles.sine_true_longitude(@ta)? ' do
+    assert_equal 0.6566377946981706, Eot_aliased_angles.sine_true_longitude(@ta)
+  end
+
+  it 'expected   215.8534500663884 returned by Eot_aliased_angles.true_anomaly(@ta)? ' do
+    assert_equal 215.8534500663884, Eot_aliased_angles.true_anomaly(@ta)
+  end
+  
+  it 'expected   138.95604680673674 returned by Eot_aliased_angles.true_longitude(@ta)? ' do
+    assert_equal 138.95604680673674, Eot_aliased_angles.true_longitude(@ta)
+  end 
+  
+  it 'expected   140.08689002538767 returned by Eot_aliased_angles.true_longitude_aries(@ta)? ' do
+    assert_equal 140.08689002538767, Eot_aliased_angles.true_longitude_aries(@ta) 
+  end
+
+  it 'expected   23.439323003379247 returned by Eot_aliased_angles.true_obliquity(@ta)? ' do
+    assert_equal 23.439323003379247, Eot_aliased_angles.true_obliquity(@ta)	
   end      
   
 end

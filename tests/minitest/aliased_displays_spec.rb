@@ -13,12 +13,20 @@ Eot_aliased_displays = Eot.new
 
 describe 'assert_equal Eot aliased_displays default, nil' do
 
-  # set ma attribute first it gets tested anyway but a lot of methods
-  # now rely on @ma and the only one really neding it is equation_of_time
-  before(:each) do
-    Eot_aliased_displays.ajd = 2456885.0
+  # set ma attribute first as it gets tested anyway but a lot of methods
+  # now rely on @ma so we don't have to keep calling it unless we change 
+  # @ajd attribute.
+  
+  before(:each) do 
+    @ajd                      = 2456885.0
+    Eot_aliased_displays.ajd  = @ajd  
     Eot_aliased_displays.mean_anomaly()
-  end
+  end 
+
+  it 'expected   2456885.0 for Eot_aliased_displays.ajd' do
+    assert_equal 2456885.0, Eot_aliased_displays.ajd
+    assert_equal 220.63461047326172, Eot_aliased_displays.ma
+  end    
   
   it 'expected   "+279:13:46.271" returned by Eot_aliased_displays.apparent_longitude_string()? ' do
     assert_equal "+279:13:46.271", Eot_aliased_displays.apparent_longitude_string()

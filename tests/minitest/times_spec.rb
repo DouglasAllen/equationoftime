@@ -13,7 +13,19 @@ Eot_times = Eot.new
 
 describe ' Eot times default, nil, 0' do
 
-  Eot_times.ajd = 2456885.0  
+  # set ma attribute first as it gets tested anyway but a lot of methods
+  # now rely on @ma so we don't have to keep calling it unless we change 
+  # @ajd attribute. 
+  before(:each) do
+    @ajd           = 2456885.0
+    Eot_times.ajd = @ajd
+    Eot_times.ma_Sun()    
+  end 
+
+  it 'expected   2456885.0 for Eot_times.ajd'do
+    assert_equal 2456885.0, Eot_times.ajd
+    assert_equal 220.63461047326172, Eot_times.ma
+  end  
   
   it 'expected   "2014-08-15T06:01:02+00:00", returned by Eot_times.sunrise_dt() ' do
     assert_equal "2014-08-15T06:01:02+00:00", Eot_times.sunrise_dt().to_s
@@ -54,11 +66,27 @@ end
   
 describe 'Eot times for ajd 2455055.0 a non default value' do  
   
+  # set ma attribute first as it gets tested anyway but a lot of methods
+  # now rely on @ma so we don't have to keep calling it unless we change 
+  # @ajd attribute
   before(:each) do
     @ajd           = 2455055.0     
     Eot_times.ajd  = @ajd
     @dt            = Eot_times.ajd_to_datetime(@ajd)
     Eot_times.date = @dt
+    Eot_times.ma_Sun
+  end
+  
+  it 'expected   2455055.0, returned by Eot_times.' do
+    assert_equal 2455055.0, Eot_times.ajd
+  end
+  
+  it 'expected   "2009-08-11T12:00:00+00:00", returned by Eot_times.date.to_s' do
+    assert_equal "2009-08-11T12:00:00+00:00", Eot_times.date.to_s
+  end
+  
+  it 'expected   216.98609672514223, returned by Eot_times.' do
+    assert_equal 216.98609672514223, Eot_times.ma
   end
 
   it 'expected   "2009-08-11T12:00:00+00:00", returned by Eot_times.ajd_to_datetime(@ajd).to_s' do

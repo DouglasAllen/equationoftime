@@ -11,7 +11,22 @@ require 'eot'
 
 Eot_utilities = Eot.new
 
-describe 'Eot utilities default' do    
+describe 'Eot utilities default' do
+
+  # set ma attribute first as it gets tested anyway but a lot of methods
+  # now rely on @ma so we don't have to keep calling it unless we change 
+  # @ajd attribute. 
+  
+  before(:each) do
+    @ajd           = 2456885.0
+    Eot_utilities.ajd = @ajd
+    Eot_utilities.ma_Sun()    
+  end
+
+  it 'expected   2456885.0 for Eot_utilities.ajd'do
+    assert_equal 2456885.0, Eot_utilities.ajd
+    assert_equal 220.63461047326172, Eot_utilities.ma
+  end        
 
   it 'expected   0.0 rturned by Eot_utilities.bd() ' do
     assert_equal 0.0, Eot_utilities.bd()

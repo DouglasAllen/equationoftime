@@ -25,8 +25,8 @@ describe 'Eot methods for init.rb' do
   end  
 
   it 'expected   0.0 returned by Eot_initialize.initialize(addr) ' do
-    @test6 = Eot.new("some comma seperated address")
-    assert_equal "some comma seperated address",  @test6.addr
+    @test6 = Eot.new("some comma separated address")
+    assert_equal "some comma separated address",  @test6.addr
   end    
   
 end
