@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
      spec.description   = %q{Calculate Sunrise and Sunset, GMST, and GAST for just about any date and location.
 	                     Lots of examples to play with included.}
      spec.homepage      = "http://equationoftime.herokuapp.com"
+     spec.source        = "https://github.com/DouglasAllen/equationoftime-3.0.0"
      spec.license       = "MIT"
 	
 
