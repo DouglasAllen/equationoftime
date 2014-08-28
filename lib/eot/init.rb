@@ -3,6 +3,10 @@
 class Eot    
 
   # From init.rb:<br>
+  # address used for GeoLatLng.addr when used.(commented out) 
+  attr_accessor :addr
+  
+  # From init.rb:<br>
   # Astronomical Julian Day Number is an instance of Date class.
   # When new Equation of Time class is initialized @ajd = jd = today DateTime.jd
   # Used for getting the equation of time now if it is set for that. There is 
@@ -44,9 +48,8 @@ class Eot
   attr_accessor :ma
 
   # From init.rb:<br>
-  # address used for GeoLatLng.addr when used.(commented out) 
-  attr_accessor :addr
-
+  # JCT array gets called a lot so attribute accessor saves time 
+  attr_accessor :ta
       
   # From init.rb:<br>
   # Initialize loads nutation data with safe_yaml and is frozen, atrributes are set.
@@ -57,12 +60,13 @@ class Eot
     file_path     = File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )
     @data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
  
-    @ajd.nil? ? @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f : @ajd = self.ajd      
-    @date.nil? ? @date = DateTime.now.to_time.utc.to_date : @date = self.date
-    @jd.nil? ? @jd  = DateTime.now.to_time.utc.to_datetime.jd.to_f : @jd = self.jd
-    @latitude.nil? ? @latitude = 0.0 : @latitude = self.latitude
-    @longitude.nil? ? @longitude = 0.0 : @longitude = self.longitude    
-    @ma.nil? ? @ma = ma_Sun() : @ma
+    @ajd.nil? ? @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f : @ajd      
+    @date.nil? ? @date = DateTime.now.to_time.utc.to_datetime : @date
+    @jd.nil? ? @jd  = DateTime.now.to_time.utc.to_datetime.jd.to_f : @jd
+    @latitude.nil? ? @latitude = 0.0 : @latitude
+    @longitude.nil? ? @longitude = 0.0 : @longitude
+    @ta.nil? ? time_julian_century() : @ta  
+    @ma.nil? ? ma_Sun() : @ma
 
     #geo = GeoLatLng.new
     @addr = addr

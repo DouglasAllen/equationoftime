@@ -39,8 +39,8 @@ class Eot
     eot_jd()                
     eot_dt        = ajd_to_datetime(eot_jd())
     local_noon_dt = ajd_to_datetime(mean_local_noon_dt() - eot_dt)
-    tjca          = time_julian_century( local_noon_dt.ajd )
-    lha_dt        = ajd_to_datetime(ha_Sun( tjca ) / 360.0)                      
+    time_julian_century()
+    lha_dt        = ajd_to_datetime(ha_Sun() / 360.0)                      
     ajd_to_datetime(local_noon_dt - lha_dt)      
   end
 
@@ -57,8 +57,8 @@ class Eot
   def sunset_dt()                               
     eot_dt        = ajd_to_datetime(eot_jd())
     local_noon_dt = ajd_to_datetime(mean_local_noon_dt() - eot_dt)
-    tjca          = time_julian_century( local_noon_dt.ajd )
-    lha_dt        = ajd_to_datetime(-ha_Sun( tjca ) / 360.0)                      
+    time_julian_century()
+    lha_dt        = ajd_to_datetime(-ha_Sun() / 360.0)                      
     ajd_to_datetime(local_noon_dt - lha_dt)      
   end
 
@@ -73,19 +73,17 @@ class Eot
   # Uses @ajd attribute
   # Returns Oblique component of EOT in decimal minutes time  
   def time_delta_oblique()
-    ta  = time_julian_century(@ajd)
     @ma = ma_Sun()       
-    (tl_Sun( ta ) - 
-     ra_Sun( ta )) * SM        
+    (tl_Sun() - 
+     ra_Sun()) * SM        
   end
 
   # From times.rb:<br>
   # Uses @ajd attribute
   # Returns Orbit component of EOT in decimal minutes time 
   def time_delta_orbit()
-    ta  = time_julian_century(@ajd)    
     @ma = ma_Sun()       
-    (@ma - ta_Sun( ta )) * SM
+    (@ma - ta_Sun()) * SM
   end  
   
   # From times.rb:<br>
@@ -100,11 +98,8 @@ class Eot
   # Julian Century Time is a fractional century
   # Julian Day Number J2000 is subtracted
   # Returns an array of fractional century powers
-  def time_julian_century( dt = DT2000 )
-    dt  = check_t_zero( dt )      	  
-    dt.class == DateTime ? jd = dt.ajd : jd = dt
-
-    t1 = ( jd - J2000 ) / DJC
+  def time_julian_century()
+    t1 = ( @ajd - J2000 ) / DJC
     t2 = t1 * t1
     t3 = t1 * t2
     t4 = t2 * t2
@@ -114,7 +109,7 @@ class Eot
     t8 = t4 * t4
     t9 = t4 * t5
     t10 = t5 * t5
-    [ t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 ]      
+    @ta = [ t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 ]      
   end
   alias_method :time_julian_centurey, :time_julian_century
       

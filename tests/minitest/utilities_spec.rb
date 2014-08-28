@@ -13,20 +13,28 @@ Eot_utilities = Eot.new
 
 describe 'Eot utilities default' do
 
-  # set ma attribute first as it gets tested anyway but a lot of methods
-  # now rely on @ma so we don't have to keep calling it unless we change 
-  # @ajd attribute. 
-  
+  # set ta attribute first as it gets tested anyway but a lot of methods
+  # now rely on @ta so we don't have to keep calling it unless we change
+  # The same goes for @ma.  
+  # @ajd attribute
   before(:each) do
-    @ajd           = 2456885.0
-    Eot_utilities.ajd = @ajd
+    ajd                    =   2456885.0  
+    Eot_utilities.ajd  = ajd
+    # check date for this ajd when needed.
+    Eot_utilities.date = Eot_utilities.ajd_to_datetime(ajd)
+    # set ta attribute
+    Eot_utilities.time_julian_century() 
+    # set ma attribute    
     Eot_utilities.ma_Sun()    
   end
 
   it 'expected   2456885.0 for Eot_utilities.ajd'do
     assert_equal 2456885.0, Eot_utilities.ajd
+  end
+
+  it 'expected   220.63461047326172 for Eot_utilities.ma'do
     assert_equal 220.63461047326172, Eot_utilities.ma
-  end        
+  end
 
   it 'expected   0.0 rturned by Eot_utilities.bd() ' do
     assert_equal 0.0, Eot_utilities.bd()

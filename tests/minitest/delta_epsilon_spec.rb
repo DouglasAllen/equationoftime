@@ -17,8 +17,9 @@ describe 'Eot_first default, nil, 0' do
   # @ajd attribute. 
   
   before(:each) do
-    @ajd           = 2456885.0
-    Eot_first.ajd = @ajd
+    ajd           = 2456885.0
+    Eot_first.ajd = ajd
+    Eot_first.time_julian_century()
     Eot_first.ma_Sun()    
   end
 
@@ -27,9 +28,7 @@ describe 'Eot_first default, nil, 0' do
     assert_equal 220.63461047326172, Eot_first.ma
   end
   
-  it 'expected   -0.0015940313608572006 returned by delta_epsilon()' do
-    assert_equal -0.0015940313608572006, Eot_first.delta_epsilon()
-    assert_equal -0.0015940313608572006, Eot_first.delta_epsilon(nil)
-    assert_equal -0.0015940313608572006, Eot_first.delta_epsilon(0)
+  it 'expected   -0.0023092285713720855 returned by delta_epsilon()' do
+    assert_equal -0.0023092285713720855, Eot_first.delta_epsilon()
   end
 end

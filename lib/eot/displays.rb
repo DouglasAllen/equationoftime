@@ -60,8 +60,8 @@ class Eot
   
   # From displays.rb<br>
   # String format of apparent longitude 
-  def string_al_Sun( ta = A2000 )
-    degrees_to_s( al_Sun( ta ) )
+  def string_al_Sun()
+    degrees_to_s( al_Sun() )
   end
   alias_method :apparent_longitude_string, :string_al_Sun
 
@@ -83,27 +83,27 @@ class Eot
 
   # From displays.rb<br>
   # String format of declination 
-  def string_dec_Sun( ta = A2000 )
-    degrees_to_s( dec_Sun( ta ) )
+  def string_dec_Sun()
+    degrees_to_s( dec_Sun() )
   end
   alias_method :declination_string, :string_dec_Sun
   
   # From displays.rb<br>
   # String format for delta oblique
-  def string_delta_oblique( ta = A2000 )
-    show_minutes(delta_oblique( ta ))
+  def string_delta_oblique()
+    show_minutes(delta_oblique())
   end
   
   # From displays.rb<br>
   # String format for delta orbit
-  def string_delta_orbit( ta = A2000 )
-    show_minutes(delta_orbit( ta ))
+  def string_delta_orbit()
+    show_minutes(delta_orbit())
   end
   
   # From displays.rb<br>
   # String format for centre
-  def string_eqc( ta = A2000 )
-    degrees_to_s( center( ta ))
+  def string_eqc()
+    degrees_to_s( center())
   end
   
   # From displays.rb<br>
@@ -144,15 +144,15 @@ class Eot
 
   # From displays.rb<br>
   # String format of right ascension
-  def string_ra_Sun( ta = A2000 )
-    degrees_to_s( ra_Sun( ta ) )
+  def string_ra_Sun()
+    degrees_to_s( ra_Sun() )
   end
   alias_method :right_ascension_string, :string_ra_Sun     
 
   # From displays.rb<br>
   # String format of true anomaly  
-  def string_ta_Sun( ta = A2000 )
-    degrees_to_s( ta_Sun( ta ) )
+  def string_ta_Sun( )
+    degrees_to_s( ta_Sun() )
   end
   alias_method :true_anomaly_string, :string_ta_Sun
 
@@ -189,15 +189,15 @@ class Eot
 
   # From displays.rb<br>
   # String format of true longitude 
-  def string_tl_Sun( ta = A2000 )
-    degrees_to_s( tl_Sun( ta ) )
+  def string_tl_Sun()
+    degrees_to_s( tl_Sun() )
   end
   alias_method :true_longitude_string, :string_tl_Sun 
 
   # From displays.rb<br>
   # String format of true obliquity 
-  def string_to_Earth( ta = A2000 )
-    degrees_to_s( to_Earth( ta ) )
+  def string_to_Earth()
+    degrees_to_s( to_Earth() )
   end
   alias_method :true_obliquity_string, :string_to_Earth 
 

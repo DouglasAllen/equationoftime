@@ -1,4 +1,5 @@
 # constants.rb
+
 require 'date'
 
 class Eot
