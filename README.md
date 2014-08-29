@@ -49,7 +49,7 @@ Or install it yourself as:
 
 #Usage:
 
-	$ irb --simple-prompt
+  $ irb --simple-prompt
 
 	require 'eot'
 	eot = Eot.new; "note: nutation data loading is normal if you leave this off."
