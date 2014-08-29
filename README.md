@@ -49,17 +49,17 @@ Or install it yourself as:
 
 #Usage:
 
-  $ irb --simple-prompt
+	$ irb --simple-prompt
 
-  require 'eot'
-  eot = Eot.new; "note: nutation data loading is normal if you leave this off."
-  eot.string_eot()
+	require 'eot'
+	eot = Eot.new; "note: nutation data loading is normal if you leave this off."
+	eot.string_eot()
   
 #Examples:
 
-  $ irb --simple-prompt
+	$ irb --simple-prompt
   
-  load 'examples/use_angles.rb'
+	load 'examples/use_angles.rb'
   
 
 #[Wikis](https://github.com/DouglasAllen/equationoftime-3.0.0/blob/master/wiki.md)
