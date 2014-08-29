@@ -51,9 +51,9 @@ Or install it yourself as:
 
   $ irb --simple-prompt
 
-	require 'eot'
-	eot = Eot.new; "note: nutation data loading is normal if you leave this off."
-	eot.string_eot()
+  require 'eot'
+  eot = Eot.new; "note: nutation data loading is normal if you leave this off."
+  eot.string_eot()
   
 #Examples:
 
