@@ -11,13 +11,10 @@ eot = Eot.new
 # puts eot.public_methods(false).sort
 # puts eot.nil?
 loop do
-p date = DateTime.now.to_time.utc.to_datetime
-#~ dt = Astro.delta_T(date) / 86400.0
-ajd = date.ajd
-#~ ajd1 = ajd + dt
-p date2 = DateTime.jd(ajd + 0.5)
-sleep 0.7
-puts
+  puts DateTime.now.to_time.utc.nsec.inspect
+  puts DateTime.jd(DateTime.now.to_time.utc.to_datetime.ajd + 0.5).to_time.nsec.inspect
+  sleep 0.7
+  puts
 end
 
 # puts Astro.solar_longitude(date)

@@ -3,6 +3,7 @@
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
+# From astro-algo gem 
 # class Array    
     # Evaluate polynomial using Horner's method.
     # Array consists of coefficients of a polynomial, the
@@ -18,21 +19,9 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
     # end
 # end
 
-require 'eot'
-eot = Eot.new
+my_array   = [1.0, -0.5, 3.0]
+my_array.inject(0.0) {|sum, n| p sum * 2.0 + n }
 
-@current = DateTime.now.to_time.utc
-# comparing the difference for two methods of day_fraction
-df1 = @current.to_datetime.day_fraction.to_f
-df2 = @current.hour / 24.0 + @current.min / 1_440.0 + @current.sec / 86_400.0 + @current.usec / 86_400_000_000.0
-
-ajd = @current.to_datetime.ajd.to_f
-
-# setting up to test poly_eval in each angle method using it.
-tjc = eot.time_julian_century(2456734.00110875)
-#t = (Date.today.jd - 2451545.0)/365250.0
-
-eot.eccentricity_Earth( tjc )
-eot.gml_Sun( tjc )
-p eot.ml_Aries( tjc )
-eot.mo_Earth( tjc )
+ecc = [-0.0000001235, -0.000042037, 0.016708617]
+ta  = 0.14
+ecc.inject(0.0) {|sum, n| p sum * ta + n }  

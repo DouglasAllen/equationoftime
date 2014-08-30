@@ -19,6 +19,13 @@ class Eot
 
   # From times.rb:<br>
   # Uses @ajd and @longitude attributes
+  # Returns DateTime object of local noon or solar transit
+  def local_noon_dt()
+    ajd_to_datetime(@ajd - @longitude / 360.0 - eot_jd())
+  end
+  
+  # From times.rb:<br>
+  # Uses @ajd and @longitude attributes
   # Returns DateTime object of local mean noon or solar transit
   def mean_local_noon_dt()
     ajd_to_datetime(@ajd - @longitude / 360.0)
@@ -36,12 +43,10 @@ class Eot
   # Uses @ajd attribute
   # Returns a DateTime object of local sunrise
   def sunrise_dt()
-    eot_jd()                
-    eot_dt        = ajd_to_datetime(eot_jd())
-    local_noon_dt = ajd_to_datetime(mean_local_noon_dt() - eot_dt)
+    local_noon_dt = local_noon_dt()
     time_julian_century()
     lha_dt        = ajd_to_datetime(ha_Sun() / 360.0)                      
-    ajd_to_datetime(local_noon_dt - lha_dt)      
+    ajd_to_datetime((local_noon_dt - lha_dt).to_f)     
   end
 
   # From times.rb:<br> 
@@ -55,11 +60,10 @@ class Eot
   # Uses @ajd attribute
   # Returns a DateTime object of local sunset
   def sunset_dt()                               
-    eot_dt        = ajd_to_datetime(eot_jd())
-    local_noon_dt = ajd_to_datetime(mean_local_noon_dt() - eot_dt)
+    local_noon_dt = local_noon_dt()
     time_julian_century()
     lha_dt        = ajd_to_datetime(-ha_Sun() / 360.0)                      
-    ajd_to_datetime(local_noon_dt - lha_dt)      
+    ajd_to_datetime((local_noon_dt - lha_dt).to_f)      
   end
 
   # From times.rb:<br>
@@ -97,7 +101,7 @@ class Eot
   # All calculations with ( ta )  based on this.
   # Julian Century Time is a fractional century
   # Julian Day Number J2000 is subtracted
-  # Returns an array of fractional century powers
+  # Returns fractional century
   def time_julian_century()
     t1 = ( @ajd - J2000 ) / DJC
     t2 = t1 * t1
@@ -109,9 +113,10 @@ class Eot
     t8 = t4 * t4
     t9 = t4 * t5
     t10 = t5 * t5
-    @ta = [ t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 ]      
+#    @ta = [ t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 ] 
+    @ta = t1     
   end
-  alias_method :time_julian_centurey, :time_julian_century
+  alias_method :time_julian_centurey, :time_julian_century  
       
 end
 

@@ -1,3 +1,4 @@
+# class that goes with equationoftime.herokuapp.com/analemma
 class AnalemmaDataTable
 
   attr_accessor  :data, :finish, :start, :table, :html

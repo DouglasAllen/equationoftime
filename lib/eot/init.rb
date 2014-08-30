@@ -1,5 +1,7 @@
 # init.rb
 
+require 'safe_yaml'
+
 class Eot    
 
   # From init.rb:<br>
@@ -12,6 +14,13 @@ class Eot
   # Used for getting the equation of time now if it is set for that. There is 
   # always a slight delay in the computation though.
   attr_accessor :ajd
+  
+  # So when we change the ajd from the default ma will get set anew too.
+  # Setting ma will set ta with time_julian_century() also.
+  def ajd=(ajd)
+    @ajd = ajd
+    @ma = ma_Sun()
+  end
 
   # From init.rb:<br>
   # Nutation Data is an instance of Array class.
@@ -68,7 +77,7 @@ class Eot
     @ta.nil? ? time_julian_century() : @ta  
     @ma.nil? ? ma_Sun() : @ma
 
-    #geo = GeoLatLng.new
+#    geo = GeoLatLng.new
     @addr = addr
     #addr.nil? ? geo.addr=(geo.default_int) : geo.addr=addr
 # uncomment below if you have internet connection

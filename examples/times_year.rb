@@ -25,16 +25,18 @@ finish_jd = Date.parse(finish).jd
 
 fstr = "%b %d"
 
-@data, @group, @group_id = [], {}, 0
+@data, @group, @group_id = [], {}, 1
 
 (start_jd..finish_jd).each do |jd|     
-  date    = DateTime.jd(jd + 0.5)
+#  date    = DateTime.jd(jd + 0.5).to_date
   eot.ajd = jd
-  rise    = eot.sunrise_dt
-  set     = eot.sunset_dt
+  rise    = eot.sunrise_dt().to_time.to_json
+  trans   = eot.local_noon_dt().to_time.to_json
+  set     = eot.sunset_dt().to_time.to_json
   @group  = {group_id: @group_id, 
-             date:     date,
+             
              rise:     rise,
+             noon:     trans,  
              sset:     set
            }  
   @data << @group

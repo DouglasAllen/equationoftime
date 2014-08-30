@@ -25,13 +25,13 @@ fstr = "%b %d"
 
 (start_jd..finish_jd).each do |jd|     
   date    = Date.jd(jd + 0.5).strftime(fstr)
-  jcta    = eot.time_julian_century(jd)
-  eot.ajd = DateTime.jd(jd + 0.5)  
+  
+  eot.ajd = jd  
   delta_t = eot.show_minutes(eot.time_eot())
   trans   = eot.display_time_string(12 - eot.time_eot()/60.0)
   e1      = eot.show_minutes(eot.time_delta_orbit())
   e2      = eot.show_minutes(eot.time_delta_oblique())
-  decline = eot.degrees_to_s(eot.dec_Sun(jcta))
+  decline = eot.degrees_to_s(eot.dec_Sun())
   @group  = {group_id:    "#{@group_id}", 
              date:        date, 
              eot:         delta_t,                   

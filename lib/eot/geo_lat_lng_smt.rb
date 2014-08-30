@@ -61,8 +61,8 @@ class GeoLatLng
       if result.count != 4          
         @default_int          
       else
-        @lat   = parsed_res[ "GeocodeResponse" ][ "result" ][ "geometry" ][ "location" ][ "lat" ]
-        @lng   = parsed_res[ "GeocodeResponse" ][ "result" ][ "geometry" ][ "location" ][ "lng" ]
+        @lat   = parsed_res[ "GeocodeResponse" ][ "result" ][ "geometry" ][ "location" ][ "lat" ].to_f
+        @lng   = parsed_res[ "GeocodeResponse" ][ "result" ][ "geometry" ][ "location" ][ "lng" ].to_f
       end
     end
     

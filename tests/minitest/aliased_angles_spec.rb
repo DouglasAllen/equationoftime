@@ -24,7 +24,7 @@ describe 'aliased_angles using ajd of 2456885.0' do
     # somtimes need date to check values somewhere else
     Eot_aliased_angles.date = Eot_aliased_angles.ajd_to_datetime(ajd)
     # sets the ta attribute
-    Eot_aliased_angles.time_julian_century()
+#    Eot_aliased_angles.time_julian_century()
     # sets the ma attribute    
     Eot_aliased_angles.mean_anomaly()
   end 
@@ -33,7 +33,7 @@ describe 'aliased_angles using ajd of 2456885.0' do
     assert_equal 2456885.0, Eot_aliased_angles.ajd    
   end 
   
-  it 'expected    "2014-08-15T12:00:00+00:00" for Eot_aliased_angles.date'.to_s do
+  it 'expected   "2014-08-15T12:00:00+00:00" for Eot_aliased_angles.date'.to_s do
     assert_equal "2014-08-15T12:00:00+00:00", Eot_aliased_angles.date.to_s    
   end 
 
@@ -109,7 +109,7 @@ describe 'aliased_angles using ajd of 2456885.0' do
     assert_equal 144.943496643928, Eot_aliased_angles.right_ascension()
   end
   
-  it 'expected  0.6074784519731379 returned by Eot_aliased_angles.sine_apparent_longitude()? ' do
+  it 'expected   0.6074784519731379 returned by Eot_aliased_angles.sine_apparent_longitude()? ' do
     assert_equal 0.6074784519731379, Eot_aliased_angles.sine_apparent_longitude()
   end  
 
@@ -146,7 +146,7 @@ describe 'aliased_angles using ajd  of 2455055.5' do
     # check date for this ajd when needed.
     Eot_aliased_angles.date = Eot_aliased_angles.ajd_to_datetime(ajd)
     # set ta attribute
-    Eot_aliased_angles.time_julian_century() 
+#    Eot_aliased_angles.time_julian_century() 
     # set ma attribute    
     Eot_aliased_angles.ma_Sun()    
   end
@@ -215,8 +215,8 @@ describe 'aliased_angles using ajd  of 2455055.5' do
     assert_equal 216.98609672514223, Eot_aliased_angles.mean_anomaly() 
   end  
   
-  it 'expected   140.08287431273857 returned by Eot_aliased_angles.mean_longitude_aries()? ' do
-    assert_equal 140.08287431273857, Eot_aliased_angles.mean_longitude_aries()
+  it 'expected   140.082874313066 returned by Eot_aliased_angles.mean_longitude_aries()? ' do
+    assert_equal 140.082874313066, Eot_aliased_angles.mean_longitude_aries()
   end
   
   it 'expected   23.43802918164109 returned by Eot_aliased_angles.mean_obliquity()? ' do
@@ -247,8 +247,8 @@ describe 'aliased_angles using ajd  of 2455055.5' do
     assert_equal 138.95604680673674, Eot_aliased_angles.true_longitude()
   end 
   
-  it 'expected   140.08689002538767 returned by Eot_aliased_angles.true_longitude_aries()? ' do
-    assert_equal 140.08689002538767, Eot_aliased_angles.true_longitude_aries() 
+  it 'expected   140.0868900257151 returned by Eot_aliased_angles.true_longitude_aries()? ' do
+    assert_equal 140.0868900257151, Eot_aliased_angles.true_longitude_aries() 
   end
 
   it 'expected   23.439323003379247 returned by Eot_aliased_angles.true_obliquity()? ' do

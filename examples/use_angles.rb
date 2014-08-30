@@ -52,33 +52,25 @@ eot.ajd = #{eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f}
 
 Because this gem is going to calculate the sunrise and sunset times it's okay to set the day for noon and is encouraged.
 
-So go ahead and set the ajd using the Date class and jd method as was first done. 
+So go ahead and set the ajd using the Date class and jd method as was first done.
+
+The class init.rb sets everything to defaults and one of them is today's datetime.jd 
 
 But for right now we won't do that so we get current angles of the present time UTC.
 
-We have what we need almost but there are two more attributes we need to set.
 
 
-eot.time_julian_century() and that will set eot.ta attribute.
+eot.ma is the solar Mean anomaly mu(M) and is called quite often hence the attribute.
 
-eot.time_julian_century() = #{eot.time_julian_century()}
-  
-eot.ta is an array of powers for fractional century of 36525 Julian days and gets used often.
-
-
-eot.ma_Sun() will set eot.ma attribute.
-
-eot.ma_Sun() = #{eot.ma_Sun()}
-
-eot.ma is the solar Mean anomaly mu(M). 
+eot.ma was set using eot.ma_Sun() method.
 
 It is an angle with respect to perihelion of Earth orbit around Sun in an assumed circular orbit.
 
 M is calculated within the nutation.rb file under delta_equinox() method and returned as the third element of an array.
 
-These two methods rely on setting the ajd attribute for any date time desired.
+eot.ma = #{eot.ma}
 
-Now we can be sure to get the right angles for the rest of the methods used.
+eot.ma_Sun() = #{eot.ma_Sun()}
 
 
 angle one = eot.ma_Sun() - eot.ta_Sun()
@@ -101,6 +93,12 @@ The delta is M - nu.
 The method inside the gem is called delta_orbit()
 
 eot.delta_orbit = #{eot.delta_orbit} degrees
+
+We could just change the sign of eot.center().  
+
+In fact let's just do that now. a1 = - eot.center()
+  
+- eot.center() = #{- eot.center()}
 
 
 The next delta is calculated as follows.
@@ -152,9 +150,7 @@ Be sure to set everything for UTC noon before adding it to your longitude becaus
   
 eot.ajd = #{eot.ajd = Date.today.jd.to_f}
   
-eot.ta = #{eot.time_julian_century()}
-  
-eot.ma = #{eot.ma_Sun()} 
+
 
 Using the Eot class I may also compute it with eot.mean_local_noon_dt() method if I have the ajd set right.
 
@@ -209,7 +205,7 @@ Check it here http://douglasallen.github.io/planets/ just put in the correct tim
 
 Does GHA Sun = your longitude?
 
-It's off a little bit because that site uses a different formula that is commonly used in javascript.
+It's off a little bit because that site uses a different formula that is commonly used in older programs.
 
 I get about 3 seconds difference in the EOT is all.
 DISPLAY

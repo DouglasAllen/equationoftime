@@ -122,9 +122,9 @@ class Eot
   
   # From angles.rb:<br>
   # eccentricity of elliptical Earth orbit around Sun
-  # Horner calculation method  
+  # Horners' calculation method  
   def eccentricity_Earth()
-    [-0.0000001235, -0.000042037, 0.016708617].inject(0.0) {|p, a| p * @ta[0] + a}
+    [-0.0000001235, -0.000042037, 0.016708617].inject(0.0) {|p, a| p * @ta + a}
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_Earth
   
@@ -161,7 +161,7 @@ class Eot
   def gml_Sun()    
     total = [ 1.0/-19880000.0, 1.0/-152990.0, 1.0/499310.0,
 		 0.0003032028, 36000.76982779, 280.4664567 ]
-    mod_360( total.inject(0.0) {|p, a| p * @ta[0] + a} )
+    mod_360( total.inject(0.0) {|p, a| p * @ta + a} )
   end
   alias_method :geometric_mean_longitude, :gml_Sun
 
@@ -187,7 +187,8 @@ class Eot
   # angle of Suns' mean anomaly
   # used in equation of time
   # and to get true anomaly. 
-  def ma_Sun()    
+  def ma_Sun()
+    time_julian_century()    
     ade = delta_equinox()[ 2 ] / ASD
     @ma = mod_360 ade       
   end
@@ -197,19 +198,20 @@ class Eot
   # Mean equinox point where right ascension is measured from as zero hours.
   # # see http://www.iausofa.org/publications/aas04.pdf 
   def ml_Aries()   
-    jd     = @ta[ 0 ] * DJC # convert first term back to jdn - J2000
+    jd     = @ta * DJC # convert first term back to jdn - J2000
     # old terms  	
     # angle  = (36000.770053608 / DJC + 360) * jd  # 36000.770053608 = 0.9856473662862 * DJC
     # total = [ -1.0/3.8710000e7, 3.87930e-4, 0, 100.460618375 ].inject(0.0) {|p, a| p * ta[0] + a} + 180 + angle  
     # newer terms seem to be in arcseconds / 15.0
     # 0.0000013, - 0.0000062, 0.0931118, 307.4771600, 8639877.3173760, 24110.5493771
     angle  = (35999.4888224 / DJC + 360) * jd     
-    total  = angle +   280.460622404583   +
-              @ta[ 0 ] *  1.281154833333   +
-              @ta[ 1 ] *  3.87965833333e-4 +
-              @ta[ 2 ] * -2.58333333333e-8 +
-              @ta[ 3 ] *  5.41666666666e-9           
-	  mod_360( total )      
+#    total  = angle +   280.460622404583   +
+#              @ta[ 0 ] *  1.281154833333   +
+#              @ta[ 1 ] *  3.87965833333e-4 +
+#              @ta[ 2 ] * -2.58333333333e-8 +
+#              @ta[ 3 ] *  5.41666666666e-9
+      total = [5.41666666666e-9, -2.58333333333e-8, 3.87965833333e-4, 1.281154833333, 280.460622404583].inject(0.0) {|p, a| p * @ta + a}          
+	  mod_360( angle + total )      
   end
   alias_method :mean_longitude_aries, :ml_Aries
   
@@ -217,7 +219,7 @@ class Eot
   # mean obliquity of Earth  
   def mo_Earth()     
     [ -0.0000000434, -0.000000576,  0.00200340, 
-      -0.0001831,   -46.836769, 84381.406 ].inject(0.0) {|p, a| p * @ta[0] + a} / ASD	
+      -0.0001831,   -46.836769, 84381.406 ].inject(0.0) {|p, a| p * @ta + a} / ASD	
   end
   alias_method :mean_obliquity_of_ecliptic, :mo_Earth
   alias_method :mean_obliquity, :mo_Earth

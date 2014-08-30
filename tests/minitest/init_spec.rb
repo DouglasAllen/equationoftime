@@ -19,10 +19,10 @@ describe 'Eot_initialize using today matchers' do
     @jd = @date.jd.to_f
     @ajd = @date.ajd.to_f
     @ma = Eot_initialize.ma_Sun()
-    @ta = Eot_initialize.time_julian_century()
+    @ta = Eot_initialize.ta
   end
 
-  it 'expected   defaults returned by Eot_initialize() ?' do    
+  it 'expected matchers returned by Eot_initialize() ?' do    
     refute_nil Eot_initialize.data
     assert_equal @ajd + 0.5, Eot_initialize.ajd + @df
     assert_equal @date.to_s, Eot_initialize.date.to_s    

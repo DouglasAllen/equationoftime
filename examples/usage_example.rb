@@ -6,8 +6,18 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
 eot = Eot.new()
-p eot.date
-p eot.longitude
-p eot.latitude
-p eot.sunrise_dt
-p eot.sunset_dt
+# find what the defaults are set to
+show = <<RAN
+ajd       = #{eot.ajd}
+date      = #{eot.date}
+jd        = #{eot.jd}
+longitude = #{eot.longitude}
+latitude  = #{eot.latitude}
+sunrise   = #{eot.sunrise_dt}
+trnasit   = #{eot.local_noon_dt}
+min eot   = #{eot.time_eot}
+sunset    = #{eot.sunset_dt}
+gasa      = #{eot.tl_Aries}
+RAN
+
+puts show

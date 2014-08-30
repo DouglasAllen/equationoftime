@@ -5,16 +5,15 @@ require 'eot/version'
 
 Gem::Specification.new do |spec|
      # Metadata
-     spec.author        = 'DouglasAllen'
      spec.name          = "equationoftime"
      spec.version       = Eot::VERSION
-     
+     spec.authors       = ["DouglasAllen"]
      spec.email         = ["kb9agt@gmail.com"]
      spec.summary       = %q{Equation of Time calculates time of solar transition.}
      spec.description   = %q{Calculate Sunrise and Sunset, GMST, and GAST for just about any date and location.
 	                     Lots of examples to play with included.}
      spec.homepage      = "http://equationoftime.herokuapp.com"
-     #spec.src           = "https://github.com/DouglasAllen/equationoftime-3.0.0"
+     #spec.source        = "https://github.com/DouglasAllen/equationoftime-3.0.0"
      spec.license       = "MIT"
 	
 
@@ -29,11 +28,9 @@ Gem::Specification.new do |spec|
      spec.add_development_dependency "rake"
      spec.add_development_dependency "minitest"	 
      spec.add_development_dependency "rspec"    
-     #spec.add_runtime_dependency "astro-algo"
+     spec.add_runtime_dependency "astro-algo"
      spec.add_runtime_dependency "multi_xml"
      spec.add_runtime_dependency "rest-client"
-     spec.add_runtime_dependency "safe_yaml"
-
-     spec.extra_rdoc_files = ['README.md']     
+     spec.add_runtime_dependency "safe_yaml"	 
      
 end

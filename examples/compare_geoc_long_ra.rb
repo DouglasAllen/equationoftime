@@ -21,10 +21,10 @@ ajd = start_date.ajd * 1.0
 for min in 0..59
   h      = 10 / 24.0
   fd     = h + min / 1440.0
-  timejc = eot.time_julian_century(ajd + fd) 
-  ml     = eot.geometric_mean_longitude(timejc)
-  tl     = eot.true_longitude(timejc)
-  ra     = eot.right_ascension(timejc)
+  timejc = eot.time_julian_century() 
+  ml     = eot.geometric_mean_longitude()
+  tl     = eot.true_longitude()
+  ra     = eot.right_ascension()
   puts "time\t\t\tmean longitude\t\tright ascension"
 	puts "10:#{min}\t\t\t#{ml}\t\t#{ra}\t\t#{}"
 end

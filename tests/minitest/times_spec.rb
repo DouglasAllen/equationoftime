@@ -11,7 +11,7 @@ require 'eot'
 
 Eot_times = Eot.new
 
-describe ' Eot times default, nil, 0' do
+describe ' Eot times using ajd of 2456885.0' do
 
   # set ta attribute first as it gets tested anyway but a lot of methods
   # now rely on @ta so we don't have to keep calling it unless we change

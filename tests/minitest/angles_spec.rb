@@ -238,8 +238,8 @@ describe ' Eot angles tjc array for jd 2455055.5 a non default value' do
     assert_equal 216.98609672514223, Eot_angles.ma_Sun() 
   end
   
-  it 'expected   140.08287431273857 returned by Eot_angles.ml_Aries()? ' do
-    assert_equal 140.08287431273857, Eot_angles.ml_Aries()
+  it 'expected   140.082874313066 returned by Eot_angles.ml_Aries()? ' do
+    assert_equal 140.082874313066, Eot_angles.ml_Aries()
   end
   
   it 'expected   23.43802918164109 returned by Eot_angles.mo_Earth()? ' do
@@ -266,8 +266,8 @@ describe ' Eot angles tjc array for jd 2455055.5 a non default value' do
     assert_equal 215.8534500663884, Eot_angles.ta_Sun()
   end
 
-  it 'expected   140.08689002538767 returned by Eot_angles.tl_Aries()? ' do
-    assert_equal 140.08689002538767, Eot_angles.tl_Aries()
+  it 'expected   140.0868900257151 returned by Eot_angles.tl_Aries()? ' do
+    assert_equal 140.0868900257151, Eot_angles.tl_Aries()
   end  
 
   it 'expected   138.95604680673674 returned by Eot_angles.tl_Sun()? ' do

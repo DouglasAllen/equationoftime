@@ -1,14 +1,13 @@
-# read_nutation_data.rb
+# read_nutation_data.rb is a leftover from building it so I just left it in examples.
 
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'eot'
-#~ require 'safe_yaml'
 
-# create an instance of Equation_of_Time class
 eot = Eot.new
 
+now = DateTime.now.to_time.utc.to_datetime
 
 =begin
 
@@ -55,118 +54,123 @@ eot = Eot.new
 
 =end
 
-# data was initialized when the class instance was via nutation_series2.yaml file.
+## data was initialized when the class instance was via nutation_series2.yaml file.
 #data = eot.data
-file_path    =  File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )
-data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
-# Arc seconds to radians formula
-ARCSEC = 3600.0
-dtr = Math::PI / 180.0 / ARCSEC # adjusted for working in the arc seconds values
+#file_path    =  File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )
+#data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
+## Arc seconds to radians formula
+#ARCSEC = 3600.0
+#dtr = Math::PI / 180.0 / ARCSEC # adjusted for working in the arc seconds values
 
-# sine degrees
-def sind(dtr, x)	
-	Math::sin(dtr*x)
-end
-# cod degrees
-def cosd(dtr, x)
-	Math::cos(dtr*x)
-end
+## sine degrees
+#def sind(dtr, x)	
+#	Math::sin(dtr*x)
+#end
+## cod degrees
+#def cosd(dtr, x)
+#	Math::cos(dtr*x)
+#end
 
 
-# The JD is at Noon 12:00 UTC for today
-# In all of these expressions, T is the number of Julian centuries of TDB since 2000 Jan 1, 12h TDB (or,
-# with negligible error, the number of Julian centuries of TT since J2000.0).
-jd2000 = 2451545.0 # the J2000 Julian Day Number
+## The JD is at Noon 12:00 UTC for today
+## In all of these expressions, T is the number of Julian centuries of TDB since 2000 Jan 1, 12h TDB (or,
+## with negligible error, the number of Julian centuries of TT since J2000.0).
+#jd2000 = 2451545.0 # the J2000 Julian Day Number
+#
+#ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
+#
+## calculate time to julian centuries
+#t = eot.time_julian_century()
 
-ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
+## Values are in arc seconds see below for definitions of terms
+#ma_moon = 485868.249036 + 1717915923.2178 * t[0] + 31.8792 * t[1] + 0.051635 * t[2] - 0.00024470 * t[3]
+#ma_sun = 1287104.79305 + 129596581.0481 * t[0] - 0.5532 * t[1] + 0.000136 * t[2] - 0.00001149 * t[3]
+#md_moon = 335779.526232 + 1739527262.8478 * t[0] - 12.7512 * t[1] - 0.001037 * t[2] + 0.00000417 * t[3]
+#me_moon = 1072260.70369 + 1602961601.2090 * t[0] - 6.3706 * t[1] + 0.006593 * t[2] - 0.00003169 * t[3]
+#omega = 450160.398036 - 6962890.5431 * t[0] + 7.4722 * t[1] + 0.007702 * t[2] - 0.00005939 * t[3]
 
-# calculate time to julian centuries
-t = eot.time_julian_century(ajd)
-
-# Values are in arc seconds see below for definitions of terms
-ma_moon = 485868.249036 + 1717915923.2178 * t[0] + 31.8792 * t[1] + 0.051635 * t[2] - 0.00024470 * t[3]
-ma_sun = 1287104.79305 + 129596581.0481 * t[0] - 0.5532 * t[1] + 0.000136 * t[2] - 0.00001149 * t[3]
-md_moon = 335779.526232 + 1739527262.8478 * t[0] - 12.7512 * t[1] - 0.001037 * t[2] + 0.00000417 * t[3]
-me_moon = 1072260.70369 + 1602961601.2090 * t[0] - 6.3706 * t[1] + 0.006593 * t[2] - 0.00003169 * t[3]
-omega = 450160.398036 - 6962890.5431 * t[0] + 7.4722 * t[1] + 0.007702 * t[2] - 0.00005939 * t[3]
-
-# declare and clear these two variables for the sigma loop
-delta_psi, delta_eps = 0, 0
-
-lines = data.size - 1
-for i in 0..lines
-  fma_sun    = data[i][0].to_i
-  fma_moon   = data[i][1].to_i  	
-  fmd_moon   = data[i][2].to_i
-  fme_moon   = data[i][3].to_i  
-  fomega     = data[i][4].to_i
-  sine       = sind(dtr, fma_moon * ma_moon +
-                         fma_sun  * ma_sun  +
-                         fmd_moon * md_moon +
-                         fme_moon * me_moon +
-                         fomega   * omega)
-  cosine     = cosd(dtr, fma_moon * ma_moon +
-                         fma_sun  * ma_sun  +
-                         fmd_moon * md_moon +
-                         fme_moon * me_moon +
-                         fomega   * omega)
-  delta_psi += (data[i][6].to_f + 
-                data[i][7].to_f * t[0]) * sine +
-                data[i][10].to_f * cosine
-              
-  delta_eps += (data[i][8].to_f + 
-                data[i][9].to_f * t[0]) * cosine +				 
-                data[i][12].to_f  * sine   
-  										 
-end
-
-# convert arc seconds to degree
-def to_deg( arc_secs )
-  arc_secs / ARCSEC
-end
-
-delta_eps = to_deg( delta_eps ) / 1000.0
-delta_eps = eot.delta_epsilon(t)
-
-delta_psi = to_deg( delta_psi ) / 1000.0
-delta_psi = eot.delta_psi(t)
+## declare and clear these two variables for the sigma loop
+#delta_psi, delta_eps = 0, 0
+#
+#lines = data.size - 1
+#for i in 0..lines
+#  fma_sun    = data[i][0].to_i
+#  fma_moon   = data[i][1].to_i  	
+#  fmd_moon   = data[i][2].to_i
+#  fme_moon   = data[i][3].to_i  
+#  fomega     = data[i][4].to_i
+#  sine       = sind(dtr, fma_moon * ma_moon +
+#                         fma_sun  * ma_sun  +
+#                         fmd_moon * md_moon +
+#                         fme_moon * me_moon +
+#                         fomega   * omega)
+#  cosine     = cosd(dtr, fma_moon * ma_moon +
+#                         fma_sun  * ma_sun  +
+#                         fmd_moon * md_moon +
+#                         fme_moon * me_moon +
+#                         fomega   * omega)
+#  delta_psi += (data[i][6].to_f + 
+#                data[i][7].to_f * t[0]) * sine +
+#                data[i][10].to_f * cosine
+#              
+#  delta_eps += (data[i][8].to_f + 
+#                data[i][9].to_f * t[0]) * cosine +				 
+#                data[i][12].to_f  * sine   
+#  										 
+#end
+#
+## convert arc seconds to degree
+#def to_deg( arc_secs )
+#  arc_secs / ARCSEC
+#end
+#
+#delta_eps = to_deg( delta_eps ) / 1000.0
+#delta_eps = eot.delta_epsilon(t)
+#
+#delta_psi = to_deg( delta_psi ) / 1000.0
+#delta_psi = eot.delta_psi(t)
 
 #Delta epsilon degrees decimal = #{to_deg(delta_eps)}
 
-#Mean Obliquity of Ecliptic degrees = #{eot.display_degrees(eps0)}
-eps0 = eot.mo_Earth(t)
-#True Obliquity of Ecliptic degrees  = #{eot.display_degrees(eps)}
-eps = eot.to_Earth(t)
 
-#Delta psi needs to be degrees and eps is degrees but dtr uses ARCSEC constant also we need the result back in ARCSEC / 15 to get time in secs.
-# eoe = delta_psi / ARCSEC * cosd( dtr * ARCSEC, eps ) * ARCSEC / 15.0
-eoe = eot.eq_of_equinox(t) / 15.0
-#p eot.ml_Aries(t)
-gmst = eot.ml_Aries(t) / 15.0 # make angle to time.
-# eoe is ARCSEC so convert it to hours.
-gast = gmst + eoe 
 
-#~ puts gmst
+##Delta psi needs to be degrees and eps is degrees but dtr uses ARCSEC constant also we need the result back in ARCSEC / 15 to get time in secs.
+## eoe = delta_psi / ARCSEC * cosd( dtr * ARCSEC, eps ) * ARCSEC / 15.0
+#eoe = eot.eq_of_equinox() / 15.0
+##p eot.ml_Aries()
+#gmst = eot.ml_Aries() / 15.0 # make angle to time.
+## eoe is ARCSEC so convert it to hours.
+#gast = gmst + eoe 
 
+
+
+##Mean Obliquity of Ecliptic degrees = #{eot.display_degrees(eps0)}
+#eot.mo_Earth()
+##True Obliquity of Ecliptic degrees  = #{eot.display_degrees(eps)}
+#eps = eot.to_Earth()
+
+#eoe = eot.eq_of_equinox() / 15.0
+#gmst = eot.ml_Aries() / 15.0 # make angle to time.
+#gast = gmst + eoe
 run = <<EOS
 
-#{DateTime.now.to_time.utc.to_datetime}
+#{now.to_time}
 
-The JD = #{ajd}
+The JD = #{eot.ajd = now.ajd.to_f}
 
-Mean Obliquity of Ecliptic  = #{eot.degrees_to_s(eps0)}
+Mean Obliquity of Ecliptic  = #{eot.degrees_to_s(eot.mo_Earth())}
 
-Delta epsilon in arc seconds = #{delta_eps * 3600}
+Delta epsilon in arc seconds = #{eot.delta_epsilon() * 3600}
 
-True Obliquity of Ecliptic degrees  = #{eot.degrees_to_s(eps)}
+True Obliquity of Ecliptic degrees  = #{eot.degrees_to_s(eot.to_Earth())}
 
-Delta psi in arc seconds = #{delta_psi * 3600}
+Delta psi in arc seconds = #{eot.delta_psi * 3600}
 
-Equation of equinox in seconds = Delta psi * cos epsilon = #{eoe * 3600}
+Equation of equinox in seconds = Delta psi * cos epsilon = #{eot.eq_of_equinox() / 15.0 * 3600}
 
-Greenwich Mean Sidereal Time = #{eot.string_time(gmst)}
+Greenwich Mean Sidereal Time = #{eot.string_time(eot.ml_Aries() / 15.0)}
 
-Greenwich Apparent Sideral Time = #{eot.string_time(gast)}
+Greenwich Apparent Sideral Time = #{eot.string_time(eot.ml_Aries() / 15.0 + eot.eq_of_equinox() / 15.0)}
 
 To compare results enter the date and time into http://www.celnav.de/longterm.htm
 
