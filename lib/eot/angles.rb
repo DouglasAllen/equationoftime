@@ -5,17 +5,14 @@ class Eot
   # From angles.rb:<br> 
   # Apparent solar longitude = true longitude - aberation   
   def al_Sun()    
-    tl_Sun() - 
-             0.00569 - 
-             0.00478 * sin( deg_to_rad( omega() ) )
+    tl_Sun() - 9.9309234438477352926958004727002e-5 - 8.3426738245328953776952418733756e-5 * sin(omega())
   end 
   alias_method  :apparent_longitude, :al_Sun 
   
   # From angles.rb:<br>
   # one time component to total equation of time
   def angle_delta_oblique()           
-    tl_Sun() - 
-    ra_Sun()        
+    tl_Sun() - ra_Sun()        
   end
 
   # From angles.rb:<br> 
@@ -34,25 +31,24 @@ class Eot
   # total equation of time  
   def angle_equation_of_time()    
     @ma = ma_Sun()    
-    angle_delta_oblique() +
-       angle_delta_orbit()    
+    angle_delta_oblique() + angle_delta_orbit()    
   end 
 
   # From angles.rb:<br>
   # equation of centre
   # added to mean anomaly to get true anomaly. 
   def center()      
-    sine_1M = sin( 1.0 * deg_to_rad( @ma ) )
-    sine_2M = sin( 2.0 * deg_to_rad( @ma ) )
-    sine_3M = sin( 3.0 * deg_to_rad( @ma ) )
-    sine_4M = sin( 4.0 * deg_to_rad( @ma ) )
-    sine_5M = sin( 5.0 * deg_to_rad( @ma ) )
+    sine_1M = sin( 1.0 * @ma )
+    sine_2M = sin( 2.0 * @ma )
+    sine_3M = sin( 3.0 * @ma )
+    sine_4M = sin( 4.0 * @ma )
+    sine_5M = sin( 5.0 * @ma )
     e = eccentricity_Earth()
-    rad_to_deg( sine_1M * (     2.0  * e    - e**3/4.0 + 5/96.0 * e**5 ) +  
-                sine_2M * (   5/4.0  * e**2 - 11/24.0 * e**4 )           + 
-                sine_3M * ( 13/12.0  * e**3 - 43/64.0 * e**5 )           +
-                sine_4M *  103/96.0  * e**4                              +
-                sine_5M * 1097/960.0 * e**5                              )
+    sine_1M * (     2.0  * e    - e**3/4.0 + 5/96.0 * e**5 ) +  
+    sine_2M * (   5/4.0  * e**2 - 11/24.0 * e**4 )           + 
+    sine_3M * ( 13/12.0  * e**3 - 43/64.0 * e**5 )           +
+    sine_4M *  103/96.0  * e**4                              +
+    sine_5M * 1097/960.0 * e**5                              
     # sine_1M *( 1.914602 - ta[ 0 ] * ( 0.004817 + ta[ 0 ] * 0.000014 )) +                                               +
     # sine_2M *( 0.019993 - ta[ 0 ] * 0.000101 )                         +                                              +
     # sine_3M *  0.000289
@@ -63,7 +59,7 @@ class Eot
   # cosine apparent longitude
   # could be useful when dividing 
   def cosine_al_Sun()    
-    cos( deg_to_rad( al_Sun() ) )
+    cos( al_Sun() ) 
   end
   alias_method :cosine_apparent_longitude, :cosine_al_Sun
   
@@ -71,7 +67,7 @@ class Eot
   # cosine true longitude
   # used in solar right ascension  
   def cosine_tl_Sun()    
-    cos( deg_to_rad( tl_Sun() ) )
+    cos( tl_Sun() ) 
   end
   alias_method :cosine_true_longitude, :cosine_tl_Sun
   
@@ -79,16 +75,15 @@ class Eot
   # cosine true obliquity
   # used in solar right ascension 
   def cosine_to_Earth()    
-    cos( deg_to_rad( to_Earth() ) )
+    cos( to_Earth() ) 
   end
   alias_method :cosine_true_obliquity, :cosine_to_Earth
   
   # From angles.rb:<br>
   # solar declination
   def dec_Sun()   
-    sine_declination = sin( deg_to_rad( to_Earth() ) ) * 
-                                                sine_al_Sun()
-    rad_to_deg( asin( sine_declination ) )
+    sine_declination = sin( to_Earth() )  * sine_al_Sun()
+    asin( sine_declination ) 
   end
   alias_method :declination, :dec_Sun
   
@@ -102,8 +97,7 @@ class Eot
   # From angles.rb:<br>
   # one time component to total equation of time 
   def delta_oblique()            
-    tl_Sun() - 
-    ra_Sun()        
+    tl_Sun() -  ra_Sun()        
   end
   alias_method :delta_t_ecliptic, :delta_oblique
 
@@ -124,15 +118,14 @@ class Eot
   # eccentricity of elliptical Earth orbit around Sun
   # Horners' calculation method  
   def eccentricity_Earth()
-    [-0.0000001235, -0.000042037, 0.016708617].inject(0.0) {|p, a| p * @ta + a}
+    [-0.0000001235, -0.000042037, 0.016708617].inject(0.0) {|p, a| p * @ta + a} 
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_Earth
   
   # From angles.rb:<br>
   # equation of equinox  
   def eq_of_equinox()   
-    cosine_to_Earth() *
-              delta_psi()
+    cosine_to_Earth() * delta_psi()
   end
   
   # From angles.rb:<br>
@@ -144,15 +137,13 @@ class Eot
   # From angles.rb:<br>
   # angle factor for daily sidereal time (experimental)  
   def factor
-    jda  =           Date.parse("2000-01-01").jd
-    jdb  =           jda + 1
-    tjca =  time_julian_century( jda )
-    tjcb =  time_julian_century( jdb )
-    tlaa =             tl_Aries( tjca )
-    tlab =             tl_Aries( tjcb )
+    @ajd  =           Date.parse("2000-01-01").jd    
+    tlaa =             tl_Aries( )
+    @ajd    =         @ajd + 1
+    tlab =             tl_Aries()
     dif  = tlab - tlaa
     dr   = dif  + 360.0
-	360 / dr
+    360 / dr
   end
 
   # From angles.rb:<br>
@@ -160,8 +151,8 @@ class Eot
   # needed to get true longitude for low accuracy.  
   def gml_Sun()    
     total = [ 1.0/-19880000.0, 1.0/-152990.0, 1.0/499310.0,
-		 0.0003032028, 36000.76982779, 280.4664567 ]
-    mod_360( total.inject(0.0) {|p, a| p * @ta + a} )
+		 0.0003032028, 36000.76982779, 280.4664567 ] 
+    mod_360(total.inject(0.0) {|p, a| p * @ta + a}) * D2R
   end
   alias_method :geometric_mean_longitude, :gml_Sun
 
@@ -171,15 +162,15 @@ class Eot
   def ha_Sun()
     zenith              = 90.8333
     cosine_zenith       = cos( deg_to_rad( zenith ) )
-    cosine_declination  = cos( deg_to_rad( dec_Sun() ) )
-    sine_declination    = sin( deg_to_rad( dec_Sun() ) )    
+    cosine_declination  = cos( dec_Sun() ) 
+    sine_declination    = sin( dec_Sun() )   
     cosine_latitude     = cos( deg_to_rad( @latitude ) )
     sine_latitude       = sin( deg_to_rad( @latitude ) )
     top                 = cosine_zenith - sine_declination * sine_latitude
     bottom              = cosine_declination * cosine_latitude
     t_cosine = top / bottom 
     t_cosine > 1.0 || t_cosine < -1.0 ? cos = 1.0 : cos = t_cosine
-    rad_to_deg( acos( cos ) ) 
+    acos( cos )  
   end
   alias_method :horizon_angle, :ha_Sun  
  
@@ -188,9 +179,8 @@ class Eot
   # used in equation of time
   # and to get true anomaly. 
   def ma_Sun()
-    time_julian_century()    
-    ade = delta_equinox()[ 2 ] / ASD
-    @ma = mod_360 ade       
+    @ta = ( @ajd - J2000 ) / DJC     
+    @ma = delta_equinox()[ 3 ]       
   end
   alias_method :mean_anomaly, :ma_Sun
   
@@ -210,8 +200,8 @@ class Eot
 #              @ta[ 1 ] *  3.87965833333e-4 +
 #              @ta[ 2 ] * -2.58333333333e-8 +
 #              @ta[ 3 ] *  5.41666666666e-9
-      total = [5.41666666666e-9, -2.58333333333e-8, 3.87965833333e-4, 1.281154833333, 280.460622404583].inject(0.0) {|p, a| p * @ta + a}          
-	  mod_360( angle + total )      
+    total = [5.41666666666e-9, -2.58333333333e-8, 3.87965833333e-4, 1.281154833333, 280.460622404583].inject(0.0) {|p, a| p * @ta + a}          
+    mod_360( angle + total )  * D2R  
   end
   alias_method :mean_longitude_aries, :ml_Aries
   
@@ -219,7 +209,7 @@ class Eot
   # mean obliquity of Earth  
   def mo_Earth()     
     [ -0.0000000434, -0.000000576,  0.00200340, 
-      -0.0001831,   -46.836769, 84381.406 ].inject(0.0) {|p, a| p * @ta + a} / ASD	
+      -0.0001831,   -46.836769, 84381.406 ].inject(0.0) {|p, a| p * @ta + a} * DAS2R
   end
   alias_method :mean_obliquity_of_ecliptic, :mo_Earth
   alias_method :mean_obliquity, :mo_Earth
@@ -230,15 +220,14 @@ class Eot
   # omega is the longitude of the mean ascending node of the lunar orbit 
   # on the ecliptic plane measured from the mean equinox of date. 
   def omega()    
-    delta_equinox()[ 3 ] / ASD      
+    delta_equinox()[ 6 ]       
   end
   
   # From angles.rb:<br>
   # solar right ascension
   def ra_Sun()    
     y0 = sine_al_Sun() * cosine_to_Earth()
-    180.0 +           
-    rad_to_deg( atan2( -y0, -cosine_al_Sun() ) )    
+    180.0 * PI / 180.0 + atan2( -y0, -cosine_al_Sun() )   
   end
   alias_method :right_ascension, :ra_Sun
   
@@ -246,7 +235,7 @@ class Eot
   # sine apparent longitude
   # used in solar declination  
   def sine_al_Sun()
-    sin( deg_to_rad( al_Sun() ) )
+    sin( al_Sun() ) 
   end
   alias_method :sine_apparent_longitude, :sine_al_Sun
   
@@ -254,7 +243,7 @@ class Eot
   # sine true longitude
   # used in solar right ascension 
   def sine_tl_Sun()    
-    sin( deg_to_rad( tl_Sun() ) )
+    sin( tl_Sun() ) 
   end
   alias_method :sine_true_longitude, :sine_tl_Sun
 
@@ -270,8 +259,7 @@ class Eot
   # true longitude of equinox 'first point of aries'
   # considers nutation 
   def tl_Aries()     
-    eq_of_equinox() +
-	    ml_Aries()     
+    eq_of_equinox() + ml_Aries()     
   end
   alias_method :true_longitude_aries, :tl_Aries  
   
@@ -279,18 +267,14 @@ class Eot
   # angle of true longitude sun
   # used in equation of time 
   def tl_Sun()   
-    mod_360( 
-	          gml_Sun() + 
-                    center()
-           )	 
+    gml_Sun() + center() 	 
   end
   alias_method :true_longitude, :tl_Sun
   
   # From angles.rb:<br>
   # true obliquity considers nutation  
   def to_Earth()   
-    delta_epsilon() +
-	mo_Earth()     
+    delta_epsilon() + mo_Earth()     
   end
   alias_method :obliquity_correction, :to_Earth
   alias_method :true_obliquity, :to_Earth

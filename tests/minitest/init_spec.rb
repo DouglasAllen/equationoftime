@@ -23,12 +23,12 @@ describe 'Eot_initialize using today matchers' do
   end
 
   it 'expected matchers returned by Eot_initialize() ?' do    
-    refute_nil Eot_initialize.data
+    # refute_nil Eot_initialize.data
     assert_equal @ajd + 0.5, Eot_initialize.ajd + @df
     assert_equal @date.to_s, Eot_initialize.date.to_s    
     assert_equal @jd, Eot_initialize.jd        
-    assert_equal 0.0, Eot_initialize.latitude
-    assert_equal 0.0, Eot_initialize.longitude
+    assert_equal 51.4769388, Eot_initialize.latitude
+    assert_equal -4.2e-05, Eot_initialize.longitude
     assert_equal @ma, Eot_initialize.ma
     assert_equal @ta, Eot_initialize.ta
   end  

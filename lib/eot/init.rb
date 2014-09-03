@@ -1,6 +1,6 @@
 # init.rb
 
-require 'safe_yaml'
+# require 'safe_yaml'
 
 class Eot    
 
@@ -66,24 +66,24 @@ class Eot
   # internet so that is commented out for now.    
   def initialize(addr=nil)
 
-    file_path     = File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )
-    @data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
+    # file_path     = File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )
+    # @data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
  
     @ajd.nil? ? @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f : @ajd      
     @date.nil? ? @date = DateTime.now.to_time.utc.to_datetime : @date
     @jd.nil? ? @jd  = DateTime.now.to_time.utc.to_datetime.jd.to_f : @jd
     @latitude.nil? ? @latitude = 0.0 : @latitude
     @longitude.nil? ? @longitude = 0.0 : @longitude
-    @ta.nil? ? time_julian_century() : @ta  
+    @ta.nil? ? ( @ajd - J2000 ) / DJC : @ta  
     @ma.nil? ? ma_Sun() : @ma
 
-#    geo = GeoLatLng.new
+    geo = GeoLatLng.new
     @addr = addr
-    #addr.nil? ? geo.addr=(geo.default_int) : geo.addr=addr
+    addr.nil? ? geo.addr=(geo.default_int) : geo.addr=addr
 # uncomment below if you have internet connection
-    #geo.get_coordinates_from_address
-    #@latitude = geo.lat.to_f
-    #@longitude = geo.lng.to_f
+    geo.get_coordinates_from_address
+    @latitude = geo.lat.to_f
+    @longitude = geo.lng.to_f
   end
   
 end

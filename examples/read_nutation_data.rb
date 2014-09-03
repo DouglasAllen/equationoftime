@@ -153,6 +153,7 @@ now = DateTime.now.to_time.utc.to_datetime
 #gmst = eot.ml_Aries() / 15.0 # make angle to time.
 #gast = gmst + eoe
 run = <<EOS
+#{now}
 
 #{now.to_time}
 
@@ -160,17 +161,17 @@ The JD = #{eot.ajd = now.ajd.to_f}
 
 Mean Obliquity of Ecliptic  = #{eot.degrees_to_s(eot.mo_Earth())}
 
-Delta epsilon in arc seconds = #{eot.delta_epsilon() * 3600}
+Delta epsilon in arc seconds = #{eot.delta_epsilon() * Eot::R2D * 3600.0}
 
 True Obliquity of Ecliptic degrees  = #{eot.degrees_to_s(eot.to_Earth())}
 
-Delta psi in arc seconds = #{eot.delta_psi * 3600}
+Delta psi in arc seconds = #{eot.delta_psi * Eot::R2D * 3600}
 
-Equation of equinox in seconds = Delta psi * cos epsilon = #{eot.eq_of_equinox() / 15.0 * 3600}
+Equation of equinox in seconds = Delta psi * cos epsilon = #{eot.eq_of_equinox() * Eot::R2D / 15.0 * 3600}
 
-Greenwich Mean Sidereal Time = #{eot.string_time(eot.ml_Aries() / 15.0)}
+Greenwich Mean Sidereal Time = #{eot.string_time(eot.ml_Aries() * Eot::R2D / 15.0)}
 
-Greenwich Apparent Sideral Time = #{eot.string_time(eot.ml_Aries() / 15.0 + eot.eq_of_equinox() / 15.0)}
+Greenwich Apparent Sideral Time = #{eot.string_time(eot.ml_Aries() * Eot::R2D / 15.0 + eot.eq_of_equinox() * Eot::R2D / 15.0)}
 
 To compare results enter the date and time into http://www.celnav.de/longterm.htm
 

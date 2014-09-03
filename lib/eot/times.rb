@@ -102,6 +102,7 @@ class Eot
   # Julian Century Time is a fractional century
   # Julian Day Number J2000 is subtracted
   # Returns fractional century
+  # Deprecated
   def time_julian_century()
     t1 = ( @ajd - J2000 ) / DJC
     t2 = t1 * t1

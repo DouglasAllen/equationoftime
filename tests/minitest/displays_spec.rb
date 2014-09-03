@@ -13,17 +13,18 @@ Eot_displays = Eot.new
 
 describe 'Eot displays using ajd of 2456885.0' do
 
-  # set ta attribute first as it gets tested anyway but a lot of methods
-  # now rely on @ta so we don't have to keep calling it unless we change
-  # The same goes for @ma.  
+  # set ma attribute first as it gets tested anyway but a lot of methods
+  # now rely on @ma so we don't have to keep calling it unless we change
   # @ajd attribute
+  # The @ta attribute gets set along the way. 
+  
   before(:each) do
-    ajd                    =   2456885.0  
+    ajd               =   2456885.0  
     Eot_displays.ajd  = ajd
+    
     # check date for this ajd when needed.
     Eot_displays.date = Eot_displays.ajd_to_datetime(ajd)
-    # set ta attribute
-    Eot_displays.time_julian_century() 
+     
     # set ma attribute    
     Eot_displays.ma_Sun()    
   end

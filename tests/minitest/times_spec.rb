@@ -23,9 +23,9 @@ describe ' Eot times using ajd of 2456885.0' do
     # check date for this ajd when needed.
     Eot_times.date = Eot_times.ajd_to_datetime(ajd)
     # set ta attribute
-    @ta = Eot_times.time_julian_century() 
+    @ta = Eot_times.ta 
     # set ma attribute    
-    Eot_times.ma_Sun()    
+    # Eot_times.ma_Sun()    
   end
 
   it 'expected   2456885.0 for Eot_times.ajd'do
@@ -40,13 +40,33 @@ describe ' Eot times using ajd of 2456885.0' do
     assert_equal 220.63461047326172, Eot_times.ma
   end
 
-  it 'expected   2456884.7507175854, returned by Eot_times.sunrise_jd() ' do
-    assert_equal 2456884.7507175854, Eot_times.sunrise_jd()	  
+  it 'expected   "2014-08-15T12:00:00+00:00" returned by Eot_times.ajd_to_datetime(Eot_times.ajd).to_s ' do
+    assert_equal "2014-08-15T12:00:00+00:00", Eot_times.ajd_to_datetime(Eot_times.ajd).to_s	  
   end
-
+  
+  it 'expected   -0.003102977954467959, returned by Eot_times.eot_jd() ' do
+    assert_equal -0.003102977954467959, Eot_times.eot_jd()	  
+  end
+  
+  it 'expected   "2014-08-15T12:04:28+00:00", returned by Eot_times.local_noon_dt().to_s ' do
+    assert_equal "2014-08-15T12:04:28+00:00", Eot_times.local_noon_dt().to_s	  
+  end
+  
+  it 'expected   "2014-08-15T12:00:00+00:00", returned by Eot_times.mean_local_noon_dt().to_s ' do
+    assert_equal "2014-08-15T12:00:00+00:00", Eot_times.mean_local_noon_dt().to_s	  
+  end
+  
+  it 'expected   "2014-08-15T06:01:01+00:00", returned by Eot_times.sunrise_dt() ' do
+    assert_equal "2014-08-15T06:01:01+00:00", Eot_times.sunrise_dt().to_s
+  end
+  
   it 'expected   "2014-08-15T18:07:54+00:00", returned by Eot_times.sunset_dt() ' do
     assert_equal "2014-08-15T18:07:54+00:00", Eot_times.sunset_dt().to_s
   end
+  
+  it 'expected   2456884.7507175854, returned by Eot_times.sunrise_jd() ' do
+    assert_equal 2456884.7507175854, Eot_times.sunrise_jd()
+  end  
 
   it 'expected   2456885.25548837, returned by Eot_times.sunset_jd() ' do
     assert_equal 2456885.25548837, Eot_times.sunset_jd()	  
@@ -72,7 +92,7 @@ describe ' Eot times using ajd of 2456885.0' do
 
 end  
   
-describe 'Eot times for ajd 2455055.0 a non default value' do  
+describe 'Eot times using ajd of 2455055.0' do  
   
   # set ta attribute first as it gets tested anyway but a lot of methods
   # now rely on @ta so we don't have to keep calling it unless we change
@@ -84,9 +104,9 @@ describe 'Eot times for ajd 2455055.0 a non default value' do
     # check date for this ajd when needed.
     Eot_times.date = Eot_times.ajd_to_datetime(ajd)
     # set ta attribute
-    @ta =  Eot_times.time_julian_century() 
+    @ta =  Eot_times.ta 
     # set ma attribute    
-    Eot_times.ma_Sun()    
+    # Eot_times.ma_Sun()    
   end
   
   it 'expected   2455055.0, returned by Eot_times.' do

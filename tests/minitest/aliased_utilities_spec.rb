@@ -15,15 +15,16 @@ describe 'Eot_aliased_utilities defaults' do
 
   # set ta attribute first as it gets tested anyway but a lot of methods
   # now rely on @ta so we don't have to keep calling it unless we change
-  # The same goes for @ma.  
   # @ajd attribute
+  # The @ta attribute gets set along the way.  
+  
   before(:each) do
     ajd                    =   2456885.0  
     Eot_aliased_utilities.ajd  = ajd
     # check date for this ajd when needed.
+    
     Eot_aliased_utilities.date = Eot_aliased_utilities.ajd_to_datetime(ajd)
-    # set ta attribute
-    Eot_aliased_utilities.time_julian_century() 
+    
     # set ma attribute    
     Eot_aliased_utilities.ma_Sun()    
   end
@@ -32,8 +33,8 @@ describe 'Eot_aliased_utilities defaults' do
     assert_equal 2456885.0, Eot_aliased_utilities.ajd    
   end 
 
-  it 'expected   220.63461047326172 for Eot_aliased_utilities.ma'do
-    assert_equal 220.63461047326172, Eot_aliased_utilities.ma
+  it 'expected   220.63461047270602 for Eot_aliased_utilities.ma'do
+    assert_equal 220.63461047270602, Eot_aliased_utilities.ma
   end
 
   it 'expected   0.0 returned by Eot_aliased_utilities.degrees_to_radians() ' do

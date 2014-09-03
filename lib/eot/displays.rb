@@ -4,10 +4,10 @@ class Eot
 
   # From displays.rb<br>
   # String formatter for d:m:s display 
-  def degrees_to_s( degrees = 0.0 )
-    degrees.nil? ? degrees = 0.0 : degrees
-    degrees < 0 ? sign_string      = "-" : sign_string = "+"    
-                  absolute_degrees = degrees.abs
+  def degrees_to_s( radians = 0.0 )
+    radians.nil? ? radians = 0.0 : radians
+    radians < 0 ? sign_string      = "-" : sign_string = "+"    
+                  absolute_degrees = radians.abs * R2D
           absolute_degrees_integer = Integer( absolute_degrees )
           absolute_decimal_minutes = 60.0 * 
                                      (

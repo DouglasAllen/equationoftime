@@ -22,9 +22,9 @@ describe 'Eot_aliased_times defaults' do
     # check date for this ajd when needed.
     Eot_aliased_times.date = Eot_aliased_times.ajd_to_datetime(ajd)
     # set ta attribute
-    @ta = Eot_aliased_times.time_julian_century() 
+    @ta = Eot_aliased_times.ta 
     # set ma attribute    
-    Eot_aliased_times.ma_Sun()    
+    # Eot_aliased_times.ma_Sun()    
   end
 
   it 'expected   2456885.0 for Eot_aliased_times.ajd'do

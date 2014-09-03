@@ -30,7 +30,7 @@ class Eot
   # 2Pi = 6.283185307179586476925287 
   D2PI        = 6.283185307179586476925287  
 
-  # Arcseconds to radians = 4.848136811095359935899141e-6 
+  # Degrees arc seconds to radians = 4.848136811095359935899141e-6 
   DAS2R       = 4.848136811095359935899141e-6
 
   # Astronomical unit (m) = 149597870e3
@@ -55,7 +55,7 @@ class Eot
   DC = DAYSEC / AULT
   
   # Degrees to radians = 1.745329251994329576923691e-2 
-  DD2R        = 1.745329251994329576923691e-2
+  D2R        = 1.745329251994329576923691e-2
   
   # dint(A) - truncate to nearest whole number towards zero (double) 
   # dint(A) = ((A)<0.0?ceil(A):floor(A))
@@ -139,6 +139,9 @@ class Eot
 
   # pi from Math module = Math::PI
   PI  
+  
+  # radians to degrees = 180.0 / PI   
+  R2D         = 180.0 / PI
   
   # arc seconds radians to degrees = 180.0 / PI * ARCSEC    
   RTD         = 180.0 / PI * ARCSEC
