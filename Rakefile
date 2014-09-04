@@ -1,3 +1,42 @@
+require "bundler/gem_tasks"
+
+require 'thor'
+require 'bundler'
+require 'rbconfig'
+
+module Bundler
+  class GemHelper
+    def self.install_tasks(opts = nil)
+      
+      # Determine the rakefile's location, don't use
+      # Rake.application.rakefile_location since it's buggy
+     # dir = File.dirname(Rake.application.rakefile_location)
+      
+      rakefile_loc = nil
+      begin
+        fail
+      rescue RuntimeError => ex
+        on_win = RbConfig::CONFIG["host_os"] =~ /mswin|mingw/
+        ex.backtrace.each do |frame|
+          if on_win
+            # Typically, on Windows Rake.application.rakefile is lowercase
+            # whereas the real file might not be, luckily case doesn't matter
+            frame = frame.downcase
+          end
+          m = /^((:?.+\/)#{Rake.application.rakefile}):\d+(:?:.+)?$/.match(frame)
+          if not m.nil?
+            rakefile_loc = m[1]
+          end
+        end
+      end
+
+      dir = File.dirname(rakefile_loc)
+      self.new(dir, opts && opts[:name]).install
+    end
+  end
+end
+
+# require "bundler/install_tasks"
 
 require 'rspec/core/rake_task'
 
@@ -17,8 +56,6 @@ Rake::TestTask.new(:test) do |t|
     t.verbose = true
     t.options
 end
-
-require "bundler/gem_tasks"
 
 require "rake/win32"
 
@@ -73,7 +110,7 @@ Rake::RDocTask.new(:rdox) do |rd|
 
   rd.rdoc_dir = 'rdocs'
 
-  rd.rdoc_files.include 'lib/**/*.rb', 'README.md', 'README.txt', 'wiki.md'
+  rd.rdoc_files.include 'lib/**/*.rb', 'README.md', 'wiki.md'
  
   rd.options << '--line-numbers'
   

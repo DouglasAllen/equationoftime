@@ -1,13 +1,19 @@
 # nutation_spec.rb
 #
-# uncomment below for minitest
+# comment out next two lines and uncomment below for rpec tests.
 gem 'minitest'
 require 'minitest/autorun'
 # require_relative '../spec_config'
-lib = File.expand_path('../../../lib', __FILE__)
-# puts "Loading gem from #{lib}/eot.rb"
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eot'
+
+
+begin
+  require 'eot'
+rescue
+  lib = File.expand_path('../../../lib', __FILE__)
+  # puts "Loading gem from #{lib}/eot.rb"
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot'
+end
 
 Eot_nutation = Eot.new
 
@@ -16,22 +22,23 @@ describe 'Eot_nutation using ajd of 2456885.0' do
   before(:each) do
     ajd           = 2456885.0
     Eot_nutation.ajd = ajd
-    Eot_nutation.date =  Eot_nutation.ajd_to_datetime(ajd)
-#    Eot_nutation.time_julian_century()    
-    Eot_nutation.ma_Sun()    
+    Eot_nutation.date =  Eot_nutation.ajd_to_datetime(ajd)   
   end 
 
-  it 'expected   2456885.0 for Eot_nutation.ajd' do
+  it 'expected   2456885.0 from Eot_nutation.ajd' do
     assert_equal 2456885.0, Eot_nutation.ajd    
   end  
   
-  it 'expected   "2014-08-15T12:00:00+00:00" for Eot_nutation.date.to_s' do
+  it 'expected   "2014-08-15T12:00:00+00:00" from Eot_nutation.date.to_s' do
     assert_equal "2014-08-15T12:00:00+00:00", Eot_nutation.date.to_s    
-  end 
-  #~ assert_equal 220.63461047326172, Eot_nutation.ma
+  end
+
+  it 'expected   220.63461047270653 from Eot_nutation.ma' do 
+    assert_equal 220.63461047270653, Eot_nutation.ma * Eot::R2D
+  end
   
-  it 'expected   [-0.0023092276336883436, 0.002198085630969801, 20234284.597703744, -567822.6181343051, 251647293.4339093, 254656808.2367614, 235427221.56565282] from Eot_nutation.delta_equinox()' do
-    assert_equal [-0.0023092276336883436, 0.002198085630969801, 20234284.597703744, -567822.6181343051, 251647293.4339093, 254656808.2367614, 235427221.56565282], Eot_nutation.delta_equinox()    
+  it 'expected   [-4.069792718159396e-05, 3.7512382184300296e-05, 3.8508003966038915, -2.7528817371494685] from Eot_nutation.delta_equinox()' do
+    assert_equal [-4.069792718159396e-05, 3.7512382184300296e-05, 3.8508003966038915, -2.7528817371494685], Eot_nutation.delta_equinox()    
   end
 
 end

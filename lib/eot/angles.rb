@@ -1,7 +1,7 @@
 # angles.rb
 
 class Eot
-
+  include Math
   # From angles.rb:<br> 
   # Apparent solar longitude = true longitude - aberation   
   def al_Sun()    
@@ -158,14 +158,14 @@ class Eot
 
   # From angles.rb:<br>
   # horizon angle for provided geo coordinates
-  # used for angles from transit to horizon  
+  # used for angles from transit to horizons  
   def ha_Sun()
-    zenith              = 90.8333
-    cosine_zenith       = cos( deg_to_rad( zenith ) )
+    zenith              = 90.8333 * D2R
+    cosine_zenith       = cos( zenith ) 
     cosine_declination  = cos( dec_Sun() ) 
     sine_declination    = sin( dec_Sun() )   
-    cosine_latitude     = cos( deg_to_rad( @latitude ) )
-    sine_latitude       = sin( deg_to_rad( @latitude ) )
+    cosine_latitude     = cos( @latitude * D2R )
+    sine_latitude       = sin( @latitude * D2R )
     top                 = cosine_zenith - sine_declination * sine_latitude
     bottom              = cosine_declination * cosine_latitude
     t_cosine = top / bottom 
@@ -179,8 +179,8 @@ class Eot
   # used in equation of time
   # and to get true anomaly. 
   def ma_Sun()
-    @ta = ( @ajd - J2000 ) / DJC     
-    @ma = delta_equinox()[ 3 ]       
+    @ta = ( @ajd - DJ00 ) / DJC     
+    @ma = delta_equinox()[ 2 ]       
   end
   alias_method :mean_anomaly, :ma_Sun
   
@@ -220,7 +220,7 @@ class Eot
   # omega is the longitude of the mean ascending node of the lunar orbit 
   # on the ecliptic plane measured from the mean equinox of date. 
   def omega()    
-    delta_equinox()[ 6 ]       
+    delta_equinox()[ 3 ]       
   end
   
   # From angles.rb:<br>

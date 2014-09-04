@@ -1,27 +1,27 @@
 # nutation.rb
 
-#require 'mutex_m'
 require 'celes'
 
 class Eot    
  
   # From nutation.rb<br>
-  # nutation data terms are used here.
-  # arc seconds are used for these terms
-  # see http://aa.usno.navy.mil/publications/docs/Circular_179.pdf page 46 (5.19) 
+  # Returns array with [ delta_eps, delta_psi, ma_sun, omega]
+  # celes gem is used here now for performance. It is a Ruby wrapper for
+  # see http://www.iausofa.org/
+  # also see http://aa.usno.navy.mil/ Circular 179 nutation data page 46 (5.19) 
   def delta_equinox()      
     # Mean anomaly of the Moon. 
     # ma_moon = [-0.00024470, 0.051635, 31.8792, 1717915923.2178, 485868.249036].inject(0.0) {|p, a| p * @ta + a}		
-    ma_moon = Celes.fal03(@ta)
+    # ma_moon = Celes.fal03(@ta)
     # Mean anomaly of the Sun.
     # ma_sun  = [-0.00001149, 0.000136, -0.5532, 129596581.0481, 1287104.793048].inject(0.0) {|p, a| p * @ta + a}	
     ma_sun  = Celes.falp03(@ta)
     # mean longitude of the Moon minus mean longitude of the ascending node.               
     # md_moon = [0.00000417, -0.001037, -12.7512, 1739527262.8478, 335779.526232].inject(0.0) {|p, a| p * @ta + a}
-    md_moon = Celes.faf03(@ta)
+    # md_moon = Celes.faf03(@ta)
     # Mean elongation of the Moon from the Sun.        
     # me_moon = [-0.00003169, 0.006593, -6.3706, 1602961601.2090, 1072260.70369].inject(0.0) {|p, a| p * @ta + a} 
-    me_moon = Celes.fad03(@ta)
+    # me_moon = Celes.fad03(@ta)
     # Mean longitude of the ascending node of the Moon.       
     # omega   = [-0.00005939, 0.007702, 7.4722, -6962890.5431, 450160.398036].inject(0.0) {|p, a| p * @ta + a}            
     omega   = Celes.faom03(@ta)
@@ -65,7 +65,7 @@ class Eot
     # delta_eps = delta_eps / 1000.0 / 3600.0
     # delta_psi = delta_psi  / 1000.0 / 3600.0
 
-    [ delta_eps, delta_psi, ma_moon, ma_sun, md_moon, me_moon, omega]
+    [ delta_eps, delta_psi, ma_sun, omega]
     # [ nil, nil, ma_moon, ma_sun, md_moon, me_moon, omega]
   end
 

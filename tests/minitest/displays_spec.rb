@@ -1,32 +1,30 @@
 # displays_spec.rb
 #
-# uncomment below for minitest
+# comment out next two lines and uncomment below for rpec tests.
 gem 'minitest'
 require 'minitest/autorun'
 # require_relative '../spec_config'
-lib = File.expand_path('../../../lib', __FILE__)
-# puts "Loading gem from #{lib}/eot.rb"
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eot'
+
+
+begin
+  require 'eot'
+rescue
+  lib = File.expand_path('../../../lib', __FILE__)
+  # puts "Loading gem from #{lib}/eot.rb"
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot'
+end
 
 Eot_displays = Eot.new
 
 describe 'Eot displays using ajd of 2456885.0' do
-
-  # set ma attribute first as it gets tested anyway but a lot of methods
-  # now rely on @ma so we don't have to keep calling it unless we change
-  # @ajd attribute
-  # The @ta attribute gets set along the way. 
   
   before(:each) do
     ajd               =   2456885.0  
     Eot_displays.ajd  = ajd
     
     # check date for this ajd when needed.
-    Eot_displays.date = Eot_displays.ajd_to_datetime(ajd)
-     
-    # set ma attribute    
-    Eot_displays.ma_Sun()    
+    Eot_displays.date = Eot_displays.ajd_to_datetime(ajd)  
   end
 
   it 'expected   2456885.0 for Eot_displays.ajd'do
@@ -37,8 +35,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal "2014-08-15T12:00:00+00:00", Eot_displays.date.to_s
   end
   
-  it 'expected   220.63461047326172, returned by Eot_displays.' do
-    assert_equal 220.63461047326172, Eot_displays.ma
+  it 'expected   220.63461047270653, returned by Eot_displays.' do
+    assert_equal 220.63461047270653, Eot_displays.ma * Eot::R2D
   end   
 
   it 'expected   "+000:00:00.000" returned by Eot_displays.degrees_to_s() ' do
@@ -57,8 +55,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal "12:00:00", Eot_displays.string_day_fraction_to_time(0)	
   end
   
-  it 'expected   "+013:58:51.568" returned by Eot_displays.string_dec_Sun() ' do
-    assert_equal "+013:58:51.568", Eot_displays.string_dec_Sun()
+  it 'expected   "+013:58:51.521" returned by Eot_displays.string_dec_Sun() ' do
+    assert_equal "+013:58:51.521", Eot_displays.string_dec_Sun()
   end
   
   it 'expected   "-04m, 28.9s" returned by Eot_displays.string_eot() ' do
@@ -71,7 +69,7 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal "2000-01-01", Eot_displays.string_jd_to_date(0)
   end
   
-   it 'expected   "2014-08-15" returned by Eot_displays.jd_to_date_string(Eot_displays.ajd)? ' do
+   it 'expected  "2014-08-15" returned by Eot_displays.jd_to_date_string(Eot_displays.ajd)? ' do
     assert_equal "2014-08-15", Eot_displays.jd_to_date_string(Eot_displays.ajd)
   end
   
@@ -79,8 +77,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal "+220:38:04.597", Eot_displays.string_ma_Sun()	
   end
   
-  it 'expected   "+144:56:36.587" returned by Eot_displays.string_ra_Sun() ' do
-    assert_equal "+144:56:36.587", Eot_displays.string_ra_Sun()
+  it 'expected   "+144:56:36.571" returned by Eot_displays.string_ra_Sun() ' do
+    assert_equal "+144:56:36.571", Eot_displays.string_ra_Sun()
   end
   
   it 'expected   "+219:24:27.797" returned by Eot_displays.string_ta_Sun() ' do
@@ -101,8 +99,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal "+142:35:47.318", Eot_displays.string_tl_Sun()
   end
   
-  it 'expected   "+023:26:06.245" returned by Eot_displays.string_to_Earth() ' do
-    assert_equal "+023:26:06.245", Eot_displays.string_to_Earth()
+  it 'expected   "+023:26:06.163" returned by Eot_displays.string_to_Earth() ' do
+    assert_equal "+023:26:06.163", Eot_displays.string_to_Earth()
   end
   
 end

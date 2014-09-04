@@ -1,24 +1,20 @@
 # init.rb
 
-# require 'safe_yaml'
-
 class Eot    
 
   # From init.rb:<br>
-  # address used for GeoLatLng.addr when used.(commented out) 
+  # address used for GeoLatLng.addr
   attr_accessor :addr
   
   # From init.rb:<br>
-  # Astronomical Julian Day Number is an instance of Date class.
-  # When new Equation of Time class is initialized @ajd = jd = today DateTime.jd
-  # Used for getting the equation of time now if it is set for that. There is 
-  # always a slight delay in the computation though.
+  # Astronomical Julian Day Number is an instance of DateTime class.
+  # When new Equation of Time class is initialized @ajd = DateTime.jd
   attr_accessor :ajd
   
-  # So when we change the ajd from the default ma will get set anew too.
-  # Setting ma will set ta with time_julian_century() also.
+  # Method for change of @ajd from the default so @ma will get set anew.
+  # Calling ma_Sun method will set @ta so be sure to not set @ma directly.
   def ajd=(ajd)
-    @ajd = ajd
+    @ajd = ajd.to_f
     @ma = ma_Sun()
   end
 
@@ -26,61 +22,64 @@ class Eot
   # Nutation Data is an instance of Array class.
   # @data = nutation_table5_3a.yaml 
   # YAML File loaded when new Eot class is initialized.
-  attr_reader :data  
+  #attr_reader :data  
 
   # From init.rb:<br>
-  # @date is an instance of Date class.  
-  # When new Eot class is initialized @date = today  
+  # @date is an instance of DateTime class.  
+  # When new Eot class is initialized @date = now UTC  
   attr_accessor :date
 
   # From init.rb:<br>
-  # Julian Day Number is an instance of Date class.
-  # When new Eot class is initialized @jd = jd today  
+  # Julian Day Number is an instance of DateTime class.
+  # When new Eot class is initialized @jd = DateTime.jd  
   attr_accessor :jd
 
   # From init.rb:<br>
   # Latitude input is an instance of Float class.
   # When new Eot class is initialized @latitude = 0.0
-  # May use GeoLatLng class to set it also but is commented out or will fail if no 
-  # internet connection is present.  
+  # May use GeoLatLng class to set it also but please comment that out  
+  # if no internet connection is present via proxies or firewalls :D  
   attr_accessor :latitude
   
   # From init.rb:<br>
   # Longitude input is an instance of Float class.
   # When new Eot class is initialized @longitude = 0.0
-  # May use GeoLatLng class to set it also but is commented out or will fail if no 
-  # internet connection is present.  
+  # May use GeoLatLng class to set it also but please comment that out 
+  # if no internet connection is present via proxies or firewalls :D   
   attr_accessor :longitude
 
   # From init.rb:<br>
-  # Mean Anomaly gets called a lot so attribute accessor saves time 
+  # Mean Anomaly gets called a lot so class attribute saves it. 
   attr_accessor :ma
 
   # From init.rb:<br>
-  # JCT array gets called a lot so attribute accessor saves time 
+  # JCT gets called a lot so class attribute it.
+  # Setting @ajd or @ma will set this  
   attr_accessor :ta
       
   # From init.rb:<br>
-  # Initialize loads nutation data with safe_yaml and is frozen, atrributes are set.
+  # Initialize to set attributes 
   # You may use GeoLatLng to set up @latitude and @longitude but you need to have
-  # internet so that is commented out for now.    
+  # internet so if not please comment it out for now.    
   def initialize(addr=nil)
 
     # file_path     = File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )
     # @data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
  
-    @ajd.nil? ? @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f : @ajd      
-    @date.nil? ? @date = DateTime.now.to_time.utc.to_datetime : @date
-    @jd.nil? ? @jd  = DateTime.now.to_time.utc.to_datetime.jd.to_f : @jd
-    @latitude.nil? ? @latitude = 0.0 : @latitude
-    @longitude.nil? ? @longitude = 0.0 : @longitude
-    @ta.nil? ? ( @ajd - J2000 ) / DJC : @ta  
-    @ma.nil? ? ma_Sun() : @ma
+    @ajd.nil?       ? @ajd       = DateTime.now.to_time.utc.to_datetime.jd.to_f : @ajd      
+    # @date.nil?      ? @date      = DateTime.now.to_time.utc.to_datetime         : @date
+    # @jd.nil?        ? @jd        = DateTime.now.to_time.utc.to_datetime.jd.to_f : @jd
+    @latitude.nil?  ? @latitude  = 0.0                                          : @latitude
+    @longitude.nil? ? @longitude = 0.0                                          : @longitude
+      
+    @ma.nil?        ? ma_Sun()                                                  : @ma
+    # normally setting @ma will set @ta
+    @ta.nil?        ? ( @ajd - DJ00 ) / DJC                                    : @ta
 
+    # comment out below if you do not have internet connection
     geo = GeoLatLng.new
     @addr = addr
-    addr.nil? ? geo.addr=(geo.default_int) : geo.addr=addr
-# uncomment below if you have internet connection
+    @addr.nil? ? geo.addr=(geo.default_int) : geo.addr=@addr    
     geo.get_coordinates_from_address
     @latitude = geo.lat.to_f
     @longitude = geo.lng.to_f

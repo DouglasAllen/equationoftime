@@ -1,13 +1,19 @@
 # geo_spec.rb
 #
-# uncomment below for minitest
+# comment out next two lines and uncomment below for rpec tests.
 gem 'minitest'
 require 'minitest/autorun'
 # require_relative '../spec_config'
-lib = File.expand_path('../../../lib', __FILE__)
-# puts "Loading gem from #{lib}/eot.rb"
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eot'
+
+
+begin
+  require 'eot'
+rescue
+  lib = File.expand_path('../../../lib', __FILE__)
+  # puts "Loading gem from #{lib}/eot.rb"
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot'
+end
 
 Geo = GeoLatLng.new
 

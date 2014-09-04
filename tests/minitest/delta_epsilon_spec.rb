@@ -1,36 +1,38 @@
-# uncomment below for minitest
+# delta_epsilon_spec.rb
+#
+# comment out next two lines and uncomment below for rpec tests.
 gem 'minitest'
 require 'minitest/autorun'
 # require_relative '../spec_config'
 
-lib = File.expand_path('../../../lib', __FILE__)
-# puts "Loading gem from #{lib}/eot.rb"
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eot'
+
+begin
+  require 'eot'
+rescue
+  lib = File.expand_path('../../../lib', __FILE__)
+  # puts "Loading gem from #{lib}/eot.rb"
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot'
+end
 
 Eot_first = Eot.new
 
-describe 'Eot_first default, nil, 0' do
-
-  # set ma attribute first as it gets tested anyway but a lot of methods
-  # now rely on @ma so we don't have to keep calling it unless we change 
-  # @ajd attribute. @ta gets set along the way too. 
+describe 'set ajd to 2456885.0' do
   
   before(:each) do
     ajd           = 2456885.0
-    Eot_first.ajd = ajd
-    Eot_first.ma_Sun()    
+    Eot_first.ajd = ajd       
   end
 
   it 'expected   2456885.0 for Eot_first.ajd' do
     assert_equal 2456885.0, Eot_first.ajd
   end
   
-  it 'expected   220.63461047270602 for Eot_first.ma' do
-    assert_equal 220.63461047270602, Eot_first.ma
+  it 'expected   220.63461047270653 for Eot_first.ma' do
+    assert_equal 220.63461047270653, Eot_first.ma * Eot::R2D
   end
   
-  it 'expected   -0.002309227633688354 returned by delta_epsilon()' do
-    assert_equal -0.002309227633688354, Eot_first.delta_epsilon()
+  it 'expected   -0.0023318194624360874 returned by delta_epsilon()' do
+    assert_equal -0.0023318194624360874, Eot_first.delta_epsilon() * Eot::R2D
   end
 end

@@ -2,25 +2,24 @@ Wiki 1:
 
      $ irb --simple-prompt
 
-     require 'eot'
-     # nutation data loads and data flys by on the irb console unless you put something after it.
-     eot = Eot.new(); "Say hello to the new Eot" 
+     require 'eot'     
+     eot = Eot.new()
      loop do
        puts "#{Time.now} #{eot.show_minutes(eot.now)}"
-       sleep 11  # It would be neet to get the slope of the curve to adjust this accordingly for the milisecond change.
+       sleep 11  
      end
 
 Wiki 2:
 
      latitude,  longitude, date = 41.9474, -88.74467, "2013-12-25"
-     require 'eot';eot = Eot.new(); "Say hello to  the new Eot"
+     require 'eot';eot = Eot.new()
      eot.latitude = latitude; eot.longitude = longitude; eot.date = date
      eot.sunrise_dt().to_time
      eot.sunset_dt().to_time  
 
 Wiki 3:
 
-     require 'eot';eot = Eot.new(); "Say hello to  the new Eot"
+     require 'eot';eot = Eot.new()
      loop do
        eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd
        puts eot.string_time(eot.tl_Aries(eot.time_julian_century(eot.ajd)) / 15.0)
@@ -38,9 +37,8 @@ Wiki 4:
 
 Wiki 5:
 
-     require 'date'; latitude, longitude, date = 41.9474, -88.74467, Date.parse("2014-3-20")
-     require 'eot'; eot = Eot.new(); "Say hello to  the new Eot"
-     eot.longitude = longitude; eot.latitude = latitude; eot.ajd = date.jd
+     require 'date'; DateTime.jd
+     require 'eot'; eot = Eot.new(); eot.ajd = DateTime.jd.to_f
      DateTime.jd(eot.sunrise_jd + 0.5)
      DateTime.jd(eot.sunset_jd + 0.5)
   

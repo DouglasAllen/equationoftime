@@ -1,32 +1,31 @@
 # aliased_displays_spec.rb
 #
-# uncomment below for minitest
+# comment out next two lines and uncomment below for rpec tests.
 gem 'minitest'
 require 'minitest/autorun'
 # require_relative '../spec_config'
-lib = File.expand_path('../../../lib', __FILE__)
-# puts "Loading gem from #{lib}/eot.rb"
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eot'
+
+
+begin
+  require 'eot'
+rescue
+  lib = File.expand_path('../../../lib', __FILE__)
+  # puts "Loading gem from #{lib}/eot.rb"
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot'
+end
 
 Eot_aliased_displays = Eot.new
 
 describe 'Eot_aliased_displays using ajd of 2456885.0' do
 
-  # set ta attribute first as it gets tested anyway but a lot of methods
-  # now rely on @ta so we don't have to keep calling it unless we change
-  # @ajd attribute.
-  # The @ta attribute gets set along the way.  
-  
   before(:each) do
     ajd                       =   2456885.0  
     Eot_aliased_displays.ajd  = ajd
     
     # check date for this ajd when needed.
     Eot_aliased_displays.date = Eot_aliased_displays.ajd_to_datetime(ajd)
-    
-    # set ma attribute    
-    Eot_aliased_displays.ma_Sun()    
+      
   end
 
   it 'expected  2456885.0 , returned by Eot_aliased_displays.' do
@@ -37,16 +36,16 @@ describe 'Eot_aliased_displays using ajd of 2456885.0' do
     assert_equal "2014-08-15T12:00:00+00:00", Eot_aliased_displays.date.to_s
   end
   
-  it 'expected   220.63461047270602, returned by Eot_aliased_displays.' do
-    assert_equal 220.63461047270602, Eot_aliased_displays.ma
+  it 'expected   220.63461047270653, returned by Eot_aliased_displays.' do
+    assert_equal 220.63461047270653, Eot_aliased_displays.ma * Eot::R2D
   end   
   
   it 'expected   "+142:35:33.356" returned by Eot_aliased_displays.apparent_longitude_string()? ' do
     assert_equal "+142:35:33.356", Eot_aliased_displays.apparent_longitude_string()
   end  
   
-  it 'expected   "+013:58:51.568" returned by Eot_aliased_displays.declination_string()? ' do
-    assert_equal "+013:58:51.568", Eot_aliased_displays.declination_string()
+  it 'expected   "+013:58:51.521" returned by Eot_aliased_displays.declination_string()? ' do
+    assert_equal "+013:58:51.521", Eot_aliased_displays.declination_string()
   end
   
   it 'expected   "-04m, 28.9s" returned by Eot_aliased_displays.display_equation_of_time()? ' do
@@ -83,8 +82,8 @@ describe 'Eot_aliased_displays using ajd of 2456885.0' do
     assert_equal "+220:38:04.597", Eot_aliased_displays.mean_anomaly_string()
   end
   
-  it 'expected   "+144:56:36.587" returned by Eot_aliased_displays.right_ascension_string()? ' do
-    assert_equal "+144:56:36.587", Eot_aliased_displays.right_ascension_string()  
+  it 'expected   "+144:56:36.571" returned by Eot_aliased_displays.right_ascension_string()? ' do
+    assert_equal "+144:56:36.571", Eot_aliased_displays.right_ascension_string()  
   end
   
   it 'expected   "+219:24:27.797" returned by Eot_aliased_displays.true_anomaly_string()? ' do
@@ -95,8 +94,8 @@ describe 'Eot_aliased_displays using ajd of 2456885.0' do
     assert_equal "+142:35:47.318", Eot_aliased_displays.true_longitude_string() 
   end
   
-  it 'expected   "+023:26:06.245" returned by Eot_aliased_displays.true_obliquity_string()? ' do
-    assert_equal "+023:26:06.245", Eot_aliased_displays.true_obliquity_string() 
+  it 'expected   "+023:26:06.163" returned by Eot_aliased_displays.true_obliquity_string()? ' do
+    assert_equal "+023:26:06.163", Eot_aliased_displays.true_obliquity_string() 
   end
   
 end

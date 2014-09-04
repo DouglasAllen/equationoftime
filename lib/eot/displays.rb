@@ -14,16 +14,19 @@ class Eot
                                       absolute_degrees - 
                                       absolute_degrees_integer
                                      )
+                                     
           absolute_minutes_integer = Integer( absolute_decimal_minutes )
-          absolute_decimal_seconds = bd( 60.0 * 
-                                        (
-                                         absolute_decimal_minutes - 
-                                         absolute_minutes_integer
-                                        )
-                                       )
+          
+          absolute_decimal_seconds = 60.0 * 
+                                     (
+                                      absolute_decimal_minutes - 
+                                      absolute_minutes_integer
+                                      )
+                                      
           absolute_seconds_integer = Integer( absolute_decimal_seconds )
+          
     absolute_milli_seconds_integer = Integer(1000.0 *
-	                                         (
+	                                           (  
                                               absolute_decimal_seconds - 
                                               absolute_seconds_integer
                                              )
@@ -129,7 +132,7 @@ class Eot
   
   # From displays.rb<br>
   # String format conversion of jd to date
-  def string_jd_to_date( jd = J2000 )
+  def string_jd_to_date( jd = DJ00 )
     jd = check_jd_zero( jd )
     Date.jd( jd ).to_s
   end 
@@ -168,13 +171,13 @@ class Eot
       intsecs = Integer( seconds )
       decsecs = Integer(( seconds - intsecs ).round( 3 ) * 1000.0 )
     else
-      decimal = dt % DAY_HOURS
-      hours = Integer( decimal )
-      mindecimal = bd( 60.0 * ( decimal - hours )) * 1.0
-      minutes = Integer( mindecimal )
-      seconds = bd( 60.0 * ( mindecimal - minutes )) * 1.0    
-      intsecs = Integer( seconds )
-      decsecs = Integer(( seconds - intsecs ).round( 3 ) * 1000.0 )
+      decimal    = dt % DAY_HOURS
+      hours      = Integer( decimal )
+      mindecimal = 60.0 * ( decimal - hours )
+      minutes    = Integer( mindecimal )
+      seconds    = 60.0 * ( mindecimal - minutes )    
+      intsecs    = Integer( seconds )
+      decsecs    = Integer(( seconds - intsecs ).round( 3 ) * 1000.0 )
     end
     
     "%02d" % hours   +

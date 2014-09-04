@@ -1,4 +1,5 @@
-# version.rb
+
+## version.rb
 
 class Eot
   # From version.rb<br>
