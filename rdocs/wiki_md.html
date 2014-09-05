@@ -77,7 +77,7 @@
 
 <pre class="ruby"> $ <span class="ruby-identifier">irb</span> <span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-identifier">simple</span><span class="ruby-operator">-</span><span class="ruby-identifier">prompt</span>
 
- <span class="ruby-identifier">require</span> <span class="ruby-string">'eot'</span>     
+ <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;eot&#39;</span>     
  <span class="ruby-identifier">eot</span> = <span class="ruby-constant">Eot</span>.<span class="ruby-identifier">new</span>()
  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{Time.now} #{eot.show_minutes(eot.now)}&quot;</span>
@@ -88,7 +88,7 @@
 <p>Wiki 2:</p>
 
 <pre class="ruby"> <span class="ruby-identifier">latitude</span>,  <span class="ruby-identifier">longitude</span>, <span class="ruby-identifier">date</span> = <span class="ruby-value">41.9474</span>, <span class="ruby-value">-88.74467</span>, <span class="ruby-string">&quot;2013-12-25&quot;</span>
- <span class="ruby-identifier">require</span> <span class="ruby-string">'eot'</span>;<span class="ruby-identifier">eot</span> = <span class="ruby-constant">Eot</span>.<span class="ruby-identifier">new</span>()
+ <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;eot&#39;</span>;<span class="ruby-identifier">eot</span> = <span class="ruby-constant">Eot</span>.<span class="ruby-identifier">new</span>()
  <span class="ruby-identifier">eot</span>.<span class="ruby-identifier">latitude</span> = <span class="ruby-identifier">latitude</span>; <span class="ruby-identifier">eot</span>.<span class="ruby-identifier">longitude</span> = <span class="ruby-identifier">longitude</span>; <span class="ruby-identifier">eot</span>.<span class="ruby-identifier">date</span> = <span class="ruby-identifier">date</span>
  <span class="ruby-identifier">eot</span>.<span class="ruby-identifier">sunrise_dt</span>().<span class="ruby-identifier">to_time</span>
  <span class="ruby-identifier">eot</span>.<span class="ruby-identifier">sunset_dt</span>().<span class="ruby-identifier">to_time</span>
@@ -96,7 +96,7 @@
 
 <p>Wiki 3:</p>
 
-<pre class="ruby"> <span class="ruby-identifier">require</span> <span class="ruby-string">'eot'</span>;<span class="ruby-identifier">eot</span> = <span class="ruby-constant">Eot</span>.<span class="ruby-identifier">new</span>()
+<pre class="ruby"> <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;eot&#39;</span>;<span class="ruby-identifier">eot</span> = <span class="ruby-constant">Eot</span>.<span class="ruby-identifier">new</span>()
  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
    <span class="ruby-identifier">eot</span>.<span class="ruby-identifier">ajd</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_datetime</span>.<span class="ruby-identifier">ajd</span>
    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">eot</span>.<span class="ruby-identifier">string_time</span>(<span class="ruby-identifier">eot</span>.<span class="ruby-identifier">tl_Aries</span>(<span class="ruby-identifier">eot</span>.<span class="ruby-identifier">time_julian_century</span>(<span class="ruby-identifier">eot</span>.<span class="ruby-identifier">ajd</span>)) <span class="ruby-operator">/</span> <span class="ruby-value">15.0</span>)
@@ -106,7 +106,7 @@
 
 <p>Wiki 4:</p>
 
-<pre class="ruby"> <span class="ruby-identifier">require</span> <span class="ruby-string">'eot'</span>;<span class="ruby-identifier">eot</span> = <span class="ruby-constant">Eot</span>.<span class="ruby-identifier">new</span>(); <span class="ruby-identifier">eot</span>.<span class="ruby-identifier">factor</span>
+<pre class="ruby"> <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;eot&#39;</span>;<span class="ruby-identifier">eot</span> = <span class="ruby-constant">Eot</span>.<span class="ruby-identifier">new</span>(); <span class="ruby-identifier">eot</span>.<span class="ruby-identifier">factor</span>
  <span class="ruby-node">&quot;There are #{360 * eot.factor / 15.0} hours in a sidereal day.&quot;</span>
  <span class="ruby-string">&quot;That is why on the next day the stars are about 4 minutes earlier.&quot;</span>
  <span class="ruby-identifier">obtime0</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
@@ -116,8 +116,8 @@
 
 <p>Wiki 5:</p>
 
-<pre class="ruby"> <span class="ruby-identifier">require</span> <span class="ruby-string">'date'</span>; <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jd</span>
- <span class="ruby-identifier">require</span> <span class="ruby-string">'eot'</span>; <span class="ruby-identifier">eot</span> = <span class="ruby-constant">Eot</span>.<span class="ruby-identifier">new</span>(); <span class="ruby-identifier">eot</span>.<span class="ruby-identifier">ajd</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jd</span>.<span class="ruby-identifier">to_f</span>
+<pre class="ruby"> <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;date&#39;</span>; <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jd</span>
+ <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;eot&#39;</span>; <span class="ruby-identifier">eot</span> = <span class="ruby-constant">Eot</span>.<span class="ruby-identifier">new</span>(); <span class="ruby-identifier">eot</span>.<span class="ruby-identifier">ajd</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jd</span>.<span class="ruby-identifier">to_f</span>
  <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jd</span>(<span class="ruby-identifier">eot</span>.<span class="ruby-identifier">sunrise_jd</span> <span class="ruby-operator">+</span> <span class="ruby-value">0.5</span>)
  <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jd</span>(<span class="ruby-identifier">eot</span>.<span class="ruby-identifier">sunset_jd</span> <span class="ruby-operator">+</span> <span class="ruby-value">0.5</span>)
 </pre>
@@ -127,7 +127,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

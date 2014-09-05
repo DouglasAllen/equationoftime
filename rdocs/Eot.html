@@ -586,26 +586,25 @@ you need to have internet so if not please comment it out for now.</p>
             <pre><span class="ruby-comment"># File lib/eot/init.rb, line 64</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">addr</span>=<span class="ruby-keyword">nil</span>)
 
-  <span class="ruby-comment"># file_path     = File.expand_path( File.dirname( __FILE__ ) + &quot;/nutation_table5_3a.yaml&quot; )</span>
-  <span class="ruby-comment"># @data         = YAML::load( File.open( file_path, 'r'), :safe =&gt; true  ).freeze</span>
+  <span class="ruby-comment"># file_path     = File.expand_path( File.dirname( __FILE__ ) + &quot;/nutation_table5_3a.yaml&quot; )</span>
+  <span class="ruby-comment"># @data         = YAML::load( File.open( file_path, &#39;r&#39;), :safe =&gt; true  ).freeze</span>
  
-  <span class="ruby-ivar">@ajd</span>.<span class="ruby-identifier">nil?</span>       <span class="ruby-operator">?</span> <span class="ruby-ivar">@ajd</span>       = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_datetime</span>.<span class="ruby-identifier">jd</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@ajd</span>      
-  <span class="ruby-comment"># @date.nil?      ? @date      = DateTime.now.to_time.utc.to_datetime         : @date</span>
-  <span class="ruby-comment"># @jd.nil?        ? @jd        = DateTime.now.to_time.utc.to_datetime.jd.to_f : @jd</span>
-  <span class="ruby-ivar">@latitude</span>.<span class="ruby-identifier">nil?</span>  <span class="ruby-operator">?</span> <span class="ruby-ivar">@latitude</span>  = <span class="ruby-value">0.0</span>                                          <span class="ruby-operator">:</span> <span class="ruby-ivar">@latitude</span>
-  <span class="ruby-ivar">@longitude</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@longitude</span> = <span class="ruby-value">0.0</span>                                          <span class="ruby-operator">:</span> <span class="ruby-ivar">@longitude</span>
+  <span class="ruby-ivar">@ajd</span>.<span class="ruby-identifier">nil?</span>       <span class="ruby-operator">?</span> <span class="ruby-ivar">@ajd</span>       = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_datetime</span>.<span class="ruby-identifier">jd</span>.<span class="ruby-identifier">to_f</span>   <span class="ruby-operator">:</span> <span class="ruby-ivar">@ajd</span>      
+  <span class="ruby-comment"># @date.nil?      ? @date      = DateTime.now.to_time.utc.to_datetime         : @date</span>
+  <span class="ruby-comment"># @jd.nil?        ? @jd        = DateTime.now.to_time.utc.to_datetime.jd.to_f : @jd</span>
+ 
     
-  <span class="ruby-ivar">@ma</span>.<span class="ruby-identifier">nil?</span>        <span class="ruby-operator">?</span> <span class="ruby-identifier">ma_Sun</span>()                                                  <span class="ruby-operator">:</span> <span class="ruby-ivar">@ma</span>
-  <span class="ruby-comment"># normally setting @ma will set @ta</span>
-  <span class="ruby-ivar">@ta</span>.<span class="ruby-identifier">nil?</span>        <span class="ruby-operator">?</span> ( <span class="ruby-ivar">@ajd</span> <span class="ruby-operator">-</span> <span class="ruby-constant">DJ00</span> ) <span class="ruby-operator">/</span> <span class="ruby-constant">DJC</span>                                    <span class="ruby-operator">:</span> <span class="ruby-ivar">@ta</span>
-
-  <span class="ruby-comment"># comment out below if you do not have internet connection</span>
+  <span class="ruby-ivar">@ma</span>.<span class="ruby-identifier">nil?</span>        <span class="ruby-operator">?</span> <span class="ruby-identifier">ma_Sun</span>()                                                    <span class="ruby-operator">:</span> <span class="ruby-ivar">@ma</span>
+  <span class="ruby-comment"># normally setting @ma will set @ta</span>
+  <span class="ruby-ivar">@ta</span>.<span class="ruby-identifier">nil?</span>        <span class="ruby-operator">?</span> ( <span class="ruby-ivar">@ajd</span> <span class="ruby-operator">-</span> <span class="ruby-constant">DJ00</span> ) <span class="ruby-operator">/</span> <span class="ruby-constant">DJC</span>                                       <span class="ruby-operator">:</span> <span class="ruby-ivar">@ta</span>
+  
+  <span class="ruby-comment"># comment out below if you do not have internet connection</span>
   <span class="ruby-identifier">geo</span> = <span class="ruby-constant">GeoLatLng</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@addr</span> = <span class="ruby-identifier">addr</span>
-  <span class="ruby-ivar">@addr</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">geo</span>.<span class="ruby-identifier">addr</span>=(<span class="ruby-identifier">geo</span>.<span class="ruby-identifier">default_int</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">geo</span>.<span class="ruby-identifier">addr</span>=<span class="ruby-ivar">@addr</span>    
+  <span class="ruby-comment">#~ @addr = addr</span>
+  <span class="ruby-ivar">@addr</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@addr</span>=<span class="ruby-identifier">geo</span>.<span class="ruby-identifier">addr</span>                                            <span class="ruby-operator">:</span> <span class="ruby-ivar">@addr</span>=<span class="ruby-identifier">addr</span>    
   <span class="ruby-identifier">geo</span>.<span class="ruby-identifier">get_coordinates_from_address</span>
-  <span class="ruby-ivar">@latitude</span> = <span class="ruby-identifier">geo</span>.<span class="ruby-identifier">lat</span>.<span class="ruby-identifier">to_f</span>
-  <span class="ruby-ivar">@longitude</span> = <span class="ruby-identifier">geo</span>.<span class="ruby-identifier">lng</span>.<span class="ruby-identifier">to_f</span>
+  <span class="ruby-ivar">@latitude</span>.<span class="ruby-identifier">nil?</span>  <span class="ruby-operator">?</span> <span class="ruby-ivar">@latitude</span> = <span class="ruby-identifier">geo</span>.<span class="ruby-identifier">lat</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@latitude</span>
+  <span class="ruby-ivar">@longitude</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@longitude</span> = <span class="ruby-identifier">geo</span>.<span class="ruby-identifier">lng</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@longitude</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -953,9 +952,9 @@ anomaly.</p>
   <span class="ruby-identifier">sine_3M</span> <span class="ruby-operator">*</span> ( <span class="ruby-value">13</span><span class="ruby-operator">/</span><span class="ruby-value">12.0</span>  <span class="ruby-operator">*</span> <span class="ruby-identifier">e</span><span class="ruby-operator">**</span><span class="ruby-value">3</span> <span class="ruby-operator">-</span> <span class="ruby-value">43</span><span class="ruby-operator">/</span><span class="ruby-value">64.0</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">e</span><span class="ruby-operator">**</span><span class="ruby-value">5</span> )           <span class="ruby-operator">+</span>
   <span class="ruby-identifier">sine_4M</span> <span class="ruby-operator">*</span>  <span class="ruby-value">103</span><span class="ruby-operator">/</span><span class="ruby-value">96.0</span>  <span class="ruby-operator">*</span> <span class="ruby-identifier">e</span><span class="ruby-operator">**</span><span class="ruby-value">4</span>                              <span class="ruby-operator">+</span>
   <span class="ruby-identifier">sine_5M</span> <span class="ruby-operator">*</span> <span class="ruby-value">1097</span><span class="ruby-operator">/</span><span class="ruby-value">960.0</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">e</span><span class="ruby-operator">**</span><span class="ruby-value">5</span>                              
-  <span class="ruby-comment"># sine_1M *( 1.914602 - ta[ 0 ] * ( 0.004817 + ta[ 0 ] * 0.000014 )) +                                               +</span>
-  <span class="ruby-comment"># sine_2M *( 0.019993 - ta[ 0 ] * 0.000101 )                         +                                              +</span>
-  <span class="ruby-comment"># sine_3M *  0.000289</span>
+  <span class="ruby-comment"># sine_1M *( 1.914602 - ta[ 0 ] * ( 0.004817 + ta[ 0 ] * 0.000014 )) +                                               +</span>
+  <span class="ruby-comment"># sine_2M *( 0.019993 - ta[ 0 ] * 0.000101 )                         +                                              +</span>
+  <span class="ruby-comment"># sine_3M *  0.000289</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -1519,7 +1518,7 @@ data page 46 (5.19)</p>
 
           
           <div class="method-source-code" id="delta_equinox-source">
-            <pre><span class="ruby-comment"># File lib/eot/nutation.rb, line 12</span>
+            <pre><span class="ruby-comment"># File lib/eot/nutation.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">delta_equinox</span>()      
   <span class="ruby-comment"># Mean anomaly of the Moon. </span>
   <span class="ruby-comment"># ma_moon = [-0.00024470, 0.051635, 31.8792, 1717915923.2178, 485868.249036].inject(0.0) {|p, a| p * @ta + a}               </span>
@@ -1822,7 +1821,7 @@ data page 46 (5.19)</p>
         <div class="method-description">
           
           <p>From angles.rb:<br> eccentricity of elliptical Earth orbit around Sun
-Horners’ calculation method</p>
+Horners&#39; calculation method</p>
           
           
 
@@ -2287,8 +2286,8 @@ object of local noon or solar transit</p>
 
         <div class="method-description">
           
-          <p>From angles.rb:<br> angle of Suns’ mean anomaly used in equation of time
-and to get true anomaly.</p>
+          <p>From angles.rb:<br> angle of Suns&#39; mean anomaly used in equation of
+time and to get true anomaly.</p>
           
           
 
@@ -2510,18 +2509,18 @@ href="http://www.iausofa.org/publications/aas04.pdf">www.iausofa.org/publication
           <div class="method-source-code" id="ml_Aries-source">
             <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 190</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier">ml_Aries</span>()   
-    <span class="ruby-identifier">jd</span>     = <span class="ruby-ivar">@ta</span> <span class="ruby-operator">*</span> <span class="ruby-constant">DJC</span> <span class="ruby-comment"># convert first term back to jdn - J2000</span>
-    <span class="ruby-comment"># old terms         </span>
-    <span class="ruby-comment"># angle  = (36000.770053608 / DJC + 360) * jd  # 36000.770053608 = 0.9856473662862 * DJC</span>
-    <span class="ruby-comment"># total = [ -1.0/3.8710000e7, 3.87930e-4, 0, 100.460618375 ].inject(0.0) {|p, a| p * ta[0] + a} + 180 + angle  </span>
-    <span class="ruby-comment"># newer terms seem to be in arcseconds / 15.0</span>
-    <span class="ruby-comment"># 0.0000013, - 0.0000062, 0.0931118, 307.4771600, 8639877.3173760, 24110.5493771</span>
+    <span class="ruby-identifier">jd</span>     = <span class="ruby-ivar">@ta</span> <span class="ruby-operator">*</span> <span class="ruby-constant">DJC</span> <span class="ruby-comment"># convert first term back to jdn - J2000</span>
+    <span class="ruby-comment"># old terms         </span>
+    <span class="ruby-comment"># angle  = (36000.770053608 / DJC + 360) * jd  # 36000.770053608 = 0.9856473662862 * DJC</span>
+    <span class="ruby-comment"># total = [ -1.0/3.8710000e7, 3.87930e-4, 0, 100.460618375 ].inject(0.0) {|p, a| p * ta[0] + a} + 180 + angle  </span>
+    <span class="ruby-comment"># newer terms seem to be in arcseconds / 15.0</span>
+    <span class="ruby-comment"># 0.0000013, - 0.0000062, 0.0931118, 307.4771600, 8639877.3173760, 24110.5493771</span>
     <span class="ruby-identifier">angle</span>  = (<span class="ruby-value">35999.4888224</span> <span class="ruby-operator">/</span> <span class="ruby-constant">DJC</span> <span class="ruby-operator">+</span> <span class="ruby-value">360</span>) <span class="ruby-operator">*</span> <span class="ruby-identifier">jd</span>     
-<span class="ruby-comment">#    total  = angle +   280.460622404583   +</span>
-<span class="ruby-comment">#              @ta[ 0 ] *  1.281154833333   +</span>
-<span class="ruby-comment">#              @ta[ 1 ] *  3.87965833333e-4 +</span>
-<span class="ruby-comment">#              @ta[ 2 ] * -2.58333333333e-8 +</span>
-<span class="ruby-comment">#              @ta[ 3 ] *  5.41666666666e-9</span>
+<span class="ruby-comment">#    total  = angle +   280.460622404583   +</span>
+<span class="ruby-comment">#              @ta[ 0 ] *  1.281154833333   +</span>
+<span class="ruby-comment">#              @ta[ 1 ] *  3.87965833333e-4 +</span>
+<span class="ruby-comment">#              @ta[ 2 ] * -2.58333333333e-8 +</span>
+<span class="ruby-comment">#              @ta[ 3 ] *  5.41666666666e-9</span>
     <span class="ruby-identifier">total</span> = [<span class="ruby-value">5.41666666666e-9</span>, <span class="ruby-value">-2.58333333333e-8</span>, <span class="ruby-value">3.87965833333e-4</span>, <span class="ruby-value">1.281154833333</span>, <span class="ruby-value">280.460622404583</span>].<span class="ruby-identifier">inject</span>(<span class="ruby-value">0.0</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span>, <span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@ta</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">a</span>}          
     <span class="ruby-identifier">mod_360</span>( <span class="ruby-identifier">angle</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">total</span> )  <span class="ruby-operator">*</span> <span class="ruby-constant">D2R</span>  
   <span class="ruby-keyword">end</span></pre>
@@ -2639,6 +2638,7 @@ now in decimal minutes form</p>
             <pre><span class="ruby-comment"># File lib/eot/times.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">now</span>()
   <span class="ruby-ivar">@ajd</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_datetime</span>.<span class="ruby-identifier">ajd</span>
+  <span class="ruby-ivar">@ta</span> = (<span class="ruby-ivar">@ajd</span> <span class="ruby-operator">-</span> <span class="ruby-constant">JD00</span>)<span class="ruby-operator">/</span><span class="ruby-constant">JDC</span>
   <span class="ruby-identifier">time_eot</span>()
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -3586,7 +3586,7 @@ sunrise</p>
 
           
           <div class="method-source-code" id="sunrise_dt-source">
-            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 44</span>
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">sunrise_dt</span>()                    
   <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">sunrise_jd</span>())     
 <span class="ruby-keyword">end</span></pre>
@@ -3620,7 +3620,7 @@ Number</p>
 
           
           <div class="method-source-code" id="sunrise_jd-source">
-            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 51</span>
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">sunrise_jd</span>()    
   <span class="ruby-identifier">local_noon_dt</span>().<span class="ruby-identifier">ajd</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ha_Sun</span>() <span class="ruby-operator">*</span> <span class="ruby-constant">R2D</span> <span class="ruby-operator">/</span> <span class="ruby-value">360.0</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3654,7 +3654,7 @@ sunset</p>
 
           
           <div class="method-source-code" id="sunset_dt-source">
-            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 58</span>
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">sunset_dt</span>()                                                   
   <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">sunset_jd</span>())      
 <span class="ruby-keyword">end</span></pre>
@@ -3688,7 +3688,7 @@ Number</p>
 
           
           <div class="method-source-code" id="sunset_jd-source">
-            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 65</span>
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 66</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">sunset_jd</span>()
   <span class="ruby-identifier">local_noon_dt</span>().<span class="ruby-identifier">ajd</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ha_Sun</span>() <span class="ruby-operator">*</span> <span class="ruby-constant">R2D</span> <span class="ruby-operator">/</span> <span class="ruby-value">360.0</span> 
 <span class="ruby-keyword">end</span></pre>
@@ -3759,7 +3759,7 @@ decimal minutes time</p>
 
           
           <div class="method-source-code" id="time_delta_oblique-source">
-            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 72</span>
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 73</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">time_delta_oblique</span>()         
   (<span class="ruby-identifier">tl_Sun</span>() <span class="ruby-operator">-</span> <span class="ruby-identifier">ra_Sun</span>()) <span class="ruby-operator">*</span> <span class="ruby-constant">R2D</span> <span class="ruby-operator">*</span> <span class="ruby-constant">SM</span>        
 <span class="ruby-keyword">end</span></pre>
@@ -3793,7 +3793,7 @@ decimal minutes time</p>
 
           
           <div class="method-source-code" id="time_delta_orbit-source">
-            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 79</span>
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 80</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">time_delta_orbit</span>()      
   (<span class="ruby-ivar">@ma</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ta_Sun</span>()) <span class="ruby-operator">*</span> <span class="ruby-constant">R2D</span> <span class="ruby-operator">*</span> <span class="ruby-constant">SM</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3827,7 +3827,7 @@ minutes time</p>
 
           
           <div class="method-source-code" id="time_eot-source">
-            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 86</span>
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">time_eot</span>()
   <span class="ruby-identifier">eot</span>() <span class="ruby-operator">*</span> <span class="ruby-constant">R2D</span> <span class="ruby-operator">*</span> <span class="ruby-constant">SM</span>      
 <span class="ruby-keyword">end</span></pre>
@@ -3891,7 +3891,7 @@ divided by days in a Julian Century. Deprecated</p>
 
           
           <div class="method-source-code" id="time_julian_century-source">
-            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 96</span>
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 97</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier">time_julian_century</span>()
     <span class="ruby-identifier">t1</span> = ( <span class="ruby-ivar">@ajd</span> <span class="ruby-operator">-</span> <span class="ruby-constant">DJ00</span> ) <span class="ruby-operator">/</span> <span class="ruby-constant">DJC</span>
     <span class="ruby-identifier">t2</span> = <span class="ruby-identifier">t1</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">t1</span>
@@ -3903,7 +3903,7 @@ divided by days in a Julian Century. Deprecated</p>
     <span class="ruby-identifier">t8</span> = <span class="ruby-identifier">t4</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">t4</span>
     <span class="ruby-identifier">t9</span> = <span class="ruby-identifier">t4</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">t5</span>
     <span class="ruby-identifier">t10</span> = <span class="ruby-identifier">t5</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">t5</span>
-<span class="ruby-comment">#    @ta = [ t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 ] </span>
+<span class="ruby-comment">#    @ta = [ t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 ] </span>
     <span class="ruby-ivar">@ta</span> = <span class="ruby-identifier">t1</span>     
   <span class="ruby-keyword">end</span></pre>
           </div>
@@ -3933,8 +3933,8 @@ divided by days in a Julian Century. Deprecated</p>
 
         <div class="method-description">
           
-          <p>From angles.rb:<br> true longitude of equinox ‘first point of aries’
-considers nutation</p>
+          <p>From angles.rb:<br> true longitude of equinox &#39;first point of
+aries&#39; considers nutation</p>
           
           
 
@@ -4264,7 +4264,7 @@ considers nutation</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

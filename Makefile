@@ -5,40 +5,25 @@ SHELL = /bin/sh
 V = 0
 Q1 = $(V:1=)
 Q = $(Q1:0=@)
-ECHO1 = $(V:1=@:)
+n=$(NULLCMD)
+ECHO1 = $(V:1=@$n)
 ECHO = $(ECHO1:0=@echo)
 
 #### Start of system configuration section. ####
 
-srcdir = .
-topdir = /home/kb9agt/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0
-hdrdir = $(topdir)
-arch_hdrdir = /home/kb9agt/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/i686-linux
-PATH_SEPARATOR = :
+srcdir = /home/kb9agt/Downloads/equationoftime-4.0.0/examples/celes_parts
+topdir = /home/kb9agt/.rvm/rubies/ruby-1.9.3-p547/include/ruby-1.9.1
+hdrdir = /home/kb9agt/.rvm/rubies/ruby-1.9.3-p547/include/ruby-1.9.1
+arch_hdrdir = /home/kb9agt/.rvm/rubies/ruby-1.9.3-p547/include/ruby-1.9.1/$(arch)
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/home/kb9agt/.rvm/rubies/ruby-2.1.2
-rubysitearchprefix = $(rubylibprefix)/$(sitearch)
-rubyarchprefix = $(rubylibprefix)/$(arch)
+prefix = $(DESTDIR)/home/kb9agt/.rvm/rubies/ruby-1.9.3-p547
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
 exec_prefix = $(prefix)
-vendorarchhdrdir = $(vendorhdrdir)/$(sitearch)
-sitearchhdrdir = $(sitehdrdir)/$(sitearch)
-rubyarchhdrdir = $(rubyhdrdir)/$(arch)
 vendorhdrdir = $(rubyhdrdir)/vendor_ruby
 sitehdrdir = $(rubyhdrdir)/site_ruby
-rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
-vendorarchdir = $(vendorlibdir)/$(sitearch)
-vendorlibdir = $(vendordir)/$(ruby_version)
+rubyhdrdir = $(includedir)/$(RUBY_BASE_NAME)-$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(sitelibdir)/$(sitearch)
-sitelibdir = $(sitedir)/$(ruby_version)
 sitedir = $(rubylibprefix)/site_ruby
-rubyarchdir = $(rubylibdir)/$(arch)
-rubylibdir = $(rubylibprefix)/$(ruby_version)
-sitearchincludedir = $(includedir)/$(sitearch)
-archincludedir = $(includedir)/$(arch)
-sitearchlibdir = $(libdir)/$(sitearch)
-archlibdir = $(libdir)/$(arch)
 ridir = $(datarootdir)/$(RI_BASE_NAME)
 mandir = $(datarootdir)/man
 localedir = $(datarootdir)/locale
@@ -59,8 +44,14 @@ datarootdir = $(prefix)/share
 libexecdir = $(exec_prefix)/libexec
 sbindir = $(exec_prefix)/sbin
 bindir = $(exec_prefix)/bin
-archdir = $(rubyarchdir)
+rubylibdir = $(rubylibprefix)/$(ruby_version)
+archdir = $(rubylibdir)/$(arch)
+sitelibdir = $(sitedir)/$(ruby_version)
+sitearchdir = $(sitelibdir)/$(sitearch)
+vendorlibdir = $(vendordir)/$(ruby_version)
+vendorarchdir = $(vendorlibdir)/$(sitearch)
 
+NULLCMD = :
 
 CC = gcc
 CXX = g++
@@ -74,16 +65,15 @@ COUTFLAG = -o $(empty)
 
 RUBY_EXTCONF_H = 
 cflags   =  $(optflags) $(debugflags) $(warnflags)
-optflags = -O3 -fno-fast-math
-debugflags = -ggdb3
-warnflags = -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration
-CCDLFLAGS = -fPIC
-CFLAGS   = $(CCDLFLAGS) $(cflags)  -fPIC $(ARCH_FLAG)
+optflags = -O3
+debugflags = -ggdb
+warnflags = -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration
+CFLAGS   = -fPIC $(cflags)  -fPIC $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = -D_FILE_OFFSET_BITS=64
 CPPFLAGS =   $(DEFS) $(cppflags)
-CXXFLAGS = $(CCDLFLAGS) $(cxxflags) $(ARCH_FLAG)
-ldflags  = -L. -fstack-protector -rdynamic -Wl,-export-dynamic
+CXXFLAGS = $(CFLAGS) $(cxxflags)
+ldflags  = -L.  -rdynamic -Wl,-export-dynamic
 dldflags =  
 ARCH_FLAG = 
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
@@ -92,20 +82,14 @@ LDSHAREDXX = $(CXX) -shared
 AR = ar
 EXEEXT = 
 
+RUBY_BASE_NAME = ruby
 RUBY_INSTALL_NAME = ruby
 RUBY_SO_NAME = ruby
-RUBYW_INSTALL_NAME = 
-RUBY_VERSION_NAME = $(RUBY_BASE_NAME)-$(ruby_version)
-RUBYW_BASE_NAME = rubyw
-RUBY_BASE_NAME = ruby
-
 arch = i686-linux
 sitearch = $(arch)
-ruby_version = 2.1.0
-ruby = $(bindir)/ruby
+ruby_version = 1.9.1
+ruby = /home/kb9agt/.rvm/rubies/ruby-1.9.3-p547/bin/ruby
 RUBY = $(ruby)
-ruby_headers = $(hdrdir)/ruby.h $(hdrdir)/ruby/ruby.h $(hdrdir)/ruby/defines.h $(hdrdir)/ruby/missing.h $(hdrdir)/ruby/intern.h $(hdrdir)/ruby/st.h $(hdrdir)/ruby/subst.h $(arch_hdrdir)/ruby/config.h
-
 RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
 RMDIRS = rmdir --ignore-fail-on-non-empty -p
@@ -133,10 +117,8 @@ extout_prefix =
 target_prefix = 
 LOCAL_LIBS = 
 LIBS = $(LIBRUBYARG_SHARED)  -lpthread -lrt -ldl -lcrypt -lm   -lc
-ORIG_SRCS = faur03.c fapa03.c celes_core.c falp03.c nut00b.c gst06.c gmst06.c faju03.c ee00a.c obl06.c nut06a.c obl80.c fae03.c pr00.c fad03.c cal2jd.c ee06a.c pfw06.c ee00b.c s06.c eors.c fw2m.c era00.c rz.c ee00.c ir.c nut00a.c fasa03.c fal03.c bpn2xy.c rx.c eect00.c faf03.c anpm.c fave03.c pnm06a.c anp.c fame03.c fama03.c gst06a.c faom03.c
-SRCS = $(ORIG_SRCS) 
+SRCS = faur03.c fapa03.c celes_core.c falp03.c nut00b.c gst06.c gmst06.c faju03.c ee00a.c obl06.c nut06a.c obl80.c fae03.c pr00.c fad03.c cal2jd.c ee06a.c pfw06.c ee00b.c s06.c eors.c fw2m.c era00.c rz.c ee00.c ir.c nut00a.c fasa03.c fal03.c bpn2xy.c rx.c eect00.c faf03.c anpm.c fave03.c pnm06a.c anp.c fame03.c fama03.c gst06a.c faom03.c
 OBJS = faur03.o fapa03.o celes_core.o falp03.o nut00b.o gst06.o gmst06.o faju03.o ee00a.o obl06.o nut06a.o obl80.o fae03.o pr00.o fad03.o cal2jd.o ee06a.o pfw06.o ee00b.o s06.o eors.o fw2m.o era00.o rz.o ee00.o ir.o nut00a.o fasa03.o fal03.o bpn2xy.o rx.o eect00.o faf03.o anpm.o fave03.o pnm06a.o anp.o fame03.o fama03.o gst06a.o faom03.o
-HDRS = $(srcdir)/sofam.h $(srcdir)/sofa.h
 TARGET = celes_core
 TARGET_NAME = celes_core
 TARGET_ENTRY = Init_$(TARGET_NAME)
@@ -144,7 +126,6 @@ DLLIB = $(TARGET).so
 EXTSTATIC = 
 STATIC_LIB = 
 
-TIMESTAMP_DIR = .
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
 RUBYLIBDIR    = $(sitelibdir)$(target_prefix)
@@ -159,7 +140,7 @@ CLEANOBJS     = *.o  *.bak
 all:    $(DLLIB)
 static: $(STATIC_LIB)
 .PHONY: all install static install-so install-rb
-.PHONY: clean clean-so clean-static clean-rb
+.PHONY: clean clean-so clean-rb
 
 clean-static::
 clean-rb-default::
@@ -171,17 +152,18 @@ clean: clean-so clean-static clean-rb-default clean-rb
 distclean-rb-default::
 distclean-rb::
 distclean-so::
-distclean-static::
-distclean: clean distclean-so distclean-static distclean-rb-default distclean-rb
-		-$(Q)$(RM) Makefile $(RUBY_EXTCONF_H) conftest.* mkmf.log
-		-$(Q)$(RM) core ruby$(EXEEXT) *~ $(DISTCLEANFILES)
-		-$(Q)$(RMDIRS) $(DISTCLEANDIRS) 2> /dev/null || true
+distclean: clean distclean-so distclean-rb-default distclean-rb
+		@-$(RM) Makefile $(RUBY_EXTCONF_H) conftest.* mkmf.log
+		@-$(RM) core ruby$(EXEEXT) *~ $(DISTCLEANFILES)
+		@-$(RMDIRS) $(DISTCLEANDIRS) 2> /dev/null || true
 
 realclean: distclean
 install: install-so install-rb
 
-install-so: $(DLLIB) $(TIMESTAMP_DIR)/.RUBYARCHDIR.time
-	$(INSTALL_PROG) $(DLLIB) $(RUBYARCHDIR)
+install-so: $(RUBYARCHDIR)/$(DLLIB)
+$(RUBYARCHDIR)/$(DLLIB): $(DLLIB)
+	-$(Q)$(MAKEDIRS) $(@D)
+	$(INSTALL_PROG) $(DLLIB) $(@D)
 clean-static::
 	-$(Q)$(RM) $(STATIC_LIB)
 install-rb: pre-install-rb install-rb-default
@@ -190,8 +172,8 @@ pre-install-rb: Makefile
 pre-install-rb-default: Makefile
 pre-install-rb-default:
 	$(ECHO) installing default celes_core libraries
-$(TIMESTAMP_DIR)/.RUBYARCHDIR.time:
-	$(Q) $(MAKEDIRS) $(@D) $(RUBYARCHDIR)
+./.RUBYARCHDIR.time:
+	$(Q) $(MAKEDIRS) $(RUBYARCHDIR)
 	$(Q) $(TOUCH) $@
 
 site-install: site-install-so site-install-rb
@@ -235,4 +217,4 @@ $(DLLIB): $(OBJS) Makefile
 
 
 
-$(OBJS): $(HDRS) $(ruby_headers)
+$(OBJS): $(hdrdir)/ruby.h $(hdrdir)/ruby/defines.h $(arch_hdrdir)/ruby/config.h

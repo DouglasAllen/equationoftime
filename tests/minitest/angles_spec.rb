@@ -83,16 +83,16 @@ describe 'Tests ajd of 2456885.0' do
     assert_equal 1.2268888346559275, Eot_angles.delta_orbit() * Eot::R2D
   end  
 
-  it 'expected   0.0021493011786421472 from  Eot_angles.delta_psi()? ' do
-    assert_equal 0.0021493011786421472, Eot_angles.delta_psi() * Eot::R2D
+  it 'expected   0.0021493011786421477 from  Eot_angles.delta_psi()? ' do
+    assert_equal 0.0021493011786421477, Eot_angles.delta_psi() * Eot::R2D
   end  
   
   it 'expected   0.016702468499021204 from  Eot_angles.eccentricity_Earth()? ' do
     assert_equal 0.016702468499021204, Eot_angles.eccentricity_Earth()
   end
   
-  it 'expected   0.0019720086229080493 from  Eot_angles.eq_of_equinox()? ' do
-    assert_equal 0.0019720086229080493, Eot_angles.eq_of_equinox() * Eot::R2D
+  it 'expected   0.0019720086229080497 from  Eot_angles.eq_of_equinox()? ' do
+    assert_equal 0.0019720086229080497, Eot_angles.eq_of_equinox() * Eot::R2D
   end
 
   it 'expected   -1.1201259014692109 from  Eot_angles.eot()? ' do
@@ -219,16 +219,16 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal 1.1326466587390922, Eot_angles.delta_orbit() * Eot::R2D	
   end  
 
-  it 'expected   0.004377020275265401 from Eot_angles.delta_psi()? ' do
-    assert_equal 0.004377020275265401, Eot_angles.delta_psi() * Eot::R2D
+  it 'expected   0.0043770202752654004 from Eot_angles.delta_psi()? ' do
+    assert_equal 0.0043770202752654004, Eot_angles.delta_psi() * Eot::R2D
   end  
   
   it 'expected   0.016704576164208475 from Eot_angles.eccentricity_Earth()? ' do
     assert_equal 0.016704576164208475, Eot_angles.eccentricity_Earth()
   end
   
-  it 'expected   0.004015836479353945 from Eot_angles.eq_of_equinox()? ' do
-    assert_equal 0.004015836479353945, Eot_angles.eq_of_equinox() * Eot::R2D
+  it 'expected   0.004015836479353944 from Eot_angles.eq_of_equinox()? ' do
+    assert_equal 0.004015836479353944, Eot_angles.eq_of_equinox() * Eot::R2D
   end
 
   it 'expected   -1.2922586229284718 from Eot_angles.eot()? ' do

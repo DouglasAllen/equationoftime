@@ -33,14 +33,14 @@ fstr = "%b %d"
   rise    = eot.sunrise_dt().to_time.to_json
   trans   = eot.local_noon_dt().to_time.to_json
   set     = eot.sunset_dt().to_time.to_json
-  @group  = {group_id: @group_id, 
-             
-             rise:     rise,
-             noon:     trans,  
-             sset:     set
-           }  
-  @data << @group
-  @group_id  += 1
+#  @group  = {group_id: @group_id, 
+#             
+#             rise:     rise,
+#             noon:     trans,  
+#             sset:     set
+#           }  
+#  @data << @group
+#  @group_id  += 1
 end
 
 file_path = "rise_set_data.yml"

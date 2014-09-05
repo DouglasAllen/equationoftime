@@ -1,5 +1,6 @@
 # nutation.rb
 
+#require_relative 'celes_core'
 require 'celes'
 
 class Eot    

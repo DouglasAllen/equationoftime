@@ -32,17 +32,17 @@ fstr = "%b %d"
   e1      = eot.show_minutes(eot.time_delta_orbit())
   e2      = eot.show_minutes(eot.time_delta_oblique())
   decline = eot.degrees_to_s(eot.dec_Sun())
-  @group  = {group_id:    "#{@group_id}", 
-             date:        date, 
-             eot:         delta_t,                   
-             orbit:       "#{e1}",
-             oblique:     "#{e2}",
-             transit:     "#{trans}",
-             declination: "#{decline}",             
-             julian:      "#{jd}",
-             }  
-  @data << @group
-  @group_id  += 1
+#  @group  = {group_id:    "#{@group_id}", 
+#             date:        date, 
+#             eot:         delta_t,                   
+#             orbit:       "#{e1}",
+#             oblique:     "#{e2}",
+#             transit:     "#{trans}",
+#             declination: "#{decline}",             
+#             julian:      "#{jd}",
+#             }  
+#  @data << @group
+#  @group_id  += 1
 end
 
 file_path = "analemma_data.yml"

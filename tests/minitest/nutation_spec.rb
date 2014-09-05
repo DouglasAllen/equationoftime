@@ -37,8 +37,8 @@ describe 'Eot_nutation using ajd of 2456885.0' do
     assert_equal 220.63461047270653, Eot_nutation.ma * Eot::R2D
   end
   
-  it 'expected   [-4.069792718159396e-05, 3.7512382184300296e-05, 3.8508003966038915, -2.7528817371494685] from Eot_nutation.delta_equinox()' do
-    assert_equal [-4.069792718159396e-05, 3.7512382184300296e-05, 3.8508003966038915, -2.7528817371494685], Eot_nutation.delta_equinox()    
+  it 'expected   [-4.069792718159396e-05, 3.75123821843003e-05, 3.8508003966038915, -2.7528817371494685] from Eot_nutation.delta_equinox()' do
+    assert_equal [-4.069792718159396e-05, 3.75123821843003e-05, 3.8508003966038915, -2.7528817371494685], Eot_nutation.delta_equinox()    
   end
 
 end

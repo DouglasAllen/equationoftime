@@ -6,42 +6,46 @@ require 'minitest/autorun'
 # require_relative '../spec_config'
 
 
-begin
-  require 'eot'
-rescue
+#begin
+#  require 'eot'
+#rescue
   lib = File.expand_path('../../../lib', __FILE__)
-  # puts "Loading gem from #{lib}/eot.rb"
+  puts "Loading gem from #{lib}/eot.rb"
   $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
   require 'eot'
-end
+#end
 
-Eot_initialize = Eot.new 
 
 describe 'Eot_initialize using today matchers' do
 
-  before(:each) do
-    # @date = Eot_initialize.date
-    # @df = @date.day_fraction.to_f
-    # @jd = @date.jd.to_f
-    @ajd = Eot_initialize.ajd
-    @ma = Eot_initialize.ma_Sun()
-    @ta = Eot_initialize.ta
+  it 'expected DateTime.now.to_time.utc.to_datetime.jd.to_f' do    
+    @test1 = Eot.new()
+    assert_equal DateTime.now.to_time.utc.to_datetime.jd.to_f, @test1.ajd
+  end
+  
+  it 'expected   0.0' do   
+    @test2 = Eot.new()
+    assert_equal 51.4769388, @test2.latitude
+   end
+
+  it 'expected   0.0' do
+    @test3 = Eot.new()  
+    assert_equal -4.2e-05, @test3.longitude
   end
 
-  it 'expected matchers returned by Eot_initialize() ?' do    
-    # refute_nil Eot_initialize.data
-    assert_equal @ajd, Eot_initialize.ajd
-    # assert_equal @date.to_s, Eot_initialize.date.to_s    
-    # assert_equal @jd, Eot_initialize.jd        
-    assert_equal 51.4769388, Eot_initialize.latitude
-    assert_equal -4.2e-05, Eot_initialize.longitude
-    assert_equal @ma, Eot_initialize.ma
-    assert_equal @ta, Eot_initialize.ta
+  it 'expected   @test4.ma_Sun()' do
+    @test4 = Eot.new()
+    assert_equal @test4.ma_Sun(), @test4.ma
+  end
+
+  it 'expected   (@test5.ajd - Eot::DJ00) / Eot::DJC' do
+    @test5 = Eot.new()    
+    assert_equal (@test5.ajd - Eot::DJ00) / Eot::DJC, @test5.ta
   end  
 
-  it 'expected   0.0 returned by Eot_initialize.initialize(addr) ' do
-    @test6 = Eot.new("some comma separated address")
-    assert_equal "some comma separated address",  @test6.addr
+  it 'expected   0.0 returned by Eot_initialize.new() ' do
+    @test6 = Eot.new()
+    assert_equal "Blackheath Ave, London SE10 8XJ, UK",  @test6.addr
   end    
   
 end

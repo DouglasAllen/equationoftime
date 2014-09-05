@@ -66,23 +66,22 @@ class Eot
     # file_path     = File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )
     # @data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
  
-    @ajd.nil?       ? @ajd       = DateTime.now.to_time.utc.to_datetime.jd.to_f : @ajd      
+    @ajd.nil?       ? @ajd       = DateTime.now.to_time.utc.to_datetime.jd.to_f   : @ajd      
     # @date.nil?      ? @date      = DateTime.now.to_time.utc.to_datetime         : @date
     # @jd.nil?        ? @jd        = DateTime.now.to_time.utc.to_datetime.jd.to_f : @jd
-    @latitude.nil?  ? @latitude  = 0.0                                          : @latitude
-    @longitude.nil? ? @longitude = 0.0                                          : @longitude
+   
       
-    @ma.nil?        ? ma_Sun()                                                  : @ma
+    @ma.nil?        ? ma_Sun()                                                    : @ma
     # normally setting @ma will set @ta
-    @ta.nil?        ? ( @ajd - DJ00 ) / DJC                                    : @ta
-
+    @ta.nil?        ? ( @ajd - DJ00 ) / DJC                                       : @ta
+    
     # comment out below if you do not have internet connection
     geo = GeoLatLng.new
-    @addr = addr
-    @addr.nil? ? geo.addr=(geo.default_int) : geo.addr=@addr    
+    #~ @addr = addr
+    @addr.nil? ? @addr=geo.addr                                            : @addr=addr    
     geo.get_coordinates_from_address
-    @latitude = geo.lat.to_f
-    @longitude = geo.lng.to_f
+    @latitude.nil?  ? @latitude = geo.lat : @latitude
+    @longitude.nil? ? @longitude = geo.lng : @longitude
   end
   
 end
@@ -91,12 +90,12 @@ end
 # we can run some tests from inside this file.
 if __FILE__ == $PROGRAM_NAME
 
-  lib = File.expand_path('../../../lib', __FILE__)
-  puts "Loading gem from #{lib}/eot.rb"
-  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot'
-  e = Eot.new
-  p e.date
+  #~ lib = File.expand_path('../../../lib', __FILE__)
+  #~ puts "Loading gem from #{lib}/eot.rb"
+  #~ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  #~ require 'eot'
+  #~ e = Eot.new
+  #~ p e.date
 
   spec = File.expand_path('../../../tests/minitest', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)

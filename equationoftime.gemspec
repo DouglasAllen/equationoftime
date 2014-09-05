@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
      spec.add_development_dependency "rake"
      spec.add_development_dependency "minitest"	 
      spec.add_development_dependency "rspec"
+     spec.add_development_dependency "yard"
      spec.add_runtime_dependency "celes"
      #spec.add_runtime_dependency "astro-algo"
      spec.add_runtime_dependency "multi_xml"
