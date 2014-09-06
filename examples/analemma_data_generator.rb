@@ -32,14 +32,14 @@ fstr = "%b %d"
   e1      = eot.show_minutes(eot.time_delta_orbit())
   e2      = eot.show_minutes(eot.time_delta_oblique())
   decline = eot.degrees_to_s(eot.dec_Sun())
-  @group  = {group_id:    "#{@group_id}", 
-                 date:    date,
-               julian:    "#{jd}",
-                 rise:    eot.sunrise_dt().to_json, 
-                  eot:    delta_t,                   
-              transit:    eot.local_noon_dt().to_json,
-          declination:    "#{decline}",
-                  set:    eot.sunset_dt().to_json             
+  @group  = { "id"     => "#{@group_id}", 
+              "date"   => date,
+              "julian" => "#{jd}",
+                "rise" => eot.sunrise_dt().to_json, 
+                 "eot" => delta_t,                   
+             "transit" => eot.local_noon_dt().to_json,
+         "declination" => "#{decline}",
+                 "set" => eot.sunset_dt().to_json             
              }  
   @data << @group
   @group_id  += 1
