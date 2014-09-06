@@ -91,7 +91,7 @@ class Eot
   # delta epsilon
   # component of equation of equinox 
   def delta_epsilon()    
-    delta_equinox()[ 0 ]
+    delta_equinox()[ 1 ]
   end
   
   # From angles.rb:<br>
@@ -111,7 +111,7 @@ class Eot
   # From angles.rb:<br>
   # component of equation of equinox 
   def delta_psi()     
-    delta_equinox()[ 1 ]
+    delta_equinox()[ 0 ]
   end
   
   # From angles.rb:<br>

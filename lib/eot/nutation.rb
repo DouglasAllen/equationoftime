@@ -59,14 +59,11 @@ class Eot
                          
     # end
 
-    nut_ary = Celes.nut06a(@ajd, 0)
-    delta_psi = nut_ary[0]
-    delta_eps = nut_ary[1]
     
     # delta_eps = delta_eps / 1000.0 / 3600.0
     # delta_psi = delta_psi  / 1000.0 / 3600.0
 
-    [ delta_eps, delta_psi, ma_sun, omega]
+    [ Celes.nut06a(@ajd, 0)[0], Celes.nut06a(@ajd, 0)[1], ma_sun, omega]
     # [ nil, nil, ma_moon, ma_sun, md_moon, me_moon, omega]
   end
 

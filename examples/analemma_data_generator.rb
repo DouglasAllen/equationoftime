@@ -21,7 +21,7 @@ finish_jd = finish_time.to_datetime.jd
 
 fstr = "%b %d"
 
-@data, @group, @group_id = [], {}, 0
+@data, @group, @group_id = ["2014", eot.addr, eot.latitude, eot.longitude], {}, 1
 
 (start_jd..finish_jd).each do |jd|     
   date    = Date.jd(jd + 0.5).strftime(fstr)
@@ -32,17 +32,17 @@ fstr = "%b %d"
   e1      = eot.show_minutes(eot.time_delta_orbit())
   e2      = eot.show_minutes(eot.time_delta_oblique())
   decline = eot.degrees_to_s(eot.dec_Sun())
-#  @group  = {group_id:    "#{@group_id}", 
-#             date:        date, 
-#             eot:         delta_t,                   
-#             orbit:       "#{e1}",
-#             oblique:     "#{e2}",
-#             transit:     "#{trans}",
-#             declination: "#{decline}",             
-#             julian:      "#{jd}",
-#             }  
-#  @data << @group
-#  @group_id  += 1
+  @group  = {group_id:    "#{@group_id}", 
+                 date:    date,
+               julian:    "#{jd}",
+                 rise:    eot.sunrise_dt().to_json, 
+                  eot:    delta_t,                   
+              transit:    eot.local_noon_dt().to_json,
+          declination:    "#{decline}",
+                  set:    eot.sunset_dt().to_json             
+             }  
+  @data << @group
+  @group_id  += 1
 end
 
 file_path = "analemma_data.yml"
