@@ -9,10 +9,14 @@ $DEBUG and set_trace_func proc { |event, file, line, id, binding, classname|
     }
     
 date = DateTime.now.to_time.utc.to_datetime
-puts date    
+puts date
+ 
 eot = Eot.new
-puts eot.public_methods(false).sort
-# puts eot.nil?
+puts eot.nil?
+puts eot.public_methods(false).count
+list = eot.public_methods(false).sort
+puts list
+puts eot.list.each {|i| i}
 
 
 puts date

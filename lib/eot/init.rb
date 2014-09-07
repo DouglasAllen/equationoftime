@@ -66,10 +66,8 @@ class Eot
     # file_path     = File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )
     # @data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
  
-    @ajd.nil?       ? @ajd       = DateTime.now.to_time.utc.to_datetime.jd.to_f   : @ajd      
-    # @date.nil?      ? @date      = DateTime.now.to_time.utc.to_datetime         : @date
-    # @jd.nil?        ? @jd        = DateTime.now.to_time.utc.to_datetime.jd.to_f : @jd
-   
+    # set all date and time from this attribute
+    @ajd.nil?       ? @ajd       = DateTime.now.to_time.utc.to_datetime.jd.to_f   : @ajd         
       
     @ma.nil?        ? ma_Sun()                                                    : @ma
     # normally setting @ma will set @ta
@@ -77,7 +75,7 @@ class Eot
     
     # comment out below if you do not have internet connection
     geo = GeoLatLng.new
-    #~ @addr = addr
+   
     @addr.nil? ? @addr=geo.addr                                            : @addr=addr    
     geo.get_coordinates_from_address
     @latitude.nil?  ? @latitude = geo.lat : @latitude

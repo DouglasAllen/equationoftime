@@ -11,11 +11,9 @@ output =<<EOO
 
 eot = Eot.new()
 
-eot.date = #{eot.date} = #{eot.date.class}
+eot.ajd = #{eot.ajd}
 
-eot.ajd = eot.date.ajd.to_f = #{eot.ajd = eot.date.ajd.to_f}
-
-eot.eot = #{eot.eot()} # getting default today
+eot.eot = #{eot.eot()} # this is radians for eot today.
 
 eot.date = #{eot.date = "2014-10-14"} = #{eot.date.class}
 

@@ -5,15 +5,9 @@ gem 'minitest'
 require 'minitest/autorun'
 # require_relative '../spec_config'
 
-
-begin
-  require 'eot'
-rescue
-  lib = File.expand_path('../../../lib', __FILE__)
-  # puts "Loading gem from #{lib}/eot.rb"
-  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot'
-end
+lib = File.expand_path('../../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'eot'
 
 Eot_times = Eot.new
 
@@ -84,10 +78,6 @@ describe 'tests ajd of 2456885.0' do
     assert_equal -4.468269887968697, Eot_times.time_eot()
   end    
   
-  # it 'expected @ta from Eot_times.time_julian_century()  ' do
-    # assert_equal @ta, Eot_times.time_julian_century()    
-  # end 
-
 end  
   
 describe 'tests ajd of 2455055.0' do  
@@ -144,10 +134,6 @@ describe 'tests ajd of 2455055.0' do
   it 'expected   -5.154920785891585 is from Eot_times.time_eot() ' do
     assert_equal -5.154920785891585, Eot_times.time_eot() 	
   end  
-  
-  # it 'expected   @ta from Eot_times.time_julian_century()' do
-    # assert_equal @ta, Eot_times.time_julian_century()
-  # end
   
 end
 

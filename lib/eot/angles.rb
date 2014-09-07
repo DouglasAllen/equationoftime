@@ -5,7 +5,7 @@ class Eot
   # From angles.rb:<br> 
   # Apparent solar longitude = true longitude - aberation   
   def al_Sun()    
-    tl_Sun() - 9.9309234438477352926958004727002e-5 - 8.3426738245328953776952418733756e-5 * sin(omega())
+    tl_Sun() - 0.00569 * D2R - 0.00478 * D2R * sin(omega())
   end 
   alias_method  :apparent_longitude, :al_Sun 
   
@@ -73,7 +73,7 @@ class Eot
   
   # From angles.rb:<br>
   # cosine true obliquity
-  # used in solar right ascension 
+  # used in solar right ascension and equation of equinox 
   def cosine_to_Earth()    
     cos( to_Earth() ) 
   end
@@ -83,7 +83,7 @@ class Eot
   # solar declination
   def dec_Sun()   
     sine_declination = sin( to_Earth() )  * sine_al_Sun()
-    asin( sine_declination ) 
+    asin( sine_to_Earth() * sine_al_Sun() ) 
   end
   alias_method :declination, :dec_Sun
   
@@ -123,7 +123,8 @@ class Eot
   alias_method :eccentricity_earth_orbit, :eccentricity_Earth
   
   # From angles.rb:<br>
-  # equation of equinox  
+  # equation of equinox
+  # used for true longitude of Aries  
   def eq_of_equinox()   
     cosine_to_Earth() * delta_psi()
   end
@@ -134,17 +135,6 @@ class Eot
     delta_orbit() + delta_oblique()	      
   end 
   
-  # From angles.rb:<br>
-  # angle factor for daily sidereal time (experimental)  
-  def factor
-    @ajd  =           Date.parse("2000-01-01").jd    
-    tlaa =             tl_Aries( )
-    @ajd    =         @ajd + 1
-    tlab =             tl_Aries()
-    dif  = tlab - tlaa
-    dr   = dif  + 360.0
-    360 / dr
-  end
 
   # From angles.rb:<br>
   # angle geometric mean longitude
@@ -246,6 +236,13 @@ class Eot
     sin( tl_Sun() ) 
   end
   alias_method :sine_true_longitude, :sine_tl_Sun
+  
+# From angles.rb:<br>
+  # sine true obliquity angle of Earth
+  # used in solar declination 
+  def sine_to_Earth()
+    sin(to_Earth())
+  end
 
   # From angles.rb:<br>
   # angle true anomaly
@@ -270,6 +267,7 @@ class Eot
     gml_Sun() + center() 	 
   end
   alias_method :true_longitude, :tl_Sun
+  alias_method :ecliptic_longitude, :tl_Sun
   
   # From angles.rb:<br>
   # true obliquity considers nutation  

@@ -5,21 +5,13 @@ gem 'minitest'
 require 'minitest/autorun'
 # require_relative '../spec_config'
 
-
-begin
-  require 'eot'
-rescue
-  lib = File.expand_path('../../../lib', __FILE__)
-  # puts "Loading gem from #{lib}/eot.rb"
-  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot'
-end
+lib = File.expand_path('../../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'eot'
 
 Eot_aliased_angles = Eot.new
 
-
 describe 'tests ajd of 2456885.0' do
-  
   
   before(:each) do 
     ajd                    = 2456885.0

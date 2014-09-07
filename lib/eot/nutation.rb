@@ -9,7 +9,8 @@ class Eot
   # Returns array with [ delta_eps, delta_psi, ma_sun, omega]
   # celes gem is used here now for performance. It is a Ruby wrapper for
   # see http://www.iausofa.org/
-  # also see http://aa.usno.navy.mil/ Circular 179 nutation data page 46 (5.19) 
+  # also see http://aa.usno.navy.mil/ Circular 179 nutation data page 46 (5.19)
+  # Note: Original code is still intact just commented out. 
   def delta_equinox()      
     # Mean anomaly of the Moon. 
     # ma_moon = [-0.00024470, 0.051635, 31.8792, 1717915923.2178, 485868.249036].inject(0.0) {|p, a| p * @ta + a}		

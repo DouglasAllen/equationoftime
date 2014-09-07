@@ -5,15 +5,9 @@ gem 'minitest'
 require 'minitest/autorun'
 # require_relative '../spec_config'
 
-
-begin
-  require 'eot'
-rescue
-  lib = File.expand_path('../../../lib', __FILE__)
-  # puts "Loading gem from #{lib}/eot.rb"
-  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot'
-end
+lib = File.expand_path('../../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'eot'
 
 Eot_aliased_displays = Eot.new
 

@@ -37,7 +37,7 @@ class GeoLatLng
     @lat            = 0.0
     @lng            = 0.0
     MultiXml.parser = :rexml#:libxml#:ox # :nokogiri
-    @addr = @default_int
+    @addr           = @default_int
   end   
 
   # set address  

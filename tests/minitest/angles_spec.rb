@@ -5,34 +5,19 @@ gem 'minitest'
 require 'minitest/autorun'
 # require_relative '../spec_config'
 
-
-begin
-  require 'eot'
-rescue
-  lib = File.expand_path('../../../lib', __FILE__)
-  # puts "Loading gem from #{lib}/eot.rb"
-  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot'
-end
+lib = File.expand_path('../../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'eot'
 
 Eot_angles = Eot.new 
 
 describe 'Tests ajd of 2456885.0' do
 
-  
-  # set ta attribute first as it gets tested anyway but a lot of methods
-  # now rely on @ta so we don't have to keep calling it unless we change
-  # The same goes for @ma.  
-  # @ajd attribute
   before(:each) do
     ajd                    =   2456885.0  
     Eot_angles.ajd  = ajd
     # check date for this ajd when needed.
     Eot_angles.date = Eot_angles.ajd_to_datetime(ajd)
-    # set ta attribute
-    Eot_angles.time_julian_century() 
-    # set ma attribute    
-    Eot_angles.ma_Sun()    
   end
 
   it 'expected   2456885.0 for Eot_angles.ajd'do
@@ -156,19 +141,11 @@ end
 
 describe 'Tests ajd of 2455055.5 ' do
 
-  # set ta attribute first as it gets tested anyway but a lot of methods
-  # now rely on @ta so we don't have to keep calling it unless we change
-  # The same goes for @ma.  
-  # @ajd attribute
   before(:each) do
     ajd                    = 2455055.0     
     Eot_angles.ajd  = ajd
     # check date for this ajd when needed.
-    Eot_angles.date = Eot_angles.ajd_to_datetime(ajd)
-    # set ta attribute
-    Eot_angles.time_julian_century() 
-    # set ma attribute    
-    Eot_angles.ma_Sun()    
+    Eot_angles.date = Eot_angles.ajd_to_datetime(ajd)  
   end
   
   it 'expected   2455055.0, from Eot_angles.' do
