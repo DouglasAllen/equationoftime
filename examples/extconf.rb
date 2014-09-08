@@ -1,2 +1,2 @@
 require 'mkmf'
-create_makefile("eot")
+create_makefile("rbeot")

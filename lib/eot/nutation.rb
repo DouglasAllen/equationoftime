@@ -1,7 +1,7 @@
 # nutation.rb
 
 #require_relative 'celes_core'
-require 'celes'
+#require 'celes'
 
 class Eot    
  
@@ -17,7 +17,7 @@ class Eot
     # ma_moon = Celes.fal03(@ta)
     # Mean anomaly of the Sun.
     # ma_sun  = [-0.00001149, 0.000136, -0.5532, 129596581.0481, 1287104.793048].inject(0.0) {|p, a| p * @ta + a}	
-    ma_sun  = Celes.falp03(@ta)
+    # ma_sun  = Celes.falp03(@ta)
     # mean longitude of the Moon minus mean longitude of the ascending node.               
     # md_moon = [0.00000417, -0.001037, -12.7512, 1739527262.8478, 335779.526232].inject(0.0) {|p, a| p * @ta + a}
     # md_moon = Celes.faf03(@ta)
@@ -26,7 +26,7 @@ class Eot
     # me_moon = Celes.fad03(@ta)
     # Mean longitude of the ascending node of the Moon.       
     # omega   = [-0.00005939, 0.007702, 7.4722, -6962890.5431, 450160.398036].inject(0.0) {|p, a| p * @ta + a}            
-    omega   = Celes.faom03(@ta)
+    # omega   = Celes.faom03(@ta)
     # declare and clear these two variables for the sigma loop
     # delta_psi, delta_eps = 0, 0
 
@@ -64,7 +64,7 @@ class Eot
     # delta_eps = delta_eps / 1000.0 / 3600.0
     # delta_psi = delta_psi  / 1000.0 / 3600.0
 
-    [ Celes.nut06a(@ajd, 0)[0], Celes.nut06a(@ajd, 0)[1], ma_sun, omega]
+    [ Celes.nut06a(@ajd, 0)[0], Celes.nut06a(@ajd, 0)[1]]
     # [ nil, nil, ma_moon, ma_sun, md_moon, me_moon, omega]
   end
 

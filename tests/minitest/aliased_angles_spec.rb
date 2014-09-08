@@ -9,13 +9,13 @@ lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
-Eot_aliased_angles = Eot.new
+Eot_aliased_angles = Eot.new()
 
 describe 'tests ajd of 2456885.0' do
   
-  before(:each) do 
-    ajd                    = 2456885.0
-    Eot_aliased_angles.ajd  = ajd
+  before(:each) do  
+    Eot_aliased_angles.ajd  = 2456885.0
+    ajd = Eot_aliased_angles.ajd
     # somtimes need date to check values somewhere else
     Eot_aliased_angles.date = Eot_aliased_angles.ajd_to_datetime(ajd)
   end 

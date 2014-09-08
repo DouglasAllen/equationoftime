@@ -1,15 +1,15 @@
-#include "ruby.h"
-// #include "eot.h"
-
-static VALUE ma_Sun(VALUE self, VALUE t)
+#include "eot.h"
+double ma_Sun(double t)
 {
-VALUE ma;
-ma = rb_iv_set(self, "@ma", rb_cFloat); 
-return ma;
-}
+	   double a;
 
-VALUE cEot;
-void Init_eot() {
-cEot = rb_define_class("EOT", rb_cObject);
-rb_define_method(cEot, "ma", ma_Sun, 1);
+
+	/* Mean anomaly of the Sun (IERS Conventions 2003). */
+	   a = fmod(         1287104.793048 +
+	             t * ( 129596581.0481   +
+	             t * (       - 0.5532   +
+	             t * (         0.000136 +
+	             t * (       - 0.00001149 ) ) ) ), 1296000.0 ) * 4.848136811095359935899141e-6;
+
+	   return a;
 }

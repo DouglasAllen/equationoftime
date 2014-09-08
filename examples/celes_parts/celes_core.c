@@ -91,14 +91,14 @@ Init_celes_core(void){
 	id_status = rb_intern("@status");
 
 	rb_define_module_function(mCeles, "status", celes_s_status, 0);
-  rb_define_module_function(mCeles, "cal2jd", celes_s_cal2jd, 3);
-  rb_define_module_function(mCeles, "faf03",  celes_s_faf03,  1);
-  rb_define_module_function(mCeles, "fad03",  celes_s_fad03,  1);
-  rb_define_module_function(mCeles, "fal03",  celes_s_fal03,  1);
-  rb_define_module_function(mCeles, "falp03", celes_s_falp03, 1);
-  rb_define_module_function(mCeles, "faom03", celes_s_faom03, 1);
-  rb_define_module_function(mCeles, "nut00a", celes_s_nut00a, 2);
-  rb_define_module_function(mCeles, "nut06a", celes_s_nut06a, 2);
+    rb_define_module_function(mCeles, "cal2jd", celes_s_cal2jd, 3);
+    rb_define_module_function(mCeles, "faf03",  celes_s_faf03,  1);
+    rb_define_module_function(mCeles, "fad03",  celes_s_fad03,  1);
+    rb_define_module_function(mCeles, "fal03",  celes_s_fal03,  1);
+    rb_define_module_function(mCeles, "falp03", celes_s_falp03, 1);
+    rb_define_module_function(mCeles, "faom03", celes_s_faom03, 1);
+    rb_define_module_function(mCeles, "nut00a", celes_s_nut00a, 2);
+    rb_define_module_function(mCeles, "nut06a", celes_s_nut06a, 2);
   
   // rb_define_const(mCeles, "DAS2R",  DBL2NUM(DAS2R));
   // rb_define_const(mCeles, "TURNAS", DBL2NUM(TURNAS));

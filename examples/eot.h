@@ -1,1 +1,1 @@
-double ma_Sun(double T);
+double ma_Sun(double t);

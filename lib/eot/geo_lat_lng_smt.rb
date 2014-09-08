@@ -8,7 +8,7 @@ require 'rest-client'
 class GeoLatLng
 
   # Base address for Google maps api
-  attr_reader :base
+  attr_reader :base  
 
   # Default US set to PARCS
   attr_reader :default_us
@@ -38,6 +38,7 @@ class GeoLatLng
     @lng            = 0.0
     MultiXml.parser = :rexml#:libxml#:ox # :nokogiri
     @addr           = @default_int
+    
   end   
 
   # set address  

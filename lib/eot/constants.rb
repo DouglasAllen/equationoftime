@@ -11,7 +11,7 @@ class Eot
   ARCSEC      = 3_600.0
   
   # Arc seconds in a degree = 3_600.0  
-  # ASD         = 3_600.0
+  ASD         = 3_600.0
   
   # Arc seconds in an hour = 240.0
   # ASH         = 240.0

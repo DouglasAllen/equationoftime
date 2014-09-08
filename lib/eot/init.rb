@@ -1,6 +1,11 @@
 # init.rb
 
-class Eot    
+require 'celes'
+require_relative 'geo_lat_lng_smt'
+require_relative 'times'
+
+class Eot
+      
 
   # From init.rb:<br>
   # address used for GeoLatLng.addr
@@ -15,7 +20,8 @@ class Eot
   # Calling ma_Sun method will set @ta so be sure to not set @ma directly.
   def ajd=(ajd)
     @ajd = ajd.to_f
-    @ma = ma_Sun()
+    @ta = (( @ajd - DJ00 ) / DJC).to_f
+    @ma = Celes.falp03(@ta)
   end
 
   # From init.rb:<br>
@@ -51,6 +57,7 @@ class Eot
   # From init.rb:<br>
   # Mean Anomaly gets called a lot so class attribute saves it. 
   attr_accessor :ma
+  
 
   # From init.rb:<br>
   # JCT gets called a lot so class attribute it.
@@ -67,16 +74,15 @@ class Eot
     # @data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
  
     # set all date and time from this attribute
-    @ajd.nil?       ? @ajd       = DateTime.now.to_time.utc.to_datetime.jd.to_f   : @ajd         
-      
-    @ma.nil?        ? ma_Sun()                                                    : @ma
-    # normally setting @ma will set @ta
-    @ta.nil?        ? ( @ajd - DJ00 ) / DJC                                       : @ta
+    @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f
+    @jd = @ajd
+    @date = ajd_to_datetime(@ajd) 
+    @ta = (( @ajd - DJ00 ) / DJC).to_f
+    @ma = Celes.falp03(@ta)                                      
     
     # comment out below if you do not have internet connection
-    geo = GeoLatLng.new
-   
-    @addr.nil? ? @addr=geo.addr                                            : @addr=addr    
+    geo = GeoLatLng.new()   
+    @addr = geo.addr           
     geo.get_coordinates_from_address
     @latitude.nil?  ? @latitude = geo.lat : @latitude
     @longitude.nil? ? @longitude = geo.lng : @longitude
@@ -88,13 +94,21 @@ end
 # we can run some tests from inside this file.
 if __FILE__ == $PROGRAM_NAME
 
-  #~ lib = File.expand_path('../../../lib', __FILE__)
-  #~ puts "Loading gem from #{lib}/eot.rb"
-  #~ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  #~ require 'eot'
-  #~ e = Eot.new
-  #~ p e.date
+  lib = File.expand_path('../../../lib', __FILE__)
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot'
+  eot = Eot.new
 
+  p eot.ajd
+  p eot.date
+  p eot.jd
+
+  p eot.ma
+  p eot.ta
+  p eot.addr
+  p eot.latitude
+  p eot.longitude
+  
   spec = File.expand_path('../../../tests/minitest', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
   require 'init_spec'

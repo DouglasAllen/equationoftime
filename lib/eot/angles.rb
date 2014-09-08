@@ -1,5 +1,7 @@
 # angles.rb
 
+require 'celes'
+
 class Eot
   include Math
   # From angles.rb:<br> 
@@ -8,18 +10,24 @@ class Eot
     tl_Sun() - 0.00569 * D2R - 0.00478 * D2R * sin(omega())
   end 
   alias_method  :apparent_longitude, :al_Sun 
+  alias_method  :alsun, :al_Sun
   
   # From angles.rb:<br>
   # one time component to total equation of time
   def angle_delta_oblique()           
     tl_Sun() - ra_Sun()        
   end
-
+  alias_method :delta_t_ecliptic, :angle_delta_oblique
+  alias_method :delta_oblique, :angle_delta_oblique
+  
   # From angles.rb:<br> 
   # one time component to total equation of time
   def angle_delta_orbit()           
     @ma - ta_Sun() 
   end  
+  alias_method :delta_t_elliptic, :angle_delta_orbit
+  alias_method :delta_orbit, :angle_delta_orbit
+  
   
   # From angles.rb:<br>
   # component of equation of equinox
@@ -32,7 +40,8 @@ class Eot
   def angle_equation_of_time()    
     @ma = ma_Sun()    
     angle_delta_oblique() + angle_delta_orbit()    
-  end 
+  end
+  alias_method :eot, :angle_equation_of_time 
 
   # From angles.rb:<br>
   # equation of centre
@@ -59,9 +68,10 @@ class Eot
   # cosine apparent longitude
   # could be useful when dividing 
   def cosine_al_Sun()    
-    cos( al_Sun() ) 
+    cos( alsun() ) 
   end
   alias_method :cosine_apparent_longitude, :cosine_al_Sun
+  alias_method :cosalsun, :cosine_al_Sun
   
   # From angles.rb:<br>
   # cosine true longitude
@@ -94,19 +104,6 @@ class Eot
     delta_equinox()[ 1 ]
   end
   
-  # From angles.rb:<br>
-  # one time component to total equation of time 
-  def delta_oblique()            
-    tl_Sun() -  ra_Sun()        
-  end
-  alias_method :delta_t_ecliptic, :delta_oblique
-
-  # From angles.rb:<br>
-  # one time component to total equation of time
-  def delta_orbit()           
-    @ma - ta_Sun() 
-  end
-  alias_method :delta_t_elliptic, :delta_orbit  
   
   # From angles.rb:<br>
   # component of equation of equinox 
@@ -128,12 +125,6 @@ class Eot
   def eq_of_equinox()   
     cosine_to_Earth() * delta_psi()
   end
-  
-  # From angles.rb:<br>
-  # total equation of time  
-  def eot()  
-    delta_orbit() + delta_oblique()	      
-  end 
   
 
   # From angles.rb:<br>
@@ -166,11 +157,14 @@ class Eot
  
   # From angles.rb:<br>
   # angle of Suns' mean anomaly
+  # calculated in nutation.rb via celes function
+  # sets ta attribute for the rest the methods needing it.
   # used in equation of time
-  # and to get true anomaly. 
+  # and to get true anomaly true longitude via center equation  
   def ma_Sun()
     @ta = ( @ajd - DJ00 ) / DJC     
-    @ma = delta_equinox()[ 2 ]       
+#    @ma = delta_equinox()[2]
+    @ma = Celes.falp03(@ta)       
   end
   alias_method :mean_anomaly, :ma_Sun
   
@@ -210,7 +204,8 @@ class Eot
   # omega is the longitude of the mean ascending node of the lunar orbit 
   # on the ecliptic plane measured from the mean equinox of date. 
   def omega()    
-    delta_equinox()[ 3 ]       
+    # delta_equinox()[ 3 ]
+    Celes.faom03(@ta)      
   end
   
   # From angles.rb:<br>
@@ -268,6 +263,7 @@ class Eot
   end
   alias_method :true_longitude, :tl_Sun
   alias_method :ecliptic_longitude, :tl_Sun
+  alias_method :lambda, :tl_Sun
   
   # From angles.rb:<br>
   # true obliquity considers nutation  
@@ -276,6 +272,7 @@ class Eot
   end
   alias_method :obliquity_correction, :to_Earth
   alias_method :true_obliquity, :to_Earth
+  alias_method :toearth, :to_Earth
 
 end
 

@@ -9,7 +9,7 @@ lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib)unless$LOAD_PATH.include?(lib) 
 require 'eot'
 
-geo = GeoLatLng.new
+geo = GeoLatLng.new()
 
 describe 'Geo defaults' do
 	

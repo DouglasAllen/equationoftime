@@ -10,7 +10,7 @@ ECHO = $(ECHO1:0=@echo)
 
 #### Start of system configuration section. ####
 
-srcdir = /home/kb9agt/workspace/equationoftime/examples/celes_parts
+srcdir = /home/kb9agt/workspace/equationoftime/examples
 topdir = /home/kb9agt/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0
 hdrdir = $(topdir)
 arch_hdrdir = /home/kb9agt/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/i686-linux
@@ -133,12 +133,12 @@ extout_prefix =
 target_prefix = 
 LOCAL_LIBS = 
 LIBS = $(LIBRUBYARG_SHARED)  -lpthread -lrt -ldl -lcrypt -lm   -lc
-ORIG_SRCS = faur03.c fapa03.c celes_core.c falp03.c nut00b.c gst06.c gmst06.c faju03.c ee00a.c obl06.c nut06a.c obl80.c fae03.c pr00.c fad03.c cal2jd.c ee06a.c pfw06.c ee00b.c s06.c eors.c fw2m.c era00.c rz.c ee00.c ir.c nut00a.c fasa03.c fal03.c bpn2xy.c rx.c eect00.c faf03.c anpm.c fave03.c pnm06a.c anp.c fame03.c fama03.c gst06a.c faom03.c
+ORIG_SRCS = eot.c rbeot.c
 SRCS = $(ORIG_SRCS) 
-OBJS = faur03.o fapa03.o celes_core.o falp03.o nut00b.o gst06.o gmst06.o faju03.o ee00a.o obl06.o nut06a.o obl80.o fae03.o pr00.o fad03.o cal2jd.o ee06a.o pfw06.o ee00b.o s06.o eors.o fw2m.o era00.o rz.o ee00.o ir.o nut00a.o fasa03.o fal03.o bpn2xy.o rx.o eect00.o faf03.o anpm.o fave03.o pnm06a.o anp.o fame03.o fama03.o gst06a.o faom03.o
-HDRS = $(srcdir)/sofam.h $(srcdir)/sofa.h
-TARGET = celes_core
-TARGET_NAME = celes_core
+OBJS = eot.o rbeot.o
+HDRS = $(srcdir)/eot.h
+TARGET = rbeot
+TARGET_NAME = rbeot
 TARGET_ENTRY = Init_$(TARGET_NAME)
 DLLIB = $(TARGET).so
 EXTSTATIC = 
@@ -189,7 +189,7 @@ install-rb-default: pre-install-rb-default
 pre-install-rb: Makefile
 pre-install-rb-default: Makefile
 pre-install-rb-default:
-	$(ECHO) installing default celes_core libraries
+	$(ECHO) installing default rbeot libraries
 $(TIMESTAMP_DIR)/.RUBYARCHDIR.time:
 	$(Q) $(MAKEDIRS) $(@D) $(RUBYARCHDIR)
 	$(Q) $(TOUCH) $@

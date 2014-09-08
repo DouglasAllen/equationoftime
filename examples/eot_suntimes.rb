@@ -74,15 +74,15 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
 addr = "8000 South Michigan Ave., Chicago, IL"
-loc = GeoLatLng.new
-loc.addr = addr
-loc.get_coordinates_from_address
-puts loc.lat, loc.lng
+#loc = GeoLatLng.new
+#loc.addr = addr
+#loc.get_coordinates_from_address
+#puts loc.lat, loc.lng
 
-eot = Eot.new
-eot.longitude = loc.lng
-eot.ajd = Date.today.jd
-eot.latitude = loc.lat
+eot = Eot.new(addr)
+#eot.longitude = loc.lng
+#eot.ajd = Date.today.jd
+#eot.latitude = loc.lat
 
 #puts "Using this files methods"
 #puts sunrise_jd(Date.today)
@@ -102,13 +102,16 @@ OUT =<<EOS
 
 Using eot gem methods
 
+#{eot.latitude}
+#{eot.longitude}
+
 #{eot.sunrise_jd()}
-#{DateTime.jd(eot.sunrise_jd() + 0.5)}
-#{DateTime.jd(eot.sunrise_jd() + 0.5).to_time}
+#{eot.ajd_to_datetime(eot.sunrise_jd())}
+#{eot.ajd_to_datetime(eot.sunrise_jd()).to_time}
 
 #{eot.sunset_jd()}
-#{DateTime.jd(eot.sunset_jd() + 0.5)}
-#{DateTime.jd(eot.sunset_jd() + 0.5).to_time}
+#{eot.ajd_to_datetime(eot.sunset_jd())}
+#{eot.ajd_to_datetime(eot.sunset_jd()).to_time}
 
 #{Date.jd(Date.today.jd)}
 #{Date.today.jd}
@@ -133,6 +136,9 @@ Using eot gem methods
 
 #{DateTime.jd(Time.now.to_datetime.jd).to_time}
 #{DateTime.jd(Time.now.utc.to_datetime.jd).to_time}
+
+#{DateTime.jd(Time.now.to_datetime.jd + 0.5).to_time}
+#{DateTime.jd(Time.now.utc.to_datetime.jd + 0.5).to_time}
 EOS
 
 puts OUT
