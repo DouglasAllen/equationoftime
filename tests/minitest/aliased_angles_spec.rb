@@ -80,8 +80,8 @@ describe 'tests ajd of 2456885.0' do
     assert_equal 220.63461047270653, Eot_aliased_angles.mean_anomaly() * Eot::R2D 
   end  
   
-  it 'expected   143.81755550028174 returned by Eot_aliased_angles.mean_longitude_aries()? ' do
-    assert_equal 143.81755550028174, Eot_aliased_angles.mean_longitude_aries() * Eot::R2D
+  it 'expected    143.81755546193716 returned by Eot_aliased_angles.mean_longitude_aries()? ' do
+    assert_equal  143.81755546193716, Eot_aliased_angles.mean_longitude_aries() * Eot::R2D
   end
   
   it 'expected   23.437377335837343 returned by Eot_aliased_angles.mean_obliquity()? ' do
@@ -116,8 +116,8 @@ describe 'tests ajd of 2456885.0' do
     assert_equal 142.59647730361513, Eot_aliased_angles.true_longitude() * Eot::R2D
   end
 
-  it 'expected   143.81952750890466 returned by Eot_aliased_angles.true_longitude_aries()? ' do
-    assert_equal 143.81952750890466, Eot_aliased_angles.true_longitude_aries() * Eot::R2D
+  it 'expected    143.81952716284977 returned by Eot_aliased_angles.true_longitude_aries()? ' do
+    assert_equal  143.81952716284977, Eot_aliased_angles.true_longitude_aries() * Eot::R2D
   end    
 
   it 'expected   23.43504551637491 returned by Eot_aliased_angles.true_obliquity()? ' do
@@ -198,12 +198,12 @@ describe 'tests ajd of 2455055.5' do
     assert_equal 216.98609672458667, Eot_aliased_angles.mean_anomaly() * Eot::R2D 
   end  
   
-  it 'expected   140.082874313066 returned by Eot_aliased_angles.mean_longitude_aries()? ' do
-    assert_equal 140.082874313066, Eot_aliased_angles.mean_longitude_aries() * Eot::R2D
+  it 'expected   140.08287430391974 returned by Eot_aliased_angles.mean_longitude_aries()? ' do
+    assert_equal 140.08287430391974, Eot_aliased_angles.mean_longitude_aries() * Eot::R2D
   end
   
-  it 'expected   23.438029181641095 returned by Eot_aliased_angles.mean_obliquity()? ' do
-    assert_equal 23.438029181641095, Eot_aliased_angles.mean_obliquity() * Eot::R2D 
+  it 'expected   23.43802918164109 returned by Eot_aliased_angles.mean_obliquity()? ' do
+    assert_equal 23.43802918164109, Eot_aliased_angles.mean_obliquity() * Eot::R2D 
   end
   
   it 'expected   23.439327590332425 returned by Eot_aliased_angles.obliquity_correction()? ' do
@@ -230,8 +230,8 @@ describe 'tests ajd of 2455055.5' do
     assert_equal 138.9560468067515, Eot_aliased_angles.true_longitude() * Eot::R2D
   end 
   
-  it 'expected   140.08689014954535 returned by Eot_aliased_angles.true_longitude_aries()? ' do
-    assert_equal 140.08689014954535, Eot_aliased_angles.true_longitude_aries() * Eot::R2D 
+  it 'expected   140.0868895077245 returned by Eot_aliased_angles.true_longitude_aries()? ' do
+    assert_equal 140.0868895077245, Eot_aliased_angles.true_longitude_aries() * Eot::R2D 
   end
 
   it 'expected   23.439327590332425 returned by Eot_aliased_angles.true_obliquity()? ' do

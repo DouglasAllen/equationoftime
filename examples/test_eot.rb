@@ -1,13 +1,17 @@
-require_relative 'eot'
+require_relative 'rbeot'
+require_relative '../lib/eot'
 
-eot = EOT.new
+rbeot = EOT.new
+eot = Eot.new
 
-p eot.ma(0.14)
+p eot.ta
+p rbeot.ma(eot.ta)
+#~ p eot.ma_Sun
 
 require 'benchmark'
 
-n = 500_000
+n = 5_000
 Benchmark.bm do |x|
-  x.report("eot")  { n.times { eot.ma(0.14) } }
-  x.report("ruby")  { n.times { Time.now } }
+  x.report("eot")  { n.times { rbeot.ma(eot.ta) } }
+  #~ x.report("ruby")  { n.times {eot.ma_Sun() } }
 end

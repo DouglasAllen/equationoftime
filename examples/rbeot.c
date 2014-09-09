@@ -10,13 +10,13 @@ ID id_status;
 static VALUE
 ma_Sun(VALUE self, VALUE vt) {
 
-	rb_ivar_set(self, id_status, INT2FIX(0));
-	return DBL2NUM(ma_Sun(NUM2DBL(vt)));
+  rb_ivar_set(self, id_status, INT2FIX(0));
+  return DBL2NUM(maSun(NUM2DBL(vt)));
 }
 
 
 void
-Init_eot(void) {
+Init_rbeot(void) {
 
     cEot = rb_define_class("EOT", rb_cObject);
     id_status = rb_intern("@status");

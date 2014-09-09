@@ -96,8 +96,8 @@ describe 'Tests ajd of 2456885.0' do
     assert_equal 220.63461047270653, Eot_angles.ma_Sun() * Eot::R2D 
   end
   
-  it 'expected   143.81755550028174 from  Eot_angles.ml_Aries()? ' do
-    assert_equal 143.81755550028174, Eot_angles.ml_Aries() * Eot::R2D 
+  it 'expected   143.81755546193716 from  Eot_angles.ml_Aries()? ' do
+    assert_equal 143.81755546193716, Eot_angles.ml_Aries() * Eot::R2D 
   end
   
   it 'expected   23.437377335837343 from  Eot_angles.mo_Earth()? ' do
@@ -124,8 +124,8 @@ describe 'Tests ajd of 2456885.0' do
     assert_equal 219.40772163805062, Eot_angles.ta_Sun() * Eot::R2D
   end
 
-  it 'expected   143.81952750890466 from  Eot_angles.tl_Aries()? ' do
-    assert_equal 143.81952750890466, Eot_angles.tl_Aries() * Eot::R2D
+  it 'expected   143.81952716284977 from  Eot_angles.tl_Aries()? ' do
+    assert_equal 143.81952716284977, Eot_angles.tl_Aries() * Eot::R2D
   end  
 
   it 'expected   142.59647730361513 from  Eot_angles.tl_Sun()? ' do
@@ -224,12 +224,12 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal 216.98609672458667, Eot_angles.ma_Sun() * Eot::R2D 
   end
   
-  it 'expected   140.082874313066 from Eot_angles.ml_Aries()? ' do
-    assert_equal 140.082874313066, Eot_angles.ml_Aries() * Eot::R2D
+  it 'expected   140.08287430391974 from Eot_angles.ml_Aries()? ' do
+    assert_equal 140.08287430391974, Eot_angles.ml_Aries() * Eot::R2D
   end
   
-  it 'expected   23.438029181641095 from Eot_angles.mo_Earth()? ' do
-    assert_equal 23.438029181641095, Eot_angles.mo_Earth() * Eot::R2D
+  it 'expected   23.43802918164109 from Eot_angles.mo_Earth()? ' do
+    assert_equal 23.43802918164109, Eot_angles.mo_Earth() * Eot::R2D
   end
   
   it 'expected   -60.823140522846394 from Eot_angles.omega()? ' do
@@ -252,8 +252,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal 215.85345006584757, Eot_angles.ta_Sun() * Eot::R2D
   end
 
-  it 'expected   140.08689014954535 from Eot_angles.tl_Aries()? ' do
-    assert_equal 140.08689014954535, Eot_angles.tl_Aries() * Eot::R2D
+  it 'expected   140.0868895077245 from Eot_angles.tl_Aries()? ' do
+    assert_equal 140.0868895077245, Eot_angles.tl_Aries() * Eot::R2D
   end  
 
   it 'expected   138.9560468067515 from Eot_angles.tl_Sun()? ' do

@@ -1,1 +1,2 @@
-double ma_Sun(double t);
+#include "math.h"
+double maSun(double t);
