@@ -56,20 +56,21 @@ class Eot
   # equation of centre
   # added to mean anomaly to get true anomaly. 
   def center()      
-    sine_1M = sin( 1.0 * @ma )
-    sine_2M = sin( 2.0 * @ma )
-    sine_3M = sin( 3.0 * @ma )
-    sine_4M = sin( 4.0 * @ma )
-    sine_5M = sin( 5.0 * @ma )
-    e = eccentricity_Earth()
-    sine_1M * (     2.0  * e    - e**3/4.0 + 5/96.0 * e**5 ) +  
-    sine_2M * (   5/4.0  * e**2 - 11/24.0 * e**4 )           + 
-    sine_3M * ( 13/12.0  * e**3 - 43/64.0 * e**5 )           +
-    sine_4M *  103/96.0  * e**4                              +
-    sine_5M * 1097/960.0 * e**5                              
-    # sine_1M *( 1.914602 - ta[ 0 ] * ( 0.004817 + ta[ 0 ] * 0.000014 )) +                                               +
-    # sine_2M *( 0.019993 - ta[ 0 ] * 0.000101 )                         +                                              +
+    # sine_1M = sin( 1.0 * @ma )
+    # sine_2M = sin( 2.0 * @ma )
+    # sine_3M = sin( 3.0 * @ma )
+    # sine_4M = sin( 4.0 * @ma )
+    # sine_5M = sin( 5.0 * @ma )
+    # e = eccentricity_Earth()
+    # sine_1M * (  2.0       * e    - e**3 * 1.0/4.0 + 5/96.0 * e**5 ) +  
+    # sine_2M * (  5.0/4.0   * e**2 - 11/24.0 * e**4 )               + 
+    # sine_3M * ( 13.0/12.0  * e**3 - 43/64.0 * e**5 )               +
+    # sine_4M *  103.0/96.0  * e**4                                  +
+    # sine_5M * 1097.0/960.0 * e**5                              
+    # sine_1M * ( 1.914602 - @ta * ( 0.004817 + @ta * 0.000014 )) +                                               +
+    # sine_2M * ( 0.019993 - @ta * 0.000101 )                     +                                              +
     # sine_3M *  0.000289
+    eqc( @ma, @ta )
   end
   alias_method :equation_of_center, :center
   
@@ -111,7 +112,8 @@ class Eot
   # eccentricity of elliptical Earth orbit around Sun
   # Horners' calculation method  
   def eccentricity_Earth()
-    [-0.0000001235, -0.000042037, 0.016708617].inject(0.0) {|p, a| p * @ta + a} 
+    [-0.0000001235, -0.000042037, 0.016708617].inject(0.0) {|p, a| p * @ta + a}
+    eoe(@ta) 
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_Earth
   
@@ -128,9 +130,10 @@ class Eot
   # angle geometric mean longitude
   # needed to get true longitude for low accuracy.  
   def gml_Sun()    
-    total = [ 1.0/-19880000.0, 1.0/-152990.0, 1.0/499310.0,
-		 0.0003032028, 36000.76982779, 280.4664567 ] 
-    mod_360(total.inject(0.0) {|p, a| p * @ta + a}) * D2R
+    #total = [ 1.0/-19880000.0, 1.0/-152990.0, 1.0/499310.0,
+    #		 0.0003032028, 36000.76982779, 280.4664567 ] 
+    # mod_360(total.inject(0.0) {|p, a| p * @ta + a}) * D2R
+    ml(@ta)
   end
   alias_method :geometric_mean_longitude, :gml_Sun
 

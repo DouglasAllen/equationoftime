@@ -48,6 +48,12 @@ task :default => [ :test ]
 #  t.rspec_opts = []
 #end
 
+require 'rake/extensiontask'
+
+Rake::ExtensionTask.new "eot" do |ext|
+  ext.lib_dir = "lib/eot"
+end
+
 require 'rake/testtask'
 
 Rake::TestTask.new(:test) do |t|
