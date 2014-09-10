@@ -112,7 +112,7 @@ class Eot
   # eccentricity of elliptical Earth orbit around Sun
   # Horners' calculation method  
   def eccentricity_Earth()
-    [-0.0000001235, -0.000042037, 0.016708617].inject(0.0) {|p, a| p * @ta + a}
+    # [-0.0000001235, -0.000042037, 0.016708617].inject(0.0) {|p, a| p * @ta + a}
     eoe(@ta) 
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_Earth
@@ -266,7 +266,8 @@ class Eot
   # angle of true longitude sun
   # used in equation of time 
   def tl_Sun()   
-    Celes.anp(gml_Sun() + center()) 	 
+    #Celes.anp(gml_Sun() + center())
+    tl(@ma, @ta) 	 
   end
   alias_method :true_longitude, :tl_Sun
   alias_method :ecliptic_longitude, :tl_Sun

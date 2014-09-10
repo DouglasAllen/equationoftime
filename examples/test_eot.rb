@@ -26,3 +26,25 @@ Benchmark.bm do |x|
   x.report("reot") {n.times {eot.center()}}
   x.report("ceot") {n.times {eot.eqc(eot.ma, eot.ta)}}
 end
+puts 
+
+p eot.tl_Sun()
+p eot.tl(eot.ma, eot.ta)
+
+n = 500_000
+Benchmark.bm do |x|
+  x.report("reot")  { n.times {eot.tl_Sun()} }
+  x.report("ceot")  { n.times {eot.tl(eot.ma, eot.ta)} }  
+end
+puts
+
+p eot.al_Sun()
+p eot.al(eot.ma, eot.ta, eot.omega())
+
+n = 500_000
+Benchmark.bm do |x|
+  x.report("reot")  { n.times {eot.al_Sun()} }
+  x.report("ceot")  { n.times {eot.al(eot.ma, eot.ta, eot.omega())} }  
+end
+puts
+

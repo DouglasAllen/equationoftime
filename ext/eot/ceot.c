@@ -54,4 +54,16 @@ double tlSun(double ma, double t)
   a = fmod( mlSun(t) + eqc(ma, t), 57.295779513082320876798154814105);
 
   return a;
+}
+
+double alSun(double ma, double t, double o)
+{
+  double a;
+
+  a = fmod(tlSun(ma, t) - 
+           0.00569 * 0.017453292519943295769236907684886 - 
+           0.00478 * 0.017453292519943295769236907684886 * 
+           sin(o), 57.295779513082320876798154814105);
+
+  return a;
 }                              
