@@ -30,9 +30,8 @@ double eoe(double t)
 
 double eqc(double ma, double t)
 {             
-  double a, e, e34, e2, e3, e4, e5;
+  double a, e, e2, e3, e4, e5;
   e   = eoe(t);
-  e34 = pow(e, 3/4.0);
   e2  = pow(e, 2);
   e3  = pow(e, 3);
   e4  = pow(e, 4);
@@ -44,6 +43,15 @@ double eqc(double ma, double t)
       sin( 3.0 * ma ) * (e3 *   13.0/12.0 - 0.0          - e5 * 43.0/64.0) +
       sin( 4.0 * ma ) *  e4 *  103.0/96.0                                  +
       sin( 5.0 * ma ) *  e5 * 1097.0/960.0; 
+
+  return a;
+}
+
+double tlSun(double ma, double t)
+{
+  double a;
+
+  a = fmod( mlSun(t) + eqc(ma, t), 57.295779513082320876798154814105);
 
   return a;
 }                              
