@@ -1,8 +1,10 @@
 [![Gem Version](https://badge.fury.io/rb/equationoftime.png)](http://badge.fury.io/rb/equationoftime)
-##[*RDocs*](http://rubydoc.info/gems/equationoftime/4.0.1/frames)
+
 ##[*Graphic Plot 1*](https://github.com/DouglasAllen/equationoftime/blob/master/examples/figure_1.jpg) 
-[*Graphic Plot 1*](https://github.com/DouglasAllen/equationoftime/blob/master/examples/equation_of_time.py)
 created from [*equation_of_time.py*](https://bitbucket.org/cmcqueen1975/sundials/src/26a0f54a7c18fc3b54a3a4cff4f79192fcef1a91/equation_of_time.py?at=default)
+
+[*Graphic Plot 1*](https://github.com/DouglasAllen/equationoftime/blob/master/examples/equation_of_time.py)
+
 ##[*Graphic Plot 2*](https://github.com/DouglasAllen/equationoftime/blob/master/examples/Equation_of_Time.jpg) created from [*R script*](http://en.wikipedia.org/wiki/File:Zeitgleichung.png)
 ##[*Solar Time*](http://www.maa.mhn.de/Scholar/times.html#solar)
 ##[*Web Calculator*](http://www.nature1st.net/bogan/astro/time/jsjdetst.html)
