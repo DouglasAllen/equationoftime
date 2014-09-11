@@ -37,8 +37,7 @@ Wiki 4:
 
 Wiki 5:
 
-     require 'date'; DateTime.jd
-     require 'eot'; eot = Eot.new(); eot.ajd = DateTime.jd.to_f
+     require 'eot'; eot = Eot.new(); eot.ajd = Date.today.jd.to_f
      DateTime.jd(eot.sunrise_jd + 0.5)
      DateTime.jd(eot.sunset_jd + 0.5)
   
