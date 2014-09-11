@@ -28,11 +28,11 @@ Wiki 3:
 
 Wiki 4:
 
-     require 'eot';eot = Eot.new(); eot.factor
-      "There are #{Eot::SM * 60 * 24} hours in a sidereal day."
+     require 'eot';eot = Eot.new()
+     "There are #{Eot::SM * 6} hours in a sidereal day."
      "That is why on the next day the stars are about 4 minutes earlier."
      obtime0 = Time.now
-     obtime1 = obtime0 + Eot::SM * 60 * 24 * 3600
+     obtime1 = obtime0 + Eot::SM * 6 * 3600
      "Now you know when to look next time."
 
 Wiki 5:
