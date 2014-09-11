@@ -22,8 +22,8 @@ describe 'set ajd to 2456885.0' do
     assert_equal 2456885.0, Eot_first.ajd
   end
   
-  it 'expected   220.63461047270653 for Eot_first.ma' do
-    assert_equal 220.63461047270653, Eot_first.ma * Eot::R2D
+  it 'expected   3.8508003966038915 for Eot_first.ma' do
+    assert_equal 3.8508003966038915, Eot_first.ma
   end
   
   it 'expected   -0.0023318194624360874 returned by delta_epsilon()' do

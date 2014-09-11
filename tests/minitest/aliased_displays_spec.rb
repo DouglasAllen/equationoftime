@@ -22,7 +22,7 @@ describe 'Eot_aliased_displays using ajd of 2456885.0' do
       
   end
 
-  it 'expected  2456885.0 , returned by Eot_aliased_displays.' do
+  it 'expected   2456885.0 , returned by Eot_aliased_displays.' do
     assert_equal 2456885.0, Eot_aliased_displays.ajd
   end
   
@@ -30,8 +30,8 @@ describe 'Eot_aliased_displays using ajd of 2456885.0' do
     assert_equal "2014-08-15T12:00:00+00:00", Eot_aliased_displays.date.to_s
   end
   
-  it 'expected   220.63461047270653, returned by Eot_aliased_displays.' do
-    assert_equal 220.63461047270653, Eot_aliased_displays.ma * Eot::R2D
+  it 'expected   3.8508003966038915, returned by Eot_aliased_displays.' do
+    assert_equal 3.8508003966038915, Eot_aliased_displays.ma
   end   
   
   it 'expected   "+142:35:33.356" returned by Eot_aliased_displays.apparent_longitude_string()? ' do
@@ -42,8 +42,8 @@ describe 'Eot_aliased_displays using ajd of 2456885.0' do
     assert_equal "+013:58:51.521", Eot_aliased_displays.declination_string()
   end
   
-  it 'expected   "-04m, 28.9s" returned by Eot_aliased_displays.display_equation_of_time()? ' do
-    assert_equal "-04m, 28.9s", Eot_aliased_displays.display_equation_of_time() 	
+  it 'expected   "-04m, 29.2s" returned by Eot_aliased_displays.display_equation_of_time()? ' do
+    assert_equal "-04m, 29.2s", Eot_aliased_displays.display_equation_of_time() 	
   end
   
   it 'expected   "12:00:00.000" returned by Eot_aliased_displays.display_time_string()? ' do

@@ -28,8 +28,8 @@ describe 'Eot_nutation using ajd of 2456885.0' do
     assert_equal "2014-08-15T12:00:00+00:00", Eot_nutation.date.to_s    
   end
 
-  it 'expected   220.63461047270653 from Eot_nutation.ma' do 
-    assert_equal 220.63461047270653, Eot_nutation.ma * Eot::R2D
+  it 'expected   3.8508003966038915 from Eot_nutation.ma' do 
+    assert_equal 3.8508003966038915, Eot_nutation.ma
   end
   
   it 'expected   [3.75123821843003e-05, -4.069792718159396e-05] from Eot_nutation.delta_equinox()' do

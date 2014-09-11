@@ -25,8 +25,8 @@ describe 'tests ajd of 2456885.0' do
     assert_equal 2456885.0, Eot_aliased_utilities.ajd    
   end 
 
-  it 'expected   220.63461047270653 for Eot_aliased_utilities.ma'do
-    assert_equal 220.63461047270653, Eot_aliased_utilities.ma * Eot::R2D
+  it 'expected   3.8508003966038915 for Eot_aliased_utilities.ma'do
+    assert_equal 3.8508003966038915, Eot_aliased_utilities.ma
   end
 
   it 'expected   0.0 returned by Eot_aliased_utilities.truncate() ' do

@@ -29,8 +29,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal "2014-08-15T12:00:00+00:00", Eot_displays.date.to_s
   end
   
-  it 'expected   220.63461047270653, returned by Eot_displays.' do
-    assert_equal 220.63461047270653, Eot_displays.ma * Eot::R2D
+  it 'expected   3.8508003966038915, returned by Eot_displays.' do
+    assert_equal 3.8508003966038915, Eot_displays.ma
   end   
 
   it 'expected   "+000:00:00.000" returned by Eot_displays.degrees_to_s() ' do
@@ -53,8 +53,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal "+013:58:51.521", Eot_displays.string_dec_Sun()
   end
   
-  it 'expected   "-04m, 28.9s" returned by Eot_displays.string_eot() ' do
-    assert_equal "-04m, 28.9s", Eot_displays.string_eot()
+  it 'expected   "-04m, 29.2s" returned by Eot_displays.string_eot() ' do
+    assert_equal "-04m, 29.2s", Eot_displays.string_eot()
   end
   
   it 'expected   "2000-01-01" returned by Eot_displays.string_jd_to_date() ' do
