@@ -7,7 +7,8 @@ class Eot
   # From angles.rb:<br> 
   # Apparent solar longitude = true longitude - aberation   
   def al_Sun()    
-    Celes.anp(tl_Sun() - 0.00569 * D2R - 0.00478 * D2R * sin(omega()))
+    #Celes.anp(tl_Sun() - 0.00569 * D2R - 0.00478 * D2R * sin(omega()))
+    al(@ma, @ta, Celes.faom03(@ta))
   end 
   alias_method  :apparent_longitude, :al_Sun 
   alias_method  :alsun, :al_Sun
@@ -23,7 +24,7 @@ class Eot
   # From angles.rb:<br>
   # one time component to total equation of time
   def angle_delta_oblique()           
-    tl_Sun() - ra_Sun()        
+    al(@ma, @ta, Celes.faom03(@ta)) - ra_Sun()        
   end
   alias_method :delta_t_ecliptic, :angle_delta_oblique
   alias_method :delta_oblique, :angle_delta_oblique
@@ -78,7 +79,7 @@ class Eot
   # cosine apparent longitude
   # could be useful when dividing 
   def cosine_al_Sun()    
-    cos( alsun() ) 
+    cos( al(@ma, @ta, Celes.faom03(@ta)) ) 
   end
   alias_method :cosine_apparent_longitude, :cosine_al_Sun
   alias_method :cosalsun, :cosine_al_Sun
@@ -95,7 +96,7 @@ class Eot
   # cosine true obliquity
   # used in solar right ascension and equation of equinox 
   def cosine_to_Earth()    
-    cos( to_Earth() ) 
+    cos( Celes.nut06a(@ajd, 0)[ 1 ] + Celes.obl06(@ajd, 0) ) 
   end
   alias_method :cosine_true_obliquity, :cosine_to_Earth
   
@@ -215,8 +216,8 @@ class Eot
   # From angles.rb:<br>
   # solar right ascension
   def ra_Sun()    
-    y0 = sine_al_Sun() * cosine_to_Earth()
-    Celes.anp(180.0 * PI / 180.0 + atan2( -y0, -cosine_al_Sun() ) )  
+    y0 = sin( al(@ma, @ta, Celes.faom03(@ta)) ) * cos( Celes.nut06a(@ajd, 0)[ 1 ] + Celes.obl06(@ajd, 0) )
+    Celes.anp( PI + atan2( -y0, -cos( al(@ma, @ta, Celes.faom03(@ta)) ) ) )  
   end
   alias_method :right_ascension, :ra_Sun
   
@@ -224,7 +225,7 @@ class Eot
   # sine apparent longitude
   # used in solar declination  
   def sine_al_Sun()
-    sin( al_Sun() ) 
+    sin( al(@ma, @ta, Celes.faom03(@ta)) ) 
   end
   alias_method :sine_apparent_longitude, :sine_al_Sun
   
@@ -232,7 +233,7 @@ class Eot
   # sine true longitude
   # used in solar right ascension 
   def sine_tl_Sun()    
-    sin( tl_Sun() ) 
+    sin( tl(@ma, @ta) ) 
   end
   alias_method :sine_true_longitude, :sine_tl_Sun
   
@@ -240,14 +241,14 @@ class Eot
   # sine true obliquity angle of Earth
   # used in solar declination 
   def sine_to_Earth()
-    sin(to_Earth())
+    sin(Celes.nut06a(@ajd, 0)[ 1 ] + Celes.obl06(@ajd, 0))
   end
 
   # From angles.rb:<br>
   # angle true anomaly
   # used in equation of time  
   def ta_Sun()     
-    Celes.anp(@ma + center())	
+    Celes.anp(@ma + eqc( @ma, @ta ))	
   end
   alias_method :true_anomaly, :ta_Sun 
 
@@ -276,7 +277,7 @@ class Eot
   # From angles.rb:<br>
   # true obliquity considers nutation  
   def to_Earth()   
-    Celes.anp(delta_epsilon() + mo_Earth())     
+    Celes.nut06a(@ajd, 0)[ 1 ] + Celes.obl06(@ajd, 0)     
   end
   alias_method :obliquity_correction, :to_Earth
   alias_method :true_obliquity, :to_Earth
