@@ -1,10 +1,12 @@
 # read_nutation_data.rb is a leftover from building it so I just left it in examples.
 
-lib = File.expand_path('../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
-require 'eot'
-
+begin
+  require 'eot'
+rescue LoadError
+  lib = File.expand_path('../../lib', __FILE__)
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot' 
+end
 eot = Eot.new
 
 now = DateTime.now.to_time.utc.to_datetime

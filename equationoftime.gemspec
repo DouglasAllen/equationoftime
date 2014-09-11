@@ -10,16 +10,18 @@ Gem::Specification.new do |spec|
      spec.authors       = ["DouglasAllen"]
      spec.email         = ["kb9agt@gmail.com"]
      spec.summary       = %q{Equation of Time calculates time of solar transition.}
-     spec.description   = %q{Calculate Sunrise and Sunset, GMST, and GAST for just about any date and location.
+     spec.description   = %q{Calculate Sunrise and Sunset. Uses native C wrappers.
 	                     Lots of examples to play with included.}
-     spec.homepage      = "http://equationoftime.herokuapp.com"
-     #spec.source        = "https://github.com/DouglasAllen/equationoftime-3.0.0"
+     #spec.homepage      = "http://equationoftime.herokuapp.com"
+     spec.homepage      = "https://github.com/DouglasAllen/equationoftime"
      spec.license       = "MIT"
 	
 
      # Manifest
-     #spec.files         = Dir.glob("{examples, lib}/**/*") + %w(LICENSE README}
-     spec.files         = `git ls-files -z`.split("\x0")
+     spec.files         = Dir.glob("ext/**/*.{c,h,rb, so}") + Dir.glob("**") +
+                          Dir.glob("lib/**/*.rb") + Dir.glob(".*")
+     #spec.files         = `git ls-files -z`.split($/)#split("\x0")
+     spec.extensions    << "ext/ceot/extconf.rb"
      spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
      spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
      spec.require_paths = ["lib"]

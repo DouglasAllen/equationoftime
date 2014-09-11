@@ -1,9 +1,7 @@
 # aliased_displays_spec.rb
 #
-# comment out next two lines and uncomment below for rpec tests.
-gem 'minitest'
-require 'minitest/autorun'
-# require_relative '../spec_config'
+
+require_relative '../spec_config'
 
 lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -14,9 +12,8 @@ Eot_aliased_displays = Eot.new
 describe 'Eot_aliased_displays using ajd of 2456885.0' do
 
   before(:each) do
-    ajd                       =   2456885.0  
-    Eot_aliased_displays.ajd  = ajd
-    
+    Eot_aliased_displays.ajd  = 2456885.0
+    ajd = Eot_aliased_displays.ajd    
     # check date for this ajd when needed.
     Eot_aliased_displays.date = Eot_aliased_displays.ajd_to_datetime(ajd)
       

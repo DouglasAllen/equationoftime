@@ -1,9 +1,13 @@
 # geo_locator.rb
 
-lib = File.expand_path('../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+begin
+  require 'eot'
+rescue LoadError
+  lib = File.expand_path('../../lib', __FILE__)
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot' 
+end
 
-require 'eot'
 
 geo = GeoLatLng.new
 geo.addr = "8000 South Michigan Ave., Chicago, IL"

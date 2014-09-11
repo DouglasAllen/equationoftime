@@ -1,9 +1,7 @@
 # nutation_spec.rb
 #
-# comment out next two lines and uncomment below for rpec tests.
-gem 'minitest'
-require 'minitest/autorun'
-# require_relative '../spec_config'
+
+require_relative '../spec_config'
 
 lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -15,8 +13,8 @@ Eot_nutation = Eot.new
 describe 'Eot_nutation using ajd of 2456885.0' do    
 
   before(:each) do
-    ajd           = 2456885.0
-    Eot_nutation.ajd = ajd
+    Eot_nutation.ajd           = 2456885.0
+    ajd = Eot_nutation.ajd
     Eot_nutation.date =  Eot_nutation.ajd_to_datetime(ajd)   
   end 
 

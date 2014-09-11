@@ -1,7 +1,12 @@
 # compare_geoc_long_ra.rb
 
-lib = File.expand_path('../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+begin
+  require 'eot'
+rescue LoadError
+  lib = File.expand_path('../../lib', __FILE__)
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot' 
+end
 
 require 'eot'
 

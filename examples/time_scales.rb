@@ -1,9 +1,12 @@
 # eot_methods_list.rb
 
-lib = File.expand_path('../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
-require  'eot'
+begin
+  require 'eot'
+rescue LoadError
+  lib = File.expand_path('../../lib', __FILE__)
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot' 
+end
 $DEBUG and set_trace_func proc { |event, file, line, id, binding, classname|
        printf "%8s %s:%-2d %10s %8s\n", event, file, line, id, classname
     }

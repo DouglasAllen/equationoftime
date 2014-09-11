@@ -1,6 +1,7 @@
 # init.rb
 
 require 'celes'
+
 require_relative 'geo_lat_lng_smt'
 require_relative 'times'
 

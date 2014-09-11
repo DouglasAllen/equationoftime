@@ -1,5 +1,5 @@
 require "bundler/gem_tasks"
-
+=begin
 require 'thor'
 require 'bundler'
 require 'rbconfig'
@@ -35,7 +35,7 @@ module Bundler
     end
   end
 end
-
+=end
 # require "bundler/install_tasks"
 
 require 'rspec/core/rake_task'
@@ -43,16 +43,17 @@ require 'rspec/core/rake_task'
 
 task :default => [ :test ]
 
-#RSpec::Core::RakeTask.new(:spec) do | t |
-#  t.pattern = "./tests/spec/*_spec.rb"
-#  t.rspec_opts = []
-#end
+RSpec::Core::RakeTask.new(:spec) do | t |
+  t.pattern = "./tests/minitest/*_spec.rb"
+  t.rspec_opts = []
+end
 
 require 'rake/extensiontask'
-
-Rake::ExtensionTask.new "eot" do |ext|
-  ext.lib_dir = "lib/eot"
-end
+spec = Gem::Specification.load('equationoftime.gemspec')
+Rake::ExtensionTask.new('ceot', spec)
+#Rake::ExtensionTask.new "ceot" do |ext|
+  #ext.lib_dir = "lib"
+#end
 
 require 'rake/testtask'
 

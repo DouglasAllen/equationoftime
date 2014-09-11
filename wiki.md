@@ -13,7 +13,7 @@ Wiki 2:
 
      latitude,  longitude, date = 41.9474, -88.74467, "2013-12-25"
      require 'eot';eot = Eot.new()
-     eot.latitude = latitude; eot.longitude = longitude; eot.date = date
+     eot.latitude = latitude; eot.longitude = longitude; eot.ajd = Date.parse(date).jd
      eot.sunrise_dt().to_time
      eot.sunset_dt().to_time  
 
@@ -22,17 +22,17 @@ Wiki 3:
      require 'eot';eot = Eot.new()
      loop do
        eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd
-       puts eot.string_time(eot.tl_Aries(eot.time_julian_century(eot.ajd)) / 15.0)
+       puts eot.string_time(eot.tl_Aries() / 15.0)
        sleep 0.73
      end
 
 Wiki 4:
 
      require 'eot';eot = Eot.new(); eot.factor
-     "There are #{360 * eot.factor / 15.0} hours in a sidereal day."
+      "There are #{Eot::SM * 60 * 24} hours in a sidereal day."
      "That is why on the next day the stars are about 4 minutes earlier."
      obtime0 = Time.now
-     obtime1 = obtime0 + 360 * eot.factor / 15.0 * 3600
+     obtime1 = obtime0 + Eot::SM * 60 * 24 * 3600
      "Now you know when to look next time."
 
 Wiki 5:

@@ -1,9 +1,7 @@
 # delta_epsilon_spec.rb
 #
-# comment out next two lines and uncomment below for rpec tests.
-gem 'minitest'
-require 'minitest/autorun'
-# require_relative '../spec_config'
+
+require_relative '../spec_config'
 
 lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -14,8 +12,8 @@ Eot_first = Eot.new
 describe 'set ajd to 2456885.0' do
   
   before(:each) do
-    ajd           = 2456885.0
-    Eot_first.ajd = ajd       
+    Eot_first.ajd         = 2456885.0
+    ajd  = Eot_first.ajd       
   end
 
   it 'expected   2456885.0 for Eot_first.ajd' do

@@ -1,9 +1,7 @@
 # geo_spec.rb/
 #
-# comment out next two lines and uncomment below for rpec tests.
-gem 'minitest'
-require 'minitest/autorun'
-# require_relative '../spec_config'
+
+require_relative '../spec_config'
 
 lib = File.expand_path('../../../lib', __FILE__) 
 $LOAD_PATH.unshift(lib)unless$LOAD_PATH.include?(lib) 

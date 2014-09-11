@@ -32,7 +32,7 @@ class Eot
   # From angles.rb:<br> 
   # one time component to total equation of time
   def angle_delta_orbit()           
-    @ma - ta_Sun() 
+    @ma - Celes.anp(@ma + eqc( @ma, @ta )) 
   end  
   alias_method :delta_t_elliptic, :angle_delta_orbit
   alias_method :delta_orbit, :angle_delta_orbit
@@ -49,7 +49,7 @@ class Eot
   # total equation of time  
   def angle_equation_of_time()    
     #~ @ma = ma_Sun()    
-    angle_delta_oblique() + angle_delta_orbit()    
+    @ma - Celes.anp(@ma + eqc( @ma, @ta )) + al(@ma, @ta, Celes.faom03(@ta)) - ra_Sun()    
   end
   alias_method :eot, :angle_equation_of_time 
 
@@ -88,7 +88,7 @@ class Eot
   # cosine true longitude
   # used in solar right ascension  
   def cosine_tl_Sun()    
-    cos( tl_Sun() ) 
+    cos( tl(@ma, @ta) ) 
   end
   alias_method :cosine_true_longitude, :cosine_tl_Sun
   
@@ -103,8 +103,8 @@ class Eot
   # From angles.rb:<br>
   # solar declination
   def dec_Sun()   
-    sine_declination = sine_to_Earth()  * sine_al_Sun()
-    asin( sine_declination ) 
+    asin( sin(Celes.nut06a(@ajd, 0)[ 1 ] + Celes.obl06(@ajd, 0)) * 
+            sin( al(@ma, @ta, Celes.faom03(@ta)))) 
   end
   alias_method :declination, :dec_Sun
   
@@ -123,7 +123,7 @@ class Eot
   # used for true longitude of Aries 
   # Depricated by Celes.gst06a()  
   def eq_of_equinox()   
-    cosine_to_Earth() * delta_psi()
+    cos( Celes.nut06a(@ajd, 0)[ 1 ] + Celes.obl06(@ajd, 0) ) * Celes.nut06a(@ajd, 0)[ 0 ]
   end
   
 
@@ -142,14 +142,9 @@ class Eot
   # horizon angle for provided geo coordinates
   # used for angles from transit to horizons  
   def ha_Sun()
-    zenith              = 90.8333 * D2R
-    cosine_zenith       = cos( zenith ) 
-    cosine_declination  = cos( dec_Sun() ) 
-    sine_declination    = sin( dec_Sun() )   
-    cosine_latitude     = cos( @latitude * D2R )
-    sine_latitude       = sin( @latitude * D2R )
-    top                 = cosine_zenith - sine_declination * sine_latitude
-    bottom              = cosine_declination * cosine_latitude
+    zenith   = 90.8333 # use other zeniths here for non commercial    
+    top      = cosZ( zenith ) - sin( dec_Sun() ) * sin( @latitude * D2R )
+    bottom   = cos( dec_Sun() ) * cos( @latitude * D2R )
     t_cosine = top / bottom 
     t_cosine > 1.0 || t_cosine < -1.0 ? cos = 1.0 : cos = t_cosine
     acos( cos )  
@@ -216,7 +211,8 @@ class Eot
   # From angles.rb:<br>
   # solar right ascension
   def ra_Sun()    
-    y0 = sin( al(@ma, @ta, Celes.faom03(@ta)) ) * cos( Celes.nut06a(@ajd, 0)[ 1 ] + Celes.obl06(@ajd, 0) )
+    y0 = sin( al(@ma, @ta, Celes.faom03(@ta)) ) * cos( Celes.nut06a(@ajd, 0)[ 1 ] + 
+         Celes.obl06(@ajd, 0) )
     Celes.anp( PI + atan2( -y0, -cos( al(@ma, @ta, Celes.faom03(@ta)) ) ) )  
   end
   alias_method :right_ascension, :ra_Sun

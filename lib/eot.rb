@@ -1,5 +1,6 @@
 # eot.rb
 
+require 'ceot'
 require 'eot/version'
 require 'eot/constants'
 require 'eot/init'
@@ -9,4 +10,3 @@ require 'eot/times'
 require 'eot/displays'
 require 'eot/nutation'
 require 'eot/geo_lat_lng_smt'
-require 'eot/eot'

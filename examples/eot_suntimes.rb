@@ -1,8 +1,13 @@
 #!/usr/bin/env ruby
 # eot_suntimes.rb leftover from building the parts in the gem so just left it here.
 #
-lib = File.expand_path('../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+begin
+  require 'eot'
+rescue LoadError
+  lib = File.expand_path('../../lib', __FILE__)
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot' 
+end
 
 #def sunrise_jd(arg)
 #

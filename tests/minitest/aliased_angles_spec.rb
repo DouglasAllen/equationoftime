@@ -1,9 +1,6 @@
 # aliased_angles_spec.rb
 #
-# comment out next two lines and uncomment below for rpec tests.
-gem 'minitest'
-require 'minitest/autorun'
-# require_relative '../spec_config'
+require_relative '../spec_config'
 
 lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -128,8 +125,8 @@ end
 describe 'tests ajd of 2455055.5' do
 
   before(:each) do
-    ajd                    = 2455055.0     
-    Eot_aliased_angles.ajd  = ajd
+    Eot_aliased_angles.ajd                   = 2455055.0     
+    ajd = Eot_aliased_angles.ajd
     # check date for this ajd when needed.
     Eot_aliased_angles.date = Eot_aliased_angles.ajd_to_datetime(ajd)    
   end

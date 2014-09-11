@@ -12,9 +12,13 @@ bd_sidereal_minutes = 4 / bd_factor
 puts sidereal_minutes
 puts sidereal_minutes
 
-lib = File.expand_path('../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eot'
+begin
+  require 'eot'
+rescue LoadError
+  lib = File.expand_path('../../lib', __FILE__)
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'eot' 
+end
 
 eot = Eot.new()
 # From angles.rb:<br>

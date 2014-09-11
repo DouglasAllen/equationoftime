@@ -1,9 +1,7 @@
 # constants_spec.rb
 #
-# comment out next two lines and uncomment below for rpec tests. 
-gem 'minitest'
-require 'minitest/autorun'
-# require_relative '../spec_config'
+
+require_relative '../spec_config'
 
 lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -17,5 +15,6 @@ describe "Equation of Time constants." do
     assert_equal 86400.0, Eot::DAY_SECONDS 
     assert_equal 86400.0 * 1.0e+6, Eot::DAY_USECS
     assert_equal 57.29577951308232, Eot::R2D
+    assert_equal 0.017453292519943295, Eot::D2R
   end
 end  

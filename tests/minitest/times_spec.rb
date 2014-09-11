@@ -1,9 +1,7 @@
 # times_spec.rb
 #
-# comment out next two lines and uncomment below for rpec tests.
-gem 'minitest'
-require 'minitest/autorun'
-# require_relative '../spec_config'
+
+require_relative '../spec_config'
 
 lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -14,12 +12,10 @@ Eot_times = Eot.new
 describe 'tests ajd of 2456885.0' do
 
   before(:each) do
-    ajd                    =   2456885.0  
-    Eot_times.ajd  = ajd
+    Eot_times.ajd                =   2456885.0  
+    ajd = Eot_times.ajd
     # check date for this ajd when needed.
     Eot_times.date = Eot_times.ajd_to_datetime(ajd)
-    # use ta attribute as matcher
-    @ta = Eot_times.ta   
   end
 
   it 'expected   2456885.0 for Eot_times.ajd'do
@@ -83,12 +79,10 @@ end
 describe 'tests ajd of 2455055.0' do  
   
   before(:each) do
-    ajd                    = 2455055.0     
-    Eot_times.ajd  = ajd
+    Eot_times.ajd                     = 2455055.0     
+    ajd = Eot_times.ajd
     # check date for this ajd when needed.
     Eot_times.date = Eot_times.ajd_to_datetime(ajd)
-    # use ta attribute as matcher
-    @ta =  Eot_times.ta  
   end
   
   it 'expected   2455055.0, from Eot_times.' do
