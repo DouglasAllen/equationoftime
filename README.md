@@ -26,13 +26,13 @@ Execute:
 
 	$ bundle install
 
+Build extension:
+
+	$ rake compile:ceot
+
 Run minitest tests:
 
-	$ rake
-
-Build gem:
-
-	$ rake compile:eot   
+	$ rake   
 
 Local install of gem build:
  
@@ -62,17 +62,16 @@ Or install it yourself as:
 #[Wikis](https://github.com/DouglasAllen/equationoftime/blob/master/wiki.md)
 
 
-Notes:
-
-1. for other time equations see:[*gist 2032003*](https://gist.github.com/2032003)
-
-
 Suggestions:
 
 1. http://equationoftime.herokuapp.com/analemma Itererates through a years worth of dates and computes analemma data.
 2. A file is included in examples named analemma_data_generator.rb and may help you get started.
-3. See the [*astro dog*](https://github.com/DouglasAllen/Sinatra-projects/tree/master/astro_dog) project here and the web post of it on [*Heroku*](http://equationoftime.herokuapp.com/) for more info about the Equation of Time.
+3. See the [*astro dog*](https://github.com/DouglasAllen/Sinatra-projects/tree/master/astro_dog) project or the web post [*Heroku*](http://equationoftime.herokuapp.com/) for more info about the Equation of Time.
 4. See the wikis for more usage examples.
+
+Notes:
+
+1. for other time equations see:[*gist 2032003*](https://gist.github.com/2032003)
 
 Contributing:
 
