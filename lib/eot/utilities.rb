@@ -1,35 +1,35 @@
 # utilities.rb
 
 class Eot
-  # From utilities.rb:<br>
+  # From utilities.rb:  
   # A check for default J2000
   # sets default when arg is nil
   def check_jd_nil( jd = DJ00 )
     jd.nil? ? jd = DJ00 : jd
   end
 
-  # From utilities.rb:<br>
+  # From utilities.rb:  
   # A check for default J2000
   # sets default when arg is zero
   def check_jd_zero( jd = DJ00 )
     jd == 0 ? jd = DJ00 : jd = check_jd_nil( jd )
   end
 
-  # From utilities.rb:<br>
+  # From utilities.rb:  
   # A check for default DT2000
   # sets default when arg is nil
   def check_t_nil( dt = DT2000 )
     dt.nil? ? dt = DT2000 : dt
   end
 
-  # From utilities.rb:<br>
+  # From utilities.rb:  
   # A check for default DT2000
   # sets default when arg is zero
   def check_t_zero( dt = DT2000 )
     dt == 0 ? dt = DT2000 : dt = check_t_nil( dt )
   end
 
-  # From utilities.rb:<br>
+  # From utilities.rb:  
   # Keeps large angles in range of 360.0
   # aliased by truncate
   def mod_360( x = 0.0 )

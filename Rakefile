@@ -1,6 +1,6 @@
 require "bundler/gem_tasks"
 # require "bundler/install_tasks"
-#require 'rspec/core/rake_task'
+require 'rspec/core/rake_task'
 require 'yard'
 require 'hoe'
 require 'rake/testtask'
@@ -17,10 +17,10 @@ Rake::TestTask.new(:test) do |t|
     t.options
 end
 
-=begin
+begin
 Hoe.spec 'eot' do
   developer('Douglas Allen', 'kb9agt@gmail.com')
-  self.readme_file   = 'README.rdoc'
+  self.readme_file   = 'README.md'
   self.history_file  = 'CHANGELOG.rdoc'
   self.extra_rdoc_files  = FileList['*.rdoc']
   self.extra_dev_deps << ['rake-compiler', '>= 0']
@@ -32,7 +32,7 @@ Hoe.spec 'eot' do
 end
 
 Rake::Task[:test].prerequisites << :compile
-=end
+end
 =begin
 require 'thor'
 require 'bundler'
@@ -73,10 +73,10 @@ end
 
 
 
-#RSpec::Core::RakeTask.new(:spec) do | t |
-#  t.pattern = "./test/*_spec.rb"
-#  t.rspec_opts = ["autotest"]
-#end
+RSpec::Core::RakeTask.new(:spec) do | t |
+  t.pattern = "./test/*_spec.rb"
+  t.rspec_opts = [:minitest]
+end
 
 #require 'rake/extensiontask'
 #spec = Gem::Specification.load('equationoftime.gemspec')

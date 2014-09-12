@@ -5,7 +5,7 @@
 
 class Eot    
  
-  # From nutation.rb<br>
+  # From nutation.rb:   
   # Returns array with [ delta_eps, delta_psi, ma_sun, omega]
   # celes gem is used here now for performance. It is a Ruby wrapper for
   # see http://www.iausofa.org/

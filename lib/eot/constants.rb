@@ -158,6 +158,8 @@ end
 
 if __FILE__ == $PROGRAM_NAME
 
+  gem 'minitest'
+  require 'minitest/autorun'
   spec = File.expand_path('../../../tests/minitest', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
   require 'constants_spec'

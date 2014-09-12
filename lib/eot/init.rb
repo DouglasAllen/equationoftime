@@ -8,11 +8,11 @@ require_relative 'times'
 class Eot
       
 
-  # From init.rb:<br>
+  # From init.rb:  
   # address used for GeoLatLng.addr
   attr_accessor :addr
   
-  # From init.rb:<br>
+  # From init.rb:  
   # Astronomical Julian Day Number is an instance of DateTime class.
   # When new Equation of Time class is initialized 
   # @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f
@@ -29,49 +29,49 @@ class Eot
     @ma = Celes.falp03(@ta)
   end
 
-  # From init.rb:<br>
+  # From init.rb:  
   # Nutation Data is an instance of Array class.
   # @data = nutation_table5_3a.yaml 
   # YAML File loaded when new Eot class is initialized.
   #attr_reader :data  
 
-  # From init.rb:<br>
+  # From init.rb:  
   # @date is an instance of DateTime class.  
   # When new Eot class is initialized @date = ajd_to_datetime(@ajd)  
   attr_accessor :date
 
-  # From init.rb:<br>
+  # From init.rb:  
   # Julian Day Number is an instance of DateTime class.
   # When new Eot class is initialized @jd = @ajd
   attr_accessor :jd
 
-  # From init.rb:<br>
+  # From init.rb:  
   # Latitude input is an instance of Float class.
   # When new Eot class is initialized @latitude = 0.0
   # May use GeoLatLng class to set it also but please comment that out  
   # if no internet connection is present via proxies or firewalls :D  
   attr_accessor :latitude
   
-  # From init.rb:<br>
+  # From init.rb:  
   # Longitude input is an instance of Float class.
   # When new Eot class is initialized @longitude = 0.0
   # May use GeoLatLng class to set it also but please comment that out 
   # if no internet connection is present via proxies or firewalls :D   
   attr_accessor :longitude
 
-  # From init.rb:<br>
+  # From init.rb:  
   # Mean Anomaly gets called a lot so class attribute saves it.
   # @ma = Celes.falp03(@ta) 
   attr_accessor :ma
   
 
-  # From init.rb:<br>
+  # From init.rb:  
   # JCT gets called a lot so class attribute it.
   # Setting @ajd will set this and @ma
   # @ta = (( @ajd - DJ00 ) / DJC).to_f  
   attr_accessor :ta
       
-  # From init.rb:<br>
+  # From init.rb:  
   # Initialize to set attributes 
   # You may use GeoLatLng to set up @latitude and @longitude but you need to have
   # internet so if not please comment it out for now.    

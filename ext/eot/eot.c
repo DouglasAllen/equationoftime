@@ -1,5 +1,5 @@
 #include "ruby.h"
-#include "eot.h"
+#include "ceot.h"
 
 #ifndef DBL2NUM
 # define DBL2NUM(dbl) rb_float_new(dbl)
@@ -39,7 +39,7 @@ VALUE func_cosZ(VALUE klass, VALUE vz) {
 
 VALUE cEot;
 void
-Init_ceot(void) {
+Init_eot(void) {
 
   VALUE cEot = rb_define_class("Eot", rb_cObject);
   id_status = rb_intern("@status");

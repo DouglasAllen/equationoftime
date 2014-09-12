@@ -4,7 +4,7 @@ require 'celes'
 
 class Eot
   include Math
-  # From angles.rb:<br> 
+  # From angles.rb:    
   # Apparent solar longitude = true longitude - aberation   
   def al_Sun()    
     #Celes.anp(tl_Sun() - 0.00569 * D2R - 0.00478 * D2R * sin(omega()))
@@ -13,7 +13,7 @@ class Eot
   alias_method  :apparent_longitude, :al_Sun 
   alias_method  :alsun, :al_Sun
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # delta epsilon
   # component of equation of equinox 
   def angle_delta_epsilon()    
@@ -21,7 +21,7 @@ class Eot
   end
    alias_method  :delta_epsilon, :angle_delta_epsilon
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # one time component to total equation of time
   def angle_delta_oblique()           
     al(@ma, @ta, Celes.faom03(@ta)) - ra_Sun()        
@@ -29,7 +29,7 @@ class Eot
   alias_method :delta_t_ecliptic, :angle_delta_oblique
   alias_method :delta_oblique, :angle_delta_oblique
   
-  # From angles.rb:<br> 
+  # From angles.rb:    
   # one time component to total equation of time
   def angle_delta_orbit()           
     @ma - Celes.anp(@ma + eqc( @ma, @ta )) 
@@ -38,14 +38,14 @@ class Eot
   alias_method :delta_orbit, :angle_delta_orbit
   
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # component of equation of equinox
   def angle_delta_psi()   
     Celes.nut06a(@ajd, 0)[ 0 ]
   end
   alias_method :delta_psi, :angle_delta_psi
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # total equation of time  
   def angle_equation_of_time()    
     #~ @ma = ma_Sun()    
@@ -53,7 +53,7 @@ class Eot
   end
   alias_method :eot, :angle_equation_of_time 
 
-  # From angles.rb:<br>
+  # From angles.rb:   
   # equation of centre
   # added to mean anomaly to get true anomaly. 
   def center()      
@@ -75,7 +75,7 @@ class Eot
   end
   alias_method :equation_of_center, :center
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # cosine apparent longitude
   # could be useful when dividing 
   def cosine_al_Sun()    
@@ -84,7 +84,7 @@ class Eot
   alias_method :cosine_apparent_longitude, :cosine_al_Sun
   alias_method :cosalsun, :cosine_al_Sun
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # cosine true longitude
   # used in solar right ascension  
   def cosine_tl_Sun()    
@@ -92,7 +92,7 @@ class Eot
   end
   alias_method :cosine_true_longitude, :cosine_tl_Sun
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # cosine true obliquity
   # used in solar right ascension and equation of equinox 
   def cosine_to_Earth()    
@@ -100,7 +100,7 @@ class Eot
   end
   alias_method :cosine_true_obliquity, :cosine_to_Earth
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # solar declination
   def dec_Sun()   
     asin( sin(Celes.nut06a(@ajd, 0)[ 1 ] + Celes.obl06(@ajd, 0)) * 
@@ -109,7 +109,7 @@ class Eot
   alias_method :declination, :dec_Sun
   
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # eccentricity of elliptical Earth orbit around Sun
   # Horners' calculation method  
   def eccentricity_Earth()
@@ -118,7 +118,7 @@ class Eot
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_Earth
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # equation of equinox
   # used for true longitude of Aries 
   # Depricated by Celes.gst06a()  
@@ -127,7 +127,7 @@ class Eot
   end
   
 
-  # From angles.rb:<br>
+  # From angles.rb:   
   # angle geometric mean longitude
   # needed to get true longitude for low accuracy.  
   def gml_Sun()    
@@ -138,7 +138,7 @@ class Eot
   end
   alias_method :geometric_mean_longitude, :gml_Sun
 
-  # From angles.rb:<br>
+  # From angles.rb:   
   # horizon angle for provided geo coordinates
   # used for angles from transit to horizons  
   def ha_Sun()
@@ -151,7 +151,7 @@ class Eot
   end
   alias_method :horizon_angle, :ha_Sun  
  
-  # From angles.rb:<br>
+  # From angles.rb:   
   # angle of Suns' mean anomaly
   # calculated in nutation.rb via celes function
   # sets ta attribute for the rest the methods needing it.
@@ -164,7 +164,7 @@ class Eot
   end
   alias_method :mean_anomaly, :ma_Sun
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # Mean equinox point where right ascension is measured from as zero hours.
   # # see http://www.iausofa.org/publications/aas04.pdf 
   def ml_Aries()   
@@ -188,7 +188,7 @@ class Eot
   end
   alias_method :mean_longitude_aries, :ml_Aries
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # mean obliquity of Earth  
   def mo_Earth()     
 #    [ -0.0000000434, -0.000000576,  0.00200340, 
@@ -198,7 +198,7 @@ class Eot
   alias_method :mean_obliquity_of_ecliptic, :mo_Earth
   alias_method :mean_obliquity, :mo_Earth
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # omega is a component of nutation and used 
   # in apparent longitude 
   # omega is the longitude of the mean ascending node of the lunar orbit 
@@ -208,7 +208,7 @@ class Eot
     Celes.faom03(@ta)      
   end
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # solar right ascension
   def ra_Sun()    
     y0 = sin( al(@ma, @ta, Celes.faom03(@ta)) ) * cos( Celes.nut06a(@ajd, 0)[ 1 ] + 
@@ -217,7 +217,7 @@ class Eot
   end
   alias_method :right_ascension, :ra_Sun
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # sine apparent longitude
   # used in solar declination  
   def sine_al_Sun()
@@ -225,7 +225,7 @@ class Eot
   end
   alias_method :sine_apparent_longitude, :sine_al_Sun
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # sine true longitude
   # used in solar right ascension 
   def sine_tl_Sun()    
@@ -233,14 +233,14 @@ class Eot
   end
   alias_method :sine_true_longitude, :sine_tl_Sun
   
-# From angles.rb:<br>
+# From angles.rb:   
   # sine true obliquity angle of Earth
   # used in solar declination 
   def sine_to_Earth()
     sin(Celes.nut06a(@ajd, 0)[ 1 ] + Celes.obl06(@ajd, 0))
   end
 
-  # From angles.rb:<br>
+  # From angles.rb:   
   # angle true anomaly
   # used in equation of time  
   def ta_Sun()     
@@ -248,7 +248,7 @@ class Eot
   end
   alias_method :true_anomaly, :ta_Sun 
 
-  # From angles.rb:<br>
+  # From angles.rb:   
   # true longitude of equinox 'first point of aries'
   # considers nutation 
   def tl_Aries()     
@@ -259,7 +259,7 @@ class Eot
   end
   alias_method :true_longitude_aries, :tl_Aries  
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # angle of true longitude sun
   # used in equation of time 
   def tl_Sun()   
@@ -270,7 +270,7 @@ class Eot
   alias_method :ecliptic_longitude, :tl_Sun
   alias_method :lambda, :tl_Sun
   
-  # From angles.rb:<br>
+  # From angles.rb:   
   # true obliquity considers nutation  
   def to_Earth()   
     Celes.nut06a(@ajd, 0)[ 1 ] + Celes.obl06(@ajd, 0)     
@@ -283,7 +283,7 @@ end
 
 if __FILE__ == $PROGRAM_NAME
 
-  spec = File.expand_path('../../../tests/minitest', __FILE__)
+  spec = File.expand_path('../../../test/', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
   require 'angles_spec'
   require 'aliased_angles_spec'

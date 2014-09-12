@@ -1,8 +1,12 @@
 # -*- ruby -*-
-
+require 'autotest/fsevent'
 require "autotest/restart"
-require "autotest/suffix"
 require "autotest/spec"
+require "autotest/suffix"
+
+require "redgreen/autotest"
+
+require "test_notifier/autotest"
 
 Autotest.add_hook :initialize do |at|
    #at.testlib = "minitest/autorun"
@@ -21,10 +25,14 @@ Autotest.add_hook :initialize do |at|
 #     at.extra_class_map[klass] = "test/test_misc.rb"
 #   end
 end
-Autotest.add_hook :all_good do |at|
-  system "rake rcov_info"
-end if ENV['RCOV']
+
+#Autotest.add_hook :all_good do |at|
+  #system "rake rcov_info"
+#end if ENV['RCOV']
 
 #Autotest.add_hook :run_command do |at|
 #   system "rake build"
 #end
+Autotest.add_hook :run_command do |at|
+  system "rake clean compile"
+end
