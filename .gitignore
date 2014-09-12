@@ -3,13 +3,14 @@
 .rspec
 .bundle
 .config
+.settings
 .yardoc
 Gemfile.lock
+
 InstalledFiles
 _yardoc
 coverage
 doc
-
 lib/bundler/man
 pkg
 rdoc
@@ -17,7 +18,6 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
-.settings
 ext/ceot/*.o
 ext/ceot/*.so
 ext/ceot/Makefile
