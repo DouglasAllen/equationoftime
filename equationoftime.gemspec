@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
      spec.files         = Dir.glob("ext/**/*.{c,h,rb, so}") + Dir.glob("**") +
                           Dir.glob("lib/**/*.rb") + Dir.glob(".*")
      #spec.files         = `git ls-files -z`.split($/)#split("\x0")
-     spec.extensions    << "ext/ceot/extconf.rb"
+     spec.extensions    << "ext/eot/extconf.rb"
      spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
      spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
      spec.require_paths = ["lib"]
