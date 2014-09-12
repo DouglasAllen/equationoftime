@@ -14,11 +14,15 @@ class Eot
   
   # From init.rb:<br>
   # Astronomical Julian Day Number is an instance of DateTime class.
-  # When new Equation of Time class is initialized @ajd = DateTime.jd
+  # When new Equation of Time class is initialized 
+  # @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f
   attr_accessor :ajd
   
-  # Method for change of @ajd from the default so @ma will get set anew.
+  # Method for change of @ajd from the default so @ma and @ta will get set anew.
   # Calling ma_Sun method will set @ta so be sure to not set @ma directly.
+  # use this method for dates you want to get data for. EX: @ajd = Date.parse("YY-MM-DD").jd
+  # Generally use jd if you want suntimes and ajd if you want current times as ajd in 
+  # DateTime class will include the dayfraction which is basically just the time.
   def ajd=(ajd)
     @ajd = ajd.to_f
     @ta = (( @ajd - DJ00 ) / DJC).to_f
@@ -33,12 +37,12 @@ class Eot
 
   # From init.rb:<br>
   # @date is an instance of DateTime class.  
-  # When new Eot class is initialized @date = now UTC  
+  # When new Eot class is initialized @date = ajd_to_datetime(@ajd)  
   attr_accessor :date
 
   # From init.rb:<br>
   # Julian Day Number is an instance of DateTime class.
-  # When new Eot class is initialized @jd = DateTime.jd  
+  # When new Eot class is initialized @jd = @ajd
   attr_accessor :jd
 
   # From init.rb:<br>
@@ -56,13 +60,15 @@ class Eot
   attr_accessor :longitude
 
   # From init.rb:<br>
-  # Mean Anomaly gets called a lot so class attribute saves it. 
+  # Mean Anomaly gets called a lot so class attribute saves it.
+  # @ma = Celes.falp03(@ta) 
   attr_accessor :ma
   
 
   # From init.rb:<br>
   # JCT gets called a lot so class attribute it.
-  # Setting @ajd or @ma will set this  
+  # Setting @ajd will set this and @ma
+  # @ta = (( @ajd - DJ00 ) / DJC).to_f  
   attr_accessor :ta
       
   # From init.rb:<br>

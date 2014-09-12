@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
      spec.authors       = ["DouglasAllen"]
      spec.email         = ["kb9agt@gmail.com"]
      spec.summary       = %q{Equation of Time calculates time of solar transition.}
-     spec.description   = %q{Calculate Sunrise and Sunset. Uses native C wrappers.
-	                     Lots of examples to play with included.}
+     spec.description   = %q{Calculate Sunrise and Sunset. Now uses native C wrappers.
+	                     Lots of examples to play with for learning.}
      #spec.homepage      = "http://equationoftime.herokuapp.com"
      spec.homepage      = "https://github.com/DouglasAllen/equationoftime"
      spec.license       = "MIT"
