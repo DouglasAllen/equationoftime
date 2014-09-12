@@ -1,7 +1,7 @@
 # times_spec.rb
 #
 
-require_relative '../spec_config'
+# require_relative 'spec_config'
 
 lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -11,7 +11,7 @@ Eot_times = Eot.new
 
 describe 'tests ajd of 2456885.0' do
 
-  before(:each) do
+  before(:each) do    
     Eot_times.ajd                =   2456885.0  
     ajd = Eot_times.ajd
     # check date for this ajd when needed.

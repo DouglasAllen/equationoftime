@@ -1,7 +1,7 @@
 # init_spec.rb
 #
 
-require_relative '../spec_config'
+# require_relative 'spec_config'
 
 
 lib = File.expand_path('../../../lib', __FILE__)

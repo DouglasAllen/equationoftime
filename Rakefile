@@ -1,4 +1,38 @@
 require "bundler/gem_tasks"
+# require "bundler/install_tasks"
+#require 'rspec/core/rake_task'
+require 'yard'
+require 'hoe'
+require 'rake/testtask'
+require 'rake/extensiontask'
+#require "rake/win32"
+require 'rdoc/task'
+
+task :default => [ :test ]
+
+Rake::TestTask.new(:test) do |t|
+    t.libs << "test"
+    t.test_files = FileList['test/*_spec.rb']
+    t.verbose = true
+    t.options
+end
+
+=begin
+Hoe.spec 'eot' do
+  developer('Douglas Allen', 'kb9agt@gmail.com')
+  self.readme_file   = 'README.rdoc'
+  self.history_file  = 'CHANGELOG.rdoc'
+  self.extra_rdoc_files  = FileList['*.rdoc']
+  self.extra_dev_deps << ['rake-compiler', '>= 0']
+  self.spec_extras = { :extensions => ["ext/eot/extconf.rb"] }
+
+  Rake::ExtensionTask.new('eot', spec) do |ext|
+    ext.lib_dir = File.join('lib', 'eot')
+  end
+end
+
+Rake::Task[:test].prerequisites << :compile
+=end
 =begin
 require 'thor'
 require 'bundler'
@@ -36,35 +70,22 @@ module Bundler
   end
 end
 =end
-# require "bundler/install_tasks"
-
-require 'rspec/core/rake_task'
 
 
-task :default => [ :test ]
 
-RSpec::Core::RakeTask.new(:spec) do | t |
-  t.pattern = "./tests/minitest/*_spec.rb"
-  t.rspec_opts = []
-end
+#RSpec::Core::RakeTask.new(:spec) do | t |
+#  t.pattern = "./test/*_spec.rb"
+#  t.rspec_opts = ["autotest"]
+#end
 
-require 'rake/extensiontask'
-spec = Gem::Specification.load('equationoftime.gemspec')
-Rake::ExtensionTask.new('ceot', spec)
+#require 'rake/extensiontask'
+#spec = Gem::Specification.load('equationoftime.gemspec')
+#Rake::ExtensionTask.new('ceot', spec)
 #Rake::ExtensionTask.new "ceot" do |ext|
   #ext.lib_dir = "lib"
 #end
 
-require 'rake/testtask'
 
-Rake::TestTask.new(:test) do |t|
-    t.libs << "test"
-    t.test_files = FileList['tests/minitest/*_spec.rb']
-    t.verbose = true
-    t.options
-end
-
-require "rake/win32"
 
 # Rake::TestTask.new(:mine) do |t|
 
@@ -103,14 +124,10 @@ require "rake/win32"
   
 # end
 
-require 'yard'
-
 YARD::Rake::YardocTask.new(:yardoc) do |t|
   t.files = ['lib/**/*.rb']
 #  puts t.methods
 end
-
-require 'rdoc/task'
 
 desc 'generate API documentation to rdocs/index.html'
 Rake::RDocTask.new(:rdox) do |rd|

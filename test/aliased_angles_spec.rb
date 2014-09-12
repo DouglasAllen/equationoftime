@@ -1,6 +1,7 @@
 # aliased_angles_spec.rb
 #
-require_relative '../spec_config'
+
+# require_relative 'spec_config'
 
 lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
