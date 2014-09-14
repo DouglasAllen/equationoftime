@@ -13,6 +13,7 @@ Wiki 2:
 
      latitude,  longitude, date = 41.9474, -88.74467, "2013-12-25"
      require 'eot';eot = Eot.new()
+     # set the coordinates manually
      eot.latitude = latitude; eot.longitude = longitude; eot.ajd = Date.parse(date).jd
      eot.sunrise_dt().to_time
      eot.sunset_dt().to_time  
@@ -40,4 +41,14 @@ Wiki 5:
      require 'eot'; eot = Eot.new(); eot.ajd = Date.today.jd.to_f
      DateTime.jd(eot.sunrise_jd + 0.5)
      DateTime.jd(eot.sunset_jd + 0.5)
+     
+wiki 6:
+
+      require 'eot'; eot = Eot.new(); eot.ajd = Date.today.jd.to_f
+      geo = GeoLatLng.new
+      geo.addr = "8000 South Michigan Ave., Chicago, IL"
+      geo.get_coordinates_from_address
+      eot.longitude = geo.lng;eot.latitude = geo.lat
+      eot.ajd_to_datetime(eot.sunrise_jd)
+      eot.ajd_to_datetime(eot.sunset_jd)
   
