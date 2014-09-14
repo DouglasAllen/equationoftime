@@ -2,7 +2,7 @@ Installation:
  
 Fork it and Clone it:
 
-	$ git clone git@github.com:DouglasAllen/equationoftime-2.3.8.git
+	$ git clone git@github.com:DouglasAllen/equationoftime.git
    
 Enter dir:
 
@@ -18,11 +18,11 @@ Run minitest tests:
 
 Build gem:
 
-	$ gem build equationoftime.gemspec    
+	$ rake build    
 
 Local install of gem build:
  
-	$ gem install equationoftime-2.3.8.gem -l
+	$ rake install
 
 
 Add this line to your application's Gemfile:
@@ -42,7 +42,7 @@ Usage:
         $ irb --simple-prompt
 
         require 'eot'
-        eot = EqoT.new  #(note: in irb you'll see nutation data loading. This is normal.)
+        eot = EqoT.new()
         eot.string_eot()
 
 
