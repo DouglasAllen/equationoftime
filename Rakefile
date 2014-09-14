@@ -1,25 +1,17 @@
 require "bundler/gem_tasks"
 # require "bundler/install_tasks"
-require 'rspec/core/rake_task'
-require 'yard'
 require 'hoe'
-require 'rake/testtask'
 require 'rake/extensiontask'
+require 'rake/testtask'
 #require "rake/win32"
 require 'rdoc/task'
+require 'rspec/core/rake_task'
+require 'yard'
 
-task :default => [ :test ]
-
-Rake::TestTask.new(:test) do |t|
-    t.libs << "test"
-    t.test_files = FileList['test/*_spec.rb']
-    t.verbose = true
-    t.options
-end
-
-begin
 Hoe.spec 'eot' do
   developer('Douglas Allen', 'kb9agt@gmail.com')
+  license('MIT')
+  self.version = ''  
   self.readme_file   = 'README.md'
   self.history_file  = 'CHANGELOG.rdoc'
   self.extra_rdoc_files  = FileList['*.rdoc']
@@ -32,7 +24,37 @@ Hoe.spec 'eot' do
 end
 
 Rake::Task[:test].prerequisites << :compile
+
+task :default => [ :test ]
+
+Rake::TestTask.new(:test) do |t|
+    t.libs << "test"
+    t.test_files = FileList['test/*_spec.rb']
+    t.verbose = true
+    t.options
 end
+
+RSpec::Core::RakeTask.new(:spec) do | t |
+  t.pattern = "./test/*_spec.rb"
+  t.rspec_opts = []
+end
+
+YARD::Rake::YardocTask.new(:yardoc) do |t|
+  t.files = ['lib/**/*.rb']
+#  puts t.methods
+end
+
+desc 'generate API documentation to rdocs/index.html'
+Rake::RDocTask.new(:rdox) do |rd|
+
+  rd.rdoc_dir = 'rdocs'
+
+  rd.rdoc_files.include 'lib/**/*.rb', 'README.md', 'wiki.md'
+ 
+  rd.options << '--line-numbers'
+  
+end
+
 =begin
 require 'thor'
 require 'bundler'
@@ -72,20 +94,12 @@ end
 =end
 
 
-
-RSpec::Core::RakeTask.new(:spec) do | t |
-  t.pattern = "./test/*_spec.rb"
-  t.rspec_opts = [:minitest]
-end
-
 #require 'rake/extensiontask'
 #spec = Gem::Specification.load('equationoftime.gemspec')
 #Rake::ExtensionTask.new('ceot', spec)
 #Rake::ExtensionTask.new "ceot" do |ext|
   #ext.lib_dir = "lib"
 #end
-
-
 
 # Rake::TestTask.new(:mine) do |t|
 
@@ -123,19 +137,3 @@ end
   # Rake::Win32.rake_system("rspec ./tests/spec/vars_spec.rb")
   
 # end
-
-YARD::Rake::YardocTask.new(:yardoc) do |t|
-  t.files = ['lib/**/*.rb']
-#  puts t.methods
-end
-
-desc 'generate API documentation to rdocs/index.html'
-Rake::RDocTask.new(:rdox) do |rd|
-
-  rd.rdoc_dir = 'rdocs'
-
-  rd.rdoc_files.include 'lib/**/*.rb', 'README.md', 'wiki.md'
- 
-  rd.options << '--line-numbers'
-  
-end

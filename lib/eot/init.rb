@@ -75,7 +75,7 @@ class Eot
   # Initialize to set attributes 
   # You may use GeoLatLng to set up @latitude and @longitude but you need to have
   # internet so if not please comment it out for now.    
-  def initialize(addr=nil)
+  def initialize()
 
     # file_path     = File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )
     # @data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
@@ -88,11 +88,11 @@ class Eot
     @ma = Celes.falp03(@ta)                                      
     
     # comment out below if you do not have internet connection
-    geo = GeoLatLng.new()   
-    @addr = geo.addr           
+    geo = GeoLatLng.new()      
     geo.get_coordinates_from_address
-    @latitude.nil?  ? @latitude = geo.lat : @latitude
-    @longitude.nil? ? @longitude = geo.lng : @longitude
+    @addr = geo.addr
+    @latitude = geo.lat
+    @longitude = geo.lng
   end
   
 end
@@ -106,7 +106,7 @@ if __FILE__ == $PROGRAM_NAME
   require 'eot'
   eot = Eot.new
 
-  p eot.ajd
+  # p eot.ajd
   p eot.date
   p eot.jd
 
@@ -116,8 +116,9 @@ if __FILE__ == $PROGRAM_NAME
   p eot.latitude
   p eot.longitude
   
-  spec = File.expand_path('../../../tests/minitest', __FILE__)
-  $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-  require 'init_spec'
+  #~ spec = File.expand_path('../../../tests/minitest', __FILE__)
+  #~ $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
+  #~ require 'init_spec'
+  system 'rake test'
 
 end

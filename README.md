@@ -8,8 +8,8 @@ created from [*equation_of_time.py*](https://bitbucket.org/cmcqueen1975/sundials
 ##[*Graphic Plot 2*](https://github.com/DouglasAllen/equationoftime/blob/master/examples/Equation_of_Time.jpg) created from [*R script*](http://en.wikipedia.org/wiki/File:Zeitgleichung.png)
 ##[*Solar Time*](http://www.maa.mhn.de/Scholar/times.html#solar)
 ##[*Web Calculator*](http://www.nature1st.net/bogan/astro/time/jsjdetst.html)
-
-
+# equationoftime gem
+##[*Equation of Time download*](https://rubygems.org/gems/equationoftime)
 ##[*Equation of Time Ruby Sinatra Website*](http://equationoftime.herokuapp.com/)
 
 #Installation:    

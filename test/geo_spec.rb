@@ -15,8 +15,8 @@ describe 'Geo defaults' do
     assert_equal "Blackheath Ave, London SE10 8XJ, UK", geo.addr
   end
 
-  it'expected    "http://maps.googleapis.com/maps/api/geocode/xml?sensor=false&address="' do
-    assert_equal "http://maps.googleapis.com/maps/api/geocode/xml?sensor=false&address=", geo.base
+  it'expected    "http://maps.googleapis.com/maps/api/geocode/json?address="' do
+    assert_equal "http://maps.googleapis.com/maps/api/geocode/json?address=", geo.base
   end
 
   it'expected    "Blackheath Ave, London SE10 8XJ, UK" 'do

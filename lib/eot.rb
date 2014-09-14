@@ -1,9 +1,8 @@
 # eot.rb
-class Eot
-  VERSION = "4.1.2"
-end
-require 'eot/eot'
 
+
+require 'eot/version'
+require 'eot/eot'
 require 'eot/constants'
 require 'eot/init'
 require 'eot/utilities'

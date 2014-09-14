@@ -18,12 +18,12 @@ describe 'Eot_initialize using today matchers' do
   
   it 'expected   0.0' do   
     @test2 = Eot.new()
-    assert_equal 51.4769388, @test2.latitude
+    assert_equal( 51.4769388, @test2.latitude )
    end
 
   it 'expected   0.0' do
     @test3 = Eot.new()  
-    assert_equal -4.2e-05, @test3.longitude
+    assert_equal( -4.2e-05, @test3.longitude )
   end
 
   it 'expected   @test4.ma_Sun()' do

@@ -1,16 +1,17 @@
 # -*- ruby -*-
-require 'autotest/fsevent'
+
+#require 'autotest/fsevent'
 require "autotest/restart"
-require "autotest/spec"
-require "autotest/suffix"
+#require "autotest/spec"
+#require "autotest/suffix"
 
-require "redgreen/autotest"
+#require "redgreen/autotest"
 
-require "test_notifier/autotest"
+#require "test_notifier/autotest"
 
 Autotest.add_hook :initialize do |at|
-   #at.testlib = "minitest/autorun"
-   at.testlib = ".minitest"
+   at.testlib = "minitest/autorun"
+   #at.testlib = ".minitest"
 #   at.extra_files << "../some/external/dependency.rb"
 
 #   at.libs << ":../some/external"

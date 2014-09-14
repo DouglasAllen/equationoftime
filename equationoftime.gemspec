@@ -1,5 +1,6 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+
+lib = File.expand_path('./lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
@@ -27,17 +28,18 @@ Gem::Specification.new do |spec|
      spec.require_paths = ["lib"]
      spec.platform      = Gem::Platform::RUBY
      spec.add_development_dependency "bundler", "~> 1.5"
-     spec.add_development_dependency "rake"
-     spec.add_development_dependency "rake-compiler"
-     spec.add_development_dependency "hoe"
-     spec.add_development_dependency "guard"
-     spec.add_development_dependency "minitest"
-     spec.add_development_dependency "ZenTest" 
-     spec.add_development_dependency "rspec"
-     spec.add_development_dependency "yard"
+     #spec.add_development_dependency "rake"
+     #spec.add_development_dependency "rake-compiler"
+     #spec.add_development_dependency "hoe"
+     #spec.add_development_dependency "guard"
+     #spec.add_development_dependency "minitest"
+     #spec.add_development_dependency "ZenTest" 
+     #spec.add_development_dependency "rspec"
+     #spec.add_development_dependency "yard"
+     #spec.add_development_dependency "rdoc"
      spec.add_runtime_dependency "celes"
      #spec.add_runtime_dependency "astro-algo"
-     spec.add_runtime_dependency "multi_xml"
+     #spec.add_runtime_dependency "multi_xml"
      spec.add_runtime_dependency "rest-client"
      #spec.add_runtime_dependency "safe_yaml"	 
      

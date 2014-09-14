@@ -96,15 +96,15 @@ class Eot
   # Deprecated 
   def time_julian_century()
     t1 = ( @ajd - DJ00 ) / DJC
-    t2 = t1 * t1
-    t3 = t1 * t2
-    t4 = t2 * t2
-    t5 = t2 * t3
-    t6 = t3 * t3
-    t7 = t3 * t4
-    t8 = t4 * t4
-    t9 = t4 * t5
-    t10 = t5 * t5
+    # t2 = t1 * t1
+    # t3 = t1 * t2
+    # t4 = t2 * t2
+    # t5 = t2 * t3
+    # t6 = t3 * t3
+    # t7 = t3 * t4
+    # t8 = t4 * t4
+    # t9 = t4 * t5
+    # t10 = t5 * t5
 #    @ta = [ t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 ] 
     @ta = t1     
   end
