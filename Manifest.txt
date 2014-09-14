@@ -10,8 +10,11 @@ Gemfile
 Gemfile.lock
 Guardfile
 LICENSE.txt
+LICENSE.md
 Manifest.txt
 README.md
+wiki.md
+wiki2.md
 README2.txt
 Rakefile
 equationoftime.gemspec
