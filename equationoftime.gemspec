@@ -27,16 +27,19 @@ Gem::Specification.new do |spec|
      spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
      spec.require_paths = ["lib"]
      spec.platform      = Gem::Platform::RUBY
+# note: the last good build was with these development dependencies below
      spec.add_development_dependency "bundler", "~> 1.5"
-     #spec.add_development_dependency "rake"
-     #spec.add_development_dependency "rake-compiler"
-     #spec.add_development_dependency "hoe"
-     #spec.add_development_dependency "guard"
-     #spec.add_development_dependency "minitest"
-     #spec.add_development_dependency "ZenTest" 
-     #spec.add_development_dependency "rspec"
-     #spec.add_development_dependency "yard"
-     #spec.add_development_dependency "rdoc"
+     #spec.add_development_dependency "rake",, "~> 10.3.2"
+     #spec. add_development_dependency 'rake-compiler', '~> 0.9.3'
+     #spec.add_development_dependency "hoe", "~> 3.12.0"
+     #spec.add_development_dependency "guard", "~> 2.6.1"
+     #spec.add_development_dependency "guard-minitest", "~> 2.3.2"
+     #spec.add_development_dependency "minitest", "~> 5.4.1"
+     #spec.add_development_dependency "ZenTest", "~> 4.10.1" 
+     #spec.add_development_dependency "rspec", "~> 3.1.0"
+     #spec.add_development_dependency "yard", "~> 0.8.7.4"
+     #spec.add_development_dependency "rdoc", "~> 4.1.2"
+
      spec.add_runtime_dependency "celes"
      #spec.add_runtime_dependency "astro-algo"
      #spec.add_runtime_dependency "multi_xml"

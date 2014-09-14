@@ -10,6 +10,7 @@ Gemfile
 Gemfile.lock
 Guardfile
 LICENSE.txt
+LICENSE.rdoc
 Manifest.txt
 README.rdoc
 Rakefile

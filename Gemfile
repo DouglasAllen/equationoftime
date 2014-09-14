@@ -4,9 +4,8 @@ source 'https://rubygems.org'
 gemspec
 group :development do
   gem 'hoe'
-  gem 'rake'
-  # gem 'shovel' ;-)
-  gem 'rake-compiler'
+  gem 'rake' 
+  gem 'rake-compiler', '~> 0.9.3' 
   gem 'guard'
   gem 'minitest'
   gem 'guard-minitest'

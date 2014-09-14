@@ -7,15 +7,15 @@ require 'rake/testtask'
 require 'rdoc/task'
 require 'rspec/core/rake_task'
 require 'yard'
-
-Hoe.spec 'eot' do
+# rake release VERSION=4.1.2
+Hoe.spec 'equationoftime' do
   developer('Douglas Allen', 'kb9agt@gmail.com')
   license('MIT')
-  self.version = ''  
+  self.version = '4.1.2'  
   self.readme_file   = 'README.rdoc'
   self.history_file  = 'CHANGELOG.rdoc'
   self.extra_rdoc_files  = FileList['*.rdoc']
-  self.extra_dev_deps << ['rake-compiler', '>= 0']
+  self.extra_dev_deps << ['rake-compiler', '~> 0.9', '>= 0.9.3']
   self.spec_extras = { :extensions => ["ext/eot/extconf.rb"] }
 
   Rake::ExtensionTask.new('eot', spec) do |ext|
