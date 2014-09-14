@@ -28,7 +28,7 @@ Execute:
 
 Build extension:
 
-	$ rake compile:ceot
+	$ rake compile
 
 Run minitest tests:
 
