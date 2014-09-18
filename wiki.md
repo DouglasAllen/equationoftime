@@ -1,4 +1,4 @@
-Wiki 1:
+Wiki 2:
 
      $ irb --simple-prompt
 
@@ -9,7 +9,7 @@ Wiki 1:
        sleep 11  
      end
 
-Wiki 2:
+Wiki 3:
 
      latitude,  longitude, date = 41.9474, -88.74467, "2013-12-25"
      require 'eot';eot = Eot.new()
@@ -18,16 +18,17 @@ Wiki 2:
      eot.sunrise_dt().to_time
      eot.sunset_dt().to_time  
 
-Wiki 3:
+Wiki 4:
 
-     require 'eot';eot = Eot.new()
+    require 'eot';eot = Eot.new()
+    puts "Show the Local Apparent Sidereal time at the Royal Greenwich Observatory"
      loop do
        eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd
-       puts eot.string_time(eot.tl_Aries() / 15.0)
-       sleep 0.73
+       puts "LST = #{ eot.string_time(((eot.tl_Aries() * Eot::R2D) / 15.0)) }"
+       sleep ( 1 - 0.00273790935/1.0027390935) / 1.00273790935
      end
 
-Wiki 4:
+Wiki 5:
 
      require 'eot';eot = Eot.new()
      "There are #{Eot::SM * 6} hours in a sidereal day."
@@ -36,13 +37,13 @@ Wiki 4:
      obtime1 = obtime0 + Eot::SM * 6 * 3600
      "Now you know when to look next time."
 
-Wiki 5:
+Wiki 6:
 
      require 'eot'; eot = Eot.new(); eot.ajd = Date.today.jd.to_f
      DateTime.jd(eot.sunrise_jd + 0.5)
      DateTime.jd(eot.sunset_jd + 0.5)
      
-wiki 6:
+wiki 7:
 
       require 'eot'; eot = Eot.new(); eot.ajd = Date.today.jd.to_f
       geo = GeoLatLng.new
