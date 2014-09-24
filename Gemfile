@@ -4,8 +4,8 @@ ruby '2.1.2'
 gemspec
 group :development do
   gem 'hoe'
-  gem 'rake' 
-  gem 'rake-compiler', '~> 0.9.3' 
+  gem 'rake'
+  gem 'rake-compiler', '~> 0.9.3'
   gem 'guard'
   gem 'minitest'
   gem 'guard-minitest'

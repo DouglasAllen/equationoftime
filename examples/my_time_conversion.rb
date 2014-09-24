@@ -11,11 +11,11 @@ def decimal_to_strf(time_in)
   minutes = Integer(decimal_minutes)
   decimal_seconds = (decimal_minutes - minutes) * 60.0
   seconds = Integer(decimal_seconds)
-  my_time = Time.new(year, month, day, hours, minutes, seconds, "-05:00")  
-  my_time.strftime("%H:%M:%S")
+  my_time = Time.new(year, month, day, hours, minutes, seconds, '-05:00')
+  my_time.strftime('%H:%M:%S')
 end
 
 decimal_hours = 4.64
 puts
 puts "#{decimal_hours} = #{decimal_to_strf(decimal_hours)}"
-puts 
+puts

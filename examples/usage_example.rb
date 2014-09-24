@@ -5,10 +5,10 @@ begin
 rescue LoadError
   lib = File.expand_path('../../lib', __FILE__)
   $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot' 
+  require 'eot'
 end
 
-eot = Eot.new()
+eot = Eot.new
 # find what the defaults are set to
 show = <<RAN
 ajd       = #{eot.ajd}

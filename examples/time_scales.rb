@@ -5,11 +5,11 @@ begin
 rescue LoadError
   lib = File.expand_path('../../lib', __FILE__)
   $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot' 
+  require 'eot'
 end
-$DEBUG and set_trace_func proc { |event, file, line, id, binding, classname|
-       printf "%8s %s:%-2d %10s %8s\n", event, file, line, id, classname
-    }
+$DEBUG && set_trace_func(proc do |event, file, line, id, _binding, classname|
+                           printf "%8s %s:%-2d %10s %8s\n", event, file, line, id, classname
+                         end)
 eot = Eot.new
 # puts eot.public_methods(false).sort
 # puts eot.nil?
@@ -26,4 +26,3 @@ end
 
 # tjc = eot.time_julian_century( ajd + dt )
 # puts eot.tl_Sun(tjc)
-
