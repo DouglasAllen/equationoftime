@@ -47,7 +47,7 @@ class GeoLatLng
 
   # coordinates lookup   
   def get_coordinates_from_address
-    addr         = URI.escape( @base + @addr )      
+    addr         = URI.www_form_encode( @base + @addr )      
     resrc        = RestClient.get( addr )     
     parsed_resrc = JSON.parse(resrc)#MultiXml.parse( res )
     #~ result     = parsed_res[ "GeocodeResponse" ][ "result" ]
