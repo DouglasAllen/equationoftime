@@ -29,8 +29,9 @@
 # ~ assert_equal 3.8508003966038915, Eot_nutation.ma
 # ~ end
 
-# ~ it 'expected   [3.75123821843003e-05, -4.069792718159396e-05] from Eot_nutation.delta_equinox()' do
-# ~ assert_equal [3.75123821843003e-05, -4.069792718159396e-05], Eot_nutation.delta_equinox()
-# ~ end
-
+# EOT_NUTATION_DELTAS = [3.75123821843003e-05, -4.069792718159396e-05]
+# it "expected #{EOT_NUTATION_DELTAS} from  Eot_nutation.delta_equinox()" do
+#   assert_equal EOT_NUTATION_DELTAS, Eot_nutation.delta_equinox()
+# end
+#
 # ~ end
