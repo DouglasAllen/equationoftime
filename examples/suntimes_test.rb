@@ -5,7 +5,7 @@ begin
 rescue LoadError
   lib = File.expand_path('../../lib', __FILE__)
   $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot' 
+  require 'eot'
 end
 
 eot = Eot.new
@@ -18,14 +18,14 @@ eot = Eot.new
 # eot.latitude = @latitude
 @latitude = 0.0 # sign in Northern Hemishere is none,  - (minus)for Southern Hemisphere
 @longitude = 0.0  # East of UTC is none, - (minus)West of UTC
-@date = "2000-01-01"
+@date = '2000-01-01'
 eot.jd = Date.parse(@date).jd
 
 print "Enter your longitude in decimal format Ex: -125.099 \n"
 
 lng = gets
 
-lng.nil? ? eot.longitude = @longitude : eot.longitude = lng.chomp.to_f		
+lng.nil? ? eot.longitude = @longitude : eot.longitude = lng.chomp.to_f
 
 puts "Your longitude is #{eot.longitude}"
 
@@ -47,4 +47,3 @@ puts "The date is #{eot.date}"
 
 puts "Sunrise #{eot.sunrise_dt.to_time}"
 puts "Sunset #{eot.sunset_dt.to_time}"
-

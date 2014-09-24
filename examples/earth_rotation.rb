@@ -17,19 +17,19 @@ begin
 rescue LoadError
   lib = File.expand_path('../../lib', __FILE__)
   $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot' 
+  require 'eot'
 end
 
-eot = Eot.new()
+eot = Eot.new
 # From angles.rb:<br>
-# angle factor for daily sidereal time (experimental)  
-def factor eot
-  eot.ajd  =        Date.parse("2000-01-01").jd    
-  tlaa  =           eot.tl_Aries()
+# angle factor for daily sidereal time (experimental)
+def factor(eot)
+  eot.ajd  =        Date.parse('2000-01-01').jd
+  tlaa  =           eot.tl_Aries
   eot.ajd  =        eot.ajd + 1
-  tlab  =           eot.tl_Aries()
-  dif   =           (tlab - tlaa) * Eot::R2D 
-  f1    =           dif / 360.0 + 1 
+  tlab  =           eot.tl_Aries
+  dif   =           (tlab - tlaa) * Eot::R2D
+  f1    =           dif / 360.0 + 1
   1 / f1
 end
 

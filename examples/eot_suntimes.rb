@@ -6,117 +6,116 @@ begin
 rescue LoadError
   lib = File.expand_path('../../lib', __FILE__)
   $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot' 
+  require 'eot'
 end
 
-#def sunrise_jd(arg)
+# def sunrise_jd(arg)
 #
 #	arg.date.nil? ? result = "date parameter not set" : result = "date parameter OK"
-#	
-#	arg.longitude.nil? ? result = "longitude parameter not set" : result = "longitude parameter OK"
-#	
-#	arg.latitude.nil? ? result = "latitude parameter not set" : result = "latitude parameter OK"	
-#	
-#	utc_noon_jd = arg.date.jd
-#	
-#	lng_jd = arg.longitude / 360.0
-#	
-#	mean_utc_noon_jd = utc_noon_jd - lng_jd
-#	
-#	tjc_mean_local_noon_array = arg.time_julian_century(mean_utc_noon_jd)
-#	
-#	eot = arg.equation_of_time(tjc_mean_local_noon_array) 
-#	
-#	eot_jd = eot / 1440.0
-#	
-#	true_utc_noon_jd = mean_utc_noon_jd - eot_jd
-#	
-#	tjc_true_local_noon_array = arg.time_julian_century(true_utc_noon_jd)
-#	
-#	mean_anomaly = arg.ma_Sun(tjc_true_local_noon_array)
-#	
-#	lha = arg.ha_Sun(tjc_true_local_noon_array, mean_anomaly)
-#	
-#	lha_jd = lha / 360.0
-#	
-#	# rise_jd
-#	true_utc_noon_jd - lha_jd	
-#	
-#end
 #
-#def sunset_jd(arg)
+#	arg.longitude.nil? ? result = "longitude parameter not set" : result = "longitude parameter OK"
+#
+#	arg.latitude.nil? ? result = "latitude parameter not set" : result = "latitude parameter OK"
+#
+#	utc_noon_jd = arg.date.jd
+#
+#	lng_jd = arg.longitude / 360.0
+#
+#	mean_utc_noon_jd = utc_noon_jd - lng_jd
+#
+#	tjc_mean_local_noon_array = arg.time_julian_century(mean_utc_noon_jd)
+#
+#	eot = arg.equation_of_time(tjc_mean_local_noon_array)
+#
+#	eot_jd = eot / 1440.0
+#
+#	true_utc_noon_jd = mean_utc_noon_jd - eot_jd
+#
+#	tjc_true_local_noon_array = arg.time_julian_century(true_utc_noon_jd)
+#
+#	mean_anomaly = arg.ma_Sun(tjc_true_local_noon_array)
+#
+#	lha = arg.ha_Sun(tjc_true_local_noon_array, mean_anomaly)
+#
+#	lha_jd = lha / 360.0
+#
+#	# rise_jd
+#	true_utc_noon_jd - lha_jd
+#
+# end
+#
+# def sunset_jd(arg)
 #
 #  arg.date.nil? ? result = "date parameter not set" : result = "date parameter OK"
-#	
+#
 #  arg.longitude.nil? ? result = "longitude parameter not set" : result = "longitude parameter OK"
-#	
-#  arg.latitude.nil? ? result = "latitude parameter not set" : result = "latitude parameter OK"  
-#  
+#
+#  arg.latitude.nil? ? result = "latitude parameter not set" : result = "latitude parameter OK"
+#
 #  utc_noon_jd = arg.date.jd
-#  
+#
 #  lng_jd = arg.longitude / 360.0
-#  
+#
 #  mean_utc_noon_jd = utc_noon_jd - lng_jd
-#  
+#
 #  tjc_mean_local_noon = arg.time_julian_century(mean_utc_noon_jd)
-#  
+#
 #  eot_jd = arg.equation_of_time(tjc_mean_local_noon) / 1440.0
-#  
+#
 #  true_utc_noon_jd = mean_utc_noon_jd - eot_jd
-#  
+#
 #  tjc_true_local_noon = arg.time_julian_century(true_utc_noon_jd)
-#  
+#
 #  mean_anomaly = arg.ma_Sun(tjc_true_local_noon)
-#  
+#
 #  lha_jd = arg.ha_Sun(tjc_true_local_noon, mean_anomaly) / 360.0
-#  
+#
 #  # sunset jd
 #  true_utc_noon_jd  + lha_jd
-#  
-#end
-
+#
+# end
 
 require 'eot'
 
-addr = "8000 South Michigan Ave., Chicago, IL"
-#loc = GeoLatLng.new
-#loc.addr = addr
-#loc.get_coordinates_from_address
-#puts loc.lat, loc.lng
+addr = '8000 South Michigan Ave., Chicago, IL'
+# loc = GeoLatLng.new
+# loc.addr = addr
+# loc.get_coordinates_from_address
+# puts loc.lat, loc.lng
 
 eot = Eot.new(addr)
-#eot.longitude = loc.lng
-#eot.ajd = Date.today.jd
-#eot.latitude = loc.lat
+# eot.longitude = loc.lng
+# eot.ajd = Date.today.jd
+# eot.latitude = loc.lat
 
-#puts "Using this files methods"
-#puts sunrise_jd(Date.today)
+# puts "Using this files methods"
+# puts sunrise_jd(Date.today)
 
 ## Note: DateTime.jd() renders time from midnight not noon
 ##       so 12 hours need to be added for correct time.
-#puts DateTime.jd(sunrise_jd() + 0.5)
-#puts DateTime.jd(sunrise_jd() + 0.5).to_time.utc
+# puts DateTime.jd(sunrise_jd() + 0.5)
+# puts DateTime.jd(sunrise_jd() + 0.5).to_time.utc
 #
-#puts
-#puts sunset_jd()
+# puts
+# puts sunset_jd()
 #
-#puts DateTime.jd(sunset_jd() + 0.5)
-#puts DateTime.jd(sunset_jd() + 0.5).to_time.utc
+# puts DateTime.jd(sunset_jd() + 0.5)
+# puts DateTime.jd(sunset_jd() + 0.5).to_time.utc
 
-OUT =<<EOS
+OUT = <<EOS
 
 Using eot gem methods
 
 #{eot.latitude}
 #{eot.longitude}
 
-#{eot.sunrise_jd()}
-#{eot.ajd_to_datetime(eot.sunrise_jd())}
-#{eot.ajd_to_datetime(eot.sunrise_jd()).to_time}
+#{eot.sunrise_jd}
+#{eot.ajd_to_datetime(eot.sunrise_jd)}
+#{eot.ajd_to_datetime(eot.sunrise_jd).to_time}
 
-#{eot.sunset_jd()}
-#{eot.ajd_to_datetime(eot.sunset_jd())}
-#{eot.ajd_to_datetime(eot.sunset_jd()).to_time}
+#{eot.sunset_jd}
+#{eot.ajd_to_datetime(eot.sunset_jd)}
+#{eot.ajd_to_datetime(eot.sunset_jd).to_time}
 
 #{Date.jd(Date.today.jd)}
 #{Date.today.jd}

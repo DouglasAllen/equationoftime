@@ -1,6 +1,5 @@
 # eot.rb
 
-
 require 'eot/version'
 require 'eot/eot'
 require 'eot/constants'
