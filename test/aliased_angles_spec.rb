@@ -54,8 +54,8 @@ describe 'tests ajd of 2456885.0' do
     assert_equal( -0.04103082558803539, Eot_aliased_angles.delta_t_ecliptic() )
   end
   
-  it 'expected    0.021413249720702243 returned by Eot_aliased_angles.delta_t_elliptic()? ' do
-    assert_equal( 0.021413249720702243, Eot_aliased_angles.delta_t_elliptic() ) 
+  it 'expected    0.021413249720702462 returned by Eot_aliased_angles.delta_t_elliptic()? ' do
+    assert_equal( 0.021413249720702462, Eot_aliased_angles.delta_t_elliptic() ) 
   end   
   
   it 'expected    0.016702468499021204 returned by Eot_aliased_angles.eccentricity_earth_orbit()? ' do
@@ -172,8 +172,8 @@ describe 'tests ajd of 2455055.5' do
     assert_equal( -0.04234904897476355, Eot_aliased_angles.delta_t_ecliptic() )    	
   end
   
-  it 'expected    0.019768413456709766 returned by Eot_aliased_angles.delta_t_elliptic()? ' do
-    assert_equal( 0.019768413456709766, Eot_aliased_angles.delta_t_elliptic() )
+  it 'expected    0.019768413456709915 returned by Eot_aliased_angles.delta_t_elliptic()? ' do
+    assert_equal( 0.019768413456709915, Eot_aliased_angles.delta_t_elliptic() )
   end 
   
   it 'expected     0.016704576164208475 returned by Eot_aliased_angles.eccentricity_earth_orbit()? ' do

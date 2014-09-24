@@ -8,7 +8,7 @@ class Eot
   # Apparent solar longitude = true longitude - aberation   
   def al_Sun()    
     #Celes.anp(tl_Sun() - 0.00569 * D2R - 0.00478 * D2R * sin(omega()))
-    al(@ma, @ta, Celes.faom03(@ta))
+    Celes.anp(al(@ma, @ta, Celes.faom03(@ta)))
   end 
   alias_method  :apparent_longitude, :al_Sun 
   alias_method  :alsun, :al_Sun
@@ -24,7 +24,8 @@ class Eot
   # From angles.rb:   
   # one time component to total equation of time
   def angle_delta_oblique()           
-    al(@ma, @ta, Celes.faom03(@ta)) - ra_Sun()        
+    #al(@ma, @ta, Celes.faom03(@ta)) - ra_Sun()
+    al_Sun() - ra_Sun()        
   end
   alias_method :delta_t_ecliptic, :angle_delta_oblique
   alias_method :delta_oblique, :angle_delta_oblique
@@ -32,7 +33,7 @@ class Eot
   # From angles.rb:    
   # one time component to total equation of time
   def angle_delta_orbit()           
-    @ma - Celes.anp(@ma + eqc( @ma, @ta )) 
+    -1.0 * eqc( @ma, @ta ) 
   end  
   alias_method :delta_t_elliptic, :angle_delta_orbit
   alias_method :delta_orbit, :angle_delta_orbit
@@ -48,8 +49,7 @@ class Eot
   # From angles.rb:   
   # total equation of time  
   def angle_equation_of_time()    
-    #~ @ma = ma_Sun()    
-    @ma - Celes.anp(@ma + eqc( @ma, @ta )) + al(@ma, @ta, Celes.faom03(@ta)) - ra_Sun()    
+    delta_orbit() + delta_oblique()
   end
   alias_method :eot, :angle_equation_of_time 
 

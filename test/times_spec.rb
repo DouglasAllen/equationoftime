@@ -34,8 +34,8 @@ describe 'tests ajd of 2456885.0' do
     assert_equal "2014-08-15T12:00:00+00:00", Eot_times.ajd_to_datetime(Eot_times.ajd).to_s	  
   end
   
-  it 'expected    -0.0031137091174580018 from Eot_times.eot_jd() ' do
-    assert_equal( -0.0031137091174580018, Eot_times.eot_jd() )	  
+  it 'expected    -0.003113709117457967 from Eot_times.eot_jd() ' do
+    assert_equal( -0.003113709117457967, Eot_times.eot_jd() )	  
   end
   
   it 'expected   "2014-08-15T12:04:29+00:00" from Eot_times.local_noon_dt().to_s ' do
@@ -70,8 +70,8 @@ describe 'tests ajd of 2456885.0' do
     assert_equal( 4.894155584285248, Eot_times.time_delta_orbit() )
   end
   
-  it 'expected    -4.483741129139522 from Eot_times.time_eot() ' do
-    assert_equal( -4.483741129139522, Eot_times.time_eot() )
+  it 'expected    -4.483741129139473 from Eot_times.time_eot() ' do
+    assert_equal( -4.483741129139473, Eot_times.time_eot() )
   end    
   
 end  
@@ -101,8 +101,8 @@ describe 'tests ajd of 2455055.0' do
     assert_equal "2009-08-11T12:00:00+00:00", Eot_times.ajd_to_datetime(Eot_times.ajd).to_s
   end
 
-  it 'expected    -0.00358400707437244 from Eot_times.eot_jd()' do
-    assert_equal( -0.00358400707437244, Eot_times.eot_jd() )
+  it 'expected    -0.003584007074372416 from Eot_times.eot_jd()' do
+    assert_equal( -0.003584007074372416, Eot_times.eot_jd() )
   end
 
   it 'expected   "2009-08-11T12:00:00+00:00" from Eot_times.mean_local_noon_dt().to_s' do
@@ -125,8 +125,8 @@ describe 'tests ajd of 2455055.0' do
     assert_equal( 2455055.3128953967, Eot_times.sunset_jd() )	
   end
   
-  it 'expected    -5.160970187096313 is from Eot_times.time_eot() ' do
-    assert_equal( -5.160970187096313, Eot_times.time_eot() ) 	
+  it 'expected    -5.160970187096279 is from Eot_times.time_eot() ' do
+    assert_equal( -5.160970187096279, Eot_times.time_eot() ) 	
   end  
   
 end

@@ -62,8 +62,8 @@ describe 'Tests ajd of 2456885.0' do
     assert_equal( -0.04103082558803539, Eot_angles.delta_oblique() )
   end
   
-  it 'expected    0.021413249720702243 from  Eot_angles.delta_orbit()? ' do
-    assert_equal( 0.021413249720702243, Eot_angles.delta_orbit() )
+  it 'expected    0.021413249720702462 from  Eot_angles.delta_orbit()? ' do
+    assert_equal( 0.021413249720702462, Eot_angles.delta_orbit() )
   end  
 
   it 'expected    3.75123821843003e-05 from  Eot_angles.delta_psi()? ' do
@@ -78,8 +78,8 @@ describe 'Tests ajd of 2456885.0' do
     assert_equal( 3.441804334746474e-05, Eot_angles.eq_of_equinox() )
   end
 
-  it 'expected    -0.019617575867333148 from  Eot_angles.eot()? ' do
-    assert_equal( -0.019617575867333148, Eot_angles.eot() )
+  it 'expected    -0.01961757586733293 from  Eot_angles.eot()? ' do
+    assert_equal( -0.01961757586733293, Eot_angles.eot() )
   end  
   
   it 'expected    2.5101912804141424 from  Eot_angles.gml_Sun()? ' do
@@ -190,8 +190,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal( -0.04234904897476355, Eot_angles.delta_oblique() )    	
   end
   
-  it 'expected    0.019768413456709766 from Eot_angles.delta_orbit()? ' do
-    assert_equal( 0.019768413456709766, Eot_angles.delta_orbit() )	
+  it 'expected    0.019768413456709915 from Eot_angles.delta_orbit()? ' do
+    assert_equal( 0.019768413456709915, Eot_angles.delta_orbit() )	
   end  
 
   it 'expected    7.639341522992976e-05 from Eot_angles.delta_psi()? ' do
@@ -206,8 +206,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal( 7.00895687864236e-05, Eot_angles.eq_of_equinox() )
   end
 
-  it 'expected    -0.022580635518053782 from Eot_angles.eot()? ' do
-    assert_equal( -0.022580635518053782, Eot_angles.eot() )
+  it 'expected    -0.022580635518053633 from Eot_angles.eot()? ' do
+    assert_equal( -0.022580635518053633, Eot_angles.eot() )
   end  
   
   it 'expected    2.445008945789877 from  Eot_angles.gml_Sun()? ' do
