@@ -38,8 +38,8 @@ Gem::Specification.new do |spec|
   # spec.add_development_dependency "rspec", "~> 3.1.0"
   # spec.add_development_dependency "yard", "~> 0.8.7.4"
   # spec.add_development_dependency "rdoc", "~> 4.1.2"
-
-  spec.add_runtime_dependency 'celes'
+  spec.add_runtime_dependency 'addressable', '~> 2.3.6'
+  spec.add_runtime_dependency 'celes', '~> 0.0.1'
   # spec.add_runtime_dependency "astro-algo"
   # spec.add_runtime_dependency "multi_xml"
   spec.add_runtime_dependency 'rest-client'

@@ -6,286 +6,286 @@ lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
-Eot_aliased_angles = Eot.new
+aliased_angles = Eot.new
 
 describe 'tests ajd of 2456885.0' do
 
   before(:each) do
-    Eot_aliased_angles.ajd  = 2_456_885.0
-    ajd = Eot_aliased_angles.ajd
+    aliased_angles.ajd  = 2_456_885.0
+    ajd = aliased_angles.ajd
     # somtimes need date to check values somewhere else
-    Eot_aliased_angles.date = Eot_aliased_angles.ajd_to_datetime(ajd)
+    aliased_angles.date = aliased_angles.ajd_to_datetime(ajd)
   end
 
-  it 'expected    2456885.0 for Eot_aliased_angles.ajd'do
-    assert_equal(2_456_885.0, Eot_aliased_angles.ajd)
+  it 'expected    2456885.0 for aliased_angles.ajd'do
+    assert_equal(2_456_885.0, aliased_angles.ajd)
   end
 
   it 'expected    "2014-08-15T12:00:00+00:00" from \
-      Eot_aliased_angles.date'.to_s do
-    assert_equal('2014-08-15T12:00:00+00:00', Eot_aliased_angles.date.to_s)
+      aliased_angles.date'.to_s do
+    assert_equal('2014-08-15T12:00:00+00:00', aliased_angles.date.to_s)
   end
 
-  it 'expected    3.8508003966038915 from Eot_aliased_angles.ma'do
-    assert_equal(3.8508003966038915, Eot_aliased_angles.ma)
+  it 'expected    3.8508003966038915 from aliased_angles.ma'do
+    assert_equal(3.8508003966038915, aliased_angles.ma)
   end
 
   it 'expected   2.4887103398436143 from \
-      Eot_aliased_angles.apparent_longitude()? ' do
-    assert_equal(2.4887103398436143, Eot_aliased_angles.apparent_longitude)
+      aliased_angles.apparent_longitude()? ' do
+    assert_equal(2.4887103398436143, aliased_angles.apparent_longitude)
   end
 
   it 'expected   -0.7943361570447028 from \
-      Eot_aliased_angles.cosine_apparent_longitude()? ' do
+      aliased_angles.cosine_apparent_longitude()? ' do
     assert_equal(-0.7943361570447028, \
-                 Eot_aliased_angles.cosine_apparent_longitude)
+                 aliased_angles.cosine_apparent_longitude)
   end
 
   it 'expected    -0.7943772759574919 from \
-      Eot_aliased_angles.cosine_true_longitude()? ' do
-    assert_equal(-0.7943772759574919, Eot_aliased_angles.cosine_true_longitude)
+      aliased_angles.cosine_true_longitude()? ' do
+    assert_equal(-0.7943772759574919, aliased_angles.cosine_true_longitude)
   end
 
   it 'expected    0.9175115346811911 from \
-      Eot_aliased_angles.cosine_true_obliquity()? ' do
-    assert_equal(0.9175115346811911, Eot_aliased_angles.cosine_true_obliquity)
+      aliased_angles.cosine_true_obliquity()? ' do
+    assert_equal(0.9175115346811911, aliased_angles.cosine_true_obliquity)
   end
 
   it 'expected   0.24401410218543554 from \
-      Eot_aliased_angles.declination()? ' do
-    assert_equal(0.24401410218543554, Eot_aliased_angles.declination)
+      aliased_angles.declination()? ' do
+    assert_equal(0.24401410218543554, aliased_angles.declination)
   end
 
   it 'expected   -0.04103082558803539 from \
-      Eot_aliased_angles.delta_t_ecliptic()? ' do
-    assert_equal(-0.04103082558803539, Eot_aliased_angles.delta_t_ecliptic)
+      aliased_angles.delta_t_ecliptic()? ' do
+    assert_equal(-0.04103082558803539, aliased_angles.delta_t_ecliptic)
   end
 
   it 'expected   0.021413249720702462 from \
-      Eot_aliased_angles.delta_t_elliptic()? ' do
-    assert_equal(0.021413249720702462, Eot_aliased_angles.delta_t_elliptic)
+      aliased_angles.delta_t_elliptic()? ' do
+    assert_equal(0.021413249720702462, aliased_angles.delta_t_elliptic)
   end
 
   it 'expected   0.016702468499021204 from \
-      Eot_aliased_angles.eccentricity_earth_orbit()? ' do
+      aliased_angles.eccentricity_earth_orbit()? ' do
     assert_equal(0.016702468499021204, \
-                 Eot_aliased_angles.eccentricity_earth_orbit)
+                 aliased_angles.eccentricity_earth_orbit)
   end
 
   it 'expected    -0.021413249720702462 from \
-      Eot_aliased_angles.equation_of_center()? ' do
-    assert_equal(-0.021413249720702462, Eot_aliased_angles.equation_of_center)
+      aliased_angles.equation_of_center()? ' do
+    assert_equal(-0.021413249720702462, aliased_angles.equation_of_center)
   end
 
   it 'expected   2.5101912804141424 from \
-      Eot_aliased_angles.geometric_mean_longitude()? ' do
+      aliased_angles.geometric_mean_longitude()? ' do
     assert_equal(2.5101912804141424, \
-                 Eot_aliased_angles.geometric_mean_longitude)
+                 aliased_angles.geometric_mean_longitude)
   end
 
   it 'expected   1.9143229567859146 from \
-      Eot_aliased_angles.horizon_angle()? ' do
-    assert_equal(1.9143229567859146, Eot_aliased_angles.horizon_angle)
+      aliased_angles.horizon_angle()? ' do
+    assert_equal(1.9143229567859146, aliased_angles.horizon_angle)
   end
 
   it 'expected   3.8508003966038915 from \
-      Eot_aliased_angles.mean_anomaly()? ' do
-    assert_equal(3.8508003966038915, Eot_aliased_angles.mean_anomaly)
+      aliased_angles.mean_anomaly()? ' do
+    assert_equal(3.8508003966038915, aliased_angles.mean_anomaly)
   end
 
   it 'expected   2.510089864980358 from \
-      Eot_aliased_angles.mean_longitude_aries()? ' do
-    assert_equal(2.510089864980358, Eot_aliased_angles.mean_longitude_aries)
+      aliased_angles.mean_longitude_aries()? ' do
+    assert_equal(2.510089864980358, aliased_angles.mean_longitude_aries)
   end
 
   it 'expected   0.40905940254265843 from \
-      Eot_aliased_angles.mean_obliquity()? ' do
-    assert_equal(0.40905940254265843, Eot_aliased_angles.mean_obliquity)
+      aliased_angles.mean_obliquity()? ' do
+    assert_equal(0.40905940254265843, aliased_angles.mean_obliquity)
   end
 
   it 'expected    0.40905940254265843 from \
-      Eot_aliased_angles.mean_obliquity_of_ecliptic()? ' do
+      aliased_angles.mean_obliquity_of_ecliptic()? ' do
     assert_equal(0.40905940254265843, \
-                 Eot_aliased_angles.mean_obliquity_of_ecliptic)
+                 aliased_angles.mean_obliquity_of_ecliptic)
   end
 
   it 'expected    0.40901870461547685 from \
-      Eot_aliased_angles.obliquity_correction()? ' do
-    assert_equal(0.40901870461547685, Eot_aliased_angles.obliquity_correction)
+      aliased_angles.obliquity_correction()? ' do
+    assert_equal(0.40901870461547685, aliased_angles.obliquity_correction)
   end
 
   it 'expected   2.5297411654316497 from \
-      Eot_aliased_angles.right_ascension()? ' do
-    assert_equal(2.5297411654316497, Eot_aliased_angles.right_ascension)
+      aliased_angles.right_ascension()? ' do
+    assert_equal(2.5297411654316497, aliased_angles.right_ascension)
   end
 
   it 'expected    0.6074784519729512 from \
-      Eot_aliased_angles.sine_apparent_longitude()? ' do
-    assert_equal(0.6074784519729512, Eot_aliased_angles.sine_apparent_longitude)
+      aliased_angles.sine_apparent_longitude()? ' do
+    assert_equal(0.6074784519729512, aliased_angles.sine_apparent_longitude)
   end
 
   it 'expected    0.6074246812917259 from \
-      Eot_aliased_angles.sine_true_longitude()? ' do
-    assert_equal(0.6074246812917259, Eot_aliased_angles.sine_true_longitude)
+      aliased_angles.sine_true_longitude()? ' do
+    assert_equal(0.6074246812917259, aliased_angles.sine_true_longitude)
   end
 
   it 'expected   3.8293871468831893 from \
-      Eot_aliased_angles.true_anomaly()? ' do
-    assert_equal(3.8293871468831893, Eot_aliased_angles.true_anomaly)
+      aliased_angles.true_anomaly()? ' do
+    assert_equal(3.8293871468831893, aliased_angles.true_anomaly)
   end
 
   it 'expected   2.48877803069344 from \
-      Eot_aliased_angles.true_longitude()? ' do
-    assert_equal(2.48877803069344, Eot_aliased_angles.true_longitude)
+      aliased_angles.true_longitude()? ' do
+    assert_equal(2.48877803069344, aliased_angles.true_longitude)
   end
 
   it 'expected     2.5101242776531474 from \
-      Eot_aliased_angles.true_longitude_aries()? ' do
-    assert_equal(2.5101242776531474, Eot_aliased_angles.true_longitude_aries)
+      aliased_angles.true_longitude_aries()? ' do
+    assert_equal(2.5101242776531474, aliased_angles.true_longitude_aries)
   end
 
   it 'expected   0.40901870461547685 from \
-      Eot_aliased_angles.true_obliquity()? ' do
-    assert_equal(0.40901870461547685, Eot_aliased_angles.true_obliquity)
+      aliased_angles.true_obliquity()? ' do
+    assert_equal(0.40901870461547685, aliased_angles.true_obliquity)
   end
 end
 
 describe 'tests ajd of 2455055.5' do
 
   before(:each) do
-    Eot_aliased_angles.ajd                   = 2_455_055.0
-    ajd = Eot_aliased_angles.ajd
+    aliased_angles.ajd                   = 2_455_055.0
+    ajd = aliased_angles.ajd
     # check date for this ajd when needed.
-    Eot_aliased_angles.date = Eot_aliased_angles.ajd_to_datetime(ajd)
+    aliased_angles.date = aliased_angles.ajd_to_datetime(ajd)
   end
 
-  it 'expected    455055.0, from Eot_aliased_angles.' do
-    assert_equal(2_455_055.0, Eot_aliased_angles.ajd)
+  it 'expected    455055.0, from aliased_angles.' do
+    assert_equal(2_455_055.0, aliased_angles.ajd)
   end
 
   it 'expected    "2009-08-11T12:00:00+00:00" from \
-      Eot_aliased_angles.date.to_s' do
-    assert_equal('2009-08-11T12:00:00+00:00', Eot_aliased_angles.date.to_s)
+      aliased_angles.date.to_s' do
+    assert_equal('2009-08-11T12:00:00+00:00', aliased_angles.date.to_s)
   end
 
-  it 'expected   3.7871218188949207, from Eot_aliased_angles.ma' do
-    assert_equal(3.7871218188949207, Eot_aliased_angles.ma)
+  it 'expected   3.7871218188949207, from aliased_angles.ma' do
+    assert_equal(3.7871218188949207, aliased_angles.ma)
   end
 
   it 'expected   3.7871218188949207 from \
-      Eot_aliased_angles.ma  from Eot_angles.mean_anomaly()' do
-    assert_equal(3.7871218188949207, Eot_aliased_angles.mean_anomaly)
+      aliased_angles.ma  from Eot_angles.mean_anomaly()' do
+    assert_equal(3.7871218188949207, aliased_angles.mean_anomaly)
   end
 
   it 'expected   2.4252140645725033 from \
-      Eot_aliased_angles.apparent_longitude()? ' do
-    assert_equal(2.4252140645725033, Eot_aliased_angles.apparent_longitude)
+      aliased_angles.apparent_longitude()? ' do
+    assert_equal(2.4252140645725033, aliased_angles.apparent_longitude)
   end
 
   it 'expected   -0.7541886969975007 from \
-      Eot_aliased_angles.cosine_apparent_longitude()? ' do
+      aliased_angles.cosine_apparent_longitude()? ' do
     assert_equal(-0.7541886969975007, \
-                 Eot_aliased_angles.cosine_apparent_longitude)
+                 aliased_angles.cosine_apparent_longitude)
   end
 
   it 'expected    -0.7542060769936684 from \
-      Eot_aliased_angles.cosine_true_longitude()? ' do
-    assert_equal(-0.7542060769936684, Eot_aliased_angles.cosine_true_longitude)
+      aliased_angles.cosine_true_longitude()? ' do
+    assert_equal(-0.7542060769936684, aliased_angles.cosine_true_longitude)
   end
 
   it 'expected    0.9174818088112336 from \
-      Eot_aliased_angles.cosine_true_obliquity()? ' do
-    assert_equal(0.9174818088112336, Eot_aliased_angles.cosine_true_obliquity)
+      aliased_angles.cosine_true_obliquity()? ' do
+    assert_equal(0.9174818088112336, aliased_angles.cosine_true_obliquity)
   end
 
   it 'expected     0.26426912722944046 from \
-      Eot_aliased_angles.declination()? ' do
-    assert_equal(0.26426912722944046, Eot_aliased_angles.declination)
+      aliased_angles.declination()? ' do
+    assert_equal(0.26426912722944046, aliased_angles.declination)
   end
 
   it 'expected    -0.04234904897476355 from \
-      Eot_aliased_angles.delta_t_ecliptic()? ' do
-    assert_equal(-0.04234904897476355, Eot_aliased_angles.delta_t_ecliptic)
+      aliased_angles.delta_t_ecliptic()? ' do
+    assert_equal(-0.04234904897476355, aliased_angles.delta_t_ecliptic)
   end
 
   it 'expected    0.019768413456709915 from \
-      Eot_aliased_angles.delta_t_elliptic()? ' do
-    assert_equal(0.019768413456709915, Eot_aliased_angles.delta_t_elliptic)
+      aliased_angles.delta_t_elliptic()? ' do
+    assert_equal(0.019768413456709915, aliased_angles.delta_t_elliptic)
   end
 
   it 'expected     0.016704576164208475 from \
-      Eot_aliased_angles.eccentricity_earth_orbit()? ' do
+      aliased_angles.eccentricity_earth_orbit()? ' do
     assert_equal(0.016704576164208475, \
-                 Eot_aliased_angles.eccentricity_earth_orbit)
+                 aliased_angles.eccentricity_earth_orbit)
   end
 
   it 'expected    -0.019768413456709915 from \
-      Eot_aliased_angles.equation_of_center()? ' do
-    assert_equal(-0.019768413456709915, Eot_aliased_angles.equation_of_center)
+      aliased_angles.equation_of_center()? ' do
+    assert_equal(-0.019768413456709915, aliased_angles.equation_of_center)
   end
 
   it 'expected    2.445008945789877 from \
-      Eot_aliased_angles.geometric_mean_longitude()? ' do
-    assert_equal(2.445008945789877, Eot_aliased_angles.geometric_mean_longitude)
+      aliased_angles.geometric_mean_longitude()? ' do
+    assert_equal(2.445008945789877, aliased_angles.geometric_mean_longitude)
   end
 
   it 'expected    1.9434600427973594 from \
-      Eot_aliased_angles.horizon_angle()? ' do
-    assert_equal(1.9434600427973594, Eot_aliased_angles.horizon_angle)
+      aliased_angles.horizon_angle()? ' do
+    assert_equal(1.9434600427973594, aliased_angles.horizon_angle)
   end
 
   it 'expected    3.7871218188949207 from \
-      Eot_aliased_angles.mean_anomaly()? ' do
-    assert_equal(3.7871218188949207, Eot_aliased_angles.mean_anomaly)
+      aliased_angles.mean_anomaly()? ' do
+    assert_equal(3.7871218188949207, aliased_angles.mean_anomaly)
   end
 
   it 'expected    2.444907382260759 from \
-      Eot_aliased_angles.mean_longitude_aries()? ' do
-    assert_equal(2.444907382260759, Eot_aliased_angles.mean_longitude_aries)
+      aliased_angles.mean_longitude_aries()? ' do
+    assert_equal(2.444907382260759, aliased_angles.mean_longitude_aries)
   end
 
   it 'expected    0.4090707793981491 from \
-      Eot_aliased_angles.mean_obliquity()? ' do
-    assert_equal(0.4090707793981491, Eot_aliased_angles.mean_obliquity)
+      aliased_angles.mean_obliquity()? ' do
+    assert_equal(0.4090707793981491, aliased_angles.mean_obliquity)
   end
 
   it 'expected    0.4090934409048494 from \
-      Eot_aliased_angles.obliquity_correction()? ' do
-    assert_equal(0.4090934409048494, Eot_aliased_angles.obliquity_correction)
+      aliased_angles.obliquity_correction()? ' do
+    assert_equal(0.4090934409048494, aliased_angles.obliquity_correction)
   end
 
   it 'expected    2.467563113547267 from \
-      Eot_aliased_angles.right_ascension()? ' do
-    assert_equal(2.467563113547267, Eot_aliased_angles.right_ascension)
+      aliased_angles.right_ascension()? ' do
+    assert_equal(2.467563113547267, aliased_angles.right_ascension)
   end
 
   it 'expected    0.6566577566139093 from \
-      Eot_aliased_angles.sine_apparent_longitude()? ' do
-    assert_equal(0.6566577566139093, Eot_aliased_angles.sine_apparent_longitude)
+      aliased_angles.sine_apparent_longitude()? ' do
+    assert_equal(0.6566577566139093, aliased_angles.sine_apparent_longitude)
   end
 
   it 'expected    0.6566377946979757 from \
-      Eot_aliased_angles.sine_true_longitude()? ' do
-    assert_equal(0.6566377946979757, Eot_aliased_angles.sine_true_longitude)
+      aliased_angles.sine_true_longitude()? ' do
+    assert_equal(0.6566377946979757, aliased_angles.sine_true_longitude)
   end
 
-  it 'expected    3.767353405438211 from Eot_aliased_angles.true_anomaly()? ' do
-    assert_equal(3.767353405438211, Eot_aliased_angles.true_anomaly)
+  it 'expected    3.767353405438211 from aliased_angles.true_anomaly()? ' do
+    assert_equal(3.767353405438211, aliased_angles.true_anomaly)
   end
 
   it 'expected    2.4252405323331674 from \
-      Eot_aliased_angles.true_longitude()? ' do
-    assert_equal(2.4252405323331674, Eot_aliased_angles.true_longitude)
+      aliased_angles.true_longitude()? ' do
+    assert_equal(2.4252405323331674, aliased_angles.true_longitude)
   end
 
   it 'expected    2.4449774607872907 from \
-      Eot_aliased_angles.true_longitude_aries()? ' do
-    assert_equal(2.4449774607872907, Eot_aliased_angles.true_longitude_aries)
+      aliased_angles.true_longitude_aries()? ' do
+    assert_equal(2.4449774607872907, aliased_angles.true_longitude_aries)
   end
 
   it 'expected    0.4090934409048494 from \
-      Eot_aliased_angles.true_obliquity()? ' do
-    assert_equal(0.4090934409048494, Eot_aliased_angles.true_obliquity)
+      aliased_angles.true_obliquity()? ' do
+    assert_equal(0.4090934409048494, aliased_angles.true_obliquity)
   end
 
 end

@@ -6,11 +6,11 @@ lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless$LOAD_PATH.include?(lib)
 require 'eot'
 
-p geo = GeoLatLng.new
+geo = GeoLatLng.new
 
 describe 'Geo defaults' do
 
-  DEFAULT_INT = 'Blackheath Ave, London SE10 8XJ, UK'
+  # DEFAULT_INT = geo.default_int
   it "expected #{DEFAULT_INT}" do
     assert_equal DEFAULT_INT, geo.addr
   end

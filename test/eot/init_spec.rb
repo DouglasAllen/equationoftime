@@ -37,7 +37,7 @@ describe 'Eot_initialize has set attributes' do
     assert_equal(FRAC_CENT, eot.ta)
   end
 
-  DEFAULT_INT = 'Blackheath Ave, London SE10 8XJ, UK'
+  DEFAULT_INT = GeoLatLng.new.addr
   it "expected #{DEFAULT_INT} from Eot.new.addr" do
     assert_equal(DEFAULT_INT,  Eot.new.addr)
   end

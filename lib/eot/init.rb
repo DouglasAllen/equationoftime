@@ -8,13 +8,12 @@ class Eot
   # Astronomical Julian Day Number is an instance of DateTime class.
   # ajd or jd. Use ajd for time now and jd for suntimes. Initially
   # @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f
+  attr_reader :ajd
   def ajd=(ajd)
     @ajd = ajd
     @ta  = ((@ajd - DJ00) / DJC).to_f
     @ma  = Celes.falp03(@ta)
   end
-
-  attr_reader :ajd
 
   # From init.rb:
   # @date is an instance of DateTime class.
@@ -55,10 +54,10 @@ class Eot
   def initialize
     require_relative 'geo_lat_lng_smt'
     @geo = GeoLatLng.new
-    @addr = 'Blackheath Ave, London SE10 8XJ, UK'
+    @addr = @geo.default_int
     @geo.addr = @addr
-    @ajd, @jd = DateTime.now.to_time.utc.to_datetime.jd.to_f, @ajd
-    @date = ajd_to_datetime(@ajd)
+    @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f
+    @date, @jd = ajd_to_datetime(@ajd), @ajd
     @geo.set_coordinates
     # queries could excede quotas or you get disconnected.
     @geo.lat.zero? ? @latitude = 0.0 : @latitude = @geo.lat
