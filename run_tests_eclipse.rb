@@ -1,1 +1,1 @@
-system 'rake'
+system 'bundle exec rake'

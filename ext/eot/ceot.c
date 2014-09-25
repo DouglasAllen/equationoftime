@@ -30,7 +30,7 @@ double eoe(double t)
 
 double eqc(double ma, double t)
 {             
-  double a, a1, a2, a3, a4, a5, s1, s2, s3, s4, s5, e;
+  double a1, a2, a3, a4, a5, s1, s2, s3, s4, s5, e;
   e   = eoe(t);  
   s1  = sin( 1.0 * ma );
   s2  = sin( 2.0 * ma );
@@ -48,8 +48,7 @@ double eqc(double ma, double t)
   //     s3 * (e3 *   13.0/12.0 - 0.0          - e5 * 43.0/64.0) +
   //     s4 *  e4 *  103.0/96.0                                  +
   //     s5 *  e5 * 1097.0/960.0; 
-  a = e * (a1 + e * (a2 + e * (a3 + e * (a4 + e * a5))));
-  return a;
+  return e * (a1 + e * (a2 + e * (a3 + e * (a4 + e * a5))));
 }
 
 double tlSun(double ma, double t)
