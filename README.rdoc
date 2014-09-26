@@ -21,7 +21,19 @@ Lots of examples to play with for learning about Eot.
 
         require 'eot'
         eot = Eot.new()
-        eot.string_eot()
+        eot.string_eot()# todays eot
+        eot.addr        # what is the location
+        eot.addr = "huston, tx" #changed location
+        geo = GeoLatLng.new
+        geo.addr = eot.addr # set new location
+        geo.set_coordinates # set new coordinates
+        eot.sunrise_jd  # todays sunrise as a jd
+        eot.sunset_jd   # todays sunset as a jd
+        eot.sunrise_dt  # todays sunrise as DateTime
+        eot.sunset_dt   # todays sunset as a DateTime
+        eot.ajd += 1    # tommorrow times can be read
+        eot.ajd = 2451545 # ajd set to 2001-01-01 12:00 
+        
 
 == REQUIREMENTS:
 
