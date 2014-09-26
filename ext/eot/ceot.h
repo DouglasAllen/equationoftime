@@ -14,3 +14,5 @@ double sin_tl_sun(double tl_sun);
 double sin_to_earth(double to_earth);
 double sin_dec_sun(double dec_sun);
 double cos_dec_sun(double dec_sun);
+double sin_lat(double lat);
+double cos_lat(double lat);

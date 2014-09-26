@@ -100,7 +100,17 @@ double cos_dec_sun(double dec_sun)
   ca = cos(dec_sun);
 
   return ca;
-}                  
+} 
+
+double cos_lat(double lat) 
+{
+
+  double ca;
+
+  ca = cos(lat);
+
+  return ca;
+}                                   
 
 double cos_tl_sun(double tl_sun) 
 {
@@ -140,7 +150,17 @@ double sin_dec_sun(double dec_sun)
   sa = sin(dec_sun);
 
   return sa;
-}                     
+}  
+
+double sin_lat(double lat) 
+{
+
+  double sa;
+
+  sa = sin(lat);
+
+  return sa;
+}                                   
 
 double sin_tl_sun(double tl_sun) 
 {

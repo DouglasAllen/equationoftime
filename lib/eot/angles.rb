@@ -56,8 +56,8 @@ class Eot
   # used for angles from transit to horizons
   def ha_sun
     zenith   = 90.8333 # use other zeniths here for non commercial
-    top      = cosZ(zenith) - sin_dec_sun(dec_sun) * sin(@latitude * D2R)
-    bottom   = cos_dec_sun(dec_sun) * cos(@latitude * D2R)
+    top      = cosZ(zenith) - sin_dec_sun(dec_sun) * sin_lat(@latitude * D2R)
+    bottom   = cos_dec_sun(dec_sun) * cos_lat(@latitude * D2R)
     t_cosine = top / bottom
     t_cosine > 1.0 || t_cosine < -1.0 ? cos = 1.0 : cos = t_cosine
     acos(cos)
