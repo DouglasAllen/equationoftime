@@ -7,11 +7,11 @@ require 'rake/testtask'
 require 'rdoc/task'
 require 'rspec/core/rake_task'
 require 'yard'
-# rake release VERSION=4.1.2
+# rake release VERSION=4.1.4
 Hoe.spec 'equationoftime' do
   developer('Douglas Allen', 'kb9agt@gmail.com')
   license('MIT')
-  self.version = '4.1.2'
+  self.version = '4.1.4'
   self.readme_file   = 'README.rdoc'
   self.history_file  = 'CHANGELOG.rdoc'
   self.extra_rdoc_files  = FileList['*.rdoc']
