@@ -92,6 +92,16 @@ double cos_al_sun(double al_sun)
   return ca;
 }
 
+double cos_dec_sun(double dec_sun) 
+{
+
+  double ca;
+
+  ca = cos(dec_sun);
+
+  return ca;
+}                  
+
 double cos_tl_sun(double tl_sun) 
 {
 
@@ -122,6 +132,16 @@ double sin_al_sun(double al_sun)
   return sa;
 }
 
+double sin_dec_sun(double dec_sun) 
+{
+
+  double sa;
+
+  sa = sin(dec_sun);
+
+  return sa;
+}                     
+
 double sin_tl_sun(double tl_sun) 
 {
 
@@ -140,4 +160,6 @@ double sin_to_earth(double to_earth)
   sa = sin(to_earth);
 
   return sa;
-}                                       
+} 
+
+                                                        
