@@ -121,13 +121,13 @@ class Eot
 
   # Julian Date of Modified Julian Date zero
   # 1858, 11, 17, 0.0 midnight start of calendar reform = 2400000.5
-  # MJD0        = 2400000.5
-
-  # 2Pi from Math module = Math::PI * 2.0
-  # P2          = PI * 2.0
+  # MJD0        = 2400000.5  
 
   # from desktop calculator PI = 3.1415926535897932384626433832795
   PI          = 3.1415926535897932384626433832795
+
+  # 2Pi from Math module = Math::PI * 2.0
+  P2          = PI * 2.0
 
   # from desktop calculator R2D = 57.295779513082320876798154814105
   R2D         = 57.295779513082320876798154814105

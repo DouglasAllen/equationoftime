@@ -48,7 +48,7 @@ class Eot
   # Uses @ajd attribute
   # Returns Sunrise as a Julian Day Number
   def sunrise_jd
-    local_noon_dt.ajd - ha_sun * R2D / 360.0
+    local_noon_dt.ajd - ha_sun / P2
   end
 
   # From times.rb:
@@ -62,7 +62,7 @@ class Eot
   # Uses @ajd attribute
   # Returns Sunset as a Julian Day Number
   def sunset_jd
-    local_noon_dt.ajd + ha_sun * R2D / 360.0
+    local_noon_dt.ajd + ha_sun / P2
   end
 
   # From times.rb:

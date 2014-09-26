@@ -75,9 +75,69 @@ double alSun(double ma, double t, double o)
 double cosZ(double zenith)
 {
 
-  double a;
+  double ca;
 
-  a = cos(zenith * 0.017453292519943295769236907684886);
+  ca = cos(zenith * 0.017453292519943295769236907684886);
 
-  return a;
-}                              
+  return ca;
+}
+
+double cos_al_sun(double al_sun) 
+{
+
+  double ca;
+
+  ca = cos(al_sun);
+
+  return ca;
+}
+
+double cos_tl_sun(double tl_sun) 
+{
+
+  double ca;
+
+  ca = cos(tl_sun);
+
+  return ca;
+}                                               
+
+double cos_to_earth(double to_earth) 
+{
+
+  double ca;
+
+  ca = cos(to_earth);
+
+  return ca;
+} 
+
+double sin_al_sun(double al_sun) 
+{
+
+  double sa;
+
+  sa = sin(al_sun);
+
+  return sa;
+}
+
+double sin_tl_sun(double tl_sun) 
+{
+
+  double sa;
+
+  sa = sin(tl_sun);
+
+  return sa;
+}                                               
+
+double sin_to_earth(double to_earth) 
+{
+
+  double sa;
+
+  sa = sin(to_earth);
+
+  return sa;
+}                                       

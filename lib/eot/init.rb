@@ -9,9 +9,10 @@ class Eot
   # ajd or jd. Use ajd for time now and jd for suntimes. Initially
   # @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f
   attr_reader :ajd
+
   def ajd=(ajd)
     @ajd = ajd
-    @ta  = ((@ajd - DJ00) / DJC).to_f
+    @ta  = ((ajd - DJ00) / DJC).to_f
     @ma  = Celes.falp03(@ta)
   end
 
@@ -52,7 +53,6 @@ class Eot
   # Initialize to set attributes
   # You may use GeoLatLng to set up @latitude and @longitude
   def initialize
-    require_relative 'geo_lat_lng_smt'
     @geo = GeoLatLng.new
     @addr = @geo.default_int
     @geo.addr = @addr
