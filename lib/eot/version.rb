@@ -1,4 +1,4 @@
 # class Eot file = version.rb
 class Eot
-  VERSION = '4.1.4'
+  VERSION = '4.1.5'
 end

@@ -49,6 +49,10 @@ After checking out the source, run:
 
   $ rake newb
 
+Or use patch to install as gem
+
+  $ gem install eot
+
 This task will install any missing dependencies, run the tests/specs,
 and generate the RDoc.
 
