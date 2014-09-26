@@ -37,11 +37,11 @@ Lots of examples to play with for learning about Eot.
 
 == REQUIREMENTS:
 
-* bundle install
+  $ bundle install
 
 == INSTALL:
 
-* rake install
+  $ rake install
 
 == DEVELOPERS:
 
