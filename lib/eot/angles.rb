@@ -49,22 +49,23 @@ class Eot
   alias_method :geometric_mean_longitude, :gml_sun
   alias_method :ml_sun, :gml_sun
 
+  def choice(c)
+    case c
+    when 1
+      return 90.8333 # Sunrise and Sunset
+    when 2
+      return 96 # Civil Twilight
+    when 3
+      return 102 # Nautical Twilight
+    when 4
+      return 108 # Astronomical Twilight
+    end
+  end
   # From angles.rb:
   # horizon angle for provided geo coordinates
   # used for angles from transit to horizons
   def ha_sun(c)
-    choice = c
-    case choice
-    when 1
-      zenith   = 90.8333 # Sunrise and Sunset
-    when 2
-      zenith   = 96 # Civil Twilight
-    when 3
-      zenith   = 102 # Nautical Twilight
-    when 4
-      zenith   = 108 # Astronomical Twilight 
-    end
-     # use other zeniths here for non commercial  
+    zenith = choice(c)
     sun(zenith, dec_sun, @latitude)
   end
   alias_method :horizon_angle, :ha_sun

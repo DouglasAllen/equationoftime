@@ -33,6 +33,15 @@ describe 'tests ajd of 2456885.0' do
                  Eot_times.ajd_to_datetime(Eot_times.ajd).to_s
   end
 
+  it 'expected   2_456_885.333831158 from Eot_times.civil_twilight_end_jd() ' do
+    assert_equal(2_456_885.333831158, Eot_times.civil_twilight_end_jd)
+  end
+
+  it 'expected   2_456_884.6723964936 from \
+      Eot_times.civil_twilight_start_jd() ' do
+    assert_equal(2_456_884.6723964936, Eot_times.civil_twilight_start_jd)
+  end
+
   it 'expected   -0.003113709117457967 from Eot_times.eot_jd() ' do
     assert_equal(-0.003113709117457967, Eot_times.eot_jd)
   end
@@ -50,11 +59,11 @@ describe 'tests ajd of 2456885.0' do
     assert_equal '2014-08-15T19:23:12+00:00', Eot_times.sunset_dt.to_s
   end
 
-  it 'expected   2456884.6984398644 from Eot_times.sunrise_jd() ' do
+  it 'expected   2_456_884.6984398644 from Eot_times.sunrise_jd() ' do
     assert_equal(2_456_884.6984398644, Eot_times.sunrise_jd)
   end
 
-  it 'expected   2456885.307787787 from Eot_times.sunset_jd() ' do
+  it 'expected   2_456_885.307787787 from Eot_times.sunset_jd() ' do
     assert_equal(2_456_885.307787787, Eot_times.sunset_jd)
   end
 
@@ -81,7 +90,7 @@ describe 'tests ajd of 2455055.0' do
     Eot_times.date = Eot_times.ajd_to_datetime(ajd)
   end
 
-  it 'expected   2455055.0, from Eot_times.' do
+  it 'expected   2_455_055.0, from Eot_times.' do
     assert_equal(2_455_055.0, Eot_times.ajd)
   end
 
@@ -108,7 +117,7 @@ describe 'tests ajd of 2455055.0' do
     assert_equal '2009-08-11T04:39:45+00:00', Eot_times.sunrise_dt.to_s
   end
 
-  it 'expected   2455054.6942728516 from Eot_times.sunrise_jd()' do
+  it 'expected   2_455_054.6942728516 from Eot_times.sunrise_jd()' do
     assert_equal(2_455_054.6942728516, Eot_times.sunrise_jd)
   end
 
@@ -116,7 +125,7 @@ describe 'tests ajd of 2455055.0' do
     assert_equal '2009-08-11T19:30:34+00:00', Eot_times.sunset_dt.to_s
   end
 
-  it 'expected   2455055.3128953967 from Eot_times.sunset_jd() ' do
+  it 'expected   2_455_055.3128953967 from Eot_times.sunset_jd() ' do
     assert_equal(2_455_055.3128953967, Eot_times.sunset_jd)
   end
 

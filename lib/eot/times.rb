@@ -46,16 +46,16 @@ class Eot
 
   # From times.rb:
   # Uses @ajd attribute
-  # Returns Sunrise as a Julian Day Number
-  def sunrise_jd
-    local_noon_dt.ajd - ha_sun(1) / P2
+  # Returns a DateTime object of local sunset
+  def sunset_dt
+    ajd_to_datetime(sunset_jd)
   end
 
   # From times.rb:
   # Uses @ajd attribute
-  # Returns a DateTime object of local sunset
-  def sunset_dt
-    ajd_to_datetime(sunset_jd)
+  # Returns Sunrise as a Julian Day Number
+  def sunrise_jd
+    local_noon_dt.ajd - ha_sun(1) / P2
   end
 
   # From times.rb:
@@ -67,36 +67,17 @@ class Eot
 
   # From times.rb:
   # Uses @ajd attribute
-  # Returns Oblique component of EOT in decimal minutes time
-  def time_delta_oblique
-    delta_oblique * R2D * SM
+  # Returns civil twilight end as a Julian Day Number
+  def civil_twilight_end_jd
+    local_noon_dt.ajd + ha_sun(2) / P2
   end
 
   # From times.rb:
   # Uses @ajd attribute
-  # Returns Orbit component of EOT in decimal minutes time
-  def time_delta_orbit
-    delta_orbit * R2D * SM
+  # Returns civil twilight start as a Julian Day Number
+  def civil_twilight_start_jd
+    local_noon_dt.ajd - ha_sun(2) / P2
   end
-
-  # From times.rb:
-  # Uses @ajd attribute
-  # Returns EOT as a float for decimal minutes time
-  def time_eot
-    eot * R2D * SM
-  end
-
-  # From times.rb:
-  # All calculations with ( ta )  were based on this.
-  # Julian Century Time is a fractional century
-  # Julian Day Number DJ00 is subtracted from the JDN or AJDN and then divided
-  # by days in a Julian Century.
-  # Deprecated
-  def time_julian_century
-    t1 = (@ajd - DJ00) / DJC
-    @ta = t1
-  end
-  alias_method :time_julian_centurey, :time_julian_century
 end
 
 if __FILE__ == $PROGRAM_NAME
