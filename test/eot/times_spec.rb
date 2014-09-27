@@ -33,6 +33,42 @@ describe 'tests ajd of 2456885.0' do
                  Eot_times.ajd_to_datetime(Eot_times.ajd).to_s
   end
 
+  it 'expected   "2014-08-15T21:46:27+00:00" from \
+      Eot_times.astronomical_twilight_end_dt.to_s ' do
+    assert_equal('2014-08-15T21:46:27+00:00', \
+                 Eot_times.astronomical_twilight_end_dt.to_s)
+  end
+
+  it 'expected   "2014-08-15T02:22:31+00:00" from \
+      Eot_times.astronomical_twilight_start_dt.to_s ' do
+    assert_equal('2014-08-15T02:22:31+00:00', \
+                 Eot_times.astronomical_twilight_start_dt.to_s)
+  end
+
+  it 'expected   2_456_885.4072572137 from \
+      Eot_times.astronomical_twilight_end_jd ' do
+    assert_equal(2_456_885.4072572137, \
+                 Eot_times.astronomical_twilight_end_jd)
+  end
+
+  it 'expected   2_456_884.598970438 from \
+      Eot_times.astronomical_twilight_start_jd ' do
+    assert_equal(2_456_884.598970438, \
+                 Eot_times.astronomical_twilight_start_jd)
+  end
+
+  it 'expected   "2014-08-15T20:00:43+00:00" from \
+      Eot_times.civil_twilight_end_dt.to_s ' do
+    assert_equal('2014-08-15T20:00:43+00:00', \
+                 Eot_times.civil_twilight_end_dt.to_s)
+  end
+
+  it 'expected   "2014-08-15T04:08:15+00:00" from \
+      Eot_times.civil_twilight_start_dt.to_s ' do
+    assert_equal('2014-08-15T04:08:15+00:00', \
+                 Eot_times.civil_twilight_start_dt.to_s)
+  end
+
   it 'expected   2_456_885.333831158 from Eot_times.civil_twilight_end_jd() ' do
     assert_equal(2_456_885.333831158, Eot_times.civil_twilight_end_jd)
   end
@@ -49,6 +85,30 @@ describe 'tests ajd of 2456885.0' do
   it 'expected   "2014-08-15T12:04:29+00:00" \
       from Eot_times.local_noon_dt().to_s ' do
     assert_equal '2014-08-15T12:04:29+00:00', Eot_times.local_noon_dt.to_s
+  end
+
+  it 'expected   "2014-08-15T20:48:41+00:00" from \
+     Eot_times.nautical_twilight_end_dt.to_s ' do
+    assert_equal('2014-08-15T20:48:41+00:00', \
+                 Eot_times.nautical_twilight_end_dt.to_s)
+  end
+
+  it 'expected   "2014-08-15T03:20:16+00:00" from \
+      Eot_times.nautical_twilight_start_dt.to_s ' do
+    assert_equal('2014-08-15T03:20:16+00:00', \
+                 Eot_times.nautical_twilight_start_dt.to_s)
+  end
+
+  it 'expected   2_456_885.367149622 from \
+      Eot_times.nautical_twilight_end_jd ' do
+    assert_equal(2_456_885.367149622, \
+                 Eot_times.nautical_twilight_end_jd)
+  end
+
+  it 'expected   2_456_884.6390780294 from \
+      Eot_times.nautical_twilight_start_jd ' do
+    assert_equal(2_456_884.6390780294, \
+                 Eot_times.nautical_twilight_start_jd)
   end
 
   it 'expected   "2014-08-15T04:45:45+00:00" from Eot_times.sunrise_dt() ' do
