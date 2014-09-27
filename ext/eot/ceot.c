@@ -195,4 +195,13 @@ double sun(double zenith, double dec_sun, double lat)
   double c;
   c = (ca > 1.0 || ca < -1.0) ? 1.0: ca;    
   return acos(c);
-}                                                        
+}
+
+double sun_dec(double al_sun, double to_earth) 
+{
+  double sin1 = sin_to_earth(to_earth);
+  double sin2 = sin_al_sun(al_sun);
+  double as   = asin(sin1 * sin2);
+  return as;
+
+}                                                       

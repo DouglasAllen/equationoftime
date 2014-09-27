@@ -18,14 +18,14 @@ class Eot
   # Uses @ajd and @longitude attributes
   # Returns DateTime object of local noon or solar transit
   def local_noon_dt
-    ajd_to_datetime(@ajd - @longitude / 360.0 - eot_jd)
+    ajd_to_datetime(mean_local_noon_jd - eot_jd)
   end
 
   # From times.rb:
   # Uses @ajd and @longitude attributes
   # Returns DateTime object of local mean noon or solar transit
-  def mean_local_noon_dt
-    ajd_to_datetime(@ajd - @longitude / 360.0)
+  def mean_local_noon_jd
+    @ajd - @longitude / 360.0
   end
 
   # From times.rb:
@@ -69,14 +69,14 @@ class Eot
   # Uses @ajd attribute
   # Returns Oblique component of EOT in decimal minutes time
   def time_delta_oblique
-    (tl_sun - ra_sun) * R2D * SM
+    delta_oblique * R2D * SM
   end
 
   # From times.rb:
   # Uses @ajd attribute
   # Returns Orbit component of EOT in decimal minutes time
   def time_delta_orbit
-    (@ma - ta_sun) * R2D * SM
+    delta_orbit * R2D * SM
   end
 
   # From times.rb:
@@ -94,16 +94,6 @@ class Eot
   # Deprecated
   def time_julian_century
     t1 = (@ajd - DJ00) / DJC
-    # t2 = t1 * t1
-    # t3 = t1 * t2
-    # t4 = t2 * t2
-    # t5 = t2 * t3
-    # t6 = t3 * t3
-    # t7 = t3 * t4
-    # t8 = t4 * t4
-    # t9 = t4 * t5
-    # t10 = t5 * t5
-    # @ta = [ t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 ]
     @ta = t1
   end
   alias_method :time_julian_centurey, :time_julian_century

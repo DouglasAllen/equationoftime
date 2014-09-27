@@ -20,8 +20,7 @@ class Eot
   # From angles.rb:
   # solar declination
   def dec_sun
-    # s_dec
-    asin(sine_to_earth * sine_al_sun)
+    sun_dec(to_earth, al_sun)
   end
   alias_method :declination, :dec_sun
 
