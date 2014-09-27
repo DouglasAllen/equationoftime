@@ -84,8 +84,8 @@ describe 'Tests ajd of 2456885.0' do
     assert_equal(2.5101912804141424, Eot_angles.gml_sun)
   end
 
-  it 'should be  1.9143229567859146 from  Eot_angles.ha_sun()? ' do
-    assert_equal(1.9143229567859146, Eot_angles.ha_sun)
+  it 'should be  1.9143229567859146 from  Eot_angles.ha_sun(1)? ' do
+    assert_equal(1.9143229567859146, Eot_angles.ha_sun(1))
   end
 
   it 'should be  3.8508003966038915 from  Eot_angles.ma_sun()? ' do
@@ -211,8 +211,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(2.445008945789877, Eot_angles.gml_sun)
   end
 
-  it 'should be  1.9434600427973594 from Eot_angles.ha_sun()? ' do
-    assert_equal(1.9434600427973594, Eot_angles.ha_sun)
+  it 'should be  1.9434600427973594 from Eot_angles.ha_sun(1)? ' do
+    assert_equal(1.9434600427973594, Eot_angles.ha_sun(1))
   end
 
   it 'should be  3.7871218188949207 from Eot_angles.ma_sun()? ' do

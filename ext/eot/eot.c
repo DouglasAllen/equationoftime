@@ -87,6 +87,11 @@ VALUE func_cos_lat(VALUE klass, VALUE vlat) {
   return DBL2NUM(cos_lat(NUM2DBL(vlat)));
 }
 
+VALUE func_sun(VALUE klass, VALUE vz, VALUE vds, VALUE vlat) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(sun(NUM2DBL(vz), NUM2DBL(vds), NUM2DBL(vlat)));
+}
+
 VALUE cEot;
 void
 Init_eot(void) {
@@ -109,4 +114,5 @@ Init_eot(void) {
   rb_define_method(cEot, "sin_dec_sun", func_sin_dec_sun, 1);
   rb_define_method(cEot, "cos_lat", func_cos_lat, 1);
   rb_define_method(cEot, "sin_lat", func_sin_lat, 1);
+  rb_define_method(cEot, "sun", func_sun, 3);
 }

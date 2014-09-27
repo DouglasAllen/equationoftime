@@ -4,7 +4,7 @@ class Eot
   # From angles.rb:
   # Apparent solar longitude = true longitude - aberation
   def al_sun
-    Celes.anp(al(@ma, @ta, Celes.faom03(@ta)))
+    Celes.anp(al(@ma, @ta, omega))
   end
   alias_method :apparent_longitude, :al_sun
   alias_method :alsun, :al_sun
@@ -20,8 +20,8 @@ class Eot
   # From angles.rb:
   # solar declination
   def dec_sun
-    asin(sin(Celes.nut06a(@ajd, 0)[1] + Celes.obl06(@ajd, 0)) *
-            sin(al(@ma, @ta, Celes.faom03(@ta))))
+    # s_dec
+    asin(sine_to_earth * sine_al_sun)
   end
   alias_method :declination, :dec_sun
 
@@ -38,9 +38,7 @@ class Eot
   # used for true longitude of Aries
   # Depricated by Celes.gst06a()
   def eq_of_equinox
-    cos(Celes.nut06a(@ajd, 0)[1] +
-        Celes.obl06(@ajd, 0)) *
-        Celes.nut06a(@ajd, 0)[0]
+    cosine_to_earth * angle_delta_psi
   end
 
   # From angles.rb:
@@ -50,17 +48,25 @@ class Eot
     ml(@ta)
   end
   alias_method :geometric_mean_longitude, :gml_sun
+  alias_method :ml_sun, :gml_sun
 
   # From angles.rb:
   # horizon angle for provided geo coordinates
   # used for angles from transit to horizons
-  def ha_sun
-    zenith   = 90.8333 # use other zeniths here for non commercial
-    top      = cosZ(zenith) - sin_dec_sun(dec_sun) * sin_lat(@latitude * D2R)
-    bottom   = cos_dec_sun(dec_sun) * cos_lat(@latitude * D2R)
-    t_cosine = top / bottom
-    t_cosine > 1.0 || t_cosine < -1.0 ? cos = 1.0 : cos = t_cosine
-    acos(cos)
+  def ha_sun(c)
+    choice = c
+    case choice
+    when 1
+      zenith   = 90.8333 # Sunrise and Sunset
+    when 2
+      zenith   = 96 # Civil Twilight
+    when 3
+      zenith   = 102 # Nautical Twilight
+    when 4
+      zenith   = 108 # Astronomical Twilight 
+    end
+     # use other zeniths here for non commercial  
+    sun(zenith, dec_sun, @latitude)
   end
   alias_method :horizon_angle, :ha_sun
 
@@ -106,9 +112,8 @@ class Eot
   # From angles.rb:
   # solar right ascension
   def ra_sun
-    y0 = sin(al(@ma, @ta, Celes.faom03(@ta))) * cos(Celes.nut06a(@ajd, 0)[1] +
-         Celes.obl06(@ajd, 0))
-    Celes.anp(PI + atan2(-y0, -cos(al(@ma, @ta, Celes.faom03(@ta)))))
+    y0 = sine_al_sun * cosine_to_earth
+    Celes.anp(PI + atan2(-y0, -cosine_al_sun))
   end
   alias_method :right_ascension, :ra_sun
 
@@ -143,7 +148,7 @@ class Eot
   # From angles.rb:
   # true obliquity considers nutation
   def to_earth
-    Celes.nut06a(@ajd, 0)[1] + Celes.obl06(@ajd, 0)
+    mo_earth + angle_delta_epsilon
   end
   alias_method :obliquity_correction, :to_earth
   alias_method :true_obliquity, :to_earth

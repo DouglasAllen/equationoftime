@@ -5,7 +5,7 @@ class Eot
   # cosine apparent longitude
   # could be useful when dividing
   def cosine_al_sun
-    cos_al_sun(al(@ma, @ta, Celes.faom03(@ta)))
+    cos_al_sun(al_sun)
   end
   alias_method :cosine_apparent_longitude, :cosine_al_sun
   alias_method :cosalsun, :cosine_al_sun
@@ -14,7 +14,7 @@ class Eot
   # cosine true longitude
   # used in solar right ascension
   def cosine_tl_sun
-    cos_tl_sun(tl(@ma, @ta))
+    cos_tl_sun(tl_sun)
   end
   alias_method :cosine_true_longitude, :cosine_tl_sun
 
@@ -22,7 +22,7 @@ class Eot
   # cosine true obliquity
   # used in solar right ascension and equation of equinox
   def cosine_to_earth
-    cos_to_earth(Celes.nut06a(@ajd, 0)[1] + Celes.obl06(@ajd, 0))
+    cos_to_earth(to_earth)
   end
   alias_method :cosine_true_obliquity, :cosine_to_earth
 
@@ -30,7 +30,7 @@ class Eot
   # sine apparent longitude
   # used in solar declination
   def sine_al_sun
-    sin_al_sun(al(@ma, @ta, Celes.faom03(@ta)))
+    sin_al_sun(al_sun)
   end
   alias_method :sine_apparent_longitude, :sine_al_sun
 
@@ -38,7 +38,7 @@ class Eot
   # sine true longitude
   # used in solar right ascension
   def sine_tl_sun
-    sin_tl_sun(tl(@ma, @ta))
+    sin_tl_sun(tl_sun)
   end
   alias_method :sine_true_longitude, :sine_tl_sun
 
@@ -46,6 +46,6 @@ class Eot
   # sine true obliquity angle of Earth
   # used in solar declination
   def sine_to_earth
-    sin_to_earth(Celes.nut06a(@ajd, 0)[1] + Celes.obl06(@ajd, 0))
+    sin_to_earth(to_earth)
   end
 end

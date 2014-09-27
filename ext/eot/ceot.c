@@ -107,7 +107,7 @@ double cos_lat(double lat)
 
   double ca;
 
-  ca = cos(lat);
+  ca = cos(lat * 0.017453292519943295769236907684886);
 
   return ca;
 }                                   
@@ -157,7 +157,7 @@ double sin_lat(double lat)
 
   double sa;
 
-  sa = sin(lat);
+  sa = sin(lat * 0.017453292519943295769236907684886);
 
   return sa;
 }                                   
@@ -182,4 +182,17 @@ double sin_to_earth(double to_earth)
   return sa;
 } 
 
-                                                        
+double sun(double zenith, double dec_sun, double lat)
+{
+  double cos1 = cosZ(zenith);
+  double sin2 = sin_dec_sun(dec_sun);
+  double sin3 = sin_lat(lat);
+  double cos2 = cos_dec_sun(dec_sun);
+  double cos3 = cos_lat(lat);
+  double top  = cos1 - sin2 * sin3;
+  double bot  = cos2 * cos3;
+  double ca   = top / bot;
+  double c;
+  c = (ca > 1.0 || ca < -1.0) ? 1.0: ca;    
+  return acos(c);
+}                                                        
