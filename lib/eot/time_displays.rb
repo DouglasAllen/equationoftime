@@ -34,7 +34,7 @@ class Eot
 
   def string_deg_to_time(radians = 0.0)
     radians.nil? ? radians = 0.0 : radians
-    s, ihmsf = Celes::a2tf(3, radians)
+    s, ihmsf = Celes.a2tf(3, radians)
     f_string(s, ihmsf[0], ihmsf[1], ihmsf[2], ihmsf[3])
   end
 

@@ -30,13 +30,13 @@ class Eot
   end
 
   def f_string(sgn, u, m, s, ds)
-                    sgn +
+    sgn +
       format('%03d', u) +
-                    ':' +
+    ':' +
       format('%02d', m) +
-                    ':' +
+    ':' +
       format('%02d', s) +
-                    '.' +
+    '.' +
     format('%3.3d', ds)
   end
 
