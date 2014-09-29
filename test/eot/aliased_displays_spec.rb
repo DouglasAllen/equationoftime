@@ -36,9 +36,9 @@ describe 'aliased_displays using ajd of 2456885.0' do
     assert_equal '+142:35:33.356', aliased_displays.apparent_longitude_string
   end
 
-  it 'expected   "+013:58:51.521" \
+  it 'expected   "+013:58:51.522" \
       from aliased_displays.declination_string()? ' do
-    assert_equal '+013:58:51.521', aliased_displays.declination_string
+    assert_equal '+013:58:51.522', aliased_displays.declination_string
   end
 
   it 'expected   "-04m, 29.2s" from \
@@ -81,9 +81,9 @@ describe 'aliased_displays using ajd of 2456885.0' do
                  aliased_displays.julian_period_day_fraction_to_time(0)
   end
 
-  it 'expected   "+220:38:04.597" from \
+  it 'expected   "+220:38:04.598" from \
       aliased_displays.mean_anomaly_string()? ' do
-    assert_equal '+220:38:04.597', aliased_displays.mean_anomaly_string
+    assert_equal '+220:38:04.598', aliased_displays.mean_anomaly_string
   end
 
   it 'expected   "+144:56:36.571" from \
@@ -91,19 +91,19 @@ describe 'aliased_displays using ajd of 2456885.0' do
     assert_equal '+144:56:36.571', aliased_displays.right_ascension_string
   end
 
-  it 'expected   "+219:24:27.797" from \
+  it 'expected   "+219:24:27.798" from \
       aliased_displays.true_anomaly_string()? ' do
-    assert_equal '+219:24:27.797', aliased_displays.true_anomaly_string
+    assert_equal '+219:24:27.798', aliased_displays.true_anomaly_string
   end
 
-  it 'expected   "+142:35:47.3184" from \
+  it 'expected   "+142:35:47.318" from \
       aliased_displays.true_longitude_string()? ' do
     assert_equal '+142:35:47.318', aliased_displays.true_longitude_string
   end
 
-  it 'expected   "+023:26:06.163" from \
+  it 'expected   "+023:26:06.164" from \
       aliased_displays.true_obliquity_string()? ' do
-    assert_equal '+023:26:06.163', aliased_displays.true_obliquity_string
+    assert_equal '+023:26:06.164', aliased_displays.true_obliquity_string
   end
 
 end

@@ -1,13 +1,13 @@
 # class Eot file = angle_displays.rb
 class Eot
   def deg_string(sgn, d, m, s, ds)
-    sgn +
-    format('%03d', d) +
-            ':' +
-    format('%02d', m) +
-            ':' +
-    format('%02d', s) +
-            '.' +
+                    sgn +
+      format('%03d', d) +
+                    ':' +
+      format('%02d', m) +
+                    ':' +
+      format('%02d', s) +
+                    '.' +
     format('%3.3d', ds)
   end
 
@@ -15,15 +15,8 @@ class Eot
   # String formatter for d:m:s display
   def degrees_to_s(radians = 0.0)
     radians.nil? ? radians = 0.0 : radians
-    radians < 0 ? sign = '-' : sign = '+'
-    deg = (radians * R2D).abs
-    int_deg = Integer(deg)
-    min = 60.0 * (deg - int_deg)
-    int_min = Integer(min)
-    sec = 60.0 * (min - int_min)
-    int_sec = Integer(sec)
-    int_ds = Integer(1000.0 * (sec - int_sec))
-    deg_string(sign, int_deg, int_min, int_sec, int_ds)
+    s, idmsf = Celes::a2af(3, radians)
+    deg_string(s, idmsf[0], idmsf[1], idmsf[2], idmsf[3])
   end
 
   # From displays.rb
