@@ -1,22 +1,12 @@
 # class Eot file = angle_displays.rb
 class Eot
-  def deg_string(sgn, d, m, s, ds)
-                    sgn +
-      format('%03d', d) +
-                    ':' +
-      format('%02d', m) +
-                    ':' +
-      format('%02d', s) +
-                    '.' +
-    format('%3.3d', ds)
-  end
 
   # From displays.rb
   # String formatter for d:m:s display
   def degrees_to_s(radians = 0.0)
     radians.nil? ? radians = 0.0 : radians
     s, idmsf = Celes::a2af(3, radians)
-    deg_string(s, idmsf[0], idmsf[1], idmsf[2], idmsf[3])
+    f_string(s, idmsf[0], idmsf[1], idmsf[2], idmsf[3])
   end
 
   # From displays.rb

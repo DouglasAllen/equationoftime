@@ -29,6 +29,17 @@ class Eot
     dt == 0 ? DT2000 : check_t_nil(dt)
   end
 
+  def f_string(sgn, u, m, s, ds)
+                    sgn +
+      format('%03d', u) +
+                    ':' +
+      format('%02d', m) +
+                    ':' +
+      format('%02d', s) +
+                    '.' +
+    format('%3.3d', ds)
+  end
+
   # From utilities.rb:
   # Keeps large angles in range of 360.0
   # aliased by truncate
