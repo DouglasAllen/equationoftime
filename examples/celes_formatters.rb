@@ -14,6 +14,10 @@ puts 'formatted -45:13:27.2 degrees in'
 a = Celes.af2a('-', 45, 13, 27.2, &a)
 p a
 
-puts 'normalize range to Pi radians'
+puts 'normalize range 0-2pi radians'
 a = Celes.anp(-0.1)
+p a
+
+puts 'normalize range -pi-+pi radians'
+a = Celes.anpm(-4.0)
 p a

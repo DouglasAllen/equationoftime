@@ -20,7 +20,7 @@ class Eot
   # From angles.rb:
   # solar declination
   def dec_sun
-    sun_dec(to_earth, al_sun)
+    sun_dec(al_sun, to_earth)
   end
   alias_method :declination, :dec_sun
 
@@ -37,7 +37,14 @@ class Eot
   # used for true longitude of Aries
   # Depricated by Celes.gst06a()
   def eq_of_equinox
-    cosine_to_earth * angle_delta_psi
+    Celes.ee06a(@ajd, 0.0)#cosine_to_earth * angle_delta_psi
+  end
+
+  # From angles.rb:
+  # Earth rotation angle (for comparison to tl_aries
+  # which uses gmst06)
+  def era
+    Celes.era00(@ajd, 0.0)
   end
 
   # From angles.rb:

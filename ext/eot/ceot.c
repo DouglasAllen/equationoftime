@@ -21,9 +21,7 @@ double eoe(double t)
   double e;
 
   /* Eccentricity of Earth orbit */
-  e = (0.016708617   +
-       t * (-0.000042037 +
-       t * -0.0000001235));
+  e = (0.016708617 + t * (-0.000042037 + t *  -0.0000001235));
 
   return e; 
 }
@@ -201,7 +199,7 @@ double sun_dec(double al_sun, double to_earth)
 {
   double sin1 = sin_to_earth(to_earth);
   double sin2 = sin_al_sun(al_sun);
-  double as   = asin(sin1 * sin2);
-  return as;
-
-}                                                       
+  double a   = asin(sin1 * sin2);
+  return a;
+}
+//                                                       

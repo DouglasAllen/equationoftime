@@ -8,11 +8,14 @@ class Eot
   # Astronomical Julian Day Number is an instance of DateTime class.
   # ajd or jd. Use ajd for time now and jd for suntimes. Initially
   # @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f
-  attr_reader :ajd
+  attr_accessor :ajd
 
-  def ajd=(ajd)
-    @ajd = ajd
-    @ta  = ((ajd - DJ00) / DJC).to_f
+  # From init.rb
+  # When ajd gets changed after initialization this
+  # needs to be used to set ma and ta attributes
+  # because we want to leave the ajd methods in tact.
+  def ma_ta_set
+    @ta  = ((@ajd - DJ00) / DJC).to_f
     @ma  = Celes.falp03(@ta)
   end
 
@@ -57,6 +60,7 @@ class Eot
     @addr = @geo.default_int
     @geo.addr = @addr
     @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f
+    ma_ta_set
     @date, @jd = ajd_to_datetime(@ajd), @ajd
     @geo.set_coordinates
     # queries could excede quotas or you get disconnected.

@@ -24,10 +24,10 @@ class Eot
     h = Integer(fraction * DAY_HOURS)
     m = Integer((fraction - h / DAY_HOURS) * DAY_MINUTES)
     s = Integer((fraction - h / 24.0 - m / DAY_MINUTES) * DAY_SECONDS)
-    format('%02d', h)   +
-    ':'              +
+    format('%02d:', h) +
+    # ':' +
     format('%02d', m) +
-    ':'              +
+                  ':' +
     format('%02d', s)
   end
   alias_method :julian_period_day_fraction_to_time, :string_day_fraction_to_time

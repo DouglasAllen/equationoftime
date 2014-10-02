@@ -119,6 +119,7 @@ Init_eot(void) {
   rb_define_method(cEot, "sin_dec_sun", func_sin_dec_sun, 1);
   rb_define_method(cEot, "cos_lat", func_cos_lat, 1);
   rb_define_method(cEot, "sin_lat", func_sin_lat, 1);
-  rb_define_method(cEot, "sun", func_sun, 3);
   rb_define_method(cEot, "sun_dec", func_sun_dec, 2);
+  rb_define_method(cEot, "sun", func_sun, 3);
+  
 }
