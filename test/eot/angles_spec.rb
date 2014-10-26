@@ -1,5 +1,6 @@
 # angles_spec.rb
-
+gem 'minitest'
+require 'minitest/autorun'
 lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
@@ -73,8 +74,8 @@ describe 'Tests ajd of 2456885.0' do
     assert_equal(0.016702468499021204, angles.eccentricity_earth)
   end
 
-  it 'should be  3.441804334746474e-05 from  angles.eq_of_equinox()? ' do
-    assert_equal(3.441804334746474e-05, angles.eq_of_equinox)
+  it 'should be  3.4412912434333975e-05 from  angles.eq_of_equinox()? ' do
+    assert_equal(3.4412912434333975e-05, angles.eq_of_equinox)
   end
 
   it 'should be  -0.01961757586733293 from  angles.eot()? ' do
@@ -201,8 +202,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(0.016704576164208475, angles.eccentricity_earth)
   end
 
-  it 'should be  7.00895687864236e-05 from angles.eq_of_equinox()? ' do
-    assert_equal(7.00895687864236e-05, angles.eq_of_equinox)
+  it 'should be  7.007879585074761e-05 from angles.eq_of_equinox()? ' do
+    assert_equal(7.007879585074761e-05, angles.eq_of_equinox)
   end
 
   it 'should be  -0.022580635518053633 from angles.eot()? ' do

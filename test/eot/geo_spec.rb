@@ -10,8 +10,8 @@ geo = GeoLatLng.new
 
 describe 'Geo defaults' do
 
-  # DEFAULT_INT = geo.default_int
-  it "expected #{DEFAULT_INT}" do
+  INTERNATIONAL = geo.default_int
+  it "expected #{INTERNATIONAL}" do
     assert_equal DEFAULT_INT, geo.addr
   end
 
