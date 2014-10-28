@@ -9,28 +9,28 @@ class Eot
 
   # From times.rb:
   # Uses @ajd attribute
-  # Returns civil twilight end as a Julian Day Number
+  # Returns astronomical twilight end as a DateTime
   def astronomical_twilight_end_dt
     ajd_to_datetime(astronomical_twilight_end_jd)
   end
 
   # From times.rb:
   # Uses @ajd attribute
-  # Returns civil twilight start as a Julian Day Number
+  # Returns astronomical twilight start as a DateTime
   def astronomical_twilight_start_dt
     ajd_to_datetime(astronomical_twilight_start_jd)
   end
 
   # From times.rb:
   # Uses @ajd attribute
-  # Returns civil twilight end as a Julian Day Number
+  # Returns civil twilight end as a DateTime
   def civil_twilight_end_dt
     ajd_to_datetime(civil_twilight_end_jd)
   end
 
   # From times.rb:
   # Uses @ajd attribute
-  # Returns civil twilight start as a Julian Day Number
+  # Returns civil twilight start as a DateTime
   def civil_twilight_start_dt
     ajd_to_datetime(civil_twilight_start_jd)
   end
@@ -44,14 +44,14 @@ class Eot
 
   # From times.rb:
   # Uses @ajd attribute
-  # Returns civil twilight end as a Julian Day Number
+  # Returns nautical twilight end as a DateTime
   def nautical_twilight_end_dt
     ajd_to_datetime(nautical_twilight_end_jd)
   end
 
   # From times.rb:
   # Uses @ajd attribute
-  # Returns civil twilight start as a Julian Day Number
+  # Returns nautical twilight start as a DateTime
   def nautical_twilight_start_dt
     ajd_to_datetime(nautical_twilight_start_jd)
   end

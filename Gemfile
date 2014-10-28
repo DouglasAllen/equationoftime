@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+# ruby '2.0.0'
+# ruby '2.1.0'
+# ruby '2.1.1'
 # ruby '2.1.2'
-# ruby '2.1.3'
+ruby '2.1.3'
 
 gemspec
 

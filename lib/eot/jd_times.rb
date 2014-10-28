@@ -2,14 +2,14 @@
 class Eot
   # From jd_times.rb:
   # Uses @ajd attribute
-  # Returns civil twilight end as a Julian Day Number
+  # Returns astronomical twilight end as a Julian Day Number
   def astronomical_twilight_end_jd
     local_noon_dt.ajd + ha_sun(4) / P2
   end
 
   # From jd_times.rb:
   # Uses @ajd attribute
-  # Returns civil twilight start as a Julian Day Number
+  # Returns astronomical twilight start as a Julian Day Number
   def astronomical_twilight_start_jd
     local_noon_dt.ajd - ha_sun(4) / P2
   end
@@ -44,14 +44,14 @@ class Eot
 
   # From jd_times.rb:
   # Uses @ajd attribute
-  # Returns civil twilight end as a Julian Day Number
+  # Returns nautical twilight end as a Julian Day Number
   def nautical_twilight_end_jd
     local_noon_dt.ajd + ha_sun(3) / P2
   end
 
   # From jd_times.rb:
   # Uses @ajd attribute
-  # Returns civil twilight start as a Julian Day Number
+  # Returns nautical twilight start as a Julian Day Number
   def nautical_twilight_start_jd
     local_noon_dt.ajd - ha_sun(3) / P2
   end
