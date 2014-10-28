@@ -56,16 +56,12 @@ class Eot
   # Initialize to set attributes
   # You may use GeoLatLng to set up @latitude and @longitude
   def initialize
-    @geo = GeoLatLng.new
-    @addr = @geo.default_int
-    @geo.addr = @addr
-    @ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f
+    d = DateTime.now.to_time.utc.to_datetime
+    djm0, djm = Celes::cal2jd(d.year, d.month, d.day + d.day_fraction)
+    @ajd = djm0 + djm + 0.5
     ma_ta_set
-    @date, @jd = ajd_to_datetime(@ajd), @ajd
-    @geo.set_coordinates
-    # queries could excede quotas or you get disconnected.
-    @geo.lat.zero? ? @latitude = 0.0 : @latitude = @geo.lat
-    @geo.lng.zero? ? @longitude = 0.0 : @longitude = @geo.lng
+    @date, @jd = ajd_to_datetime(@ajd), @ajd    
+    @latitude,  @longitude = 0.0,  0.0      
   end
 end
 

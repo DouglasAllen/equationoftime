@@ -8,7 +8,7 @@ require 'eot'
 
 aliased_angles = Eot.new
 
-describe 'tests ajd of 2456885.0' do
+describe 'tests ajd of 2456885.0 ' do
 
   before(:each) do
     aliased_angles.ajd  = 2_456_885.0
@@ -18,16 +18,16 @@ describe 'tests ajd of 2456885.0' do
     aliased_angles.date = aliased_angles.ajd_to_datetime(ajd)
   end
 
-  it 'expected   2_456_885.0 for aliased_angles.ajd'do
+  it 'expected   2_456_885.0 for aliased_angles.ajd 'do
     assert_equal(2_456_885.0, aliased_angles.ajd)
   end
 
   it 'expected   "2014-08-15T12:00:00+00:00" from \
-      aliased_angles.date'.to_s do
+      aliased_angles.date.to_s ' do
     assert_equal('2014-08-15T12:00:00+00:00', aliased_angles.date.to_s)
   end
 
-  it 'expected   3.8508003966038915 from aliased_angles.ma'do
+  it 'expected   3.8508003966038915 from aliased_angles.ma 'do
     assert_equal(3.8508003966038915, aliased_angles.ma)
   end
 
@@ -84,9 +84,9 @@ describe 'tests ajd of 2456885.0' do
                  aliased_angles.geometric_mean_longitude)
   end
 
-  it 'expected   1.9143229567859146 from \
+  it 'expected   1.5857841877939605 from \
       aliased_angles.horizon_angle(1)? ' do
-    assert_equal(1.9143229567859146, aliased_angles.horizon_angle(1))
+    assert_equal(1.5857841877939605, aliased_angles.horizon_angle(1))
   end
 
   it 'expected   3.8508003966038915 from \
@@ -151,7 +151,7 @@ describe 'tests ajd of 2456885.0' do
   end
 end
 
-describe 'tests ajd of 2455055.5' do
+describe 'tests ajd of 2455055.5 ' do
 
   before(:each) do
     aliased_angles.ajd                   = 2_455_055.0
@@ -166,16 +166,16 @@ describe 'tests ajd of 2455055.5' do
   end
 
   it 'expected   "2009-08-11T12:00:00+00:00" from \
-      aliased_angles.date.to_s' do
+      aliased_angles.date.to_s ' do
     assert_equal('2009-08-11T12:00:00+00:00', aliased_angles.date.to_s)
   end
 
-  it 'expected   3.7871218188949207, from aliased_angles.ma' do
+  it 'expected   3.7871218188949207, from aliased_angles.ma ' do
     assert_equal(3.7871218188949207, aliased_angles.ma)
   end
 
   it 'expected   3.7871218188949207 from \
-      aliased_angles.ma  from Eot_angles.mean_anomaly()' do
+      aliased_angles.ma  from Eot_angles.mean_anomaly() ' do
     assert_equal(3.7871218188949207, aliased_angles.mean_anomaly)
   end
 
@@ -231,9 +231,9 @@ describe 'tests ajd of 2455055.5' do
     assert_equal(2.445008945789877, aliased_angles.geometric_mean_longitude)
   end
 
-  it 'expected   1.9434600427973592 from \
+  it 'expected   1.585863261753274 from \
       aliased_angles.horizon_angle()? ' do
-    assert_equal(1.9434600427973592, aliased_angles.horizon_angle(1))
+    assert_equal(1.585863261753274, aliased_angles.horizon_angle(1))
   end
 
   it 'expected   3.7871218188949207 from \

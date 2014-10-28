@@ -12,7 +12,7 @@ describe 'Geo defaults' do
 
   INTERNATIONAL = geo.default_int
   it "expected #{INTERNATIONAL}" do
-    assert_equal DEFAULT_INT, geo.addr
+    assert_equal INTERNATIONAL, geo.addr
   end
 
   BASE = 'http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address='
@@ -20,8 +20,8 @@ describe 'Geo defaults' do
     assert_equal BASE, geo.base_json
   end
 
-  it 'expected #{DEFAULT_INT 'do
-    assert_equal DEFAULT_INT, geo.default_int
+  it 'expected #{INTERNATIONAL 'do
+    assert_equal INTERNATIONAL, geo.default_int
   end
 
   DEFAULT_US = '3333 Coyote Hill Road, Palo Alto, CA, 94304, USA'

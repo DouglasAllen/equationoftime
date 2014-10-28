@@ -7,7 +7,7 @@ require 'eot'
 
 angles = Eot.new
 
-describe 'Tests ajd of 2456885.0' do
+describe 'Tests ajd of 2456885.0 ' do
 
   before(:each) do
     angles.ajd  =   2_456_885.0
@@ -30,7 +30,7 @@ describe 'Tests ajd of 2456885.0' do
   end
 
   it 'should be  2.4887103398436143 from angles.al_sun()? ' do
-    assert_equal(2.4887103398436143,  angles.al_sun)
+    assert_equal(2.4887103398436143, angles.al_sun)
   end
 
   it 'should be  -0.021413249720702462 from angles.centre()? ' do
@@ -86,8 +86,8 @@ describe 'Tests ajd of 2456885.0' do
     assert_equal(2.5101912804141424, angles.gml_sun)
   end
 
-  it 'should be  1.9143229567859146 from  angles.ha_sun(1)? ' do
-    assert_equal(1.9143229567859146, angles.ha_sun(1))
+  it 'should be  1.5857841877939605 from  angles.ha_sun(1)? ' do
+    assert_equal(1.5857841877939605, angles.ha_sun(1))
   end
 
   it 'should be  3.8508003966038915 from  angles.ma_sun()? ' do
@@ -214,8 +214,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(2.445008945789877, angles.gml_sun)
   end
 
-  it 'should be  1.9434600427973592 from angles.ha_sun(1)? ' do
-    assert_equal(1.9434600427973592, angles.ha_sun(1))
+  it 'should be  1.585863261753274 from angles.ha_sun(1)? ' do
+    assert_equal(1.585863261753274, angles.ha_sun(1))
   end
 
   it 'should be  3.7871218188949207 from angles.ma_sun()? ' do
