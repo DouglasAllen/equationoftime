@@ -97,6 +97,11 @@ VALUE func_sun_dec(VALUE klass, VALUE vals, VALUE vtoe) {
   return DBL2NUM(sun_dec(NUM2DBL(vals), NUM2DBL(vtoe)));
 }
 
+VALUE func_sun_ra(VALUE klass, VALUE vy0, VALUE vcas) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(raSun(NUM2DBL(vy0), NUM2DBL(vcas)));
+}
+
 VALUE cEot;
 void
 Init_eot(void) {
@@ -121,5 +126,6 @@ Init_eot(void) {
   rb_define_method(cEot, "sin_lat", func_sin_lat, 1);
   rb_define_method(cEot, "sun_dec", func_sun_dec, 2);
   rb_define_method(cEot, "sun", func_sun, 3);
+  rb_define_method(cEot, "sun_ra", func_sun_ra, 2);
   
 }

@@ -120,7 +120,9 @@ class Eot
   # solar right ascension
   def ra_sun
     y0 = sine_al_sun * cosine_to_earth
-    Celes.anp(PI + atan2(-y0, -cosine_al_sun))
+    ra = sun_ra(y0, cosine_al_sun) 
+    # Celes.anp(PI + atan2(-y0, -cosine_al_sun))
+    Celes.anp(PI + ra)
   end
   alias_method :right_ascension, :ra_sun
 

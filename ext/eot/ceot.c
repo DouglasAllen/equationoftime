@@ -70,6 +70,11 @@ double alSun(double ma, double t, double o)
   return a;
 }
 
+double raSun(double y0, double cos_al_Sun)
+{
+  return atan2(-y0, -cos_al_Sun);
+}
+
 double cosZ(double zenith)
 {
 

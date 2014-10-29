@@ -15,8 +15,8 @@ class Eot
   # needs to be used to set ma and ta attributes
   # because we want to leave the ajd methods in tact.
   def ma_ta_set
-    @ta  = ((@ajd - DJ00) / DJC).to_f
-    @ma  = Celes.falp03(@ta)
+    @ta = ((@ajd - DJ00) / DJC).to_f
+    @ma = Celes.falp03(@ta)
   end
 
   # From init.rb:
