@@ -1,4 +1,5 @@
 # class Eot file = time_displays.rb
+# methods for time displays
 class Eot
   # From displays.rb
   # String formatter for + and - time
@@ -32,12 +33,16 @@ class Eot
   end
   alias_method :julian_period_day_fraction_to_time, :string_day_fraction_to_time
 
+  # From displays.rb
+  # radians to time method
   def string_deg_to_time(radians = 0.0)
     radians.nil? ? radians = 0.0 : radians
     s, ihmsf = Celes.a2tf(3, radians)
     f_string(s, ihmsf[0], ihmsf[1], ihmsf[2], ihmsf[3])
   end
 
+  # From displays.rb
+  # displays + or - sign
   def sign_min(min)
     if min < 0.0
       sign = '-'
@@ -71,6 +76,8 @@ class Eot
   end
   alias_method :jd_to_date_string, :string_jd_to_date
 
+  # From displays.rb
+  # formats time components
   def format_time(h, m, s, ds)
     format('%02d', h)   +
                  ':' +
@@ -81,8 +88,10 @@ class Eot
     format('%3.3d', ds)
   end
 
+  # From displays.rb
+  # creates [h,m,s,ds] array from Time or DateTime
   def dt_parts(val)
-    h = val.hour
+    h  = val.hour
     m  = val.min
     s  = val.sec
     is = Integer(s)
@@ -90,6 +99,8 @@ class Eot
     [h, m, is, ds]
   end
 
+  # From displays.rb
+  # creates [h,m,s,ds] from hours Float 
   def float_parts(val)
     hours = Integer(val % DAY_HOURS)
     mins = 60.0 * (val % DAY_HOURS - hours)

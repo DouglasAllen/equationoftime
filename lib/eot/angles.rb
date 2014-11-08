@@ -1,6 +1,6 @@
 # class Eot file = angles.rb
+# methods for non delta angle calculations
 class Eot
-  include Math
   # From angles.rb:
   # Apparent solar longitude = true longitude - aberation
   def al_sun
@@ -36,8 +36,10 @@ class Eot
   # equation of equinox
   # used for true longitude of Aries
   # Depricated by Celes.gst06a()
+  # compinents are still used
+  # see: #cosine_to_earth and #angle_delta_psi
   def eq_of_equinox
-    Celes.ee06a(@ajd, 0.0)#cosine_to_earth * angle_delta_psi
+    Celes.ee06a(@ajd, 0.0)
   end
 
   # From angles.rb:
@@ -56,6 +58,9 @@ class Eot
   alias_method :geometric_mean_longitude, :gml_sun
   alias_method :ml_sun, :gml_sun
 
+  # From angles.rb:
+  # used by ha_sun method
+  # to select rise set and civil, nautical, astronomical twilights.
   def choice(c)
     case c
     when 1
@@ -68,9 +73,10 @@ class Eot
       return 108 # Astronomical Twilight
     end
   end
+
   # From angles.rb:
   # horizon angle for provided geo coordinates
-  # used for angles from transit to horizons
+  # used for angles from transit to horizons.
   def ha_sun(c)
     zenith = choice(c)
     sun(zenith, dec_sun, @latitude)

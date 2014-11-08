@@ -1,4 +1,5 @@
 # class Eot file = delta_times.rb
+# methods converting delta angles to time
 class Eot
   # From delta_times.rb:
   # Uses @ajd attribute

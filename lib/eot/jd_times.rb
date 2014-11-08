@@ -1,4 +1,5 @@
 # class Eot file = jd_times.rb
+# methods returning JD numbers
 class Eot
   # From jd_times.rb:
   # Uses @ajd attribute

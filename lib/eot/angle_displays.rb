@@ -1,4 +1,5 @@
 # class Eot file = angle_displays.rb
+# methods for display of angles
 class Eot
   # From displays.rb
   # String formatter for d:m:s display

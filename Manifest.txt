@@ -1,9 +1,12 @@
 .autotest
 .buildpath
+.git
 .minitest.rb
 .project
+.settings
 .rspec
 .ruby-version
+.yardoc
 CHANGELOG.rdoc
 Gemfile
 Gemfile.lock
@@ -14,7 +17,7 @@ Manifest.txt
 README.rdoc
 Rakefile
 equationoftime.gemspec
-examples/Equation_of_Time.jpg
+examples/Equation_of_Time.png
 examples/my_lst.rb
 examples/use_addr.rb
 examples/use_ajd.rb
@@ -44,5 +47,6 @@ test/eot/displays_spec.rb
 test/eot/geo_spec.rb
 test/eot/init_spec.rb
 test/eot/times_spec.rb
+run_tests_eclipse.rb
 wiki.md
 wiki2.md

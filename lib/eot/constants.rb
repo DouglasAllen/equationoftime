@@ -1,4 +1,5 @@
 # class Eot file = constants.rb
+# has the constants used and more
 class Eot
   # Array result for time_julian_century default = [0.0, 0.0, 0.0, 0.0, 0.0]
   # A2000       = [0.0, 0.0, 0.0, 0.0, 0.0]

@@ -1,6 +1,6 @@
 # class Eot file = trigometric.rb
+# methods using trig functions
 class Eot
-  include Math
   # From trigometric.rb:
   # cosine apparent longitude
   # could be useful when dividing

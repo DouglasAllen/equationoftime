@@ -22,16 +22,35 @@ Lots of examples to play with for learning about Eot.
         require 'eot'
         eot = Eot.new
         eot.string_eot          # todays eot
-        eot.addr                # what is the location
-        eot.addr = "huston, tx" #changed location
+        eot.ajd                 # was initialized to noon today ei. jd
+        # Try the real AJD
+        eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
+
+        eot.string_eot          # nothing changes so...
+        eot.ma_ta_set           # recalculate ma and ta after initialization
+        eot.string_eot          # should be different than before
+
+        # check and set a new address                        
         geo = GeoLatLng.new
-        geo.addr = eot.addr     # set new location
-        geo.set_coordinates     # set new coordinates
-        eot.sunrise_jd          # todays sunrise as a jd
-        eot.sunset_jd           # todays sunset as a jd
-        eot.sunrise_dt          # todays sunrise as DateTime
-        eot.sunset_dt           # todays sunset as a DateTime
-        eot.ajd += 1            # tommorrow times can be read
+        geo.addr
+        geo.addr = "houston, tx"     # set new location
+        geo.set_coordinates          # set new coordinates
+        eot.latitude = geo.lat       # set the Eot class attributes
+        eot.longitude = geo.lng
+
+        # Be shure you have the date set right
+        eot.ajd = DateTime.new(2014,11,07).to_time.utc.to_datetime.jd.to_f
+
+        eot.ma_ta_set           # recalculate ma and ta after initialization
+
+        eot.sunrise_jd          # the dates sunrise as a jd
+        eot.sunset_jd           # the dates sunset as a jd
+        eot.sunrise_dt          # the dates sunrise as DateTime
+        eot.sunset_dt           # the dates sunset as a DateTime
+
+
+        eot.ajd += 1            # the days after times can be read
+        eot.ma_ta_set           # recalculate ma and ta after initialization 
         eot.ajd = 2451545       # ajd set to 2001-01-01 12:00 
         
 
@@ -41,7 +60,7 @@ Lots of examples to play with for learning about Eot.
 
 After realizing this name was available I decided to use it.
 It installs the needed requirements as for some reason
-gem install equationoftime does not. Hoe hoe hoe!
+gem install equationoftime doesn't always. Hoe hoe hoe!
 
 == REQUIREMENTS:
 
@@ -49,13 +68,13 @@ gem install equationoftime does not. Hoe hoe hoe!
 
 == INSTALL:
 
-  $ rake install
+  $ bundle exec rake install
 
 == DEVELOPERS:
 
 After checking out the source, run:
 
-  $ rake newb
+  $ bundle exec rake newb
 
 This task will install any missing dependencies, run the tests/specs,
 and generate the RDoc.

@@ -1,5 +1,5 @@
-# utilities.rb
-# class Eot
+# class Eot file = utilities.rb
+# methods for general use
 class Eot
   # From utilities.rb:
   # A check for default J2000
@@ -29,6 +29,8 @@ class Eot
     dt == 0 ? DT2000 : check_t_nil(dt)
   end
 
+  # From utilities.rb:
+  # formats degree string
   def f_string(sgn, u, m, s, ds)
     sgn +
       format('%03d', u) +

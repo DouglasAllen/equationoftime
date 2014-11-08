@@ -1,6 +1,5 @@
 # class GeoLatLng file = geo_lat_lng_smt.rb
-# class for location lookup
-# in geo_lat_lng_smt.rb
+# class for location coordinates lookup
 class GeoLatLng
   # Base address for Google maps api
   attr_reader :base_json

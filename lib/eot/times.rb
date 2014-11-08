@@ -1,4 +1,5 @@
 # class Eot file = times.rb
+# methods calculating times
 class Eot
   # From times.rb:
   # Pass in an AJD number

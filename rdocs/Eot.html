@@ -1,0 +1,4943 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Eot - RDoc Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-ajd_to_datetime">#ajd_to_datetime</a>
+    
+    <li ><a href="#method-i-al_sun">#al_sun</a>
+    
+    <li ><a href="#method-i-alsun">#alsun</a>
+    
+    <li ><a href="#method-i-angle_delta_epsilon">#angle_delta_epsilon</a>
+    
+    <li ><a href="#method-i-angle_delta_oblique">#angle_delta_oblique</a>
+    
+    <li ><a href="#method-i-angle_delta_orbit">#angle_delta_orbit</a>
+    
+    <li ><a href="#method-i-angle_delta_psi">#angle_delta_psi</a>
+    
+    <li ><a href="#method-i-angle_equation_of_time">#angle_equation_of_time</a>
+    
+    <li ><a href="#method-i-apparent_longitude">#apparent_longitude</a>
+    
+    <li ><a href="#method-i-apparent_longitude_string">#apparent_longitude_string</a>
+    
+    <li ><a href="#method-i-astronomical_twilight_end_dt">#astronomical_twilight_end_dt</a>
+    
+    <li ><a href="#method-i-astronomical_twilight_end_jd">#astronomical_twilight_end_jd</a>
+    
+    <li ><a href="#method-i-astronomical_twilight_start_dt">#astronomical_twilight_start_dt</a>
+    
+    <li ><a href="#method-i-astronomical_twilight_start_jd">#astronomical_twilight_start_jd</a>
+    
+    <li ><a href="#method-i-center">#center</a>
+    
+    <li ><a href="#method-i-check_jd_nil">#check_jd_nil</a>
+    
+    <li ><a href="#method-i-check_jd_zero">#check_jd_zero</a>
+    
+    <li ><a href="#method-i-check_t_nil">#check_t_nil</a>
+    
+    <li ><a href="#method-i-check_t_zero">#check_t_zero</a>
+    
+    <li ><a href="#method-i-choice">#choice</a>
+    
+    <li ><a href="#method-i-civil_twilight_end_dt">#civil_twilight_end_dt</a>
+    
+    <li ><a href="#method-i-civil_twilight_end_jd">#civil_twilight_end_jd</a>
+    
+    <li ><a href="#method-i-civil_twilight_start_dt">#civil_twilight_start_dt</a>
+    
+    <li ><a href="#method-i-civil_twilight_start_jd">#civil_twilight_start_jd</a>
+    
+    <li ><a href="#method-i-cosalsun">#cosalsun</a>
+    
+    <li ><a href="#method-i-cosine_al_sun">#cosine_al_sun</a>
+    
+    <li ><a href="#method-i-cosine_apparent_longitude">#cosine_apparent_longitude</a>
+    
+    <li ><a href="#method-i-cosine_tl_sun">#cosine_tl_sun</a>
+    
+    <li ><a href="#method-i-cosine_to_earth">#cosine_to_earth</a>
+    
+    <li ><a href="#method-i-cosine_true_longitude">#cosine_true_longitude</a>
+    
+    <li ><a href="#method-i-cosine_true_obliquity">#cosine_true_obliquity</a>
+    
+    <li ><a href="#method-i-dec_sun">#dec_sun</a>
+    
+    <li ><a href="#method-i-declination">#declination</a>
+    
+    <li ><a href="#method-i-declination_string">#declination_string</a>
+    
+    <li ><a href="#method-i-degrees_to_s">#degrees_to_s</a>
+    
+    <li ><a href="#method-i-delta_epsilon">#delta_epsilon</a>
+    
+    <li ><a href="#method-i-delta_oblique">#delta_oblique</a>
+    
+    <li ><a href="#method-i-delta_orbit">#delta_orbit</a>
+    
+    <li ><a href="#method-i-delta_psi">#delta_psi</a>
+    
+    <li ><a href="#method-i-delta_t_ecliptic">#delta_t_ecliptic</a>
+    
+    <li ><a href="#method-i-delta_t_elliptic">#delta_t_elliptic</a>
+    
+    <li ><a href="#method-i-display_equation_of_time">#display_equation_of_time</a>
+    
+    <li ><a href="#method-i-display_time_string">#display_time_string</a>
+    
+    <li ><a href="#method-i-dt_parts">#dt_parts</a>
+    
+    <li ><a href="#method-i-eccentricity_earth">#eccentricity_earth</a>
+    
+    <li ><a href="#method-i-eccentricity_earth_orbit">#eccentricity_earth_orbit</a>
+    
+    <li ><a href="#method-i-ecliptic_longitude">#ecliptic_longitude</a>
+    
+    <li ><a href="#method-i-eot">#eot</a>
+    
+    <li ><a href="#method-i-eot_jd">#eot_jd</a>
+    
+    <li ><a href="#method-i-eq_of_equinox">#eq_of_equinox</a>
+    
+    <li ><a href="#method-i-equation_of_center">#equation_of_center</a>
+    
+    <li ><a href="#method-i-era">#era</a>
+    
+    <li ><a href="#method-i-f_string">#f_string</a>
+    
+    <li ><a href="#method-i-float_parts">#float_parts</a>
+    
+    <li ><a href="#method-i-format_time">#format_time</a>
+    
+    <li ><a href="#method-i-geometric_mean_longitude">#geometric_mean_longitude</a>
+    
+    <li ><a href="#method-i-gml_sun">#gml_sun</a>
+    
+    <li ><a href="#method-i-ha_sun">#ha_sun</a>
+    
+    <li ><a href="#method-i-horizon_angle">#horizon_angle</a>
+    
+    <li ><a href="#method-i-jd_to_date_string">#jd_to_date_string</a>
+    
+    <li ><a href="#method-i-julian_period_day_fraction_to_time">#julian_period_day_fraction_to_time</a>
+    
+    <li ><a href="#method-i-lambda">#lambda</a>
+    
+    <li ><a href="#method-i-local_noon_dt">#local_noon_dt</a>
+    
+    <li ><a href="#method-i-ma_sun">#ma_sun</a>
+    
+    <li ><a href="#method-i-ma_ta_set">#ma_ta_set</a>
+    
+    <li ><a href="#method-i-mean_anomaly">#mean_anomaly</a>
+    
+    <li ><a href="#method-i-mean_anomaly_string">#mean_anomaly_string</a>
+    
+    <li ><a href="#method-i-mean_local_noon_jd">#mean_local_noon_jd</a>
+    
+    <li ><a href="#method-i-mean_longitude_aries">#mean_longitude_aries</a>
+    
+    <li ><a href="#method-i-mean_obliquity">#mean_obliquity</a>
+    
+    <li ><a href="#method-i-mean_obliquity_of_ecliptic">#mean_obliquity_of_ecliptic</a>
+    
+    <li ><a href="#method-i-ml_aries">#ml_aries</a>
+    
+    <li ><a href="#method-i-ml_sun">#ml_sun</a>
+    
+    <li ><a href="#method-i-mo_earth">#mo_earth</a>
+    
+    <li ><a href="#method-i-mod_360">#mod_360</a>
+    
+    <li ><a href="#method-i-nautical_twilight_end_dt">#nautical_twilight_end_dt</a>
+    
+    <li ><a href="#method-i-nautical_twilight_end_jd">#nautical_twilight_end_jd</a>
+    
+    <li ><a href="#method-i-nautical_twilight_start_dt">#nautical_twilight_start_dt</a>
+    
+    <li ><a href="#method-i-nautical_twilight_start_jd">#nautical_twilight_start_jd</a>
+    
+    <li ><a href="#method-i-now">#now</a>
+    
+    <li ><a href="#method-i-obliquity_correction">#obliquity_correction</a>
+    
+    <li ><a href="#method-i-omega">#omega</a>
+    
+    <li ><a href="#method-i-ra_sun">#ra_sun</a>
+    
+    <li ><a href="#method-i-right_ascension">#right_ascension</a>
+    
+    <li ><a href="#method-i-right_ascension_string">#right_ascension_string</a>
+    
+    <li ><a href="#method-i-show_minutes">#show_minutes</a>
+    
+    <li ><a href="#method-i-show_now">#show_now</a>
+    
+    <li ><a href="#method-i-sign_min">#sign_min</a>
+    
+    <li ><a href="#method-i-sine_al_sun">#sine_al_sun</a>
+    
+    <li ><a href="#method-i-sine_apparent_longitude">#sine_apparent_longitude</a>
+    
+    <li ><a href="#method-i-sine_tl_sun">#sine_tl_sun</a>
+    
+    <li ><a href="#method-i-sine_to_earth">#sine_to_earth</a>
+    
+    <li ><a href="#method-i-sine_true_longitude">#sine_true_longitude</a>
+    
+    <li ><a href="#method-i-string_al_sun">#string_al_sun</a>
+    
+    <li ><a href="#method-i-string_day_fraction_to_time">#string_day_fraction_to_time</a>
+    
+    <li ><a href="#method-i-string_dec_sun">#string_dec_sun</a>
+    
+    <li ><a href="#method-i-string_deg_to_time">#string_deg_to_time</a>
+    
+    <li ><a href="#method-i-string_delta_oblique">#string_delta_oblique</a>
+    
+    <li ><a href="#method-i-string_delta_orbit">#string_delta_orbit</a>
+    
+    <li ><a href="#method-i-string_eot">#string_eot</a>
+    
+    <li ><a href="#method-i-string_eqc">#string_eqc</a>
+    
+    <li ><a href="#method-i-string_jd_to_date">#string_jd_to_date</a>
+    
+    <li ><a href="#method-i-string_ma_sun">#string_ma_sun</a>
+    
+    <li ><a href="#method-i-string_ra_sun">#string_ra_sun</a>
+    
+    <li ><a href="#method-i-string_ta_sun">#string_ta_sun</a>
+    
+    <li ><a href="#method-i-string_time">#string_time</a>
+    
+    <li ><a href="#method-i-string_tl_sun">#string_tl_sun</a>
+    
+    <li ><a href="#method-i-string_to_earth">#string_to_earth</a>
+    
+    <li ><a href="#method-i-sunrise_dt">#sunrise_dt</a>
+    
+    <li ><a href="#method-i-sunrise_jd">#sunrise_jd</a>
+    
+    <li ><a href="#method-i-sunset_dt">#sunset_dt</a>
+    
+    <li ><a href="#method-i-sunset_jd">#sunset_jd</a>
+    
+    <li ><a href="#method-i-ta_sun">#ta_sun</a>
+    
+    <li ><a href="#method-i-time_delta_oblique">#time_delta_oblique</a>
+    
+    <li ><a href="#method-i-time_delta_orbit">#time_delta_orbit</a>
+    
+    <li ><a href="#method-i-time_eot">#time_eot</a>
+    
+    <li ><a href="#method-i-tl_aries">#tl_aries</a>
+    
+    <li ><a href="#method-i-tl_sun">#tl_sun</a>
+    
+    <li ><a href="#method-i-to_earth">#to_earth</a>
+    
+    <li ><a href="#method-i-toearth">#toearth</a>
+    
+    <li ><a href="#method-i-true_anomaly">#true_anomaly</a>
+    
+    <li ><a href="#method-i-true_anomaly_string">#true_anomaly_string</a>
+    
+    <li ><a href="#method-i-true_longitude">#true_longitude</a>
+    
+    <li ><a href="#method-i-true_longitude_aries">#true_longitude_aries</a>
+    
+    <li ><a href="#method-i-true_longitude_string">#true_longitude_string</a>
+    
+    <li ><a href="#method-i-true_obliquity">#true_obliquity</a>
+    
+    <li ><a href="#method-i-true_obliquity_string">#true_obliquity_string</a>
+    
+    <li ><a href="#method-i-truncate">#truncate</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Eot">
+  <h1 id="class-Eot" class="class">
+    class Eot
+  </h1>
+
+  <section class="description">
+    
+<p>class <a href="Eot.html">Eot</a> file = angle_displays.rb methods for
+display of angles</p>
+
+<p>class <a href="Eot.html">Eot</a> file = angles.rb methods for non delta
+angle calculations</p>
+
+<p>class <a href="Eot.html">Eot</a> file = constants.rb has the constants used
+and more</p>
+
+<p>class <a href="Eot.html">Eot</a> file = delta_times.rb methods converting
+delta angles to time</p>
+
+<p>class <a href="Eot.html">Eot</a> file = deltas.rb methods for angle deltas</p>
+
+<p>class <a href="Eot.html">Eot</a> file = int.rb attributes, a setter and
+init method</p>
+
+<p>class <a href="Eot.html">Eot</a> file = jd_times.rb methods returning JD
+numbers</p>
+
+<p>class <a href="Eot.html">Eot</a> file = time_displays.rb methods for time
+displays</p>
+
+<p>class <a href="Eot.html">Eot</a> file = times.rb methods calculating times</p>
+
+<p>class <a href="Eot.html">Eot</a> file = trigometric.rb methods using trig
+functions</p>
+
+<p>class <a href="Eot.html">Eot</a> file = utilities.rb methods for general
+use</p>
+
+<p>class <a href="Eot.html">Eot</a> file = version.rb contains gem version</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ARCSEC">ARCSEC
+        
+        <dd><p>Arc seconds in a degree = 3_600.0</p>
+        
+      
+        <dt id="ASD">ASD
+        
+        <dd><p>Arc seconds in a degree = 3_600.0</p>
+        
+      
+        <dt id="D2R">D2R
+        
+        <dd><p>from desktop calculator <a href="Eot.html#D2R">D2R</a> =
+0.017453292519943295769236907684886</p>
+        
+      
+        <dt id="DAS2R">DAS2R
+        
+        <dd><p>from desktop calculator <a href="Eot.html#DAS2R">DAS2R</a> =
+4.8481368110953599358991410235795e-6</p>
+        
+      
+        <dt id="DAYSEC">DAYSEC
+        
+        <dd><p>Seconds in a day = 86_400.0</p>
+        
+      
+        <dt id="DAY_HOURS">DAY_HOURS
+        
+        <dd><p>Hours in a day = 24.0</p>
+        
+      
+        <dt id="DAY_MINUTES">DAY_MINUTES
+        
+        <dd><p>Minutes in a day = 1_440.0</p>
+        
+      
+        <dt id="DAY_SECONDS">DAY_SECONDS
+        
+        <dd><p>Seconds in a day = 86_400.0</p>
+        
+      
+        <dt id="DAY_USECS">DAY_USECS
+        
+        <dd><p>Micro Seconds in a day = 86_400_000_000.0</p>
+        
+      
+        <dt id="DJ00">DJ00
+        
+        <dd><p>Reference epoch (J2000.0), Julian Date Default Julian Number = 2451545.0</p>
+        
+      
+        <dt id="DJC">DJC
+        
+        <dd><p>Days per Julian century = 36525.0</p>
+        
+      
+        <dt id="DT2000">DT2000
+        
+        <dd><p>Default DateTime = DateTime.new( 2000, 01, 01, 12, 00, 00, “+00:00” )</p>
+        
+      
+        <dt id="P2">P2
+        
+        <dd><p>2Pi from Math module = Math::PI * 2.0</p>
+        
+      
+        <dt id="PI">PI
+        
+        <dd><p>from desktop calculator <a href="Eot.html#PI">PI</a> =
+3.1415926535897932384626433832795</p>
+        
+      
+        <dt id="R2D">R2D
+        
+        <dd><p>from desktop calculator <a href="Eot.html#R2D">R2D</a> =
+57.295779513082320876798154814105</p>
+        
+      
+        <dt id="RTD">RTD
+        
+        <dd><p>from desktop calculator <a href="Eot.html#RTD">RTD</a> =
+0.015915494309189533576888376337251</p>
+        
+      
+        <dt id="SM">SM
+        
+        <dd><p>from desktop calculator Sidereal minutes = 4.0 /
+1.0027379093507953456536618754278</p>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd><p>current version</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-addr" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">addr</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>From init.rb: address is a String ex: “houston, tx”</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ajd" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ajd</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>From init.rb: Astronomical Julian Day Number instance of Float class. ajd
+or jd. Use ajd for time now and jd for noon init sets ajd =
+DateTime.now.to_time.utc.to_datetime.jd.to_f</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-date" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">date</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>From init.rb: Date instance of DateTime class initialized to = <a
+href="Eot.html#method-i-ajd_to_datetime">#ajd_to_datetime</a>(@ajd)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-jd" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">jd</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>From init.rb: Julian Day Number instance of Float class initialized to =
+ajd</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-latitude" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">latitude</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>From init.rb: Latitude input instance of Float class initialized to = 0.0</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-longitude" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">longitude</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>From init.rb: Longitude input instance of Float class initialized to = 0.0</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ma" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ma</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>From init.rb: Mean Anomaly gets called often instance of Float class ma =
+Celes.falp03(@ta) see: celes gem</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ta" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ta</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>From init.rb: Julian Century gets called often instance of Float class ta =
+(( @ajd - <a href="Eot.html#DJ00">DJ00</a> ) / <a
+href="Eot.html#DJC">DJC</a>).to_f</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From init.rb: Initialize to set attributes</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/eot/init.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_datetime</span>
+  <span class="ruby-identifier">djm0</span>, <span class="ruby-identifier">djm</span> = <span class="ruby-constant">Celes</span><span class="ruby-operator">::</span><span class="ruby-identifier">cal2jd</span>(<span class="ruby-identifier">d</span>.<span class="ruby-identifier">year</span>, <span class="ruby-identifier">d</span>.<span class="ruby-identifier">month</span>, <span class="ruby-identifier">d</span>.<span class="ruby-identifier">day</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">day_fraction</span>)
+  <span class="ruby-ivar">@ajd</span> = <span class="ruby-identifier">djm0</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">djm</span> <span class="ruby-operator">+</span> <span class="ruby-value">0.5</span>
+  <span class="ruby-identifier">ma_ta_set</span>
+  <span class="ruby-ivar">@date</span>, <span class="ruby-ivar">@jd</span> = <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-ivar">@ajd</span>), <span class="ruby-ivar">@ajd</span>    
+  <span class="ruby-ivar">@latitude</span>,  <span class="ruby-ivar">@longitude</span> = <span class="ruby-value">0.0</span>,  <span class="ruby-value">0.0</span>      
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-ajd_to_datetime" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ajd_to_datetime</span><span
+            class="method-args">(ajd)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From times.rb: Pass in an AJD number Returns a DateTime object</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ajd_to_datetime-source">
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">ajd</span>)
+  <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jd</span>(<span class="ruby-identifier">ajd</span> <span class="ruby-operator">+</span> <span class="ruby-value">0.5</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-al_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">al_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: Apparent solar longitude = true longitude - aberation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="al_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">al_sun</span>
+  <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">anp</span>(<span class="ruby-identifier">al</span>(<span class="ruby-ivar">@ma</span>, <span class="ruby-ivar">@ta</span>, <span class="ruby-identifier">omega</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-apparent_longitude">apparent_longitude</a>, <a href="Eot.html#method-i-alsun">alsun</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-alsun" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">alsun</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-al_sun">al_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-angle_delta_epsilon" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">angle_delta_epsilon</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From deltas.rb: delta epsilon component of equation of equinox</p>
+          
+          
+
+          
+          <div class="method-source-code" id="angle_delta_epsilon-source">
+            <pre><span class="ruby-comment"># File lib/eot/deltas.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">angle_delta_epsilon</span>
+  <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">nut06a</span>(<span class="ruby-ivar">@ajd</span>, <span class="ruby-value">0</span>)[<span class="ruby-value">1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-delta_epsilon">delta_epsilon</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-angle_delta_oblique" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">angle_delta_oblique</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From deltas.rb: one time component to total equation of time</p>
+          
+          
+
+          
+          <div class="method-source-code" id="angle_delta_oblique-source">
+            <pre><span class="ruby-comment"># File lib/eot/deltas.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">angle_delta_oblique</span>
+  <span class="ruby-identifier">al_sun</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ra_sun</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-delta_t_ecliptic">delta_t_ecliptic</a>, <a href="Eot.html#method-i-delta_oblique">delta_oblique</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-angle_delta_orbit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">angle_delta_orbit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: one time component to total equation of time</p>
+          
+          
+
+          
+          <div class="method-source-code" id="angle_delta_orbit-source">
+            <pre><span class="ruby-comment"># File lib/eot/deltas.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">angle_delta_orbit</span>
+  <span class="ruby-value">-1.0</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">eqc</span>(<span class="ruby-ivar">@ma</span>, <span class="ruby-ivar">@ta</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-delta_t_elliptic">delta_t_elliptic</a>, <a href="Eot.html#method-i-delta_orbit">delta_orbit</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-angle_delta_psi" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">angle_delta_psi</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: component of equation of equinox</p>
+          
+          
+
+          
+          <div class="method-source-code" id="angle_delta_psi-source">
+            <pre><span class="ruby-comment"># File lib/eot/deltas.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">angle_delta_psi</span>
+  <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">nut06a</span>(<span class="ruby-ivar">@ajd</span>, <span class="ruby-value">0</span>)[<span class="ruby-value">0</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-delta_psi">delta_psi</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-angle_equation_of_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">angle_equation_of_time</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: total equation of time</p>
+          
+          
+
+          
+          <div class="method-source-code" id="angle_equation_of_time-source">
+            <pre><span class="ruby-comment"># File lib/eot/deltas.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">angle_equation_of_time</span>
+  <span class="ruby-identifier">delta_orbit</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">delta_oblique</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-eot">eot</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-apparent_longitude" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">apparent_longitude</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-al_sun">al_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-apparent_longitude_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">apparent_longitude_string</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-string_al_sun">string_al_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-astronomical_twilight_end_dt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">astronomical_twilight_end_dt</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From times.rb: Uses @ajd attribute Returns astronomical twilight end as a
+DateTime</p>
+          
+          
+
+          
+          <div class="method-source-code" id="astronomical_twilight_end_dt-source">
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">astronomical_twilight_end_dt</span>
+  <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">astronomical_twilight_end_jd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-astronomical_twilight_end_jd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">astronomical_twilight_end_jd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From jd_times.rb: Uses @ajd attribute Returns astronomical twilight end as
+a Julian Day Number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="astronomical_twilight_end_jd-source">
+            <pre><span class="ruby-comment"># File lib/eot/jd_times.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">astronomical_twilight_end_jd</span>
+  <span class="ruby-identifier">local_noon_dt</span>.<span class="ruby-identifier">ajd</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ha_sun</span>(<span class="ruby-value">4</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">P2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-astronomical_twilight_start_dt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">astronomical_twilight_start_dt</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From times.rb: Uses @ajd attribute Returns astronomical twilight start as a
+DateTime</p>
+          
+          
+
+          
+          <div class="method-source-code" id="astronomical_twilight_start_dt-source">
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">astronomical_twilight_start_dt</span>
+  <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">astronomical_twilight_start_jd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-astronomical_twilight_start_jd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">astronomical_twilight_start_jd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From jd_times.rb: Uses @ajd attribute Returns astronomical twilight start
+as a Julian Day Number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="astronomical_twilight_start_jd-source">
+            <pre><span class="ruby-comment"># File lib/eot/jd_times.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">astronomical_twilight_start_jd</span>
+  <span class="ruby-identifier">local_noon_dt</span>.<span class="ruby-identifier">ajd</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ha_sun</span>(<span class="ruby-value">4</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">P2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-center" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">center</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: equation of centre added to mean anomaly to get true
+anomaly.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="center-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">center</span>
+  <span class="ruby-identifier">eqc</span>(<span class="ruby-ivar">@ma</span>, <span class="ruby-ivar">@ta</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-equation_of_center">equation_of_center</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_jd_nil" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_jd_nil</span><span
+            class="method-args">(jd = DJ00)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From utilities.rb: A check for default J2000 sets default when arg is nil</p>
+          
+          
+
+          
+          <div class="method-source-code" id="check_jd_nil-source">
+            <pre><span class="ruby-comment"># File lib/eot/utilities.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_jd_nil</span>(<span class="ruby-identifier">jd</span> = <span class="ruby-constant">DJ00</span>)
+  <span class="ruby-identifier">jd</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">DJ00</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">jd</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_jd_zero" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_jd_zero</span><span
+            class="method-args">(jd = DJ00)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From utilities.rb: A check for default J2000 sets default when arg is zero</p>
+          
+          
+
+          
+          <div class="method-source-code" id="check_jd_zero-source">
+            <pre><span class="ruby-comment"># File lib/eot/utilities.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_jd_zero</span>(<span class="ruby-identifier">jd</span> = <span class="ruby-constant">DJ00</span>)
+  <span class="ruby-identifier">jd</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-constant">DJ00</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">check_jd_nil</span>(<span class="ruby-identifier">jd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_t_nil" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_t_nil</span><span
+            class="method-args">(dt = DT2000)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From utilities.rb: A check for default <a href="Eot.html#DT2000">DT2000</a>
+sets default when arg is nil</p>
+          
+          
+
+          
+          <div class="method-source-code" id="check_t_nil-source">
+            <pre><span class="ruby-comment"># File lib/eot/utilities.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_t_nil</span>(<span class="ruby-identifier">dt</span> = <span class="ruby-constant">DT2000</span>)
+  <span class="ruby-identifier">dt</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">DT2000</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">dt</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_t_zero" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_t_zero</span><span
+            class="method-args">(dt = DT2000)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From utilities.rb: A check for default <a href="Eot.html#DT2000">DT2000</a>
+sets default when arg is zero</p>
+          
+          
+
+          
+          <div class="method-source-code" id="check_t_zero-source">
+            <pre><span class="ruby-comment"># File lib/eot/utilities.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_t_zero</span>(<span class="ruby-identifier">dt</span> = <span class="ruby-constant">DT2000</span>)
+  <span class="ruby-identifier">dt</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-constant">DT2000</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">check_t_nil</span>(<span class="ruby-identifier">dt</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-choice" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">choice</span><span
+            class="method-args">(c)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: used by <a href="Eot.html#method-i-ha_sun">#ha_sun</a>
+method to select rise set and civil, nautical, astronomical twilights.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="choice-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">choice</span>(<span class="ruby-identifier">c</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">c</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-value">90.8333</span> <span class="ruby-comment"># Sunrise and Sunset</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-value">96</span> <span class="ruby-comment"># Civil Twilight</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-value">102</span> <span class="ruby-comment"># Nautical Twilight</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">4</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-value">108</span> <span class="ruby-comment"># Astronomical Twilight</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-civil_twilight_end_dt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">civil_twilight_end_dt</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From times.rb: Uses @ajd attribute Returns civil twilight end as a DateTime</p>
+          
+          
+
+          
+          <div class="method-source-code" id="civil_twilight_end_dt-source">
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">civil_twilight_end_dt</span>
+  <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">civil_twilight_end_jd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-civil_twilight_end_jd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">civil_twilight_end_jd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From jd_times.rb: Uses @ajd attribute Returns civil twilight end as a
+Julian Day Number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="civil_twilight_end_jd-source">
+            <pre><span class="ruby-comment"># File lib/eot/jd_times.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">civil_twilight_end_jd</span>
+  <span class="ruby-identifier">local_noon_dt</span>.<span class="ruby-identifier">ajd</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ha_sun</span>(<span class="ruby-value">2</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">P2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-civil_twilight_start_dt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">civil_twilight_start_dt</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From times.rb: Uses @ajd attribute Returns civil twilight start as a
+DateTime</p>
+          
+          
+
+          
+          <div class="method-source-code" id="civil_twilight_start_dt-source">
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">civil_twilight_start_dt</span>
+  <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">civil_twilight_start_jd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-civil_twilight_start_jd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">civil_twilight_start_jd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From jd_times.rb: Uses @ajd attribute Returns civil twilight start as a
+Julian Day Number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="civil_twilight_start_jd-source">
+            <pre><span class="ruby-comment"># File lib/eot/jd_times.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">civil_twilight_start_jd</span>
+  <span class="ruby-identifier">local_noon_dt</span>.<span class="ruby-identifier">ajd</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ha_sun</span>(<span class="ruby-value">2</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">P2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cosalsun" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">cosalsun</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-cosine_al_sun">cosine_al_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-cosine_al_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cosine_al_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From trigometric.rb: cosine apparent longitude could be useful when
+dividing</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cosine_al_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/trigonometric.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cosine_al_sun</span>
+  <span class="ruby-identifier">cos_al_sun</span>(<span class="ruby-identifier">al_sun</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-cosine_apparent_longitude">cosine_apparent_longitude</a>, <a href="Eot.html#method-i-cosalsun">cosalsun</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cosine_apparent_longitude" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">cosine_apparent_longitude</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-cosine_al_sun">cosine_al_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-cosine_tl_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cosine_tl_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From trigometric.rb: cosine true longitude used in solar right ascension</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cosine_tl_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/trigonometric.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cosine_tl_sun</span>
+  <span class="ruby-identifier">cos_tl_sun</span>(<span class="ruby-identifier">tl_sun</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-cosine_true_longitude">cosine_true_longitude</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cosine_to_earth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cosine_to_earth</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From trigometric.rb: cosine true obliquity used in solar right ascension
+and equation of equinox</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cosine_to_earth-source">
+            <pre><span class="ruby-comment"># File lib/eot/trigonometric.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cosine_to_earth</span>
+  <span class="ruby-identifier">cos_to_earth</span>(<span class="ruby-identifier">to_earth</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-cosine_true_obliquity">cosine_true_obliquity</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cosine_true_longitude" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">cosine_true_longitude</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-cosine_tl_sun">cosine_tl_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-cosine_true_obliquity" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">cosine_true_obliquity</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-cosine_to_earth">cosine_to_earth</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-dec_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dec_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: solar declination</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dec_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dec_sun</span>
+  <span class="ruby-identifier">sun_dec</span>(<span class="ruby-identifier">al_sun</span>, <span class="ruby-identifier">to_earth</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-declination">declination</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-declination" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">declination</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-dec_sun">dec_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-declination_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">declination_string</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-string_dec_sun">string_dec_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-degrees_to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">degrees_to_s</span><span
+            class="method-args">(radians = 0.0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String formatter for d:m:s display</p>
+          
+          
+
+          
+          <div class="method-source-code" id="degrees_to_s-source">
+            <pre><span class="ruby-comment"># File lib/eot/angle_displays.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">degrees_to_s</span>(<span class="ruby-identifier">radians</span> = <span class="ruby-value">0.0</span>)
+  <span class="ruby-identifier">radians</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">radians</span> = <span class="ruby-value">0.0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">radians</span>
+  <span class="ruby-identifier">s</span>, <span class="ruby-identifier">idmsf</span> = <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">a2af</span>(<span class="ruby-value">3</span>, <span class="ruby-identifier">radians</span>)
+  <span class="ruby-identifier">f_string</span>(<span class="ruby-identifier">s</span>, <span class="ruby-identifier">idmsf</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">idmsf</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">idmsf</span>[<span class="ruby-value">2</span>], <span class="ruby-identifier">idmsf</span>[<span class="ruby-value">3</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delta_epsilon" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">delta_epsilon</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-angle_delta_epsilon">angle_delta_epsilon</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-delta_oblique" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">delta_oblique</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-angle_delta_oblique">angle_delta_oblique</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-delta_orbit" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">delta_orbit</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-angle_delta_orbit">angle_delta_orbit</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-delta_psi" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">delta_psi</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-angle_delta_psi">angle_delta_psi</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-delta_t_ecliptic" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">delta_t_ecliptic</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-angle_delta_oblique">angle_delta_oblique</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-delta_t_elliptic" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">delta_t_elliptic</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-angle_delta_orbit">angle_delta_orbit</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-display_equation_of_time" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">display_equation_of_time</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-string_eot">string_eot</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-display_time_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">display_time_string</span><span
+            class="method-args">(dt = DT2000)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-string_time">string_time</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-dt_parts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dt_parts</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb creates [h,m,s,ds] array from Time or DateTime</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dt_parts-source">
+            <pre><span class="ruby-comment"># File lib/eot/time_displays.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dt_parts</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">h</span>  = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">hour</span>
+  <span class="ruby-identifier">m</span>  = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">min</span>
+  <span class="ruby-identifier">s</span>  = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">sec</span>
+  <span class="ruby-identifier">is</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">s</span>)
+  <span class="ruby-identifier">ds</span> = <span class="ruby-constant">Integer</span>((<span class="ruby-identifier">s</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">is</span>).<span class="ruby-identifier">round</span>(<span class="ruby-value">3</span>) <span class="ruby-operator">*</span> <span class="ruby-value">1000.0</span>)
+  [<span class="ruby-identifier">h</span>, <span class="ruby-identifier">m</span>, <span class="ruby-identifier">is</span>, <span class="ruby-identifier">ds</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eccentricity_earth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eccentricity_earth</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: eccentricity of elliptical Earth orbit around Sun Horners’
+calculation method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="eccentricity_earth-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eccentricity_earth</span>
+  <span class="ruby-identifier">eoe</span>(<span class="ruby-ivar">@ta</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-eccentricity_earth_orbit">eccentricity_earth_orbit</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eccentricity_earth_orbit" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">eccentricity_earth_orbit</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-eccentricity_earth">eccentricity_earth</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-ecliptic_longitude" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">ecliptic_longitude</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-tl_sun">tl_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-eot" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">eot</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-angle_equation_of_time">angle_equation_of_time</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-eot_jd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eot_jd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From jd_times.rb: Uses @ajd attribute Returns EOT as an AJD Julian number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="eot_jd-source">
+            <pre><span class="ruby-comment"># File lib/eot/jd_times.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eot_jd</span>
+  <span class="ruby-identifier">time_eot</span> <span class="ruby-operator">/</span> <span class="ruby-constant">DAY_MINUTES</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eq_of_equinox" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eq_of_equinox</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: equation of equinox used for true longitude of Aries
+Depricated by Celes.gst06a() compinents are still used see: <a
+href="Eot.html#method-i-cosine_to_earth">cosine_to_earth</a> and <a
+href="Eot.html#method-i-angle_delta_psi">angle_delta_psi</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="eq_of_equinox-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eq_of_equinox</span>
+  <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">ee06a</span>(<span class="ruby-ivar">@ajd</span>, <span class="ruby-value">0.0</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-equation_of_center" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">equation_of_center</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-center">center</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-era" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">era</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: Earth rotation angle (for comparison to <a
+href="Eot.html#method-i-tl_aries">#tl_aries</a> which uses gmst06)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="era-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">era</span>
+  <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">era00</span>(<span class="ruby-ivar">@ajd</span>, <span class="ruby-value">0.0</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-f_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">f_string</span><span
+            class="method-args">(sgn, u, m, s, ds)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From utilities.rb: formats degree string</p>
+          
+          
+
+          
+          <div class="method-source-code" id="f_string-source">
+            <pre><span class="ruby-comment"># File lib/eot/utilities.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">f_string</span>(<span class="ruby-identifier">sgn</span>, <span class="ruby-identifier">u</span>, <span class="ruby-identifier">m</span>, <span class="ruby-identifier">s</span>, <span class="ruby-identifier">ds</span>)
+  <span class="ruby-identifier">sgn</span> <span class="ruby-operator">+</span>
+    <span class="ruby-identifier">format</span>(<span class="ruby-string">'%03d'</span>, <span class="ruby-identifier">u</span>) <span class="ruby-operator">+</span>
+  <span class="ruby-string">':'</span> <span class="ruby-operator">+</span>
+    <span class="ruby-identifier">format</span>(<span class="ruby-string">'%02d'</span>, <span class="ruby-identifier">m</span>) <span class="ruby-operator">+</span>
+  <span class="ruby-string">':'</span> <span class="ruby-operator">+</span>
+    <span class="ruby-identifier">format</span>(<span class="ruby-string">'%02d'</span>, <span class="ruby-identifier">s</span>) <span class="ruby-operator">+</span>
+  <span class="ruby-string">'.'</span> <span class="ruby-operator">+</span>
+  <span class="ruby-identifier">format</span>(<span class="ruby-string">'%3.3d'</span>, <span class="ruby-identifier">ds</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-float_parts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">float_parts</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb creates [h,m,s,ds] from hours Float</p>
+          
+          
+
+          
+          <div class="method-source-code" id="float_parts-source">
+            <pre><span class="ruby-comment"># File lib/eot/time_displays.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">float_parts</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">hours</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">val</span> <span class="ruby-operator">%</span> <span class="ruby-constant">DAY_HOURS</span>)
+  <span class="ruby-identifier">mins</span> = <span class="ruby-value">60.0</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">val</span> <span class="ruby-operator">%</span> <span class="ruby-constant">DAY_HOURS</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">hours</span>)
+  <span class="ruby-identifier">imins</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">mins</span>)
+  <span class="ruby-identifier">secs</span> = <span class="ruby-value">60.0</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">mins</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">imins</span>)
+  <span class="ruby-identifier">isecs</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">secs</span>)
+  <span class="ruby-identifier">ds</span>    = <span class="ruby-constant">Integer</span>((<span class="ruby-identifier">secs</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">isecs</span>).<span class="ruby-identifier">round</span>(<span class="ruby-value">3</span>) <span class="ruby-operator">*</span> <span class="ruby-value">1000.0</span>)
+  [<span class="ruby-identifier">hours</span>, <span class="ruby-identifier">imins</span>, <span class="ruby-identifier">isecs</span>, <span class="ruby-identifier">ds</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-format_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_time</span><span
+            class="method-args">(h, m, s, ds)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb formats time components</p>
+          
+          
+
+          
+          <div class="method-source-code" id="format_time-source">
+            <pre><span class="ruby-comment"># File lib/eot/time_displays.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_time</span>(<span class="ruby-identifier">h</span>, <span class="ruby-identifier">m</span>, <span class="ruby-identifier">s</span>, <span class="ruby-identifier">ds</span>)
+  <span class="ruby-identifier">format</span>(<span class="ruby-string">'%02d'</span>, <span class="ruby-identifier">h</span>)   <span class="ruby-operator">+</span>
+               <span class="ruby-string">':'</span> <span class="ruby-operator">+</span>
+  <span class="ruby-identifier">format</span>(<span class="ruby-string">'%02d'</span>, <span class="ruby-identifier">m</span>) <span class="ruby-operator">+</span>
+               <span class="ruby-string">':'</span> <span class="ruby-operator">+</span>
+  <span class="ruby-identifier">format</span>(<span class="ruby-string">'%02d'</span>, <span class="ruby-identifier">s</span>) <span class="ruby-operator">+</span>
+               <span class="ruby-string">'.'</span> <span class="ruby-operator">+</span>
+  <span class="ruby-identifier">format</span>(<span class="ruby-string">'%3.3d'</span>, <span class="ruby-identifier">ds</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-geometric_mean_longitude" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">geometric_mean_longitude</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-gml_sun">gml_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-gml_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gml_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: angle geometric mean longitude needed to get true longitude
+for low accuracy.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="gml_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gml_sun</span>
+  <span class="ruby-identifier">ml</span>(<span class="ruby-ivar">@ta</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-geometric_mean_longitude">geometric_mean_longitude</a>, <a href="Eot.html#method-i-ml_sun">ml_sun</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ha_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ha_sun</span><span
+            class="method-args">(c)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: horizon angle for provided geo coordinates used for angles
+from transit to horizons.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ha_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ha_sun</span>(<span class="ruby-identifier">c</span>)
+  <span class="ruby-identifier">zenith</span> = <span class="ruby-identifier">choice</span>(<span class="ruby-identifier">c</span>)
+  <span class="ruby-identifier">sun</span>(<span class="ruby-identifier">zenith</span>, <span class="ruby-identifier">dec_sun</span>, <span class="ruby-ivar">@latitude</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-horizon_angle">horizon_angle</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-horizon_angle" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">horizon_angle</span><span
+            class="method-args">(c)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-ha_sun">ha_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-jd_to_date_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">jd_to_date_string</span><span
+            class="method-args">(jd = DJ00)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-string_jd_to_date">string_jd_to_date</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-julian_period_day_fraction_to_time" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">julian_period_day_fraction_to_time</span><span
+            class="method-args">(jpd_time = 0.0)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-string_day_fraction_to_time">string_day_fraction_to_time</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-lambda" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">lambda</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-tl_sun">tl_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-local_noon_dt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_noon_dt</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From times.rb: Uses @ajd and @longitude attributes Returns DateTime object
+of local noon or solar transit</p>
+          
+          
+
+          
+          <div class="method-source-code" id="local_noon_dt-source">
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">local_noon_dt</span>
+  <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">mean_local_noon_jd</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">eot_jd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ma_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ma_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: angle of Suns’ mean anomaly calculated in nutation.rb via
+celes function sets ta attribute for the rest the methods needing it. used
+in equation of time and to get true anomaly true longitude via center
+equation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ma_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ma_sun</span>
+  <span class="ruby-ivar">@ta</span> = (<span class="ruby-ivar">@ajd</span> <span class="ruby-operator">-</span> <span class="ruby-constant">DJ00</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">DJC</span>
+  <span class="ruby-ivar">@ma</span> = <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">falp03</span>(<span class="ruby-ivar">@ta</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-mean_anomaly">mean_anomaly</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ma_ta_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ma_ta_set</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From init.rb method to reset ma and ta after initialization init sets them
+using ajd initial Float value see: :ajd attribute</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ma_ta_set-source">
+            <pre><span class="ruby-comment"># File lib/eot/init.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ma_ta_set</span>
+  <span class="ruby-ivar">@ta</span> = ((<span class="ruby-ivar">@ajd</span> <span class="ruby-operator">-</span> <span class="ruby-constant">DJ00</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">DJC</span>).<span class="ruby-identifier">to_f</span>
+  <span class="ruby-ivar">@ma</span> = <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">falp03</span>(<span class="ruby-ivar">@ta</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mean_anomaly" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">mean_anomaly</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-ma_sun">ma_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-mean_anomaly_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">mean_anomaly_string</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-string_ma_sun">string_ma_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-mean_local_noon_jd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mean_local_noon_jd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From jd_times.rb: Uses @ajd and @longitude attributes Returns DateTime
+object of local mean noon or solar transit</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mean_local_noon_jd-source">
+            <pre><span class="ruby-comment"># File lib/eot/jd_times.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mean_local_noon_jd</span>
+  <span class="ruby-ivar">@ajd</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@longitude</span> <span class="ruby-operator">/</span> <span class="ruby-value">360.0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mean_longitude_aries" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">mean_longitude_aries</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-ml_aries">ml_aries</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-mean_obliquity" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">mean_obliquity</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-mo_earth">mo_earth</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-mean_obliquity_of_ecliptic" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">mean_obliquity_of_ecliptic</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-mo_earth">mo_earth</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-ml_aries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ml_aries</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: Mean equinox point where right ascension is measured from
+as zero hours. # see <a
+href="http://www.iausofa.org/publications/aas04.pdf">www.iausofa.org/publications/aas04.pdf</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="ml_aries-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ml_aries</span>
+  <span class="ruby-identifier">dt</span> = <span class="ruby-value">67.184</span>
+  <span class="ruby-identifier">tt</span> = <span class="ruby-ivar">@ajd</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">dt</span> <span class="ruby-operator">/</span> <span class="ruby-value">86_400.0</span>
+  <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">gmst06</span>(<span class="ruby-ivar">@ajd</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">tt</span>, <span class="ruby-value">0</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-mean_longitude_aries">mean_longitude_aries</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ml_sun" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">ml_sun</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-gml_sun">gml_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-mo_earth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mo_earth</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: mean obliquity of Earth</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mo_earth-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mo_earth</span>
+  <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">obl06</span>(<span class="ruby-ivar">@ajd</span>, <span class="ruby-value">0</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-mean_obliquity_of_ecliptic">mean_obliquity_of_ecliptic</a>, <a href="Eot.html#method-i-mean_obliquity">mean_obliquity</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mod_360" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mod_360</span><span
+            class="method-args">(x = 0.0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From utilities.rb: Keeps large angles in range of 360.0 aliased by truncate</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mod_360-source">
+            <pre><span class="ruby-comment"># File lib/eot/utilities.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mod_360</span>(<span class="ruby-identifier">x</span> = <span class="ruby-value">0.0</span>)
+  <span class="ruby-identifier">x</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">x</span> = <span class="ruby-value">0.0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">x</span>
+  <span class="ruby-value">360.0</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">x</span> <span class="ruby-operator">/</span> <span class="ruby-value">360.0</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">x</span> <span class="ruby-operator">/</span> <span class="ruby-value">360.0</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-truncate">truncate</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-nautical_twilight_end_dt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nautical_twilight_end_dt</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From times.rb: Uses @ajd attribute Returns nautical twilight end as a
+DateTime</p>
+          
+          
+
+          
+          <div class="method-source-code" id="nautical_twilight_end_dt-source">
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nautical_twilight_end_dt</span>
+  <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">nautical_twilight_end_jd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-nautical_twilight_end_jd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nautical_twilight_end_jd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From jd_times.rb: Uses @ajd attribute Returns nautical twilight end as a
+Julian Day Number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="nautical_twilight_end_jd-source">
+            <pre><span class="ruby-comment"># File lib/eot/jd_times.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nautical_twilight_end_jd</span>
+  <span class="ruby-identifier">local_noon_dt</span>.<span class="ruby-identifier">ajd</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ha_sun</span>(<span class="ruby-value">3</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">P2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-nautical_twilight_start_dt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nautical_twilight_start_dt</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From times.rb: Uses @ajd attribute Returns nautical twilight start as a
+DateTime</p>
+          
+          
+
+          
+          <div class="method-source-code" id="nautical_twilight_start_dt-source">
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nautical_twilight_start_dt</span>
+  <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">nautical_twilight_start_jd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-nautical_twilight_start_jd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nautical_twilight_start_jd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From jd_times.rb: Uses @ajd attribute Returns nautical twilight start as a
+Julian Day Number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="nautical_twilight_start_jd-source">
+            <pre><span class="ruby-comment"># File lib/eot/jd_times.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nautical_twilight_start_jd</span>
+  <span class="ruby-identifier">local_noon_dt</span>.<span class="ruby-identifier">ajd</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ha_sun</span>(<span class="ruby-value">3</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">P2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-now" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">now</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From times.rb: sets @ajd to DateTime.now Returns EOT (equation of time) now
+in decimal minutes form</p>
+          
+          
+
+          
+          <div class="method-source-code" id="now-source">
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">now</span>
+  <span class="ruby-ivar">@ajd</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_datetime</span>.<span class="ruby-identifier">ajd</span>
+  <span class="ruby-ivar">@ta</span> = (<span class="ruby-ivar">@ajd</span> <span class="ruby-operator">-</span> <span class="ruby-constant">DJ00</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">DJC</span>
+  <span class="ruby-identifier">time_eot</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-obliquity_correction" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">obliquity_correction</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-to_earth">to_earth</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-omega" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">omega</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: omega is a component of nutation and used in apparent
+longitude omega is the longitude of the mean ascending node of the lunar
+orbit on the ecliptic plane measured from the mean equinox of date.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="omega-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">omega</span>
+  <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">faom03</span>(<span class="ruby-ivar">@ta</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ra_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ra_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: solar right ascension</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ra_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ra_sun</span>
+  <span class="ruby-identifier">y0</span> = <span class="ruby-identifier">sine_al_sun</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">cosine_to_earth</span>
+  <span class="ruby-identifier">ra</span> = <span class="ruby-identifier">sun_ra</span>(<span class="ruby-identifier">y0</span>, <span class="ruby-identifier">cosine_al_sun</span>) 
+  <span class="ruby-comment"># Celes.anp(PI + atan2(-y0, -cosine_al_sun))</span>
+  <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">anp</span>(<span class="ruby-constant">PI</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ra</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-right_ascension">right_ascension</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-right_ascension" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">right_ascension</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-ra_sun">ra_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-right_ascension_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">right_ascension_string</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-string_ra_sun">string_ra_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-show_minutes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_minutes</span><span
+            class="method-args">(min = 0.0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String formatter for + and - time</p>
+          
+          
+
+          
+          <div class="method-source-code" id="show_minutes-source">
+            <pre><span class="ruby-comment"># File lib/eot/time_displays.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show_minutes</span>(<span class="ruby-identifier">min</span> = <span class="ruby-value">0.0</span>)
+  <span class="ruby-identifier">min</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">min</span> = <span class="ruby-value">0.0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">min</span>
+  <span class="ruby-identifier">time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0.0</span>)
+  <span class="ruby-identifier">time</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">min</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">*</span> <span class="ruby-value">60.0</span>)
+  <span class="ruby-identifier">sign</span> = <span class="ruby-identifier">sign_min</span>(<span class="ruby-identifier">min</span>)
+  <span class="ruby-identifier">time</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-node">&quot;#{sign}%M:%S.%3N&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show_now" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_now</span><span
+            class="method-args">(now = now(Time.now.utc))</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String for time now</p>
+          
+          
+
+          
+          <div class="method-source-code" id="show_now-source">
+            <pre><span class="ruby-comment"># File lib/eot/time_displays.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show_now</span>(<span class="ruby-identifier">now</span> = <span class="ruby-identifier">now</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">utc</span>))
+  <span class="ruby-identifier">show_minutes</span>(<span class="ruby-identifier">now</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sign_min" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sign_min</span><span
+            class="method-args">(min)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb displays + or - sign</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sign_min-source">
+            <pre><span class="ruby-comment"># File lib/eot/time_displays.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sign_min</span>(<span class="ruby-identifier">min</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">min</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0.0</span>
+    <span class="ruby-identifier">sign</span> = <span class="ruby-string">'-'</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">sign</span> = <span class="ruby-string">'+'</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">sign</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sine_al_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sine_al_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From trigometric.rb: sine apparent longitude used in solar declination</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sine_al_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/trigonometric.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sine_al_sun</span>
+  <span class="ruby-identifier">sin_al_sun</span>(<span class="ruby-identifier">al_sun</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-sine_apparent_longitude">sine_apparent_longitude</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sine_apparent_longitude" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">sine_apparent_longitude</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-sine_al_sun">sine_al_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-sine_tl_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sine_tl_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From trigometric.rb: sine true longitude used in solar right ascension</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sine_tl_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/trigonometric.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sine_tl_sun</span>
+  <span class="ruby-identifier">sin_tl_sun</span>(<span class="ruby-identifier">tl_sun</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-sine_true_longitude">sine_true_longitude</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sine_to_earth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sine_to_earth</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From trigometric.rb: sine true obliquity angle of Earth used in solar
+declination</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sine_to_earth-source">
+            <pre><span class="ruby-comment"># File lib/eot/trigonometric.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sine_to_earth</span>
+  <span class="ruby-identifier">sin_to_earth</span>(<span class="ruby-identifier">to_earth</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sine_true_longitude" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">sine_true_longitude</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-sine_tl_sun">sine_tl_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-string_al_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_al_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String format of apparent longitude</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_al_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angle_displays.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_al_sun</span>
+  <span class="ruby-identifier">degrees_to_s</span>(<span class="ruby-identifier">al_sun</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-apparent_longitude_string">apparent_longitude_string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_day_fraction_to_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_day_fraction_to_time</span><span
+            class="method-args">(jpd_time = 0.0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String formatter for fraction of Julian day number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_day_fraction_to_time-source">
+            <pre><span class="ruby-comment"># File lib/eot/time_displays.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_day_fraction_to_time</span>(<span class="ruby-identifier">jpd_time</span> = <span class="ruby-value">0.0</span>)
+  <span class="ruby-identifier">jpd_time</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">jpd_time</span> = <span class="ruby-value">0.0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">jpd_time</span>
+  <span class="ruby-identifier">fraction</span> = <span class="ruby-identifier">jpd_time</span> <span class="ruby-operator">+</span> <span class="ruby-value">0.5</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">jpd_time</span>)
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">fraction</span> <span class="ruby-operator">*</span> <span class="ruby-constant">DAY_HOURS</span>)
+  <span class="ruby-identifier">m</span> = <span class="ruby-constant">Integer</span>((<span class="ruby-identifier">fraction</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">h</span> <span class="ruby-operator">/</span> <span class="ruby-constant">DAY_HOURS</span>) <span class="ruby-operator">*</span> <span class="ruby-constant">DAY_MINUTES</span>)
+  <span class="ruby-identifier">s</span> = <span class="ruby-constant">Integer</span>((<span class="ruby-identifier">fraction</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">h</span> <span class="ruby-operator">/</span> <span class="ruby-value">24.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">/</span> <span class="ruby-constant">DAY_MINUTES</span>) <span class="ruby-operator">*</span> <span class="ruby-constant">DAY_SECONDS</span>)
+  <span class="ruby-identifier">format</span>(<span class="ruby-string">'%02d:'</span>, <span class="ruby-identifier">h</span>) <span class="ruby-operator">+</span>
+  <span class="ruby-comment"># ':' +</span>
+  <span class="ruby-identifier">format</span>(<span class="ruby-string">'%02d'</span>, <span class="ruby-identifier">m</span>) <span class="ruby-operator">+</span>
+                <span class="ruby-string">':'</span> <span class="ruby-operator">+</span>
+  <span class="ruby-identifier">format</span>(<span class="ruby-string">'%02d'</span>, <span class="ruby-identifier">s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-julian_period_day_fraction_to_time">julian_period_day_fraction_to_time</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_dec_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_dec_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String format of declination</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_dec_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angle_displays.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_dec_sun</span>
+  <span class="ruby-identifier">degrees_to_s</span>(<span class="ruby-identifier">dec_sun</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-declination_string">declination_string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_deg_to_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_deg_to_time</span><span
+            class="method-args">(radians = 0.0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb radians to time method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_deg_to_time-source">
+            <pre><span class="ruby-comment"># File lib/eot/time_displays.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_deg_to_time</span>(<span class="ruby-identifier">radians</span> = <span class="ruby-value">0.0</span>)
+  <span class="ruby-identifier">radians</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">radians</span> = <span class="ruby-value">0.0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">radians</span>
+  <span class="ruby-identifier">s</span>, <span class="ruby-identifier">ihmsf</span> = <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">a2tf</span>(<span class="ruby-value">3</span>, <span class="ruby-identifier">radians</span>)
+  <span class="ruby-identifier">f_string</span>(<span class="ruby-identifier">s</span>, <span class="ruby-identifier">ihmsf</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">ihmsf</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">ihmsf</span>[<span class="ruby-value">2</span>], <span class="ruby-identifier">ihmsf</span>[<span class="ruby-value">3</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_delta_oblique" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_delta_oblique</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String format for delta oblique</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_delta_oblique-source">
+            <pre><span class="ruby-comment"># File lib/eot/angle_displays.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_delta_oblique</span>
+  <span class="ruby-identifier">show_minutes</span>(<span class="ruby-identifier">delta_oblique</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_delta_orbit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_delta_orbit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String format for delta orbit</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_delta_orbit-source">
+            <pre><span class="ruby-comment"># File lib/eot/angle_displays.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_delta_orbit</span>
+  <span class="ruby-identifier">show_minutes</span>(<span class="ruby-identifier">delta_orbit</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_eot" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_eot</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb Equation of time output for minutes and seconds</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_eot-source">
+            <pre><span class="ruby-comment"># File lib/eot/time_displays.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_eot</span>
+  <span class="ruby-identifier">min_eot</span> = <span class="ruby-identifier">time_eot</span>
+  <span class="ruby-identifier">sign</span> = <span class="ruby-identifier">sign_min</span>(<span class="ruby-identifier">min_eot</span>)
+  <span class="ruby-identifier">eot</span> = <span class="ruby-identifier">min_eot</span>.<span class="ruby-identifier">abs</span>
+  <span class="ruby-identifier">minutes</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">eot</span>)
+  <span class="ruby-identifier">seconds</span> = (<span class="ruby-identifier">eot</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">minutes</span>) <span class="ruby-operator">*</span> <span class="ruby-value">60.0</span>
+  <span class="ruby-identifier">decimal_seconds</span> = (<span class="ruby-identifier">seconds</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">seconds</span>)) <span class="ruby-operator">*</span> <span class="ruby-value">100.0</span>
+  <span class="ruby-identifier">min</span> = <span class="ruby-identifier">format</span>(<span class="ruby-string">'%02d'</span>, <span class="ruby-identifier">minutes</span>)
+  <span class="ruby-identifier">sec</span> = <span class="ruby-identifier">format</span>(<span class="ruby-string">'%02d'</span>, <span class="ruby-identifier">seconds</span>)
+  <span class="ruby-identifier">dec_sec</span> = <span class="ruby-identifier">format</span>(<span class="ruby-string">'%01d'</span>, <span class="ruby-identifier">decimal_seconds</span>)
+  <span class="ruby-identifier">sign</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">min</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'m, '</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sec</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'.'</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">dec_sec</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'s'</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-display_equation_of_time">display_equation_of_time</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_eqc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_eqc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String format for centre</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_eqc-source">
+            <pre><span class="ruby-comment"># File lib/eot/angle_displays.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_eqc</span>
+  <span class="ruby-identifier">degrees_to_s</span>(<span class="ruby-identifier">center</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_jd_to_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_jd_to_date</span><span
+            class="method-args">(jd = DJ00)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String format conversion of jd to date</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_jd_to_date-source">
+            <pre><span class="ruby-comment"># File lib/eot/time_displays.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_jd_to_date</span>(<span class="ruby-identifier">jd</span> = <span class="ruby-constant">DJ00</span>)
+  <span class="ruby-identifier">jd</span> = <span class="ruby-identifier">check_jd_zero</span>(<span class="ruby-identifier">jd</span>)
+  <span class="ruby-constant">Date</span>.<span class="ruby-identifier">jd</span>(<span class="ruby-identifier">jd</span>).<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-jd_to_date_string">jd_to_date_string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_ma_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_ma_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String format of mean anomaly</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_ma_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angle_displays.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_ma_sun</span>
+  <span class="ruby-identifier">degrees_to_s</span>(<span class="ruby-ivar">@ma</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-mean_anomaly_string">mean_anomaly_string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_ra_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_ra_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String format of right ascension</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_ra_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angle_displays.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_ra_sun</span>
+  <span class="ruby-identifier">degrees_to_s</span>(<span class="ruby-identifier">ra_sun</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-right_ascension_string">right_ascension_string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_ta_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_ta_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String format of true anomaly</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_ta_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angle_displays.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_ta_sun</span>
+  <span class="ruby-identifier">degrees_to_s</span>(<span class="ruby-identifier">ta_sun</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-true_anomaly_string">true_anomaly_string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_time</span><span
+            class="method-args">(dt = DT2000)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String formatter for h:m:s display</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_time-source">
+            <pre><span class="ruby-comment"># File lib/eot/time_displays.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_time</span>(<span class="ruby-identifier">dt</span> = <span class="ruby-constant">DT2000</span>)
+  <span class="ruby-identifier">dt</span> = <span class="ruby-identifier">check_t_zero</span>(<span class="ruby-identifier">dt</span>)
+  <span class="ruby-identifier">dt</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">DateTime</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">ta</span> = <span class="ruby-identifier">dt_parts</span>(<span class="ruby-identifier">dt</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">ta</span> = <span class="ruby-identifier">float_parts</span>(<span class="ruby-identifier">dt</span>)
+  <span class="ruby-identifier">format_time</span>(<span class="ruby-identifier">ta</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">ta</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">ta</span>[<span class="ruby-value">2</span>], <span class="ruby-identifier">ta</span>[<span class="ruby-value">3</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-display_time_string">display_time_string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_tl_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_tl_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String format of true longitude</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_tl_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angle_displays.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_tl_sun</span>
+  <span class="ruby-identifier">degrees_to_s</span>(<span class="ruby-identifier">tl_sun</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-true_longitude_string">true_longitude_string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_to_earth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_to_earth</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From displays.rb String format of true obliquity</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_to_earth-source">
+            <pre><span class="ruby-comment"># File lib/eot/angle_displays.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">string_to_earth</span>
+  <span class="ruby-identifier">degrees_to_s</span>(<span class="ruby-identifier">to_earth</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-true_obliquity_string">true_obliquity_string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sunrise_dt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sunrise_dt</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From times.rb: Uses @ajd attribute Returns a DateTime object of local
+sunrise</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sunrise_dt-source">
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sunrise_dt</span>
+  <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">sunrise_jd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sunrise_jd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sunrise_jd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From jd_times.rb: Uses @ajd attribute Returns Sunrise as a Julian Day
+Number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sunrise_jd-source">
+            <pre><span class="ruby-comment"># File lib/eot/jd_times.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sunrise_jd</span>
+  <span class="ruby-identifier">local_noon_dt</span>.<span class="ruby-identifier">ajd</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ha_sun</span>(<span class="ruby-value">1</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">P2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sunset_dt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sunset_dt</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From times.rb: Uses @ajd attribute Returns a DateTime object of local
+sunset</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sunset_dt-source">
+            <pre><span class="ruby-comment"># File lib/eot/times.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sunset_dt</span>
+  <span class="ruby-identifier">ajd_to_datetime</span>(<span class="ruby-identifier">sunset_jd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sunset_jd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sunset_jd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From jd_times.rb: Uses @ajd attribute Returns Sunset as a Julian Day Number</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sunset_jd-source">
+            <pre><span class="ruby-comment"># File lib/eot/jd_times.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sunset_jd</span>
+  <span class="ruby-identifier">local_noon_dt</span>.<span class="ruby-identifier">ajd</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ha_sun</span>(<span class="ruby-value">1</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">P2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ta_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ta_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: angle true anomaly used in equation of time</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ta_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ta_sun</span>
+  <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">anp</span>(<span class="ruby-ivar">@ma</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">eqc</span>(<span class="ruby-ivar">@ma</span>, <span class="ruby-ivar">@ta</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-true_anomaly">true_anomaly</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-time_delta_oblique" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">time_delta_oblique</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From delta_times.rb: Uses @ajd attribute Returns Oblique component of EOT
+in decimal minutes time</p>
+          
+          
+
+          
+          <div class="method-source-code" id="time_delta_oblique-source">
+            <pre><span class="ruby-comment"># File lib/eot/delta_times.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">time_delta_oblique</span>
+  <span class="ruby-identifier">delta_oblique</span> <span class="ruby-operator">*</span> <span class="ruby-constant">R2D</span> <span class="ruby-operator">*</span> <span class="ruby-constant">SM</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-time_delta_orbit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">time_delta_orbit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From delta_times.rb: Uses @ajd attribute Returns Orbit component of EOT in
+decimal minutes time</p>
+          
+          
+
+          
+          <div class="method-source-code" id="time_delta_orbit-source">
+            <pre><span class="ruby-comment"># File lib/eot/delta_times.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">time_delta_orbit</span>
+  <span class="ruby-identifier">delta_orbit</span> <span class="ruby-operator">*</span> <span class="ruby-constant">R2D</span> <span class="ruby-operator">*</span> <span class="ruby-constant">SM</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-time_eot" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">time_eot</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From delta_times.rb: Uses @ajd attribute Returns EOT as a float for decimal
+minutes time</p>
+          
+          
+
+          
+          <div class="method-source-code" id="time_eot-source">
+            <pre><span class="ruby-comment"># File lib/eot/delta_times.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">time_eot</span>
+  <span class="ruby-identifier">eot</span> <span class="ruby-operator">*</span> <span class="ruby-constant">R2D</span> <span class="ruby-operator">*</span> <span class="ruby-constant">SM</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tl_aries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tl_aries</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: true longitude of equinox ‘first point of aries’ considers
+nutation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="tl_aries-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tl_aries</span>
+  <span class="ruby-identifier">dt</span> = <span class="ruby-value">67.184</span>
+  <span class="ruby-identifier">tt</span> = <span class="ruby-ivar">@ajd</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">dt</span> <span class="ruby-operator">/</span> <span class="ruby-value">86_400.0</span>
+  <span class="ruby-constant">Celes</span>.<span class="ruby-identifier">gst06a</span>(<span class="ruby-ivar">@ajd</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">tt</span>, <span class="ruby-value">0</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-true_longitude_aries">true_longitude_aries</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tl_sun" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tl_sun</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: angle of true longitude sun used in equation of time</p>
+          
+          
+
+          
+          <div class="method-source-code" id="tl_sun-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tl_sun</span>
+  <span class="ruby-identifier">tl</span>(<span class="ruby-ivar">@ma</span>, <span class="ruby-ivar">@ta</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-true_longitude">true_longitude</a>, <a href="Eot.html#method-i-ecliptic_longitude">ecliptic_longitude</a>, <a href="Eot.html#method-i-lambda">lambda</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_earth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_earth</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From angles.rb: true obliquity considers nutation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_earth-source">
+            <pre><span class="ruby-comment"># File lib/eot/angles.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_earth</span>
+  <span class="ruby-identifier">mo_earth</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">angle_delta_epsilon</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Eot.html#method-i-obliquity_correction">obliquity_correction</a>, <a href="Eot.html#method-i-true_obliquity">true_obliquity</a>, <a href="Eot.html#method-i-toearth">toearth</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-toearth" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">toearth</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-to_earth">to_earth</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-true_anomaly" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">true_anomaly</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-ta_sun">ta_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-true_anomaly_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">true_anomaly_string</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-string_ta_sun">string_ta_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-true_longitude" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">true_longitude</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-tl_sun">tl_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-true_longitude_aries" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">true_longitude_aries</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-tl_aries">tl_aries</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-true_longitude_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">true_longitude_string</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-string_tl_sun">string_tl_sun</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-true_obliquity" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">true_obliquity</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-to_earth">to_earth</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-true_obliquity_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">true_obliquity_string</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-string_to_earth">string_to_earth</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-truncate" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">truncate</span><span
+            class="method-args">(x = 0.0)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Eot.html#method-i-mod_360">mod_360</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
