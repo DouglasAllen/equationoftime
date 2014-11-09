@@ -51,15 +51,15 @@ task default: [:test]
 
 Rake::TestTask.new(:test) do |t|
   t.libs << 'test'
-  t.test_files = FileList['test/*_spec.rb']
+  t.test_files = FileList['test/eot/*_spec.rb']
   t.verbose = true
   t.options
 end
 
-RSpec::Core::RakeTask.new(:spec) do | t |
-  t.pattern = './test/eot/*_spec.rb'
-  t.rspec_opts = []
-end
+# RSpec::Core::RakeTask.new(:spec) do | t |
+#   t.pattern = './test/eot/*_spec.rb'
+#   t.rspec_opts = []
+# end
 
 YARD::Rake::YardocTask.new(:yardoc) do |t|
   t.files = ['lib/**/*.rb']
