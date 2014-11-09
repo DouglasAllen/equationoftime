@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   # spec.files         = `git ls-files -z`.split($/)#split("\x0")
   spec.extensions    << 'ext/eot/extconf.rb'
   # spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  # spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
   spec.platform      = Gem::Platform::RUBY
   # note: the last good build was with these development dependencies below
