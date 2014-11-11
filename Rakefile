@@ -10,7 +10,13 @@ require 'rake/testtask'
 require 'rdoc/task'
 require 'rspec/core/rake_task'
 require 'yard'
-
+begin
+  require 'rake/gempackagetask'
+rescue LoadError
+end
+require 'rake/clean'
+require 'rbconfig'
+include RbConfig
 Hoe.plugins.delete :newb
 # Hoe.plugins.delete :test
 Hoe.plugins.delete :signing
