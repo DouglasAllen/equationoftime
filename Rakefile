@@ -1,5 +1,5 @@
-# -*- ruby -*-
-require "rubygems"
+
+# require "rubygems"
 require 'bundler/gem_tasks'
 # require "bundler/install_tasks"
 require 'hoe'
@@ -10,12 +10,12 @@ require 'rake/testtask'
 require 'rdoc/task'
 require 'rspec/core/rake_task'
 require 'yard'
-begin
-  require 'rake/gempackagetask'
-rescue LoadError
-end
-require 'rake/clean'
-require 'rbconfig'
+# begin
+#   require 'rubygems/gempackagetask'
+# rescue LoadError
+# end
+# require 'rake/clean'
+# require 'rbconfig'
 include RbConfig
 Hoe.plugins.delete :newb
 # Hoe.plugins.delete :test

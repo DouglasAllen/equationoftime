@@ -1,11 +1,10 @@
 #include "ceot.h"
 
-
+/* Mean geocentric longitude of the Sun */
 double mlSun(double t)
 {
   double a;
-
-  /* Mean geocentric longitude of the Sun */
+  
   a = fmod(      280.4664567    +
   t * (        36000.76982779   +
   t * (            0.0003032028 +
@@ -16,11 +15,11 @@ double mlSun(double t)
   return a;
 }
 
+/* Eccentricity of Earth orbit */
 double eoe(double t)
 {
   double e;
 
-  /* Eccentricity of Earth orbit */
   e = (0.016708617 + t * (-0.000042037 + t *  -0.0000001235));
 
   return e; 
