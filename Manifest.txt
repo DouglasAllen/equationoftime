@@ -27,6 +27,7 @@ ext/eot/ceot.h
 ext/eot/eot.c
 ext/eot/extconf.rb
 lib/eot.rb
+lib/eot/all.rb
 lib/eot/angle_displays.rb
 lib/eot/angles.rb
 lib/eot/constants.rb

@@ -2,11 +2,11 @@ Wiki 2:
 
      $ irb --simple-prompt
 
-     require 'eot'     
+     require 'eot'
      eot = Eot.new()
      loop do
        puts "#{Time.now} #{eot.show_minutes(eot.now)}"
-       sleep 11  
+       sleep 11
      end
 
 Wiki 3:
@@ -15,8 +15,9 @@ Wiki 3:
      require 'eot';eot = Eot.new()
      # set the coordinates manually
      eot.latitude = latitude; eot.longitude = longitude; eot.ajd = Date.parse(date).jd
+     eot.ma_ta_set
      eot.sunrise_dt().to_time
-     eot.sunset_dt().to_time  
+     eot.sunset_dt().to_time
 
 Wiki 4:
 

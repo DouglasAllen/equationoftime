@@ -2,5 +2,5 @@
 # contains gem version
 class Eot
   # current version
-  VERSION = '4.1.7'
+  VERSION = '4.1.8'
 end

@@ -9,6 +9,7 @@ $verbose = false
 
 if RUBY_VERSION < "1.9.0"
 	class String
+                # fixes older ruby versions < 1.9.0
 		def ord
 			self[0]
 		end

@@ -1,13 +1,17 @@
-# class Eot file = constants.rb
+##
+# class Eot file = constants.rb:
 # has the constants used and more
-class Eot
-  # Array result for time_julian_century default = [0.0, 0.0, 0.0, 0.0, 0.0]
-  # A2000       = [0.0, 0.0, 0.0, 0.0, 0.0]
 
+class Eot
+
+  ##
   # Arc seconds in a degree = 3_600.0
+
   ARCSEC      = 3_600.0
 
+  ##
   # Arc seconds in a degree = 3_600.0
+
   ASD         = 3_600.0
 
   # Arc seconds in an hour = 240.0
@@ -25,31 +29,46 @@ class Eot
   # 2Pi = 6.283185307179586476925287
   # D2PI        = 6.283185307179586476925287
 
+  ##
   # from desktop calculator DAS2R = 4.8481368110953599358991410235795e-6
+
   DAS2R       = 4.8481368110953599358991410235795e-6
 
   # Astronomical unit (m) = 149597870e3
   # DAU         = 149597870e3
 
+  ##  
   # Hours in a day = 24.0
+
   DAY_HOURS   = 24.0
 
+  ##  
   # Minutes in a day = 1_440.0
+
   DAY_MINUTES = 1_440.0
 
+  ##
   # Seconds in a day = 86_400.0
+
   DAY_SECONDS = 86_400.0
 
+  ##
   # Seconds in a day = 86_400.0
+
   DAYSEC      = 86_400.0
 
+  ##
   # Micro Seconds in a day = 86_400_000_000.0
+
   DAY_USECS   = 86_400_000_000.0
 
+  ##
   # Speed of light (AU per day) = DAYSEC / AULT
   # DC = DAYSEC / AULT
 
+  ##
   # from desktop calculator D2R = 0.017453292519943295769236907684886
+
   D2R          = 0.017453292519943295769236907684886
 
   # dint(A) - truncate to nearest whole number towards zero (double)
@@ -61,11 +80,15 @@ class Eot
   # dsign(A,B) - magnitude of A with sign of B (double)
   # dsign(A,B) = ((B)<0.0?-fabs(A):fabs(A))
 
+  ##
   # Reference epoch (J2000.0), Julian Date
   # Default Julian Number = 2451545.0
+
   DJ00        = 2_451_545.0
 
+  ##
   # Days per Julian century = 36525.0
+
   DJC         = 36_525.0
 
   # Days per Julian millennium  = 365250.0
@@ -94,7 +117,9 @@ class Eot
   # Seconds of time to radians = 7.272205216643039903848712e-5
   # DS2R        = 7.272205216643039903848712e-5
 
+  ##
   # Default DateTime = DateTime.new( 2000, 01, 01, 12, 00, 00, "+00:00" )
+
   DT2000      = DateTime.new(2000, 01, 01, 12, 00, 00, '+00:00')
 
   # arc seconds degrees to radians = PI / 180.0 / ARCSEC
@@ -124,20 +149,32 @@ class Eot
   # 1858, 11, 17, 0.0 midnight start of calendar reform = 2400000.5
   # MJD0        = 2400000.5
 
+  ##
   # from desktop calculator PI = 3.1415926535897932384626433832795
+
   PI          = 3.1415926535897932384626433832795
 
+  ##
   # 2Pi from Math module = Math::PI * 2.0
+
   P2          = PI * 2.0
 
+  ##
   # from desktop calculator R2D = 57.295779513082320876798154814105
+
   R2D         = 57.295779513082320876798154814105
 
+  ##
   # from desktop calculator RTD = 0.015915494309189533576888376337251
+
   RTD         = 0.015915494309189533576888376337251
 
+  ##
   # from desktop calculator Sidereal minutes =
   # 4.0 / 1.0027379093507953456536618754278
+  # probably 3.989 would be close enough because
+  # it's not that constant anyway 
+
   SM          = 4.0 / 1.0027379093507953456536618754278
 
   # Schwarzschild radius of the Sun (au) =

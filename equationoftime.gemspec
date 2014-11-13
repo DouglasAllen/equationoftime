@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
 
   # Manifest
   # spec.files         = Dir.glob('ext/**/*.{c,h,rb, so}') + Dir.glob('**') +
-                       Dir.glob('lib/**/*.rb') + Dir.glob('.*')
+  #                      Dir.glob('lib/**/*.rb') + Dir.glob('.*')
   # spec.files         = `git ls-files -z`.split($/)#split("\x0")
   # spec.files         = `git ls-files -z`.split("\x0")
   spec.files         = `git ls-files`.split($/)
