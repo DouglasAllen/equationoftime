@@ -233,7 +233,7 @@ describe 'tests ajd of 2455055.5 ' do
 
   it 'expected   1.585863261753274 from \
       aliased_angles.horizon_angle()? ' do
-    assert_equal(1.585863261753274, aliased_angles.horizon_angle(1))
+    assert_equal(1.585863261753, aliased_angles.horizon_angle(1).round(12))
   end
 
   it 'expected   3.7871218188949207 from \

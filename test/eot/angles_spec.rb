@@ -162,7 +162,7 @@ describe 'Tests ajd of 2455055.5 ' do
   end
 
   it 'expected   -0.019768413456709915 from angles.center()? ' do
-    assert_equal(-0.019768413456709915, angles.center)
+    assert_equal(-0.019768413457, angles.center.round(12))
   end
 
   it 'expected   -0.7541886969975007 from angles.cosine_al_sun()? ' do
@@ -170,7 +170,7 @@ describe 'Tests ajd of 2455055.5 ' do
   end
 
   it 'expected   -0.7542060769936684 from angles.cosine_tl_sun()? ' do
-    assert_equal(-0.7542060769936684, angles.cosine_tl_sun)
+    assert_equal(-0.7542060769937, angles.cosine_tl_sun.round(13))
   end
 
   it 'expected   0.9174818088112336 from angles.cosine_to_earth()? ' do
@@ -219,7 +219,7 @@ describe 'Tests ajd of 2455055.5 ' do
   end
 
   it 'expected   3.7871218188949207 from angles.ma_sun()? ' do
-    assert_equal(3.7871218188949207, angles.ma_sun)
+    assert_equal(3.7871218188949, angles.ma_sun.round(13))
   end
 
   it 'expected   2.444907382260759 from angles.ml_aries()? ' do
@@ -227,7 +227,7 @@ describe 'Tests ajd of 2455055.5 ' do
   end
 
   it 'expected   0.4090707793981491 from angles.mo_earth()? ' do
-    assert_equal(0.4090707793981491, angles.mo_earth)
+    assert_equal(0.4090707793981, angles.mo_earth.round(13))
   end
 
   it 'expected   -1.0615640635268548 from angles.omega()? ' do
@@ -259,6 +259,6 @@ describe 'Tests ajd of 2455055.5 ' do
   end
 
   it 'expected   0.4090934409048494 from angles.to_earth()? ' do
-    assert_equal(0.4090934409048494, angles.to_earth)
+    assert_equal(0.4090934409048494, angles.to_earth.round(13))
   end
 end
