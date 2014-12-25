@@ -21,8 +21,10 @@ describe 'tests ajd of 2456885.0' do
     assert_equal 2_456_885.0, aliased_utilities.ajd
   end
 
-  it 'expected   3.8508003966038915 for aliased_utilities.ma'do
-    assert_equal 3.8508003966038915, aliased_utilities.ma
+  it 'expected   3.8508003966038915 for \
+      aliased_utilities.ma'do
+    assert_equal 3.8508003966039, \
+                 aliased_utilities.ma.round(13)
   end
 
   it 'expected   0.0 returned by aliased_utilities.truncate() ' do
