@@ -88,8 +88,8 @@ describe 'tests ajd of 2456885.0 ' do
 
   it 'expected   2.5101912804141424 from \
       aliased_angles.geometric_mean_longitude()? ' do
-    assert_equal(2.5101912804141, \
-                 aliased_angles.geometric_mean_longitude.round(13))
+    assert_equal(2.510191280414, \
+                 aliased_angles.geometric_mean_longitude.round(12))
   end
 
   it 'expected   1.5857841877939605 from \
@@ -130,14 +130,14 @@ describe 'tests ajd of 2456885.0 ' do
 
   it 'expected   2.5297411654316497 from \
       aliased_angles.right_ascension()? ' do
-    assert_equal(2.5297411654316, \
-                 aliased_angles.right_ascension.round(13))
+    assert_equal(2.529741165432, \
+                 aliased_angles.right_ascension.round(12))
   end
 
   it 'expected   0.6074784519729512 from \
       aliased_angles.sine_apparent_longitude()? ' do
     assert_equal(0.607478451973, \
-                 aliased_angles.sine_apparent_longitude.round(13))
+                 aliased_angles.sine_apparent_longitude.round(12))
   end
 
   it 'expected   0.6074246812917259 from \
