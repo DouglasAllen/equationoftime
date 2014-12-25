@@ -83,7 +83,7 @@ describe 'Tests ajd of 2456885.0 ' do
   end
 
   it 'expected   2.5101912804141424 from  angles.gml_sun()? ' do
-    assert_equal(2.5101912804141, angles.gml_sun.round(13))
+    assert_equal(2.510191280414, angles.gml_sun.round(12))
   end
 
   it 'expected   1.5857841877939605 from  angles.ha_sun(1)? ' do
@@ -107,11 +107,11 @@ describe 'Tests ajd of 2456885.0 ' do
   end
 
   it 'expected   2.5297411654316497 from  angles.ra_sun()? ' do
-    assert_equal(2.5297411654316, angles.ra_sun.round(13))
+    assert_equal(2.529741165432, angles.ra_sun.round(12))
   end
 
   it 'expected   0.6074784519729512 from  angles.sine_al_sun()? ' do
-    assert_equal(0.607478451973, angles.sine_al_sun.round(13))
+    assert_equal(0.607478451973, angles.sine_al_sun.round(12))
   end
 
   it 'expected   0.6074246812917259 from  angles.sine_tl_sun()? ' do
