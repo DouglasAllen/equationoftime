@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   # note: the last good build was with these development dependencies below
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'rake', '~> 10.0'
-  # spec.add_development_dependency 'rake-compiler', '~> 0.9.3'
+  spec.add_development_dependency 'rake-compiler', '~> 0.9.3'
   spec.add_development_dependency "hoe", "~> 3.12.0"
   # spec.add_development_dependency "guard", "~> 2.6.1"
   # spec.add_development_dependency "guard-minitest", "~> 2.3.2"
