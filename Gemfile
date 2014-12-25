@@ -13,10 +13,10 @@ gemspec
 
 group :development, :test do
   #gem 'rubocop'
-  gem 'hoe'
-  gem 'rake-compiler', '~> 0.9.3'
+  #gem 'hoe'
+  #gem 'rake-compiler', '~> 0.9.3'
   #gem 'guard'
-  gem 'minitest'
+  #gem 'minitest'
   #gem 'guard-minitest'
   #gem 'ZenTest'
   #gem 'rspec'
