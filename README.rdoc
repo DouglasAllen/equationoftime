@@ -1,6 +1,7 @@
 = equationoftime
 
 Home    :: http://equationoftime.herokuapp.com/
+Status  :: https://travis-ci.org/DouglasAllen/equationoftime
 Code    :: https://github.com/DouglasAllen/equationoftime
 RDoc    :: http://rubydoc.info/gems/equationoftime/4.1.5/frames
 Issues  :: https://github.com/DouglasAllen/equationoftime/issues
