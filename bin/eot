@@ -1,0 +1,44 @@
+#! /usr/bin/env ruby
+
+require 'eot'
+
+eot = Eot.new
+
+def get_date_arg
+	ARGV[0].to_s
+end
+
+def get_lat_arg
+  ARGV[1]
+end
+
+def get_lng_arg
+  ARGV[2]
+end
+
+def parse_argv
+	date_arg = get_date_arg.split("-").map {|ae| ae.to_i}		
+	begin
+		Date.valid_date?(date_arg[0], date_arg[1],date_arg[2])
+		Date.new date_arg[0], date_arg[1],date_arg[2]
+		eot.latitude = get_lat_arg.to_f unless get_lat_arg.nil? 
+		eot.longitude = get_lng_arg.to_f unless get_lng_arg.nil? 
+	rescue
+		@ustr = "usage: eot yyyy-mm-nn +-lat float +-lng float"
+	end
+end
+
+
+
+eot.date = parse_argv  unless parse_argv == @ustr
+puts "for #{parse_argv}"
+#puts "Date Time noon = #{eot.date}"
+if parse_argv = eot.date
+  eot.ajd = eot.date.jd 
+	eot.ma_ta_set
+  puts "Sunrise at lat. #{eot.latitude}, lng. #{eot.longitude} = #{eot.sunrise_dt}"
+  puts "Sunset at lat. #{eot.latitude}, lng. #{eot.longitude}= #{eot.sunset_dt}"
+else
+	puts "Sunrise at lat. #{eot.latitude}, lng. #{eot.longitude} = #{eot.sunrise_dt}"
+  puts "Sunset at lat. #{eot.latitude}, lng. #{eot.longitude}= #{eot.sunset_dt}"
+end

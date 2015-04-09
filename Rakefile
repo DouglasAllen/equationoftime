@@ -43,7 +43,7 @@ Hoe.plugins.delete :rdoc
 # Hoe.plugin :signing
 # Hoe.plugin :publish
 # Hoe.plugin :clean
-# Hoe.plugin :package
+Hoe.plugin :package
 # Hoe.plugin :compiler
 # Hoe.plugin :debug
 # Hoe.plugin :rcov

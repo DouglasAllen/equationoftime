@@ -24,8 +24,10 @@ Gem::Specification.new do |spec|
   # spec.files         = `git ls-files -z`.split("\x0")
   spec.files         = `git ls-files`.split($/)
   spec.extensions    << 'ext/eot/extconf.rb'
-  # spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  #spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.bindir          = 'bin'
+  spec.executables     << 'eot'
   spec.require_paths = ['lib']
   spec.has_rdoc      = true
   spec.rdoc_options <<
