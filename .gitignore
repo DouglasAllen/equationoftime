@@ -15,6 +15,7 @@ lib/bundler/man
 pkg
 rdocs
 spec/reports
+test/eot/zentest_spec.rb
 test/tmp
 test/version_tmp
 tmp
