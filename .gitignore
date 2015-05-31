@@ -14,7 +14,7 @@ coverage
 doc
 lib/bundler/man
 pkg
-rdoc
+rdocs
 spec/reports
 test/tmp
 test/version_tmp
