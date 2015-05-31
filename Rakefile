@@ -1,42 +1,36 @@
 
-# require "rubygems"
+
 require 'bundler/gem_tasks'
-# require "bundler/install_tasks"
+require 'rubygems'
 require 'hoe'
 
 require 'rake/extensiontask'
 require 'rake/testtask'
-# require "rake/win32"
+
 require 'rdoc/task'
 require 'rspec/core/rake_task'
 require 'yard'
-# begin
-#   require 'rubygems/gempackagetask'
-# rescue LoadError
-# end
-# require 'rake/clean'
-# require 'rbconfig'
-# include RbConfig
 
 # Hoe.plugins.delete :newb
 # Hoe.plugins.delete :test
-Hoe.plugins.delete :signing
-Hoe.plugins.delete :publish
-# Hoe.plugins.delete  :clean
+# Hoe.plugins.delete :signing
+# Hoe.plugins.delete :publish
+# Hoe.plugins.delete :clean
 # Hoe.plugins.delete :package
-Hoe.plugins.delete :compiler
-Hoe.plugins.delete :debug
-Hoe.plugins.delete :rcov
-Hoe.plugins.delete :gemcutter
-Hoe.plugins.delete :racc
+# Hoe.plugins.delete :compiler
+# Hoe.plugins.delete :debug
+# Hoe.plugins.delete :rcov
+# Hoe.plugins.delete :gemcutter
+# Hoe.plugins.delete :racc
 # Hoe.plugins.delete :inline
-Hoe.plugins.delete :gem_prelude_sucks
-Hoe.plugins.delete :flog
-Hoe.plugins.delete :flay
+# Hoe.plugins.delete :gem_prelude_sucks
+# Hoe.plugins.delete :flog
+# Hoe.plugins.delete :flay
 # Hoe.plugins.delete :deps
 # Hoe.plugins.delete :minitest
-Hoe.plugins.delete :rdoc
+# Hoe.plugins.delete :rdoc
 # Hoe.plugins.delete :travis
+# Hoe.plugins.delete :yard
 
 # Hoe.plugin :newb
 # Hoe.plugin :test
@@ -54,16 +48,17 @@ Hoe.plugins.delete :rdoc
 # Hoe.plugin :flog
 # Hoe.plugin :flay
 # Hoe.plugin :deps
-Hoe.plugin :minitest
+# Hoe.plugin :minitest
 # Hoe.plugin :rdoc
-Hoe.plugin :travis
+# Hoe.plugin :travis
+# Hoe.plugin :yard
 
-Hoe.spec 'equationoftime' do
+Hoe.spec('equationoftime') do
   developer('Douglas Allen', 'kb9agt@gmail.com')
   license('MIT')
   
-  #self.readme_file   = 'README.rdoc'
-  #self.history_file  = 'CHANGELOG.rdoc'
+  self.readme_file   = 'README.rdoc'
+  self.history_file  = 'CHANGELOG.rdoc'
   #self.extra_rdoc_files  = FileList[]
   extra_dev_deps << ['rake-compiler', '~> 0.9', '>= 0.9.3']
   self.spec_extras = { extensions: ['ext/eot/extconf.rb'] }
@@ -71,6 +66,10 @@ Hoe.spec 'equationoftime' do
   Rake::ExtensionTask.new('eot', spec) do |ext|
     ext.lib_dir = File.join('lib', 'eot')
   end
+
+  #self.yard_title = 'equationoftime'
+  #self.yard_markup = :markdown
+  #self.yard_opts = ['--protected']
 end
 
 Rake::Task[:test].prerequisites << :compile
@@ -84,15 +83,6 @@ Rake::TestTask.new(:test) do |t|
   t.options
 end
 
-# RSpec::Core::RakeTask.new(:spec) do | t |
-#   t.pattern = './test/eot/*_spec.rb'
-#   t.rspec_opts = []
-# end
-
-YARD::Rake::YardocTask.new(:yardoc) do |t|
-  t.files = ['lib/eot/*.rb']
-  #  puts t.methods
-end
 
 desc 'generate API documentation to rdocs/index.html'
 Rake::RDocTask.new(:docs) do |rd|
@@ -105,6 +95,26 @@ Rake::RDocTask.new(:docs) do |rd|
 
 end
 
+# begin
+#   require 'rubygems/gempackagetask'
+# rescue LoadError
+# end
+# require 'rake/clean'
+# require 'rbconfig'
+# include RbConfig
+# require "rubygems"
+# require "bundler/install_tasks"
+
+# RSpec::Core::RakeTask.new(:spec) do | t |
+#   t.pattern = './test/eot/*_spec.rb'
+#   t.rspec_opts = []
+# end
+
+#YARD::Rake::YardocTask.new(:yardoc) do |t|
+#  t.files = ['lib/eot/*.rb']
+#  puts t.methods
+#end
+
 # require 'rake/extensiontask'
 # spec = Gem::Specification.load('equationoftime.gemspec')
 # Rake::ExtensionTask.new('ceot', spec)
@@ -113,7 +123,7 @@ end
 # end
 
 # Rake::TestTask.new(:mine) do |t|
-
+# require "rake/win32"
 # Rake::Win32.rake_system("echo rspec ./tests/spec/aliased_angles_spec.rb")
 # Rake::Win32.rake_system("rspec ./tests/spec/aliased_angles_spec.rb")
 

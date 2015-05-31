@@ -12,7 +12,7 @@ describe 'Eot_initialize has set attributes ' do
   eot = Eot.new  
   TODAY       = DateTime.now.to_time.utc.to_date
   MA_SUN      = eot.ma_sun
-  FRAC_CENT   = ((AJD_TODAY - Eot::DJ00) / Eot::DJC).round(11)
+  FRAC_CENT   = ((AJD_TODAY - Eot::DJ00) / Eot::DJC).round(10)
   JD_TODAY    = DateTime.now.to_time.utc.to_datetime.jd.to_f
   DEF_INT     = nil
   DEF_LAT     = 0.0
@@ -43,7 +43,7 @@ describe 'Eot_initialize has set attributes ' do
   end
   
   it "expected #{FRAC_CENT} from @ta" do
-    assert_equal(FRAC_CENT, eot.ta.round(11))
+    assert_equal(FRAC_CENT, eot.ta.round(10))
   end
   
   it "expected #{DEF_INT} from eot.addr" do

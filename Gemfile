@@ -20,5 +20,6 @@ group :development, :test do
   gem 'ZenTest'
   gem 'rspec'
   gem 'yard'
+  gem 'hoe-yard'
   gem 'rdoc'
 end

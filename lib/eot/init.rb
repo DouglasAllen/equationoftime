@@ -64,7 +64,7 @@ class Eot
     djm0, djm = Celes::cal2jd(d.year, d.month, d.day)
     @ajd = djm0 + djm + d.day_fraction
     ma_ta_set
-    @jd = d.jd.to_f
+    @jd = djm0 + djm + 0.5
     @date = Date.parse("#{d.year}-#{d.month}-#{d.day}")
     @latitude,  @longitude = 0.0,  0.0      
   end
