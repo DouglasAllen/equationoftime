@@ -28,10 +28,8 @@ describe 'aliased_displays using ajd of 2456885.0' do
     assert_equal '2014-08-15T12:00:00+00:00', aliased_displays.date.to_s
   end
 
-  it 'expected   3.8508003966038915, \
-      from aliased_displays.' do
-    assert_equal 3.8508003966039, \
-                 aliased_displays.ma.round(13)
+  it 'expected   3.8508003966038915, from aliased_displays.' do
+    assert_equal 3.8508003966038915, aliased_displays.ma
   end
 
   it 'expected   "+142:35:33.356" \

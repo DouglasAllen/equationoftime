@@ -8,38 +8,46 @@ require 'eot'
 
 describe 'Eot_initialize has set attributes ' do
 
-  JD_TODAY = DateTime.now.to_time.utc.to_datetime.jd.to_f
-  it "expected #{JD_TODAY} from Eot.new.ajd" do
-    assert_equal(JD_TODAY, Eot.new.ajd)
+  AJD_TODAY   = DateTime.now.to_time.utc.to_datetime.ajd.to_f.round(7)
+  eot = Eot.new  
+  TODAY       = DateTime.now.to_time.utc.to_date
+  MA_SUN      = eot.ma_sun
+  FRAC_CENT   = ((AJD_TODAY - Eot::DJ00) / Eot::DJC).round(11)
+  JD_TODAY    = DateTime.now.to_time.utc.to_datetime.jd.to_f
+  DEF_INT     = nil
+  DEF_LAT     = 0.0
+  DEF_LNG     = 0.0
+
+  it "expected #{JD_TODAY} from eot.jd" do
+    assert_equal(JD_TODAY, eot.jd)
+  end
+  
+  it "expected #{AJD_TODAY} from eot.ajd" do
+    assert_equal(AJD_TODAY, eot.ajd.round(7))
   end
 
-  UK_LAT = 0.0
-  it "expected #{UK_LAT} from Eot.new.latitude" do
-    assert_equal(UK_LAT, Eot.new.latitude)
+  it "expected #{TODAY} from eot.date" do
+    assert_equal(TODAY, eot.date)
   end
 
-  UK_LNG = 0.0
-  it "expected #{UK_LNG} from Eot.new.longitude" do
-    assert_equal(UK_LNG, Eot.new.longitude)
+  it "expected #{DEF_LAT} from eot.latitude" do
+    assert_equal(DEF_LAT, eot.latitude)
   end
 
-  MA_SUN = Eot.new.ma_sun
+  it "expected #{DEF_LNG} from eot.longitude" do
+    assert_equal(DEF_LNG, eot.longitude)
+  end
+  
   it "expected #{MA_SUN} from @ma" do
-    eot = Eot.new
-    eot.ajd = JD_TODAY
     assert_equal(MA_SUN, eot.ma)
   end
-
-  FRAC_CENT = (Eot.new.ajd - Eot::DJ00) / Eot::DJC
+  
   it "expected #{FRAC_CENT} from @ta" do
-    eot = Eot.new
-    eot.ajd = JD_TODAY
-    assert_equal(FRAC_CENT, eot.ta)
+    assert_equal(FRAC_CENT, eot.ta.round(11))
   end
-
-  DEFAULT_INT = nil
-  it "expected #{DEFAULT_INT} from Eot.new.addr" do
-    assert_equal(DEFAULT_INT,  Eot.new.addr)
+  
+  it "expected #{DEF_INT} from eot.addr" do
+    assert_equal(DEF_INT, eot.addr)
   end
 
 end

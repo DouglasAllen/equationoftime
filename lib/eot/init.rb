@@ -61,10 +61,11 @@ class Eot
   # Initialize to set attributes
   def initialize
     d = DateTime.now.to_time.utc.to_datetime
-    djm0, djm = Celes::cal2jd(d.year, d.month, d.day + d.day_fraction)
-    @ajd = djm0 + djm + 0.5
+    djm0, djm = Celes::cal2jd(d.year, d.month, d.day)
+    @ajd = djm0 + djm + d.day_fraction
     ma_ta_set
-    @date, @jd = ajd_to_datetime(@ajd), @ajd    
+    @jd = d.jd.to_f
+    @date = Date.parse("#{d.year}-#{d.month}-#{d.day}")
     @latitude,  @longitude = 0.0,  0.0      
   end
 end

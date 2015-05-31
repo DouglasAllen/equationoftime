@@ -38,9 +38,9 @@ class Eot
 
   # From jd_times.rb:
   # Uses @ajd and @longitude attributes
-  # Returns DateTime object of local mean noon or solar transit
+  # Returns local mean noon or solar transit as a Julian Day Number
   def mean_local_noon_jd
-    @ajd - @longitude / 360.0
+    @jd - @longitude / 360.0
   end
 
   # From jd_times.rb:
