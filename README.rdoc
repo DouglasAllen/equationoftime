@@ -21,14 +21,15 @@ Lots of examples to play with for learning about Eot.
 
         require 'eot'
         eot = Eot.new
-        eot.string_eot          # todays eot
-        eot.ajd                 # was initialized to noon today ei. jd
-        # Try the real AJD
+        eot.string_eot          # eot now
+        eot.ajd                 # was initialized to time now
+
+                                # Try setting the AJD
         eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
 
         eot.string_eot          # nothing changes so...
-        eot.ma_ta_set           # recalculate ma and ta after initialization
-        eot.string_eot          # should be different than before
+        eot.ma_ta_set           # always recalculate ma(mean anomaly) and ta(julian century time)
+        eot.string_eot          # will be different than before
 
         # check and set a new address                        
         geo = GeoLatLng.new
@@ -41,7 +42,7 @@ Lots of examples to play with for learning about Eot.
         # Be shure you have the date set right
         eot.ajd = DateTime.new(2014,11,07).to_time.utc.to_datetime.jd.to_f
 
-        eot.ma_ta_set           # recalculate ma and ta after initialization
+        eot.ma_ta_set           # recalculate ma and ta
 
         eot.sunrise_jd          # the dates sunrise as a jd
         eot.sunset_jd           # the dates sunset as a jd
@@ -49,9 +50,9 @@ Lots of examples to play with for learning about Eot.
         eot.sunset_dt           # the dates sunset as a DateTime
 
 
-        eot.ajd += 1            # the days after times can be read
-        eot.ma_ta_set           # recalculate ma and ta after initialization 
-        eot.ajd = 2451545       # ajd set to 2001-01-01 12:00 
+        eot.ajd += 1            # the days after today may be set
+        eot.ma_ta_set           # recalculate ma and ta 
+        eot.ajd = 2451545.0     # ajd set to 2001-01-01 12:00 
         
 
 == Gem patch:
@@ -59,14 +60,17 @@ Lots of examples to play with for learning about Eot.
   $ gem install eot
 
 After realizing this name was available I decided to use it.
-It installs the needed requirements as for some reason
-gem install equationoftime doesn't always. Hoe hoe hoe!
+It installs the needed requirements and has a dsl binary.
 
 == REQUIREMENTS:
+
+To install gem dependencies
 
   $ bundle install
 
 == INSTALL:
+
+To install this in your gems
 
   $ bundle exec rake install
 
@@ -78,6 +82,11 @@ After checking out the source, run:
 
 This task will install any missing dependencies, run the tests/specs,
 and generate the RDoc.
+
+Do your own tests with:
+
+  $ guard
+
 
 == LICENSE:
 
