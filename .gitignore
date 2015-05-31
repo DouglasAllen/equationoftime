@@ -3,7 +3,6 @@
 .rspec
 .bundle
 .config
-.settings
 .ruby-version
 .yardoc
 Gemfile.lock
@@ -19,7 +18,7 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
-ext/ceot/*.o
-ext/ceot/*.so
-ext/ceot/Makefile
+ext/eot/*.o
+ext/eot/*.so
+ext/eot/Makefile
 lib/eot/eot.so
