@@ -7,6 +7,7 @@
 .rspec
 .ruby-version
 .yardoc
+.travis
 CHANGELOG.rdoc
 Gemfile
 Gemfile.lock
@@ -17,6 +18,8 @@ Manifest.txt
 README.rdoc
 Rakefile
 equationoftime.gemspec
+bin/eot
+bin/eot.rb
 examples/Equation_of_Time.png
 examples/my_lst.rb
 examples/use_addr.rb
@@ -48,6 +51,7 @@ test/eot/displays_spec.rb
 test/eot/geo_spec.rb
 test/eot/init_spec.rb
 test/eot/times_spec.rb
+test/eot/zentest_spec.rb
 run_tests_eclipse.rb
 wiki.md
 wiki2.md

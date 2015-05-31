@@ -4,6 +4,7 @@
 .bundle
 .config
 .settings
+.ruby-version
 .yardoc
 Gemfile.lock
 
@@ -21,4 +22,4 @@ tmp
 ext/ceot/*.o
 ext/ceot/*.so
 ext/ceot/Makefile
-lib/*.so
+lib/eot/eot.so
