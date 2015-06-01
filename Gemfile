@@ -10,6 +10,7 @@ ruby '2.2.0'
 
 gemspec
 
+
 group :development, :test do
   gem 'rubocop'
   gem 'hoe'
@@ -22,4 +23,5 @@ group :development, :test do
   gem 'yard'
   gem 'hoe-yard'
   gem 'rdoc'
+  gem "codeclimate-test-reporter", group: :test, require: nil
 end
