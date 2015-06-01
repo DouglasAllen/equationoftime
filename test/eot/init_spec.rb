@@ -8,7 +8,7 @@ require 'eot'
 
 describe 'Eot_initialize has set attributes ' do
 
-  AJD_TODAY   = DateTime.now.to_time.utc.to_datetime.ajd.to_f.round(7)
+  AJD_TODAY   = DateTime.now.to_time.utc.to_datetime.ajd.to_f.round(6)
   eot = Eot.new  
   TODAY       = DateTime.now.to_time.utc.to_date
   MA_SUN      = eot.ma_sun
@@ -23,7 +23,7 @@ describe 'Eot_initialize has set attributes ' do
   end
   
   it "expected #{AJD_TODAY} from eot.ajd" do
-    assert_equal(AJD_TODAY, eot.ajd.round(7))
+    assert_equal(AJD_TODAY, eot.ajd.round(6))
   end
 
   it "expected #{TODAY} from eot.date" do
