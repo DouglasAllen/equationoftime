@@ -135,9 +135,9 @@ describe 'tests ajd of 2456885.0 ' do
     assert_equal(3.8293871468831893, aliased_angles.true_anomaly)
   end
 
-  it 'expected   2.48877803069344 from \
+  it 'expected   2.48877803069345 from \
       aliased_angles.true_longitude()? ' do
-    assert_equal(2.48877803069344, aliased_angles.true_longitude)
+    assert_equal(2.48877803069345, aliased_angles.true_longitude.round(14))
   end
 
   it 'expected   2.5101242776531474 from \
