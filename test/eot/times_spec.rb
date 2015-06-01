@@ -25,8 +25,8 @@ describe 'tests ajd of 2456885.0 ' do
     assert_equal '2014-08-15T12:00:00+00:00', times.date.to_s
   end
 
-  it 'expected   3.8508003966038915 for times.ma'do
-    assert_equal(3.8508003966038915, times.ma)
+  it 'expected   3.850800396603891 for times.ma'do
+    assert_equal(3.850800396603891, times.ma.round(15))
   end
 
   it 'expected   "2014-08-15T12:00:00+00:00" from \
@@ -80,8 +80,8 @@ describe 'tests ajd of 2456885.0 ' do
     assert_equal(2_456_884.735936281, times.civil_twilight_start_jd)
   end
 
-  it 'expected   -0.003113709117457967 from times.eot_jd() ' do
-    assert_equal(-0.003113709117457967, times.eot_jd)
+  it 'expected   -0.003113709117458 from times.eot_jd() ' do
+    assert_equal(-0.003113709117458, times.eot_jd.round(15))
   end
 
   it 'expected   "2014-08-15T12:04:29+00:00" \
@@ -130,15 +130,15 @@ describe 'tests ajd of 2456885.0 ' do
   end
 
   it 'expected   -9.37789671342477 from times.time_delta_oblique() ' do
-    assert_equal(-9.37789671342477, times.time_delta_oblique)
+    assert_equal(-9.37789671342477, times.time_delta_oblique.round(15))
   end
 
   it 'expected   4.894155584285298 from times.time_delta_orbit() ' do
-    assert_equal(4.894155584285298, times.time_delta_orbit)
+    assert_equal(4.894155584285298, times.time_delta_orbit.round(15))
   end
 
   it 'expected   -4.483741129139473 from times.time_eot() ' do
-    assert_equal(-4.483741129139473, times.time_eot)
+    assert_equal(-4.483741129139473, times.time_eot.round(15))
   end
 
 end
@@ -192,8 +192,8 @@ describe 'tests ajd of 2455055.0 ' do
     assert_equal(2_455_055.2559819845, times.sunset_jd)
   end
 
-  it 'expected   -5.1609701870963 is from times.time_eot(13) ' do
-    assert_equal(-5.1609701870963, times.time_eot.round(13)
+  it 'expected   -5.1609701870963 is from times.time_eot() ' do
+    assert_equal(-5.1609701870963, times.time_eot.round(13))
   end
 
 end
