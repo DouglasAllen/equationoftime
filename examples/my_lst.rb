@@ -15,15 +15,15 @@ eot.longitude = my_lng
 	eot.ajd = eot.mean_local_noon_jd
   eot.ma_ta_set
 	
-  rad = eot.ra_sun * Eot::R2D
-  gad = eot.tl_aries * Eot::R2D  
+  raad = eot.ra_sun * Eot::R2D
+  gsad = eot.tl_aries * Eot::R2D  
   etad = eot.eot * Eot::R2D
-	crad = etad + rad
-  lsad = (gad + my_lng) % 360.0
-  lst = lsad / 15.0
-	ra = crad / 15.0
-  p ha = lst - ra
-	#~ (gad - rad) % 360.0
+	craad = (etad + raad) % 360.0
+  lsad = (gsad + my_lng) % 360.0
+  lst = (lsad / 15.0)
+	cra = (craad / 15.0)
+  p ha = (lst - cra).round(10)
+	p (gsad - raad) % 360.0
 	
   #~ gst = gad / 15.0
 	#~ noon = tn - ha / 24.0
