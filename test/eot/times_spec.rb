@@ -161,8 +161,8 @@ describe 'tests ajd of 2455055.0 ' do
     assert_equal '2009-08-11T12:00:00+00:00', times.date.to_s
   end
 
-  it 'expected   3.7871218188949207 from times. ' do
-    assert_equal(3.7871218188949207, times.ma)
+  it 'expected   3.787121818894921 from times. ' do
+    assert_equal(3.787121818894921, times.ma.round(15))
   end
 
   it 'expected   "2009-08-11T12:00:00+00:00" from \
@@ -171,8 +171,8 @@ describe 'tests ajd of 2455055.0 ' do
                  times.ajd_to_datetime(times.ajd).to_s
   end
 
-  it 'expected   -0.003584007074372416 from times.eot_jd() ' do
-    assert_equal(-0.003584007074372416, times.eot_jd)
+  it 'expected   -0.003584007074372 from times.eot_jd() ' do
+    assert_equal(-0.003584007074372, times.eot_jd.round(15))
   end
 
   it 'expected   "2009-08-11T06:01:42+00:00" \
@@ -192,8 +192,8 @@ describe 'tests ajd of 2455055.0 ' do
     assert_equal(2_455_055.2559819845, times.sunset_jd)
   end
 
-  it 'expected   -5.160970187096279 is from times.time_eot() ' do
-    assert_equal(-5.160970187096279, times.time_eot)
+  it 'expected   -5.1609701870963 is from times.time_eot(13) ' do
+    assert_equal(-5.1609701870963, times.time_eot.round(13)
   end
 
 end
