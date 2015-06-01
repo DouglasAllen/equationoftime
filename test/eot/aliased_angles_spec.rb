@@ -171,123 +171,123 @@ describe 'tests ajd of 2455055.5 ' do
   end
 
   it 'expected   3.7871218188949207, from aliased_angles.ma ' do
-    assert_equal(3.7871218188949207, aliased_angles.ma)
+    assert_equal(3.7871218188949207, aliased_angles.ma.round(15))
   end
 
   it 'expected   3.7871218188949207 from \
       aliased_angles.ma  from Eot_angles.mean_anomaly() ' do
-    assert_equal(3.7871218188949207, aliased_angles.mean_anomaly)
+    assert_equal(3.7871218188949207, aliased_angles.mean_anomaly.round(15))
   end
 
   it 'expected   2.4252140645725033 from \
       aliased_angles.apparent_longitude()? ' do
-    assert_equal(2.4252140645725033, aliased_angles.apparent_longitude)
+    assert_equal(2.4252140645725033, aliased_angles.apparent_longitude.round(15))
   end
 
   it 'expected   -0.7541886969975007 from \
       aliased_angles.cosine_apparent_longitude()? ' do
     assert_equal(-0.7541886969975007, \
-                 aliased_angles.cosine_apparent_longitude)
+                 aliased_angles.cosine_apparent_longitude.round(15))
   end
 
   it 'expected   -0.7542060769936684 from \
       aliased_angles.cosine_true_longitude()? ' do
-    assert_equal(-0.7542060769936684, aliased_angles.cosine_true_longitude)
+    assert_equal(-0.7542060769936684, aliased_angles.cosine_true_longitude.round(15))
   end
 
   it 'expected   0.9174818088112336 from \
       aliased_angles.cosine_true_obliquity()? ' do
-    assert_equal(0.9174818088112336, aliased_angles.cosine_true_obliquity)
+    assert_equal(0.9174818088112336, aliased_angles.cosine_true_obliquity.round(15))
   end
 
-  it 'expected   0.2642691272294404 from \
+  it 'expected   0.264269127229441 from \
       aliased_angles.declination()? ' do
-    assert_equal(0.2642691272294404, aliased_angles.declination)
+    assert_equal(0.264269127229441, aliased_angles.declination.round(15))
   end
 
   it 'expected   -0.04234904897476355 from \
       aliased_angles.delta_t_ecliptic()? ' do
-    assert_equal(-0.04234904897476355, aliased_angles.delta_t_ecliptic)
+    assert_equal(-0.04234904897476355, aliased_angles.delta_t_ecliptic.round(15))
   end
 
   it 'expected    0.019768413456709915 from \
       aliased_angles.delta_t_elliptic()? ' do
-    assert_equal(0.019768413456709915, aliased_angles.delta_t_elliptic)
+    assert_equal(0.019768413456709915, aliased_angles.delta_t_elliptic.round(15))
   end
 
   it 'expected   0.016704576164208475 from \
       aliased_angles.eccentricity_earth_orbit()? ' do
     assert_equal(0.016704576164208475, \
-                 aliased_angles.eccentricity_earth_orbit)
+                 aliased_angles.eccentricity_earth_orbit.round(15))
   end
 
   it 'expected   -0.019768413456709915 from \
       aliased_angles.equation_of_center()? ' do
-    assert_equal(-0.019768413456709915, aliased_angles.equation_of_center)
+    assert_equal(-0.019768413456709915, aliased_angles.equation_of_center.round(15))
   end
 
   it 'expected   2.445008945789877 from \
       aliased_angles.geometric_mean_longitude()? ' do
-    assert_equal(2.445008945789877, aliased_angles.geometric_mean_longitude)
+    assert_equal(2.445008945789877, aliased_angles.geometric_mean_longitude.round(15))
   end
 
   it 'expected   1.585863261753274 from \
       aliased_angles.horizon_angle()? ' do
-    assert_equal(1.585863261753274, aliased_angles.horizon_angle(1))
+    assert_equal(1.585863261753274, aliased_angles.horizon_angle(1).round(15))
   end
 
   it 'expected   3.7871218188949207 from \
       aliased_angles.mean_anomaly()? ' do
-    assert_equal(3.7871218188949207, aliased_angles.mean_anomaly)
+    assert_equal(3.7871218188949207, aliased_angles.mean_anomaly.round(15))
   end
 
   it 'expected   2.444907382260759 from \
       aliased_angles.mean_longitude_aries()? ' do
-    assert_equal(2.444907382260759, aliased_angles.mean_longitude_aries)
+    assert_equal(2.444907382260759, aliased_angles.mean_longitude_aries.round(15))
   end
 
   it 'expected   0.4090707793981491 from \
       aliased_angles.mean_obliquity()? ' do
-    assert_equal(0.4090707793981491, aliased_angles.mean_obliquity)
+    assert_equal(0.4090707793981491, aliased_angles.mean_obliquity.round(15))
   end
 
   it 'expected   0.4090934409048494 from \
       aliased_angles.obliquity_correction()? ' do
-    assert_equal(0.4090934409048494, aliased_angles.obliquity_correction)
+    assert_equal(0.4090934409048494, aliased_angles.obliquity_correction.round(15))
   end
 
   it 'expected   2.467563113547267 from \
       aliased_angles.right_ascension()? ' do
-    assert_equal(2.467563113547267, aliased_angles.right_ascension)
+    assert_equal(2.467563113547267, aliased_angles.right_ascension.round(15))
   end
 
   it 'expected   0.6566577566139093 from \
       aliased_angles.sine_apparent_longitude()? ' do
-    assert_equal(0.6566577566139093, aliased_angles.sine_apparent_longitude)
+    assert_equal(0.6566577566139093, aliased_angles.sine_apparent_longitude.round(15))
   end
 
   it 'expected   0.6566377946979757 from \
       aliased_angles.sine_true_longitude()? ' do
-    assert_equal(0.6566377946979757, aliased_angles.sine_true_longitude)
+    assert_equal(0.6566377946979757, aliased_angles.sine_true_longitude.round(15))
   end
 
   it 'expected   3.767353405438211 from aliased_angles.true_anomaly()? ' do
-    assert_equal(3.767353405438211, aliased_angles.true_anomaly)
+    assert_equal(3.767353405438211, aliased_angles.true_anomaly.round(15))
   end
 
   it 'expected   2.4252405323331674 from \
       aliased_angles.true_longitude()? ' do
-    assert_equal(2.4252405323331674, aliased_angles.true_longitude)
+    assert_equal(2.4252405323331674, aliased_angles.true_longitude.round(15))
   end
 
   it 'expected   2.4449774607872907 from \
       aliased_angles.true_longitude_aries()? ' do
-    assert_equal(2.4449774607872907, aliased_angles.true_longitude_aries)
+    assert_equal(2.4449774607872907, aliased_angles.true_longitude_aries.round(15))
   end
 
   it 'expected   0.4090934409048494 from \
       aliased_angles.true_obliquity()? ' do
-    assert_equal(0.4090934409048494, aliased_angles.true_obliquity)
+    assert_equal(0.4090934409048494, aliased_angles.true_obliquity.round(15))
   end
 
 end

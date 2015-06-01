@@ -226,8 +226,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(2.444907382260759, angles.ml_aries)
   end
 
-  it 'expected   0.4090707793981491 from angles.mo_earth()? ' do
-    assert_equal(0.4090707793981491, angles.mo_earth)
+  it 'expected   0.409070779398149 from angles.mo_earth()? ' do
+    assert_equal(0.409070779398149, angles.mo_earth.round(15))
   end
 
   it 'expected   -1.0615640635268548 from angles.omega()? ' do
