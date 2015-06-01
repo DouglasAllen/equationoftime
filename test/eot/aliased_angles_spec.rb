@@ -171,146 +171,146 @@ describe 'tests ajd of 2455055.5 ' do
                  aliased_angles.date.to_s)
   end
 
-  it 'expected   3.787121818894921, from aliased_angles.ma ' do
-    assert_equal(3.787121818894921, \
-                 aliased_angles.ma.round(15))
+  it 'expected   3.7871218189, from aliased_angles.ma ' do
+    assert_equal(3.7871218189, \
+                 aliased_angles.ma.round(10))
   end
 
-  it 'expected   3.787121818894921 from \
+  it 'expected   3.7871218189 from \
       aliased_angles.ma  from Eot_angles.mean_anomaly() ' do
-    assert_equal(3.787121818894921, \
-                 aliased_angles.mean_anomaly.round(15))
+    assert_equal(3.7871218189, \
+                 aliased_angles.mean_anomaly.round(10))
   end
 
-  it 'expected   2.425214064572504 from \
+  it 'expected   2.4252140646 from \
       aliased_angles.apparent_longitude()? ' do
-    assert_equal(2.425214064572504, \
-                 aliased_angles.apparent_longitude.round(15))
+    assert_equal(2.4252140646, \
+                 aliased_angles.apparent_longitude.round(10))
   end
 
-  it 'expected   -0.754188696997501 from \
+  it 'expected   -0.754188697 from \
       aliased_angles.cosine_apparent_longitude()? ' do
-    assert_equal(-0.754188696997501, \
-                 aliased_angles.cosine_apparent_longitude.round(15))
+    assert_equal(-0.754188697, \
+                 aliased_angles.cosine_apparent_longitude.round(10))
   end
 
-  it 'expected   -0.75420607699367 from \
+  it 'expected   -0.754206077 from \
       aliased_angles.cosine_true_longitude()? ' do
-    assert_equal(-0.75420607699367, \
-                 aliased_angles.cosine_true_longitude.round(14))
+    assert_equal(-0.754206077, \
+                 aliased_angles.cosine_true_longitude.round(10))
   end
 
-  it 'expected   0.917481808811234 from \
+  it 'expected   0.9174818088 from \
       aliased_angles.cosine_true_obliquity()? ' do
-    assert_equal(0.917481808811234, \
-                 aliased_angles.cosine_true_obliquity.round(15))
+    assert_equal(0.9174818088, \
+                 aliased_angles.cosine_true_obliquity.round(10))
   end
 
-  it 'expected   0.26426912722944 from \
+  it 'expected   0.2642691272 from \
       aliased_angles.declination()? ' do
-    assert_equal(0.26426912722944, \
-                 aliased_angles.declination.round(15))
+    assert_equal(0.2642691272, \
+                 aliased_angles.declination.round(10))
   end
 
-  it 'expected   -0.042349048974764 from \
+  it 'expected   -0.042349049 from \
       aliased_angles.delta_t_ecliptic()? ' do
-    assert_equal(-0.042349048974764, \
-                 aliased_angles.delta_t_ecliptic.round(15))
+    assert_equal(-0.042349049, \
+                 aliased_angles.delta_t_ecliptic.round(10))
   end
 
-  it 'expected    0.01976841345671 from \
+  it 'expected   0.0197684135 from \
       aliased_angles.delta_t_elliptic()? ' do
-    assert_equal(0.01976841345671, \
-                 aliased_angles.delta_t_elliptic.round(14))
+    assert_equal(0.0197684135, \
+                 aliased_angles.delta_t_elliptic.round(10))
   end
 
-  it 'expected   0.016704576164208 from \
+  it 'expected   0.0167045762 from \
       aliased_angles.eccentricity_earth_orbit()? ' do
-    assert_equal(0.016704576164208, \
-                 aliased_angles.eccentricity_earth_orbit.round(15))
+    assert_equal(0.0167045762, \
+                 aliased_angles.eccentricity_earth_orbit.round(10))
   end
 
-  it 'expected   -0.01976841345671 from \
+  it 'expected   -0.0197684135 from \
       aliased_angles.equation_of_center()? ' do
-    assert_equal(-0.01976841345671, \
-                 aliased_angles.equation_of_center.round(14))
+    assert_equal(-0.0197684135, \
+                 aliased_angles.equation_of_center.round(10))
   end
 
-  it 'expected   2.445008945789877 from \
+  it 'expected   2.4450089458 from \
       aliased_angles.geometric_mean_longitude()? ' do
-    assert_equal(2.445008945789877, \
-                 aliased_angles.geometric_mean_longitude.round(15))
+    assert_equal(2.4450089458, \
+                 aliased_angles.geometric_mean_longitude.round(10))
   end
 
-  it 'expected   1.585863261753274 from \
+  it 'expected   1.5858632618 from \
       aliased_angles.horizon_angle()? ' do
-    assert_equal(1.585863261753274, \
-                 aliased_angles.horizon_angle(1).round(15))
+    assert_equal(1.5858632618, \
+                 aliased_angles.horizon_angle(1).round(10))
   end
 
-  it 'expected   3.78712181889492 from \
+  it 'expected   3.7871218189 from \
       aliased_angles.mean_anomaly()? ' do
-    assert_equal(3.78712181889492, \
-                 aliased_angles.mean_anomaly.round(14))
+    assert_equal(3.7871218189, \
+                 aliased_angles.mean_anomaly.round(10))
   end
 
-  it 'expected   2.444907382260759 from \
+  it 'expected   2.4449073823 from \
       aliased_angles.mean_longitude_aries()? ' do
-    assert_equal(2.444907382260759, \
-                 aliased_angles.mean_longitude_aries.round(15))
+    assert_equal(2.4449073823, \
+                 aliased_angles.mean_longitude_aries.round(10))
   end
 
-  it 'expected   0.409070779398149 from \
+  it 'expected   0.4090707794 from \
       aliased_angles.mean_obliquity()? ' do
-    assert_equal(0.409070779398149, \
-                 aliased_angles.mean_obliquity.round(15))
+    assert_equal(0.4090707794, \
+                 aliased_angles.mean_obliquity.round(10))
   end
 
-  it 'expected   0.409093440904849 from \
+  it 'expected   0.4090934409 from \
       aliased_angles.obliquity_correction()? ' do
-    assert_equal(0.409093440904849, \
-                 aliased_angles.obliquity_correction.round(15))
+    assert_equal(0.4090934409, \
+                 aliased_angles.obliquity_correction.round(10))
   end
 
-  it 'expected   2.467563113547267 from \
+  it 'expected   2.4675631135 from \
       aliased_angles.right_ascension()? ' do
-    assert_equal(2.467563113547267, \
-                 aliased_angles.right_ascension.round(15))
+    assert_equal(2.4675631135, \
+                 aliased_angles.right_ascension.round(10))
   end
 
-  it 'expected   0.6566577566139 from \
+  it 'expected   0.6566577566 from \
       aliased_angles.sine_apparent_longitude()? ' do
-    assert_equal(0.6566577566139, \
-                 aliased_angles.sine_apparent_longitude.round(13))
+    assert_equal(0.6566577566, \
+                 aliased_angles.sine_apparent_longitude.round(10))
   end
 
-  it 'expected   0.656637794697976 from \
+  it 'expected   0.6566377947 from \
       aliased_angles.sine_true_longitude()? ' do
-    assert_equal(0.656637794697976, \
-                 aliased_angles.sine_true_longitude.round(15))
+    assert_equal(0.6566377947, \
+                 aliased_angles.sine_true_longitude.round(10))
   end
 
-  it 'expected   3.767353405438211 from aliased_angles.true_anomaly()? ' do
-    assert_equal(3.767353405438211, \
-                 aliased_angles.true_anomaly.round(15))
+  it 'expected   3.7673534054 from aliased_angles.true_anomaly()? ' do
+    assert_equal(3.7673534054, \
+                 aliased_angles.true_anomaly.round(10))
   end
 
-  it 'expected   2.425240532333168 from \
+  it 'expected   2.4252405323 from \
       aliased_angles.true_longitude()? ' do
-    assert_equal(2.425240532333168, \
-                 aliased_angles.true_longitude.round(15))
+    assert_equal(2.4252405323, \
+                 aliased_angles.true_longitude.round(10))
   end
 
-  it 'expected   2.444977460787291 from \
+  it 'expected   2.4449774608 from \
       aliased_angles.true_longitude_aries()? ' do
-    assert_equal(2.444977460787291, \
-                 aliased_angles.true_longitude_aries.round(15))
+    assert_equal(2.4449774608, \
+                 aliased_angles.true_longitude_aries.round(10))
   end
 
-  it 'expected   0.409093440904849 from \
+  it 'expected   0.4090934409 from \
       aliased_angles.true_obliquity()? ' do
-    assert_equal(0.409093440904849, \
-                 aliased_angles.true_obliquity.round(15))
+    assert_equal(0.4090934409, \
+                 aliased_angles.true_obliquity.round(10))
   end
 
 end
