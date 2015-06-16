@@ -5,12 +5,13 @@ double mlSun(double t)
 {
   double a;
   
-  a = fmod(      280.4664567    +
-  t * (        36000.76982779   +
-  t * (            0.0003032028 +
-  t * (   1.0/499310.0          +
-  t * (  1.0/-152990.0          +
-  t * (1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 0.017453292519943295769236907684886;
+  a = fmod(          280.4664567       +
+    t * (             36000.76982779     +
+    t * (                     0.0003032028 +
+    t * (     1.0/499310.0                   +
+    t * (    1.0/-152990.0                   +
+    t * (1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 
+	  RADEG;
 
   return a;
 }
@@ -52,7 +53,7 @@ double tlSun(double ma, double t)
 {
   double a;
 
-  a = fmod( mlSun(t) + eqc(ma, t), 57.295779513082320876798154814105);
+  a = fmod( mlSun(t) + eqc(ma, t), DEGRAD);
 
   return a;
 }
@@ -62,9 +63,9 @@ double alSun(double ma, double t, double o)
   double a;
 
   a = fmod(tlSun(ma, t) - 
-           0.00569 * 0.017453292519943295769236907684886 - 
-           0.00478 * 0.017453292519943295769236907684886 * 
-           sin(o), 57.295779513082320876798154814105);
+           0.00569 * RADEG - 
+           0.00478 * RADEG * 
+           sin(o), DEGRAG);
 
   return a;
 }
@@ -79,7 +80,7 @@ double cosZ(double zenith)
 
   double ca;
 
-  ca = cos(zenith * 0.017453292519943295769236907684886);
+  ca = cos(zenith * RADEG);
 
   return ca;
 }
@@ -109,7 +110,7 @@ double cos_lat(double lat)
 
   double ca;
 
-  ca = cos(lat * 0.017453292519943295769236907684886);
+  ca = cos(lat * RADEG);
 
   return ca;
 }                                   
@@ -159,7 +160,7 @@ double sin_lat(double lat)
 
   double sa;
 
-  sa = sin(lat * 0.017453292519943295769236907684886);
+  sa = sin(lat * RADEG);
 
   return sa;
 }                                   
