@@ -263,10 +263,10 @@ describe 'tests ajd of 2455055.5 ' do
                  aliased_angles.geometric_mean_longitude.round(10))
   end
 
-  it 'expected   1.5858632618 from \
+  it 'expected   1.585863262 from \
       aliased_angles.horizon_angle()? ' do
-    assert_equal(1.5858632618, \
-                 aliased_angles.horizon_angle(1).round(10))
+    assert_equal(1.585863262, \
+                 aliased_angles.horizon_angle(1).round(9))
   end
 
   it 'expected   3.7871218189 from \

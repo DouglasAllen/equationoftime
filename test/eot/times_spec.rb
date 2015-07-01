@@ -131,18 +131,18 @@ describe 'tests ajd of 2456885.0 ' do
     assert_equal(2_456_885.2554991012, times.sunset_jd)
   end
 
-  it 'expected   -9.3778967134 from times.time_delta_oblique() ' do
-    assert_equal(-9.3778967134, \
-                 times.time_delta_oblique.round(10))
+  it 'expected   -9.377896713 from times.time_delta_oblique() ' do
+    assert_equal(-9.377896713, \
+                 times.time_delta_oblique.round(9))
   end
 
-  it 'expected   4.8941555843 from times.time_delta_orbit() ' do
-    assert_equal(4.8941555843, \
+  it 'expected   4.894155584 from times.time_delta_orbit() ' do
+    assert_equal(4.894155584, \
                  times.time_delta_orbit.round(9))
   end
 
-  it 'expected   -4.4837411291 from times.time_eot() ' do
-    assert_equal(-4.4837411291, \
+  it 'expected   -4.483741129 from times.time_eot() ' do
+    assert_equal(-4.483741129, \
                  times.time_eot.round(9))
   end
 
