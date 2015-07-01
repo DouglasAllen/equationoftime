@@ -258,12 +258,12 @@ describe 'Tests ajd of 2455055.5 ' do
 
   it 'expected   1.5858632618 from angles.ha_sun(1)? ' do
     assert_equal(1.5858632618, \
-                 angles.ha_sun(1).round(10))
+                 angles.ha_sun(1).round(9))
   end
 
   it 'expected   3.7871218189 from angles.ma_sun()? ' do
     assert_equal(3.7871218189, \
-                 angles.ma_sun.round(10))
+                 angles.ma_sun.round(9))
   end
 
   it 'expected   2.4449073823 from angles.ml_aries()? ' do

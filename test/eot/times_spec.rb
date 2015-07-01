@@ -138,12 +138,12 @@ describe 'tests ajd of 2456885.0 ' do
 
   it 'expected   4.8941555843 from times.time_delta_orbit() ' do
     assert_equal(4.8941555843, \
-                 times.time_delta_orbit.round(10))
+                 times.time_delta_orbit.round(9))
   end
 
   it 'expected   -4.4837411291 from times.time_eot() ' do
     assert_equal(-4.4837411291, \
-                 times.time_eot.round(10))
+                 times.time_eot.round(9))
   end
 
 end
