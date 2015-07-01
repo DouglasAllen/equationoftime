@@ -65,7 +65,7 @@ double alSun(double ma, double t, double o)
   a = fmod(tlSun(ma, t) - 
            0.00569 * RADEG - 
            0.00478 * RADEG * 
-           sin(o), DEGRAG);
+           sin(o), DEGRAD);
 
   return a;
 }
