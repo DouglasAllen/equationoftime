@@ -10,7 +10,7 @@ class Eot
   # Apparent solar longitude = true longitude - aberation
 
   def al_sun
-    Celes.anp(al(@ma, @ta, omega))
+    Celes.anp(al(@ma, @t, omega))
   end
   alias_method :apparent_longitude, :al_sun
   alias_method :alsun, :al_sun
@@ -22,7 +22,7 @@ class Eot
   # added to mean anomaly to get true anomaly.
 
   def center
-    eqc(@ma, @ta)
+    eqc(@ma, @t)
   end
   alias_method :equation_of_center, :center
 
@@ -43,7 +43,7 @@ class Eot
   # Horners' calculation method
 
   def eccentricity_earth
-    eoe(@ta)
+    eoe(@t)
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_earth
 
@@ -78,7 +78,7 @@ class Eot
   # needed to get true longitude for low accuracy.
 
   def gml_sun
-    ml(@ta)
+    ml(@t)
   end
   alias_method :geometric_mean_longitude, :gml_sun
   alias_method :ml_sun, :gml_sun
@@ -124,8 +124,8 @@ class Eot
   # and to get true anomaly true longitude via center equation
 
   def ma_sun
-    @ta = (@ajd - DJ00) / DJC
-    @ma = Celes.falp03(@ta)
+    @t = (@ajd - DJ00) / DJC
+    @ma = Celes.falp03(@t)
   end
   alias_method :mean_anomaly, :ma_sun
 
@@ -162,7 +162,7 @@ class Eot
   # on the ecliptic plane measured from the mean equinox of date.
 
   def omega
-    Celes.faom03(@ta)
+    Celes.faom03(@t)
   end
 
   ##
@@ -185,7 +185,7 @@ class Eot
   # used in equation of time
 
   def ta_sun
-    Celes.anp(@ma + eqc(@ma, @ta))
+    Celes.anp(@ma + eqc(@ma, @t))
   end
   alias_method :true_anomaly, :ta_sun
 
@@ -209,7 +209,7 @@ class Eot
   # used in equation of time
 
   def tl_sun
-    tl(@ma, @ta)
+    tl(@ma, @t)
   end
   alias_method :true_longitude, :tl_sun
   alias_method :ecliptic_longitude, :tl_sun

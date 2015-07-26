@@ -7,6 +7,15 @@
 
 ID id_status;
 
+/* 
+Julian century is t parameter
+*/
+VALUE func_jc(VALUE klass, VALUE vajd) 
+{
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(jc(NUM2DBL(vajd)));
+}
+
 /*
 Apparent longitude of the Sun C extension.
 p1 = mean anomaly
@@ -152,6 +161,7 @@ Init_eot(void) {
 
   VALUE cEot = rb_define_class("Eot", rb_cObject);
   id_status = rb_intern("@status");
+  rb_define_method(cEot, "jc", func_jc, 1);
   rb_define_method(cEot, "al", func_al, 3);
   rb_define_method(cEot, "cosZ", func_cosZ, 1);
   rb_define_method(cEot, "cos_al_sun", func_cos_al_sun, 1);

@@ -42,8 +42,8 @@ describe 'Eot_initialize has set attributes ' do
     assert_equal(MA_SUN, eot.ma)
   end
   
-  it "expected #{FRAC_CENT} from @ta" do
-    assert_equal(FRAC_CENT, eot.ta.round(9))
+  it "expected #{FRAC_CENT} from @t" do
+    assert_equal(FRAC_CENT, eot.t.round(9))
   end
   
   it "expected #{DEF_INT} from eot.addr" do

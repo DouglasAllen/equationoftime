@@ -1,8 +1,9 @@
-#include "math.h"
+#include <sofam.h>
 
 #define RADEG 0.0174532925199
 #define DEGRAD 57.2957795457
 
+double jc(double ajd );
 double mlSun(double t);
 double eoe(double t);
 double eqc(double ma, double t);

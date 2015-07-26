@@ -1,19 +1,23 @@
 #include "ceot.h"
 
+/* get t generated for most parameters
+   t is the Julian century value.
+*/
+double jc(double ajd)
+{
+  return (ajd - DJ00)/DJC;
+}
+
 /* Mean geocentric longitude of the Sun */
 double mlSun(double t)
 {
-  double a;
-  
-  a = fmod(          280.4664567       +
-    t * (             36000.76982779     +
-    t * (                     0.0003032028 +
-    t * (     1.0/499310.0                   +
-    t * (    1.0/-152990.0                   +
-    t * (1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 
+  return fmod(         280.4664567    +
+       t * (         36000.76982779   +
+       t * (             0.0003032028 +
+       t * (    1.0/499310.0          +
+       t * (   1.0/-152990.0          +
+       t * ( 1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 
 	  RADEG;
-
-  return a;
 }
 
 /* Eccentricity of Earth orbit */
