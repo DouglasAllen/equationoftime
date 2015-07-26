@@ -1,4 +1,5 @@
 # aliased_angles_spec.rb
+
 gem 'minitest'
 require 'minitest/autorun'
 
@@ -170,6 +171,7 @@ describe 'tests ajd of 2456885.0 ' do
     assert_equal(0.4090187046, \
                  aliased_angles.true_obliquity.round(10))
   end
+
 end
 
 describe 'tests ajd of 2455055.5 ' do

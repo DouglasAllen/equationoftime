@@ -13,16 +13,16 @@ gemspec
 
 
 group :development, :test do
-  gem 'rubocop'
-  gem 'hoe'
-  gem 'rake-compiler', '~> 0.9.3'
-  gem 'guard'
-  gem 'minitest'
-  gem 'guard-minitest'
-  gem 'ZenTest'
-  gem 'rspec'
-  gem 'yard'
-  gem 'hoe-yard'
-  gem 'rdoc'
-  gem "codeclimate-test-reporter", group: :test, require: nil
+  #gem 'rubocop'
+  #gem 'hoe'
+  #gem 'rake-compiler', '~> 0.9.3'
+  #gem 'guard'
+  #gem 'minitest'
+  #gem 'guard-minitest'
+  #gem 'ZenTest'
+  #gem 'rspec'
+  #gem 'yard'
+  #gem 'hoe-yard'
+  #gem 'rdoc'
+  #gem "codeclimate-test-reporter", group: :test, require: nil
 end
