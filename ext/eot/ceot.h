@@ -1,4 +1,5 @@
-#include <sofam.h>
+#include "sofam.h"
+#include <math.h>
 
 #define RADEG 0.0174532925199
 #define DEGRAD 57.2957795457
