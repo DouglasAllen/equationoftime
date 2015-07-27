@@ -1,12 +1,5 @@
 # init_spec.rb
 
-gem 'minitest'
-#require 'minitest/autorun'
-
-lib = File.expand_path('../../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eot'
-
 describe 'Eot_initialize has set attributes ' do
 
   AJD_TODAY   = DateTime.now.to_time.utc.to_datetime.ajd.to_f.round(6)

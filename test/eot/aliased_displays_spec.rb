@@ -1,12 +1,6 @@
 # aliased_displays_spec.rb
 
-gem 'minitest'
-#require 'minitest/autorun'
-
-lib = File.expand_path('../../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
-
 aliased_displays = Eot.new
 
 describe 'aliased_displays using ajd of 2456885.0' do
@@ -17,7 +11,6 @@ describe 'aliased_displays using ajd of 2456885.0' do
     aliased_displays.ma_ta_set
     # check date for this ajd when needed.
     aliased_displays.date = aliased_displays.ajd_to_datetime(ajd)
-
   end
 
   it 'expected   2456885.0 , from aliased_displays.' do

@@ -1,5 +1,4 @@
 
-
 require 'bundler/gem_tasks'
 require 'rubygems'
 require 'hoe'
@@ -9,6 +8,7 @@ require 'rake/testtask'
 
 require 'rdoc/task'
 require 'rspec/core/rake_task'
+
 require 'yard'
 
 # Hoe.plugins.delete :newb
@@ -77,8 +77,9 @@ Rake::Task[:test].prerequisites << :compile
 task default: [:test]
 
 Rake::TestTask.new(:test) do |t|
-  t.libs << 'test'
-  t.test_files = FileList['test/eot/*_spec.rb']
+  t.libs.push "lib"
+  t.libs.push 'test'
+  t.test_files = FileList['test/spec_helper.rb', 'test/eot/*_spec.rb']
   t.verbose = true
   t.options
 end

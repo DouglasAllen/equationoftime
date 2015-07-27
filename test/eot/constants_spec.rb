@@ -1,12 +1,5 @@
 # constants_spec.rb
 
-gem 'minitest'
-#require 'minitest/autorun'
-
-lib = File.expand_path('../../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eot'
-
 describe 'Equation of Time constants.' do
 
   it "01 require 'eot' should find all constants." do
