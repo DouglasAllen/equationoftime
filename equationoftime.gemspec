@@ -47,5 +47,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.1.0"
   spec.add_development_dependency "yard", "~> 0.8.7.4"
   # spec.add_development_dependency "rdoc", "~> 4.1.2"
-
+  spec.add_development_dependency "codeclimate-test-reporter"
 end
