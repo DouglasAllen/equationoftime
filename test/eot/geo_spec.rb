@@ -1,5 +1,6 @@
 # geo_spec.rb
 
+require 'eot'
 geo = GeoLatLng.new
 
 describe 'Geo defaults' do
