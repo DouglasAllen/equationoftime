@@ -1,109 +1,56 @@
-#ifndef SOFAMHDEF
-#define SOFAMHDEF
+#include "sofam.h"
 
+double iauFad03(double t)
 /*
-**  - - - - - - - -
-**   s o f a m . h
-**  - - - - - - - -
+**  - - - - - - - - -
+**   i a u F a d 0 3
+**  - - - - - - - - -
 **
-**  Macros used by SOFA library.
+**  Fundamental argument, IERS Conventions (2003):
+**  mean elongation of the Moon from the Sun.
 **
-**  Please note that the constants defined below are to be used only in
-**  the context of the SOFA software, and have no other official IAU
-**  status.
+**  Status:  canonical model.
 **
-**  This revision:   2012 February 23
+**  Given:
+**     t     double    TDB, Julian centuries since J2000.0 (Note 1)
+**
+**  Returned (function value):
+**           double    D, radians (Note 2)
+**
+**  Notes:
+**
+**  1) Though t is strictly TDB, it is usually more convenient to use
+**     TT, which makes no significant difference.
+**
+**  2) The expression used is as adopted in IERS Conventions (2003) and
+**     is from Simon et al. (1994).
+**
+**  References:
+**
+**     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
+**     IERS Technical Note No. 32, BKG (2004)
+**
+**     Simon, J.-L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
+**     Francou, G., Laskar, J. 1994, Astron.Astrophys. 282, 663-683
+**
+**  This revision:  2009 December 16
 **
 **  Original version 2012-03-01
 **
 **  Copyright (C) 2013 Naoki Arita.  See notes at end.
 */
+{
+   double a;
 
-#include "sofa.h"
 
+/* Mean elongation of the Moon from the Sun (IERS Conventions 2003). */
+   a = fmod(          1072260.703692 +
+             t * ( 1602961601.2090 +
+             t * (        - 6.3706 +
+             t * (          0.006593 +
+             t * (        - 0.00003169 ) ) ) ), TURNAS ) * DAS2R;
 
-/* Pi */
-#define DPI (3.141592653589793238462643)
-
-/* 2Pi */
-#define D2PI (6.283185307179586476925287)
-
-/* Degrees to radians */
-#define DD2R (1.745329251994329576923691e-2)
-
-/* Radians to arcseconds */
-#define DR2AS (206264.8062470963551564734)
-
-/* Arcseconds to radians */
-#define DAS2R (4.848136811095359935899141e-6)
-
-/* Seconds of time to radians */
-#define DS2R (7.272205216643039903848712e-5)
-
-/* Arcseconds in a full circle */
-#define TURNAS (1296000.0)
-
-/* Milliarcseconds to radians */
-#define DMAS2R (DAS2R / 1e3)
-
-/* Length of tropical year B1900 (days) */
-#define DTY (365.242198781)
-
-/* Seconds per day. */
-#define DAYSEC (86400.0)
-
-/* Days per Julian year */
-#define DJY (365.25)
-
-/* Days per Julian century */
-#define DJC (36525.0)
-
-/* Days per Julian millennium */
-#define DJM (365250.0)
-
-/* Reference epoch (J2000.0), Julian Date */
-#define DJ00 (2451545.0)
-
-/* Julian Date of Modified Julian Date zero */
-#define DJM0 (2400000.5)
-
-/* Reference epoch (J2000.0), Modified Julian Date */
-#define DJM00 (51544.5)
-
-/* 1977 Jan 1.0 as MJD */
-#define DJM77 (43144.0)
-
-/* TT minus TAI (s) */
-#define TTMTAI (32.184)
-
-/* AU (m) */
-#define DAU (149597870e3)
-
-/* Speed of light (AU per day) */
-#define DC (DAYSEC / 499.004782)
-
-/* L_G = 1 - d(TT)/d(TCG) */
-#define ELG (6.969290134e-10)
-
-/* L_B = 1 - d(TDB)/d(TCB), and TDB (s) at TAI 1977/1/1.0 */
-#define ELB (1.550519768e-8)
-#define TDB0 (-6.55e-5)
-
-/* dint(A) - truncate to nearest whole number towards zero (double) */
-#define dint(A) ((A)<0.0?ceil(A):floor(A))
-
-/* dnint(A) - round to nearest whole number (double) */
-#define dnint(A) ((A)<0.0?ceil((A)-0.5):floor((A)+0.5))
-
-/* dsign(A,B) - magnitude of A with sign of B (double) */
-#define dsign(A,B) ((B)<0.0?-fabs(A):fabs(A))
-
-/* Reference ellipsoids */
-#define WGS84 1
-#define GRS80 2
-#define WGS72 3
-
-#endif
+   return a;
 
 /*----------------------------------------------------------------------
 **
@@ -153,3 +100,4 @@
 **  POSSIBILITY OF SUCH DAMAGE.
 **
 **--------------------------------------------------------------------*/
+}

@@ -10,7 +10,7 @@ class Eot
   # Apparent solar longitude = true longitude - aberation
 
   def al_sun
-    Celes.anp(al(@ma, @t, omega))
+    al(@t)
   end
   alias_method :apparent_longitude, :al_sun
   alias_method :alsun, :al_sun
@@ -22,7 +22,7 @@ class Eot
   # added to mean anomaly to get true anomaly.
 
   def center
-    eqc(@ma, @t)
+    eqc(@t)
   end
   alias_method :equation_of_center, :center
 
@@ -57,7 +57,7 @@ class Eot
   # see: #cosine_to_earth and #angle_delta_psi
 
   def eq_of_equinox
-    Celes.ee06a(@ajd, 0.0)
+    ee06a(@ajd, 0.0)
   end
 
   
@@ -125,7 +125,7 @@ class Eot
 
   def ma_sun
     @t = (@ajd - DJ00) / DJC
-    @ma = Celes.falp03(@t)
+    @ma = falp03(@t)
   end
   alias_method :mean_anomaly, :ma_sun
 
@@ -138,7 +138,7 @@ class Eot
   def ml_aries
     dt = 67.184
     tt = @ajd + dt / 86_400.0
-    Celes.gmst06(@ajd, 0, tt, 0)
+    gmst06(@ajd, 0, tt, 0)
   end
   alias_method :mean_longitude_aries, :ml_aries
 
@@ -148,22 +148,10 @@ class Eot
   # mean obliquity of Earth
 
   def mo_earth
-    Celes.obl06(@ajd, 0)
+    obl06(@ajd, 0)
   end
   alias_method :mean_obliquity_of_ecliptic, :mo_earth
   alias_method :mean_obliquity, :mo_earth
-
-  ##
-  # From angles.rb:
-
-  # omega is a component of nutation and used
-  # in apparent longitude
-  # omega is the longitude of the mean ascending node of the lunar orbit
-  # on the ecliptic plane measured from the mean equinox of date.
-
-  def omega
-    Celes.faom03(@t)
-  end
 
   ##
   # From angles.rb:
@@ -174,7 +162,7 @@ class Eot
     y0 = sine_al_sun * cosine_to_earth
     ra = sun_ra(y0, cosine_al_sun) 
     # Celes.anp(PI + atan2(-y0, -cosine_al_sun))
-    Celes.anp(PI + ra)
+    anp(PI + ra)
   end
   alias_method :right_ascension, :ra_sun
 
@@ -185,7 +173,7 @@ class Eot
   # used in equation of time
 
   def ta_sun
-    Celes.anp(@ma + eqc(@ma, @t))
+    anp(@ma + eqc(@t))
   end
   alias_method :true_anomaly, :ta_sun
 
@@ -198,7 +186,7 @@ class Eot
   def tl_aries
     dt = 67.184
     tt = @ajd + dt / 86_400.0
-    Celes.gst06a(@ajd, 0, tt, 0)
+    gst06a(@ajd, 0, tt, 0)
   end
   alias_method :true_longitude_aries, :tl_aries
 
@@ -209,7 +197,7 @@ class Eot
   # used in equation of time
 
   def tl_sun
-    tl(@ma, @t)
+    tl(@t)
   end
   alias_method :true_longitude, :tl_sun
   alias_method :ecliptic_longitude, :tl_sun

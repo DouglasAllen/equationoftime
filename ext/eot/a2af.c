@@ -1,109 +1,73 @@
-#ifndef SOFAMHDEF
-#define SOFAMHDEF
+#include "sofam.h"
 
+void iauA2af(int ndp, double angle, char *sign, int idmsf[4])
 /*
 **  - - - - - - - -
-**   s o f a m . h
+**   i a u A 2 a f
 **  - - - - - - - -
 **
-**  Macros used by SOFA library.
+**  Decompose radians into degrees, arcminutes, arcseconds, fraction.
 **
-**  Please note that the constants defined below are to be used only in
-**  the context of the SOFA software, and have no other official IAU
-**  status.
+**  Status:  vector/matrix support function.
 **
-**  This revision:   2012 February 23
+**  Given:
+**     ndp     int     resolution (Note 1)
+**     angle   double  angle in radians
+**
+**  Returned:
+**     sign    char    '+' or '-'
+**     idmsf   int[4]  degrees, arcminutes, arcseconds, fraction
+**
+**  Called:
+**     iauD2tf      decompose days to hms
+**
+**  Notes:
+**
+**  1) The argument ndp is interpreted as follows:
+**
+**     ndp         resolution
+**      :      ...0000 00 00
+**     -7         1000 00 00
+**     -6          100 00 00
+**     -5           10 00 00
+**     -4            1 00 00
+**     -3            0 10 00
+**     -2            0 01 00
+**     -1            0 00 10
+**      0            0 00 01
+**      1            0 00 00.1
+**      2            0 00 00.01
+**      3            0 00 00.001
+**      :            0 00 00.000...
+**
+**  2) The largest positive useful value for ndp is determined by the
+**     size of angle, the format of doubles on the target platform, and
+**     the risk of overflowing idmsf[3].  On a typical platform, for
+**     angle up to 2pi, the available floating-point precision might
+**     correspond to ndp=12.  However, the practical limit is typically
+**     ndp=9, set by the capacity of a 32-bit int, or ndp=4 if int is
+**     only 16 bits.
+**
+**  3) The absolute value of angle may exceed 2pi.  In cases where it
+**     does not, it is up to the caller to test for and handle the
+**     case where angle is very nearly 2pi and rounds up to 360 degrees,
+**     by testing for idmsf[0]=360 and setting idmsf[0-3] to zero.
+**
+**  This revision:  2008 May 27
 **
 **  Original version 2012-03-01
 **
 **  Copyright (C) 2013 Naoki Arita.  See notes at end.
 */
+{
+/* Hours to degrees * radians to turns */
+   const double F = 15.0 / D2PI;
 
-#include "sofa.h"
 
+/* Scale then use days to h,m,s function. */
+   iauD2tf(ndp, angle*F, sign, idmsf);
 
-/* Pi */
-#define DPI (3.141592653589793238462643)
-
-/* 2Pi */
-#define D2PI (6.283185307179586476925287)
-
-/* Degrees to radians */
-#define DD2R (1.745329251994329576923691e-2)
-
-/* Radians to arcseconds */
-#define DR2AS (206264.8062470963551564734)
-
-/* Arcseconds to radians */
-#define DAS2R (4.848136811095359935899141e-6)
-
-/* Seconds of time to radians */
-#define DS2R (7.272205216643039903848712e-5)
-
-/* Arcseconds in a full circle */
-#define TURNAS (1296000.0)
-
-/* Milliarcseconds to radians */
-#define DMAS2R (DAS2R / 1e3)
-
-/* Length of tropical year B1900 (days) */
-#define DTY (365.242198781)
-
-/* Seconds per day. */
-#define DAYSEC (86400.0)
-
-/* Days per Julian year */
-#define DJY (365.25)
-
-/* Days per Julian century */
-#define DJC (36525.0)
-
-/* Days per Julian millennium */
-#define DJM (365250.0)
-
-/* Reference epoch (J2000.0), Julian Date */
-#define DJ00 (2451545.0)
-
-/* Julian Date of Modified Julian Date zero */
-#define DJM0 (2400000.5)
-
-/* Reference epoch (J2000.0), Modified Julian Date */
-#define DJM00 (51544.5)
-
-/* 1977 Jan 1.0 as MJD */
-#define DJM77 (43144.0)
-
-/* TT minus TAI (s) */
-#define TTMTAI (32.184)
-
-/* AU (m) */
-#define DAU (149597870e3)
-
-/* Speed of light (AU per day) */
-#define DC (DAYSEC / 499.004782)
-
-/* L_G = 1 - d(TT)/d(TCG) */
-#define ELG (6.969290134e-10)
-
-/* L_B = 1 - d(TDB)/d(TCB), and TDB (s) at TAI 1977/1/1.0 */
-#define ELB (1.550519768e-8)
-#define TDB0 (-6.55e-5)
-
-/* dint(A) - truncate to nearest whole number towards zero (double) */
-#define dint(A) ((A)<0.0?ceil(A):floor(A))
-
-/* dnint(A) - round to nearest whole number (double) */
-#define dnint(A) ((A)<0.0?ceil((A)-0.5):floor((A)+0.5))
-
-/* dsign(A,B) - magnitude of A with sign of B (double) */
-#define dsign(A,B) ((B)<0.0?-fabs(A):fabs(A))
-
-/* Reference ellipsoids */
-#define WGS84 1
-#define GRS80 2
-#define WGS72 3
-
-#endif
+   return;
 
 /*----------------------------------------------------------------------
 **
@@ -153,3 +117,4 @@
 **  POSSIBILITY OF SUCH DAMAGE.
 **
 **--------------------------------------------------------------------*/
+}

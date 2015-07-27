@@ -1,109 +1,75 @@
-#ifndef SOFAMHDEF
-#define SOFAMHDEF
+#include "sofa.h"
 
+double iauEe06a(double date1, double date2)
 /*
-**  - - - - - - - -
-**   s o f a m . h
-**  - - - - - - - -
+**  - - - - - - - - -
+**   i a u E e 0 6 a
+**  - - - - - - - - -
 **
-**  Macros used by SOFA library.
+**  Equation of the equinoxes, compatible with IAU 2000 resolutions and
+**  IAU 2006/2000A precession-nutation.
 **
-**  Please note that the constants defined below are to be used only in
-**  the context of the SOFA software, and have no other official IAU
-**  status.
+**  Status:  support function.
 **
-**  This revision:   2012 February 23
+**  Given:
+**     date1,date2  double    TT as a 2-part Julian Date (Note 1)
+**
+**  Returned (function value):
+**                  double    equation of the equinoxes (Note 2)
+**
+**  Notes:
+**
+**  1) The TT date date1+date2 is a Julian Date, apportioned in any
+**     convenient way between the two arguments.  For example,
+**     JD(TT)=2450123.7 could be expressed in any of these ways,
+**     among others:
+**
+**            date1          date2
+**
+**         2450123.7           0.0       (JD method)
+**         2451545.0       -1421.3       (J2000 method)
+**         2400000.5       50123.2       (MJD method)
+**         2450123.5           0.2       (date & time method)
+**
+**     The JD method is the most natural and convenient to use in
+**     cases where the loss of several decimal digits of resolution
+**     is acceptable.  The J2000 method is best matched to the way
+**     the argument is handled internally and will deliver the
+**     optimum resolution.  The MJD method and the date & time methods
+**     are both good compromises between resolution and convenience.
+**
+**  2) The result, which is in radians, operates in the following sense:
+**
+**        Greenwich apparent ST = GMST + equation of the equinoxes
+**
+**  Called:
+**     iauAnpm      normalize angle into range +/- pi
+**     iauGst06a    Greenwich apparent sidereal time, IAU 2006/2000A
+**     iauGmst06    Greenwich mean sidereal time, IAU 2006
+**
+**  Reference:
+**
+**     McCarthy, D. D., Petit, G. (eds.), 2004, IERS Conventions (2003),
+**     IERS Technical Note No. 32, BKG
+**
+**  This revision:  2008 May 18
 **
 **  Original version 2012-03-01
 **
 **  Copyright (C) 2013 Naoki Arita.  See notes at end.
 */
+{
+   double gst06a, gmst06, ee;
 
-#include "sofa.h"
 
+/* Apparent and mean sidereal times. */
+   gst06a = iauGst06a(0.0, 0.0, date1, date2);
+   gmst06 = iauGmst06(0.0, 0.0, date1, date2);
 
-/* Pi */
-#define DPI (3.141592653589793238462643)
+/* Equation of the equinoxes. */
+   ee  = iauAnpm(gst06a - gmst06);
 
-/* 2Pi */
-#define D2PI (6.283185307179586476925287)
-
-/* Degrees to radians */
-#define DD2R (1.745329251994329576923691e-2)
-
-/* Radians to arcseconds */
-#define DR2AS (206264.8062470963551564734)
-
-/* Arcseconds to radians */
-#define DAS2R (4.848136811095359935899141e-6)
-
-/* Seconds of time to radians */
-#define DS2R (7.272205216643039903848712e-5)
-
-/* Arcseconds in a full circle */
-#define TURNAS (1296000.0)
-
-/* Milliarcseconds to radians */
-#define DMAS2R (DAS2R / 1e3)
-
-/* Length of tropical year B1900 (days) */
-#define DTY (365.242198781)
-
-/* Seconds per day. */
-#define DAYSEC (86400.0)
-
-/* Days per Julian year */
-#define DJY (365.25)
-
-/* Days per Julian century */
-#define DJC (36525.0)
-
-/* Days per Julian millennium */
-#define DJM (365250.0)
-
-/* Reference epoch (J2000.0), Julian Date */
-#define DJ00 (2451545.0)
-
-/* Julian Date of Modified Julian Date zero */
-#define DJM0 (2400000.5)
-
-/* Reference epoch (J2000.0), Modified Julian Date */
-#define DJM00 (51544.5)
-
-/* 1977 Jan 1.0 as MJD */
-#define DJM77 (43144.0)
-
-/* TT minus TAI (s) */
-#define TTMTAI (32.184)
-
-/* AU (m) */
-#define DAU (149597870e3)
-
-/* Speed of light (AU per day) */
-#define DC (DAYSEC / 499.004782)
-
-/* L_G = 1 - d(TT)/d(TCG) */
-#define ELG (6.969290134e-10)
-
-/* L_B = 1 - d(TDB)/d(TCB), and TDB (s) at TAI 1977/1/1.0 */
-#define ELB (1.550519768e-8)
-#define TDB0 (-6.55e-5)
-
-/* dint(A) - truncate to nearest whole number towards zero (double) */
-#define dint(A) ((A)<0.0?ceil(A):floor(A))
-
-/* dnint(A) - round to nearest whole number (double) */
-#define dnint(A) ((A)<0.0?ceil((A)-0.5):floor((A)+0.5))
-
-/* dsign(A,B) - magnitude of A with sign of B (double) */
-#define dsign(A,B) ((B)<0.0?-fabs(A):fabs(A))
-
-/* Reference ellipsoids */
-#define WGS84 1
-#define GRS80 2
-#define WGS72 3
-
-#endif
+   return ee;
 
 /*----------------------------------------------------------------------
 **
@@ -153,3 +119,4 @@
 **  POSSIBILITY OF SUCH DAMAGE.
 **
 **--------------------------------------------------------------------*/
+}

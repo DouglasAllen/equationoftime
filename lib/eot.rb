@@ -1,7 +1,7 @@
 # eot.rb
 # require 'multi_xml'
 require 'addressable/uri'
-require 'celes'
+#require 'celes'
 require 'date'
 require 'json'
 require 'rest-client'

@@ -1,5 +1,10 @@
 #include "ceot.h"
 
+double anp(double angle)
+{
+  return iauAnp(angle);
+}
+
 /* get t generated for most parameters
    t is the Julian century value.
 */
@@ -11,13 +16,13 @@ double jc(double ajd)
 /* Mean geocentric longitude of the Sun */
 double mlSun(double t)
 {
-  return fmod(         280.4664567    +
-       t * (         36000.76982779   +
-       t * (             0.0003032028 +
-       t * (    1.0/499310.0          +
-       t * (   1.0/-152990.0          +
-       t * ( 1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 
-	  RADEG;
+  return anp(fmod(         280.4664567    +
+              t * (         36000.76982779   +
+              t * (             0.0003032028 +
+              t * (    1.0/499310.0          +
+              t * (   1.0/-152990.0          +
+              t * ( 1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 
+	      RADEG);
 }
 
 /* Eccentricity of Earth orbit */
@@ -30,8 +35,9 @@ double eoe(double t)
   return e; 
 }
 
-double eqc(double ma, double t)
+double eqc(double t)
 {             
+  double ma = iauFalp03(t);
   double a1, a2, a3, a4, a5, s1, s2, s3, s4, s5, e;
   e   = eoe(t);  
   s1  = sin( 1.0 * ma );
@@ -53,25 +59,19 @@ double eqc(double ma, double t)
   return e * (a1 + e * (a2 + e * (a3 + e * (a4 + e * a5))));
 }
 
-double tlSun(double ma, double t)
+double tlSun(double t)
 {
-  double a;
-
-  a = fmod( mlSun(t) + eqc(ma, t), DEGRAD);
-
-  return a;
+  return fmod( mlSun(t) + eqc(t), DEGRAD);
 }
 
-double alSun(double ma, double t, double o)
-{
-  double a;
+double alSun(double t)
+{  
+  double o = iauFaom03(t);
 
-  a = fmod(tlSun(ma, t) - 
+  return fmod(tlSun(t) - 
            0.00569 * RADEG - 
            0.00478 * RADEG * 
            sin(o), DEGRAD);
-
-  return a;
 }
 
 double raSun(double y0, double cos_al_Sun)

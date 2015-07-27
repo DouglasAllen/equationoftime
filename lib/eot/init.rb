@@ -19,7 +19,7 @@ class Eot
   def ma_ta_set
     #@ta = ((@ajd - DJ00) / DJC).to_f
     @t = jc(@ajd)
-    @ma = Celes.falp03(@t)
+    @ma = falp03(@t)
   end
 
   # From init.rb:
@@ -62,7 +62,7 @@ class Eot
   # Initialize to set attributes
   def initialize
     d = DateTime.now.to_time.utc.to_datetime
-    djm0, djm = Celes::cal2jd(d.year, d.month, d.day)
+    djm0, djm = cal2jd(d.year, d.month, d.day)
     @ajd = djm0 + djm + d.day_fraction
     ma_ta_set
     @jd = djm0 + djm + 0.5

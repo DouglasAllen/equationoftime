@@ -123,11 +123,6 @@ describe 'Tests ajd of 2456885.0 ' do
                  angles.mo_earth.round(10))
   end
 
-  it 'expected   -2.7528817371 from  angles.omega()? ' do
-    assert_equal(-2.7528817371, \
-                 angles.omega.round(10))
-  end
-
   it 'expected   2.5297411654 from  angles.ra_sun()? ' do
     assert_equal(2.5297411654, \
                  angles.ra_sun.round(10))
@@ -276,11 +271,6 @@ describe 'Tests ajd of 2455055.5 ' do
   it 'expected   0.4090707794 from angles.mo_earth()? ' do
     assert_equal(0.4090707794, \
                  angles.mo_earth.round(10))
-  end
-
-  it 'expected   -1.0615640635 from angles.omega()? ' do
-    assert_equal(-1.0615640635, \
-                 angles.omega.round(10))
   end
 
   it 'expected   2.4675631135 from angles.ra_sun()? ' do
