@@ -42,7 +42,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "hoe", "~> 3.12.0"
   # spec.add_development_dependency "guard", "~> 2.6.1"
   # spec.add_development_dependency "guard-minitest", "~> 2.3.2"
-  # spec.add_development_dependency "minitest", "~> 5.4.1"
+  spec.add_development_dependency "minitest", "~> 5.4.1"
   # spec.add_development_dependency "ZenTest", "~> 4.10.1"
   spec.add_development_dependency "rspec", "~> 3.1.0"
   spec.add_development_dependency "yard", "~> 0.8.7.4"
