@@ -1,5 +1,6 @@
 # constants_spec.rb
 
+require 'eot'
 describe 'Equation of Time constants.' do
 
   it "01 require 'eot' should find all constants." do

@@ -1,6 +1,7 @@
-require 'minitest/autorun'
+require 'eot'
 
 class TestEot < Minitest::Test
+
   def test_addr
     raise NotImplementedError, 'Need to write test_addr'
   end
@@ -562,5 +563,6 @@ class TestGeoLatLng < Minitest::Test
   def test_set_coordinates
     raise NotImplementedError, 'Need to write test_set_coordinates'
   end
+
 end
 

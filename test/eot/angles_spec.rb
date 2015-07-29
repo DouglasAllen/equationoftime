@@ -1,5 +1,6 @@
 # angles_spec.rb
 
+require 'eot'
 angles = Eot.new
 
 describe 'Tests ajd of 2456885.0 ' do

@@ -1,5 +1,6 @@
 # init_spec.rb
 
+require 'eot'
 describe 'Eot_initialize has set attributes ' do
 
   AJD_TODAY   = DateTime.now.to_time.utc.to_datetime.ajd.to_f.round(6)

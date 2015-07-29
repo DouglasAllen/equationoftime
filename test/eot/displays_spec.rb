@@ -1,5 +1,6 @@
 # displays_spec.rb
 
+require 'eot'
 displays = Eot.new
 
 describe 'Eot displays using ajd of 2456885.0' do
