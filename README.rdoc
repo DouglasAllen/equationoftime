@@ -1,11 +1,11 @@
-{<img src="https://travis-ci.org/DouglasAllen/equationoftime.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/DouglasAllen/equationoftime]
+{<img src="https://travis-ci.org/DouglasAllen/gem-equationoftime.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/DouglasAllen/gem-equationoftime]
 
 = equationoftime
 
 Home    :: http://equationoftime.herokuapp.com/
-Code    :: https://github.com/DouglasAllen/equationoftime
+Code    :: https://github.com/DouglasAllen/gem-equationoftime
 RDoc    :: http://rubydoc.info/gems/equationoftime/4.1.8/frames
-Issues  :: https://github.com/DouglasAllen/equationoftime/issues
+Issues  :: https://github.com/DouglasAllen/gem-equationoftime/issues
 
 
 == DESCRIPTION:
@@ -19,7 +19,7 @@ Lots of examples to play with for learning about Eot.
 
 == Clone this repo
 
-  $ git clone git@github.com:DouglasAllen/equationoftime.git
+  $ git clone git@github.com:DouglasAllen/gem-equationoftime.git
   $ cd equationoftime
 
 == REQUIREMENTS:
@@ -54,52 +54,52 @@ Install this package as a system gem
 
   $ irb --simple-prompt
 
-        require 'eot'
-        eot = Eot.new
-        eot.string_eot          # eot now
-        eot.ajd                 # was initialized to time now
+  require 'eot'
+  eot = Eot.new
+  eot.string_eot          # eot now
+  eot.ajd                 # was initialized to time now
 
-                                # wait a bit and try setting a new AJD
-        eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
-                                # Was it different? Good. Do the rest.
+                          # wait a bit and try setting a new AJD
+  eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
+                          # Was it different? Good. Do the rest.
 
-        eot.string_eot          # nothing changes so...
-        eot.ma_ta_set           # always recalculate @ma(mean anomaly) and @t(julian century time)
-        eot.string_eot          # will be different than before
+  eot.string_eot          # nothing changes so...
+  eot.ma_ta_set           # always recalculate @ma(mean anomaly) and @t(julian century time)
+  eot.string_eot          # will be different than before
 
-        # check and set a new address                        
-        geo = GeoLatLng.new
-        geo.addr
-        geo.addr = "houston, tx"     # set new location
-        geo.set_coordinates          # set new coordinates
-        eot.latitude = geo.lat       # set the Eot class attributes
-        eot.longitude = geo.lng
+  # check and set a new address                        
+  geo = GeoLatLng.new
+  geo.addr
+  geo.addr = "houston, tx"     # set new location
+  geo.set_coordinates          # set new coordinates
+  eot.latitude = geo.lat       # set the Eot class attributes
+  eot.longitude = geo.lng
         
-        eot.ajd = DateTime.new(2014,11,07).to_time.utc.to_datetime.jd.to_f
+  eot.ajd = DateTime.new(2014,11,07).to_time.utc.to_datetime.jd.to_f
 
-        # Be shure to set @ma and @t when changing the date.
-        eot.ma_ta_set           # recalculate @ma and @t
+  # Be shure to set @ma and @t when changing the date.
+  eot.ma_ta_set           # recalculate @ma and @t
 
-        eot.sunrise_jd          # the date's sunrise as a jd
-        #=> 2457174.027595831
+  eot.sunrise_jd          # the date's sunrise as a jd
+  #=> 2457174.027595831
 
-        eot.sunset_jd           # the date's sunset as a jd
-        #=> 2457174.479637306
+  eot.sunset_jd           # the date's sunset as a jd
+  #=> 2457174.479637306
 
-        eot.sunrise_dt          # the date's sunrise as DateTime
-        #=> #<DateTime: 2015-05-31T12:39:44+00:00 ((2457174j,45584s,279805422n),+0s,2299161j)>
+  eot.sunrise_dt          # the date's sunrise as DateTime
+  #=> #<DateTime: 2015-05-31T12:39:44+00:00 ((2457174j,45584s,279805422n),+0s,2299161j)>
 
-        eot.sunset_dt           # the date's sunset as a DateTime
-        #=> #<DateTime: 2015-05-31T23:30:40+00:00 ((2457174j,84640s,663254261n),+0s,2299161j)>
+  eot.sunset_dt           # the date's sunset as a DateTime
+  #=> #<DateTime: 2015-05-31T23:30:40+00:00 ((2457174j,84640s,663254261n),+0s,2299161j)>
 
-        eot.ajd += 1            # the days after today may be set
-        eot.ma_ta_set           # recalculate @ma and @t
-                                # just setting the ajd is not enough.  
-        eot.ajd = 2451545.0     # ajd set to 2000-01-01 12:00
-        eot.ma_ta_set           # all @t values in the angle equations
-                                # will be zero with this value of ajd.
-                                # This is the J2000 constant and an
-                                # epoch term.
+  eot.ajd += 1            # the days after today may be set
+  eot.ma_ta_set           # recalculate @ma and @t
+                          # just setting the ajd is not enough.  
+  eot.ajd = 2451545.0     # ajd set to 2000-01-01 12:00
+  eot.ma_ta_set           # all @t values in the angle equations
+                          # will be zero with this value of ajd.
+                          # This is the J2000 constant and an
+                          # epoch term.
 
 == LICENSE:
 
