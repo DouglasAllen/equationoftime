@@ -1,4 +1,5 @@
 {<img src="https://travis-ci.org/DouglasAllen/gem-equationoftime.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/DouglasAllen/gem-equationoftime]
+{<img src="https://badge.fury.io/rb/equationoftime.svg" alt="Gem Version" />}[http://badge.fury.io/rb/equationoftime]
 
 = equationoftime
 
