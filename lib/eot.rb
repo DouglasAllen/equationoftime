@@ -1,18 +1,21 @@
 # eot.rb
+
 # require 'multi_xml'
 require 'addressable/uri'
-#require 'celes'
-require 'date'
+require 'celes'
+require 'eot/helio'
 require 'json'
 require 'rest-client'
+
+require 'date'
+
+require 'eot/init'
 require 'eot/angles'
 require 'eot/angle_displays'
 require 'eot/constants'
 require 'eot/deltas'
 require 'eot/delta_times'
-require 'eot/eot'
 require 'eot/geo_lat_lng_smt'
-require 'eot/init'
 require 'eot/jd_times'
 require 'eot/times'
 require 'eot/time_displays'

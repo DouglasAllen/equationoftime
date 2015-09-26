@@ -1,6 +1,11 @@
 # displays_spec.rb
 
+gem 'minitest'
+require 'minitest/autorun'
+lib = File.expand_path('../../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
+
 displays = Eot.new
 
 describe 'Eot displays using ajd of 2456885.0' do
@@ -21,9 +26,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal '2014-08-15T12:00:00+00:00', displays.date.to_s
   end
 
-  it 'expected   3.8508003966, from displays.' do
-    assert_equal 3.8508003966, \
-                 displays.ma.round(10)
+  it 'expected   3.8508003966038915, from displays.' do
+    assert_equal 3.8508003966038915, displays.ma
   end
 
   it 'expected   "+000:00:00.000" from displays.degrees_to_s() ' do
@@ -58,8 +62,7 @@ describe 'Eot displays using ajd of 2456885.0' do
 
   it 'expected  "2014-08-15" from \
       displays.jd_to_date_string(displays.ajd)? ' do
-    assert_equal '2014-08-15', \
-                 displays.jd_to_date_string(displays.ajd)
+    assert_equal '2014-08-15', displays.jd_to_date_string(displays.ajd)
   end
 
   it 'expected   "+220:38:04.598" from displays.string_ma_sun() ' do

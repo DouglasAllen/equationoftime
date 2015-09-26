@@ -10,7 +10,7 @@ class Eot
   # Apparent solar longitude = true longitude - aberation
 
   def al_sun
-    al(@t)
+    Celes.anp(Helio.al(@ma, @ta, omega))
   end
   alias_method :apparent_longitude, :al_sun
   alias_method :alsun, :al_sun
@@ -22,7 +22,7 @@ class Eot
   # added to mean anomaly to get true anomaly.
 
   def center
-    eqc(@t)
+    Helio.eqc(@ma, @ta)
   end
   alias_method :equation_of_center, :center
 
@@ -32,7 +32,7 @@ class Eot
   # solar declination 
 
   def dec_sun
-    sun_dec(al_sun, to_earth)
+    Helio.sun_dec(al_sun, to_earth)
   end
   alias_method :declination, :dec_sun
 
@@ -43,7 +43,7 @@ class Eot
   # Horners' calculation method
 
   def eccentricity_earth
-    eoe(@t)
+    Helio.eoe(@ta)
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_earth
 
@@ -57,7 +57,7 @@ class Eot
   # see: #cosine_to_earth and #angle_delta_psi
 
   def eq_of_equinox
-    ee06a(@ajd, 0.0)
+    Celes.ee06a(@ajd, 0.0)
   end
 
   
@@ -78,7 +78,7 @@ class Eot
   # needed to get true longitude for low accuracy.
 
   def gml_sun
-    ml(@t)
+    Helio.ml(@ta)
   end
   alias_method :geometric_mean_longitude, :gml_sun
   alias_method :ml_sun, :gml_sun
@@ -110,7 +110,7 @@ class Eot
 
   def ha_sun(c)
     zenith = choice(c)
-    sun(zenith, dec_sun, @latitude)
+    Helio.sun(zenith, dec_sun, @latitude)
   end
   alias_method :horizon_angle, :ha_sun
 
@@ -124,8 +124,8 @@ class Eot
   # and to get true anomaly true longitude via center equation
 
   def ma_sun
-    @t = (@ajd - DJ00) / DJC
-    @ma = falp03(@t)
+    @ta = (@ajd - DJ00) / DJC
+    @ma = Celes.falp03(@ta)
   end
   alias_method :mean_anomaly, :ma_sun
 
@@ -138,7 +138,7 @@ class Eot
   def ml_aries
     dt = 67.184
     tt = @ajd + dt / 86_400.0
-    gmst06(@ajd, 0, tt, 0)
+    Celes.gmst06(@ajd, 0, tt, 0)
   end
   alias_method :mean_longitude_aries, :ml_aries
 
@@ -148,10 +148,22 @@ class Eot
   # mean obliquity of Earth
 
   def mo_earth
-    obl06(@ajd, 0)
+    Celes.obl06(@ajd, 0)
   end
   alias_method :mean_obliquity_of_ecliptic, :mo_earth
   alias_method :mean_obliquity, :mo_earth
+
+  ##
+  # From angles.rb:
+
+  # omega is a component of nutation and used
+  # in apparent longitude
+  # omega is the longitude of the mean ascending node of the lunar orbit
+  # on the ecliptic plane measured from the mean equinox of date.
+
+  def omega
+    Celes.faom03(@ta)
+  end
 
   ##
   # From angles.rb:
@@ -160,9 +172,9 @@ class Eot
 
   def ra_sun
     y0 = sine_al_sun * cosine_to_earth
-    ra = sun_ra(y0, cosine_al_sun) 
+    ra = Helio.sun_ra(y0, cosine_al_sun) 
     # Celes.anp(PI + atan2(-y0, -cosine_al_sun))
-    anp(PI + ra)
+    Celes.anp(PI + ra)
   end
   alias_method :right_ascension, :ra_sun
 
@@ -173,7 +185,7 @@ class Eot
   # used in equation of time
 
   def ta_sun
-    anp(@ma + eqc(@t))
+    Celes.anp(@ma + Helio.eqc(@ma, @ta))
   end
   alias_method :true_anomaly, :ta_sun
 
@@ -186,7 +198,7 @@ class Eot
   def tl_aries
     dt = 67.184
     tt = @ajd + dt / 86_400.0
-    gst06a(@ajd, 0, tt, 0)
+    Celes.gst06a(@ajd, 0, tt, 0)
   end
   alias_method :true_longitude_aries, :tl_aries
 
@@ -197,7 +209,7 @@ class Eot
   # used in equation of time
 
   def tl_sun
-    tl(@t)
+    Helio.tl(@ma, @ta)
   end
   alias_method :true_longitude, :tl_sun
   alias_method :ecliptic_longitude, :tl_sun

@@ -1,5 +1,6 @@
 # class Eot file = int.rb
 # attributes, a setter and init method
+
 class Eot
   # From init.rb:
   # address is a String ex: "houston, tx"
@@ -17,9 +18,8 @@ class Eot
   # init sets them using ajd initial Float value
   # see: :ajd attribute
   def ma_ta_set
-    #@ta = ((@ajd - DJ00) / DJC).to_f
-    @t = jc(@ajd)
-    @ma = falp03(@t)
+    @ta = ((@ajd - DJ00) / DJC).to_f
+    @ma = Celes.falp03(@ta)
   end
 
   # From init.rb:
@@ -50,7 +50,7 @@ class Eot
   # Julian Century gets called often
   # instance of Float class
   # ta = (( @ajd - DJ00 ) / DJC).to_f
-  attr_accessor :t
+  attr_accessor :ta
 
   # From init.rb:
   # Mean Anomaly gets called often
@@ -62,11 +62,10 @@ class Eot
   # Initialize to set attributes
   def initialize
     d = DateTime.now.to_time.utc.to_datetime
-    djm0, djm = cal2jd(d.year, d.month, d.day)
-    @ajd = djm0 + djm + d.day_fraction
+    djm0, djm = Celes::cal2jd(d.year, d.month, d.day + d.day_fraction)
+    @ajd = djm0 + djm + 0.5
     ma_ta_set
-    @jd = djm0 + djm + 0.5
-    @date = Date.parse("#{d.year}-#{d.month}-#{d.day}")
+    @date, @jd = ajd_to_datetime(@ajd), @ajd    
     @latitude,  @longitude = 0.0,  0.0      
   end
 end
@@ -81,7 +80,7 @@ if __FILE__ == $PROGRAM_NAME
   p eot.date
   p eot.jd
   p eot.ma
-  p eot.t
+  p eot.ta
   p eot.addr
   p eot.latitude
   p eot.longitude

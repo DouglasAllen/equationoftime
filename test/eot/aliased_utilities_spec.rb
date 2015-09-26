@@ -1,6 +1,10 @@
 # aliased_utilities_spec.rb
-
+gem 'minitest'
+require 'minitest/autorun'
+lib = File.expand_path('../../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
+
 aliased_utilities = Eot.new
 
 describe 'tests ajd of 2456885.0' do
@@ -17,8 +21,8 @@ describe 'tests ajd of 2456885.0' do
     assert_equal 2_456_885.0, aliased_utilities.ajd
   end
 
-  it 'expected   3.85080039660389 for aliased_utilities.ma'do
-    assert_equal 3.85080039660389, aliased_utilities.ma.round(14)
+  it 'expected   3.8508003966038915 for aliased_utilities.ma'do
+    assert_equal 3.8508003966038915, aliased_utilities.ma
   end
 
   it 'expected   0.0 returned by aliased_utilities.truncate() ' do

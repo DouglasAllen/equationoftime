@@ -3,7 +3,7 @@
 .rspec
 .bundle
 .config
-.ruby-version
+.settings
 .yardoc
 Gemfile.lock
 
@@ -13,13 +13,12 @@ coverage
 doc
 lib/bundler/man
 pkg
-rdocs
+rdoc
 spec/reports
-test/eot/zentest_spec.rb
 test/tmp
 test/version_tmp
 tmp
-ext/eot/*.o
-ext/eot/*.so
-ext/eot/Makefile
-lib/eot/eot.so
+ext/ceot/*.o
+ext/ceot/*.so
+ext/ceot/Makefile
+lib/*.so

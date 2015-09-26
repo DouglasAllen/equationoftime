@@ -9,7 +9,7 @@ class Eot
   # String formatter for d:m:s display
   def degrees_to_s(radians = 0.0)
     radians.nil? ? radians = 0.0 : radians
-    s, idmsf = a2af(3, radians)
+    s, idmsf = Celes.a2af(3, radians)
     f_string(s, idmsf[0], idmsf[1], idmsf[2], idmsf[3])
   end
 

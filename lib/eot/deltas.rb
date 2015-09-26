@@ -5,7 +5,7 @@ class Eot
   # delta epsilon
   # component of equation of equinox
   def angle_delta_epsilon
-    nut06a(@ajd, 0)[1]
+    Celes.nut06a(@ajd, 0)[1]
   end
   alias_method :delta_epsilon, :angle_delta_epsilon
 
@@ -20,7 +20,7 @@ class Eot
   # From angles.rb:
   # one time component to total equation of time
   def angle_delta_orbit
-    -1.0 * eqc(@t)
+    -1.0 * Helio.eqc(@ma, @ta)
   end
   alias_method :delta_t_elliptic, :angle_delta_orbit
   alias_method :delta_orbit, :angle_delta_orbit
@@ -28,7 +28,7 @@ class Eot
   # From angles.rb:
   # component of equation of equinox
   def angle_delta_psi
-    nut06a(@ajd, 0)[0]
+    Celes.nut06a(@ajd, 0)[0]
   end
   alias_method :delta_psi, :angle_delta_psi
 

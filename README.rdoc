@@ -1,12 +1,9 @@
-{<img src="https://travis-ci.org/DouglasAllen/gem-equationoftime.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/DouglasAllen/gem-equationoftime]
-{<img src="https://badge.fury.io/rb/equationoftime.svg" alt="Gem Version" />}[http://badge.fury.io/rb/equationoftime]
-
 = equationoftime
 
 Home    :: http://equationoftime.herokuapp.com/
-Code    :: https://github.com/DouglasAllen/gem-equationoftime
-RDoc    :: http://rubydoc.info/gems/equationoftime/4.1.8/frames
-Issues  :: https://github.com/DouglasAllen/gem-equationoftime/issues
+Code    :: https://github.com/DouglasAllen/equationoftime
+RDoc    :: http://rubydoc.info/gems/equationoftime/4.1.5/frames
+Issues  :: https://github.com/DouglasAllen/equationoftime/issues
 
 
 == DESCRIPTION:
@@ -14,93 +11,73 @@ Issues  :: https://github.com/DouglasAllen/gem-equationoftime/issues
 Calculate Sunrise and Sunset. Now uses native C wrappers.
 Lots of examples to play with for learning about Eot.
 
-== Use the Gem patch:
+== FEATURES/PROBLEMS:
 
-  $ gem install eot
-
-== Clone this repo
-
-  $ git clone git@github.com:DouglasAllen/gem-equationoftime.git
-  $ cd equationoftime
-
-== REQUIREMENTS:
-
-To install gem dependencies
-
-  $ bundle install
-
-== INSTALL:
-
-To build the extensions and test
-
-  $ bundle exec rake
-
-== DEVELOPERS:
-
-Do your own tests with:
-
-  $ guard
-
-After checking out the source, this task will install any missing dependencies, run the tests/specs,
-and generate the RDoc.
-
-  $ bundle exec rake newb
-
-
-Install this package as a system gem
-
-  $ bundle exec rake install
+* Use GeoLatLng class to set coordinates or set them manually.
 
 == SYNOPSIS:
 
   $ irb --simple-prompt
 
-  require 'eot'
-  eot = Eot.new
-  eot.string_eot          # eot now
-  eot.ajd                 # was initialized to time now
+        require 'eot'
+        eot = Eot.new
+        eot.string_eot          # todays eot
+        eot.ajd                 # was initialized to noon today ei. jd
+        # Try the real AJD
+        eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
 
-                          # wait a bit and try setting a new AJD
-  eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
-                          # Was it different? Good. Do the rest.
+        eot.string_eot          # nothing changes so...
+        eot.ma_ta_set           # recalculate ma and ta after initialization
+        eot.string_eot          # should be different than before
 
-  eot.string_eot          # nothing changes so...
-  eot.ma_ta_set           # always recalculate @ma(mean anomaly) and @t(julian century time)
-  eot.string_eot          # will be different than before
+        # check and set a new address                        
+        geo = GeoLatLng.new
+        geo.addr
+        geo.addr = "houston, tx"     # set new location
+        geo.set_coordinates          # set new coordinates
+        eot.latitude = geo.lat       # set the Eot class attributes
+        eot.longitude = geo.lng
 
-  # check and set a new address                        
-  geo = GeoLatLng.new
-  geo.addr
-  geo.addr = "houston, tx"     # set new location
-  geo.set_coordinates          # set new coordinates
-  eot.latitude = geo.lat       # set the Eot class attributes
-  eot.longitude = geo.lng
+        # Be shure you have the date set right
+        eot.ajd = DateTime.new(2014,11,07).to_time.utc.to_datetime.jd.to_f
+
+        eot.ma_ta_set           # recalculate ma and ta after initialization
+
+        eot.sunrise_jd          # the dates sunrise as a jd
+        eot.sunset_jd           # the dates sunset as a jd
+        eot.sunrise_dt          # the dates sunrise as DateTime
+        eot.sunset_dt           # the dates sunset as a DateTime
+
+
+        eot.ajd += 1            # the days after times can be read
+        eot.ma_ta_set           # recalculate ma and ta after initialization 
+        eot.ajd = 2451545       # ajd set to 2001-01-01 12:00 
         
-  eot.ajd = DateTime.new(2014,11,07).to_time.utc.to_datetime.jd.to_f
 
-  # Be shure to set @ma and @t when changing the date.
-  eot.ma_ta_set           # recalculate @ma and @t
+== Gem patch:
 
-  eot.sunrise_jd          # the date's sunrise as a jd
-  #=> 2457174.027595831
+  $ gem install eot
 
-  eot.sunset_jd           # the date's sunset as a jd
-  #=> 2457174.479637306
+After realizing this name was available I decided to use it.
+It installs the needed requirements as for some reason
+gem install equationoftime doesn't always. Hoe hoe hoe!
 
-  eot.sunrise_dt          # the date's sunrise as DateTime
-  #=> #<DateTime: 2015-05-31T12:39:44+00:00 ((2457174j,45584s,279805422n),+0s,2299161j)>
+== REQUIREMENTS:
 
-  eot.sunset_dt           # the date's sunset as a DateTime
-  #=> #<DateTime: 2015-05-31T23:30:40+00:00 ((2457174j,84640s,663254261n),+0s,2299161j)>
+  $ bundle install
 
-  eot.ajd += 1            # the days after today may be set
-  eot.ma_ta_set           # recalculate @ma and @t
-                          # just setting the ajd is not enough.  
-  eot.ajd = 2451545.0     # ajd set to 2000-01-01 12:00
-  eot.ma_ta_set           # all @t values in the angle equations
-                          # will be zero with this value of ajd.
-                          # This is the J2000 constant and an
-                          # epoch term.
+== INSTALL:
+
+  $ bundle exec rake install
+
+== DEVELOPERS:
+
+After checking out the source, run:
+
+  $ bundle exec rake newb
+
+This task will install any missing dependencies, run the tests/specs,
+and generate the RDoc.
 
 == LICENSE:
 

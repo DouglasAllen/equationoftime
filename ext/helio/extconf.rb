@@ -1,4 +1,4 @@
 require 'mkmf'
-extension_name = 'eot/eot'
+extension_name = 'helio/helio'
 dir_config(extension_name)
 create_makefile(extension_name)
