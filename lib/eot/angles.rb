@@ -162,8 +162,7 @@ class Eot
   # solar right ascension
 
   def right_ascension    
-    ra = Helio.sun_ra(@ta) 
-    Celes.anp(PI + ra)
+    Helio.right_ascension(@ta) 
   end
 
   ##

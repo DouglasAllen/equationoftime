@@ -1,26 +1,21 @@
 #include "helio.h"
-#include <sofa.h>
 
-double mean_anomaly(double t)
+double apparent_lon(double t)
 {
-  return iauFalp03(t);
+  return iauAnp(fmod(true_lon(t) - 
+           0.00569 * 0.017453292519943295769236907684886 - 
+           0.00478 * 0.017453292519943295769236907684886 * 
+           sin(iauFaom03(t)), 57.295779513082320876798154814105));
 }
 
-double mean_obliquity(double t)
+double cos_al_sun(double t) 
 {
-  return iauObl06(t * 36525 + 2451545.0, 0);
+  return cos(apparent_lon(t));
 }
 
-
-/* Mean geocentric longitude of the Sun */
-double mean_lon(double t)
+double sin_al_sun(double t) 
 {
-  return fmod(      280.4664567    +
-     t * (        36000.76982779   +
-     t * (            0.0003032028 +
-     t * (   1.0/499310.0          +
-     t * (  1.0/-152990.0          +
-     t * (1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 0.017453292519943295769236907684886;
+  return sin(apparent_lon(t));
 }
 
 /* Eccentricity of Earth orbit */
@@ -48,85 +43,81 @@ double eoc(double t)
   return e * (a1 + e * (a2 + e * (a3 + e * (a4 + e * a5))));
 }
 
+double mean_anomaly(double t)
+{
+  return iauFalp03(t);
+}
+
+/* Mean geocentric longitude of the Sun */
+double mean_lon(double t)
+{
+  return fmod(      280.4664567    +
+     t * (        36000.76982779   +
+     t * (            0.0003032028 +
+     t * (   1.0/499310.0          +
+     t * (  1.0/-152990.0          +
+     t * (1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 0.017453292519943295769236907684886;
+}
+
+double mean_obliquity(double t)
+{
+  return iauObl06(t * 36525 + 2451545.0, 0);
+}
+
+double right_ascension(double t)
+{
+  double y0 = sin(apparent_lon(t)) * cos_to_earth(t);
+  return iauAnp(DPI + atan2(-y0, -cos_al_sun(t)));
+}
+
 double true_lon(double t)
 {
   return fmod( mean_lon(t) + eoc(t), 57.295779513082320876798154814105);
 }
 
-double apparent_lon(double t)
+double cos_tl_sun(double t) 
 {
-  return iauAnp(fmod(true_lon(t) - 
-           0.00569 * 0.017453292519943295769236907684886 - 
-           0.00478 * 0.017453292519943295769236907684886 * 
-           sin(iauFaom03(t)), 57.295779513082320876798154814105));
+  return cos(true_lon(t));
 }
 
-double raSun(double t)
+double sin_tl_sun(double t) 
 {
-  double y0 = sin(apparent_lon(t)) * cos_to_earth(t);
-  return atan2(-y0, -cos_al_sun(t));
+  return sin(true_lon(t));
+}       
+
+double true_obliquity(double t)
+{
+  double dp, de;
+  double fj2 = -2.7774e-6 * t;
+  iauNut06a(t * 36525 + 2451545.0, 0, &dp, &de);
+  return mean_obliquity(t) - de + de * fj2;
 }
+
+double cos_to_earth(double t)
+{
+  return cos(true_obliquity(t));
+}
+
+double sin_to_earth(double t) 
+{
+  return sin(true_obliquity(t));
+}  
+
 
 double cosZ(double zenith)
 {
   return cos(zenith * 0.017453292519943295769236907684886);
 }
 
-double cos_al_sun(double t) 
-{
-  return cos(apparent_lon(t));
-}
-
-double cos_dec_sun(double t) 
-{
-  return cos(sun_dec(t));
-} 
-
 double cos_lat(double lat) 
 {
   return cos(lat * 0.017453292519943295769236907684886);
-}                                   
-
-double cos_tl_sun(double t) 
-{
-  return cos(true_lon(t));
-}                                               
-
-double cos_to_earth(double t)
-{
-  double dp, de;
-  double fj2 = -2.7774e-6 * t;
-  iauNut06a(t * 36525 + 2451545.0, 0, &dp, &de);
-  return cos(mean_obliquity(t) - de + de * fj2);
-} 
-
-double sin_al_sun(double t) 
-{
-  return sin(apparent_lon(t));
 }
-
-double sin_dec_sun(double t) 
-{
-  return sin(sun_dec(t));
-}  
 
 double sin_lat(double lat) 
 {
   return sin(lat * 0.017453292519943295769236907684886);
 }                                   
-
-double sin_tl_sun(double t) 
-{
-  return sin(true_lon(t));
-}                                               
-
-double sin_to_earth(double t) 
-{
-  double dp, de;
-  double fj2 = -2.7774e-6 * t;
-  iauNut06a(t * 36525 + 2451545.0, 0, &dp, &de);
-  return sin(mean_obliquity(t) - de + de * fj2);
-} 
 
 double sun(double zenith, double dec_sun, double lat)
 {
@@ -147,4 +138,14 @@ double sun_dec(double t)
 {
   return asin(sin_to_earth(t) * sin_al_sun(t));
 }
+
+double cos_dec_sun(double t) 
+{
+  return cos(sun_dec(t));
+} 
+
+double sin_dec_sun(double t) 
+{
+  return sin(sun_dec(t));
+}  
 //                                                       

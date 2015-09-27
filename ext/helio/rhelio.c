@@ -156,9 +156,9 @@ VALUE func_sun_dec(VALUE klass, VALUE vt) {
 /*
 C extension
 */
-VALUE func_sun_ra(VALUE klass, VALUE vt) {
+VALUE func_right_ascension(VALUE klass, VALUE vt) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(raSun(NUM2DBL(vt)));
+  return DBL2NUM(right_ascension(NUM2DBL(vt)));
 }
 
 
@@ -186,7 +186,7 @@ Init_helio(void) {
   rb_define_module_function(mHelio, "sin_to_earth", func_sin_to_earth, 1);
   rb_define_module_function(mHelio, "sun", func_sun, 3); 
   rb_define_module_function(mHelio, "sun_dec", func_sun_dec, 1);
-  rb_define_module_function(mHelio, "sun_ra", func_sun_ra, 1);
+  rb_define_module_function(mHelio, "right_ascension", func_right_ascension, 1);
   rb_define_module_function(mHelio, "true_lon", func_true_lon, 1);
   
 }
