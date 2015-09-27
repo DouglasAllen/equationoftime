@@ -1,5 +1,8 @@
 First install the C SOFA Library http://www.iausofa.org/current_C.html
 
+I am currently in the proccess of phasing out the Celes gem but you still need both the 
+library above and Celes which is included. http://www.rubydoc.info/gems/celes/0.0.1
+
 = equationoftime
 
 Home    :: http://equationoftime.herokuapp.com/
