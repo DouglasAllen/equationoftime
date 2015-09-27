@@ -69,9 +69,8 @@ class Eot
 
   # String format of true anomaly
   def string_ta_sun
-    degrees_to_s(ta_sun)
+    degrees_to_s(true_anomaly)
   end
-  alias_method :true_anomaly_string, :string_ta_sun
 
   # From angle_displays.rb
 

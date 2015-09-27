@@ -167,10 +167,9 @@ class Eot
   # angle true anomaly
   # used in equation of time
 
-  def ta_sun
-    Celes.anp(@ma + Helio.eoc(@ta))
+  def true_anomaly
+    Helio.true_anomaly(@ta)
   end
-  alias_method :true_anomaly, :ta_sun
 
   ##
   # From angles.rb:
@@ -179,7 +178,7 @@ class Eot
   # considers nutation
 
   def true_longitude_aries
-    dt = 67.184
+    dt = 68.184
     tt = @ajd + dt / 86_400.0
     Celes.gst06a(@ajd, 0, tt, 0)
   end

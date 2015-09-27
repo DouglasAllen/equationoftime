@@ -25,6 +25,8 @@ double sun_dec(double t);
 double cos_dec_sun(double t);
 double sin_dec_sun(double t);
 
+double true_anomaly(double t);
+
 double true_lon(double t);
 double cos_tl_sun(double t);
 double sin_tl_sun(double t);

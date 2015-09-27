@@ -86,6 +86,13 @@ VALUE func_eoc(VALUE klass, VALUE vt) {
 /*
 C extension
 */
+VALUE func_true_anomaly(VALUE klass, VALUE vt) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(true_anomaly(NUM2DBL(vt)));
+}
+/*
+C extension
+*/
 VALUE func_true_lon(VALUE klass, VALUE vt) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
   return DBL2NUM(true_lon(NUM2DBL(vt)));
@@ -202,6 +209,7 @@ Init_helio(void) {
   rb_define_module_function(mHelio, "sun", func_sun, 3); 
   rb_define_module_function(mHelio, "sun_dec", func_sun_dec, 1);
   rb_define_module_function(mHelio, "right_ascension", func_right_ascension, 1);
+  rb_define_module_function(mHelio, "true_anomaly", func_true_anomaly, 1);
   rb_define_module_function(mHelio, "true_lon", func_true_lon, 1);
   rb_define_module_function(mHelio, "true_obl", func_true_obl, 1);
   

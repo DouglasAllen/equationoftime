@@ -105,6 +105,11 @@ double sin_dec_sun(double t)
   return sin(sun_dec(t));
 }  
 
+double true_anomaly(double t)
+{
+  return iauAnp(eoc(t) + mean_anomaly(t));
+}
+
 double true_lon(double t)
 {
   return fmod( mean_lon(t) + eoc(t), 57.295779513082320876798154814105);
