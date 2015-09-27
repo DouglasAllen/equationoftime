@@ -24,7 +24,7 @@ describe 'Eot_initialize has set attributes ' do
     assert_equal(UK_LNG, Eot.new.longitude)
   end
 
-  MA_SUN = Eot.new.ma_sun
+  MA_SUN = Eot.new.mean_anomaly
   it "expected #{MA_SUN} from @ma" do
     eot = Eot.new
     eot.ajd = JD_TODAY

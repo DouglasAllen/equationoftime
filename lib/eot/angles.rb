@@ -9,22 +9,20 @@ class Eot
 
   # Apparent solar longitude = true longitude - aberation
 
-  def al_sun
-    Celes.anp(Helio.al(@ma, @ta, omega))
+  def apparent_longitude
+    Helio.apparent_lon(@ta)
   end
-  alias_method :apparent_longitude, :al_sun
-  alias_method :alsun, :al_sun
-
+  
   ##
   # From angles.rb:
 
-  # equation of centre is
+  # equation of center is
   # added to mean anomaly to get true anomaly.
 
-  def center
-    Helio.eqc(@ma, @ta)
+  def equation_of_center
+    Helio.eoc(@ta)
   end
-  alias_method :equation_of_center, :center
+  
 
   ##
   # From angles.rb:
@@ -32,9 +30,8 @@ class Eot
   # solar declination 
 
   def dec_sun
-    Helio.sun_dec(al_sun, to_earth)
+    Helio.sun_dec(@ta)
   end
-  alias_method :declination, :dec_sun
 
   ##
   # From angles.rb:
@@ -77,11 +74,9 @@ class Eot
   # angle geometric mean longitude
   # needed to get true longitude for low accuracy.
 
-  def gml_sun
-    Helio.ml(@ta)
+  def mean_longitude
+    Helio.mean_lon(@ta)
   end
-  alias_method :geometric_mean_longitude, :gml_sun
-  alias_method :ml_sun, :gml_sun
 
   ##
   # From angles.rb:
@@ -123,11 +118,9 @@ class Eot
   # used in equation of time
   # and to get true anomaly true longitude via center equation
 
-  def ma_sun
-    @ta = (@ajd - DJ00) / DJC
-    @ma = Celes.falp03(@ta)
+  def mean_anomaly
+    @ma = Helio.mean_anomaly(@ta)
   end
-  alias_method :mean_anomaly, :ma_sun
 
   ##
   # From angles.rb:
@@ -147,11 +140,9 @@ class Eot
 
   # mean obliquity of Earth
 
-  def mo_earth
-    Celes.obl06(@ajd, 0)
+  def mean_obliquity
+    Helio.mean_obliquity(@ta)
   end
-  alias_method :mean_obliquity_of_ecliptic, :mo_earth
-  alias_method :mean_obliquity, :mo_earth
 
   ##
   # From angles.rb:
@@ -170,13 +161,10 @@ class Eot
 
   # solar right ascension
 
-  def ra_sun
-    y0 = sine_al_sun * cosine_to_earth
-    ra = Helio.sun_ra(y0, cosine_al_sun) 
-    # Celes.anp(PI + atan2(-y0, -cosine_al_sun))
+  def right_ascension    
+    ra = Helio.sun_ra(@ta) 
     Celes.anp(PI + ra)
   end
-  alias_method :right_ascension, :ra_sun
 
   ##
   # From angles.rb:
@@ -185,7 +173,7 @@ class Eot
   # used in equation of time
 
   def ta_sun
-    Celes.anp(@ma + Helio.eqc(@ma, @ta))
+    Celes.anp(@ma + Helio.eoc(@ta))
   end
   alias_method :true_anomaly, :ta_sun
 
@@ -208,12 +196,9 @@ class Eot
   # angle of true longitude sun
   # used in equation of time
 
-  def tl_sun
-    Helio.tl(@ma, @ta)
+  def true_longitude
+    Helio.true_lon(@ta)
   end
-  alias_method :true_longitude, :tl_sun
-  alias_method :ecliptic_longitude, :tl_sun
-  alias_method :lambda, :tl_sun
  
   ##
   # From angles.rb:
@@ -221,11 +206,9 @@ class Eot
   # true obliquity considers nutation
 
   def to_earth
-    mo_earth + angle_delta_epsilon
+    mean_obliquity + angle_delta_epsilon
   end
-  alias_method :obliquity_correction, :to_earth
-  alias_method :true_obliquity, :to_earth
-  alias_method :toearth, :to_earth
+
 end
 
 if __FILE__ == $PROGRAM_NAME

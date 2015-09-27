@@ -17,7 +17,7 @@ class Eot
 
   # String format of apparent longitude
   def string_al_sun
-    degrees_to_s(al_sun)
+    degrees_to_s(apparent_longitude)
   end
   alias_method :apparent_longitude_string, :string_al_sun
 
@@ -62,9 +62,8 @@ class Eot
 
   # String format of right ascension
   def string_ra_sun
-    degrees_to_s(ra_sun)
+    degrees_to_s(right_ascension)
   end
-  alias_method :right_ascension_string, :string_ra_sun
 
   # From angle_displays.rb
 
@@ -78,7 +77,7 @@ class Eot
 
   # String format of true longitude
   def string_tl_sun
-    degrees_to_s(tl_sun)
+    degrees_to_s(true_longitude)
   end
   alias_method :true_longitude_string, :string_tl_sun
 

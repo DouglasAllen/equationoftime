@@ -19,7 +19,7 @@ class Eot
   # see: :ajd attribute
   def ma_ta_set
     @ta = ((@ajd - DJ00) / DJC).to_f
-    @ma = Celes.falp03(@ta)
+    @ma = Helio.mean_anomaly(@ta)
   end
 
   # From init.rb:

@@ -1,187 +1,131 @@
 #include "helio.h"
+#include <sofa.h>
+
+double mean_anomaly(double t)
+{
+  return iauFalp03(t);
+}
+
+double mean_obliquity(double t)
+{
+  return iauObl06(t * 36525 + 2451545.0, 0);
+}
+
 
 /* Mean geocentric longitude of the Sun */
-double mlSun(double t)
+double mean_lon(double t)
 {
-  double a;
-  
-  a = fmod(      280.4664567    +
-  t * (        36000.76982779   +
-  t * (            0.0003032028 +
-  t * (   1.0/499310.0          +
-  t * (  1.0/-152990.0          +
-  t * (1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 0.017453292519943295769236907684886;
-
-  return a;
+  return fmod(      280.4664567    +
+     t * (        36000.76982779   +
+     t * (            0.0003032028 +
+     t * (   1.0/499310.0          +
+     t * (  1.0/-152990.0          +
+     t * (1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 0.017453292519943295769236907684886;
 }
 
 /* Eccentricity of Earth orbit */
 double eoe(double t)
 {
-  double e;
-
-  e = (0.016708617 + t * (-0.000042037 + t *  -0.0000001235));
-
-  return e; 
+  return (0.016708617 + t * (-0.000042037 + t *  -0.0000001235)); 
 }
 
-double eqc(double ma, double t)
+double eoc(double t)
 {             
   double a1, a2, a3, a4, a5, s1, s2, s3, s4, s5, e;
+  double ma = iauFalp03(t);
   e   = eoe(t);  
-  s1  = sin( 1.0 * ma );
-  s2  = sin( 2.0 * ma );
-  s3  = sin( 3.0 * ma );
-  s4  = sin( 4.0 * ma );
-  s5  = sin( 5.0 * ma );
+  s1  = sin( 1.0 * ma);
+  s2  = sin( 2.0 * ma);
+  s3  = sin( 3.0 * ma);
+  s4  = sin( 4.0 * ma);
+  s5  = sin( 5.0 * ma);
   a1  = s1 * 2;
   a2  = s2 * 5.0/4.0;
   a3  = s3 * 13.0/12.0 - s1 * 1.0/4.0;
   a4  = s4 * 103.0/96.0 - s2 * 11.0/24.0;
   a5  = s5 * 1097.0/960.0 + s1 * 5.0/96.0 - s3 * 43.0/64.0;
-  /* Equation of Center */
-  //a =  s1 * (e  *    2.0      - e3 * 1.0/4.0 + e5 *  5.0/96.0) +
-  //     s2 * (e2 *    5.0/4.0  - 0.0          - e4 * 11.0/24.0) + 
-  //     s3 * (e3 *   13.0/12.0 - 0.0          - e5 * 43.0/64.0) +
-  //     s4 *  e4 *  103.0/96.0                                  +
-  //     s5 *  e5 * 1097.0/960.0; 
+
   return e * (a1 + e * (a2 + e * (a3 + e * (a4 + e * a5))));
 }
 
-double tlSun(double ma, double t)
+double true_lon(double t)
 {
-  double a;
-
-  a = fmod( mlSun(t) + eqc(ma, t), 57.295779513082320876798154814105);
-
-  return a;
+  return fmod( mean_lon(t) + eoc(t), 57.295779513082320876798154814105);
 }
 
-double alSun(double ma, double t, double o)
+double apparent_lon(double t)
 {
-  double a;
-
-  a = fmod(tlSun(ma, t) - 
+  return iauAnp(fmod(true_lon(t) - 
            0.00569 * 0.017453292519943295769236907684886 - 
            0.00478 * 0.017453292519943295769236907684886 * 
-           sin(o), 57.295779513082320876798154814105);
-
-  return a;
+           sin(iauFaom03(t)), 57.295779513082320876798154814105));
 }
 
-double raSun(double y0, double cos_al_Sun)
+double raSun(double t)
 {
-  return atan2(-y0, -cos_al_Sun);
+  double y0 = sin(apparent_lon(t)) * cos_to_earth(t);
+  return atan2(-y0, -cos_al_sun(t));
 }
 
 double cosZ(double zenith)
 {
-
-  double ca;
-
-  ca = cos(zenith * 0.017453292519943295769236907684886);
-
-  return ca;
+  return cos(zenith * 0.017453292519943295769236907684886);
 }
 
-double cos_al_sun(double al_sun) 
+double cos_al_sun(double t) 
 {
-
-  double ca;
-
-  ca = cos(al_sun);
-
-  return ca;
+  return cos(apparent_lon(t));
 }
 
-double cos_dec_sun(double dec_sun) 
+double cos_dec_sun(double t) 
 {
-
-  double ca;
-
-  ca = cos(dec_sun);
-
-  return ca;
+  return cos(sun_dec(t));
 } 
 
 double cos_lat(double lat) 
 {
-
-  double ca;
-
-  ca = cos(lat * 0.017453292519943295769236907684886);
-
-  return ca;
+  return cos(lat * 0.017453292519943295769236907684886);
 }                                   
 
-double cos_tl_sun(double tl_sun) 
+double cos_tl_sun(double t) 
 {
-
-  double ca;
-
-  ca = cos(tl_sun);
-
-  return ca;
+  return cos(true_lon(t));
 }                                               
 
-double cos_to_earth(double to_earth) 
+double cos_to_earth(double t)
 {
-
-  double ca;
-
-  ca = cos(to_earth);
-
-  return ca;
+  double dp, de;
+  double fj2 = -2.7774e-6 * t;
+  iauNut06a(t * 36525 + 2451545.0, 0, &dp, &de);
+  return cos(mean_obliquity(t) - de + de * fj2);
 } 
 
-double sin_al_sun(double al_sun) 
+double sin_al_sun(double t) 
 {
-
-  double sa;
-
-  sa = sin(al_sun);
-
-  return sa;
+  return sin(apparent_lon(t));
 }
 
-double sin_dec_sun(double dec_sun) 
+double sin_dec_sun(double t) 
 {
-
-  double sa;
-
-  sa = sin(dec_sun);
-
-  return sa;
+  return sin(sun_dec(t));
 }  
 
 double sin_lat(double lat) 
 {
-
-  double sa;
-
-  sa = sin(lat * 0.017453292519943295769236907684886);
-
-  return sa;
+  return sin(lat * 0.017453292519943295769236907684886);
 }                                   
 
-double sin_tl_sun(double tl_sun) 
+double sin_tl_sun(double t) 
 {
-
-  double sa;
-
-  sa = sin(tl_sun);
-
-  return sa;
+  return sin(true_lon(t));
 }                                               
 
-double sin_to_earth(double to_earth) 
+double sin_to_earth(double t) 
 {
-
-  double sa;
-
-  sa = sin(to_earth);
-
-  return sa;
+  double dp, de;
+  double fj2 = -2.7774e-6 * t;
+  iauNut06a(t * 36525 + 2451545.0, 0, &dp, &de);
+  return sin(mean_obliquity(t) - de + de * fj2);
 } 
 
 double sun(double zenith, double dec_sun, double lat)
@@ -199,11 +143,8 @@ double sun(double zenith, double dec_sun, double lat)
   return acos(c);
 }
 
-double sun_dec(double al_sun, double to_earth) 
+double sun_dec(double t) 
 {
-  double sin1 = sin_to_earth(to_earth);
-  double sin2 = sin_al_sun(al_sun);
-  double a   = asin(sin1 * sin2);
-  return a;
+  return asin(sin_to_earth(t) * sin_al_sun(t));
 }
 //                                                       
