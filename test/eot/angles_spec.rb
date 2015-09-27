@@ -122,8 +122,8 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(3.8293871468831893, angles.ta_sun)
   end
 
-  it 'expected   2.5101242776531474 from  angles.tl_aries()? ' do
-    assert_equal(2.5101242776531474, angles.tl_aries)
+  it 'expected   2.5101242776531474 from  angles.true_longitude_aries()? ' do
+    assert_equal(2.5101242776531474, angles.true_longitude_aries)
   end
 
   it 'expected   2.48877803069344 from  angles.true_longitude()? ' do
@@ -250,8 +250,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(3.767353405438211, angles.ta_sun)
   end
 
-  it 'expected   2.4449774607872907 from angles.tl_aries()? ' do
-    assert_equal(2.4449774607872907, angles.tl_aries)
+  it 'expected   2.4449774607872907 from angles.true_longitude_aries()? ' do
+    assert_equal(2.4449774607872907, angles.true_longitude_aries)
   end
 
   it 'expected   2.4252405323331674 from angles.true_longitude()? ' do

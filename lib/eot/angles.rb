@@ -21,8 +21,7 @@ class Eot
 
   def equation_of_center
     Helio.eoc(@ta)
-  end
-  
+  end  
 
   ##
   # From angles.rb:
@@ -49,7 +48,7 @@ class Eot
   # equation of equinox is
   # used for true longitude of Aries but 
   # Depricated by Celes.gst06a()
-  # compinents are still used
+  # components are still used
   # see: #cosine_to_earth and #angle_delta_psi
 
   def eq_of_equinox
@@ -179,12 +178,11 @@ class Eot
   # true longitude of equinox 'first point of aries'
   # considers nutation
 
-  def tl_aries
+  def true_longitude_aries
     dt = 67.184
     tt = @ajd + dt / 86_400.0
     Celes.gst06a(@ajd, 0, tt, 0)
   end
-  alias_method :true_longitude_aries, :tl_aries
 
   ##
   # From angles.rb:
