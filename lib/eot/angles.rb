@@ -42,7 +42,6 @@ class Eot
   def eccentricity_earth
     Helio.eoe(@ta)
   end
-  alias_method :eccentricity_earth_orbit, :eccentricity_earth
 
   ##
   # From angles.rb:
@@ -56,7 +55,6 @@ class Eot
   def eq_of_equinox
     Celes.ee06a(@ajd, 0.0)
   end
-
   
   ##
   # From angles.rb:
@@ -105,9 +103,8 @@ class Eot
 
   def ha_sun(c)
     zenith = choice(c)
-    Helio.sun(zenith, dec_sun, @latitude)
+    Helio.sun(zenith, @ta, @latitude)
   end
-  alias_method :horizon_angle, :ha_sun
 
   ##
   # From angles.rb:
@@ -153,7 +150,7 @@ class Eot
   # on the ecliptic plane measured from the mean equinox of date.
 
   def omega
-    Celes.faom03(@ta)
+    Helio.omega(@ta)
   end
 
   ##

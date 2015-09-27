@@ -65,6 +65,13 @@ VALUE func_mean_lon(VALUE klass, VALUE vt) {
 /*
 C extension
 */
+VALUE func_omega(VALUE klass, VALUE vt) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(omega(NUM2DBL(vt)));
+}
+/*
+C extension
+*/
 VALUE func_eoe(VALUE klass, VALUE vt) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
   return DBL2NUM(eoe(NUM2DBL(vt)));
@@ -149,9 +156,9 @@ VALUE func_cos_lat(VALUE klass, VALUE vlat) {
 /*
 C extension
 */
-VALUE func_sun(VALUE klass, VALUE vz, VALUE vds, VALUE vlat) {
+VALUE func_sun(VALUE klass, VALUE vz, VALUE vt, VALUE vlat) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(sun(NUM2DBL(vz), NUM2DBL(vds), NUM2DBL(vlat)));
+  return DBL2NUM(sun(NUM2DBL(vz), NUM2DBL(vt), NUM2DBL(vlat)));
 }
 /*
 C extension
@@ -185,7 +192,8 @@ Init_helio(void) {
   rb_define_module_function(mHelio, "eoc", func_eoc, 1);
   rb_define_module_function(mHelio, "mean_anomaly", func_mean_anomaly, 1);
   rb_define_module_function(mHelio, "mean_obliquity", func_mean_obliquity, 1);
-  rb_define_module_function(mHelio, "mean_lon", func_mean_lon, 1); 
+  rb_define_module_function(mHelio, "mean_lon", func_mean_lon, 1);
+  rb_define_module_function(mHelio, "omega", func_omega, 1); 
   rb_define_module_function(mHelio, "sin_al_sun", func_sin_al_sun, 1);
   rb_define_module_function(mHelio, "sin_dec_sun", func_sin_dec_sun, 1);
   rb_define_module_function(mHelio, "sin_lat", func_sin_lat, 1);

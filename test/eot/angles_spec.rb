@@ -86,8 +86,8 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(2.5101912804141424, angles.mean_longitude)
   end
 
-  it 'expected   1.586442008215702 from  angles.ha_sun(1)? ' do
-    assert_equal(1.586442008215702, angles.ha_sun(1))
+  it 'expected   1.585784362285372 from  angles.ha_sun(1)? ' do
+    assert_equal(1.585784362285372, angles.ha_sun(1))
   end
 
   it 'expected   3.8508003966038915 from  angles.mean_anomaly()? ' do
@@ -214,8 +214,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(2.445008945789877, angles.mean_longitude)
   end
 
-  it 'expected   1.5865394322486017 from angles.ha_sun(1)? ' do
-    assert_equal(1.5865394322486017, angles.ha_sun(1))
+  it 'expected   1.5858631464187376 from angles.ha_sun(1)? ' do
+    assert_equal(1.5858631464187376, angles.ha_sun(1))
   end
 
   it 'expected   3.7871218188949207 from angles.mean_anomaly()? ' do

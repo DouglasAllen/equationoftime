@@ -64,18 +64,23 @@ double mean_obliquity(double t)
   return iauObl06(t * 36525 + 2451545.0, 0);
 }
 
+double omega(double t)
+{
+  return iauFaom03(t);
+}
+
 double right_ascension(double t)
 {
   double y0 = sin(apparent_lon(t)) * cos_to_earth(t);
   return iauAnp(DPI + atan2(-y0, -cos_al_sun(t)));
 }
 
-double sun(double zenith, double dec_sun, double lat)
+double sun(double zenith, double t, double lat)
 {
   double cos1 = cosZ(zenith);
-  double sin2 = sin_dec_sun(dec_sun);
+  double sin2 = sin_dec_sun(t);
   double sin3 = sin_lat(lat);
-  double cos2 = cos_dec_sun(dec_sun);
+  double cos2 = cos_dec_sun(t);
   double cos3 = cos_lat(lat);
   double top  = cos1 - sin2 * sin3;
   double bot  = cos2 * cos3;
