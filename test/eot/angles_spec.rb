@@ -94,8 +94,8 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(3.8508003966038915, angles.mean_anomaly)
   end
 
-  it 'expected   2.510089864980358 from  angles.ml_aries()? ' do
-    assert_equal(2.510089864980358, angles.ml_aries)
+  it 'expected   2.510089864980358 from  angles.mean_longitude_aries()? ' do
+    assert_equal(2.510089864980358, angles.mean_longitude_aries)
   end
 
   it 'expected   0.40905940254265843 from  angles.mean_obliquity()? ' do
@@ -222,8 +222,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(3.7871218188949207, angles.mean_anomaly)
   end
 
-  it 'expected   2.444907382260759 from angles.ml_aries()? ' do
-    assert_equal(2.444907382260759, angles.ml_aries)
+  it 'expected   2.444907382260759 from angles.mean_longitude_aries()? ' do
+    assert_equal(2.444907382260759, angles.mean_longitude_aries)
   end
 
   it 'expected   0.4090707793981491 from angles.mean_obliquity()? ' do

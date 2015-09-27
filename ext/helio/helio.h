@@ -40,4 +40,5 @@ double sin_lat(double lat);
 
 double cosZ(double zenith);
 
+double mean_longitude_aries(double t, double t1, double t2, double t3);
 double true_longitude_aries(double t, double t1, double t2, double t3);

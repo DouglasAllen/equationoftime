@@ -124,12 +124,11 @@ class Eot
   # Mean equinox point where right ascension is measured from as zero hours.
   # # see http://www.iausofa.org/publications/aas04.pdf
 
-  def ml_aries
+  def mean_longitude_aries
     dt = 67.184
     tt = @ajd + dt / 86_400.0
-    Celes.gmst06(@ajd, 0, tt, 0)
+    Helio.mean_longitude_aries(@ta, 0, (tt - 2451545.0)/36525, 0);
   end
-  alias_method :mean_longitude_aries, :ml_aries
 
   ##
   # From angles.rb:
@@ -209,6 +208,5 @@ if __FILE__ == $PROGRAM_NAME
   spec = File.expand_path('../../../test/eot', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
   require 'angles_spec'
-  require 'aliased_angles_spec'
 
 end
