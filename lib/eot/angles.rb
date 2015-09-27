@@ -180,7 +180,7 @@ class Eot
   def true_longitude_aries
     dt = 68.184
     tt = @ajd + dt / 86_400.0
-    Celes.gst06a(@ajd, 0, tt, 0)
+    Helio.true_longitude_aries(@ta, 0, (tt - 2451545.0)/36525, 0);
   end
 
   ##

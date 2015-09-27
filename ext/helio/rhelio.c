@@ -181,7 +181,13 @@ VALUE func_right_ascension(VALUE klass, VALUE vt) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
   return DBL2NUM(right_ascension(NUM2DBL(vt)));
 }
-
+/*
+C extension
+*/
+VALUE func_true_longitude_aries(VALUE klass, VALUE vt, VALUE vt1, VALUE vt2, VALUE vt3) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(true_longitude_aries(NUM2DBL(vt), NUM2DBL(vt1), NUM2DBL(vt2), NUM2DBL(vt3)));
+}
 
 void
 Init_helio(void) {
@@ -212,5 +218,6 @@ Init_helio(void) {
   rb_define_module_function(mHelio, "true_anomaly", func_true_anomaly, 1);
   rb_define_module_function(mHelio, "true_lon", func_true_lon, 1);
   rb_define_module_function(mHelio, "true_obl", func_true_obl, 1);
+  rb_define_module_function(mHelio, "true_longitude_aries", func_true_longitude_aries, 4);
   
 }
