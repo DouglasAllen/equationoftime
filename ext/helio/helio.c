@@ -70,55 +70,6 @@ double right_ascension(double t)
   return iauAnp(DPI + atan2(-y0, -cos_al_sun(t)));
 }
 
-double true_lon(double t)
-{
-  return fmod( mean_lon(t) + eoc(t), 57.295779513082320876798154814105);
-}
-
-double cos_tl_sun(double t) 
-{
-  return cos(true_lon(t));
-}
-
-double sin_tl_sun(double t) 
-{
-  return sin(true_lon(t));
-}       
-
-double true_obliquity(double t)
-{
-  double dp, de;
-  double fj2 = -2.7774e-6 * t;
-  iauNut06a(t * 36525 + 2451545.0, 0, &dp, &de);
-  return mean_obliquity(t) - de + de * fj2;
-}
-
-double cos_to_earth(double t)
-{
-  return cos(true_obliquity(t));
-}
-
-double sin_to_earth(double t) 
-{
-  return sin(true_obliquity(t));
-}  
-
-
-double cosZ(double zenith)
-{
-  return cos(zenith * 0.017453292519943295769236907684886);
-}
-
-double cos_lat(double lat) 
-{
-  return cos(lat * 0.017453292519943295769236907684886);
-}
-
-double sin_lat(double lat) 
-{
-  return sin(lat * 0.017453292519943295769236907684886);
-}                                   
-
 double sun(double zenith, double dec_sun, double lat)
 {
   double cos1 = cosZ(zenith);
@@ -148,4 +99,54 @@ double sin_dec_sun(double t)
 {
   return sin(sun_dec(t));
 }  
+
+double true_lon(double t)
+{
+  return fmod( mean_lon(t) + eoc(t), 57.295779513082320876798154814105);
+}
+
+double cos_tl_sun(double t) 
+{
+  return cos(true_lon(t));
+}
+
+double sin_tl_sun(double t) 
+{
+  return sin(true_lon(t));
+}       
+
+double true_obl(double t)
+{
+  double dp, de;
+  double fj2 = -2.7774e-6 * t;
+  iauNut06a(t * 36525 + 2451545.0, 0, &dp, &de);
+  return mean_obliquity(t) - de + de * fj2;
+}
+
+double cos_to_earth(double t)
+{
+  return cos(true_obl(t));
+}
+
+double sin_to_earth(double t) 
+{
+  return sin(true_obl(t));
+}
+
+double cosZ(double zenith)
+{
+  return cos(zenith * 0.017453292519943295769236907684886);
+}
+
+double cos_lat(double lat) 
+{
+  return cos(lat * 0.017453292519943295769236907684886);
+}
+
+double sin_lat(double lat) 
+{
+  return sin(lat * 0.017453292519943295769236907684886);
+}                                   
+
+
 //                                                       

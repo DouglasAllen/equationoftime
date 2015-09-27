@@ -204,8 +204,8 @@ class Eot
 
   # true obliquity considers nutation
 
-  def to_earth
-    mean_obliquity + angle_delta_epsilon
+  def true_obliquity
+    Helio.true_obl(@ta)
   end
 
 end

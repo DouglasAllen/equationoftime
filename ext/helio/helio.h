@@ -8,6 +8,7 @@ double mean_anomaly(double t);
 double mean_lon(double t);
 double mean_obliquity(double t);
 double true_lon(double t);
+double true_obl(double t);
 double right_ascension(double t);
 double cosZ(double zenith);
 double cos_al_sun(double t);

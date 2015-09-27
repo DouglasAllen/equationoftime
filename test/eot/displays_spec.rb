@@ -94,8 +94,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal '+142:35:47.318', displays.string_tl_sun
   end
 
-  it 'expected   "+023:26:06.164" from displays.string_to_earth() ' do
-    assert_equal '+023:26:06.164', displays.string_to_earth
+  it 'expected   "+023:26:22.953" from displays.string_to_earth() ' do
+    assert_equal "+023:26:22.953", displays.string_to_earth
   end
 
 end

@@ -85,7 +85,7 @@ class Eot
 
   # String format of true obliquity
   def string_to_earth
-    degrees_to_s(to_earth)
+    degrees_to_s(Helio.true_obl(@ta))
   end
   alias_method :true_obliquity_string, :string_to_earth
 end

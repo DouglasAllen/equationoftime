@@ -1,8 +1,10 @@
+First install the C SOFA Library http://www.iausofa.org/current_C.html
+
 = equationoftime
 
 Home    :: http://equationoftime.herokuapp.com/
 Code    :: https://github.com/DouglasAllen/equationoftime
-RDoc    :: http://rubydoc.info/gems/equationoftime/4.1.5/frames
+RDoc    :: http://rubydoc.info/gems/equationoftime/4.1.8/frames
 Issues  :: https://github.com/DouglasAllen/equationoftime/issues
 
 

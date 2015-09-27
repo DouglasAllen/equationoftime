@@ -86,6 +86,13 @@ VALUE func_true_lon(VALUE klass, VALUE vt) {
 /*
 C extension
 */
+VALUE func_true_obl(VALUE klass, VALUE vt) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(true_obl(NUM2DBL(vt)));
+}
+/*
+C extension
+*/
 VALUE func_cos_tl_sun(VALUE klass, VALUE vtls) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
   return DBL2NUM(cos_al_sun(NUM2DBL(vtls)));
@@ -188,5 +195,6 @@ Init_helio(void) {
   rb_define_module_function(mHelio, "sun_dec", func_sun_dec, 1);
   rb_define_module_function(mHelio, "right_ascension", func_right_ascension, 1);
   rb_define_module_function(mHelio, "true_lon", func_true_lon, 1);
+  rb_define_module_function(mHelio, "true_obl", func_true_obl, 1);
   
 }
