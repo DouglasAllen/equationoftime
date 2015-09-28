@@ -195,6 +195,27 @@ VALUE func_true_longitude_aries(VALUE klass, VALUE vt, VALUE vt1, VALUE vt2, VAL
   rb_ivar_set(klass, id_status, INT2FIX(0));
   return DBL2NUM(true_longitude_aries(NUM2DBL(vt), NUM2DBL(vt1), NUM2DBL(vt2), NUM2DBL(vt3)));
 }
+/*
+C extension
+*/
+VALUE func_earth_rotation_angle(VALUE klass, VALUE vt) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(earth_rotation_angle(NUM2DBL(vt)));
+}
+/*
+C extension
+*/
+VALUE func_equation_of_equinox(VALUE klass, VALUE vt) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(equation_of_equinox(NUM2DBL(vt)));
+}
+/*
+C extension
+*/
+VALUE func_date2ajd(VALUE klass, VALUE vy, VALUE vm, VALUE vd) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(date2ajd(NUM2DBL(vy), NUM2DBL(vm), NUM2DBL(vd)));
+}
 
 void
 Init_helio(void) {
@@ -227,5 +248,9 @@ Init_helio(void) {
   rb_define_module_function(mHelio, "true_obl", func_true_obl, 1);
   rb_define_module_function(mHelio, "mean_longitude_aries", func_mean_longitude_aries, 4);
   rb_define_module_function(mHelio, "true_longitude_aries", func_true_longitude_aries, 4);
+  rb_define_module_function(mHelio, "earth_rotation_angle", func_earth_rotation_angle, 1);
+  rb_define_module_function(mHelio, "equation_of_equinox", func_equation_of_equinox, 1);
+  rb_define_module_function(mHelio, "date2ajd", func_date2ajd, 3);
+
   
 }

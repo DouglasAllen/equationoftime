@@ -2,7 +2,7 @@
 
 # require 'multi_xml'
 require 'addressable/uri'
-require 'celes'
+#require 'celes'
 require 'eot/helio'
 require 'json'
 require 'rest-client'

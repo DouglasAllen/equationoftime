@@ -167,4 +167,21 @@ double true_longitude_aries(double t, double t1, double t2, double t3)
 {
   return iauGst06a(t * 36525 + 2451545.0, t1, t2 * 36525 + 2451545.0, t3);
 }
+
+double earth_rotation_angle(double t)
+{
+  return iauEra00(t * 36525 + 2451545, 0);
+}
+
+double equation_of_equinox(double t)
+{
+  return iauEe06a(t * 36525 + 2451545, 0.0);
+}
+
+double date2ajd(double y, double m, double d)
+{
+  double djm0, djm;
+  iauCal2jd(y, m, d, &djm0, &djm);
+  return djm0 + djm;
+}
 //                                                       

@@ -51,8 +51,8 @@ class Eot
   # components are still used
   # see: #cosine_to_earth and #angle_delta_psi
 
-  def eq_of_equinox
-    Celes.ee06a(@ajd, 0.0)
+  def equation_of_equinox
+    Helio.equation_of_equinox(@ta)
   end
   
   ##
@@ -61,8 +61,8 @@ class Eot
   # Earth rotation angle (for comparison to tl_aries
   # which uses gmst06)
 
-  def era
-    Celes.era00(@ajd, 0.0)
+  def earth_rotation_angle
+    Helio.earth_rotation_angle(@ta)
   end
 
   ## 
