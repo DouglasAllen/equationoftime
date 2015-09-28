@@ -177,8 +177,8 @@ func_equation_of_equinox(VALUE klass, VALUE vt) {
 }
 
 static VALUE
-func_date2ajd(VALUE klass, VALUE vy, VALUE vm, VALUE vd) {
-  rb_ivar_set(klass, id_status, INT2FIX(0));
+func_date2ajd(VALUE self, VALUE vy, VALUE vm, VALUE vd) {
+
   double djm0, djm;
   int ret;
   ret = iauCal2jd(NUM2INT(vy), NUM2INT(vm), NUM2INT(vd), &djm0, &djm);
