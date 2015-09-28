@@ -1,5 +1,6 @@
 #include "math.h"
 #include <sofam.h>
+#include <sofa.h>
 
 double apparent_lon(double t);
 double cos_al_sun(double t);
@@ -44,4 +45,3 @@ double mean_longitude_aries(double t, double t1, double t2, double t3);
 double true_longitude_aries(double t, double t1, double t2, double t3);
 double earth_rotation_angle(double t);
 double equation_of_equinox(double t);
-double date2ajd(double y, double m, double d);

@@ -178,10 +178,4 @@ double equation_of_equinox(double t)
   return iauEe06a(t * 36525 + 2451545, 0.0);
 }
 
-double date2ajd(double y, double m, double d)
-{
-  double djm0, djm;
-  iauCal2jd(y, m, d, &djm0, &djm);
-  return djm0 + djm;
-}
 //                                                       
