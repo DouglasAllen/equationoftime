@@ -36,8 +36,8 @@ describe 'Eot displays using ajd of 2456885.0' do
   end
 
 
-  it 'expected   "-04m, 29.98s" from displays.string_eot() ' do
-    assert_equal "-04m, 29.98s", displays.string_eot
+  it 'expected   "-04m, 29.76s" from displays.string_eot() ' do
+    assert_equal "-04m, 29.76s", displays.string_eot
   end
 
   it 'expected   "2000-01-01" from displays.string_jd_to_date() ' do

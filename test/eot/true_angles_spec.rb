@@ -42,8 +42,8 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(2.48877803069344, angles.true_longitude)
   end
 
-  it 'expected   0.4091001004863658 from angles.true_obliquity()? ' do
-    assert_equal(0.4091001004863658, angles.true_obliquity)
+  it 'expected   0.4090187046320026 from angles.true_obliquity()? ' do
+    assert_equal(0.4090187046320026, angles.true_obliquity)
   end
 end
 
@@ -81,7 +81,7 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(2.4252405323331674, angles.true_longitude)
   end
 
-  it 'expected   0.4090481178854004 from angles.true_obliquity()? ' do
-    assert_equal(0.4090481178854004, angles.true_obliquity)
+  it 'expected   0.40909344089880095 from angles.true_obliquity()? ' do
+    assert_equal(0.40909344089880095, angles.true_obliquity)
   end
 end

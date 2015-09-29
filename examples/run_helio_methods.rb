@@ -17,7 +17,7 @@ p Helio.mean_anomaly(t) - Helio.mean_longitude(t)
 p Helio.mean_obliquity(t)
 p Helio.right_ascension(t)
 p Helio.true_obliquity(t)
-p Helio.delta_psi(t)
-p Helio.delta_epsilon(t)
+p Helio.delta_psi(t) * 180/Math::PI * 3600.0
+p Helio.delta_epsilon(t) * 180/Math::PI * 3600.0
 p Helio.a2af(9, Helio.mean_obliquity(t))
 p Helio.a2af(9, Helio.true_obliquity(t)) 

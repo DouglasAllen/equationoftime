@@ -38,8 +38,8 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(-0.021413249720702462, angles.equation_of_center)
   end
 
-  it 'expected   0.24406085412237594 from  angles.dec_sun()? ' do
-    assert_equal(0.24406085412237594, angles.dec_sun)
+  it 'expected   0.24401410219492767 from  angles.dec_sun()? ' do
+    assert_equal(0.24401410219492767, angles.dec_sun)
   end
 
   it 'expected   2.506820536931464  from angle.earth_rotation_angle()' do
@@ -51,16 +51,16 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(0.016702468499021204, angles.eccentricity_earth)
   end
 
-  it 'expected   1.585784362285372 from  angles.ha_sun(1)? ' do
-    assert_equal(1.585784362285372, angles.ha_sun(1))
+  it 'expected   1.585784187793996 from  angles.ha_sun(1)? ' do
+    assert_equal(1.585784187793996, angles.ha_sun(1))
   end
 
   it 'expected   -2.7528817371494685 from  angles.omega()? ' do
     assert_equal(-2.7528817371494685, angles.omega)
   end
 
-  it 'expected   2.5297577562929665 from  angles.right_ascension()? ' do
-    assert_equal(2.5297577562929665, angles.right_ascension)
+  it 'expected   2.529741165435018 from  angles.right_ascension()? ' do
+    assert_equal(2.529741165435018, angles.right_ascension)
   end
 end
 
@@ -94,8 +94,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(-0.019768413456709915, angles.equation_of_center)
   end
 
-  it 'expected   0.2642408391786298 from angles.dec_sun()? ' do
-    assert_equal(0.2642408391786298, angles.dec_sun)
+  it 'expected   0.2642691272256653 from angles.dec_sun()? ' do
+    assert_equal(0.2642691272256653, angles.dec_sun)
   end
 
   it 'expected   0.016704576164208475 from \
@@ -103,16 +103,16 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(0.016704576164208475, angles.eccentricity_earth)
   end
 
-  it 'expected   1.5858631464187376 from angles.ha_sun(1)? ' do
-    assert_equal(1.5858631464187376, angles.ha_sun(1))
+  it 'expected   1.5858632617532584 from angles.ha_sun(1)? ' do
+    assert_equal(1.5858632617532584, angles.ha_sun(1))
   end
 
   it 'expected   -1.0615640635268548 from angles.omega()? ' do
     assert_equal(-1.0615640635268548, angles.omega)
   end
 
-  it 'expected   2.4675535318494584 from angles.right_ascension()? ' do
-    assert_equal(2.4675535318494584, angles.right_ascension)
+  it 'expected   2.467563113545988 from angles.right_ascension()? ' do
+    assert_equal(2.467563113545988, angles.right_ascension)
   end
 
 end

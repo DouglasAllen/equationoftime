@@ -35,8 +35,8 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(-0.7943772759574919, angles.cosine_true_longitude)
   end
 
-  it 'expected   0.9174791597576031 from  angles.cosine_true_obliquity()? ' do
-    assert_equal(0.9174791597576031, angles.cosine_true_obliquity)
+  it 'expected   0.9175115346746185 from  angles.cosine_true_obliquity()? ' do
+    assert_equal(0.9175115346746185, angles.cosine_true_obliquity)
   end
 
   it 'expected   0.6074784519729512 from  angles.sine_apparent_longitude()? ' do
@@ -75,8 +75,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(-0.7542060769936684, angles.cosine_true_longitude)
   end
 
-  it 'expected   0.9174998363571427 from angles.cosine_true_obliquity()? ' do
-    assert_equal(0.9174998363571427, angles.cosine_true_obliquity)
+  it 'expected   0.9174818088136396 from angles.cosine_true_obliquity()? ' do
+    assert_equal(0.9174818088136396, angles.cosine_true_obliquity)
   end
 
   it 'expected   0.6566577566139093 from angles.sine_apparent_longitude()? ' do

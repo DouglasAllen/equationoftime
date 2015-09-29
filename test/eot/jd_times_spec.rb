@@ -25,45 +25,45 @@ describe 'tests jd of 2456885.0 ' do
     assert_equal(2_456_885.0, times.ajd)
   end
  
-  it 'expected   2456885.301581902 from \
+  it 'expected   2456885.30158128 from \
       times.astronomical_twilight_end_jd ' do
-    assert_equal(2456885.301581902, \
+    assert_equal(2456885.30158128, \
                  times.astronomical_twilight_end_jd)
   end
 
-  it 'expected   2456884.698418098 from \
+  it 'expected   2456884.69841872 from \
       times.astronomical_twilight_start_jd ' do
-    assert_equal(2456884.698418098, \
+    assert_equal(2456884.69841872, \
                  times.astronomical_twilight_start_jd)
   end
 
-  it 'expected   2456885.267177629 from times.civil_twilight_end_jd() ' do
-    assert_equal(2456885.267177629, times.civil_twilight_end_jd)
+  it 'expected   2456885.267177428 from times.civil_twilight_end_jd() ' do
+    assert_equal(2456885.267177428, times.civil_twilight_end_jd)
   end
 
-  it 'expected   2456884.732822371 from \
+  it 'expected   2456884.732822572 from \
       times.civil_twilight_start_jd() ' do
-    assert_equal(2456884.732822371, times.civil_twilight_start_jd)
+    assert_equal(2456884.732822572, times.civil_twilight_start_jd)
   end
 
-  it 'expected   2456885.284367218 from \
+  it 'expected   2456885.2843668116 from \
       times.nautical_twilight_end_jd ' do
-    assert_equal(2456885.284367218, \
+    assert_equal(2456885.2843668116, \
                  times.nautical_twilight_end_jd)
   end
 
-  it 'expected   2456884.715632782 from \
+  it 'expected   2456884.7156331884 from \
       times.nautical_twilight_start_jd ' do
-    assert_equal(2456884.715632782, \
+    assert_equal(2456884.7156331884, \
                  times.nautical_twilight_start_jd)
   end 
 
-  it 'expected   2456884.74761458 from times.sunrise_jd() ' do
-    assert_equal(2456884.74761458, times.sunrise_jd)
+  it 'expected   2456884.7476146077 from times.sunrise_jd() ' do
+    assert_equal(2456884.7476146077, times.sunrise_jd)
   end
 
-  it 'expected   2456885.25238542 from times.sunset_jd() ' do
-    assert_equal(2456885.25238542, times.sunset_jd)
+  it 'expected   2456885.2523853923 from times.sunset_jd() ' do
+    assert_equal(2456885.2523853923, times.sunset_jd)
   end
 
 end
@@ -85,12 +85,12 @@ describe 'tests ajd of 2455055.0 ' do
     assert_equal(2_455_055.0, times.jd)
   end
 
-  it 'expected   2455054.7476020413 from times.sunrise_jd()' do
-    assert_equal(2455054.7476020413, times.sunrise_jd)
+  it 'expected   2455054.7476020227 from times.sunrise_jd()' do
+    assert_equal(2455054.7476020227, times.sunrise_jd)
   end
 
-  it 'expected   2455055.2523979587 from times.sunset_jd() ' do
-    assert_equal(2455055.2523979587, times.sunset_jd)
+  it 'expected   2455055.2523979773 from times.sunset_jd() ' do
+    assert_equal(2455055.2523979773, times.sunset_jd)
   end
 
 end

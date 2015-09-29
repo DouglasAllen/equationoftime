@@ -40,16 +40,16 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal '+142:35:33.356', displays.string_al_sun
   end
 
-  it 'expected   "+013:59:01.165" from displays.string_dec_sun() ' do
-    assert_equal "+013:59:01.165", displays.string_dec_sun
+  it 'expected   "+013:58:51.522" from displays.string_dec_sun() ' do
+    assert_equal "+013:58:51.522", displays.string_dec_sun
   end
 
   it 'expected   "+220:38:04.598" from displays.string_ma_sun() ' do
     assert_equal '+220:38:04.598', displays.string_ma_sun
   end
 
-  it 'expected   "+144:56:39.993" from displays.string_ra_sun() ' do
-    assert_equal "+144:56:39.993", displays.string_ra_sun
+  it 'expected   "+144:56:36.571" from displays.string_ra_sun() ' do
+    assert_equal "+144:56:36.571", displays.string_ra_sun
   end
 
   it 'expected   "+219:24:27.798" from displays.string_ta_sun() ' do
@@ -61,8 +61,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal '+142:35:47.318', displays.string_tl_sun
   end
 
-  it 'expected   "+023:26:22.953" from displays.string_to_earth() ' do
-    assert_equal "+023:26:22.953", displays.string_to_earth
+  it 'expected   "+023:26:06.164" from displays.string_to_earth() ' do
+    assert_equal "+023:26:06.164", displays.string_to_earth
   end
 
 end

@@ -143,7 +143,7 @@ double true_obliquity(double t)
 {
   double de = delta_epsilon(t);
   double fj2 = -2.7774e-6 * t;  
-  return mean_obliquity(t) - de + de * fj2;
+  return mean_obliquity(t) + (de + de * fj2);
 }
 
 double cosine_true_obliquity(double t)

@@ -30,8 +30,8 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(-4.069792718159396e-05, angles.delta_epsilon)
   end
 
-  it 'expected   -0.04104741644935217 from  angles.delta_oblique()? ' do
-    assert_equal(-0.04104741644935217, angles.delta_oblique)
+  it 'expected   -0.04103082559140381 from  angles.delta_oblique()? ' do
+    assert_equal(-0.04103082559140381, angles.delta_oblique)
   end
 
   it 'expected   0.021413249720702462 from  angles.delta_orbit()? ' do
@@ -46,8 +46,8 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(3.4412912434333975e-05, angles.equation_of_equinox)
   end
 
-  it 'expected   -0.019634166728649708 from  angles.equation_of_time()? ' do
-    assert_equal(-0.019634166728649708, angles.equation_of_time)
+  it 'expected   -0.019617575870701346 from  angles.equation_of_time()? ' do
+    assert_equal(-0.019617575870701346, angles.equation_of_time)
   end
 
 
@@ -75,8 +75,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(2.2661506700250296e-05, angles.delta_epsilon)
   end
 
-  it 'expected   -0.042339467276955034 from angles.delta_oblique()? ' do
-    assert_equal(-0.042339467276955034, angles.delta_oblique)
+  it 'expected   -0.04234904897348457 from angles.delta_oblique()? ' do
+    assert_equal(-0.04234904897348457, angles.delta_oblique)
   end
 
   it 'expected   0.019768413456709915 from angles.delta_orbit()? ' do
@@ -91,8 +91,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(7.007879585074761e-05, angles.equation_of_equinox)
   end
 
-  it 'expected   -0.02257105382024512 from angles.equation_of_time()? ' do
-    assert_equal(-0.02257105382024512, angles.equation_of_time)
+  it 'expected   -0.022580635516774656 from angles.equation_of_time()? ' do
+    assert_equal(-0.022580635516774656, angles.equation_of_time)
   end
 
 end
