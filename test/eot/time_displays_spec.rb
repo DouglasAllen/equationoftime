@@ -11,9 +11,11 @@ displays = Eot.new
 describe 'Eot displays using ajd of 2456885.0' do
 
   before(:each) do
-    displays.ajd               =   2_456_885.0
-    ajd   = displays.ajd
+    displays.jd               =   2_456_885.0
+    displays.ajd = displays.jd
     displays.ma_ta_set
+
+    ajd   = displays.jd
     # check date for this ajd when needed.
     displays.date = displays.ajd_to_datetime(ajd)
   end
@@ -34,8 +36,8 @@ describe 'Eot displays using ajd of 2456885.0' do
   end
 
 
-  it 'expected   "-04m, 29.25s" from displays.string_eot() ' do
-    assert_equal "-04m, 29.25s", displays.string_eot
+  it 'expected   "-04m, 29.98s" from displays.string_eot() ' do
+    assert_equal "-04m, 29.98s", displays.string_eot
   end
 
   it 'expected   "2000-01-01" from displays.string_jd_to_date() ' do
@@ -45,8 +47,8 @@ describe 'Eot displays using ajd of 2456885.0' do
   end
 
   it 'expected  "2014-08-15" from \
-      displays.jd_to_date_string(displays.ajd)? ' do
-    assert_equal '2014-08-15', displays.jd_to_date_string(displays.ajd)
+      displays.string_jd_to_date(displays.ajd)? ' do
+    assert_equal '2014-08-15', displays.string_jd_to_date(displays.ajd)
   end
 
   it 'expected   "12:00:00.000" from displays.string_time() ' do
@@ -56,9 +58,9 @@ describe 'Eot displays using ajd of 2456885.0' do
   end
 
   it 'expected   "12:00:00.000" from \
-      displays.display_time_string(Eot_adisplays.date)? ' do
+      displays.string_time(.date)? ' do
     assert_equal '12:00:00.000', \
-                 displays.display_time_string(displays.date)
+                 displays.string_time(displays.date)
   end
 
 end

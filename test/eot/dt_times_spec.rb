@@ -80,18 +80,6 @@ describe 'tests jd of 2456885.0 ' do
     assert_equal "2014-08-15T18:03:26+00:00", times.sunset_dt.to_s
   end
 
-  it 'expected   -9.381688676700811 from times.time_delta_oblique() ' do
-    assert_equal(-9.381688676700811, times.time_delta_oblique)
-  end
-
-  it 'expected   4.894155584285298 from times.time_delta_orbit() ' do
-    assert_equal(4.894155584285298, times.time_delta_orbit)
-  end
-
-  it 'expected   -4.487533092415514 from times.time_eot() ' do
-    assert_equal(-4.487533092415514, times.time_eot)
-  end
-
 end
 
 describe 'tests ajd of 2455055.0 ' do

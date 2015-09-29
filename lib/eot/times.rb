@@ -1,6 +1,6 @@
 ##
 # class Eot file = times.rb:
-# methods calculating times
+# methods calculating date times
 
 class Eot
 
@@ -14,6 +14,20 @@ class Eot
 
   def ajd_to_datetime(ajd)
     DateTime.jd(ajd + 0.5)
+  end
+
+  # From times.rb:
+  # Uses @ajd and @longitude attributes
+  # Returns DateTime object of local noon or solar transit
+  def mean_local_noon_dt
+    ajd_to_datetime(mean_local_noon_jd)
+  end
+
+  # From times.rb:
+  # Uses @ajd and @longitude attributes
+  # Returns DateTime object of local noon or solar transit
+  def local_noon_dt
+    ajd_to_datetime(mean_local_noon_jd - eot_jd)
   end
 
   # From times.rb:
@@ -45,13 +59,6 @@ class Eot
   end
 
   # From times.rb:
-  # Uses @ajd and @longitude attributes
-  # Returns DateTime object of local noon or solar transit
-  def local_noon_dt
-    ajd_to_datetime(mean_local_noon_jd - eot_jd)
-  end
-
-  # From times.rb:
   # Uses @ajd attribute
   # Returns nautical twilight end as a DateTime
   def nautical_twilight_end_dt
@@ -63,15 +70,6 @@ class Eot
   # Returns nautical twilight start as a DateTime
   def nautical_twilight_start_dt
     ajd_to_datetime(nautical_twilight_start_jd)
-  end
-
-  # From times.rb:
-  # sets @ajd to DateTime.now
-  # Returns EOT (equation of time) now in decimal minutes form
-  def now
-    @ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
-    @t = (@ajd - DJ00) / DJC
-    time_eot
   end
 
   # From times.rb:
