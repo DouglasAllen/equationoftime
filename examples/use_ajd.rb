@@ -62,8 +62,8 @@ Let's see, minus degrees would mean to add that to say 360.
 right ascension on the celestial sphere. 
 360 + (eot.mean_anomaly - eot.mean_longitude) * 180/Math::PI
 #{360 + (eot.mean_anomaly - eot.mean_longitude) * 180/Math::PI}
-What's my point? If you know the exact time that Vernal Equinox occurs then yo may find
+What's my point? If you know the exact time that the Vernal Equinox occurs then you may find
 the exact time that Perihelion for Earth occurs. But how do we do the math for that?
-I only have a clue. 
+I only have a clue. http://analemma.com 
 HD
 puts heredoc
