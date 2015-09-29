@@ -62,22 +62,6 @@ describe 'Tests ajd of 2456885.0 ' do
   it 'expected   2.5297577562929665 from  angles.right_ascension()? ' do
     assert_equal(2.5297577562929665, angles.right_ascension)
   end
-
-  it 'expected   3.829387146883189 from  angles.true_anomaly()? ' do
-    assert_equal(3.829387146883189, angles.true_anomaly)
-  end
-
-  it 'expected   2.5101242776566672 from  angles.true_longitude_aries()? ' do
-    assert_equal(2.5101242776566672, angles.true_longitude_aries)
-  end
-
-  it 'expected   2.48877803069344 from  angles.true_longitude()? ' do
-    assert_equal(2.48877803069344, angles.true_longitude)
-  end
-
-  it 'expected   0.4091001004863658 from angles.true_obliquity()? ' do
-    assert_equal(0.4091001004863658, angles.true_obliquity)
-  end
 end
 
 describe 'Tests ajd of 2455055.5 ' do
@@ -131,19 +115,4 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(2.4675535318494584, angles.right_ascension)
   end
 
-  it 'expected   3.767353405438211 from angles.true_anomaly()? ' do
-    assert_equal(3.767353405438211, angles.true_anomaly)
-  end
-
-  it 'expected   2.444977460790369 from angles.true_longitude_aries()? ' do
-    assert_equal(2.444977460790369, angles.true_longitude_aries)
-  end
-
-  it 'expected   2.4252405323331674 from angles.true_longitude()? ' do
-    assert_equal(2.4252405323331674, angles.true_longitude)
-  end
-
-  it 'expected   0.4090481178854004 from angles.true_obliquity()? ' do
-    assert_equal(0.4090481178854004, angles.true_obliquity)
-  end
 end
