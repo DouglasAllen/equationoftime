@@ -27,24 +27,24 @@ describe 'Tests ajd of 2456885.0 ' do
   end
 
 
-  it 'expected   -0.7943361570447028 from angles.cosine_al_sun()? ' do
-    assert_equal(-0.7943361570447028, angles.cosine_al_sun)
+  it 'expected   -0.7943361570447028 from angles.cosine_apparent_longitude()? ' do
+    assert_equal(-0.7943361570447028, angles.cosine_apparent_longitude)
   end
 
-  it 'expected   -0.7943361570447028 from  angles.cosine_tl_sun()? ' do
-    assert_equal(-0.7943361570447028, angles.cosine_tl_sun)
+  it 'expected   -0.7943772759574919 from  angles.cosine_true_longitude()? ' do
+    assert_equal(-0.7943772759574919, angles.cosine_true_longitude)
   end
 
-  it 'expected   0.9174791597576031 from  angles.cosine_to_earth()? ' do
-    assert_equal(0.9174791597576031, angles.cosine_to_earth)
+  it 'expected   0.9174791597576031 from  angles.cosine_true_obliquity()? ' do
+    assert_equal(0.9174791597576031, angles.cosine_true_obliquity)
   end
 
-  it 'expected   0.6074784519729512 from  angles.sine_al_sun()? ' do
-    assert_equal(0.6074784519729512, angles.sine_al_sun)
+  it 'expected   0.6074784519729512 from  angles.sine_apparent_longitude()? ' do
+    assert_equal(0.6074784519729512, angles.sine_apparent_longitude)
   end
 
-  it 'expected   0.6074784519729512 from  angles.sine_tl_sun()? ' do
-    assert_equal(0.6074784519729512, angles.sine_tl_sun)
+  it 'expected   0.6074246812917259 from  angles.sine_true_longitude()? ' do
+    assert_equal(0.6074246812917259, angles.sine_true_longitude)
   end
 
 end
@@ -67,24 +67,24 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal('2009-08-11T12:00:00+00:00', angles.date.to_s)
   end
 
-  it 'expected   -0.7541886969975007 from angles.cosine_al_sun()? ' do
-    assert_equal(-0.7541886969975007, angles.cosine_al_sun)
+  it 'expected   -0.7541886969975007 from angles.cosine_apparent_longitude()? ' do
+    assert_equal(-0.7541886969975007, angles.cosine_apparent_longitude)
   end
 
-  it 'expected   -0.7541886969975007 from angles.cosine_tl_sun()? ' do
-    assert_equal(-0.7541886969975007, angles.cosine_tl_sun)
+  it 'expected   -0.7542060769936684 from angles.cosine_true_longitude()? ' do
+    assert_equal(-0.7542060769936684, angles.cosine_true_longitude)
   end
 
-  it 'expected   0.9174998363571427 from angles.cosine_to_earth()? ' do
-    assert_equal(0.9174998363571427, angles.cosine_to_earth)
+  it 'expected   0.9174998363571427 from angles.cosine_true_obliquity()? ' do
+    assert_equal(0.9174998363571427, angles.cosine_true_obliquity)
   end
 
-  it 'expected   0.6566577566139093 from angles.sine_al_sun()? ' do
-    assert_equal(0.6566577566139093, angles.sine_al_sun)
+  it 'expected   0.6566577566139093 from angles.sine_apparent_longitude()? ' do
+    assert_equal(0.6566577566139093, angles.sine_apparent_longitude)
   end
 
-  it 'expected   0.6566577566139093 from angles.sine_tl_sun()? ' do
-    assert_equal(0.6566577566139093, angles.sine_tl_sun)
+  it 'expected   0.6566377946979757 from angles.sine_true_longitude()? ' do
+    assert_equal(0.6566377946979757, angles.sine_true_longitude)
   end
 
 end

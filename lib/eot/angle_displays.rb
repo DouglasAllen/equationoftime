@@ -82,7 +82,7 @@ class Eot
 
   # String format of true obliquity
   def string_to_earth
-    degrees_to_s(Helio.true_obl(@t))
+    degrees_to_s(Helio.true_obliquity(@t))
   end
 
 end

@@ -18,7 +18,7 @@ class Eot
   # From angles.rb:
   # one time component to total equation of time
   def delta_orbit
-    -1.0 * Helio.eoc(@t)
+    -1.0 * Helio.equation_of_center(@t)
   end
 
   # From angles.rb:

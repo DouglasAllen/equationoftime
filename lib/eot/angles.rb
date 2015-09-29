@@ -10,7 +10,7 @@ class Eot
   # Apparent solar longitude = true longitude - aberation
 
   def apparent_longitude
-    Helio.apparent_lon(@t)
+    Helio.apparent_longitude(@t)
   end
   
   ##
@@ -20,7 +20,7 @@ class Eot
   # added to mean anomaly to get true anomaly.
 
   def equation_of_center
-    Helio.eoc(@t)
+    Helio.equation_of_center(@t)
   end  
 
   ##
@@ -29,7 +29,7 @@ class Eot
   # solar declination 
 
   def dec_sun
-    Helio.sun_dec(@t)
+    Helio.declination(@t)
   end
 
   ##
@@ -49,7 +49,7 @@ class Eot
   # Horners' calculation method
 
   def eccentricity_earth
-    Helio.eoe(@t)
+    Helio.earth_orbital_eccentricity(@t)
   end
 
   ##
@@ -73,7 +73,7 @@ class Eot
 
   def ha_sun(c)
     zenith = choice(c)
-    Helio.sun(zenith, @t, @latitude)
+    Helio.horizon_angle(zenith, @t, @latitude)
   end
 
   ##

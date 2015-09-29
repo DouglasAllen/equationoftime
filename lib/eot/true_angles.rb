@@ -33,7 +33,7 @@ class Eot
   # used in equation of time
 
   def true_longitude
-    Helio.true_lon(@t)
+    Helio.true_longitude(@t)
   end
  
   ##
@@ -42,7 +42,7 @@ class Eot
   # true obliquity considers nutation
 
   def true_obliquity
-    Helio.true_obl(@t)
+    Helio.true_obliquity(@t)
   end
 
 end

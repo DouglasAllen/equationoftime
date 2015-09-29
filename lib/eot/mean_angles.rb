@@ -11,7 +11,7 @@ class Eot
   # needed to get true longitude for low accuracy.
 
   def mean_longitude
-    Helio.mean_lon(@t)
+    Helio.mean_longitude(@t)
   end
 
   ##

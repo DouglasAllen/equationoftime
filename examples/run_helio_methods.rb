@@ -12,6 +12,12 @@ p j2000 = Date.parse("2000-01-01").jd
 p num = ajd - j2000
 p t = num / 36525
 p Helio.mean_anomaly(t)
-p Helio.mean_lon(t)
+p Helio.mean_longitude(t)
+p Helio.mean_anomaly(t) - Helio.mean_longitude(t)
+p Helio.mean_obliquity(t)
 p Helio.right_ascension(t)
-p Helio.true_obl(t)
+p Helio.true_obliquity(t)
+p Helio.delta_psi(t)
+p Helio.delta_epsilon(t)
+p Helio.a2af(9, Helio.mean_obliquity(t))
+p Helio.a2af(9, Helio.true_obliquity(t)) 
