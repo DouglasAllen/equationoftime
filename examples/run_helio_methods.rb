@@ -19,10 +19,12 @@ puts "Helio.mean_anomaly(t) - Helio.mean_longitude(t) = #{Helio.mean_anomaly(t) 
 puts "Helio.mean_anomaly(t) - Helio.mean_longitude(t) = #{(Helio.mean_anomaly(t) - Helio.mean_longitude(t)) * 180.0/Math::PI} degrees"
 puts "Helio.true_longitude_aries(t) = #{Helio.true_longitude_aries(t)} radians"
 puts "Helio.true_longitude_aries(t) = #{Helio.true_longitude_aries(t) * 180/Math::PI } degrees"
-p Helio.mean_obliquity(t)
-p Helio.right_ascension(t)
-p Helio.true_obliquity(t)
-p Helio.delta_psi(t) * 180/Math::PI * 3600.0
-p Helio.delta_epsilon(t) * 180/Math::PI * 3600.0
-p Helio.a2af(9, Helio.mean_obliquity(t))
-p Helio.a2af(9, Helio.true_obliquity(t)) 
+
+puts "Helio.right_ascension(t) = #{Helio.right_ascension(t)} radians"
+
+puts "Helio.delta_psi(t) * 180/Math::PI * 3600.0 = #{Helio.delta_psi(t) * 180/Math::PI * 3600.0}"
+puts "Helio.delta_epsilon(t) * 180/Math::PI * 3600.0 = #{Helio.delta_epsilon(t) * 180/Math::PI * 3600.0}"
+puts "Helio.mean_obliquity(t) = #{Helio.mean_obliquity(t)} radians"
+puts "Helio.a2af(9, Helio.mean_obliquity(t)) = #{Helio.a2af(9, Helio.mean_obliquity(t))}"
+puts "Helio.true_obliquity(t) = #{Helio.true_obliquity(t)} radians"
+puts "Helio.a2af(9, Helio.true_obliquity(t)) = #{Helio.a2af(9, Helio.true_obliquity(t))}" 

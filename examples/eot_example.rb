@@ -1,4 +1,8 @@
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 require 'eot'
+
 @solar = Eot.new
 
 puts "Enter your latitude in decimal. ex: 5.238 or -5.238"

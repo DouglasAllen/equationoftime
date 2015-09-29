@@ -219,6 +219,19 @@ func_a2af(VALUE self, VALUE vndp, VALUE vangle){
 	        	INT2NUM(idmsf[2]), INT2NUM(idmsf[3])));
 }
 
+static VALUE
+func_a2tf(VALUE self, VALUE vndp, VALUE vangle){
+  char sign;
+  int ihmsf[4];
+
+  iauA2tf(NUM2INT(vndp), NUM2DBL(vangle), &sign, ihmsf);
+  rb_ivar_set(self, id_status, INT2FIX(0));
+
+  return rb_ary_new3(2, rb_str_new(&sign, 1),
+         rb_ary_new3(4, INT2NUM(ihmsf[0]), INT2NUM(ihmsf[1]),
+			INT2NUM(ihmsf[2]), INT2NUM(ihmsf[3])));
+}
+
 
 void
 Init_helio(void) {
@@ -255,6 +268,7 @@ Init_helio(void) {
   rb_define_module_function(mHelio, "equation_of_equinox", func_equation_of_equinox, 1);
   rb_define_module_function(mHelio, "date2ajd", func_date2ajd, 3);
   rb_define_module_function(mHelio, "a2af",   func_a2af,   2);
+  rb_define_module_function(mHelio, "a2tf",   func_a2tf,   2);
   rb_define_module_function(mHelio, "delta_epsilon",   func_delta_epsilon,   1);
   rb_define_module_function(mHelio, "delta_psi",   func_delta_psi,   1);
 
