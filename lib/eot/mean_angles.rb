@@ -34,9 +34,7 @@ class Eot
   # # see http://www.iausofa.org/publications/aas04.pdf
 
   def mean_longitude_aries
-    dt = 67.184
-    tt = @ajd + dt / 86_400.0
-    Helio.mean_longitude_aries(@t, 0, (tt - 2451545.0)/36525, 0);
+    Helio.mean_longitude_aries(@t);
   end
 
   ##

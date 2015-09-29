@@ -34,8 +34,8 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(3.829387146883189, angles.true_anomaly)
   end
 
-  it 'expected   2.5101242776566672 from  angles.true_longitude_aries()? ' do
-    assert_equal(2.5101242776566672, angles.true_longitude_aries)
+  it 'expected   2.5100898649874446 from  angles.true_longitude_aries()? ' do
+    assert_equal(2.5100898649874446, angles.true_longitude_aries)
   end
 
   it 'expected   2.48877803069344 from  angles.true_longitude()? ' do
@@ -73,8 +73,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(3.767353405438211, angles.true_anomaly)
   end
 
-  it 'expected   2.444977460790369 from angles.true_longitude_aries()? ' do
-    assert_equal(2.444977460790369, angles.true_longitude_aries)
+  it 'expected   2.4449073822678455 from angles.true_longitude_aries()? ' do
+    assert_equal(2.4449073822678455, angles.true_longitude_aries)
   end
 
   it 'expected   2.4252405323331674 from angles.true_longitude()? ' do

@@ -21,9 +21,7 @@ class Eot
   # considers nutation
 
   def true_longitude_aries
-    dt = 68.184
-    tt = @ajd + dt / 86_400.0
-    Helio.true_longitude_aries(@t, 0, (tt - 2451545.0)/36525, 0);
+    Helio.true_longitude_aries(@t);
   end
 
   ##

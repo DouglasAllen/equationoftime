@@ -171,14 +171,21 @@ double sine_latitude(double latitude)
   return sin(latitude * 0.017453292519943295769236907684886);
 }                                   
 
-double mean_longitude_aries(double t, double t1, double t2, double t3)
+double mean_longitude_aries(double t)
 {
-  return iauGmst06(t * 36525 + 2451545.0, t1, t2 * 36525 + 2451545.0, t3);
+  double dt = 68.184;
+  double ajd = t * 36525 + 2451545.0;
+  double ttajd = ajd + dt / 86400.0;
+  return iauGmst06(ajd, 0, ttajd, 0);
 }
 
-double true_longitude_aries(double t, double t1, double t2, double t3)
+double true_longitude_aries(double t)
 {
-  return iauGst06a(t * 36525 + 2451545.0, t1, t2 * 36525 + 2451545.0, t3);
+  double dt = 68.184;
+  double ajd = t * 36525 + 2451545.0;
+  double ttajd = ajd + dt / 86400.0;
+  return iauGmst06(ajd, 0, ttajd, 0);
+  return iauGst06a(ajd, 0, ttajd, 0);
 }
 
 double earth_rotation_angle(double t)

@@ -45,7 +45,7 @@ double sine_latitude(double lat);
 
 double cosine_zenith(double zenith);
 
-double mean_longitude_aries(double t, double t1, double t2, double t3);
-double true_longitude_aries(double t, double t1, double t2, double t3);
+double mean_longitude_aries(double t);
+double true_longitude_aries(double t);
 double earth_rotation_angle(double t);
 double equation_of_equinox(double t);
