@@ -1,4 +1,5 @@
 # angles_spec.rb
+
 gem 'minitest'
 require 'minitest/autorun'
 lib = File.expand_path('../../../lib', __FILE__)
@@ -50,24 +51,8 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(0.016702468499021204, angles.eccentricity_earth)
   end
 
-  it 'expected   2.5101912804141424 from  angles.mean_longitude()? ' do
-    assert_equal(2.5101912804141424, angles.mean_longitude)
-  end
-
   it 'expected   1.585784362285372 from  angles.ha_sun(1)? ' do
     assert_equal(1.585784362285372, angles.ha_sun(1))
-  end
-
-  it 'expected   3.8508003966038915 from  angles.mean_anomaly()? ' do
-    assert_equal(3.8508003966038915, angles.mean_anomaly)
-  end
-
-  it 'expected   2.510089864980358 from  angles.mean_longitude_aries()? ' do
-    assert_equal(2.510089864980358, angles.mean_longitude_aries)
-  end
-
-  it 'expected   0.40905940254265843 from  angles.mean_obliquity()? ' do
-    assert_equal(0.40905940254265843, angles.mean_obliquity)
   end
 
   it 'expected   -2.7528817371494685 from  angles.omega()? ' do
@@ -134,24 +119,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(0.016704576164208475, angles.eccentricity_earth)
   end
 
-  it 'expected   2.445008945789877 from  angles.mean_longitude()? ' do
-    assert_equal(2.445008945789877, angles.mean_longitude)
-  end
-
   it 'expected   1.5858631464187376 from angles.ha_sun(1)? ' do
     assert_equal(1.5858631464187376, angles.ha_sun(1))
-  end
-
-  it 'expected   3.7871218188949207 from angles.mean_anomaly()? ' do
-    assert_equal(3.7871218188949207, angles.mean_anomaly)
-  end
-
-  it 'expected   2.444907382260759 from angles.mean_longitude_aries()? ' do
-    assert_equal(2.444907382260759, angles.mean_longitude_aries)
-  end
-
-  it 'expected   0.4090707793981491 from angles.mean_obliquity()? ' do
-    assert_equal(0.4090707793981491, angles.mean_obliquity)
   end
 
   it 'expected   -1.0615640635268548 from angles.omega()? ' do
