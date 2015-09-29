@@ -6,6 +6,10 @@ double apparent_lon(double t);
 double cos_al_sun(double t);
 double sin_al_sun(double t);
 
+double delta_epsilon(double t);
+
+double delta_psi(double t);
+
 double eoe(double t);
 
 double eoc(double t);

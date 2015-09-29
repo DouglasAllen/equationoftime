@@ -18,8 +18,9 @@ class Eot
   # init sets them using ajd initial Float value
   # see: :ajd attribute
   def ma_ta_set
-    @ta = ((@ajd - DJ00) / DJC).to_f
-    @ma = Helio.mean_anomaly(@ta)
+    @jd = (Integer(@ajd - 0.5) + 1).to_f
+    @t = ((@ajd - DJ00) / DJC).to_f
+    @ma = Helio.mean_anomaly(@t)
   end
 
   # From init.rb:
@@ -31,7 +32,6 @@ class Eot
   # From init.rb:
   # Julian Day Number
   # instance of Float class
-  # initialized to = ajd
   attr_accessor :jd
 
   # From init.rb:
@@ -49,22 +49,24 @@ class Eot
   # From init.rb:
   # Julian Century gets called often
   # instance of Float class
-  # ta = (( @ajd - DJ00 ) / DJC).to_f
-  attr_accessor :ta
+  # t = (( @ajd - DJ00 ) / DJC).to_f
+  attr_accessor :t
 
   # From init.rb:
   # Mean Anomaly gets called often
   # instance of Float class
-  # ma = Celes.falp03(@ta) see: celes gem
+  # @ma = Helio.mean_anomaly(@t) see: helio.c
   attr_accessor :ma
 
   # From init.rb:
   # Initialize to set attributes
   def initialize
     d = DateTime.now.to_time.utc.to_datetime
-    @ajd = Helio.date2ajd(d.year, d.month, d.day)
-    ma_ta_set
-    @date, @jd = ajd_to_datetime(@ajd), @ajd    
+    @jd = Helio.date2ajd(d.year, d.month, d.day) + 0.5
+    @ajd = Helio.date2ajd(d.year, d.month, d.day) + d.day_fraction
+    @t = (@jd - 2451545.0)/36525
+    @ma = mean_anomaly
+    @date = ajd_to_datetime(@jd)    
     @latitude,  @longitude = 0.0,  0.0      
   end
 end

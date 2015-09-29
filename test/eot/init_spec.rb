@@ -10,8 +10,8 @@ require 'eot'
 describe 'Eot_initialize has set attributes ' do
 
   JD_TODAY = DateTime.now.to_time.utc.to_datetime.jd.to_f
-  it "expected #{JD_TODAY} from Eot.new.ajd" do
-    assert_equal(JD_TODAY, Eot.new.ajd)
+  it "expected #{JD_TODAY} from Eot.new.jd" do
+    assert_equal(JD_TODAY, Eot.new.jd)
   end
 
   UK_LAT = 0.0
@@ -25,17 +25,13 @@ describe 'Eot_initialize has set attributes ' do
   end
 
   MA_SUN = Eot.new.mean_anomaly
-  it "expected #{MA_SUN} from @ma" do
-    eot = Eot.new
-    eot.ajd = JD_TODAY
-    assert_equal(MA_SUN, eot.ma)
+  it "expected #{MA_SUN} from Eot.new.ma" do
+    assert_equal(MA_SUN, Eot.new.ma)
   end
 
-  FRAC_CENT = (Eot.new.ajd - Eot::DJ00) / Eot::DJC
-  it "expected #{FRAC_CENT} from @ta" do
-    eot = Eot.new
-    eot.ajd = JD_TODAY
-    assert_equal(FRAC_CENT, eot.ta)
+  FRAC_CENT = (Eot.new.jd - Eot::DJ00) / Eot::DJC
+  it "expected #{FRAC_CENT} from Eot.new.t" do
+    assert_equal(FRAC_CENT, Eot.new.t)
   end
 
   DEFAULT_INT = nil

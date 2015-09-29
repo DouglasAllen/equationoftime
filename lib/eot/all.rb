@@ -5,7 +5,4 @@
 # True local noon is Mean - Eot in either time or angle.
 class MainDoc < Object
 end
-# Celes gives you an undocumented Object class with rdoc generator.
-# Use bundle exec rake rdocs if you don't care about C extensions documentation.
-class Celes 
-end
+

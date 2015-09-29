@@ -57,6 +57,18 @@ func_omega(VALUE klass, VALUE vt) {
 }
 
 static VALUE
+func_delta_epsilon(VALUE klass, VALUE vt) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(delta_epsilon(NUM2DBL(vt)));
+}
+
+static VALUE
+func_delta_psi(VALUE klass, VALUE vt) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(delta_psi(NUM2DBL(vt)));
+}
+
+static VALUE
 func_eoe(VALUE klass, VALUE vt) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
   return DBL2NUM(eoe(NUM2DBL(vt)));
@@ -178,17 +190,33 @@ func_equation_of_equinox(VALUE klass, VALUE vt) {
 
 static VALUE
 func_date2ajd(VALUE self, VALUE vy, VALUE vm, VALUE vd) {
-
-  double djm0, djm;
   int ret;
-  ret = iauCal2jd(NUM2INT(vy), NUM2INT(vm), NUM2INT(vd), &djm0, &djm);
-  if(ret == -1)
-		rb_raise(rb_eArgError, "bad year");
-	else if(ret == -2)
-		rb_raise(rb_eArgError, "bad month");
+  double djm0, djm;
 
-  return rb_ary_new3(2, DBL2NUM(djm0), DBL2NUM(djm));
+  ret = iauCal2jd(NUM2INT(vy), NUM2INT(vm), NUM2INT(vd), &djm0, &djm);
+  rb_ivar_set(self, id_status, INT2FIX(ret));
+
+  if(ret == -1)
+    rb_raise(rb_eArgError, "bad year");
+  else if(ret == -2)
+    rb_raise(rb_eArgError, "bad month");
+  
+  return DBL2NUM(djm0 + djm);
 }
+
+static VALUE
+func_a2af(VALUE self, VALUE vndp, VALUE vangle){
+  char sign;
+  int idmsf[4];
+
+  iauA2af(NUM2INT(vndp), NUM2DBL(vangle), &sign, idmsf);
+  rb_ivar_set(self, id_status, INT2FIX(0));
+
+  return rb_ary_new3(2, rb_str_new(&sign, 1),
+         rb_ary_new3(4, INT2NUM(idmsf[0]), INT2NUM(idmsf[1]),
+	        	INT2NUM(idmsf[2]), INT2NUM(idmsf[3])));
+}
+
 
 void
 Init_helio(void) {
@@ -224,6 +252,9 @@ Init_helio(void) {
   rb_define_module_function(mHelio, "earth_rotation_angle", func_earth_rotation_angle, 1);
   rb_define_module_function(mHelio, "equation_of_equinox", func_equation_of_equinox, 1);
   rb_define_module_function(mHelio, "date2ajd", func_date2ajd, 3);
+  rb_define_module_function(mHelio, "a2af",   func_a2af,   2);
+  rb_define_module_function(mHelio, "delta_epsilon",   func_delta_epsilon,   1);
+  rb_define_module_function(mHelio, "delta_psi",   func_delta_psi,   1);
 
   
 }

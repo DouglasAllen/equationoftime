@@ -69,8 +69,8 @@ class Eot
   # sets @ajd to DateTime.now
   # Returns EOT (equation of time) now in decimal minutes form
   def now
-    @ajd = DateTime.now.to_time.utc.to_datetime.ajd
-    @ta = (@ajd - DJ00) / DJC
+    @ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
+    @t = (@ajd - DJ00) / DJC
     time_eot
   end
 

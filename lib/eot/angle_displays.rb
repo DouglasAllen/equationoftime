@@ -9,7 +9,7 @@ class Eot
   # String formatter for d:m:s display
   def degrees_to_s(radians = 0.0)
     radians.nil? ? radians = 0.0 : radians
-    s, idmsf = Celes.a2af(3, radians)
+    s, idmsf = Helio.a2af(3, radians)
     f_string(s, idmsf[0], idmsf[1], idmsf[2], idmsf[3])
   end
 
@@ -19,7 +19,7 @@ class Eot
   def string_al_sun
     degrees_to_s(apparent_longitude)
   end
-  alias_method :apparent_longitude_string, :string_al_sun
+
 
   # From angle_displays.rb
 
@@ -27,7 +27,7 @@ class Eot
   def string_dec_sun
     degrees_to_s(dec_sun)
   end
-  alias_method :declination_string, :string_dec_sun
+
 
   # From angle_displays.rb
 
@@ -56,7 +56,6 @@ class Eot
   def string_ma_sun
     degrees_to_s(@ma)
   end
-  alias_method :mean_anomaly_string, :string_ma_sun
 
   # From angle_displays.rb
 
@@ -78,13 +77,12 @@ class Eot
   def string_tl_sun
     degrees_to_s(true_longitude)
   end
-  alias_method :true_longitude_string, :string_tl_sun
 
   # From angle_displays.rb
 
   # String format of true obliquity
   def string_to_earth
-    degrees_to_s(Helio.true_obl(@ta))
+    degrees_to_s(Helio.true_obl(@t))
   end
-  alias_method :true_obliquity_string, :string_to_earth
+
 end

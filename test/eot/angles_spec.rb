@@ -37,49 +37,17 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(-0.021413249720702462, angles.equation_of_center)
   end
 
-  it 'expected   -0.7943361570447028 from angles.cosine_al_sun()? ' do
-    assert_equal(-0.7943361570447028, angles.cosine_al_sun)
-  end
-
-  it 'expected   -0.7943361570447028 from  angles.cosine_tl_sun()? ' do
-    assert_equal(-0.7943361570447028, angles.cosine_tl_sun)
-  end
-
-  it 'expected   0.9174791597576031 from  angles.cosine_to_earth()? ' do
-    assert_equal(0.9174791597576031, angles.cosine_to_earth)
-  end
-
   it 'expected   0.24406085412237594 from  angles.dec_sun()? ' do
     assert_equal(0.24406085412237594, angles.dec_sun)
   end
 
-  it 'expected   -4.069792718159396e-05 from  angles.delta_epsilon()? ' do
-    assert_equal(-4.069792718159396e-05, angles.delta_epsilon)
+  it 'expected   2.506820536931464  from angle.earth_rotation_angle()' do
+    assert_equal(2.506820536931464, angles.earth_rotation_angle)
   end
-
-  it 'expected   -0.04104741644935217 from  angles.delta_oblique()? ' do
-    assert_equal(-0.04104741644935217, angles.delta_oblique)
-  end
-
-  it 'expected   0.021413249720702462 from  angles.delta_orbit()? ' do
-    assert_equal(0.021413249720702462, angles.delta_orbit)
-  end
-
-  it 'expected   3.75123821843003e-05 from  angles.delta_psi()? ' do
-    assert_equal(3.75123821843003e-05, angles.delta_psi)
-  end
-
+  
   it 'expected   0.016702468499021204 from  \
       angles.eccentricity_earth()? ' do
     assert_equal(0.016702468499021204, angles.eccentricity_earth)
-  end
-
-  it 'expected   3.4412912434333975e-05 from  angles.equation_of_equinox()? ' do
-    assert_equal(3.4412912434333975e-05, angles.equation_of_equinox)
-  end
-
-  it 'expected   -0.019634166728649708 from  angles.eot()? ' do
-    assert_equal(-0.019634166728649708, angles.eot)
   end
 
   it 'expected   2.5101912804141424 from  angles.mean_longitude()? ' do
@@ -108,14 +76,6 @@ describe 'Tests ajd of 2456885.0 ' do
 
   it 'expected   2.5297577562929665 from  angles.right_ascension()? ' do
     assert_equal(2.5297577562929665, angles.right_ascension)
-  end
-
-  it 'expected   0.6074784519729512 from  angles.sine_al_sun()? ' do
-    assert_equal(0.6074784519729512, angles.sine_al_sun)
-  end
-
-  it 'expected   0.6074784519729512 from  angles.sine_tl_sun()? ' do
-    assert_equal(0.6074784519729512, angles.sine_tl_sun)
   end
 
   it 'expected   3.829387146883189 from  angles.true_anomaly()? ' do
@@ -165,49 +125,13 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(-0.019768413456709915, angles.equation_of_center)
   end
 
-  it 'expected   -0.7541886969975007 from angles.cosine_al_sun()? ' do
-    assert_equal(-0.7541886969975007, angles.cosine_al_sun)
-  end
-
-  it 'expected   -0.7541886969975007 from angles.cosine_tl_sun()? ' do
-    assert_equal(-0.7541886969975007, angles.cosine_tl_sun)
-  end
-
-  it 'expected   0.9174998363571427 from angles.cosine_to_earth()? ' do
-    assert_equal(0.9174998363571427, angles.cosine_to_earth)
-  end
-
   it 'expected   0.2642408391786298 from angles.dec_sun()? ' do
     assert_equal(0.2642408391786298, angles.dec_sun)
-  end
-
-  it 'expected   2.2661506700250296e-05 from angles.delta_epsilon()? ' do
-    assert_equal(2.2661506700250296e-05, angles.delta_epsilon)
-  end
-
-  it 'expected   -0.042339467276955034 from angles.delta_oblique()? ' do
-    assert_equal(-0.042339467276955034, angles.delta_oblique)
-  end
-
-  it 'expected   0.019768413456709915 from angles.delta_orbit()? ' do
-    assert_equal(0.019768413456709915, angles.delta_orbit)
-  end
-
-  it 'expected   7.639341522992976e-05 from angles.delta_psi()? ' do
-    assert_equal(7.639341522992976e-05, angles.delta_psi)
   end
 
   it 'expected   0.016704576164208475 from \
       angles.eccentricity_earth()? ' do
     assert_equal(0.016704576164208475, angles.eccentricity_earth)
-  end
-
-  it 'expected   7.007879585074761e-05 from angles.equation_of_equinox()? ' do
-    assert_equal(7.007879585074761e-05, angles.equation_of_equinox)
-  end
-
-  it 'expected   -0.02257105382024512 from angles.eot()? ' do
-    assert_equal(-0.02257105382024512, angles.eot)
   end
 
   it 'expected   2.445008945789877 from  angles.mean_longitude()? ' do
@@ -236,14 +160,6 @@ describe 'Tests ajd of 2455055.5 ' do
 
   it 'expected   2.4675535318494584 from angles.right_ascension()? ' do
     assert_equal(2.4675535318494584, angles.right_ascension)
-  end
-
-  it 'expected   0.6566577566139093 from angles.sine_al_sun()? ' do
-    assert_equal(0.6566577566139093, angles.sine_al_sun)
-  end
-
-  it 'expected   0.6566577566139093 from angles.sine_tl_sun()? ' do
-    assert_equal(0.6566577566139093, angles.sine_tl_sun)
   end
 
   it 'expected   3.767353405438211 from angles.true_anomaly()? ' do

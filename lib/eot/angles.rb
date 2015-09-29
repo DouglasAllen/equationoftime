@@ -10,7 +10,7 @@ class Eot
   # Apparent solar longitude = true longitude - aberation
 
   def apparent_longitude
-    Helio.apparent_lon(@ta)
+    Helio.apparent_lon(@t)
   end
   
   ##
@@ -20,7 +20,7 @@ class Eot
   # added to mean anomaly to get true anomaly.
 
   def equation_of_center
-    Helio.eoc(@ta)
+    Helio.eoc(@t)
   end  
 
   ##
@@ -29,7 +29,17 @@ class Eot
   # solar declination 
 
   def dec_sun
-    Helio.sun_dec(@ta)
+    Helio.sun_dec(@t)
+  end
+
+  ##
+  # From angles.rb:
+
+  # Earth rotation angle (for comparison to tl_aries
+  # which uses gmst06)
+
+  def earth_rotation_angle
+    Helio.earth_rotation_angle(@t)
   end
 
   ##
@@ -39,7 +49,7 @@ class Eot
   # Horners' calculation method
 
   def eccentricity_earth
-    Helio.eoe(@ta)
+    Helio.eoe(@t)
   end
 
   ##
@@ -52,17 +62,7 @@ class Eot
   # see: #cosine_to_earth and #angle_delta_psi
 
   def equation_of_equinox
-    Helio.equation_of_equinox(@ta)
-  end
-  
-  ##
-  # From angles.rb:
-
-  # Earth rotation angle (for comparison to tl_aries
-  # which uses gmst06)
-
-  def earth_rotation_angle
-    Helio.earth_rotation_angle(@ta)
+    Helio.equation_of_equinox(@t)
   end
 
   ## 
@@ -72,26 +72,7 @@ class Eot
   # needed to get true longitude for low accuracy.
 
   def mean_longitude
-    Helio.mean_lon(@ta)
-  end
-
-  ##
-  # From angles.rb:
-
-  # used by ha_sun method
-  # to select rise set and civil, nautical, astronomical twilights.
-
-  def choice(c)
-    case c
-    when 1
-      return 90.8333 # Sunrise and Sunset
-    when 2
-      return 96 # Civil Twilight
-    when 3
-      return 102 # Nautical Twilight
-    when 4
-      return 108 # Astronomical Twilight
-    end
+    Helio.mean_lon(@t)
   end
 
   ##
@@ -102,7 +83,7 @@ class Eot
 
   def ha_sun(c)
     zenith = choice(c)
-    Helio.sun(zenith, @ta, @latitude)
+    Helio.sun(zenith, @t, @latitude)
   end
 
   ##
@@ -115,7 +96,7 @@ class Eot
   # and to get true anomaly true longitude via center equation
 
   def mean_anomaly
-    @ma = Helio.mean_anomaly(@ta)
+    @ma = Helio.mean_anomaly(@t)
   end
 
   ##
@@ -127,7 +108,7 @@ class Eot
   def mean_longitude_aries
     dt = 67.184
     tt = @ajd + dt / 86_400.0
-    Helio.mean_longitude_aries(@ta, 0, (tt - 2451545.0)/36525, 0);
+    Helio.mean_longitude_aries(@t, 0, (tt - 2451545.0)/36525, 0);
   end
 
   ##
@@ -136,7 +117,7 @@ class Eot
   # mean obliquity of Earth
 
   def mean_obliquity
-    Helio.mean_obliquity(@ta)
+    Helio.mean_obliquity(@t)
   end
 
   ##
@@ -148,7 +129,7 @@ class Eot
   # on the ecliptic plane measured from the mean equinox of date.
 
   def omega
-    Helio.omega(@ta)
+    Helio.omega(@t)
   end
 
   ##
@@ -157,7 +138,7 @@ class Eot
   # solar right ascension
 
   def right_ascension    
-    Helio.right_ascension(@ta) 
+    Helio.right_ascension(@t) 
   end
 
   ##
@@ -167,7 +148,7 @@ class Eot
   # used in equation of time
 
   def true_anomaly
-    Helio.true_anomaly(@ta)
+    Helio.true_anomaly(@t)
   end
 
   ##
@@ -179,7 +160,7 @@ class Eot
   def true_longitude_aries
     dt = 68.184
     tt = @ajd + dt / 86_400.0
-    Helio.true_longitude_aries(@ta, 0, (tt - 2451545.0)/36525, 0);
+    Helio.true_longitude_aries(@t, 0, (tt - 2451545.0)/36525, 0);
   end
 
   ##
@@ -189,7 +170,7 @@ class Eot
   # used in equation of time
 
   def true_longitude
-    Helio.true_lon(@ta)
+    Helio.true_lon(@t)
   end
  
   ##
@@ -198,7 +179,7 @@ class Eot
   # true obliquity considers nutation
 
   def true_obliquity
-    Helio.true_obl(@ta)
+    Helio.true_obl(@t)
   end
 
 end

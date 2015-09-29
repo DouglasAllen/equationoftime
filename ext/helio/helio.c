@@ -18,6 +18,20 @@ double sin_al_sun(double t)
   return sin(apparent_lon(t));
 }
 
+double delta_epsilon(double t)
+{
+  double dp, de;
+  iauNut06a(t * 36525 + 2451545.0, 0, &dp, &de);  
+  return de; 
+}
+
+double delta_psi(double t)
+{
+  double dp, de;
+  iauNut06a(t * 36525 + 2451545.0, 0, &dp, &de);  
+  return dp; 
+}
+
 /* Eccentricity of Earth orbit */
 double eoe(double t)
 {
@@ -127,9 +141,8 @@ double sin_tl_sun(double t)
 
 double true_obl(double t)
 {
-  double dp, de;
-  double fj2 = -2.7774e-6 * t;
-  iauNut06a(t * 36525 + 2451545.0, 0, &dp, &de);
+  double de = delta_epsilon(t);
+  double fj2 = -2.7774e-6 * t;  
   return mean_obliquity(t) - de + de * fj2;
 }
 
