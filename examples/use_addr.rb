@@ -1,8 +1,12 @@
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 require 'eot'
+
 eot = Eot.new
 geo = GeoLatLng.new
 heredoc = <<HD
-The default address is '#{eot.addr}' as a string.
+The default address is '#{geo.addr}' as a string.
 It is concantenated to the GeoLatLng base address
 Create an instance of GeoLatLng with new method
 ex: geo = GeoLatLng.new
