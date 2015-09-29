@@ -13,7 +13,8 @@ The major changes for the latest release are as follows.
 2. The C extension is now a module named Helio so all calls may be used for it directly.
 3. Many method names are changed and there are no longer any aliases.
 4. One attribute was changed. @ta is now @t which is the time parameter for many common algorithms in Astrophysics.
-5. Note: This version has not been thoroughly tested.
+5. The new leap second has been hard coded into the C lib.
+6. Note: This version has not been thoroughly tested.
 
 = equationoftime
 
