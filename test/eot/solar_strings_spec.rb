@@ -18,21 +18,21 @@ describe 'Eot displays using ajd of 2456885.0' do
     displays.date = displays.ajd_to_datetime(ajd)
   end
 
-  it 'expected   2456885.0 for displays.ajd'do
-    assert_equal 2_456_885.0, displays.ajd
-    assert_equal 2_456_885.0, displays.jd
+  it 'expected     2456885.0 and 2455055.0 for displays.ajd'do
+    assert_equal   2456885.0, displays.ajd
+    assert_equal   2456885.0, displays.jd
+    displays.ajd = 2455055.0; displays.set_t_ma
+    assert_equal   2455055.0, displays.ajd
+    assert_equal   2455055.0, displays.jd
   end
 
-  it 'expected   "2014-08-15T12:00:00+00:00", from displays.date.to_s' do
+  it 'expected   "2014-08-15T12:00:00+00:00", for displays.date.to_s' do
     assert_equal '2014-08-15T12:00:00+00:00', displays.date.to_s
   end
 
   it 'expected   3.8508003966038915, from displays.' do
     assert_equal 3.8508003966038915, displays.ma
-    
   end
-
-  
 
   it 'expected   "+000:00:00.000" from displays.degrees() ' do
     assert_equal '+000:00:00.000', displays.degrees
