@@ -1,7 +1,20 @@
 First install the C SOFA Library http://www.iausofa.org/current_C.html
 
-I am currently in the proccess of phasing out the Celes gem but you still need both the 
-library above and Celes which is included. http://www.rubydoc.info/gems/celes/0.0.1
+The Celes gem has been phased out of this gem version the library above is what Celes is based on anyway so just
+get that installed. You may still use Celes as a good refernce to that library
+http://www.rubydoc.info/gems/celes/0.0.1
+
+I might attempt to miniportile it if I get some requests for that. 
+
+The last release that is still current on rubygems is 4.1.8 and should still work as described below.
+The major changes for the latest release are as follows.
+
+1. A new C ectension library that uses the libsofa_c and sofa_c-dev directly. Just install it.
+2. The C extension is now a module named Helio so all calls may be used for it directly.
+3. Many method names are changed and there are no longer any aliases.
+4. One attribute was changed. @ta is now @t which is the time parameter for many common algorithms in Astrophysics.
+5. The new leap second has been hard coded into the C lib.
+6. Note: This version has not been thoroughly tested.
 
 = equationoftime
 
