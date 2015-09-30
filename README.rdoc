@@ -15,6 +15,7 @@ The major changes for the latest release are as follows.
 4. One attribute was changed. @ta is now @t which is the time parameter for many common algorithms in Astrophysics.
 5. The new leap second has been hard coded into the C lib.
 6. Note: This version has not been thoroughly tested.
+7. Heroku probably doesn't have libsofa_c-dev installed and so the site is down but you can clone it from https://github.com/DouglasAllen/sinatra-equationoftime.herokuapp.com
 
 = equationoftime
 
