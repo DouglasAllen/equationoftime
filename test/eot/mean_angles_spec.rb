@@ -13,7 +13,7 @@ describe 'Tests ajd of 2456885.0 ' do
   before(:each) do
     angles.ajd  =   2_456_885.0
     ajd = angles.ajd
-    angles.ma_ta_set
+    angles.set_t_ma
     # check date for this ajd when needed.
     angles.date = angles.ajd_to_datetime(ajd)
   end
@@ -61,7 +61,7 @@ describe 'Tests ajd of 2455055.5 ' do
   before(:each) do
     angles.ajd             = 2_455_055.0
     ajd = angles.ajd
-    angles.ma_ta_set
+    angles.set_t_ma
     # check date for this ajd when needed.
     angles.date = angles.ajd_to_datetime(ajd)
   end

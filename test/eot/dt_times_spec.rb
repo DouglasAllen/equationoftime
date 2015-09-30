@@ -14,7 +14,7 @@ describe 'tests jd of 2456885.0 ' do
     # set our current object attributes
     times.jd                =   2_456_885.0
     times.ajd = times.jd
-    times.ma_ta_set
+    times.set_t_ma
 
     ajd = times.jd
     # check date for this ajd when needed.
@@ -88,7 +88,7 @@ describe 'tests ajd of 2455055.0 ' do
     # set our current object attributes
     times.jd                     = 2_455_055.0
     times.ajd = times.jd    
-    times.ma_ta_set
+    times.set_t_ma
 
     ajd = times.jd   # for use here
     # check date for this ajd when needed.

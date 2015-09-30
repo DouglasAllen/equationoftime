@@ -17,7 +17,7 @@ class Eot
   # method to reset ma and ta after initialization
   # init sets them using ajd initial Float value
   # see: :ajd attribute
-  def ma_ta_set
+  def set_t_ma
     @jd = (Integer(@ajd - 0.5) + 1).to_f
     @t = ((@ajd - DJ00) / DJC).to_f
     @ma = Helio.mean_anomaly(@t)

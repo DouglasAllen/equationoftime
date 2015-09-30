@@ -12,7 +12,7 @@ describe 'tests ajd of 2456885.0' do
   before(:each) do
     utilities.ajd  = 2_456_885.0
     ajd = utilities.ajd
-    utilities.ma_ta_set
+    utilities.set_t_ma
     # check date for this ajd when needed.
     utilities.date = utilities.ajd_to_datetime(ajd)
   end
