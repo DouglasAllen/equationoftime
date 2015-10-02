@@ -21,7 +21,7 @@ class Eot
   # From solar_strings.rb
   # String format of declination
   def degrees_declination
-    degrees(dec_sun)
+    degrees(declination)
   end
 
   # From solar_strings.rb

@@ -28,7 +28,7 @@ class Eot
 
   # solar declination 
 
-  def dec_sun
+  def declination
     Helio.declination(@t)
   end
 
@@ -48,7 +48,7 @@ class Eot
   # eccentricity of elliptical Earth orbit around Sun
   # Horners' calculation method
 
-  def eccentricity_earth
+  def eccentricity
     Helio.earth_orbital_eccentricity(@t)
   end
 
