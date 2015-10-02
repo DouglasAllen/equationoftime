@@ -12,11 +12,11 @@ HEADER_DIRS = [
   #'/usr/local/include',
 
   # Check the ruby install locations
-  #INCLUDEDIR,
+  INCLUDEDIR,
 
   # Finally fall back to /usr
   #'/usr/include',
-  #'../../../../',
+  #'../',
 ]
 
 LIB_DIRS = [
@@ -27,13 +27,16 @@ LIB_DIRS = [
   #'/usr/local/lib',
 
   # Check the ruby install locations
-  #LIBDIR,
+  LIBDIR,
 
   # Finally fall back to /usr
   #'/usr/lib',
-  #'../../../../,
+  #'../,
 ]
 
+unless find_header('ruby.h')
+  abort "ruby.h can't be found."
+end
 unless find_header('sofam.h')
   abort "libsofa_c is missing.  please install libsofa_c"
 end
