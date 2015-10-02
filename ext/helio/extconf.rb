@@ -4,7 +4,7 @@ extension_name = 'helio/helio'
 p LIBDIR      = RbConfig::CONFIG['libdir']
 p INCLUDEDIR  = RbConfig::CONFIG['includedir']
 
-HEADERDIRS = File.expand_path('../', __FILE__)
+HEADERDIRS = File.expand_path('../include', __FILE__)
 
 p LIBDIRS = File.expand_path('../lib', __FILE__)
 
@@ -19,7 +19,7 @@ end
 LIBS = 'sofa_c'
 FUNC = 'iauFalp03'
 unless find_library(LIBS, FUNC, LIBDIRS)
-  abort "libsofa_c is missing.  please install libsofa-c0"
+  abort "libsofa_c is missing.  please install libsofa-c.a"
 end
 
 dir_config('sofa_c', HEADERDIRS, LIBDIRS)
