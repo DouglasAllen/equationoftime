@@ -17,7 +17,7 @@ unless find_header('sofa.h', HEADERDIRS)
 end
 
 LIBS = 'sofa_c'
-FUNC = 'iauCal2jd'
+FUNC = 'iauFalp03'
 unless find_library(LIBS, FUNC, LIBDIRS)
   abort "libsofa_c is missing.  please install libsofa-c0"
 end

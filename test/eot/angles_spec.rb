@@ -12,10 +12,11 @@ describe 'Tests ajd of 2456885.0 ' do
 
   before(:each) do
     angles.ajd  =   2_456_885.0
-    ajd = angles.ajd
     angles.set_t_ma
+
+    # ajd = angles.ajd    
     # check date for this ajd when needed.
-    angles.date = angles.ajd_to_datetime(ajd)
+    # angles.date = angles.ajd_to_datetime(ajd)
   end
 
   it 'expected   2456885.0 for angles.ajd'do
@@ -27,10 +28,12 @@ describe 'Tests ajd of 2456885.0 ' do
   it 'expected   "2014-08-15T12:00:00+00:00" for angles.date'.to_s do
     assert_equal('2014-08-15T12:00:00+00:00', angles.date.to_s)
     angles.ajd = 2_455_055.0
-    assert_equal('2014-08-15T12:00:00+00:00', angles.date.to_s)
+    assert_equal("2015-10-02T12:00:00+00:00", angles.date.to_s)
   end
 
   it 'expected   3.8508003966038915 for angles.ma'do
+    assert_equal(3.8508003966038915, angles.ma)
+    angles.ajd = 2_455_055.0
     assert_equal(3.8508003966038915, angles.ma)
   end
 
