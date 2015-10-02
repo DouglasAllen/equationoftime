@@ -1,4 +1,5 @@
-
+gem 'minitest'
+require 'minitest/autorun'
 require 'bundler/gem_tasks'
 # require "bundler/install_tasks"
 

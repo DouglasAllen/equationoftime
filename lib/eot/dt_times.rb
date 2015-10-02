@@ -1,5 +1,5 @@
 ##
-# class Eot file = times.rb:
+# class Eot file = dt_times.rb:
 # methods calculating date times
 
 class Eot
