@@ -1,4 +1,4 @@
-# class Eot file = delta_times_jd.rb
+# class Eot file = delta_jd_times.rb
 # methods converting delta angles to time
 
 class Eot
@@ -19,7 +19,7 @@ class Eot
   # From delta_times.rb:
   # Uses @ajd attribute
   # Returns EOT as a float for decimal minutes time
-  def eot_jd
-    (equation_of_time * R2D) / 360.0
+  def delta_total_jd
+    (delta_total * R2D) / 360.0
   end
 end

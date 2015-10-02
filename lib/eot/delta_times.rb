@@ -21,7 +21,7 @@ class Eot
   # Uses @ajd attribute
   # Returns EOT as a float for decimal minutes time
   def time_eot
-    eot_jd * 1440.0
+    delta_total_jd * 1440.0
   end
 
   

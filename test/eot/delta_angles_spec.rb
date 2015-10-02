@@ -47,8 +47,8 @@ describe 'Tests ajd of 2456885.0 ' do
     assert_equal(3.4412912434333975e-05, angles.equation_of_equinox)
   end
 
-  it 'expected   -0.019617575870701346 from  angles.equation_of_time()? ' do
-    assert_equal(-0.019617575870701346, angles.equation_of_time)
+  it 'expected   -0.019617575870701346 from  angles.delta_total()? ' do
+    assert_equal(-0.019617575870701346, angles.delta_total)
   end
 
 
@@ -92,8 +92,8 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(7.007879585074761e-05, angles.equation_of_equinox)
   end
 
-  it 'expected   -0.022580635516774656 from angles.equation_of_time()? ' do
-    assert_equal(-0.022580635516774656, angles.equation_of_time)
+  it 'expected   -0.022580635516774656 from angles.delta_total()? ' do
+    assert_equal(-0.022580635516774656, angles.delta_total)
   end
 
 end

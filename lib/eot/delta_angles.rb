@@ -29,7 +29,7 @@ class Eot
 
   # From angles.rb:
   # total equation of time
-  def equation_of_time
+  def delta_total
     delta_orbit + delta_oblique
   end
 

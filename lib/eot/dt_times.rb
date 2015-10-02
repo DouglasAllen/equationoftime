@@ -27,7 +27,7 @@ class Eot
   # Uses @ajd and @longitude attributes
   # Returns DateTime object of local noon or solar transit
   def local_noon_dt
-    ajd_to_datetime(mean_local_noon_jd - eot_jd)
+    ajd_to_datetime(mean_local_noon_jd - delta_total_jd)
   end
 
   # From times.rb:

@@ -25,16 +25,16 @@ describe 'tests jd of 2456885.0 ' do
     assert_equal(2_456_885.0, times.ajd)
   end
 
-  it 'expected   -0.006530258712013356 from times.delta_oblique_jd() ' do
+  it 'expected   -0.006530258712013356 from times.delta_oblique_jd ' do
     assert_equal(-0.006530258712013356, times.delta_oblique_jd)
   end
 
-  it 'expected   0.0034080245407109443 from times.delta_orbit_jd() ' do
+  it 'expected   0.0034080245407109443 from times.delta_orbit_jd ' do
     assert_equal(0.0034080245407109443, times.delta_orbit_jd)
   end
 
-  it 'expected   -0.003122234171302412 from times.eot_jd() ' do
-    assert_equal(-0.003122234171302412, times.eot_jd)
+  it 'expected   -0.003122234171302412 from times.delta_total_jd ' do
+    assert_equal(-0.003122234171302412, times.delta_total_jd)
   end
 
 end
@@ -56,16 +56,16 @@ describe 'tests ajd of 2455055.0 ' do
     assert_equal(2_455_055.0, times.jd)
   end
 
-    it 'expected -0.006740060479370825 from times.delta_oblique_jd() ' do
+    it 'expected -0.006740060479370825 from times.delta_oblique_jd ' do
     assert_equal(-0.006740060479370825, times.delta_oblique_jd)
   end
 
-  it 'expected   0.0031462407187197246 from times.delta_orbit_jd() ' do
+  it 'expected   0.0031462407187197246 from times.delta_orbit_jd ' do
     assert_equal(0.0031462407187197246, times.delta_orbit_jd)
   end
   
-  it 'expected   -0.0035938197606511014 from times.eot_jd() ' do
-    assert_equal(-0.0035938197606511014, times.eot_jd)
+  it 'expected   -0.0035938197606511014 from times.delta_total_jd ' do
+    assert_equal(-0.0035938197606511014, times.delta_total_jd)
   end
 
 
