@@ -40,8 +40,9 @@ double earth_orbital_eccentricity(double t)
 
 double equation_of_center(double t)
 {             
-  double a1, a2, a3, a4, a5, s1, s2, s3, s4, s5, e;
-  double ma = iauFalp03(t);
+  double a1, a2, a3, a4, a5, e, ma, s1, s2, s3, s4, s5;
+
+  ma  = iauFalp03(t);
   e   = earth_orbital_eccentricity(t);  
   s1  = sin( 1.0 * ma);
   s2  = sin( 2.0 * ma);
@@ -176,6 +177,7 @@ double mean_longitude_aries(double t)
   double dt = 68.184;
   double ajd = t * 36525 + 2451545.0;
   double ttajd = ajd + dt / 86400.0;
+
   return iauGmst06(ajd, 0, ttajd, 0);
 }
 
@@ -184,7 +186,7 @@ double true_longitude_aries(double t)
   double dt = 68.184;
   double ajd = t * 36525 + 2451545.0;
   double ttajd = ajd + dt / 86400.0;
-  return iauGmst06(ajd, 0, ttajd, 0);
+  
   return iauGst06a(ajd, 0, ttajd, 0);
 }
 

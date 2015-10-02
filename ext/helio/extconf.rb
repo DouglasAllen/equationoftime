@@ -6,30 +6,32 @@ INCLUDEDIR  = RbConfig::CONFIG['includedir']
 
 HEADER_DIRS = [
   # First search /opt/local for macports
-  '/opt/local/include',
+  #'/opt/local/include',
 
   # Then search /usr/local for people that installed from source
-  '/usr/local/include',
+  #'/usr/local/include',
 
   # Check the ruby install locations
-  INCLUDEDIR,
+  #INCLUDEDIR,
 
   # Finally fall back to /usr
-  '/usr/include',
+  #'/usr/include',
+  #'../../../../',
 ]
 
 LIB_DIRS = [
   # First search /opt/local for macports
-  '/opt/local/lib',
+  #'/opt/local/lib',
 
   # Then search /usr/local for people that installed from source
-  '/usr/local/lib',
+  #'/usr/local/lib',
 
   # Check the ruby install locations
-  LIBDIR,
+  #LIBDIR,
 
   # Finally fall back to /usr
-  '/usr/lib',
+  #'/usr/lib',
+  #'../../../../,
 ]
 
 unless find_header('sofam.h')
