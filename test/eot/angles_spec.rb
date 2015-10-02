@@ -20,9 +20,13 @@ describe 'Tests ajd of 2456885.0 ' do
 
   it 'expected   2456885.0 for angles.ajd'do
     assert_equal(2_456_885.0, angles.ajd)
+    angles.ajd = 2_455_055.0
+    assert_equal(2_455_055.0, angles.ajd)
   end
 
   it 'expected   "2014-08-15T12:00:00+00:00" for angles.date'.to_s do
+    assert_equal('2014-08-15T12:00:00+00:00', angles.date.to_s)
+    angles.ajd = 2_455_055.0
     assert_equal('2014-08-15T12:00:00+00:00', angles.date.to_s)
   end
 

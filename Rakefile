@@ -1,5 +1,4 @@
-gem 'minitest'
-require 'minitest/autorun'
+
 require 'bundler/gem_tasks'
 # require "bundler/install_tasks"
 
@@ -71,7 +70,7 @@ Hoe.spec 'equationoftime' do
   self.history_file  = 'CHANGELOG.rdoc'
   self.extra_rdoc_files  = FileList[]
   extra_dev_deps << ['rake-compiler', '~> 0.9', '>= 0.9.3']
-  self.spec_extras = { extensions: ['ext/helio/extconf.rb'] }
+  #self.spec_extras = { extensions: ['ext/helio/extconf.rb'] }
 
   Rake::ExtensionTask.new('helio', spec) do |ext|
     ext.lib_dir = File.join('lib', 'eot')
@@ -89,10 +88,10 @@ Rake::TestTask.new(:test) do |t|
   t.options
 end
 
-# RSpec::Core::RakeTask.new(:spec) do | t |
-#   t.pattern = './test/eot/*_spec.rb'
-#   t.rspec_opts = []
-# end
+RSpec::Core::RakeTask.new(:spec) do | t |
+  t.pattern = './test/eot/*_spec.rb'
+  t.rspec_opts = []
+end
 
 YARD::Rake::YardocTask.new(:yardoc) do |t|
   t.files = ['lib/eot/*.rb']
