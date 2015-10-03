@@ -8,7 +8,7 @@ HEADERDIRS = [INCLUDEDIR]
 
 # setup constant that is equal to that of the file path that holds that static libraries 
 # that will need to be compiled against
-LIBDIRS = [LIBDIR, File.expand_path(File.join(File.dirname(__FILE__), "lib"))]
+LIBDIRS = File.expand_path(File.join(File.dirname(__FILE__), "lib"))
 # array of all libraries that the C extension should be compiled against
 libs = ['-lsofa_c']
 
@@ -20,11 +20,11 @@ unless find_header('sofa.h', HEADERDIRS)
   abort "sofa.h and sofam.h are missing.  please install libsofa-c-dev"
 end
 
-# LIBS = 'sofa_c'
-# FUNC = 'iauFalp03'
-# unless find_library(LIBS, FUNC, LIBDIRS)
-#   abort "libsofa_c is missing.  please install libsofa-c.a"
-# end
+LIBS = 'sofa_c'
+FUNC = 'iauFalp03'
+unless find_library(LIBS, FUNC, LIBDIRS)
+  abort "libsofa_c is missing.  please install libsofa-c.a"
+end
 
 dir_config('sofa_c', HEADERDIRS, LIBDIRS)
 
