@@ -1,10 +1,10 @@
 require 'mkmf'
 extension_name = 'helio/helio'
 
-LIBDIR      = RbConfig::CONFIG['libdir']
-INCLUDEDIR  = RbConfig::CONFIG['includedir']
+RLIBDIR      = RbConfig::CONFIG['libdir']
+RINCLUDEDIR  = RbConfig::CONFIG['includedir']
 
-HEADERDIRS = [INCLUDEDIR]
+HEADERDIRS = File.expand_path(File.join(File.dirname(__FILE__), "include"))
 
 # setup constant that is equal to that of the file path that holds that static libraries 
 # that will need to be compiled against
@@ -12,7 +12,7 @@ LIBDIRS = File.expand_path(File.join(File.dirname(__FILE__), "lib"))
 # array of all libraries that the C extension should be compiled against
 libs = ['-lsofa_c']
 
-unless find_header('ruby.h', INCLUDEDIR)
+unless find_header('ruby.h', RINCLUDEDIR)
   abort "ruby.h can't be found."
 end
 
