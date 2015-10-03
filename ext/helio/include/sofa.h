@@ -8,13 +8,17 @@
 **
 **  Prototype function declarations for SOFA library.
 **
-**  This revision:   2012 February 23
+**  This file is part of the International Astronomical Union's
+**  SOFA (Standards Of Fundamental Astronomy) software collection.
 **
-**  Original version 2012-03-01
+**  This revision:   2015 January 28
 **
-**  Copyright (C) 2013 Naoki Arita.  See notes at end.
+**  SOFA release 2015-02-09
+**
+**  Copyright (C) 2015 IAU SOFA Board.  See notes at end.
 */
 
+#include "sofam.h"
 #include "math.h"
 
 #ifdef __cplusplus
@@ -30,6 +34,111 @@ void iauEpj2jd(double epj, double *djm0, double *djm);
 int iauJd2cal(double dj1, double dj2,
                      int *iy, int *im, int *id, double *fd);
 int iauJdcalf(int ndp, double dj1, double dj2, int iymdf[4]);
+
+/* Astronomy/Astrometry */
+void iauAb(double pnat[3], double v[3], double s, double bm1,
+           double ppr[3]);
+void iauApcg(double date1, double date2,
+             double ebpv[2][3], double ehp[3],
+             iauASTROM *astrom);
+void iauApcg13(double date1, double date2, iauASTROM *astrom);
+void iauApci(double date1, double date2,
+             double ebpv[2][3], double ehp[3],
+             double x, double y, double s,
+             iauASTROM *astrom);
+void iauApci13(double date1, double date2,
+               iauASTROM *astrom, double *eo);
+void iauApco(double date1, double date2,
+             double ebpv[2][3], double ehp[3],
+             double x, double y, double s, double theta,
+             double elong, double phi, double hm,
+             double xp, double yp, double sp,
+             double refa, double refb,
+             iauASTROM *astrom);
+int iauApco13(double utc1, double utc2, double dut1,
+              double elong, double phi, double hm, double xp, double yp,
+              double phpa, double tc, double rh, double wl,
+              iauASTROM *astrom, double *eo);
+void iauApcs(double date1, double date2, double pv[2][3],
+             double ebpv[2][3], double ehp[3],
+             iauASTROM *astrom);
+void iauApcs13(double date1, double date2, double pv[2][3],
+               iauASTROM *astrom);
+void iauAper(double theta, iauASTROM *astrom);
+void iauAper13(double ut11, double ut12, iauASTROM *astrom);
+void iauApio(double sp, double theta,
+             double elong, double phi, double hm, double xp, double yp,
+             double refa, double refb,
+             iauASTROM *astrom);
+int iauApio13(double utc1, double utc2, double dut1,
+              double elong, double phi, double hm, double xp, double yp,
+              double phpa, double tc, double rh, double wl,
+              iauASTROM *astrom);
+void iauAtci13(double rc, double dc,
+               double pr, double pd, double px, double rv,
+               double date1, double date2,
+               double *ri, double *di, double *eo);
+void iauAtciq(double rc, double dc, double pr, double pd,
+              double px, double rv, iauASTROM *astrom,
+              double *ri, double *di);
+void iauAtciqn(double rc, double dc, double pr, double pd,
+               double px, double rv, iauASTROM *astrom,
+               int n, iauLDBODY b[], double *ri, double *di);
+void iauAtciqz(double rc, double dc, iauASTROM *astrom,
+               double *ri, double *di);
+int iauAtco13(double rc, double dc,
+              double pr, double pd, double px, double rv,
+              double utc1, double utc2, double dut1,
+              double elong, double phi, double hm, double xp, double yp,
+              double phpa, double tc, double rh, double wl,
+              double *aob, double *zob, double *hob,
+              double *dob, double *rob, double *eo);
+void iauAtic13(double ri, double di,
+               double date1, double date2,
+               double *rc, double *dc, double *eo);
+void iauAticq(double ri, double di, iauASTROM *astrom,
+              double *rc, double *dc);
+void iauAticqn(double ri, double di, iauASTROM *astrom,
+               int n, iauLDBODY b[], double *rc, double *dc);
+int iauAtio13(double ri, double di,
+              double utc1, double utc2, double dut1,
+              double elong, double phi, double hm, double xp, double yp,
+              double phpa, double tc, double rh, double wl,
+              double *aob, double *zob, double *hob,
+              double *dob, double *rob);
+void iauAtioq(double ri, double di, iauASTROM *astrom,
+              double *aob, double *zob,
+              double *hob, double *dob, double *rob);
+int iauAtoc13(const char *type, double ob1, double ob2,
+              double utc1, double utc2, double dut1,
+              double elong, double phi, double hm, double xp, double yp,
+              double phpa, double tc, double rh, double wl,
+              double *rc, double *dc);
+int iauAtoi13(const char *type, double ob1, double ob2,
+              double utc1, double utc2, double dut1,
+              double elong, double phi, double hm, double xp, double yp,
+              double phpa, double tc, double rh, double wl,
+              double *ri, double *di);
+void iauAtoiq(const char *type,
+              double ob1, double ob2, iauASTROM *astrom,
+              double *ri, double *di);
+void iauLd(double bm, double p[3], double q[3], double e[3],
+           double em, double dlim, double p1[3]);
+void iauLdn(int n, iauLDBODY b[], double ob[3], double sc[3],
+            double sn[3]);
+void iauLdsun(double p[3], double e[3], double em, double p1[3]);
+void iauPmpx(double rc, double dc, double pr, double pd,
+             double px, double rv, double pmt, double pob[3],
+             double pco[3]);
+int iauPmsafe(double ra1, double dec1, double pmr1, double pmd1,
+              double px1, double rv1,
+              double ep1a, double ep1b, double ep2a, double ep2b,
+              double *ra2, double *dec2, double *pmr2, double *pmd2,
+              double *px2, double *rv2);
+void iauPvtob(double elong, double phi, double height, double xp,
+              double yp, double sp, double theta, double pv[2][3]);
+void iauRefco(double phpa, double tc, double rh, double wl,
+              double *refa, double *refb);
 
 /* Astronomy/Ephemerides */
 int iauEpv00(double date1, double date2,
@@ -138,8 +247,10 @@ void iauPnm00b(double date1, double date2, double rbpn[3][3]);
 void iauPnm06a(double date1, double date2, double rnpb[3][3]);
 void iauPnm80(double date1, double date2, double rmatpn[3][3]);
 void iauPom00(double xp, double yp, double sp, double rpom[3][3]);
-void iauPr00(double date1, double date2, double *dpsipr, double *depspr);
-void iauPrec76(double ep01, double ep02, double ep11, double ep12,
+void iauPr00(double date1, double date2,
+             double *dpsipr, double *depspr);
+void iauPrec76(double date01, double date02,
+               double date11, double date12,
                double *zeta, double *z, double *theta);
 double iauS00(double date1, double date2, double x, double y);
 double iauS00a(double date1, double date2);
@@ -200,7 +311,11 @@ int iauStarpm(double ra1, double dec1,
               double *ra2, double *dec2,
               double *pmr2, double *pmd2, double *px2, double *rv2);
 
-/* Astronomy/Geodetic/Geocentric */
+/* Astronomy/GalacticCoordinates */
+void iauG2icrs ( double dl, double db, double *dr, double *dd );
+void iauIcrs2g ( double dr, double dd, double *dl, double *db );
+
+/* Astronomy/GeodeticGeocentric */
 int iauEform(int n, double *a, double *f);
 int iauGc2gd(int n, double xyz[3],
              double *elong, double *phi, double *height);
@@ -331,49 +446,96 @@ void iauSxpv(double s, double pv[2][3], double spv[2][3]);
 
 /*----------------------------------------------------------------------
 **
-**  Celes is a wrapper of the SOFA Library for Ruby.
+**  Copyright (C) 2015
+**  Standards Of Fundamental Astronomy Board
+**  of the International Astronomical Union.
 **
-**  This file is redistributed and relicensed in accordance with 
-**  the SOFA Software License (http://www.iausofa.org/tandc.html).
+**  =====================
+**  SOFA Software License
+**  =====================
 **
-**  The original library is available from IAU Standards of
-**  Fundamental Astronomy (http://www.iausofa.org/).
+**  NOTICE TO USER:
 **
+**  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING SIX TERMS AND
+**  CONDITIONS WHICH APPLY TO ITS USE.
 **
+**  1. The Software is owned by the IAU SOFA Board ("SOFA").
 **
+**  2. Permission is granted to anyone to use the SOFA software for any
+**     purpose, including commercial applications, free of charge and
+**     without payment of royalties, subject to the conditions and
+**     restrictions listed below.
 **
+**  3. You (the user) may copy and distribute SOFA source code to others,
+**     and use and adapt its code and algorithms in your own software,
+**     on a world-wide, royalty-free basis.  That portion of your
+**     distribution that does not consist of intact and unchanged copies
+**     of SOFA source code files is a "derived work" that must comply
+**     with the following requirements:
 **
-**  Copyright (C) 2013, Naoki Arita
-**  All rights reserved.
+**     a) Your work shall be marked or carry a statement that it
+**        (i) uses routines and computations derived by you from
+**        software provided by SOFA under license to you; and
+**        (ii) does not itself constitute software provided by and/or
+**        endorsed by SOFA.
 **
-**  Redistribution and use in source and binary forms, with or without
-**  modification, are permitted provided that the following conditions
-**  are met:
+**     b) The source code of your derived work must contain descriptions
+**        of how the derived work is based upon, contains and/or differs
+**        from the original SOFA software.
 **
-**  1 Redistributions of source code must retain the above copyright
-**    notice, this list of conditions and the following disclaimer.
+**     c) The names of all routines in your derived work shall not
+**        include the prefix "iau" or "sofa" or trivial modifications
+**        thereof such as changes of case.
 **
-**  2 Redistributions in binary form must reproduce the above copyright
-**    notice, this list of conditions and the following disclaimer in
-**    the documentation and/or other materials provided with the
-**    distribution.
+**     d) The origin of the SOFA components of your derived work must
+**        not be misrepresented;  you must not claim that you wrote the
+**        original software, nor file a patent application for SOFA
+**        software or algorithms embedded in the SOFA software.
 **
-**  3 Neither the name of the Standards Of Fundamental Astronomy Board,
-**    the International Astronomical Union nor the names of its
-**    contributors may be used to endorse or promote products derived
-**    from this software without specific prior written permission.
+**     e) These requirements must be reproduced intact in any source
+**        distribution and shall apply to anyone to whom you have
+**        granted a further right to modify the source code of your
+**        derived work.
 **
-**  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-**  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-**  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-**  FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE
-**  COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-**  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-**  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-**  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-**  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-**  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-**  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-**  POSSIBILITY OF SUCH DAMAGE.
+**     Note that, as originally distributed, the SOFA software is
+**     intended to be a definitive implementation of the IAU standards,
+**     and consequently third-party modifications are discouraged.  All
+**     variations, no matter how minor, must be explicitly marked as
+**     such, as explained above.
+**
+**  4. You shall not cause the SOFA software to be brought into
+**     disrepute, either by misuse, or use for inappropriate tasks, or
+**     by inappropriate modification.
+**
+**  5. The SOFA software is provided "as is" and SOFA makes no warranty
+**     as to its use or performance.   SOFA does not and cannot warrant
+**     the performance or results which the user may obtain by using the
+**     SOFA software.  SOFA makes no warranties, express or implied, as
+**     to non-infringement of third party rights, merchantability, or
+**     fitness for any particular purpose.  In no event will SOFA be
+**     liable to the user for any consequential, incidental, or special
+**     damages, including any lost profits or lost savings, even if a
+**     SOFA representative has been advised of such damages, or for any
+**     claim by any third party.
+**
+**  6. The provision of any version of the SOFA software under the terms
+**     and conditions specified herein does not imply that future
+**     versions will also be made available under the same terms and
+**     conditions.
+*
+**  In any published work or commercial product which uses the SOFA
+**  software directly, acknowledgement (see www.iausofa.org) is
+**  appreciated.
+**
+**  Correspondence concerning SOFA software should be addressed as
+**  follows:
+**
+**      By email:  sofa@ukho.gov.uk
+**      By post:   IAU SOFA Center
+**                 HM Nautical Almanac Office
+**                 UK Hydrographic Office
+**                 Admiralty Way, Taunton
+**                 Somerset, TA1 2DN
+**                 United Kingdom
 **
 **--------------------------------------------------------------------*/
