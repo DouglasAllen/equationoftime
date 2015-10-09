@@ -1,6 +1,6 @@
 #include "math.h"
-#include "sofam.h"
-#include "sofa.h"
+#include <sofam.h>
+#include <sofa.h>
 
 double apparent_longitude(double t);
 double cosine_apparent_longitude(double t);
