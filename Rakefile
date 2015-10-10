@@ -73,11 +73,11 @@ Hoe.spec 'equationoftime' do
   #self.spec_extras = { extensions: ['ext/helio/extconf.rb'] }
 
   Rake::ExtensionTask.new('helio', spec) do |ext|
-    ext.lib_dir = File.join('lib', 'helio')
+    ext.lib_dir = File.join('lib', 'eot')
   end
 end
 
-Rake::Task[:test].prerequisites << :libsofa_c
+Rake::Task[:test].prerequisites << :libsofa_c << :compile
 
 task :libsofa_c do
   recipe = MiniPortile.new("libsofa_c", "1.0")
@@ -96,9 +96,7 @@ task :libsofa_c do
   recipe.activate
 end
 
-task :compile => [:libsofa_c] do
-  # ... your library's compilation task ...
-end
+
 
 task default: [:test]
 
