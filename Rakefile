@@ -77,7 +77,7 @@ Hoe.spec 'equationoftime' do
   end
 end
 
-Rake::Task[:test].prerequisites << :compile << :libsofa_c
+Rake::Task[:test].prerequisites << :libsofa_c
 
 task :libsofa_c do
   recipe = MiniPortile.new("libsofa_c", "1.0")
