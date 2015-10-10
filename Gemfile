@@ -10,6 +10,8 @@ ruby '2.2.2'
 
 gemspec
 
+gem 'mini_portile'
+
 group :development, :test do
   gem 'rubocop'
   gem 'hoe'
