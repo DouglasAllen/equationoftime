@@ -1,14 +1,7 @@
 require 'mkmf'
-require 'mini_portile'
+
 extension_name = 'helio/helio'
 
-recipe1 = MiniPortile.new("libsofa_c", "1.0")
-recipe1.files = ["https://github.com/DouglasAllen/libsofa_c-1.0/raw/master/libsofa_c-1.0.tar"]
-recipe1.download
-recipe1.extract
-recipe1.compile
-recipe1.install unless recipe1.installed?
-recipe1.activate
 
 RLIBDIR      = RbConfig::CONFIG['libdir']
 RINCLUDEDIR  = RbConfig::CONFIG['includedir']
@@ -18,14 +11,19 @@ unless find_header('ruby.h', RINCLUDEDIR)
 end
 
 
-HEADERDIRS = "$HOME/include"
+INC = "$HOME/include"
+HEADERDIRS = "../include"
+system "cp -r #{INC} #{HEADERDIRS}"
+
 unless find_header('sofa.h', HEADERDIRS)
   abort "sofa.h and sofam.h are missing.  please install libsofa-c-dev"
 end
 
 # setup constant that is equal to that of the file path that holds that static libraries 
 # that will need to be compiled against
-LIBDIRS = "$HOME/lib"
+LIB = "$HOME/lib"
+LIBDIRS = "../lib"
+system "cp -r #{LIB} #{LIBDIRS}"
 
 LIBS = 'sofa_c'
 FUNC = 'iauFalp03'

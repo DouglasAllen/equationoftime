@@ -1,4 +1,4 @@
-
+require 'mini_portile'
 require 'bundler/gem_tasks'
 # require "bundler/install_tasks"
 
@@ -77,7 +77,28 @@ Hoe.spec 'equationoftime' do
   end
 end
 
-Rake::Task[:test].prerequisites << :compile
+Rake::Task[:test].prerequisites << :compile << :libsofa_c
+
+task :libsofa_c do
+  recipe = MiniPortile.new("libsofa_c", "1.0")
+  recipe.files = ["https://github.com/DouglasAllen/libsofa_c-1.0/raw/master/libsofa_c-1.0.tar"]
+  checkpoint = ".#{recipe.name}-#{recipe.version}.installed"
+
+  unless File.exist?(checkpoint)
+    recipe.download
+    recipe.extract
+    recipe.compile
+    recipe.install unless recipe.installed?
+    
+    touch checkpoint
+  end
+
+  recipe.activate
+end
+
+task :compile => [:libsofa_c] do
+  # ... your library's compilation task ...
+end
 
 task default: [:test]
 
