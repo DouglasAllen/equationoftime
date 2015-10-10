@@ -20,9 +20,9 @@ The major changes for the latest release are as follows.
 = equationoftime
 
 Home    :: http://equationoftime.herokuapp.com/
-Code    :: https://github.com/DouglasAllen/equationoftime
+Code    :: https://github.com/DouglasAllen/gem-equationoftime
 RDoc    :: http://rubydoc.info/gems/equationoftime/4.1.8/frames
-Issues  :: https://github.com/DouglasAllen/equationoftime/issues
+Issues  :: https://github.com/DouglasAllen/gem-equationoftime/issues
 
 
 == DESCRIPTION:

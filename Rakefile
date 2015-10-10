@@ -73,7 +73,7 @@ Hoe.spec 'equationoftime' do
   #self.spec_extras = { extensions: ['ext/helio/extconf.rb'] }
 
   Rake::ExtensionTask.new('helio', spec) do |ext|
-    ext.lib_dir = File.join('lib', 'eot')
+    ext.lib_dir = File.join('lib', 'helio')
   end
 end
 
