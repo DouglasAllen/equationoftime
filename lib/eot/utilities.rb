@@ -2,6 +2,7 @@
 # methods for general use
 
 class Eot
+  
   # From utilities.rb:
   # A check for default J2000
   # sets default when arg is nil
@@ -50,26 +51,11 @@ class Eot
   end
 
   # From utilities.rb:
-  # formats degree string
-  def f_string(sgn, u, m, s, ds)
-    sgn +
-      format('%03d', u) +
-    ':' +
-      format('%02d', m) +
-    ':' +
-      format('%02d', s) +
-    '.' +
-    format('%3.3d', ds)
-  end
-
-  # From utilities.rb:
   # Keeps large angles in range of 360.0
-  # aliased by truncate
   def mod_360(x = 0.0)
     x.nil? ? x = 0.0 : x
     360.0 * (x / 360.0 - Integer(x / 360.0))
   end
-  alias_method :truncate, :mod_360
 end
 
 if __FILE__ == $PROGRAM_NAME

@@ -1,14 +1,14 @@
 require 'mini_portile'
 require 'bundler/gem_tasks'
-# require "bundler/install_tasks"
+#require "bundler/install_tasks"
 
 require 'rake/extensiontask'
-require 'rake/testtask'
+#require 'rake/testtask'
 # require "rake/win32"
 
 require 'rdoc/task'
 
-require 'rspec/core/rake_task'
+#require 'rspec/core/rake_task'
 
 require 'yard'
 
@@ -26,7 +26,7 @@ require 'hoe'
 # Hoe.plugins.delete :test
 # Hoe.plugins.delete :signing
 # Hoe.plugins.delete :publish
-# Hoe.plugins.delete  :clean
+# Hoe.plugins.delete :clean
 # Hoe.plugins.delete :package
 # Hoe.plugins.delete :compiler
 # Hoe.plugins.delete :debug
@@ -73,11 +73,11 @@ Hoe.spec 'equationoftime' do
   #self.spec_extras = { extensions: ['ext/helio/extconf.rb'] }
 
   Rake::ExtensionTask.new('helio', spec) do |ext|
-    ext.lib_dir = File.join('lib', 'eot')
+    ext.lib_dir = File.join('lib', 'eot/helio')
   end
 end
 
-Rake::Task[:test].prerequisites << :libsofa_c << :compile
+Rake::Task[:install].prerequisites << :libsofa_c << :compile
 
 task :libsofa_c do
   recipe = MiniPortile.new("libsofa_c", "1.0")
@@ -96,21 +96,20 @@ task :libsofa_c do
   recipe.activate
 end
 
+#task default: [:test]
 
+#Rake::TestTask.new(:test) do |t|
+  #t.libs << 'test'
+  #t.test_files = FileList['test/eot/*.rb']
+  #t.verbose = true
+  #t.options
+#end
 
-task default: [:test]
-
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'test'
-  t.test_files = FileList['test/eot/*_spec.rb']
-  t.verbose = true
-  t.options
-end
-
-RSpec::Core::RakeTask.new(:spec) do | t |
-  t.pattern = './test/eot/*_spec.rb'
-  t.rspec_opts = []
-end
+#RSpec::Core::RakeTask.new(:spec) do | t |
+  #t.libs << 'test'
+  #t.pattern = './test/eot/*.rb'
+  #t.rspec_opts = []
+#end
 
 YARD::Rake::YardocTask.new(:yardoc) do |t|
   t.files = ['lib/eot/*.rb']

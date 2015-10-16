@@ -1,6 +1,7 @@
 ##
 # class Eot file = constants.rb:
 # has the constants used and more
+require 'date'
 
 class Eot
 
@@ -119,7 +120,6 @@ class Eot
 
   ##
   # Default DateTime = DateTime.new( 2000, 01, 01, 12, 00, 00, "+00:00" )
-
   DT2000      = DateTime.new(2000, 01, 01, 12, 00, 00, '+00:00')
 
   # arc seconds degrees to radians = PI / 180.0 / ARCSEC
