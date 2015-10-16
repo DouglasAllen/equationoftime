@@ -36,8 +36,8 @@ require 'benchmark'
 
 n = 5_000
 Benchmark.bm do |x|
-  # ~ x.report("celes")  { n.times { Celes.cal2jd(dt.year, dt.month, dt.day) } }
-  # ~ x.report("ruby")  { n.times { DateTime.new(dt.year, dt.month, dt.day).jd } }
+  # x.report("celes")  { n.times { Celes.cal2jd(dt.year, dt.month, dt.day) } }
+  # x.report("ruby")  { n.times { DateTime.new(dt.year, dt.month, dt.day).jd } }
   x.report('celes')  { n.times { Celes.nut06a(ajd, 0)[0] } }
   x.report('celes')  { n.times { Celes.nut06a(ajd, 0)[1] } }
   x.report('celes')  { n.times { Celes.falp03(eot.ta) } }

@@ -1,4 +1,5 @@
-# read_nutation_data.rb is a leftover from building it so I just left it in examples.
+# read_nutation_data.rb is a leftover from
+# building it so I just left it in examples.
 
 begin
   require 'eot'
@@ -42,7 +43,8 @@ now = DateTime.now.to_time.utc.to_datetime
 # require 'nutation_series_data'
 # or for => Ruby 1.9.2
  require_relative 'nutation_series_data'
-# I manually added @data = to the beginning of the new array file nutation_series.rb so we may use it
+# I manually added @data = to the beginning of the new array file
+# nutation_series.rb so we may use it
 # data = @data
 
 # load in the yaml data
@@ -55,13 +57,16 @@ now = DateTime.now.to_time.utc.to_datetime
 
 =end
 
-## data was initialized when the class instance was via nutation_series2.yaml file.
+## data was initialized when the class instance was via
+# nutation_series2.yaml file.
 # data = eot.data
-# file_path    =  File.expand_path( File.dirname( __FILE__ ) + "/nutation_table5_3a.yaml" )
+# file_path    =  File.expand_path( File.dirname( __FILE__ ) +
+# "/nutation_table5_3a.yaml" )
 # data         = YAML::load( File.open( file_path, 'r'), :safe => true  ).freeze
 ## Arc seconds to radians formula
 # ARCSEC = 3600.0
-# dtr = Math::PI / 180.0 / ARCSEC # adjusted for working in the arc seconds values
+# # adjusted for working in the arc seconds values
+# dtr = Math::PI / 180.0 / ARCSEC
 
 ## sine degrees
 # def sind(dtr, x)
@@ -73,7 +78,8 @@ now = DateTime.now.to_time.utc.to_datetime
 # end
 
 ## The JD is at Noon 12:00 UTC for today
-## In all of these expressions, T is the number of Julian centuries of TDB since 2000 Jan 1, 12h TDB (or,
+## In all of these expressions, T is the number of Julian centuries of TDB since
+# 2000 Jan 1, 12h TDB (or,
 ## with negligible error, the number of Julian centuries of TT since J2000.0).
 # jd2000 = 2451545.0 # the J2000 Julian Day Number
 #
@@ -83,11 +89,16 @@ now = DateTime.now.to_time.utc.to_datetime
 # t = eot.time_julian_century()
 
 ## Values are in arc seconds see below for definitions of terms
-# ma_moon = 485868.249036 + 1717915923.2178 * t[0] + 31.8792 * t[1] + 0.051635 * t[2] - 0.00024470 * t[3]
-# ma_sun = 1287104.79305 + 129596581.0481 * t[0] - 0.5532 * t[1] + 0.000136 * t[2] - 0.00001149 * t[3]
-# md_moon = 335779.526232 + 1739527262.8478 * t[0] - 12.7512 * t[1] - 0.001037 * t[2] + 0.00000417 * t[3]
-# me_moon = 1072260.70369 + 1602961601.2090 * t[0] - 6.3706 * t[1] + 0.006593 * t[2] - 0.00003169 * t[3]
-# omega = 450160.398036 - 6962890.5431 * t[0] + 7.4722 * t[1] + 0.007702 * t[2] - 0.00005939 * t[3]
+# ma_moon = 485868.249036 + 1717915923.2178 * t[0] + 31.8792 * t[1] +
+# 0.051635 * t[2] - 0.00024470 * t[3]
+# ma_sun = 1287104.79305 + 129596581.0481 * t[0] - 0.5532 * t[1] +
+# 0.000136 * t[2] - 0.00001149 * t[3]
+# md_moon = 335779.526232 + 1739527262.8478 * t[0] - 12.7512 * t[1] -
+# 0.001037 * t[2] + 0.00000417 * t[3]
+# me_moon = 1072260.70369 + 1602961601.2090 * t[0] - 6.3706 * t[1] +
+# 0.006593 * t[2] - 0.00003169 * t[3]
+# omega = 450160.398036 - 6962890.5431 * t[0] + 7.4722 * t[1] +
+# 0.007702 * t[2] - 0.00005939 * t[3]
 
 ## declare and clear these two variables for the sigma loop
 # delta_psi, delta_eps = 0, 0
@@ -132,7 +143,8 @@ now = DateTime.now.to_time.utc.to_datetime
 
 # Delta epsilon degrees decimal = #{to_deg(delta_eps)}
 
-# #Delta psi needs to be degrees and eps is degrees but dtr uses ARCSEC constant also we need the result back in ARCSEC / 15 to get time in secs.
+# #Delta psi needs to be degrees and eps is degrees but dtr uses ARCSEC constant
+#  also we need the result back in ARCSEC / 15 to get time in secs.
 ## eoe = delta_psi / ARCSEC * cosd( dtr * ARCSEC, eps ) * ARCSEC / 15.0
 # eoe = eot.eq_of_equinox() / 15.0
 # #p eot.ml_Aries()
@@ -163,15 +175,21 @@ True Obliquity of Ecliptic degrees  = #{eot.degrees_to_s(eot.to_Earth)}
 
 Delta psi in arc seconds = #{eot.delta_psi * Eot::R2D * 3600}
 
-Equation of equinox in seconds = Delta psi * cos epsilon = #{eot.eq_of_equinox * Eot::R2D / 15.0 * 3600}
+Equation of equinox in seconds = Delta psi * cos epsilon =
+#{eot.eq_of_equinox * Eot::R2D / 15.0 * 3600}
 
-Greenwich Mean Sidereal Time = #{eot.string_time(eot.ml_Aries * Eot::R2D / 15.0)}
+Greenwich Mean Sidereal Time =
+#{eot.string_time(eot.ml_Aries * Eot::R2D / 15.0)}
 
-Greenwich Apparent Sideral Time = #{eot.string_time(eot.ml_Aries * Eot::R2D / 15.0 + eot.eq_of_equinox * Eot::R2D / 15.0)}
+Greenwich Apparent Sideral Time =
+#{eot.string_time(eot.ml_Aries * Eot::R2D / 15.0 +
+eot.eq_of_equinox * Eot::R2D / 15.0)}
 
-To compare results enter the date and time into http://www.celnav.de/longterm.htm
+To compare results enter the date and time into
+http://www.celnav.de/longterm.htm
 
-You can use the methods in EOT instead of this example as this just shows how it works.
+You can use the methods in EOT instead of this example
+as this just shows how it works.
 
 EOS
 
@@ -181,32 +199,42 @@ puts run
 #   these values are in arc seconds
 #
 #   Mean anomaly of the moon
-#   ma_moon = 485868.249036 + 1717915923.2178 * t + 31.8792 * t2 + 0.051635 * t3 - 0.00024470 * t4
+#   ma_moon = 485868.249036 + 1717915923.2178 * t + 31.8792 * t2 +
+#   0.051635 * t3 - 0.00024470 * t4
 #
 #   Mean anomaly of the sun
-#   ma_sun = 1287104.79305 + 129596581.0481 * t - 0.5532 * t2 + 0.000136 * t3 - 0.00001149 * t4
+#   ma_sun = 1287104.79305 + 129596581.0481 * t - 0.5532 * t2 +
+#   0.000136 * t3 - 0.00001149 * t4
 #
 #
 #   Mean distance of the moon from the ascending node
-#   md_moon = 335779.526232 + 1739527262.8478 * t - 12.7512 * t2 - 0.001037 * t3 + 0.00000417 * t4
+#   md_moon = 335779.526232 + 1739527262.8478 * t - 12.7512 * t2 -
+#   0.001037 * t3 + 0.00000417 * t4
 #
 #
 #   Mean elongation of the moon
-#   me_moon = 1072260.70369 + 1602961601.2090 * t - 6.3706 * t2 + 0.006593 * t3 - 0.00003169 * t4
+#   me_moon = 1072260.70369 + 1602961601.2090 * t - 6.3706 * t2 +
+#   0.006593 * t3 - 0.00003169 * t4
 #
 #
 #   Longitude of the ascending node of the moon
-#   omega = 450160.398036 - 6962890.5431 * t + 7.4722 * t2 + 0.007702 * t3 - 0.00005939 * t4
+#   omega = 450160.398036 - 6962890.5431 * t + 7.4722 * t2 + 0.007702 * t3 -
+#   0.00005939 * t4
 #
 
 #
 # Manualy converted values from arc seconds to dergrees(not used here)
 #
-# ma_moon = 134.96340251 + 477198.8675605 * t + t2 / 112.92629677 + t3 / 69720.15106 - t4 / 14711892.112791
-# ma_sun = 357.52910918 + 35999.0502911389 * t - t2 / 6507.592191 + t3 / 26470588.2353 - t4 / 313315926.89295
-# md_moon = 93.27209062 + 483202.01745772 * t - t2 / 282.3264 - t3 / 3471552.555 + t4 / 863309352.5179856
-# me_moon = 297.8501954694 + 445267.11144694 * t - t2 / 565.0959 + t3 / 546033.672 - t4 / 113600504.891
-# omega = 125.04455501 - 1934.136261972 * t + t2 / 481.78582 + 0.007702 * t3 / 467411.062 - t4 / 60616265.3645
+# ma_moon = 134.96340251 + 477198.8675605 * t + t2 / 112.92629677 +
+# t3 / 69720.15106 - t4 / 14711892.112791
+# ma_sun = 357.52910918 + 35999.0502911389 * t - t2 / 6507.592191 +
+# t3 / 26470588.2353 - t4 / 313315926.89295
+# md_moon = 93.27209062 + 483202.01745772 * t - t2 / 282.3264 -
+# t3 / 3471552.555 + t4 / 863309352.5179856
+# me_moon = 297.8501954694 + 445267.11144694 * t - t2 / 565.0959 +
+# t3 / 546033.672 - t4 / 113600504.891
+# omega = 125.04455501 - 1934.136261972 * t + t2 / 481.78582 +
+# 0.007702 * t3 / 467411.062 - t4 / 60616265.3645
 #
 
 #
@@ -218,19 +246,24 @@ puts run
 #   //IAU 1980 nutation theory:
 #
 #   //Mean anomaly of the moon
-#   var Mm = 134.962981389+198.867398056*TE+trunc(477000*TE)+0.008697222222*TE2+TE3/56250;
+#   var Mm = 134.962981389+198.867398056*TE+trunc(477000*TE)+
+#   0.008697222222*TE2+TE3/56250;
 #
 #   //Mean anomaly of the sun
-#   var M = 357.527723333+359.05034*TE+trunc(35640*TE)-0.0001602777778*TE2-TE3/300000;
+#   var M = 357.527723333+359.05034*TE+trunc(35640*TE)-
+#   0.0001602777778*TE2-TE3/300000;
 #
 #   //Mean distance of the moon from the ascending node
-#   var F = 93.271910277+82.017538055*TE+trunc(483120*TE)-0.0036825*TE2+TE3/327272.7273;
+#   var F = 93.271910277+82.017538055*TE+trunc(483120*TE)-
+#   0.0036825*TE2+TE3/327272.7273;
 #
 #   //Mean elongation of the moon
-#   var D = 297.850363055+307.11148*TE+trunc(444960*TE)-0.001914166667*TE2+TE3/189473.6842;
+#   var D = 297.850363055+307.11148*TE+trunc(444960*TE)-
+#   0.001914166667*TE2+TE3/189473.6842;
 #
 #   //Longitude of the ascending node of the moon
-#   var omega = 125.044522222-134.136260833*TE-trunc(1800*TE)+0.002070833333*TE2+TE3/450000;
+#   var omega = 125.044522222-134.136260833*TE-trunc(1800*TE)+
+#   0.002070833333*TE2+TE3/450000;
 #
 #   //Periodic terms for nutation
 #   var nut = new Array(106);
@@ -351,8 +384,12 @@ puts run
 #       fF      = eval(nut[x].substring(4,6));
 #       fD      = eval(nut[x].substring(6,8));
 #       f_omega = eval(nut[x].substring(8,10));
-#       dp += (eval(nut[x].substring(10,17))+TE*eval(nut[x].substring(17,23)))*sind(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega);
-#       de   += (eval(nut[x].substring(23,29))+TE*eval(nut[x].substring(29,33)))*cosd(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega);
+#       dp += (eval(nut[x].substring(10,17))+
+#       TE*eval(nut[x].substring(17,23)))*
+#       sind(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega);
+#       de   += (eval(nut[x].substring(23,29))+
+#       TE*eval(nut[x].substring(29,33)))*
+#       cosd(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega);
 #    }
 #
 #    //Corrections (Herring, 1987)
@@ -370,8 +407,14 @@ puts run
 #       fF      = eval(corr[x].substring(4,6));
 #       fD      = eval(corr[x].substring(6,8));
 #       f_omega = eval(corr[x].substring(8,10));
-#       dp += 0.1*(eval(corr[x].substring(10,14))*sind(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega)+eval(corr[x].substring(14,18))*cosd(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega));
-#       de += 0.1*(eval(corr[x].substring(18,22))*cosd(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega)+eval(corr[x].substring(22,26))*sind(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega));
+#       dp += 0.1*(eval(corr[x].substring(10,14))*
+#       sind(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega)+
+#       eval(corr[x].substring(14,18))*
+#       cosd(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega));
+#       de += 0.1*(eval(corr[x].substring(18,22))*
+#       cosd(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega)+
+#       eval(corr[x].substring(22,26))*
+#       sind(fD*D+fM*M+fMm*Mm+fF*F+f_omega*omega));
 #    }
 #    */
 #

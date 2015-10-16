@@ -1,50 +1,36 @@
 #!/usr/bin/env ruby
 
-<<<<<<< HEAD
-if RUBY_VERSION < "1.9.0"
-=======
 if RUBY_VERSION < '1.9.0'
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
   require 'rubygems'
 end
 require 'celes'
 
 $verbose = false
 
-<<<<<<< HEAD
-if RUBY_VERSION < "1.9.0"
-  class String
-    # fixes older ruby versions < 1.9.0
-=======
 if RUBY_VERSION < '1.9.0'
   class String
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
     def ord
       self[0]
     end
   end
 end
 
+
 def viv(value, ok_value, func, test)
   if value != ok_value
-    $status = 1
+    status = 1
     puts "#{func} failed: #{test} want #{ok_value} got #{value}"
   elsif $verbose
     puts "#{func} passed: #{test} want #{ok_value} got #{value}"
   end
 end
 
-<<<<<<< HEAD
 def vvd(value , ok_value, eps, func, test)
-=======
-def vvd(value, ok_value, eps, func, test)
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
   a = value - ok_value
   if a.abs > eps
-    $status = 1
+    status = 1
     f = (ok_value / a).abs
     puts "#{func} failed: #{test} want %.20g got %.20g (1/%.3g)" %
-<<<<<<< HEAD
     [ok_value, value, f]
   elsif $verbose
     puts "#{func} passed: #{test} want %.20g got %.20g" %
@@ -55,558 +41,369 @@ end
 
 #static void t_a2af(int *status)
 #{
-=======
-        [ok_value, value, f]
-  elsif $verbose
-    puts "#{func} passed: #{test} want %.20g got %.20g" %
-        [ok_value, value]
-  end
-end
-
-# static void t_a2af(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	int idmsf[4]
 #	char s
 #
 #
-#	Celes::a2af(4, 2.345, &s, idmsf)
+#	Celes.a2af(4, 2.345, &s, idmsf)
 #
-#	viv(s, '+', "Celes::a2af", "s")
+#	viv(s, '+', 'Celes.a2af', 's')
 #
-#	viv(idmsf[0],  134, "Celes::a2af", "0")
-#	viv(idmsf[1],   21, "Celes::a2af", "1")
-#	viv(idmsf[2],   30, "Celes::a2af", "2")
-#	viv(idmsf[3], 9706, "Celes::a2af", "3")
+#	viv(idmsf[0],  134, 'Celes.a2af', '0')
+#	viv(idmsf[1],   21, 'Celes.a2af', '1')
+#	viv(idmsf[2],   30, 'Celes.a2af', '2')
+#	viv(idmsf[3], 9706, 'Celes.a2af', '3')
 #
-# }
+#}
 def t_a2af
-<<<<<<< HEAD
-  s, idmsf = Celes::a2af(4, 2.345)
-
-  viv(s.ord, '+'.ord, "Celes::a2af", "s")
-
-  viv(idmsf[0],  134, "Celes::a2af", "0")
-  viv(idmsf[1],   21, "Celes::a2af", "1")
-  viv(idmsf[2],   30, "Celes::a2af", "2")
-  viv(idmsf[3], 9706, "Celes::a2af", "3")
-=======
   s, idmsf = Celes.a2af(4, 2.345)
 
-  viv(s.ord, '+'.ord, 'Celes::a2af', 's')
+  viv(s.ord, '+'.ord, 'Celes.a2af', 's')
 
-  viv(idmsf[0],  134, 'Celes::a2af', '0')
-  viv(idmsf[1],   21, 'Celes::a2af', '1')
-  viv(idmsf[2],   30, 'Celes::a2af', '2')
-  viv(idmsf[3], 9706, 'Celes::a2af', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  viv(idmsf[0],  134, 'Celes.a2af', '0')
+  viv(idmsf[1],   21, 'Celes.a2af', '1')
+  viv(idmsf[2],   30, 'Celes.a2af', '2')
+  viv(idmsf[3], 9706, 'Celes.a2af', '3')
 end
 
-# static void t_a2tf(int *status)
-# {
+#static void t_a2tf(int *status)
+#{
 #	int ihmsf[4]
 #	char s
 #
 #
-#	Celes::a2tf(4, -3.01234, &s, ihmsf)
+#	Celes.a2tf(4, -3.01234, &s, ihmsf)
 #
-#	viv((int)s, '-', "Celes::a2tf", "s")
+#	viv((int)s, '-', 'Celes.a2tf', 's')
 #
-#	viv(ihmsf[0],   11, "Celes::a2tf", "0")
-#	viv(ihmsf[1],   30, "Celes::a2tf", "1")
-#	viv(ihmsf[2],   22, "Celes::a2tf", "2")
-#	viv(ihmsf[3], 6484, "Celes::a2tf", "3")
+#	viv(ihmsf[0],   11, 'Celes.a2tf', '0')
+#	viv(ihmsf[1],   30, 'Celes.a2tf', '1')
+#	viv(ihmsf[2],   22, 'Celes.a2tf', '2')
+#	viv(ihmsf[3], 6484, 'Celes.a2tf', '3')
 #
-# }
+#}
 def t_a2tf
-<<<<<<< HEAD
-  s, ihmsf = Celes::a2tf(4, -3.01234)
-
-  viv(s.ord, '-'.ord, "Celes::a2tf", "s")
-
-  viv(ihmsf[0],   11, "Celes::a2tf", "0")
-  viv(ihmsf[1],   30, "Celes::a2tf", "1")
-  viv(ihmsf[2],   22, "Celes::a2tf", "2")
-  viv(ihmsf[3], 6484, "Celes::a2tf", "3")
-=======
   s, ihmsf = Celes.a2tf(4, -3.01234)
 
-  viv(s.ord, '-'.ord, 'Celes::a2tf', 's')
+  viv(s.ord, '-'.ord, 'Celes.a2tf', 's')
 
-  viv(ihmsf[0],   11, 'Celes::a2tf', '0')
-  viv(ihmsf[1],   30, 'Celes::a2tf', '1')
-  viv(ihmsf[2],   22, 'Celes::a2tf', '2')
-  viv(ihmsf[3], 6484, 'Celes::a2tf', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  viv(ihmsf[0],   11, 'Celes.a2tf', '0')
+  viv(ihmsf[1],   30, 'Celes.a2tf', '1')
+  viv(ihmsf[2],   22, 'Celes.a2tf', '2')
+  viv(ihmsf[3], 6484, 'Celes.a2tf', '3')
 end
 
-# static void t_af2a(int *status)
-# {
+#static void t_af2a(int *status)
+#{
 #	double a
 #	int j
 #
 #
-#	j = Celes::af2a('-', 45, 13, 27.2, &a)
+#	j = Celes.af2a('-', 45, 13, 27.2, &a)
 #
-#	vvd(a, -0.7893115794313644842, 1e-12, "Celes::af2a", "a")
-#	viv(j, 0, "Celes::af2a", "j")
+#	vvd(a, -0.7893115794313644842, 1e-12, 'Celes.af2a', 'a')
+#	viv(j, 0, 'Celes.af2a', 'j')
 #
-# }
+#}
 def t_af2a
-<<<<<<< HEAD
-  a = Celes::af2a('-', 45, 13, 27.2, &a)
-
-  vvd(a, -0.7893115794313644842, 1e-12, "Celes::af2a", "a")
-  viv(Celes::status, 0, "Celes::af2a", "j")
-=======
   a = Celes.af2a('-', 45, 13, 27.2, &a)
 
-  vvd(a, -0.7893115794313644842, 1e-12, 'Celes::af2a', 'a')
-  viv(Celes.status, 0, 'Celes::af2a', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(a, -0.7893115794313644842, 1e-12, 'Celes.af2a', 'a')
+  viv(Celes.status, 0, 'Celes.af2a', 'j')
 end
 
-# static void t_anp(int *status)
-# {
-#	vvd(Celes::anp(-0.1), 6.183185307179586477, 1e-12, "Celes::anp", "")
-# }
+#static void t_anp(int *status)
+#{
+#	vvd(Celes.anp(-0.1), 6.183185307179586477, 1e-12, 'Celes.anp', '')
+#}
 def t_anp
-<<<<<<< HEAD
-  vvd(Celes::anp(-0.1), 6.183185307179586477, 1e-12, "Celes::anp", "")
-=======
-  vvd(Celes.anp(-0.1), 6.183185307179586477, 1e-12, 'Celes::anp', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(Celes.anp(-0.1), 6.183185307179586477, 1e-12, 'Celes.anp', '')
 end
 
-# static void t_anpm(int *status)
-# {
-#	vvd(Celes::anpm(-4.0), 2.283185307179586477, 1e-12, "Celes::anpm", "")
-# }
+#static void t_anpm(int *status)
+#{
+#	vvd(Celes.anpm(-4.0), 2.283185307179586477, 1e-12, 'Celes.anpm', '')
+#}
 def t_anpm
-<<<<<<< HEAD
-  vvd(Celes::anpm(-4.0), 2.283185307179586477, 1e-12, "Celes::anpm", "")
-=======
-  vvd(Celes.anpm(-4.0), 2.283185307179586477, 1e-12, 'Celes::anpm', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(Celes.anpm(-4.0), 2.283185307179586477, 1e-12, 'Celes.anpm', '')
 end
 
-# static void t_bi00(int *status)
-# {
+#static void t_bi00(int *status)
+#{
 #	double dpsibi, depsbi, dra
 #
-#	Celes::bi00(&dpsibi, &depsbi, &dra)
+#	Celes.bi00(&dpsibi, &depsbi, &dra)
 #
 #	vvd(dpsibi, -0.2025309152835086613e-6, 1e-12,
-#			"Celes::bi00", "dpsibi")
+#			'Celes.bi00', 'dpsibi')
 #	vvd(depsbi, -0.3306041454222147847e-7, 1e-12,
-#			"Celes::bi00", "depsbi")
+#			'Celes.bi00', 'depsbi')
 #	vvd(dra, -0.7078279744199225506e-7, 1e-12,
-#			"Celes::bi00", "dra")
-# }
+#			'Celes.bi00', 'dra')
+#}
 def t_bi00
-<<<<<<< HEAD
-  dpsibi, depsbi, dra = Celes::bi00
-
-  vvd(dpsibi, -0.2025309152835086613e-6, 1e-12,
-    "Celes::bi00", "dpsibi")
-  vvd(depsbi, -0.3306041454222147847e-7, 1e-12,
-    "Celes::bi00", "depsbi")
-  vvd(dra, -0.7078279744199225506e-7, 1e-12,
-    "Celes::bi00", "dra")
-=======
   dpsibi, depsbi, dra = Celes.bi00
 
   vvd(dpsibi, -0.2025309152835086613e-6, 1e-12,
-      'Celes::bi00', 'dpsibi')
+    'Celes.bi00', 'dpsibi')
   vvd(depsbi, -0.3306041454222147847e-7, 1e-12,
-      'Celes::bi00', 'depsbi')
+    'Celes.bi00', 'depsbi')
   vvd(dra, -0.7078279744199225506e-7, 1e-12,
-      'Celes::bi00', 'dra')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.bi00', 'dra')
 end
 
-# static void t_bp00(int *status)
-# {
+#static void t_bp00(int *status)
+#{
 #	double rb[3][3], rp[3][3], rbp[3][3]
 #
 #
-#	Celes::bp00(2400000.5, 50123.9999, rb, rp, rbp)
+#	Celes.bp00(2400000.5, 50123.9999, rb, rp, rbp)
 #
 #	vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-#			"Celes::bp00", "rb11")
+#			'Celes.bp00', 'rb11')
 #	vvd(rb[0][1], -0.7078279744199196626e-7, 1e-16,
-#			"Celes::bp00", "rb12")
+#			'Celes.bp00', 'rb12')
 #	vvd(rb[0][2], 0.8056217146976134152e-7, 1e-16,
-#			"Celes::bp00", "rb13")
+#			'Celes.bp00', 'rb13')
 #	vvd(rb[1][0], 0.7078279477857337206e-7, 1e-16,
-#			"Celes::bp00", "rb21")
+#			'Celes.bp00', 'rb21')
 #	vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-#			"Celes::bp00", "rb22")
+#			'Celes.bp00', 'rb22')
 #	vvd(rb[1][2], 0.3306041454222136517e-7, 1e-16,
-#			"Celes::bp00", "rb23")
+#			'Celes.bp00', 'rb23')
 #	vvd(rb[2][0], -0.8056217380986972157e-7, 1e-16,
-#			"Celes::bp00", "rb31")
+#			'Celes.bp00', 'rb31')
 #	vvd(rb[2][1], -0.3306040883980552500e-7, 1e-16,
-#			"Celes::bp00", "rb32")
+#			'Celes.bp00', 'rb32')
 #	vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-#			"Celes::bp00", "rb33")
+#			'Celes.bp00', 'rb33')
 #
 #	vvd(rp[0][0], 0.9999995504864048241, 1e-12,
-#			"Celes::bp00", "rp11")
+#			'Celes.bp00', 'rp11')
 #	vvd(rp[0][1], 0.8696113836207084411e-3, 1e-14,
-#			"Celes::bp00", "rp12")
+#			'Celes.bp00', 'rp12')
 #	vvd(rp[0][2], 0.3778928813389333402e-3, 1e-14,
-#			"Celes::bp00", "rp13")
+#			'Celes.bp00', 'rp13')
 #	vvd(rp[1][0], -0.8696113818227265968e-3, 1e-14,
-#			"Celes::bp00", "rp21")
+#			'Celes.bp00', 'rp21')
 #	vvd(rp[1][1], 0.9999996218879365258, 1e-12,
-#			"Celes::bp00", "rp22")
+#			'Celes.bp00', 'rp22')
 #	vvd(rp[1][2], -0.1690679263009242066e-6, 1e-14,
-#			"Celes::bp00", "rp23")
+#			'Celes.bp00', 'rp23')
 #	vvd(rp[2][0], -0.3778928854764695214e-3, 1e-14,
-#			"Celes::bp00", "rp31")
+#			'Celes.bp00', 'rp31')
 #	vvd(rp[2][1], -0.1595521004195286491e-6, 1e-14,
-#			"Celes::bp00", "rp32")
+#			'Celes.bp00', 'rp32')
 #	vvd(rp[2][2], 0.9999999285984682756, 1e-12,
-#			"Celes::bp00", "rp33")
+#			'Celes.bp00', 'rp33')
 #
 #	vvd(rbp[0][0], 0.9999995505175087260, 1e-12,
-#			"Celes::bp00", "rbp11")
+#			'Celes.bp00', 'rbp11')
 #	vvd(rbp[0][1], 0.8695405883617884705e-3, 1e-14,
-#			"Celes::bp00", "rbp12")
+#			'Celes.bp00', 'rbp12')
 #	vvd(rbp[0][2], 0.3779734722239007105e-3, 1e-14,
-#			"Celes::bp00", "rbp13")
+#			'Celes.bp00', 'rbp13')
 #	vvd(rbp[1][0], -0.8695405990410863719e-3, 1e-14,
-#			"Celes::bp00", "rbp21")
+#			'Celes.bp00', 'rbp21')
 #	vvd(rbp[1][1], 0.9999996219494925900, 1e-12,
-#			"Celes::bp00", "rbp22")
+#			'Celes.bp00', 'rbp22')
 #	vvd(rbp[1][2], -0.1360775820404982209e-6, 1e-14,
-#			"Celes::bp00", "rbp23")
+#			'Celes.bp00', 'rbp23')
 #	vvd(rbp[2][0], -0.3779734476558184991e-3, 1e-14,
-#			"Celes::bp00", "rbp31")
+#			'Celes.bp00', 'rbp31')
 #	vvd(rbp[2][1], -0.1925857585832024058e-6, 1e-14,
-#			"Celes::bp00", "rbp32")
+#			'Celes.bp00', 'rbp32')
 #	vvd(rbp[2][2], 0.9999999285680153377, 1e-12,
-#			"Celes::bp00", "rbp33")
-# }
+#			'Celes.bp00', 'rbp33')
+#}
 def t_bp00
-<<<<<<< HEAD
-  rb, rp, rbp = Celes::bp00(2400000.5, 50123.9999)
+  rb, rp, rbp = Celes.bp00(2400000.5, 50123.9999)
 
   vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-    "Celes::bp00", "rb11")
+    'Celes.bp00', 'rb11')
   vvd(rb[0][1], -0.7078279744199196626e-7, 1e-16,
-    "Celes::bp00", "rb12")
+    'Celes.bp00', 'rb12')
   vvd(rb[0][2], 0.8056217146976134152e-7, 1e-16,
-    "Celes::bp00", "rb13")
+    'Celes.bp00', 'rb13')
   vvd(rb[1][0], 0.7078279477857337206e-7, 1e-16,
-    "Celes::bp00", "rb21")
+    'Celes.bp00', 'rb21')
   vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-    "Celes::bp00", "rb22")
+    'Celes.bp00', 'rb22')
   vvd(rb[1][2], 0.3306041454222136517e-7, 1e-16,
-    "Celes::bp00", "rb23")
+    'Celes.bp00', 'rb23')
   vvd(rb[2][0], -0.8056217380986972157e-7, 1e-16,
-    "Celes::bp00", "rb31")
+    'Celes.bp00', 'rb31')
   vvd(rb[2][1], -0.3306040883980552500e-7, 1e-16,
-    "Celes::bp00", "rb32")
+    'Celes.bp00', 'rb32')
   vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-    "Celes::bp00", "rb33")
+    'Celes.bp00', 'rb33')
 
   vvd(rp[0][0], 0.9999995504864048241, 1e-12,
-    "Celes::bp00", "rp11")
+    'Celes.bp00', 'rp11')
   vvd(rp[0][1], 0.8696113836207084411e-3, 1e-14,
-    "Celes::bp00", "rp12")
+    'Celes.bp00', 'rp12')
   vvd(rp[0][2], 0.3778928813389333402e-3, 1e-14,
-    "Celes::bp00", "rp13")
+    'Celes.bp00', 'rp13')
   vvd(rp[1][0], -0.8696113818227265968e-3, 1e-14,
-    "Celes::bp00", "rp21")
+    'Celes.bp00', 'rp21')
   vvd(rp[1][1], 0.9999996218879365258, 1e-12,
-    "Celes::bp00", "rp22")
+    'Celes.bp00', 'rp22')
   vvd(rp[1][2], -0.1690679263009242066e-6, 1e-14,
-    "Celes::bp00", "rp23")
+    'Celes.bp00', 'rp23')
   vvd(rp[2][0], -0.3778928854764695214e-3, 1e-14,
-    "Celes::bp00", "rp31")
+    'Celes.bp00', 'rp31')
   vvd(rp[2][1], -0.1595521004195286491e-6, 1e-14,
-    "Celes::bp00", "rp32")
+    'Celes.bp00', 'rp32')
   vvd(rp[2][2], 0.9999999285984682756, 1e-12,
-    "Celes::bp00", "rp33")
+    'Celes.bp00', 'rp33')
 
   vvd(rbp[0][0], 0.9999995505175087260, 1e-12,
-    "Celes::bp00", "rbp11")
+    'Celes.bp00', 'rbp11')
   vvd(rbp[0][1], 0.8695405883617884705e-3, 1e-14,
-    "Celes::bp00", "rbp12")
+    'Celes.bp00', 'rbp12')
   vvd(rbp[0][2], 0.3779734722239007105e-3, 1e-14,
-    "Celes::bp00", "rbp13")
+    'Celes.bp00', 'rbp13')
   vvd(rbp[1][0], -0.8695405990410863719e-3, 1e-14,
-    "Celes::bp00", "rbp21")
+    'Celes.bp00', 'rbp21')
   vvd(rbp[1][1], 0.9999996219494925900, 1e-12,
-    "Celes::bp00", "rbp22")
+    'Celes.bp00', 'rbp22')
   vvd(rbp[1][2], -0.1360775820404982209e-6, 1e-14,
-    "Celes::bp00", "rbp23")
+    'Celes.bp00', 'rbp23')
   vvd(rbp[2][0], -0.3779734476558184991e-3, 1e-14,
-    "Celes::bp00", "rbp31")
+    'Celes.bp00', 'rbp31')
   vvd(rbp[2][1], -0.1925857585832024058e-6, 1e-14,
-    "Celes::bp00", "rbp32")
+    'Celes.bp00', 'rbp32')
   vvd(rbp[2][2], 0.9999999285680153377, 1e-12,
-    "Celes::bp00", "rbp33")
+    'Celes.bp00', 'rbp33')
 end
 
 #static void t_bp06(int *status)
 #{
-=======
-  rb, rp, rbp = Celes.bp00(2_400_000.5, 50_123.9999)
-
-  vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-      'Celes::bp00', 'rb11')
-  vvd(rb[0][1], -0.7078279744199196626e-7, 1e-16,
-      'Celes::bp00', 'rb12')
-  vvd(rb[0][2], 0.8056217146976134152e-7, 1e-16,
-      'Celes::bp00', 'rb13')
-  vvd(rb[1][0], 0.7078279477857337206e-7, 1e-16,
-      'Celes::bp00', 'rb21')
-  vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-      'Celes::bp00', 'rb22')
-  vvd(rb[1][2], 0.3306041454222136517e-7, 1e-16,
-      'Celes::bp00', 'rb23')
-  vvd(rb[2][0], -0.8056217380986972157e-7, 1e-16,
-      'Celes::bp00', 'rb31')
-  vvd(rb[2][1], -0.3306040883980552500e-7, 1e-16,
-      'Celes::bp00', 'rb32')
-  vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-      'Celes::bp00', 'rb33')
-
-  vvd(rp[0][0], 0.9999995504864048241, 1e-12,
-      'Celes::bp00', 'rp11')
-  vvd(rp[0][1], 0.8696113836207084411e-3, 1e-14,
-      'Celes::bp00', 'rp12')
-  vvd(rp[0][2], 0.3778928813389333402e-3, 1e-14,
-      'Celes::bp00', 'rp13')
-  vvd(rp[1][0], -0.8696113818227265968e-3, 1e-14,
-      'Celes::bp00', 'rp21')
-  vvd(rp[1][1], 0.9999996218879365258, 1e-12,
-      'Celes::bp00', 'rp22')
-  vvd(rp[1][2], -0.1690679263009242066e-6, 1e-14,
-      'Celes::bp00', 'rp23')
-  vvd(rp[2][0], -0.3778928854764695214e-3, 1e-14,
-      'Celes::bp00', 'rp31')
-  vvd(rp[2][1], -0.1595521004195286491e-6, 1e-14,
-      'Celes::bp00', 'rp32')
-  vvd(rp[2][2], 0.9999999285984682756, 1e-12,
-      'Celes::bp00', 'rp33')
-
-  vvd(rbp[0][0], 0.9999995505175087260, 1e-12,
-      'Celes::bp00', 'rbp11')
-  vvd(rbp[0][1], 0.8695405883617884705e-3, 1e-14,
-      'Celes::bp00', 'rbp12')
-  vvd(rbp[0][2], 0.3779734722239007105e-3, 1e-14,
-      'Celes::bp00', 'rbp13')
-  vvd(rbp[1][0], -0.8695405990410863719e-3, 1e-14,
-      'Celes::bp00', 'rbp21')
-  vvd(rbp[1][1], 0.9999996219494925900, 1e-12,
-      'Celes::bp00', 'rbp22')
-  vvd(rbp[1][2], -0.1360775820404982209e-6, 1e-14,
-      'Celes::bp00', 'rbp23')
-  vvd(rbp[2][0], -0.3779734476558184991e-3, 1e-14,
-      'Celes::bp00', 'rbp31')
-  vvd(rbp[2][1], -0.1925857585832024058e-6, 1e-14,
-      'Celes::bp00', 'rbp32')
-  vvd(rbp[2][2], 0.9999999285680153377, 1e-12,
-      'Celes::bp00', 'rbp33')
-end
-
-# static void t_bp06(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rb[3][3], rp[3][3], rbp[3][3]
 #
 #
-#	Celes::bp06(2400000.5, 50123.9999, rb, rp, rbp)
+#	Celes.bp06(2400000.5, 50123.9999, rb, rp, rbp)
 #
 #	vvd(rb[0][0], 0.9999999999999942497, 1e-12,
-#			"Celes::bp06", "rb11")
+#			'Celes.bp06', 'rb11')
 #	vvd(rb[0][1], -0.7078368960971557145e-7, 1e-14,
-#			"Celes::bp06", "rb12")
+#			'Celes.bp06', 'rb12')
 #	vvd(rb[0][2], 0.8056213977613185606e-7, 1e-14,
-#			"Celes::bp06", "rb13")
+#			'Celes.bp06', 'rb13')
 #	vvd(rb[1][0], 0.7078368694637674333e-7, 1e-14,
-#			"Celes::bp06", "rb21")
+#			'Celes.bp06', 'rb21')
 #	vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-#			"Celes::bp06", "rb22")
+#			'Celes.bp06', 'rb22')
 #	vvd(rb[1][2], 0.3305943742989134124e-7, 1e-14,
-#			"Celes::bp06", "rb23")
+#			'Celes.bp06', 'rb23')
 #	vvd(rb[2][0], -0.8056214211620056792e-7, 1e-14,
-#			"Celes::bp06", "rb31")
+#			'Celes.bp06', 'rb31')
 #	vvd(rb[2][1], -0.3305943172740586950e-7, 1e-14,
-#			"Celes::bp06", "rb32")
+#			'Celes.bp06', 'rb32')
 #	vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-#			"Celes::bp06", "rb33")
+#			'Celes.bp06', 'rb33')
 #
 #	vvd(rp[0][0], 0.9999995504864960278, 1e-12,
-#			"Celes::bp06", "rp11")
+#			'Celes.bp06', 'rp11')
 #	vvd(rp[0][1], 0.8696112578855404832e-3, 1e-14,
-#			"Celes::bp06", "rp12")
+#			'Celes.bp06', 'rp12')
 #	vvd(rp[0][2], 0.3778929293341390127e-3, 1e-14,
-#			"Celes::bp06", "rp13")
+#			'Celes.bp06', 'rp13')
 #	vvd(rp[1][0], -0.8696112560510186244e-3, 1e-14,
-#			"Celes::bp06", "rp21")
+#			'Celes.bp06', 'rp21')
 #	vvd(rp[1][1], 0.9999996218880458820, 1e-12,
-#			"Celes::bp06", "rp22")
+#			'Celes.bp06', 'rp22')
 #	vvd(rp[1][2], -0.1691646168941896285e-6, 1e-14,
-#			"Celes::bp06", "rp23")
+#			'Celes.bp06', 'rp23')
 #	vvd(rp[2][0], -0.3778929335557603418e-3, 1e-14,
-#			"Celes::bp06", "rp31")
+#			'Celes.bp06', 'rp31')
 #	vvd(rp[2][1], -0.1594554040786495076e-6, 1e-14,
-#			"Celes::bp06", "rp32")
+#			'Celes.bp06', 'rp32')
 #	vvd(rp[2][2], 0.9999999285984501222, 1e-12,
-#			"Celes::bp06", "rp33")
+#			'Celes.bp06', 'rp33')
 #
 #	vvd(rbp[0][0], 0.9999995505176007047, 1e-12,
-#			"Celes::bp06", "rbp11")
+#			'Celes.bp06', 'rbp11')
 #	vvd(rbp[0][1], 0.8695404617348208406e-3, 1e-14,
-#			"Celes::bp06", "rbp12")
+#			'Celes.bp06', 'rbp12')
 #	vvd(rbp[0][2], 0.3779735201865589104e-3, 1e-14,
-#			"Celes::bp06", "rbp13")
+#			'Celes.bp06', 'rbp13')
 #	vvd(rbp[1][0], -0.8695404723772031414e-3, 1e-14,
-#			"Celes::bp06", "rbp21")
+#			'Celes.bp06', 'rbp21')
 #	vvd(rbp[1][1], 0.9999996219496027161, 1e-12,
-#			"Celes::bp06", "rbp22")
+#			'Celes.bp06', 'rbp22')
 #	vvd(rbp[1][2], -0.1361752497080270143e-6, 1e-14,
-#			"Celes::bp06", "rbp23")
+#			'Celes.bp06', 'rbp23')
 #	vvd(rbp[2][0], -0.3779734957034089490e-3, 1e-14,
-#			"Celes::bp06", "rbp31")
+#			'Celes.bp06', 'rbp31')
 #	vvd(rbp[2][1], -0.1924880847894457113e-6, 1e-14,
-#			"Celes::bp06", "rbp32")
+#			'Celes.bp06', 'rbp32')
 #	vvd(rbp[2][2], 0.9999999285679971958, 1e-12,
-#			"Celes::bp06", "rbp33")
-# }
+#			'Celes.bp06', 'rbp33')
+#}
 def t_bp06
-<<<<<<< HEAD
-  rb, rp, rbp = Celes::bp06(2400000.5, 50123.9999)
+  rb, rp, rbp = Celes.bp06(2400000.5, 50123.9999)
 
   vvd(rb[0][0], 0.9999999999999942497, 1e-12,
-    "Celes::bp06", "rb11")
+    'Celes.bp06', 'rb11')
   vvd(rb[0][1], -0.7078368960971557145e-7, 1e-14,
-    "Celes::bp06", "rb12")
+    'Celes.bp06', 'rb12')
   vvd(rb[0][2], 0.8056213977613185606e-7, 1e-14,
-    "Celes::bp06", "rb13")
+    'Celes.bp06', 'rb13')
   vvd(rb[1][0], 0.7078368694637674333e-7, 1e-14,
-    "Celes::bp06", "rb21")
+    'Celes.bp06', 'rb21')
   vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-    "Celes::bp06", "rb22")
+    'Celes.bp06', 'rb22')
   vvd(rb[1][2], 0.3305943742989134124e-7, 1e-14,
-    "Celes::bp06", "rb23")
+    'Celes.bp06', 'rb23')
   vvd(rb[2][0], -0.8056214211620056792e-7, 1e-14,
-    "Celes::bp06", "rb31")
+    'Celes.bp06', 'rb31')
   vvd(rb[2][1], -0.3305943172740586950e-7, 1e-14,
-    "Celes::bp06", "rb32")
+    'Celes.bp06', 'rb32')
   vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-    "Celes::bp06", "rb33")
+    'Celes.bp06', 'rb33')
 
   vvd(rp[0][0], 0.9999995504864960278, 1e-12,
-    "Celes::bp06", "rp11")
+    'Celes.bp06', 'rp11')
   vvd(rp[0][1], 0.8696112578855404832e-3, 1e-14,
-    "Celes::bp06", "rp12")
+    'Celes.bp06', 'rp12')
   vvd(rp[0][2], 0.3778929293341390127e-3, 1e-14,
-    "Celes::bp06", "rp13")
+    'Celes.bp06', 'rp13')
   vvd(rp[1][0], -0.8696112560510186244e-3, 1e-14,
-    "Celes::bp06", "rp21")
+    'Celes.bp06', 'rp21')
   vvd(rp[1][1], 0.9999996218880458820, 1e-12,
-    "Celes::bp06", "rp22")
+    'Celes.bp06', 'rp22')
   vvd(rp[1][2], -0.1691646168941896285e-6, 1e-14,
-    "Celes::bp06", "rp23")
+    'Celes.bp06', 'rp23')
   vvd(rp[2][0], -0.3778929335557603418e-3, 1e-14,
-    "Celes::bp06", "rp31")
+    'Celes.bp06', 'rp31')
   vvd(rp[2][1], -0.1594554040786495076e-6, 1e-14,
-    "Celes::bp06", "rp32")
+    'Celes.bp06', 'rp32')
   vvd(rp[2][2], 0.9999999285984501222, 1e-12,
-    "Celes::bp06", "rp33")
+    'Celes.bp06', 'rp33')
 
   vvd(rbp[0][0], 0.9999995505176007047, 1e-12,
-    "Celes::bp06", "rbp11")
+    'Celes.bp06', 'rbp11')
   vvd(rbp[0][1], 0.8695404617348208406e-3, 1e-14,
-    "Celes::bp06", "rbp12")
+    'Celes.bp06', 'rbp12')
   vvd(rbp[0][2], 0.3779735201865589104e-3, 1e-14,
-    "Celes::bp06", "rbp13")
+    'Celes.bp06', 'rbp13')
   vvd(rbp[1][0], -0.8695404723772031414e-3, 1e-14,
-    "Celes::bp06", "rbp21")
+    'Celes.bp06', 'rbp21')
   vvd(rbp[1][1], 0.9999996219496027161, 1e-12,
-    "Celes::bp06", "rbp22")
+    'Celes.bp06', 'rbp22')
   vvd(rbp[1][2], -0.1361752497080270143e-6, 1e-14,
-    "Celes::bp06", "rbp23")
+    'Celes.bp06', 'rbp23')
   vvd(rbp[2][0], -0.3779734957034089490e-3, 1e-14,
-    "Celes::bp06", "rbp31")
+    'Celes.bp06', 'rbp31')
   vvd(rbp[2][1], -0.1924880847894457113e-6, 1e-14,
-    "Celes::bp06", "rbp32")
+    'Celes.bp06', 'rbp32')
   vvd(rbp[2][2], 0.9999999285679971958, 1e-12,
-    "Celes::bp06", "rbp33")
+    'Celes.bp06', 'rbp33')
 end
 
 #static void t_bpn2xy(int *status)
 #{
-=======
-  rb, rp, rbp = Celes.bp06(2_400_000.5, 50_123.9999)
-
-  vvd(rb[0][0], 0.9999999999999942497, 1e-12,
-      'Celes::bp06', 'rb11')
-  vvd(rb[0][1], -0.7078368960971557145e-7, 1e-14,
-      'Celes::bp06', 'rb12')
-  vvd(rb[0][2], 0.8056213977613185606e-7, 1e-14,
-      'Celes::bp06', 'rb13')
-  vvd(rb[1][0], 0.7078368694637674333e-7, 1e-14,
-      'Celes::bp06', 'rb21')
-  vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-      'Celes::bp06', 'rb22')
-  vvd(rb[1][2], 0.3305943742989134124e-7, 1e-14,
-      'Celes::bp06', 'rb23')
-  vvd(rb[2][0], -0.8056214211620056792e-7, 1e-14,
-      'Celes::bp06', 'rb31')
-  vvd(rb[2][1], -0.3305943172740586950e-7, 1e-14,
-      'Celes::bp06', 'rb32')
-  vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-      'Celes::bp06', 'rb33')
-
-  vvd(rp[0][0], 0.9999995504864960278, 1e-12,
-      'Celes::bp06', 'rp11')
-  vvd(rp[0][1], 0.8696112578855404832e-3, 1e-14,
-      'Celes::bp06', 'rp12')
-  vvd(rp[0][2], 0.3778929293341390127e-3, 1e-14,
-      'Celes::bp06', 'rp13')
-  vvd(rp[1][0], -0.8696112560510186244e-3, 1e-14,
-      'Celes::bp06', 'rp21')
-  vvd(rp[1][1], 0.9999996218880458820, 1e-12,
-      'Celes::bp06', 'rp22')
-  vvd(rp[1][2], -0.1691646168941896285e-6, 1e-14,
-      'Celes::bp06', 'rp23')
-  vvd(rp[2][0], -0.3778929335557603418e-3, 1e-14,
-      'Celes::bp06', 'rp31')
-  vvd(rp[2][1], -0.1594554040786495076e-6, 1e-14,
-      'Celes::bp06', 'rp32')
-  vvd(rp[2][2], 0.9999999285984501222, 1e-12,
-      'Celes::bp06', 'rp33')
-
-  vvd(rbp[0][0], 0.9999995505176007047, 1e-12,
-      'Celes::bp06', 'rbp11')
-  vvd(rbp[0][1], 0.8695404617348208406e-3, 1e-14,
-      'Celes::bp06', 'rbp12')
-  vvd(rbp[0][2], 0.3779735201865589104e-3, 1e-14,
-      'Celes::bp06', 'rbp13')
-  vvd(rbp[1][0], -0.8695404723772031414e-3, 1e-14,
-      'Celes::bp06', 'rbp21')
-  vvd(rbp[1][1], 0.9999996219496027161, 1e-12,
-      'Celes::bp06', 'rbp22')
-  vvd(rbp[1][2], -0.1361752497080270143e-6, 1e-14,
-      'Celes::bp06', 'rbp23')
-  vvd(rbp[2][0], -0.3779734957034089490e-3, 1e-14,
-      'Celes::bp06', 'rbp31')
-  vvd(rbp[2][1], -0.1924880847894457113e-6, 1e-14,
-      'Celes::bp06', 'rbp32')
-  vvd(rbp[2][2], 0.9999999285679971958, 1e-12,
-      'Celes::bp06', 'rbp33')
-end
-
-# static void t_bpn2xy(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rbpn[3][3], x, y
 #
 #
@@ -622,12 +419,12 @@ end
 #	rbpn[2][1] = -4.281337229063151e-5
 #	rbpn[2][2] =  9.999994012499173e-1
 #
-#	Celes::bpn2xy(rbpn, &x, &y)
+#	Celes.bpn2xy(rbpn, &x, &y)
 #
-#	vvd(x,  1.093465510215479e-3, 1e-12, "Celes::bpn2xy", "x")
-#	vvd(y, -4.281337229063151e-5, 1e-12, "Celes::bpn2xy", "y")
+#	vvd(x,  1.093465510215479e-3, 1e-12, 'Celes.bpn2xy', 'x')
+#	vvd(y, -4.281337229063151e-5, 1e-12, 'Celes.bpn2xy', 'y')
 #
-# }
+#}
 def t_bpn2xy
   rbpn = [[], [], []]
 
@@ -643,270 +440,176 @@ def t_bpn2xy
   rbpn[2][1] = -4.281337229063151e-5
   rbpn[2][2] =  9.999994012499173e-1
 
-<<<<<<< HEAD
-  x, y = Celes::bpn2xy(rbpn)
-
-  vvd(x,  1.093465510215479e-3, 1e-12, "Celes::bpn2xy", "x")
-  vvd(y, -4.281337229063151e-5, 1e-12, "Celes::bpn2xy", "y")
-=======
   x, y = Celes.bpn2xy(rbpn)
 
-  vvd(x,  1.093465510215479e-3, 1e-12, 'Celes::bpn2xy', 'x')
-  vvd(y, -4.281337229063151e-5, 1e-12, 'Celes::bpn2xy', 'y')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(x,  1.093465510215479e-3, 1e-12, 'Celes.bpn2xy', 'x')
+  vvd(y, -4.281337229063151e-5, 1e-12, 'Celes.bpn2xy', 'y')
 end
 
-# static void t_c2i00a(int *status)
-# {
+#static void t_c2i00a(int *status)
+#{
 #	double rc2i[3][3]
 #
 #
-#	Celes::c2i00a(2400000.5, 53736.0, rc2i)
+#	Celes.c2i00a(2400000.5, 53736.0, rc2i)
 #
 #	vvd(rc2i[0][0], 0.9999998323037165557, 1e-12,
-#			"Celes::c2i00a", "11")
+#			'Celes.c2i00a', '11')
 #	vvd(rc2i[0][1], 0.5581526348992140183e-9, 1e-12,
-#			"Celes::c2i00a", "12")
+#			'Celes.c2i00a', '12')
 #	vvd(rc2i[0][2], -0.5791308477073443415e-3, 1e-12,
-#			"Celes::c2i00a", "13")
+#			'Celes.c2i00a', '13')
 #
 #	vvd(rc2i[1][0], -0.2384266227870752452e-7, 1e-12,
-#			"Celes::c2i00a", "21")
+#			'Celes.c2i00a', '21')
 #	vvd(rc2i[1][1], 0.9999999991917405258, 1e-12,
-#			"Celes::c2i00a", "22")
+#			'Celes.c2i00a', '22')
 #	vvd(rc2i[1][2], -0.4020594955028209745e-4, 1e-12,
-#			"Celes::c2i00a", "23")
+#			'Celes.c2i00a', '23')
 #
 #	vvd(rc2i[2][0], 0.5791308472168152904e-3, 1e-12,
-#			"Celes::c2i00a", "31")
+#			'Celes.c2i00a', '31')
 #	vvd(rc2i[2][1], 0.4020595661591500259e-4, 1e-12,
-#			"Celes::c2i00a", "32")
+#			'Celes.c2i00a', '32')
 #	vvd(rc2i[2][2], 0.9999998314954572304, 1e-12,
-#			"Celes::c2i00a", "33")
+#			'Celes.c2i00a', '33')
 #
-# }
+#}
 def t_c2i00a
-<<<<<<< HEAD
-  rc2i = Celes::c2i00a(2400000.5, 53736.0)
+  rc2i = Celes.c2i00a(2400000.5, 53736.0)
 
   vvd(rc2i[0][0], 0.9999998323037165557, 1e-12,
-    "Celes::c2i00a", "11")
+    'Celes.c2i00a', '11')
   vvd(rc2i[0][1], 0.5581526348992140183e-9, 1e-12,
-    "Celes::c2i00a", "12")
+    'Celes.c2i00a', '12')
   vvd(rc2i[0][2], -0.5791308477073443415e-3, 1e-12,
-    "Celes::c2i00a", "13")
+    'Celes.c2i00a', '13')
 
   vvd(rc2i[1][0], -0.2384266227870752452e-7, 1e-12,
-    "Celes::c2i00a", "21")
+    'Celes.c2i00a', '21')
   vvd(rc2i[1][1], 0.9999999991917405258, 1e-12,
-    "Celes::c2i00a", "22")
+    'Celes.c2i00a', '22')
   vvd(rc2i[1][2], -0.4020594955028209745e-4, 1e-12,
-    "Celes::c2i00a", "23")
+    'Celes.c2i00a', '23')
 
   vvd(rc2i[2][0], 0.5791308472168152904e-3, 1e-12,
-    "Celes::c2i00a", "31")
+    'Celes.c2i00a', '31')
   vvd(rc2i[2][1], 0.4020595661591500259e-4, 1e-12,
-    "Celes::c2i00a", "32")
+    'Celes.c2i00a', '32')
   vvd(rc2i[2][2], 0.9999998314954572304, 1e-12,
-    "Celes::c2i00a", "33")
+    'Celes.c2i00a', '33')
 end
 
 #static void t_c2i00b(int *status)
 #{
-=======
-  rc2i = Celes.c2i00a(2_400_000.5, 53_736.0)
-
-  vvd(rc2i[0][0], 0.9999998323037165557, 1e-12,
-      'Celes::c2i00a', '11')
-  vvd(rc2i[0][1], 0.5581526348992140183e-9, 1e-12,
-      'Celes::c2i00a', '12')
-  vvd(rc2i[0][2], -0.5791308477073443415e-3, 1e-12,
-      'Celes::c2i00a', '13')
-
-  vvd(rc2i[1][0], -0.2384266227870752452e-7, 1e-12,
-      'Celes::c2i00a', '21')
-  vvd(rc2i[1][1], 0.9999999991917405258, 1e-12,
-      'Celes::c2i00a', '22')
-  vvd(rc2i[1][2], -0.4020594955028209745e-4, 1e-12,
-      'Celes::c2i00a', '23')
-
-  vvd(rc2i[2][0], 0.5791308472168152904e-3, 1e-12,
-      'Celes::c2i00a', '31')
-  vvd(rc2i[2][1], 0.4020595661591500259e-4, 1e-12,
-      'Celes::c2i00a', '32')
-  vvd(rc2i[2][2], 0.9999998314954572304, 1e-12,
-      'Celes::c2i00a', '33')
-end
-
-# static void t_c2i00b(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rc2i[3][3]
 #
 #
-#	Celes::c2i00b(2400000.5, 53736.0, rc2i)
+#	Celes.c2i00b(2400000.5, 53736.0, rc2i)
 #
 #	vvd(rc2i[0][0], 0.9999998323040954356, 1e-12,
-#			"Celes::c2i00b", "11")
+#			'Celes.c2i00b', '11')
 #	vvd(rc2i[0][1], 0.5581526349131823372e-9, 1e-12,
-#			"Celes::c2i00b", "12")
+#			'Celes.c2i00b', '12')
 #	vvd(rc2i[0][2], -0.5791301934855394005e-3, 1e-12,
-#			"Celes::c2i00b", "13")
+#			'Celes.c2i00b', '13')
 #
 #	vvd(rc2i[1][0], -0.2384239285499175543e-7, 1e-12,
-#			"Celes::c2i00b", "21")
+#			'Celes.c2i00b', '21')
 #	vvd(rc2i[1][1], 0.9999999991917574043, 1e-12,
-#			"Celes::c2i00b", "22")
+#			'Celes.c2i00b', '22')
 #	vvd(rc2i[1][2], -0.4020552974819030066e-4, 1e-12,
-#			"Celes::c2i00b", "23")
+#			'Celes.c2i00b', '23')
 #
 #	vvd(rc2i[2][0], 0.5791301929950208873e-3, 1e-12,
-#			"Celes::c2i00b", "31")
+#			'Celes.c2i00b', '31')
 #	vvd(rc2i[2][1], 0.4020553681373720832e-4, 1e-12,
-#			"Celes::c2i00b", "32")
+#			'Celes.c2i00b', '32')
 #	vvd(rc2i[2][2], 0.9999998314958529887, 1e-12,
-#			"Celes::c2i00b", "33")
+#			'Celes.c2i00b', '33')
 #
-# }
+#}
 def t_c2i00b
-<<<<<<< HEAD
-  rc2i = Celes::c2i00b(2400000.5, 53736.0)
+  rc2i = Celes.c2i00b(2400000.5, 53736.0)
 
   vvd(rc2i[0][0], 0.9999998323040954356, 1e-12,
-    "Celes::c2i00b", "11")
+    'Celes.c2i00b', '11')
   vvd(rc2i[0][1], 0.5581526349131823372e-9, 1e-12,
-    "Celes::c2i00b", "12")
+    'Celes.c2i00b', '12')
   vvd(rc2i[0][2], -0.5791301934855394005e-3, 1e-12,
-    "Celes::c2i00b", "13")
+    'Celes.c2i00b', '13')
 
   vvd(rc2i[1][0], -0.2384239285499175543e-7, 1e-12,
-    "Celes::c2i00b", "21")
+    'Celes.c2i00b', '21')
   vvd(rc2i[1][1], 0.9999999991917574043, 1e-12,
-    "Celes::c2i00b", "22")
+    'Celes.c2i00b', '22')
   vvd(rc2i[1][2], -0.4020552974819030066e-4, 1e-12,
-    "Celes::c2i00b", "23")
+    'Celes.c2i00b', '23')
 
   vvd(rc2i[2][0], 0.5791301929950208873e-3, 1e-12,
-    "Celes::c2i00b", "31")
+    'Celes.c2i00b', '31')
   vvd(rc2i[2][1], 0.4020553681373720832e-4, 1e-12,
-    "Celes::c2i00b", "32")
+    'Celes.c2i00b', '32')
   vvd(rc2i[2][2], 0.9999998314958529887, 1e-12,
-    "Celes::c2i00b", "33")
+    'Celes.c2i00b', '33')
 end
 
 #static void t_c2i06a(int *status)
 #{
-=======
-  rc2i = Celes.c2i00b(2_400_000.5, 53_736.0)
-
-  vvd(rc2i[0][0], 0.9999998323040954356, 1e-12,
-      'Celes::c2i00b', '11')
-  vvd(rc2i[0][1], 0.5581526349131823372e-9, 1e-12,
-      'Celes::c2i00b', '12')
-  vvd(rc2i[0][2], -0.5791301934855394005e-3, 1e-12,
-      'Celes::c2i00b', '13')
-
-  vvd(rc2i[1][0], -0.2384239285499175543e-7, 1e-12,
-      'Celes::c2i00b', '21')
-  vvd(rc2i[1][1], 0.9999999991917574043, 1e-12,
-      'Celes::c2i00b', '22')
-  vvd(rc2i[1][2], -0.4020552974819030066e-4, 1e-12,
-      'Celes::c2i00b', '23')
-
-  vvd(rc2i[2][0], 0.5791301929950208873e-3, 1e-12,
-      'Celes::c2i00b', '31')
-  vvd(rc2i[2][1], 0.4020553681373720832e-4, 1e-12,
-      'Celes::c2i00b', '32')
-  vvd(rc2i[2][2], 0.9999998314958529887, 1e-12,
-      'Celes::c2i00b', '33')
-end
-
-# static void t_c2i06a(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rc2i[3][3]
 #
 #
-#	Celes::c2i06a(2400000.5, 53736.0, rc2i)
+#	Celes.c2i06a(2400000.5, 53736.0, rc2i)
 #
 #	vvd(rc2i[0][0], 0.9999998323037159379, 1e-12,
-#			"Celes::c2i06a", "11")
+#			'Celes.c2i06a', '11')
 #	vvd(rc2i[0][1], 0.5581121329587613787e-9, 1e-12,
-#			"Celes::c2i06a", "12")
+#			'Celes.c2i06a', '12')
 #	vvd(rc2i[0][2], -0.5791308487740529749e-3, 1e-12,
-#			"Celes::c2i06a", "13")
+#			'Celes.c2i06a', '13')
 #
 #	vvd(rc2i[1][0], -0.2384253169452306581e-7, 1e-12,
-#			"Celes::c2i06a", "21")
+#			'Celes.c2i06a', '21')
 #	vvd(rc2i[1][1], 0.9999999991917467827, 1e-12,
-#			"Celes::c2i06a", "22")
+#			'Celes.c2i06a', '22')
 #	vvd(rc2i[1][2], -0.4020579392895682558e-4, 1e-12,
-#			"Celes::c2i06a", "23")
+#			'Celes.c2i06a', '23')
 #
 #	vvd(rc2i[2][0], 0.5791308482835292617e-3, 1e-12,
-#			"Celes::c2i06a", "31")
+#			'Celes.c2i06a', '31')
 #	vvd(rc2i[2][1], 0.4020580099454020310e-4, 1e-12,
-#			"Celes::c2i06a", "32")
+#			'Celes.c2i06a', '32')
 #	vvd(rc2i[2][2], 0.9999998314954628695, 1e-12,
-#			"Celes::c2i06a", "33")
+#			'Celes.c2i06a', '33')
 #
-# }
+#}
 def t_c2i06a
-<<<<<<< HEAD
-  rc2i = Celes::c2i06a(2400000.5, 53736.0)
+  rc2i = Celes.c2i06a(2400000.5, 53736.0)
 
   vvd(rc2i[0][0], 0.9999998323037159379, 1e-12,
-    "Celes::c2i06a", "11")
+    'Celes.c2i06a', '11')
   vvd(rc2i[0][1], 0.5581121329587613787e-9, 1e-12,
-    "Celes::c2i06a", "12")
+    'Celes.c2i06a', '12')
   vvd(rc2i[0][2], -0.5791308487740529749e-3, 1e-12,
-    "Celes::c2i06a", "13")
+    'Celes.c2i06a', '13')
 
   vvd(rc2i[1][0], -0.2384253169452306581e-7, 1e-12,
-    "Celes::c2i06a", "21")
+    'Celes.c2i06a', '21')
   vvd(rc2i[1][1], 0.9999999991917467827, 1e-12,
-    "Celes::c2i06a", "22")
+    'Celes.c2i06a', '22')
   vvd(rc2i[1][2], -0.4020579392895682558e-4, 1e-12,
-    "Celes::c2i06a", "23")
+    'Celes.c2i06a', '23')
 
   vvd(rc2i[2][0], 0.5791308482835292617e-3, 1e-12,
-    "Celes::c2i06a", "31")
+    'Celes.c2i06a', '31')
   vvd(rc2i[2][1], 0.4020580099454020310e-4, 1e-12,
-    "Celes::c2i06a", "32")
+    'Celes.c2i06a', '32')
   vvd(rc2i[2][2], 0.9999998314954628695, 1e-12,
-    "Celes::c2i06a", "33")
+    'Celes.c2i06a', '33')
 end
 
 #static void t_c2ibpn(int *status)
 #{
-=======
-  rc2i = Celes.c2i06a(2_400_000.5, 53_736.0)
-
-  vvd(rc2i[0][0], 0.9999998323037159379, 1e-12,
-      'Celes::c2i06a', '11')
-  vvd(rc2i[0][1], 0.5581121329587613787e-9, 1e-12,
-      'Celes::c2i06a', '12')
-  vvd(rc2i[0][2], -0.5791308487740529749e-3, 1e-12,
-      'Celes::c2i06a', '13')
-
-  vvd(rc2i[1][0], -0.2384253169452306581e-7, 1e-12,
-      'Celes::c2i06a', '21')
-  vvd(rc2i[1][1], 0.9999999991917467827, 1e-12,
-      'Celes::c2i06a', '22')
-  vvd(rc2i[1][2], -0.4020579392895682558e-4, 1e-12,
-      'Celes::c2i06a', '23')
-
-  vvd(rc2i[2][0], 0.5791308482835292617e-3, 1e-12,
-      'Celes::c2i06a', '31')
-  vvd(rc2i[2][1], 0.4020580099454020310e-4, 1e-12,
-      'Celes::c2i06a', '32')
-  vvd(rc2i[2][2], 0.9999998314954628695, 1e-12,
-      'Celes::c2i06a', '33')
-end
-
-# static void t_c2ibpn(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rbpn[3][3], rc2i[3][3]
 #
 #
@@ -922,30 +625,30 @@ end
 #	rbpn[2][1] = -4.281337229063151e-5
 #	rbpn[2][2] =  9.999994012499173e-1
 #
-#	Celes::c2ibpn(2400000.5, 50123.9999, rbpn, rc2i)
+#	Celes.c2ibpn(2400000.5, 50123.9999, rbpn, rc2i)
 #
 #	vvd(rc2i[0][0], 0.9999994021664089977, 1e-12,
-#			"Celes::c2ibpn", "11")
+#			'Celes.c2ibpn', '11')
 #	vvd(rc2i[0][1], -0.3869195948017503664e-8, 1e-12,
-#			"Celes::c2ibpn", "12")
+#			'Celes.c2ibpn', '12')
 #	vvd(rc2i[0][2], -0.1093465511383285076e-2, 1e-12,
-#			"Celes::c2ibpn", "13")
+#			'Celes.c2ibpn', '13')
 #
 #	vvd(rc2i[1][0], 0.5068413965715446111e-7, 1e-12,
-#			"Celes::c2ibpn", "21")
+#			'Celes.c2ibpn', '21')
 #	vvd(rc2i[1][1], 0.9999999990835075686, 1e-12,
-#			"Celes::c2ibpn", "22")
+#			'Celes.c2ibpn', '22')
 #	vvd(rc2i[1][2], 0.4281334246452708915e-4, 1e-12,
-#			"Celes::c2ibpn", "23")
+#			'Celes.c2ibpn', '23')
 #
 #	vvd(rc2i[2][0], 0.1093465510215479000e-2, 1e-12,
-#			"Celes::c2ibpn", "31")
+#			'Celes.c2ibpn', '31')
 #	vvd(rc2i[2][1], -0.4281337229063151000e-4, 1e-12,
-#			"Celes::c2ibpn", "32")
+#			'Celes.c2ibpn', '32')
 #	vvd(rc2i[2][2], 0.9999994012499173103, 1e-12,
-#			"Celes::c2ibpn", "33")
+#			'Celes.c2ibpn', '33')
 #
-# }
+#}
 def t_c2ibpn
   rbpn = [[], [], []]
 
@@ -961,155 +664,92 @@ def t_c2ibpn
   rbpn[2][1] = -4.281337229063151e-5
   rbpn[2][2] =  9.999994012499173e-1
 
-<<<<<<< HEAD
-  rc2i = Celes::c2ibpn(2400000.5, 50123.9999, rbpn)
+  rc2i = Celes.c2ibpn(2400000.5, 50123.9999, rbpn)
 
   vvd(rc2i[0][0], 0.9999994021664089977, 1e-12,
-    "Celes::c2ibpn", "11")
+    'Celes.c2ibpn', '11')
   vvd(rc2i[0][1], -0.3869195948017503664e-8, 1e-12,
-    "Celes::c2ibpn", "12")
+    'Celes.c2ibpn', '12')
   vvd(rc2i[0][2], -0.1093465511383285076e-2, 1e-12,
-    "Celes::c2ibpn", "13")
+    'Celes.c2ibpn', '13')
 
   vvd(rc2i[1][0], 0.5068413965715446111e-7, 1e-12,
-    "Celes::c2ibpn", "21")
+    'Celes.c2ibpn', '21')
   vvd(rc2i[1][1], 0.9999999990835075686, 1e-12,
-    "Celes::c2ibpn", "22")
+    'Celes.c2ibpn', '22')
   vvd(rc2i[1][2], 0.4281334246452708915e-4, 1e-12,
-    "Celes::c2ibpn", "23")
+    'Celes.c2ibpn', '23')
 
   vvd(rc2i[2][0], 0.1093465510215479000e-2, 1e-12,
-    "Celes::c2ibpn", "31")
+    'Celes.c2ibpn', '31')
   vvd(rc2i[2][1], -0.4281337229063151000e-4, 1e-12,
-    "Celes::c2ibpn", "32")
+    'Celes.c2ibpn', '32')
   vvd(rc2i[2][2], 0.9999994012499173103, 1e-12,
-    "Celes::c2ibpn", "33")
+    'Celes.c2ibpn', '33')
 end
 
 #static void t_c2ixy(int *status)
 #{
-=======
-  rc2i = Celes.c2ibpn(2_400_000.5, 50_123.9999, rbpn)
-
-  vvd(rc2i[0][0], 0.9999994021664089977, 1e-12,
-      'Celes::c2ibpn', '11')
-  vvd(rc2i[0][1], -0.3869195948017503664e-8, 1e-12,
-      'Celes::c2ibpn', '12')
-  vvd(rc2i[0][2], -0.1093465511383285076e-2, 1e-12,
-      'Celes::c2ibpn', '13')
-
-  vvd(rc2i[1][0], 0.5068413965715446111e-7, 1e-12,
-      'Celes::c2ibpn', '21')
-  vvd(rc2i[1][1], 0.9999999990835075686, 1e-12,
-      'Celes::c2ibpn', '22')
-  vvd(rc2i[1][2], 0.4281334246452708915e-4, 1e-12,
-      'Celes::c2ibpn', '23')
-
-  vvd(rc2i[2][0], 0.1093465510215479000e-2, 1e-12,
-      'Celes::c2ibpn', '31')
-  vvd(rc2i[2][1], -0.4281337229063151000e-4, 1e-12,
-      'Celes::c2ibpn', '32')
-  vvd(rc2i[2][2], 0.9999994012499173103, 1e-12,
-      'Celes::c2ibpn', '33')
-end
-
-# static void t_c2ixy(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double x, y, rc2i[3][3]
 #
 #
 #	x = 0.5791308486706011000e-3
 #	y = 0.4020579816732961219e-4
 #
-#	Celes::c2ixy(2400000.5, 53736, x, y, rc2i)
+#	Celes.c2ixy(2400000.5, 53736, x, y, rc2i)
 #
 #	vvd(rc2i[0][0], 0.9999998323037157138, 1e-12,
-#			"Celes::c2ixy", "11")
+#			'Celes.c2ixy', '11')
 #	vvd(rc2i[0][1], 0.5581526349032241205e-9, 1e-12,
-#			"Celes::c2ixy", "12")
+#			'Celes.c2ixy', '12')
 #	vvd(rc2i[0][2], -0.5791308491611263745e-3, 1e-12,
-#			"Celes::c2ixy", "13")
+#			'Celes.c2ixy', '13')
 #
 #	vvd(rc2i[1][0], -0.2384257057469842953e-7, 1e-12,
-#			"Celes::c2ixy", "21")
+#			'Celes.c2ixy', '21')
 #	vvd(rc2i[1][1], 0.9999999991917468964, 1e-12,
-#			"Celes::c2ixy", "22")
+#			'Celes.c2ixy', '22')
 #	vvd(rc2i[1][2], -0.4020579110172324363e-4, 1e-12,
-#			"Celes::c2ixy", "23")
+#			'Celes.c2ixy', '23')
 #
 #	vvd(rc2i[2][0], 0.5791308486706011000e-3, 1e-12,
-#			"Celes::c2ixy", "31")
+#			'Celes.c2ixy', '31')
 #	vvd(rc2i[2][1], 0.4020579816732961219e-4, 1e-12,
-#			"Celes::c2ixy", "32")
+#			'Celes.c2ixy', '32')
 #	vvd(rc2i[2][2], 0.9999998314954627590, 1e-12,
-#			"Celes::c2ixy", "33")
+#			'Celes.c2ixy', '33')
 #
-<<<<<<< HEAD
 #}
 def t_c2ixy 
   x = 0.5791308486706011000e-3
   y = 0.4020579816732961219e-4
 
-  rc2i = Celes::c2ixy(2400000.5, 53736, x, y)
+  rc2i = Celes.c2ixy(2400000.5, 53736, x, y)
 
   vvd(rc2i[0][0], 0.9999998323037157138, 1e-12,
-    "Celes::c2ixy", "11")
+    'Celes.c2ixy', '11')
   vvd(rc2i[0][1], 0.5581526349032241205e-9, 1e-12,
-    "Celes::c2ixy", "12")
+    'Celes.c2ixy', '12')
   vvd(rc2i[0][2], -0.5791308491611263745e-3, 1e-12,
-    "Celes::c2ixy", "13")
+    'Celes.c2ixy', '13')
 
   vvd(rc2i[1][0], -0.2384257057469842953e-7, 1e-12,
-    "Celes::c2ixy", "21")
+    'Celes.c2ixy', '21')
   vvd(rc2i[1][1], 0.9999999991917468964, 1e-12,
-    "Celes::c2ixy", "22")
+    'Celes.c2ixy', '22')
   vvd(rc2i[1][2], -0.4020579110172324363e-4, 1e-12,
-    "Celes::c2ixy", "23")
+    'Celes.c2ixy', '23')
 
   vvd(rc2i[2][0], 0.5791308486706011000e-3, 1e-12,
-    "Celes::c2ixy", "31")
+    'Celes.c2ixy', '31')
   vvd(rc2i[2][1], 0.4020579816732961219e-4, 1e-12,
-    "Celes::c2ixy", "32")
+    'Celes.c2ixy', '32')
   vvd(rc2i[2][2], 0.9999998314954627590, 1e-12,
-    "Celes::c2ixy", "33")
+    'Celes.c2ixy', '33')
 end
 
 #static void t_c2ixys(int *status)
 #{
-=======
-# }
-def t_c2ixy
-  x = 0.5791308486706011000e-3
-  y = 0.4020579816732961219e-4
-
-  rc2i = Celes.c2ixy(2_400_000.5, 53_736, x, y)
-
-  vvd(rc2i[0][0], 0.9999998323037157138, 1e-12,
-      'Celes::c2ixy', '11')
-  vvd(rc2i[0][1], 0.5581526349032241205e-9, 1e-12,
-      'Celes::c2ixy', '12')
-  vvd(rc2i[0][2], -0.5791308491611263745e-3, 1e-12,
-      'Celes::c2ixy', '13')
-
-  vvd(rc2i[1][0], -0.2384257057469842953e-7, 1e-12,
-      'Celes::c2ixy', '21')
-  vvd(rc2i[1][1], 0.9999999991917468964, 1e-12,
-      'Celes::c2ixy', '22')
-  vvd(rc2i[1][2], -0.4020579110172324363e-4, 1e-12,
-      'Celes::c2ixy', '23')
-
-  vvd(rc2i[2][0], 0.5791308486706011000e-3, 1e-12,
-      'Celes::c2ixy', '31')
-  vvd(rc2i[2][1], 0.4020579816732961219e-4, 1e-12,
-      'Celes::c2ixy', '32')
-  vvd(rc2i[2][2], 0.9999998314954627590, 1e-12,
-      'Celes::c2ixy', '33')
-end
-
-# static void t_c2ixys(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double x, y, s, rc2i[3][3]
 #
 #
@@ -1117,90 +757,61 @@ end
 #	y =  0.4020579816732961219e-4
 #	s = -0.1220040848472271978e-7
 #
-#	Celes::c2ixys(x, y, s, rc2i)
+#	Celes.c2ixys(x, y, s, rc2i)
 #
 #	vvd(rc2i[0][0], 0.9999998323037157138, 1e-12,
-#			"Celes::c2ixys", "11")
+#			'Celes.c2ixys', '11')
 #	vvd(rc2i[0][1], 0.5581984869168499149e-9, 1e-12,
-#			"Celes::c2ixys", "12")
+#			'Celes.c2ixys', '12')
 #	vvd(rc2i[0][2], -0.5791308491611282180e-3, 1e-12,
-#			"Celes::c2ixys", "13")
+#			'Celes.c2ixys', '13')
 #
 #	vvd(rc2i[1][0], -0.2384261642670440317e-7, 1e-12,
-#			"Celes::c2ixys", "21")
+#			'Celes.c2ixys', '21')
 #	vvd(rc2i[1][1], 0.9999999991917468964, 1e-12,
-#			"Celes::c2ixys", "22")
+#			'Celes.c2ixys', '22')
 #	vvd(rc2i[1][2], -0.4020579110169668931e-4, 1e-12,
-#			"Celes::c2ixys", "23")
+#			'Celes.c2ixys', '23')
 #
 #	vvd(rc2i[2][0], 0.5791308486706011000e-3, 1e-12,
-#			"Celes::c2ixys", "31")
+#			'Celes.c2ixys', '31')
 #	vvd(rc2i[2][1], 0.4020579816732961219e-4, 1e-12,
-#			"Celes::c2ixys", "32")
+#			'Celes.c2ixys', '32')
 #	vvd(rc2i[2][2], 0.9999998314954627590, 1e-12,
-#			"Celes::c2ixys", "33")
+#			'Celes.c2ixys', '33')
 #
-# }
+#}
 def t_c2ixys
   x =  0.5791308486706011000e-3
   y =  0.4020579816732961219e-4
   s = -0.1220040848472271978e-7
 
-<<<<<<< HEAD
-  rc2i = Celes::c2ixys(x, y, s)
+  rc2i = Celes.c2ixys(x, y, s)
 
   vvd(rc2i[0][0], 0.9999998323037157138, 1e-12,
-    "Celes::c2ixys", "11")
+    'Celes.c2ixys', '11')
   vvd(rc2i[0][1], 0.5581984869168499149e-9, 1e-12,
-    "Celes::c2ixys", "12")
+    'Celes.c2ixys', '12')
   vvd(rc2i[0][2], -0.5791308491611282180e-3, 1e-12,
-    "Celes::c2ixys", "13")
+    'Celes.c2ixys', '13')
 
   vvd(rc2i[1][0], -0.2384261642670440317e-7, 1e-12,
-    "Celes::c2ixys", "21")
+    'Celes.c2ixys', '21')
   vvd(rc2i[1][1], 0.9999999991917468964, 1e-12,
-    "Celes::c2ixys", "22")
+    'Celes.c2ixys', '22')
   vvd(rc2i[1][2], -0.4020579110169668931e-4, 1e-12,
-    "Celes::c2ixys", "23")
+    'Celes.c2ixys', '23')
 
   vvd(rc2i[2][0], 0.5791308486706011000e-3, 1e-12,
-    "Celes::c2ixys", "31")
+    'Celes.c2ixys', '31')
   vvd(rc2i[2][1], 0.4020579816732961219e-4, 1e-12,
-    "Celes::c2ixys", "32")
+    'Celes.c2ixys', '32')
   vvd(rc2i[2][2], 0.9999998314954627590, 1e-12,
-    "Celes::c2ixys", "33")
+    'Celes.c2ixys', '33')
 end
 
 #static void t_c2s(int *status)
 #{
-=======
-  rc2i = Celes.c2ixys(x, y, s)
-
-  vvd(rc2i[0][0], 0.9999998323037157138, 1e-12,
-      'Celes::c2ixys', '11')
-  vvd(rc2i[0][1], 0.5581984869168499149e-9, 1e-12,
-      'Celes::c2ixys', '12')
-  vvd(rc2i[0][2], -0.5791308491611282180e-3, 1e-12,
-      'Celes::c2ixys', '13')
-
-  vvd(rc2i[1][0], -0.2384261642670440317e-7, 1e-12,
-      'Celes::c2ixys', '21')
-  vvd(rc2i[1][1], 0.9999999991917468964, 1e-12,
-      'Celes::c2ixys', '22')
-  vvd(rc2i[1][2], -0.4020579110169668931e-4, 1e-12,
-      'Celes::c2ixys', '23')
-
-  vvd(rc2i[2][0], 0.5791308486706011000e-3, 1e-12,
-      'Celes::c2ixys', '31')
-  vvd(rc2i[2][1], 0.4020579816732961219e-4, 1e-12,
-      'Celes::c2ixys', '32')
-  vvd(rc2i[2][2], 0.9999998314954627590, 1e-12,
-      'Celes::c2ixys', '33')
-end
-
-# static void t_c2s(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double p[3], theta, phi
 #
 #
@@ -1208,12 +819,12 @@ end
 #	p[1] = -50.0
 #	p[2] =  25.0
 #
-#	Celes::c2s(p, &theta, &phi)
+#	Celes.c2s(p, &theta, &phi)
 #
-#	vvd(theta, -0.4636476090008061162, 1e-14, "Celes::c2s", "theta")
-#	vvd(phi, 0.2199879773954594463, 1e-14, "Celes::c2s", "phi")
+#	vvd(theta, -0.4636476090008061162, 1e-14, 'Celes.c2s', 'theta')
+#	vvd(phi, 0.2199879773954594463, 1e-14, 'Celes.c2s', 'phi')
 #
-# }
+#}
 def t_c2s
   p = []
 
@@ -1221,21 +832,14 @@ def t_c2s
   p[1] = -50.0
   p[2] =  25.0
 
-<<<<<<< HEAD
-  theta, phi = Celes::c2s(p)
-
-  vvd(theta, -0.4636476090008061162, 1e-14, "Celes::c2s", "theta")
-  vvd(phi, 0.2199879773954594463, 1e-14, "Celes::c2s", "phi")
-=======
   theta, phi = Celes.c2s(p)
 
-  vvd(theta, -0.4636476090008061162, 1e-14, 'Celes::c2s', 'theta')
-  vvd(phi, 0.2199879773954594463, 1e-14, 'Celes::c2s', 'phi')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, -0.4636476090008061162, 1e-14, 'Celes.c2s', 'theta')
+  vvd(phi, 0.2199879773954594463, 1e-14, 'Celes.c2s', 'phi')
 end
 
-# static void t_c2t00a(int *status)
-# {
+#static void t_c2t00a(int *status)
+#{
 #	double tta, ttb, uta, utb, xp, yp, rc2t[3][3]
 #
 #
@@ -1246,100 +850,64 @@ end
 #	xp = 2.55060238e-7
 #	yp = 1.860359247e-6
 #
-#	Celes::c2t00a(tta, ttb, uta, utb, xp, yp, rc2t)
+#	Celes.c2t00a(tta, ttb, uta, utb, xp, yp, rc2t)
 #
 #	vvd(rc2t[0][0], -0.1810332128307182668, 1e-12,
-#			"Celes::c2t00a", "11")
+#			'Celes.c2t00a', '11')
 #	vvd(rc2t[0][1], 0.9834769806938457836, 1e-12,
-#			"Celes::c2t00a", "12")
+#			'Celes.c2t00a', '12')
 #	vvd(rc2t[0][2], 0.6555535638688341725e-4, 1e-12,
-#			"Celes::c2t00a", "13")
+#			'Celes.c2t00a', '13')
 #
 #	vvd(rc2t[1][0], -0.9834768134135984552, 1e-12,
-#			"Celes::c2t00a", "21")
+#			'Celes.c2t00a', '21')
 #	vvd(rc2t[1][1], -0.1810332203649520727, 1e-12,
-#			"Celes::c2t00a", "22")
+#			'Celes.c2t00a', '22')
 #	vvd(rc2t[1][2], 0.5749801116141056317e-3, 1e-12,
-#			"Celes::c2t00a", "23")
+#			'Celes.c2t00a', '23')
 #
 #	vvd(rc2t[2][0], 0.5773474014081406921e-3, 1e-12,
-#			"Celes::c2t00a", "31")
+#			'Celes.c2t00a', '31')
 #	vvd(rc2t[2][1], 0.3961832391770163647e-4, 1e-12,
-#			"Celes::c2t00a", "32")
+#			'Celes.c2t00a', '32')
 #	vvd(rc2t[2][2], 0.9999998325501692289, 1e-12,
-#			"Celes::c2t00a", "33")
+#			'Celes.c2t00a', '33')
 #
-# }
+#}
 def t_c2t00a
-<<<<<<< HEAD
   tta = 2400000.5
   uta = 2400000.5
   ttb = 53736.0
   utb = 53736.0
-  xp = 2.55060238e-7
-  yp = 1.860359247e-6
-
-  rc2t = Celes::c2t00a(tta, ttb, uta, utb, xp, yp)
-
-  vvd(rc2t[0][0], -0.1810332128307182668, 1e-12,
-    "Celes::c2t00a", "11")
-  vvd(rc2t[0][1], 0.9834769806938457836, 1e-12,
-    "Celes::c2t00a", "12")
-  vvd(rc2t[0][2], 0.6555535638688341725e-4, 1e-12,
-    "Celes::c2t00a", "13")
-
-  vvd(rc2t[1][0], -0.9834768134135984552, 1e-12,
-    "Celes::c2t00a", "21")
-  vvd(rc2t[1][1], -0.1810332203649520727, 1e-12,
-    "Celes::c2t00a", "22")
-  vvd(rc2t[1][2], 0.5749801116141056317e-3, 1e-12,
-    "Celes::c2t00a", "23")
-
-  vvd(rc2t[2][0], 0.5773474014081406921e-3, 1e-12,
-    "Celes::c2t00a", "31")
-  vvd(rc2t[2][1], 0.3961832391770163647e-4, 1e-12,
-    "Celes::c2t00a", "32")
-  vvd(rc2t[2][2], 0.9999998325501692289, 1e-12,
-    "Celes::c2t00a", "33")
-end
-
-#static void t_c2t00b(int *status)
-#{
-=======
-  tta = 2_400_000.5
-  uta = 2_400_000.5
-  ttb = 53_736.0
-  utb = 53_736.0
   xp = 2.55060238e-7
   yp = 1.860359247e-6
 
   rc2t = Celes.c2t00a(tta, ttb, uta, utb, xp, yp)
 
   vvd(rc2t[0][0], -0.1810332128307182668, 1e-12,
-      'Celes::c2t00a', '11')
+    'Celes.c2t00a', '11')
   vvd(rc2t[0][1], 0.9834769806938457836, 1e-12,
-      'Celes::c2t00a', '12')
+    'Celes.c2t00a', '12')
   vvd(rc2t[0][2], 0.6555535638688341725e-4, 1e-12,
-      'Celes::c2t00a', '13')
+    'Celes.c2t00a', '13')
 
   vvd(rc2t[1][0], -0.9834768134135984552, 1e-12,
-      'Celes::c2t00a', '21')
+    'Celes.c2t00a', '21')
   vvd(rc2t[1][1], -0.1810332203649520727, 1e-12,
-      'Celes::c2t00a', '22')
+    'Celes.c2t00a', '22')
   vvd(rc2t[1][2], 0.5749801116141056317e-3, 1e-12,
-      'Celes::c2t00a', '23')
+    'Celes.c2t00a', '23')
 
   vvd(rc2t[2][0], 0.5773474014081406921e-3, 1e-12,
-      'Celes::c2t00a', '31')
+    'Celes.c2t00a', '31')
   vvd(rc2t[2][1], 0.3961832391770163647e-4, 1e-12,
-      'Celes::c2t00a', '32')
+    'Celes.c2t00a', '32')
   vvd(rc2t[2][2], 0.9999998325501692289, 1e-12,
-      'Celes::c2t00a', '33')
+    'Celes.c2t00a', '33')
 end
 
-# static void t_c2t00b(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+#static void t_c2t00b(int *status)
+#{
 #	double tta, ttb, uta, utb, xp, yp, rc2t[3][3]
 #
 #
@@ -1350,100 +918,64 @@ end
 #	xp = 2.55060238e-7
 #	yp = 1.860359247e-6
 #
-#	Celes::c2t00b(tta, ttb, uta, utb, xp, yp, rc2t)
+#	Celes.c2t00b(tta, ttb, uta, utb, xp, yp, rc2t)
 #
 #	vvd(rc2t[0][0], -0.1810332128439678965, 1e-12,
-#			"Celes::c2t00b", "11")
+#			'Celes.c2t00b', '11')
 #	vvd(rc2t[0][1], 0.9834769806913872359, 1e-12,
-#			"Celes::c2t00b", "12")
+#			'Celes.c2t00b', '12')
 #	vvd(rc2t[0][2], 0.6555565082458415611e-4, 1e-12,
-#			"Celes::c2t00b", "13")
+#			'Celes.c2t00b', '13')
 #
 #	vvd(rc2t[1][0], -0.9834768134115435923, 1e-12,
-#			"Celes::c2t00b", "21")
+#			'Celes.c2t00b', '21')
 #	vvd(rc2t[1][1], -0.1810332203784001946, 1e-12,
-#			"Celes::c2t00b", "22")
+#			'Celes.c2t00b', '22')
 #	vvd(rc2t[1][2], 0.5749793922030017230e-3, 1e-12,
-#			"Celes::c2t00b", "23")
+#			'Celes.c2t00b', '23')
 #
 #	vvd(rc2t[2][0], 0.5773467471863534901e-3, 1e-12,
-#			"Celes::c2t00b", "31")
+#			'Celes.c2t00b', '31')
 #	vvd(rc2t[2][1], 0.3961790411549945020e-4, 1e-12,
-#			"Celes::c2t00b", "32")
+#			'Celes.c2t00b', '32')
 #	vvd(rc2t[2][2], 0.9999998325505635738, 1e-12,
-#			"Celes::c2t00b", "33")
+#			'Celes.c2t00b', '33')
 #
-# }
+#}
 def t_c2t00b
-<<<<<<< HEAD
   tta = 2400000.5
   uta = 2400000.5
   ttb = 53736.0
   utb = 53736.0
-  xp = 2.55060238e-7
-  yp = 1.860359247e-6
-
-  rc2t = Celes::c2t00b(tta, ttb, uta, utb, xp, yp)
-
-  vvd(rc2t[0][0], -0.1810332128439678965, 1e-12,
-    "Celes::c2t00b", "11")
-  vvd(rc2t[0][1], 0.9834769806913872359, 1e-12,
-    "Celes::c2t00b", "12")
-  vvd(rc2t[0][2], 0.6555565082458415611e-4, 1e-12,
-    "Celes::c2t00b", "13")
-
-  vvd(rc2t[1][0], -0.9834768134115435923, 1e-12,
-    "Celes::c2t00b", "21")
-  vvd(rc2t[1][1], -0.1810332203784001946, 1e-12,
-    "Celes::c2t00b", "22")
-  vvd(rc2t[1][2], 0.5749793922030017230e-3, 1e-12,
-    "Celes::c2t00b", "23")
-
-  vvd(rc2t[2][0], 0.5773467471863534901e-3, 1e-12,
-    "Celes::c2t00b", "31")
-  vvd(rc2t[2][1], 0.3961790411549945020e-4, 1e-12,
-    "Celes::c2t00b", "32")
-  vvd(rc2t[2][2], 0.9999998325505635738, 1e-12,
-    "Celes::c2t00b", "33")
-end
-
-#static void t_c2t06a(int *status)
-#{
-=======
-  tta = 2_400_000.5
-  uta = 2_400_000.5
-  ttb = 53_736.0
-  utb = 53_736.0
   xp = 2.55060238e-7
   yp = 1.860359247e-6
 
   rc2t = Celes.c2t00b(tta, ttb, uta, utb, xp, yp)
 
   vvd(rc2t[0][0], -0.1810332128439678965, 1e-12,
-      'Celes::c2t00b', '11')
+    'Celes.c2t00b', '11')
   vvd(rc2t[0][1], 0.9834769806913872359, 1e-12,
-      'Celes::c2t00b', '12')
+    'Celes.c2t00b', '12')
   vvd(rc2t[0][2], 0.6555565082458415611e-4, 1e-12,
-      'Celes::c2t00b', '13')
+    'Celes.c2t00b', '13')
 
   vvd(rc2t[1][0], -0.9834768134115435923, 1e-12,
-      'Celes::c2t00b', '21')
+    'Celes.c2t00b', '21')
   vvd(rc2t[1][1], -0.1810332203784001946, 1e-12,
-      'Celes::c2t00b', '22')
+    'Celes.c2t00b', '22')
   vvd(rc2t[1][2], 0.5749793922030017230e-3, 1e-12,
-      'Celes::c2t00b', '23')
+    'Celes.c2t00b', '23')
 
   vvd(rc2t[2][0], 0.5773467471863534901e-3, 1e-12,
-      'Celes::c2t00b', '31')
+    'Celes.c2t00b', '31')
   vvd(rc2t[2][1], 0.3961790411549945020e-4, 1e-12,
-      'Celes::c2t00b', '32')
+    'Celes.c2t00b', '32')
   vvd(rc2t[2][2], 0.9999998325505635738, 1e-12,
-      'Celes::c2t00b', '33')
+    'Celes.c2t00b', '33')
 end
 
-# static void t_c2t06a(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+#static void t_c2t06a(int *status)
+#{
 #	double tta, ttb, uta, utb, xp, yp, rc2t[3][3]
 #
 #
@@ -1454,32 +986,31 @@ end
 #	xp = 2.55060238e-7
 #	yp = 1.860359247e-6
 #
-#	Celes::c2t06a(tta, ttb, uta, utb, xp, yp, rc2t)
+#	Celes.c2t06a(tta, ttb, uta, utb, xp, yp, rc2t)
 #
 #	vvd(rc2t[0][0], -0.1810332128305897282, 1e-12,
-#			"Celes::c2t06a", "11")
+#			'Celes.c2t06a', '11')
 #	vvd(rc2t[0][1], 0.9834769806938592296, 1e-12,
-#			"Celes::c2t06a", "12")
+#			'Celes.c2t06a', '12')
 #	vvd(rc2t[0][2], 0.6555550962998436505e-4, 1e-12,
-#			"Celes::c2t06a", "13")
+#			'Celes.c2t06a', '13')
 #
 #	vvd(rc2t[1][0], -0.9834768134136214897, 1e-12,
-#			"Celes::c2t06a", "21")
+#			'Celes.c2t06a', '21')
 #	vvd(rc2t[1][1], -0.1810332203649130832, 1e-12,
-#			"Celes::c2t06a", "22")
+#			'Celes.c2t06a', '22')
 #	vvd(rc2t[1][2], 0.5749800844905594110e-3, 1e-12,
-#			"Celes::c2t06a", "23")
+#			'Celes.c2t06a', '23')
 #
 #	vvd(rc2t[2][0], 0.5773474024748545878e-3, 1e-12,
-#			"Celes::c2t06a", "31")
+#			'Celes.c2t06a', '31')
 #	vvd(rc2t[2][1], 0.3961816829632690581e-4, 1e-12,
-#			"Celes::c2t06a", "32")
+#			'Celes.c2t06a', '32')
 #	vvd(rc2t[2][2], 0.9999998325501747785, 1e-12,
-#			"Celes::c2t06a", "33")
+#			'Celes.c2t06a', '33')
 #
-# }
+#}
 def t_c2t06a
-<<<<<<< HEAD
   tta = 2400000.5
   uta = 2400000.5
   ttb = 53736.0
@@ -1487,67 +1018,32 @@ def t_c2t06a
   xp = 2.55060238e-7
   yp = 1.860359247e-6
 
-  rc2t = Celes::c2t06a(tta, ttb, uta, utb, xp, yp)
+  rc2t = Celes.c2t06a(tta, ttb, uta, utb, xp, yp)
 
   vvd(rc2t[0][0], -0.1810332128305897282, 1e-12,
-    "Celes::c2t06a", "11")
+    'Celes.c2t06a', '11')
   vvd(rc2t[0][1], 0.9834769806938592296, 1e-12,
-    "Celes::c2t06a", "12")
+    'Celes.c2t06a', '12')
   vvd(rc2t[0][2], 0.6555550962998436505e-4, 1e-12,
-    "Celes::c2t06a", "13")
+    'Celes.c2t06a', '13')
 
   vvd(rc2t[1][0], -0.9834768134136214897, 1e-12,
-    "Celes::c2t06a", "21")
+    'Celes.c2t06a', '21')
   vvd(rc2t[1][1], -0.1810332203649130832, 1e-12,
-    "Celes::c2t06a", "22")
+    'Celes.c2t06a', '22')
   vvd(rc2t[1][2], 0.5749800844905594110e-3, 1e-12,
-    "Celes::c2t06a", "23")
+    'Celes.c2t06a', '23')
 
   vvd(rc2t[2][0], 0.5773474024748545878e-3, 1e-12,
-    "Celes::c2t06a", "31")
+    'Celes.c2t06a', '31')
   vvd(rc2t[2][1], 0.3961816829632690581e-4, 1e-12,
-    "Celes::c2t06a", "32")
+    'Celes.c2t06a', '32')
   vvd(rc2t[2][2], 0.9999998325501747785, 1e-12,
-    "Celes::c2t06a", "33")
+    'Celes.c2t06a', '33')
 end
 
 #static void t_c2tcio(int *status)
 #{
-=======
-  tta = 2_400_000.5
-  uta = 2_400_000.5
-  ttb = 53_736.0
-  utb = 53_736.0
-  xp = 2.55060238e-7
-  yp = 1.860359247e-6
-
-  rc2t = Celes.c2t06a(tta, ttb, uta, utb, xp, yp)
-
-  vvd(rc2t[0][0], -0.1810332128305897282, 1e-12,
-      'Celes::c2t06a', '11')
-  vvd(rc2t[0][1], 0.9834769806938592296, 1e-12,
-      'Celes::c2t06a', '12')
-  vvd(rc2t[0][2], 0.6555550962998436505e-4, 1e-12,
-      'Celes::c2t06a', '13')
-
-  vvd(rc2t[1][0], -0.9834768134136214897, 1e-12,
-      'Celes::c2t06a', '21')
-  vvd(rc2t[1][1], -0.1810332203649130832, 1e-12,
-      'Celes::c2t06a', '22')
-  vvd(rc2t[1][2], 0.5749800844905594110e-3, 1e-12,
-      'Celes::c2t06a', '23')
-
-  vvd(rc2t[2][0], 0.5773474024748545878e-3, 1e-12,
-      'Celes::c2t06a', '31')
-  vvd(rc2t[2][1], 0.3961816829632690581e-4, 1e-12,
-      'Celes::c2t06a', '32')
-  vvd(rc2t[2][2], 0.9999998325501747785, 1e-12,
-      'Celes::c2t06a', '33')
-end
-
-# static void t_c2tcio(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rc2i[3][3], era, rpom[3][3], rc2t[3][3]
 #
 #
@@ -1578,34 +1074,33 @@ end
 #	rpom[2][2] =  0.9999999999982369658
 #
 #
-#	Celes::c2tcio(rc2i, era, rpom, rc2t)
+#	Celes.c2tcio(rc2i, era, rpom, rc2t)
 #
 #	vvd(rc2t[0][0], -0.1810332128307110439, 1e-12,
-#			"Celes::c2tcio", "11")
+#			'Celes.c2tcio', '11')
 #	vvd(rc2t[0][1], 0.9834769806938470149, 1e-12,
-#			"Celes::c2tcio", "12")
+#			'Celes.c2tcio', '12')
 #	vvd(rc2t[0][2], 0.6555535638685466874e-4, 1e-12,
-#			"Celes::c2tcio", "13")
+#			'Celes.c2tcio', '13')
 #
 #	vvd(rc2t[1][0], -0.9834768134135996657, 1e-12,
-#			"Celes::c2tcio", "21")
+#			'Celes.c2tcio', '21')
 #	vvd(rc2t[1][1], -0.1810332203649448367, 1e-12,
-#			"Celes::c2tcio", "22")
+#			'Celes.c2tcio', '22')
 #	vvd(rc2t[1][2], 0.5749801116141106528e-3, 1e-12,
-#			"Celes::c2tcio", "23")
+#			'Celes.c2tcio', '23')
 #
 #	vvd(rc2t[2][0], 0.5773474014081407076e-3, 1e-12,
-#			"Celes::c2tcio", "31")
+#			'Celes.c2tcio', '31')
 #	vvd(rc2t[2][1], 0.3961832391772658944e-4, 1e-12,
-#			"Celes::c2tcio", "32")
+#			'Celes.c2tcio', '32')
 #	vvd(rc2t[2][2], 0.9999998325501691969, 1e-12,
-#			"Celes::c2tcio", "33")
+#			'Celes.c2tcio', '33')
 #
-# }
+#}
 def t_c2tcio
   rc2i = [[], [], []]
   rpom = [[], [], []]
-<<<<<<< HEAD
 
   rc2i[0][0] =  0.9999998323037164738
   rc2i[0][1] =  0.5581526271714303683e-9
@@ -1632,86 +1127,34 @@ def t_c2tcio
   rpom[2][0] = -0.2550602379741215275e-6
   rpom[2][1] =  0.1860359247002413923e-5
   rpom[2][2] =  0.9999999999982369658
-=======
 
-  rc2i[0][0] =  0.9999998323037164738
-  rc2i[0][1] =  0.5581526271714303683e-9
-  rc2i[0][2] = -0.5791308477073443903e-3
 
-  rc2i[1][0] = -0.2384266227524722273e-7
-  rc2i[1][1] =  0.9999999991917404296
-  rc2i[1][2] = -0.4020594955030704125e-4
-
-  rc2i[2][0] =  0.5791308472168153320e-3
-  rc2i[2][1] =  0.4020595661593994396e-4
-  rc2i[2][2] =  0.9999998314954572365
-
-  era = 1.75283325530307
-
-  rpom[0][0] =  0.9999999999999674705
-  rpom[0][1] = -0.1367174580728847031e-10
-  rpom[0][2] =  0.2550602379999972723e-6
-
-  rpom[1][0] =  0.1414624947957029721e-10
-  rpom[1][1] =  0.9999999999982694954
-  rpom[1][2] = -0.1860359246998866338e-5
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
-
-  rpom[2][0] = -0.2550602379741215275e-6
-  rpom[2][1] =  0.1860359247002413923e-5
-  rpom[2][2] =  0.9999999999982369658
-
-<<<<<<< HEAD
-  rc2t = Celes::c2tcio(rc2i, era, rpom)
-
-  vvd(rc2t[0][0], -0.1810332128307110439, 1e-12,
-    "Celes::c2tcio", "11")
-  vvd(rc2t[0][1], 0.9834769806938470149, 1e-12,
-    "Celes::c2tcio", "12")
-  vvd(rc2t[0][2], 0.6555535638685466874e-4, 1e-12,
-    "Celes::c2tcio", "13")
-
-  vvd(rc2t[1][0], -0.9834768134135996657, 1e-12,
-    "Celes::c2tcio", "21")
-  vvd(rc2t[1][1], -0.1810332203649448367, 1e-12,
-    "Celes::c2tcio", "22")
-  vvd(rc2t[1][2], 0.5749801116141106528e-3, 1e-12,
-    "Celes::c2tcio", "23")
-
-  vvd(rc2t[2][0], 0.5773474014081407076e-3, 1e-12,
-    "Celes::c2tcio", "31")
-  vvd(rc2t[2][1], 0.3961832391772658944e-4, 1e-12,
-    "Celes::c2tcio", "32")
-  vvd(rc2t[2][2], 0.9999998325501691969, 1e-12,
-    "Celes::c2tcio", "33")
-=======
   rc2t = Celes.c2tcio(rc2i, era, rpom)
 
   vvd(rc2t[0][0], -0.1810332128307110439, 1e-12,
-      'Celes::c2tcio', '11')
+    'Celes.c2tcio', '11')
   vvd(rc2t[0][1], 0.9834769806938470149, 1e-12,
-      'Celes::c2tcio', '12')
+    'Celes.c2tcio', '12')
   vvd(rc2t[0][2], 0.6555535638685466874e-4, 1e-12,
-      'Celes::c2tcio', '13')
+    'Celes.c2tcio', '13')
 
   vvd(rc2t[1][0], -0.9834768134135996657, 1e-12,
-      'Celes::c2tcio', '21')
+    'Celes.c2tcio', '21')
   vvd(rc2t[1][1], -0.1810332203649448367, 1e-12,
-      'Celes::c2tcio', '22')
+    'Celes.c2tcio', '22')
   vvd(rc2t[1][2], 0.5749801116141106528e-3, 1e-12,
-      'Celes::c2tcio', '23')
+    'Celes.c2tcio', '23')
 
   vvd(rc2t[2][0], 0.5773474014081407076e-3, 1e-12,
-      'Celes::c2tcio', '31')
+    'Celes.c2tcio', '31')
   vvd(rc2t[2][1], 0.3961832391772658944e-4, 1e-12,
-      'Celes::c2tcio', '32')
+    'Celes.c2tcio', '32')
   vvd(rc2t[2][2], 0.9999998325501691969, 1e-12,
-      'Celes::c2tcio', '33')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.c2tcio', '33')
 end
 
-# static void t_c2teqx(int *status)
-# {
+#static void t_c2teqx(int *status)
+#{
 #	double rbpn[3][3], gst, rpom[3][3], rc2t[3][3]
 #
 #
@@ -1741,30 +1184,30 @@ end
 #	rpom[2][1] =  0.1860359247002413923e-5
 #	rpom[2][2] =  0.9999999999982369658
 #
-#	Celes::c2teqx(rbpn, gst, rpom, rc2t)
+#	Celes.c2teqx(rbpn, gst, rpom, rc2t)
 #
 #	vvd(rc2t[0][0], -0.1810332128528685730, 1e-12,
-#			"Celes::c2teqx", "11")
+#			'Celes.c2teqx', '11')
 #	vvd(rc2t[0][1], 0.9834769806897685071, 1e-12,
-#			"Celes::c2teqx", "12")
+#			'Celes.c2teqx', '12')
 #	vvd(rc2t[0][2], 0.6555535639982634449e-4, 1e-12,
-#			"Celes::c2teqx", "13")
+#			'Celes.c2teqx', '13')
 #
 #	vvd(rc2t[1][0], -0.9834768134095211257, 1e-12,
-#			"Celes::c2teqx", "21")
+#			'Celes.c2teqx', '21')
 #	vvd(rc2t[1][1], -0.1810332203871023800, 1e-12,
-#			"Celes::c2teqx", "22")
+#			'Celes.c2teqx', '22')
 #	vvd(rc2t[1][2], 0.5749801116126438962e-3, 1e-12,
-#			"Celes::c2teqx", "23")
+#			'Celes.c2teqx', '23')
 #
 #	vvd(rc2t[2][0], 0.5773474014081539467e-3, 1e-12,
-#			"Celes::c2teqx", "31")
+#			'Celes.c2teqx', '31')
 #	vvd(rc2t[2][1], 0.3961832391768640871e-4, 1e-12,
-#			"Celes::c2teqx", "32")
+#			'Celes.c2teqx', '32')
 #	vvd(rc2t[2][2], 0.9999998325501691969, 1e-12,
-#			"Celes::c2teqx", "33")
+#			'Celes.c2teqx', '33')
 #
-# }
+#}
 def t_c2teqx
   rbpn = [[], [], []]
   rpom = [[], [], []]
@@ -1795,57 +1238,32 @@ def t_c2teqx
   rpom[2][1] =  0.1860359247002413923e-5
   rpom[2][2] =  0.9999999999982369658
 
-<<<<<<< HEAD
-  rc2t = Celes::c2teqx(rbpn, gst, rpom)
-
-  vvd(rc2t[0][0], -0.1810332128528685730, 1e-12,
-    "Celes::c2teqx", "11")
-  vvd(rc2t[0][1], 0.9834769806897685071, 1e-12,
-    "Celes::c2teqx", "12")
-  vvd(rc2t[0][2], 0.6555535639982634449e-4, 1e-12,
-    "Celes::c2teqx", "13")
-
-  vvd(rc2t[1][0], -0.9834768134095211257, 1e-12,
-    "Celes::c2teqx", "21")
-  vvd(rc2t[1][1], -0.1810332203871023800, 1e-12,
-    "Celes::c2teqx", "22")
-  vvd(rc2t[1][2], 0.5749801116126438962e-3, 1e-12,
-    "Celes::c2teqx", "23")
-
-  vvd(rc2t[2][0], 0.5773474014081539467e-3, 1e-12,
-    "Celes::c2teqx", "31")
-  vvd(rc2t[2][1], 0.3961832391768640871e-4, 1e-12,
-    "Celes::c2teqx", "32")
-  vvd(rc2t[2][2], 0.9999998325501691969, 1e-12,
-    "Celes::c2teqx", "33")
-=======
   rc2t = Celes.c2teqx(rbpn, gst, rpom)
 
   vvd(rc2t[0][0], -0.1810332128528685730, 1e-12,
-      'Celes::c2teqx', '11')
+    'Celes.c2teqx', '11')
   vvd(rc2t[0][1], 0.9834769806897685071, 1e-12,
-      'Celes::c2teqx', '12')
+    'Celes.c2teqx', '12')
   vvd(rc2t[0][2], 0.6555535639982634449e-4, 1e-12,
-      'Celes::c2teqx', '13')
+    'Celes.c2teqx', '13')
 
   vvd(rc2t[1][0], -0.9834768134095211257, 1e-12,
-      'Celes::c2teqx', '21')
+    'Celes.c2teqx', '21')
   vvd(rc2t[1][1], -0.1810332203871023800, 1e-12,
-      'Celes::c2teqx', '22')
+    'Celes.c2teqx', '22')
   vvd(rc2t[1][2], 0.5749801116126438962e-3, 1e-12,
-      'Celes::c2teqx', '23')
+    'Celes.c2teqx', '23')
 
   vvd(rc2t[2][0], 0.5773474014081539467e-3, 1e-12,
-      'Celes::c2teqx', '31')
+    'Celes.c2teqx', '31')
   vvd(rc2t[2][1], 0.3961832391768640871e-4, 1e-12,
-      'Celes::c2teqx', '32')
+    'Celes.c2teqx', '32')
   vvd(rc2t[2][2], 0.9999998325501691969, 1e-12,
-      'Celes::c2teqx', '33')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.c2teqx', '33')
 end
 
-# static void t_c2tpe(int *status)
-# {
+#static void t_c2tpe(int *status)
+#{
 #	double tta, ttb, uta, utb, dpsi, deps, xp, yp, rc2t[3][3]
 #
 #
@@ -1858,102 +1276,66 @@ end
 #	xp = 2.55060238e-7
 #	yp = 1.860359247e-6
 #
-#	Celes::c2tpe(tta, ttb, uta, utb, dpsi, deps, xp, yp, rc2t)
+#	Celes.c2tpe(tta, ttb, uta, utb, dpsi, deps, xp, yp, rc2t)
 #
 #	vvd(rc2t[0][0], -0.1813677995763029394, 1e-12,
-#			"Celes::c2tpe", "11")
+#			'Celes.c2tpe', '11')
 #	vvd(rc2t[0][1], 0.9023482206891683275, 1e-12,
-#			"Celes::c2tpe", "12")
+#			'Celes.c2tpe', '12')
 #	vvd(rc2t[0][2], -0.3909902938641085751, 1e-12,
-#			"Celes::c2tpe", "13")
+#			'Celes.c2tpe', '13')
 #
 #	vvd(rc2t[1][0], -0.9834147641476804807, 1e-12,
-#			"Celes::c2tpe", "21")
+#			'Celes.c2tpe', '21')
 #	vvd(rc2t[1][1], -0.1659883635434995121, 1e-12,
-#			"Celes::c2tpe", "22")
+#			'Celes.c2tpe', '22')
 #	vvd(rc2t[1][2], 0.7309763898042819705e-1, 1e-12,
-#			"Celes::c2tpe", "23")
+#			'Celes.c2tpe', '23')
 #
 #	vvd(rc2t[2][0], 0.1059685430673215247e-2, 1e-12,
-#			"Celes::c2tpe", "31")
+#			'Celes.c2tpe', '31')
 #	vvd(rc2t[2][1], 0.3977631855605078674, 1e-12,
-#			"Celes::c2tpe", "32")
+#			'Celes.c2tpe', '32')
 #	vvd(rc2t[2][2], 0.9174875068792735362, 1e-12,
-#			"Celes::c2tpe", "33")
+#			'Celes.c2tpe', '33')
 #
-# }
+#}
 def t_c2tpe
-<<<<<<< HEAD
   tta = 2400000.5
   uta = 2400000.5
   ttb = 53736.0
   utb = 53736.0
-=======
-  tta = 2_400_000.5
-  uta = 2_400_000.5
-  ttb = 53_736.0
-  utb = 53_736.0
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
   deps =  0.4090789763356509900
   dpsi = -0.9630909107115582393e-5
   xp = 2.55060238e-7
   yp = 1.860359247e-6
 
-<<<<<<< HEAD
-  rc2t = Celes::c2tpe(tta, ttb, uta, utb, dpsi, deps, xp, yp)
+  rc2t = Celes.c2tpe(tta, ttb, uta, utb, dpsi, deps, xp, yp)
 
   vvd(rc2t[0][0], -0.1813677995763029394, 1e-12,
-    "Celes::c2tpe", "11")
+    'Celes.c2tpe', '11')
   vvd(rc2t[0][1], 0.9023482206891683275, 1e-12,
-    "Celes::c2tpe", "12")
+    'Celes.c2tpe', '12')
   vvd(rc2t[0][2], -0.3909902938641085751, 1e-12,
-    "Celes::c2tpe", "13")
+    'Celes.c2tpe', '13')
 
   vvd(rc2t[1][0], -0.9834147641476804807, 1e-12,
-    "Celes::c2tpe", "21")
+    'Celes.c2tpe', '21')
   vvd(rc2t[1][1], -0.1659883635434995121, 1e-12,
-    "Celes::c2tpe", "22")
+    'Celes.c2tpe', '22')
   vvd(rc2t[1][2], 0.7309763898042819705e-1, 1e-12,
-    "Celes::c2tpe", "23")
+    'Celes.c2tpe', '23')
 
   vvd(rc2t[2][0], 0.1059685430673215247e-2, 1e-12,
-    "Celes::c2tpe", "31")
+    'Celes.c2tpe', '31')
   vvd(rc2t[2][1], 0.3977631855605078674, 1e-12,
-    "Celes::c2tpe", "32")
+    'Celes.c2tpe', '32')
   vvd(rc2t[2][2], 0.9174875068792735362, 1e-12,
-    "Celes::c2tpe", "33")
+    'Celes.c2tpe', '33')
 end
 
 #static void t_c2txy(int *status)
 #{
-=======
-  rc2t = Celes.c2tpe(tta, ttb, uta, utb, dpsi, deps, xp, yp)
-
-  vvd(rc2t[0][0], -0.1813677995763029394, 1e-12,
-      'Celes::c2tpe', '11')
-  vvd(rc2t[0][1], 0.9023482206891683275, 1e-12,
-      'Celes::c2tpe', '12')
-  vvd(rc2t[0][2], -0.3909902938641085751, 1e-12,
-      'Celes::c2tpe', '13')
-
-  vvd(rc2t[1][0], -0.9834147641476804807, 1e-12,
-      'Celes::c2tpe', '21')
-  vvd(rc2t[1][1], -0.1659883635434995121, 1e-12,
-      'Celes::c2tpe', '22')
-  vvd(rc2t[1][2], 0.7309763898042819705e-1, 1e-12,
-      'Celes::c2tpe', '23')
-
-  vvd(rc2t[2][0], 0.1059685430673215247e-2, 1e-12,
-      'Celes::c2tpe', '31')
-  vvd(rc2t[2][1], 0.3977631855605078674, 1e-12,
-      'Celes::c2tpe', '32')
-  vvd(rc2t[2][2], 0.9174875068792735362, 1e-12,
-      'Celes::c2tpe', '33')
-end
-
-# static void t_c2txy(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double tta, ttb, uta, utb, x, y, xp, yp, rc2t[3][3]
 #
 #
@@ -1966,134 +1348,89 @@ end
 #	xp = 2.55060238e-7
 #	yp = 1.860359247e-6
 #
-#	Celes::c2txy(tta, ttb, uta, utb, x, y, xp, yp, rc2t)
+#	Celes.c2txy(tta, ttb, uta, utb, x, y, xp, yp, rc2t)
 #
 #	vvd(rc2t[0][0], -0.1810332128306279253, 1e-12,
-#			"Celes::c2txy", "11")
+#			'Celes.c2txy', '11')
 #	vvd(rc2t[0][1], 0.9834769806938520084, 1e-12,
-#			"Celes::c2txy", "12")
+#			'Celes.c2txy', '12')
 #	vvd(rc2t[0][2], 0.6555551248057665829e-4, 1e-12,
-#			"Celes::c2txy", "13")
+#			'Celes.c2txy', '13')
 #
 #	vvd(rc2t[1][0], -0.9834768134136142314, 1e-12,
-#			"Celes::c2txy", "21")
+#			'Celes.c2txy', '21')
 #	vvd(rc2t[1][1], -0.1810332203649529312, 1e-12,
-#			"Celes::c2txy", "22")
+#			'Celes.c2txy', '22')
 #	vvd(rc2t[1][2], 0.5749800843594139912e-3, 1e-12,
-#			"Celes::c2txy", "23")
+#			'Celes.c2txy', '23')
 #
 #	vvd(rc2t[2][0], 0.5773474028619264494e-3, 1e-12,
-#			"Celes::c2txy", "31")
+#			'Celes.c2txy', '31')
 #	vvd(rc2t[2][1], 0.3961816546911624260e-4, 1e-12,
-#			"Celes::c2txy", "32")
+#			'Celes.c2txy', '32')
 #	vvd(rc2t[2][2], 0.9999998325501746670, 1e-12,
-#			"Celes::c2txy", "33")
+#			'Celes.c2txy', '33')
 #
-# }
+#}
 def t_c2txy
-<<<<<<< HEAD
   tta = 2400000.5
   uta = 2400000.5
   ttb = 53736.0
   utb = 53736.0
-=======
-  tta = 2_400_000.5
-  uta = 2_400_000.5
-  ttb = 53_736.0
-  utb = 53_736.0
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
   x = 0.5791308486706011000e-3
   y = 0.4020579816732961219e-4
   xp = 2.55060238e-7
   yp = 1.860359247e-6
 
-<<<<<<< HEAD
-  rc2t = Celes::c2txy(tta, ttb, uta, utb, x, y, xp, yp)
+  rc2t = Celes.c2txy(tta, ttb, uta, utb, x, y, xp, yp)
 
   vvd(rc2t[0][0], -0.1810332128306279253, 1e-12,
-    "Celes::c2txy", "11")
+    'Celes.c2txy', '11')
   vvd(rc2t[0][1], 0.9834769806938520084, 1e-12,
-    "Celes::c2txy", "12")
+    'Celes.c2txy', '12')
   vvd(rc2t[0][2], 0.6555551248057665829e-4, 1e-12,
-    "Celes::c2txy", "13")
+    'Celes.c2txy', '13')
 
   vvd(rc2t[1][0], -0.9834768134136142314, 1e-12,
-    "Celes::c2txy", "21")
+    'Celes.c2txy', '21')
   vvd(rc2t[1][1], -0.1810332203649529312, 1e-12,
-    "Celes::c2txy", "22")
+    'Celes.c2txy', '22')
   vvd(rc2t[1][2], 0.5749800843594139912e-3, 1e-12,
-    "Celes::c2txy", "23")
+    'Celes.c2txy', '23')
 
   vvd(rc2t[2][0], 0.5773474028619264494e-3, 1e-12,
-    "Celes::c2txy", "31")
+    'Celes.c2txy', '31')
   vvd(rc2t[2][1], 0.3961816546911624260e-4, 1e-12,
-    "Celes::c2txy", "32")
+    'Celes.c2txy', '32')
   vvd(rc2t[2][2], 0.9999998325501746670, 1e-12,
-    "Celes::c2txy", "33")
+    'Celes.c2txy', '33')
 end
 
 #static void t_cal2jd(int *status)
 #{
-=======
-  rc2t = Celes.c2txy(tta, ttb, uta, utb, x, y, xp, yp)
-
-  vvd(rc2t[0][0], -0.1810332128306279253, 1e-12,
-      'Celes::c2txy', '11')
-  vvd(rc2t[0][1], 0.9834769806938520084, 1e-12,
-      'Celes::c2txy', '12')
-  vvd(rc2t[0][2], 0.6555551248057665829e-4, 1e-12,
-      'Celes::c2txy', '13')
-
-  vvd(rc2t[1][0], -0.9834768134136142314, 1e-12,
-      'Celes::c2txy', '21')
-  vvd(rc2t[1][1], -0.1810332203649529312, 1e-12,
-      'Celes::c2txy', '22')
-  vvd(rc2t[1][2], 0.5749800843594139912e-3, 1e-12,
-      'Celes::c2txy', '23')
-
-  vvd(rc2t[2][0], 0.5773474028619264494e-3, 1e-12,
-      'Celes::c2txy', '31')
-  vvd(rc2t[2][1], 0.3961816546911624260e-4, 1e-12,
-      'Celes::c2txy', '32')
-  vvd(rc2t[2][2], 0.9999998325501746670, 1e-12,
-      'Celes::c2txy', '33')
-end
-
-# static void t_cal2jd(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	int j
 #	double djm0, djm
 #
 #
-#	j = Celes::cal2jd(2003, 06, 01, &djm0, &djm)
+#	j = Celes.cal2jd(2003, 06, 01, &djm0, &djm)
 #
-#	vvd(djm0, 2400000.5, 0.0, "Celes::cal2jd", "djm0")
-#	vvd(djm,    52791.0, 0.0, "Celes::cal2jd", "djm")
+#	vvd(djm0, 2400000.5, 0.0, 'Celes.cal2jd', 'djm0')
+#	vvd(djm,    52791.0, 0.0, 'Celes.cal2jd', 'djm')
 #
-#	viv(j, 0, "Celes::cal2jd", "j")
+#	viv(j, 0, 'Celes.cal2jd', 'j')
 #
-# }
+#}
 def t_cal2jd
-<<<<<<< HEAD
-  djm0, djm = Celes::cal2jd(2003, 6, 1)
-
-  vvd(djm0, 2400000.5, 0.0, "Celes::cal2jd", "djm0")
-  vvd(djm, 52791.0, 0.0, "Celes::cal2jd", "djm")
-
-  viv(Celes::status, 0, "Celes::cal2jd", "j")
-=======
   djm0, djm = Celes.cal2jd(2003, 6, 1)
 
-  vvd(djm0, 2_400_000.5, 0.0, 'Celes::cal2jd', 'djm0')
-  vvd(djm, 52_791.0, 0.0, 'Celes::cal2jd', 'djm')
+  vvd(djm0, 2400000.5, 0.0, 'Celes.cal2jd', 'djm0')
+  vvd(djm, 52791.0, 0.0, 'Celes.cal2jd', 'djm')
 
-  viv(Celes.status, 0, 'Celes::cal2jd', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  viv(Celes.status, 0, 'Celes.cal2jd', 'j')
 end
 
-# static void t_cp(int *status)
-# {
+#static void t_cp(int *status)
+#{
 #	double p[3], c[3]
 #
 #
@@ -2101,12 +1438,12 @@ end
 #	p[1] =  1.2
 #	p[2] = -2.5
 #
-#	Celes::cp(p, c)
+#	Celes.cp(p, c)
 #
-#	vvd(c[0],  0.3, 0.0, "Celes::cp", "1")
-#	vvd(c[1],  1.2, 0.0, "Celes::cp", "2")
-#	vvd(c[2], -2.5, 0.0, "Celes::cp", "3")
-# }
+#	vvd(c[0],  0.3, 0.0, 'Celes.cp', '1')
+#	vvd(c[1],  1.2, 0.0, 'Celes.cp', '2')
+#	vvd(c[2], -2.5, 0.0, 'Celes.cp', '3')
+#}
 def t_cp
   p = []
 
@@ -2114,23 +1451,15 @@ def t_cp
   p[1] =  1.2
   p[2] = -2.5
 
-<<<<<<< HEAD
-  c = Celes::cp(p)
-
-  vvd(c[0],  0.3, 0.0, "Celes::cp", "1")
-  vvd(c[1],  1.2, 0.0, "Celes::cp", "2")
-  vvd(c[2], -2.5, 0.0, "Celes::cp", "3")
-=======
   c = Celes.cp(p)
 
-  vvd(c[0],  0.3, 0.0, 'Celes::cp', '1')
-  vvd(c[1],  1.2, 0.0, 'Celes::cp', '2')
-  vvd(c[2], -2.5, 0.0, 'Celes::cp', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(c[0],  0.3, 0.0, 'Celes.cp', '1')
+  vvd(c[1],  1.2, 0.0, 'Celes.cp', '2')
+  vvd(c[2], -2.5, 0.0, 'Celes.cp', '3')
 end
 
-# static void t_cpv(int *status)
-# {
+#static void t_cpv(int *status)
+#{
 #	double pv[2][3], c[2][3]
 #
 #
@@ -2142,17 +1471,17 @@ end
 #	pv[1][1] =  3.1
 #	pv[1][2] =  0.9
 #
-#	Celes::cpv(pv, c)
+#	Celes.cpv(pv, c)
 #
-#	vvd(c[0][0],  0.3, 0.0, "Celes::cpv", "p1")
-#	vvd(c[0][1],  1.2, 0.0, "Celes::cpv", "p2")
-#	vvd(c[0][2], -2.5, 0.0, "Celes::cpv", "p3")
+#	vvd(c[0][0],  0.3, 0.0, 'Celes.cpv', 'p1')
+#	vvd(c[0][1],  1.2, 0.0, 'Celes.cpv', 'p2')
+#	vvd(c[0][2], -2.5, 0.0, 'Celes.cpv', 'p3')
 #
-#	vvd(c[1][0], -0.5, 0.0, "Celes::cpv", "v1")
-#	vvd(c[1][1],  3.1, 0.0, "Celes::cpv", "v2")
-#	vvd(c[1][2],  0.9, 0.0, "Celes::cpv", "v3")
+#	vvd(c[1][0], -0.5, 0.0, 'Celes.cpv', 'v1')
+#	vvd(c[1][1],  3.1, 0.0, 'Celes.cpv', 'v2')
+#	vvd(c[1][2],  0.9, 0.0, 'Celes.cpv', 'v3')
 #
-# }
+#}
 def t_cpv
   pv = [[], []]
 
@@ -2164,31 +1493,19 @@ def t_cpv
   pv[1][1] =  3.1
   pv[1][2] =  0.9
 
-<<<<<<< HEAD
-  c = Celes::cpv(pv)
-
-  vvd(c[0][0],  0.3, 0.0, "Celes::cpv", "p1")
-  vvd(c[0][1],  1.2, 0.0, "Celes::cpv", "p2")
-  vvd(c[0][2], -2.5, 0.0, "Celes::cpv", "p3")
-
-  vvd(c[1][0], -0.5, 0.0, "Celes::cpv", "v1")
-  vvd(c[1][1],  3.1, 0.0, "Celes::cpv", "v2")
-  vvd(c[1][2],  0.9, 0.0, "Celes::cpv", "v3")
-=======
   c = Celes.cpv(pv)
 
-  vvd(c[0][0],  0.3, 0.0, 'Celes::cpv', 'p1')
-  vvd(c[0][1],  1.2, 0.0, 'Celes::cpv', 'p2')
-  vvd(c[0][2], -2.5, 0.0, 'Celes::cpv', 'p3')
+  vvd(c[0][0],  0.3, 0.0, 'Celes.cpv', 'p1')
+  vvd(c[0][1],  1.2, 0.0, 'Celes.cpv', 'p2')
+  vvd(c[0][2], -2.5, 0.0, 'Celes.cpv', 'p3')
 
-  vvd(c[1][0], -0.5, 0.0, 'Celes::cpv', 'v1')
-  vvd(c[1][1],  3.1, 0.0, 'Celes::cpv', 'v2')
-  vvd(c[1][2],  0.9, 0.0, 'Celes::cpv', 'v3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(c[1][0], -0.5, 0.0, 'Celes.cpv', 'v1')
+  vvd(c[1][1],  3.1, 0.0, 'Celes.cpv', 'v2')
+  vvd(c[1][2],  0.9, 0.0, 'Celes.cpv', 'v3')
 end
 
-# static void t_cr(int *status)
-# {
+#static void t_cr(int *status)
+#{
 #	double r[3][3], c[3][3]
 #
 #
@@ -2204,20 +1521,20 @@ end
 #	r[2][1] = 4.0
 #	r[2][2] = 5.0
 #
-#	Celes::cr(r, c)
+#	Celes.cr(r, c)
 #
-#	vvd(c[0][0], 2.0, 0.0, "Celes::cr", "11")
-#	vvd(c[0][1], 3.0, 0.0, "Celes::cr", "12")
-#	vvd(c[0][2], 2.0, 0.0, "Celes::cr", "13")
+#	vvd(c[0][0], 2.0, 0.0, 'Celes.cr', '11')
+#	vvd(c[0][1], 3.0, 0.0, 'Celes.cr', '12')
+#	vvd(c[0][2], 2.0, 0.0, 'Celes.cr', '13')
 #
-#	vvd(c[1][0], 3.0, 0.0, "Celes::cr", "21")
-#	vvd(c[1][1], 2.0, 0.0, "Celes::cr", "22")
-#	vvd(c[1][2], 3.0, 0.0, "Celes::cr", "23")
+#	vvd(c[1][0], 3.0, 0.0, 'Celes.cr', '21')
+#	vvd(c[1][1], 2.0, 0.0, 'Celes.cr', '22')
+#	vvd(c[1][2], 3.0, 0.0, 'Celes.cr', '23')
 #
-#	vvd(c[2][0], 3.0, 0.0, "Celes::cr", "31")
-#	vvd(c[2][1], 4.0, 0.0, "Celes::cr", "32")
-#	vvd(c[2][2], 5.0, 0.0, "Celes::cr", "33")
-# }
+#	vvd(c[2][0], 3.0, 0.0, 'Celes.cr', '31')
+#	vvd(c[2][1], 4.0, 0.0, 'Celes.cr', '32')
+#	vvd(c[2][2], 5.0, 0.0, 'Celes.cr', '33')
+#}
 def t_cr
   r = [[], [], []]
 
@@ -2233,446 +1550,311 @@ def t_cr
   r[2][1] = 4.0
   r[2][2] = 5.0
 
-<<<<<<< HEAD
-  c = Celes::cr(r)
-
-  vvd(c[0][0], 2.0, 0.0, "Celes::cr", "11")
-  vvd(c[0][1], 3.0, 0.0, "Celes::cr", "12")
-  vvd(c[0][2], 2.0, 0.0, "Celes::cr", "13")
-
-  vvd(c[1][0], 3.0, 0.0, "Celes::cr", "21")
-  vvd(c[1][1], 2.0, 0.0, "Celes::cr", "22")
-  vvd(c[1][2], 3.0, 0.0, "Celes::cr", "23")
-
-  vvd(c[2][0], 3.0, 0.0, "Celes::cr", "31")
-  vvd(c[2][1], 4.0, 0.0, "Celes::cr", "32")
-  vvd(c[2][2], 5.0, 0.0, "Celes::cr", "33")
-=======
   c = Celes.cr(r)
 
-  vvd(c[0][0], 2.0, 0.0, 'Celes::cr', '11')
-  vvd(c[0][1], 3.0, 0.0, 'Celes::cr', '12')
-  vvd(c[0][2], 2.0, 0.0, 'Celes::cr', '13')
+  vvd(c[0][0], 2.0, 0.0, 'Celes.cr', '11')
+  vvd(c[0][1], 3.0, 0.0, 'Celes.cr', '12')
+  vvd(c[0][2], 2.0, 0.0, 'Celes.cr', '13')
 
-  vvd(c[1][0], 3.0, 0.0, 'Celes::cr', '21')
-  vvd(c[1][1], 2.0, 0.0, 'Celes::cr', '22')
-  vvd(c[1][2], 3.0, 0.0, 'Celes::cr', '23')
+  vvd(c[1][0], 3.0, 0.0, 'Celes.cr', '21')
+  vvd(c[1][1], 2.0, 0.0, 'Celes.cr', '22')
+  vvd(c[1][2], 3.0, 0.0, 'Celes.cr', '23')
 
-  vvd(c[2][0], 3.0, 0.0, 'Celes::cr', '31')
-  vvd(c[2][1], 4.0, 0.0, 'Celes::cr', '32')
-  vvd(c[2][2], 5.0, 0.0, 'Celes::cr', '33')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(c[2][0], 3.0, 0.0, 'Celes.cr', '31')
+  vvd(c[2][1], 4.0, 0.0, 'Celes.cr', '32')
+  vvd(c[2][2], 5.0, 0.0, 'Celes.cr', '33')
 end
 
-# static void t_d2dtf(int *status )
-# {
+#static void t_d2dtf(int *status )
+#{
 #	int j, iy, im, id, ihmsf[4]
 #
 #
-#	j = Celes::d2dtf("UTC", 5, 2400000.5, 49533.99999, &iy, &im, &id, ihmsf)
+#	j = Celes.d2dtf('UTC', 5, 2400000.5, 49533.99999, &iy, &im, &id, ihmsf)
 #
-#	viv(iy, 1994, "Celes::d2dtf", "y")
-#	viv(im, 6, "Celes::d2dtf", "mo")
-#	viv(id, 30, "Celes::d2dtf", "d")
-#	viv(ihmsf[0], 23, "Celes::d2dtf", "h")
-#	viv(ihmsf[1], 59, "Celes::d2dtf", "m")
-#	viv(ihmsf[2], 60, "Celes::d2dtf", "s")
-#	viv(ihmsf[3], 13599, "Celes::d2dtf", "f")
-#	viv(j, 0, "Celes::d2dtf", "j")
+#	viv(iy, 1994, 'Celes.d2dtf', 'y')
+#	viv(im, 6, 'Celes.d2dtf', 'mo')
+#	viv(id, 30, 'Celes.d2dtf', 'd')
+#	viv(ihmsf[0], 23, 'Celes.d2dtf', 'h')
+#	viv(ihmsf[1], 59, 'Celes.d2dtf', 'm')
+#	viv(ihmsf[2], 60, 'Celes.d2dtf', 's')
+#	viv(ihmsf[3], 13599, 'Celes.d2dtf', 'f')
+#	viv(j, 0, 'Celes.d2dtf', 'j')
 #
-# }
+#}
 def t_d2dtf
-<<<<<<< HEAD
-  iy, im, id, ihmsf = Celes::d2dtf("UTC", 5, 2400000.5, 49533.99999)
+  iy, im, id, ihmsf = Celes.d2dtf('UTC', 5, 2400000.5, 49533.99999)
 
-  viv(iy, 1994, "Celes::d2dtf", "y")
-  viv(im, 6, "Celes::d2dtf", "mo")
-  viv(id, 30, "Celes::d2dtf", "d")
-  viv(ihmsf[0], 23, "Celes::d2dtf", "h")
-  viv(ihmsf[1], 59, "Celes::d2dtf", "m")
-  viv(ihmsf[2], 60, "Celes::d2dtf", "s")
-  viv(ihmsf[3], 13599, "Celes::d2dtf", "f")
-  viv(Celes::status, 0, "Celes::d2dtf", "j")
-=======
-  iy, im, id, ihmsf = Celes.d2dtf('UTC', 5, 2_400_000.5, 49_533.99999)
-
-  viv(iy, 1994, 'Celes::d2dtf', 'y')
-  viv(im, 6, 'Celes::d2dtf', 'mo')
-  viv(id, 30, 'Celes::d2dtf', 'd')
-  viv(ihmsf[0], 23, 'Celes::d2dtf', 'h')
-  viv(ihmsf[1], 59, 'Celes::d2dtf', 'm')
-  viv(ihmsf[2], 60, 'Celes::d2dtf', 's')
-  viv(ihmsf[3], 13_599, 'Celes::d2dtf', 'f')
-  viv(Celes.status, 0, 'Celes::d2dtf', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  viv(iy, 1994, 'Celes.d2dtf', 'y')
+  viv(im, 6, 'Celes.d2dtf', 'mo')
+  viv(id, 30, 'Celes.d2dtf', 'd')
+  viv(ihmsf[0], 23, 'Celes.d2dtf', 'h')
+  viv(ihmsf[1], 59, 'Celes.d2dtf', 'm')
+  viv(ihmsf[2], 60, 'Celes.d2dtf', 's')
+  viv(ihmsf[3], 13599, 'Celes.d2dtf', 'f')
+  viv(Celes.status, 0, 'Celes.d2dtf', 'j')
 end
 
-# static void t_d2tf(int *status)
-# {
+#static void t_d2tf(int *status)
+#{
 #	int ihmsf[4]
 #	char s
 #
 #
-#	Celes::d2tf(4, -0.987654321, &s, ihmsf)
+#	Celes.d2tf(4, -0.987654321, &s, ihmsf)
 #
-#	viv((int)s, '-', "Celes::d2tf", "s")
+#	viv((int)s, '-', 'Celes.d2tf', 's')
 #
-#	viv(ihmsf[0], 23, "Celes::d2tf", "0")
-#	viv(ihmsf[1], 42, "Celes::d2tf", "1")
-#	viv(ihmsf[2], 13, "Celes::d2tf", "2")
-#	viv(ihmsf[3], 3333, "Celes::d2tf", "3")
+#	viv(ihmsf[0], 23, 'Celes.d2tf', '0')
+#	viv(ihmsf[1], 42, 'Celes.d2tf', '1')
+#	viv(ihmsf[2], 13, 'Celes.d2tf', '2')
+#	viv(ihmsf[3], 3333, 'Celes.d2tf', '3')
 #
-# }
+#}
 def t_d2tf
-<<<<<<< HEAD
-  s, ihmsf = Celes::d2tf(4, -0.987654321)
-
-  viv(s.ord, '-'.ord, "Celes::d2tf", "s")
-
-  viv(ihmsf[0], 23, "Celes::d2tf", "0")
-  viv(ihmsf[1], 42, "Celes::d2tf", "1")
-  viv(ihmsf[2], 13, "Celes::d2tf", "2")
-  viv(ihmsf[3], 3333, "Celes::d2tf", "3")
-=======
   s, ihmsf = Celes.d2tf(4, -0.987654321)
 
-  viv(s.ord, '-'.ord, 'Celes::d2tf', 's')
+  viv(s.ord, '-'.ord, 'Celes.d2tf', 's')
 
-  viv(ihmsf[0], 23, 'Celes::d2tf', '0')
-  viv(ihmsf[1], 42, 'Celes::d2tf', '1')
-  viv(ihmsf[2], 13, 'Celes::d2tf', '2')
-  viv(ihmsf[3], 3333, 'Celes::d2tf', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  viv(ihmsf[0], 23, 'Celes.d2tf', '0')
+  viv(ihmsf[1], 42, 'Celes.d2tf', '1')
+  viv(ihmsf[2], 13, 'Celes.d2tf', '2')
+  viv(ihmsf[3], 3333, 'Celes.d2tf', '3')
 end
 
-# static void t_dat(int *status)
-# {
+#static void t_dat(int *status)
+#{
 #	int j
 #	double deltat
 #
 #
-#	j = Celes::dat(2003, 6, 1, 0.0, &deltat)
+#	j = Celes.dat(2003, 6, 1, 0.0, &deltat)
 #
-#	vvd(deltat, 32.0, 0.0, "Celes::dat", "d1")
-#	viv(j, 0, "Celes::dat", "j1")
+#	vvd(deltat, 32.0, 0.0, 'Celes.dat', 'd1')
+#	viv(j, 0, 'Celes.dat', 'j1')
 #
-#	j = Celes::dat(2008, 1, 17, 0.0, &deltat)
+#	j = Celes.dat(2008, 1, 17, 0.0, &deltat)
 #
-#	vvd(deltat, 33.0, 0.0, "Celes::dat", "d2")
-#	viv(j, 0, "Celes::dat", "j2")
+#	vvd(deltat, 33.0, 0.0, 'Celes.dat', 'd2')
+#	viv(j, 0, 'Celes.dat', 'j2')
 #
-# }
+#}
 def t_dat
-<<<<<<< HEAD
-  deltat = Celes::dat(2003, 6, 1, 0.0)
-
-  vvd(deltat, 32.0, 0.0, "Celes::dat", "d1")
-  viv(Celes::status, 0, "Celes::dat", "j1")
-
-  deltat = Celes::dat(2008, 1, 17, 0.0)
-
-  vvd(deltat, 33.0, 0.0, "Celes::dat", "d2")
-  viv(Celes::status, 0, "Celes::dat", "j2")
-=======
   deltat = Celes.dat(2003, 6, 1, 0.0)
 
-  vvd(deltat, 32.0, 0.0, 'Celes::dat', 'd1')
-  viv(Celes.status, 0, 'Celes::dat', 'j1')
+  vvd(deltat, 32.0, 0.0, 'Celes.dat', 'd1')
+  viv(Celes.status, 0, 'Celes.dat', 'j1')
 
   deltat = Celes.dat(2008, 1, 17, 0.0)
 
-  vvd(deltat, 33.0, 0.0, 'Celes::dat', 'd2')
-  viv(Celes.status, 0, 'Celes::dat', 'j2')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(deltat, 33.0, 0.0, 'Celes.dat', 'd2')
+  viv(Celes.status, 0, 'Celes.dat', 'j2')
 end
 
-# static void t_dtdb(int *status)
-# {
+#static void t_dtdb(int *status)
+#{
 #	double dtdb
 #
 #
-#	dtdb = Celes::dtdb(2448939.5, 0.123, 0.76543, 5.0123, 5525.242, 3190.0)
+#	dtdb = Celes.dtdb(2448939.5, 0.123, 0.76543, 5.0123, 5525.242, 3190.0)
 #
-#	vvd(dtdb, -0.1280368005936998991e-2, 1e-15, "Celes::dtdb", "")
+#	vvd(dtdb, -0.1280368005936998991e-2, 1e-15, 'Celes.dtdb', '')
 #
-# }
+#}
 def t_dtdb
-<<<<<<< HEAD
-  dtdb = Celes::dtdb(2448939.5, 0.123, 0.76543, 5.0123, 5525.242, 3190.0)
+  dtdb = Celes.dtdb(2448939.5, 0.123, 0.76543, 5.0123, 5525.242, 3190.0)
 
-  vvd(dtdb, -0.1280368005936998991e-2, 1e-15, "Celes::dtdb", "")
-=======
-  dtdb = Celes.dtdb(2_448_939.5, 0.123, 0.76543, 5.0123, 5525.242, 3190.0)
-
-  vvd(dtdb, -0.1280368005936998991e-2, 1e-15, 'Celes::dtdb', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(dtdb, -0.1280368005936998991e-2, 1e-15, 'Celes.dtdb', '')
 end
 
-# static void t_dtf2d(int *status)
-# {
+#static void t_dtf2d(int *status)
+#{
 #	double u1, u2
 #	int j
 #
 #
-#	j = Celes::dtf2d("UTC", 1994, 6, 30, 23, 59, 60.13599, &u1, &u2)
+#	j = Celes.dtf2d('UTC', 1994, 6, 30, 23, 59, 60.13599, &u1, &u2)
 #
-#	vvd(u1+u2, 2449534.49999, 1e-6, "Celes::dtf2d", "u")
-#	viv(j, 0, "Celes::dtf2d", "j")
+#	vvd(u1+u2, 2449534.49999, 1e-6, 'Celes.dtf2d', 'u')
+#	viv(j, 0, 'Celes.dtf2d', 'j')
 #
-# }
+#}
 def t_dtf2d
-<<<<<<< HEAD
-  u1, u2 = Celes::dtf2d("UTC", 1994, 6, 30, 23, 59, 60.13599)
-
-  vvd(u1+u2, 2449534.49999, 1e-6, "Celes::dtf2d", "u")
-  viv(Celes::status, 0, "Celes::dtf2d", "j")
-=======
   u1, u2 = Celes.dtf2d('UTC', 1994, 6, 30, 23, 59, 60.13599)
 
-  vvd(u1 + u2, 2_449_534.49999, 1e-6, 'Celes::dtf2d', 'u')
-  viv(Celes.status, 0, 'Celes::dtf2d', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(u1+u2, 2449534.49999, 1e-6, 'Celes.dtf2d', 'u')
+  viv(Celes.status, 0, 'Celes.dtf2d', 'j')
 end
 
-# static void t_ee00(int *status)
-# {
+#static void t_ee00(int *status)
+#{
 #	double epsa, dpsi, ee
 #
 #
 #	epsa =  0.4090789763356509900
 #	dpsi = -0.9630909107115582393e-5
 #
-#	ee = Celes::ee00(2400000.5, 53736.0, epsa, dpsi)
+#	ee = Celes.ee00(2400000.5, 53736.0, epsa, dpsi)
 #
-#	vvd(ee, -0.8834193235367965479e-5, 1e-18, "Celes::ee00", "")
+#	vvd(ee, -0.8834193235367965479e-5, 1e-18, 'Celes.ee00', '')
 #
-# }
+#}
 def t_ee00
   epsa =  0.4090789763356509900
   dpsi = -0.9630909107115582393e-5
 
-<<<<<<< HEAD
-  ee = Celes::ee00(2400000.5, 53736.0, epsa, dpsi)
+  ee = Celes.ee00(2400000.5, 53736.0, epsa, dpsi)
 
-  vvd(ee, -0.8834193235367965479e-5, 1e-18, "Celes::ee00", "")
-=======
-  ee = Celes.ee00(2_400_000.5, 53_736.0, epsa, dpsi)
-
-  vvd(ee, -0.8834193235367965479e-5, 1e-18, 'Celes::ee00', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(ee, -0.8834193235367965479e-5, 1e-18, 'Celes.ee00', '')
 end
 
-# static void t_ee00a(int *status)
-# {
+#static void t_ee00a(int *status)
+#{
 #	double ee
 #
 #
-#	ee = Celes::ee00a(2400000.5, 53736.0)
+#	ee = Celes.ee00a(2400000.5, 53736.0)
 #
-#	vvd(ee, -0.8834192459222588227e-5, 1e-18, "Celes::ee00a", "")
+#	vvd(ee, -0.8834192459222588227e-5, 1e-18, 'Celes.ee00a', '')
 #
-# }
+#}
 def t_ee00a
-<<<<<<< HEAD
-  ee = Celes::ee00a(2400000.5, 53736.0)
+  ee = Celes.ee00a(2400000.5, 53736.0)
 
-  vvd(ee, -0.8834192459222588227e-5, 1e-18, "Celes::ee00a", "")
-=======
-  ee = Celes.ee00a(2_400_000.5, 53_736.0)
-
-  vvd(ee, -0.8834192459222588227e-5, 1e-18, 'Celes::ee00a', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(ee, -0.8834192459222588227e-5, 1e-18, 'Celes.ee00a', '')
 end
 
-# static void t_ee00b(int *status)
-# {
+#static void t_ee00b(int *status)
+#{
 #	double ee
 #
 #
-#	ee = Celes::ee00b(2400000.5, 53736.0)
+#	ee = Celes.ee00b(2400000.5, 53736.0)
 #
-#	vvd(ee, -0.8835700060003032831e-5, 1e-18, "Celes::ee00b", "")
+#	vvd(ee, -0.8835700060003032831e-5, 1e-18, 'Celes.ee00b', '')
 #
-# }
+#}
 def t_ee00b
-<<<<<<< HEAD
-  ee = Celes::ee00b(2400000.5, 53736.0)
+  ee = Celes.ee00b(2400000.5, 53736.0)
 
-  vvd(ee, -0.8835700060003032831e-5, 1e-18, "Celes::ee00b", "")
-=======
-  ee = Celes.ee00b(2_400_000.5, 53_736.0)
-
-  vvd(ee, -0.8835700060003032831e-5, 1e-18, 'Celes::ee00b', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(ee, -0.8835700060003032831e-5, 1e-18, 'Celes.ee00b', '')
 end
 
-# static void t_ee06a(int *status)
-# {
+#static void t_ee06a(int *status)
+#{
 #	double ee
 #
 #
-#	ee = Celes::ee06a(2400000.5, 53736.0)
+#	ee = Celes.ee06a(2400000.5, 53736.0)
 #
-#	vvd(ee, -0.8834195072043790156e-5, 1e-15, "Celes::ee06a", "")
-# }
+#	vvd(ee, -0.8834195072043790156e-5, 1e-15, 'Celes.ee06a', '')
+#}
 def t_ee06a
-<<<<<<< HEAD
-  ee = Celes::ee06a(2400000.5, 53736.0)
+  ee = Celes.ee06a(2400000.5, 53736.0)
 
-  vvd(ee, -0.8834195072043790156e-5, 1e-15, "Celes::ee06a", "")
-=======
-  ee = Celes.ee06a(2_400_000.5, 53_736.0)
-
-  vvd(ee, -0.8834195072043790156e-5, 1e-15, 'Celes::ee06a', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(ee, -0.8834195072043790156e-5, 1e-15, 'Celes.ee06a', '')
 end
 
-# static void t_eect00(int *status)
-# {
+#static void t_eect00(int *status)
+#{
 #	double eect
 #
 #
-#	eect = Celes::eect00(2400000.5, 53736.0)
+#	eect = Celes.eect00(2400000.5, 53736.0)
 #
-#	vvd(eect, 0.2046085004885125264e-8, 1e-20, "Celes::eect00", "")
+#	vvd(eect, 0.2046085004885125264e-8, 1e-20, 'Celes.eect00', '')
 #
-# }
+#}
 def t_eect00
-<<<<<<< HEAD
-  eect = Celes::eect00(2400000.5, 53736.0)
+  eect = Celes.eect00(2400000.5, 53736.0)
 
-  vvd(eect, 0.2046085004885125264e-8, 1e-20, "Celes::eect00", "")
-=======
-  eect = Celes.eect00(2_400_000.5, 53_736.0)
-
-  vvd(eect, 0.2046085004885125264e-8, 1e-20, 'Celes::eect00', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(eect, 0.2046085004885125264e-8, 1e-20, 'Celes.eect00', '')
 end
 
-# static void t_eform(int *status)
-# {
+#static void t_eform(int *status)
+#{
 #	int j
 #	double a, f
 #
-#	j = Celes::eform(0, &a, &f)
+#	j = Celes.eform(0, &a, &f)
 #
-#	viv(j, -1, "Celes::eform", "j0")
+#	viv(j, -1, 'Celes.eform', 'j0')
 #
-#	j = Celes::eform(WGS84, &a, &f)
+#	j = Celes.eform(WGS84, &a, &f)
 #
-#	viv(j, 0, "Celes::eform", "j1")
-#	vvd(a, 6378137.0, 1e-10, "Celes::eform", "a1")
-#	vvd(f, 0.0033528106647474807, 1e-18, "Celes::eform", "f1")
+#	viv(j, 0, 'Celes.eform', 'j1')
+#	vvd(a, 6378137.0, 1e-10, 'Celes.eform', 'a1')
+#	vvd(f, 0.0033528106647474807, 1e-18, 'Celes.eform', 'f1')
 #
-#	j = Celes::eform(GRS80, &a, &f)
+#	j = Celes.eform(GRS80, &a, &f)
 #
-#	viv(j, 0, "Celes::eform", "j2")
-#	vvd(a, 6378137.0, 1e-10, "Celes::eform", "a2")
-#	vvd(f, 0.0033528106811823189, 1e-18, "Celes::eform", "f2")
+#	viv(j, 0, 'Celes.eform', 'j2')
+#	vvd(a, 6378137.0, 1e-10, 'Celes.eform', 'a2')
+#	vvd(f, 0.0033528106811823189, 1e-18, 'Celes.eform', 'f2')
 #
-#	j = Celes::eform(WGS72, &a, &f)
+#	j = Celes.eform(WGS72, &a, &f)
 #
-#	viv(j, 0, "Celes::eform", "j2")
-#	vvd(a, 6378135.0, 1e-10, "Celes::eform", "a3")
-#	vvd(f, 0.0033527794541675049, 1e-18, "Celes::eform", "f3")
+#	viv(j, 0, 'Celes.eform', 'j2')
+#	vvd(a, 6378135.0, 1e-10, 'Celes.eform', 'a3')
+#	vvd(f, 0.0033527794541675049, 1e-18, 'Celes.eform', 'f3')
 #
-#	j = Celes::eform(4, &a, &f)
-#	viv(j, -1, "Celes::eform", "j3")
-# }
+#	j = Celes.eform(4, &a, &f)
+#	viv(j, -1, 'Celes.eform', 'j3')
+#}
 def t_eform
   begin
-<<<<<<< HEAD
-    a, f = Celes::eform(0)
-  rescue
-    nil
-  ensure
-    viv(Celes::status, -1, "Celes::eform", "j0")
-  end
-
-  a, f = Celes::eform(Celes::WGS84)
-
-  viv(Celes::status, 0, "Celes::eform", "j1")
-  vvd(a, 6378137.0, 1e-10, "Celes::eform", "a1")
-  vvd(f, 0.0033528106647474807, 1e-18, "Celes::eform", "f1")
-
-  a, f = Celes::eform(Celes::GRS80)
-
-  viv(Celes::status, 0, "Celes::eform", "j2")
-  vvd(a, 6378137.0, 1e-10, "Celes::eform", "a2")
-  vvd(f, 0.0033528106811823189, 1e-18, "Celes::eform", "f2")
-
-  a, f = Celes::eform(Celes::WGS72)
-
-  viv(Celes::status, 0, "Celes::eform", "j2")
-  vvd(a, 6378135.0, 1e-10, "Celes::eform", "a3")
-  vvd(f, 0.0033527794541675049, 1e-18, "Celes::eform", "f3")
-
-  begin
-    a, f = Celes::eform(4)
-  rescue
-    nil
-  ensure
-    viv(Celes::status, -1, "Celes::eform", "j3")
-=======
     a, f = Celes.eform(0)
   rescue
     nil
   ensure
-    viv(Celes.status, -1, 'Celes::eform', 'j0')
+    viv(Celes.status, -1, 'Celes.eform', 'j0')
   end
 
   a, f = Celes.eform(Celes::WGS84)
 
-  viv(Celes.status, 0, 'Celes::eform', 'j1')
-  vvd(a, 6_378_137.0, 1e-10, 'Celes::eform', 'a1')
-  vvd(f, 0.0033528106647474807, 1e-18, 'Celes::eform', 'f1')
+  viv(Celes.status, 0, 'Celes.eform', 'j1')
+  vvd(a, 6378137.0, 1e-10, 'Celes.eform', 'a1')
+  vvd(f, 0.0033528106647474807, 1e-18, 'Celes.eform', 'f1')
 
   a, f = Celes.eform(Celes::GRS80)
 
-  viv(Celes.status, 0, 'Celes::eform', 'j2')
-  vvd(a, 6_378_137.0, 1e-10, 'Celes::eform', 'a2')
-  vvd(f, 0.0033528106811823189, 1e-18, 'Celes::eform', 'f2')
+  viv(Celes.status, 0, 'Celes.eform', 'j2')
+  vvd(a, 6378137.0, 1e-10, 'Celes.eform', 'a2')
+  vvd(f, 0.0033528106811823189, 1e-18, 'Celes.eform', 'f2')
 
   a, f = Celes.eform(Celes::WGS72)
 
-  viv(Celes.status, 0, 'Celes::eform', 'j2')
-  vvd(a, 6_378_135.0, 1e-10, 'Celes::eform', 'a3')
-  vvd(f, 0.0033527794541675049, 1e-18, 'Celes::eform', 'f3')
+  viv(Celes.status, 0, 'Celes.eform', 'j2')
+  vvd(a, 6378135.0, 1e-10, 'Celes.eform', 'a3')
+  vvd(f, 0.0033527794541675049, 1e-18, 'Celes.eform', 'f3')
 
   begin
     a, f = Celes.eform(4)
   rescue
     nil
   ensure
-    viv(Celes.status, -1, 'Celes::eform', 'j3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    viv(Celes.status, -1, 'Celes.eform', 'j3')
   end
 end
 
-# static void t_eo06a(int *status)
-# {
+#static void t_eo06a(int *status)
+#{
 #	double eo
 #
 #
-#	eo = Celes::eo06a(2400000.5, 53736.0)
+#	eo = Celes.eo06a(2400000.5, 53736.0)
 #
-#	vvd(eo, -0.1332882371941833644e-2, 1e-15, "Celes::eo06a", "")
+#	vvd(eo, -0.1332882371941833644e-2, 1e-15, 'Celes.eo06a', '')
 #
-# }
+#}
 def t_eo06a
-<<<<<<< HEAD
-  eo = Celes::eo06a(2400000.5, 53736.0)
+  eo = Celes.eo06a(2400000.5, 53736.0)
 
-  vvd(eo, -0.1332882371941833644e-2, 1e-15, "Celes::eo06a", "")
-=======
-  eo = Celes.eo06a(2_400_000.5, 53_736.0)
-
-  vvd(eo, -0.1332882371941833644e-2, 1e-15, 'Celes::eo06a', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(eo, -0.1332882371941833644e-2, 1e-15, 'Celes.eo06a', '')
 end
 
-# static void t_eors(int *status)
-# {
+#static void t_eors(int *status)
+#{
 #	double rnpb[3][3], s, eo
 #
 #
@@ -2690,11 +1872,11 @@ end
 #
 #	s = -0.1220040848472271978e-7
 #
-#	eo = Celes::eors(rnpb, s)
+#	eo = Celes.eors(rnpb, s)
 #
-#	vvd(eo, -0.1332882715130744606e-2, 1e-14, "Celes::eors", "")
+#	vvd(eo, -0.1332882715130744606e-2, 1e-14, 'Celes.eors', '')
 #
-# }
+#}
 def t_eors
   rnpb = [[], [], []]
 
@@ -2712,486 +1894,334 @@ def t_eors
 
   s = -0.1220040848472271978e-7
 
-<<<<<<< HEAD
-  eo = Celes::eors(rnpb, s)
-
-  vvd(eo, -0.1332882715130744606e-2, 1e-14, "Celes::eors", "")
-=======
   eo = Celes.eors(rnpb, s)
 
-  vvd(eo, -0.1332882715130744606e-2, 1e-14, 'Celes::eors', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(eo, -0.1332882715130744606e-2, 1e-14, 'Celes.eors', '')
 end
 
-# static void t_epb(int *status)
-# {
+#static void t_epb(int *status)
+#{
 #	double epb
 #
 #
-#	epb = Celes::epb(2415019.8135, 30103.18648)
+#	epb = Celes.epb(2415019.8135, 30103.18648)
 #
-#	vvd(epb, 1982.418424159278580, 1e-12, "Celes::epb", "")
+#	vvd(epb, 1982.418424159278580, 1e-12, 'Celes.epb', '')
 #
-# }
+#}
 def t_epb
-<<<<<<< HEAD
-  epb = Celes::epb(2415019.8135, 30103.18648)
+  epb = Celes.epb(2415019.8135, 30103.18648)
 
-  vvd(epb, 1982.418424159278580, 1e-12, "Celes::epb", "")
-=======
-  epb = Celes.epb(2_415_019.8135, 30_103.18648)
-
-  vvd(epb, 1982.418424159278580, 1e-12, 'Celes::epb', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(epb, 1982.418424159278580, 1e-12, 'Celes.epb', '')
 end
 
-# static void t_epb2jd(int *status)
-# {
+#static void t_epb2jd(int *status)
+#{
 #	double epb, djm0, djm
 #
 #
 #	epb = 1957.3
 #
-#	Celes::epb2jd(epb, &djm0, &djm)
+#	Celes.epb2jd(epb, &djm0, &djm)
 #
-#	vvd(djm0, 2400000.5, 1e-9, "Celes::epb2jd", "djm0")
-#	vvd(djm, 35948.1915101513, 1e-9, "Celes::epb2jd", "djm")
+#	vvd(djm0, 2400000.5, 1e-9, 'Celes.epb2jd', 'djm0')
+#	vvd(djm, 35948.1915101513, 1e-9, 'Celes.epb2jd', 'djm')
 #
-# }
+#}
 def t_epb2jd
   epb = 1957.3
 
-<<<<<<< HEAD
-  djm0, djm = Celes::epb2jd(epb)
-
-  vvd(djm0, 2400000.5, 1e-9, "Celes::epb2jd", "djm0")
-  vvd(djm, 35948.1915101513, 1e-9, "Celes::epb2jd", "djm")
-=======
   djm0, djm = Celes.epb2jd(epb)
 
-  vvd(djm0, 2_400_000.5, 1e-9, 'Celes::epb2jd', 'djm0')
-  vvd(djm, 35_948.1915101513, 1e-9, 'Celes::epb2jd', 'djm')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(djm0, 2400000.5, 1e-9, 'Celes.epb2jd', 'djm0')
+  vvd(djm, 35948.1915101513, 1e-9, 'Celes.epb2jd', 'djm')
 end
 
-# static void t_epj(int *status)
-# {
+#static void t_epj(int *status)
+#{
 #	double epj
 #
 #
-#	epj = Celes::epj(2451545, -7392.5)
+#	epj = Celes.epj(2451545, -7392.5)
 #
-#	vvd(epj, 1979.760438056125941, 1e-12, "Celes::epj", "")
+#	vvd(epj, 1979.760438056125941, 1e-12, 'Celes.epj', '')
 #
-# }
+#}
 def t_epj
-<<<<<<< HEAD
-  epj = Celes::epj(2451545, -7392.5)
+  epj = Celes.epj(2451545, -7392.5)
 
-  vvd(epj, 1979.760438056125941, 1e-12, "Celes::epj", "")
-=======
-  epj = Celes.epj(2_451_545, -7392.5)
-
-  vvd(epj, 1979.760438056125941, 1e-12, 'Celes::epj', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(epj, 1979.760438056125941, 1e-12, 'Celes.epj', '')
 end
 
-# static void t_epj2jd(int *status)
-# {
+#static void t_epj2jd(int *status)
+#{
 #	double epj, djm0, djm
 #
 #
 #	epj = 1996.8
 #
-#	Celes::epj2jd(epj, &djm0, &djm)
+#	Celes.epj2jd(epj, &djm0, &djm)
 #
-#	vvd(djm0, 2400000.5, 1e-9, "Celes::epj2jd", "djm0")
-#	vvd(djm,    50375.7, 1e-9, "Celes::epj2jd", "djm",  status)
+#	vvd(djm0, 2400000.5, 1e-9, 'Celes.epj2jd', 'djm0')
+#	vvd(djm,    50375.7, 1e-9, 'Celes.epj2jd', 'djm',  status)
 #
-# }
+#}
 def t_epj2jd
   epj = 1996.8
 
-<<<<<<< HEAD
-  djm0, djm = Celes::epj2jd(epj)
-
-  vvd(djm0, 2400000.5, 1e-9, "Celes::epj2jd", "djm0")
-  vvd(djm, 50375.7, 1e-9, "Celes::epj2jd", "djm")
-=======
   djm0, djm = Celes.epj2jd(epj)
 
-  vvd(djm0, 2_400_000.5, 1e-9, 'Celes::epj2jd', 'djm0')
-  vvd(djm, 50_375.7, 1e-9, 'Celes::epj2jd', 'djm')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(djm0, 2400000.5, 1e-9, 'Celes.epj2jd', 'djm0')
+  vvd(djm, 50375.7, 1e-9, 'Celes.epj2jd', 'djm')
 end
 
-# static void t_epv00(int *status)
-# {
+#static void t_epv00(int *status)
+#{
 #	double pvh[2][3], pvb[2][3]
 #	int j
 #
 #
-#	j = Celes::epv00(2400000.5, 53411.52501161, pvh, pvb)
+#	j = Celes.epv00(2400000.5, 53411.52501161, pvh, pvb)
 #
 #	vvd(pvh[0][0], -0.7757238809297706813, 1e-14,
-#			"Celes::epv00", "ph(x)")
+#			'Celes.epv00', 'ph(x)')
 #	vvd(pvh[0][1], 0.5598052241363340596, 1e-14,
-#			"Celes::epv00", "ph(y)")
+#			'Celes.epv00', 'ph(y)')
 #	vvd(pvh[0][2], 0.2426998466481686993, 1e-14,
-#			"Celes::epv00", "ph(z)")
+#			'Celes.epv00', 'ph(z)')
 #
 #	vvd(pvh[1][0], -0.1091891824147313846e-1, 1e-15,
-#			"Celes::epv00", "vh(x)")
+#			'Celes.epv00', 'vh(x)')
 #	vvd(pvh[1][1], -0.1247187268440845008e-1, 1e-15,
-#			"Celes::epv00", "vh(y)")
+#			'Celes.epv00', 'vh(y)')
 #	vvd(pvh[1][2], -0.5407569418065039061e-2, 1e-15,
-#			"Celes::epv00", "vh(z)")
+#			'Celes.epv00', 'vh(z)')
 #
 #	vvd(pvb[0][0], -0.7714104440491111971, 1e-14,
-#			"Celes::epv00", "pb(x)")
+#			'Celes.epv00', 'pb(x)')
 #	vvd(pvb[0][1], 0.5598412061824171323, 1e-14,
-#			"Celes::epv00", "pb(y)")
+#			'Celes.epv00', 'pb(y)')
 #	vvd(pvb[0][2], 0.2425996277722452400, 1e-14,
-#			"Celes::epv00", "pb(z)")
+#			'Celes.epv00', 'pb(z)')
 #
 #	vvd(pvb[1][0], -0.1091874268116823295e-1, 1e-15,
-#			"Celes::epv00", "vb(x)")
+#			'Celes.epv00', 'vb(x)')
 #	vvd(pvb[1][1], -0.1246525461732861538e-1, 1e-15,
-#			"Celes::epv00", "vb(y)")
+#			'Celes.epv00', 'vb(y)')
 #	vvd(pvb[1][2], -0.5404773180966231279e-2, 1e-15,
-#			"Celes::epv00", "vb(z)")
+#			'Celes.epv00', 'vb(z)')
 #
-#	viv(j, 0, "Celes::epv00", "j")
+#	viv(j, 0, 'Celes.epv00', 'j')
 #
-# }
+#}
 def t_epv00
-<<<<<<< HEAD
-  pvh, pvb = Celes::epv00(2400000.5, 53411.52501161);
+  pvh, pvb = Celes.epv00(2400000.5, 53411.52501161);
 
   vvd(pvh[0][0], -0.7757238809297706813, 1e-14,
-    "Celes::epv00", "ph(x)")
+    'Celes.epv00', 'ph(x)')
   vvd(pvh[0][1], 0.5598052241363340596, 1e-14,
-    "Celes::epv00", "ph(y)")
+    'Celes.epv00', 'ph(y)')
   vvd(pvh[0][2], 0.2426998466481686993, 1e-14,
-    "Celes::epv00", "ph(z)")
+    'Celes.epv00', 'ph(z)')
 
   vvd(pvh[1][0], -0.1091891824147313846e-1, 1e-15,
-    "Celes::epv00", "vh(x)")
+    'Celes.epv00', 'vh(x)')
   vvd(pvh[1][1], -0.1247187268440845008e-1, 1e-15,
-    "Celes::epv00", "vh(y)")
+    'Celes.epv00', 'vh(y)')
   vvd(pvh[1][2], -0.5407569418065039061e-2, 1e-15,
-    "Celes::epv00", "vh(z)")
+    'Celes.epv00', 'vh(z)')
 
   vvd(pvb[0][0], -0.7714104440491111971, 1e-14,
-    "Celes::epv00", "pb(x)")
+    'Celes.epv00', 'pb(x)')
   vvd(pvb[0][1], 0.5598412061824171323, 1e-14,
-    "Celes::epv00", "pb(y)")
+    'Celes.epv00', 'pb(y)')
   vvd(pvb[0][2], 0.2425996277722452400, 1e-14,
-    "Celes::epv00", "pb(z)")
+    'Celes.epv00', 'pb(z)')
 
   vvd(pvb[1][0], -0.1091874268116823295e-1, 1e-15,
-    "Celes::epv00", "vb(x)")
+    'Celes.epv00', 'vb(x)')
   vvd(pvb[1][1], -0.1246525461732861538e-1, 1e-15,
-    "Celes::epv00", "vb(y)")
+    'Celes.epv00', 'vb(y)')
   vvd(pvb[1][2], -0.5404773180966231279e-2, 1e-15,
-    "Celes::epv00", "vb(z)")
+    'Celes.epv00', 'vb(z)')
 
-  viv(Celes::status, 0, "Celes::epv00", "j")
+  viv(Celes.status, 0, 'Celes.epv00', 'j')
 end
 
 #static void t_eqeq94(int *status)
 #{
-=======
-  pvh, pvb = Celes.epv00(2_400_000.5, 53_411.52501161)
-
-  vvd(pvh[0][0], -0.7757238809297706813, 1e-14,
-      'Celes::epv00', 'ph(x)')
-  vvd(pvh[0][1], 0.5598052241363340596, 1e-14,
-      'Celes::epv00', 'ph(y)')
-  vvd(pvh[0][2], 0.2426998466481686993, 1e-14,
-      'Celes::epv00', 'ph(z)')
-
-  vvd(pvh[1][0], -0.1091891824147313846e-1, 1e-15,
-      'Celes::epv00', 'vh(x)')
-  vvd(pvh[1][1], -0.1247187268440845008e-1, 1e-15,
-      'Celes::epv00', 'vh(y)')
-  vvd(pvh[1][2], -0.5407569418065039061e-2, 1e-15,
-      'Celes::epv00', 'vh(z)')
-
-  vvd(pvb[0][0], -0.7714104440491111971, 1e-14,
-      'Celes::epv00', 'pb(x)')
-  vvd(pvb[0][1], 0.5598412061824171323, 1e-14,
-      'Celes::epv00', 'pb(y)')
-  vvd(pvb[0][2], 0.2425996277722452400, 1e-14,
-      'Celes::epv00', 'pb(z)')
-
-  vvd(pvb[1][0], -0.1091874268116823295e-1, 1e-15,
-      'Celes::epv00', 'vb(x)')
-  vvd(pvb[1][1], -0.1246525461732861538e-1, 1e-15,
-      'Celes::epv00', 'vb(y)')
-  vvd(pvb[1][2], -0.5404773180966231279e-2, 1e-15,
-      'Celes::epv00', 'vb(z)')
-
-  viv(Celes.status, 0, 'Celes::epv00', 'j')
-end
-
-# static void t_eqeq94(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double eqeq
 #
 #
-#	eqeq = Celes::eqeq94(2400000.5, 41234.0)
+#	eqeq = Celes.eqeq94(2400000.5, 41234.0)
 #
-#	vvd(eqeq, 0.5357758254609256894e-4, 1e-17, "Celes::eqeq94", "")
+#	vvd(eqeq, 0.5357758254609256894e-4, 1e-17, 'Celes.eqeq94', '')
 #
-# }
+#}
 def t_eqeq94
-<<<<<<< HEAD
-  eqeq = Celes::eqeq94(2400000.5, 41234.0)
+  eqeq = Celes.eqeq94(2400000.5, 41234.0)
 
-  vvd(eqeq, 0.5357758254609256894e-4, 1e-17, "Celes::eqeq94", "")
-=======
-  eqeq = Celes.eqeq94(2_400_000.5, 41_234.0)
-
-  vvd(eqeq, 0.5357758254609256894e-4, 1e-17, 'Celes::eqeq94', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(eqeq, 0.5357758254609256894e-4, 1e-17, 'Celes.eqeq94', '')
 end
 
-# static void t_era00(int *status)
-# {
+#static void t_era00(int *status)
+#{
 #	double era00
 #
 #
-#	era00 = Celes::era00(2400000.5, 54388.0)
+#	era00 = Celes.era00(2400000.5, 54388.0)
 #
-#	vvd(era00, 0.4022837240028158102, 1e-12, "Celes::era00", "")
+#	vvd(era00, 0.4022837240028158102, 1e-12, 'Celes.era00', '')
 #
-# }
+#}
 def t_era00
-<<<<<<< HEAD
-  era00 = Celes::era00(2400000.5, 54388.0)
+  era00 = Celes.era00(2400000.5, 54388.0)
 
-  vvd(era00, 0.4022837240028158102, 1e-12, "Celes::era00", "")
-=======
-  era00 = Celes.era00(2_400_000.5, 54_388.0)
-
-  vvd(era00, 0.4022837240028158102, 1e-12, 'Celes::era00', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(era00, 0.4022837240028158102, 1e-12, 'Celes.era00', '')
 end
 
-# static void t_fad03(int *status)
-# {
-#	vvd(Celes::fad03(0.80), 1.946709205396925672, 1e-12,
-#			"Celes::fad03", "")
-# }
+#static void t_fad03(int *status)
+#{
+#	vvd(Celes.fad03(0.80), 1.946709205396925672, 1e-12,
+#			'Celes.fad03', '')
+#}
 def t_fad03
-<<<<<<< HEAD
-  vvd(Celes::fad03(0.80), 1.946709205396925672, 1e-12,
-    "Celes::fad03", "")
-=======
   vvd(Celes.fad03(0.80), 1.946709205396925672, 1e-12,
-      'Celes::fad03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.fad03', '')
 end
 
-# static void t_fae03(int *status)
-# {
-#	vvd(Celes::fae03(0.80), 1.744713738913081846, 1e-12,
-#			"Celes::fae03", "")
-# }
+#static void t_fae03(int *status)
+#{
+#	vvd(Celes.fae03(0.80), 1.744713738913081846, 1e-12,
+#			'Celes.fae03', '')
+#}
 def t_fae03
-<<<<<<< HEAD
-  vvd(Celes::fae03(0.80), 1.744713738913081846, 1e-12,
-    "Celes::fae03", "")
-=======
   vvd(Celes.fae03(0.80), 1.744713738913081846, 1e-12,
-      'Celes::fae03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.fae03', '')
 end
 
-# static void t_faf03(int *status)
-# {
-#	vvd(Celes::faf03(0.80), 0.2597711366745499518, 1e-12,
-#			"Celes::faf03", "")
-# }
+#static void t_faf03(int *status)
+#{
+#	vvd(Celes.faf03(0.80), 0.2597711366745499518, 1e-12,
+#			'Celes.faf03', '')
+#}
 def t_faf03
-<<<<<<< HEAD
-  vvd(Celes::faf03(0.80), 0.2597711366745499518, 1e-12,
-    "Celes::faf03", "")
-=======
   vvd(Celes.faf03(0.80), 0.2597711366745499518, 1e-12,
-      'Celes::faf03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.faf03', '')
 end
 
-# static void t_faju03(int *status)
-# {
-#	vvd(Celes::faju03(0.80), 5.275711665202481138, 1e-12,
-#			"Celes::faju03", "")
-# }
+#static void t_faju03(int *status)
+#{
+#	vvd(Celes.faju03(0.80), 5.275711665202481138, 1e-12,
+#			'Celes.faju03', '')
+#}
 def t_faju03
-<<<<<<< HEAD
-  vvd(Celes::faju03(0.80), 5.275711665202481138, 1e-12,
-    "Celes::faju03", "")
-=======
   vvd(Celes.faju03(0.80), 5.275711665202481138, 1e-12,
-      'Celes::faju03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.faju03', '')
 end
 
-# static void t_fal03(int *status)
-# {
-#	vvd(Celes::fal03(0.80), 5.132369751108684150, 1e-12,
-#			"Celes::fal03", "")
-# }
+#static void t_fal03(int *status)
+#{
+#	vvd(Celes.fal03(0.80), 5.132369751108684150, 1e-12,
+#			'Celes.fal03', '')
+#}
 def t_fal03
-<<<<<<< HEAD
-  vvd(Celes::fal03(0.80), 5.132369751108684150, 1e-12,
-    "Celes::fal03", "")
-=======
   vvd(Celes.fal03(0.80), 5.132369751108684150, 1e-12,
-      'Celes::fal03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.fal03', '')
 end
 
-# static void t_falp03(int *status)
-# {
-#	vvd(Celes::falp03(0.80), 6.226797973505507345, 1e-12,
-#			"Celes::falp03", "")
-# }
+#static void t_falp03(int *status)
+#{
+#	vvd(Celes.falp03(0.80), 6.226797973505507345, 1e-12,
+#			'Celes.falp03', '')
+#}
 def t_falp03
-<<<<<<< HEAD
-  vvd(Celes::falp03(0.80), 6.226797973505507345, 1e-12,
-    "Celes::falp03", "")
-=======
   vvd(Celes.falp03(0.80), 6.226797973505507345, 1e-12,
-      'Celes::falp03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.falp03', '')
 end
 
-# static void t_fama03(int *status)
-# {
-#	vvd(Celes::fama03(0.80), 3.275506840277781492, 1e-12,
-#			"Celes::fama03", "")
-# }
+#static void t_fama03(int *status)
+#{
+#	vvd(Celes.fama03(0.80), 3.275506840277781492, 1e-12,
+#			'Celes.fama03', '')
+#}
 def t_fama03
-<<<<<<< HEAD
-  vvd(Celes::fama03(0.80), 3.275506840277781492, 1e-12,
-    "Celes::fama03", "")
-=======
   vvd(Celes.fama03(0.80), 3.275506840277781492, 1e-12,
-      'Celes::fama03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.fama03', '')
 end
 
-# static void t_fame03(int *status)
-# {
-#	vvd(Celes::fame03(0.80), 5.417338184297289661, 1e-12,
-#			"Celes::fame03", "")
-# }
+#static void t_fame03(int *status)
+#{
+#	vvd(Celes.fame03(0.80), 5.417338184297289661, 1e-12,
+#			'Celes.fame03', '')
+#}
 def t_fame03
-<<<<<<< HEAD
-  vvd(Celes::fame03(0.80), 5.417338184297289661, 1e-12,
-    "Celes::fame03", "")
-=======
   vvd(Celes.fame03(0.80), 5.417338184297289661, 1e-12,
-      'Celes::fame03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.fame03', '')
 end
 
-# static void t_fane03(int *status)
-# {
-#	vvd(Celes::fane03(0.80), 2.079343830860413523, 1e-12,
-#			"Celes::fane03", "")
-# }
+#static void t_fane03(int *status)
+#{
+#	vvd(Celes.fane03(0.80), 2.079343830860413523, 1e-12,
+#			'Celes.fane03', '')
+#}
 def t_fane03
-<<<<<<< HEAD
-  vvd(Celes::fane03(0.80), 2.079343830860413523, 1e-12,
-    "Celes::fane03", "")
-=======
   vvd(Celes.fane03(0.80), 2.079343830860413523, 1e-12,
-      'Celes::fane03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.fane03', '')
 end
 
-# static void t_faom03(int *status)
-# {
-#	vvd(Celes::faom03(0.80), -5.973618440951302183, 1e-12,
-#			"Celes::faom03", "")
-# }
+#static void t_faom03(int *status)
+#{
+#	vvd(Celes.faom03(0.80), -5.973618440951302183, 1e-12,
+#			'Celes.faom03', '')
+#}
 def t_faom03
-<<<<<<< HEAD
-  vvd(Celes::faom03(0.80), -5.973618440951302183, 1e-12,
-    "Celes::faom03", "")
-=======
   vvd(Celes.faom03(0.80), -5.973618440951302183, 1e-12,
-      'Celes::faom03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.faom03', '')
 end
 
-# static void t_fapa03(int *status)
-# {
-#	vvd(Celes::fapa03(0.80), 0.1950884762240000000e-1, 1e-12,
-#			"Celes::fapa03", "")
-# }
+#static void t_fapa03(int *status)
+#{
+#	vvd(Celes.fapa03(0.80), 0.1950884762240000000e-1, 1e-12,
+#			'Celes.fapa03', '')
+#}
 def t_fapa03
-<<<<<<< HEAD
-  vvd(Celes::fapa03(0.80), 0.1950884762240000000e-1, 1e-12,
-    "Celes::fapa03", "")
-=======
   vvd(Celes.fapa03(0.80), 0.1950884762240000000e-1, 1e-12,
-      'Celes::fapa03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.fapa03', '')
 end
 
-# static void t_fasa03(int *status)
-# {
-#	vvd(Celes::fasa03(0.80), 5.371574539440827046, 1e-12,
-#			"Celes::fasa03", "")
-# }
+#static void t_fasa03(int *status)
+#{
+#	vvd(Celes.fasa03(0.80), 5.371574539440827046, 1e-12,
+#			'Celes.fasa03', '')
+#}
 def t_fasa03
-<<<<<<< HEAD
-  vvd(Celes::fasa03(0.80), 5.371574539440827046, 1e-12,
-    "Celes::fasa03", "")
-=======
   vvd(Celes.fasa03(0.80), 5.371574539440827046, 1e-12,
-      'Celes::fasa03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.fasa03', '')
 end
 
-# static void t_faur03(int *status)
-# {
-#	vvd(Celes::faur03(0.80), 5.180636450180413523, 1e-12,
-#			"Celes::faur03", "")
-# }
+#static void t_faur03(int *status)
+#{
+#	vvd(Celes.faur03(0.80), 5.180636450180413523, 1e-12,
+#			'Celes.faur03', '')
+#}
 def t_faur03
-<<<<<<< HEAD
-  vvd(Celes::faur03(0.80), 5.180636450180413523, 1e-12,
-    "Celes::faur03", "")
-=======
   vvd(Celes.faur03(0.80), 5.180636450180413523, 1e-12,
-      'Celes::faur03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.faur03', '')
 end
 
-# static void t_fave03(int *status)
-# {
-#	vvd(Celes::fave03(0.80), 3.424900460533758000, 1e-12,
-#			"Celes::fave03", "")
-# }
+#static void t_fave03(int *status)
+#{
+#	vvd(Celes.fave03(0.80), 3.424900460533758000, 1e-12,
+#			'Celes.fave03', '')
+#}
 def t_fave03
-<<<<<<< HEAD
-  vvd(Celes::fave03(0.80), 3.424900460533758000, 1e-12,
-    "Celes::fave03", "")
-=======
   vvd(Celes.fave03(0.80), 3.424900460533758000, 1e-12,
-      'Celes::fave03', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.fave03', '')
 end
 
-# static void t_fk52h(int *status)
-# {
+#static void t_fk52h(int *status)
+#{
 #	double r5, d5, dr5, dd5, px5, rv5, rh, dh, drh, ddh, pxh, rvh
 #
 #
@@ -3202,23 +2232,23 @@ end
 #	px5 =  0.379210
 #	rv5 = -7.6
 #
-#	Celes::fk52h(r5, d5, dr5, dd5, px5, rv5,
+#	Celes.fk52h(r5, d5, dr5, dd5, px5, rv5,
 #			&rh, &dh, &drh, &ddh, &pxh, &rvh)
 #
 #	vvd(rh, 1.767794226299947632, 1e-14,
-#			"Celes::fk52h", "ra")
+#			'Celes.fk52h', 'ra')
 #	vvd(dh,  -0.2917516070530391757, 1e-14,
-#			"Celes::fk52h", "dec")
+#			'Celes.fk52h', 'dec')
 #	vvd(drh, -0.19618741256057224e-6,1e-19,
-#			"Celes::fk52h", "dr5")
+#			'Celes.fk52h', 'dr5')
 #	vvd(ddh, -0.58459905176693911e-5, 1e-19,
-#			"Celes::fk52h", "dd5")
+#			'Celes.fk52h', 'dd5')
 #	vvd(pxh,  0.37921, 1e-14,
-#			"Celes::fk52h", "px")
+#			'Celes.fk52h', 'px')
 #	vvd(rvh, -7.6000000940000254, 1e-11,
-#			"Celes::fk52h", "rv")
+#			'Celes.fk52h', 'rv')
 #
-# }
+#}
 def t_fk52h
   r5  =  1.76779433
   d5  = -0.2917517103
@@ -3227,171 +2257,110 @@ def t_fk52h
   px5 =  0.379210
   rv5 = -7.6
 
-<<<<<<< HEAD
-  rh, dh, drh, ddh, pxh, rvh = Celes::fk52h(r5, d5, dr5, dd5, px5, rv5)
+  rh, dh, drh, ddh, pxh, rvh = Celes.fk52h(r5, d5, dr5, dd5, px5, rv5)
 
   vvd(rh, 1.767794226299947632, 1e-14,
-    "Celes::fk52h", "ra")
+    'Celes.fk52h', 'ra')
   vvd(dh,  -0.2917516070530391757, 1e-14,
-    "Celes::fk52h", "dec")
+    'Celes.fk52h', 'dec')
   vvd(drh, -0.19618741256057224e-6,1e-19,
-    "Celes::fk52h", "dr5")
+    'Celes.fk52h', 'dr5')
   vvd(ddh, -0.58459905176693911e-5, 1e-19,
-    "Celes::fk52h", "dd5")
+    'Celes.fk52h', 'dd5')
   vvd(pxh,  0.37921, 1e-14,
-    "Celes::fk52h", "px")
+    'Celes.fk52h', 'px')
   vvd(rvh, -7.6000000940000254, 1e-11,
-    "Celes::fk52h", "rv")
+    'Celes.fk52h', 'rv')
 end
 
 #static void t_fk5hip(int *status)
 #{
-=======
-  rh, dh, drh, ddh, pxh, rvh = Celes.fk52h(r5, d5, dr5, dd5, px5, rv5)
-
-  vvd(rh, 1.767794226299947632, 1e-14,
-      'Celes::fk52h', 'ra')
-  vvd(dh,  -0.2917516070530391757, 1e-14,
-      'Celes::fk52h', 'dec')
-  vvd(drh, -0.19618741256057224e-6, 1e-19,
-      'Celes::fk52h', 'dr5')
-  vvd(ddh, -0.58459905176693911e-5, 1e-19,
-      'Celes::fk52h', 'dd5')
-  vvd(pxh,  0.37921, 1e-14,
-      'Celes::fk52h', 'px')
-  vvd(rvh, -7.6000000940000254, 1e-11,
-      'Celes::fk52h', 'rv')
-end
-
-# static void t_fk5hip(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double r5h[3][3], s5h[3]
 #
 #
-#	Celes::fk5hip(r5h, s5h)
+#	Celes.fk5hip(r5h, s5h)
 #
 #	vvd(r5h[0][0], 0.9999999999999928638, 1e-14,
-#			"Celes::fk5hip", "11")
+#			'Celes.fk5hip', '11')
 #	vvd(r5h[0][1], 0.1110223351022919694e-6, 1e-17,
-#			"Celes::fk5hip", "12")
+#			'Celes.fk5hip', '12')
 #	vvd(r5h[0][2], 0.4411803962536558154e-7, 1e-17,
-#			"Celes::fk5hip", "13")
+#			'Celes.fk5hip', '13')
 #	vvd(r5h[1][0], -0.1110223308458746430e-6, 1e-17,
-#			"Celes::fk5hip", "21")
+#			'Celes.fk5hip', '21')
 #	vvd(r5h[1][1], 0.9999999999999891830, 1e-14,
-#			"Celes::fk5hip", "22")
+#			'Celes.fk5hip', '22')
 #	vvd(r5h[1][2], -0.9647792498984142358e-7, 1e-17,
-#			"Celes::fk5hip", "23")
+#			'Celes.fk5hip', '23')
 #	vvd(r5h[2][0], -0.4411805033656962252e-7, 1e-17,
-#			"Celes::fk5hip", "31")
+#			'Celes.fk5hip', '31')
 #	vvd(r5h[2][1], 0.9647792009175314354e-7, 1e-17,
-#			"Celes::fk5hip", "32")
+#			'Celes.fk5hip', '32')
 #	vvd(r5h[2][2], 0.9999999999999943728, 1e-14,
-#			"Celes::fk5hip", "33")
+#			'Celes.fk5hip', '33')
 #	vvd(s5h[0], -0.1454441043328607981e-8, 1e-17,
-#			"Celes::fk5hip", "s1")
+#			'Celes.fk5hip', 's1')
 #	vvd(s5h[1], 0.2908882086657215962e-8, 1e-17,
-#			"Celes::fk5hip", "s2")
+#			'Celes.fk5hip', 's2')
 #	vvd(s5h[2], 0.3393695767766751955e-8, 1e-17,
-#			"Celes::fk5hip", "s3")
+#			'Celes.fk5hip', 's3')
 #
-# }
+#}
 def t_fk5hip
-<<<<<<< HEAD
-  r5h, s5h = Celes::fk5hip
+  r5h, s5h = Celes.fk5hip
 
   vvd(r5h[0][0], 0.9999999999999928638, 1e-14,
-    "Celes::fk5hip", "11")
+    'Celes.fk5hip', '11')
   vvd(r5h[0][1], 0.1110223351022919694e-6, 1e-17,
-    "Celes::fk5hip", "12")
+    'Celes.fk5hip', '12')
   vvd(r5h[0][2], 0.4411803962536558154e-7, 1e-17,
-    "Celes::fk5hip", "13")
+    'Celes.fk5hip', '13')
   vvd(r5h[1][0], -0.1110223308458746430e-6, 1e-17,
-    "Celes::fk5hip", "21")
+    'Celes.fk5hip', '21')
   vvd(r5h[1][1], 0.9999999999999891830, 1e-14,
-    "Celes::fk5hip", "22")
+    'Celes.fk5hip', '22')
   vvd(r5h[1][2], -0.9647792498984142358e-7, 1e-17,
-    "Celes::fk5hip", "23")
+    'Celes.fk5hip', '23')
   vvd(r5h[2][0], -0.4411805033656962252e-7, 1e-17,
-    "Celes::fk5hip", "31")
+    'Celes.fk5hip', '31')
   vvd(r5h[2][1], 0.9647792009175314354e-7, 1e-17,
-    "Celes::fk5hip", "32")
+    'Celes.fk5hip', '32')
   vvd(r5h[2][2], 0.9999999999999943728, 1e-14,
-    "Celes::fk5hip", "33")
+    'Celes.fk5hip', '33')
   vvd(s5h[0], -0.1454441043328607981e-8, 1e-17,
-    "Celes::fk5hip", "s1")
+    'Celes.fk5hip', 's1')
   vvd(s5h[1], 0.2908882086657215962e-8, 1e-17,
-    "Celes::fk5hip", "s2")
+    'Celes.fk5hip', 's2')
   vvd(s5h[2], 0.3393695767766751955e-8, 1e-17,
-    "Celes::fk5hip", "s3")
+    'Celes.fk5hip', 's3')
 end
 
 #static void t_fk5hz(int *status)
 #{
-=======
-  r5h, s5h = Celes.fk5hip
-
-  vvd(r5h[0][0], 0.9999999999999928638, 1e-14,
-      'Celes::fk5hip', '11')
-  vvd(r5h[0][1], 0.1110223351022919694e-6, 1e-17,
-      'Celes::fk5hip', '12')
-  vvd(r5h[0][2], 0.4411803962536558154e-7, 1e-17,
-      'Celes::fk5hip', '13')
-  vvd(r5h[1][0], -0.1110223308458746430e-6, 1e-17,
-      'Celes::fk5hip', '21')
-  vvd(r5h[1][1], 0.9999999999999891830, 1e-14,
-      'Celes::fk5hip', '22')
-  vvd(r5h[1][2], -0.9647792498984142358e-7, 1e-17,
-      'Celes::fk5hip', '23')
-  vvd(r5h[2][0], -0.4411805033656962252e-7, 1e-17,
-      'Celes::fk5hip', '31')
-  vvd(r5h[2][1], 0.9647792009175314354e-7, 1e-17,
-      'Celes::fk5hip', '32')
-  vvd(r5h[2][2], 0.9999999999999943728, 1e-14,
-      'Celes::fk5hip', '33')
-  vvd(s5h[0], -0.1454441043328607981e-8, 1e-17,
-      'Celes::fk5hip', 's1')
-  vvd(s5h[1], 0.2908882086657215962e-8, 1e-17,
-      'Celes::fk5hip', 's2')
-  vvd(s5h[2], 0.3393695767766751955e-8, 1e-17,
-      'Celes::fk5hip', 's3')
-end
-
-# static void t_fk5hz(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double r5, d5, rh, dh
 #
 #
 #	r5 =  1.76779433
 #	d5 = -0.2917517103
 #
-#	Celes::fk5hz(r5, d5, 2400000.5, 54479.0, &rh, &dh)
+#	Celes.fk5hz(r5, d5, 2400000.5, 54479.0, &rh, &dh)
 #
-#	vvd(rh,  1.767794191464423978, 1e-12, "Celes::fk5hz", "ra")
-#	vvd(dh, -0.2917516001679884419, 1e-12, "Celes::fk5hz", "dec")
+#	vvd(rh,  1.767794191464423978, 1e-12, 'Celes.fk5hz', 'ra')
+#	vvd(dh, -0.2917516001679884419, 1e-12, 'Celes.fk5hz', 'dec')
 #
-# }
+#}
 def t_fk5hz
   r5 =  1.76779433
   d5 = -0.2917517103
 
-<<<<<<< HEAD
-  rh, dh = Celes::fk5hz(r5, d5, 2400000.5, 54479.0)
+  rh, dh = Celes.fk5hz(r5, d5, 2400000.5, 54479.0)
 
-  vvd(rh,  1.767794191464423978, 1e-12, "Celes::fk5hz", "ra")
-  vvd(dh, -0.2917516001679884419, 1e-12, "Celes::fk5hz", "dec")
-=======
-  rh, dh = Celes.fk5hz(r5, d5, 2_400_000.5, 54_479.0)
-
-  vvd(rh,  1.767794191464423978, 1e-12, 'Celes::fk5hz', 'ra')
-  vvd(dh, -0.2917516001679884419, 1e-12, 'Celes::fk5hz', 'dec')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(rh,  1.767794191464423978, 1e-12, 'Celes.fk5hz', 'ra')
+  vvd(dh, -0.2917516001679884419, 1e-12, 'Celes.fk5hz', 'dec')
 end
 
-# static void t_fw2m(int *status)
-# {
+#static void t_fw2m(int *status)
+#{
 #	double gamb, phib, psi, eps, r[3][3]
 #
 #
@@ -3400,91 +2369,62 @@ end
 #	psi  = -0.9501954178013015092e-3
 #	eps  =  0.4091014316587367472
 #
-#	Celes::fw2m(gamb, phib, psi, eps, r)
+#	Celes.fw2m(gamb, phib, psi, eps, r)
 #
 #	vvd(r[0][0], 0.9999995505176007047, 1e-12,
-#			"Celes::fw2m", "11")
+#			'Celes.fw2m', '11')
 #	vvd(r[0][1], 0.8695404617348192957e-3, 1e-12,
-#			"Celes::fw2m", "12")
+#			'Celes.fw2m', '12')
 #	vvd(r[0][2], 0.3779735201865582571e-3, 1e-12,
-#			"Celes::fw2m", "13")
+#			'Celes.fw2m', '13')
 #
 #	vvd(r[1][0], -0.8695404723772016038e-3, 1e-12,
-#			"Celes::fw2m", "21")
+#			'Celes.fw2m', '21')
 #	vvd(r[1][1], 0.9999996219496027161, 1e-12,
-#			"Celes::fw2m", "22")
+#			'Celes.fw2m', '22')
 #	vvd(r[1][2], -0.1361752496887100026e-6, 1e-12,
-#			"Celes::fw2m", "23")
+#			'Celes.fw2m', '23')
 #
 #	vvd(r[2][0], -0.3779734957034082790e-3, 1e-12,
-#			"Celes::fw2m", "31")
+#			'Celes.fw2m', '31')
 #	vvd(r[2][1], -0.1924880848087615651e-6, 1e-12,
-#			"Celes::fw2m", "32")
+#			'Celes.fw2m', '32')
 #	vvd(r[2][2], 0.9999999285679971958, 1e-12,
-#			"Celes::fw2m", "33")
+#			'Celes.fw2m', '33')
 #
-# }
+#}
 def t_fw2m
   gamb = -0.2243387670997992368e-5
   phib =  0.4091014602391312982
   psi  = -0.9501954178013015092e-3
   eps  =  0.4091014316587367472
 
-<<<<<<< HEAD
-  r = Celes::fw2m(gamb, phib, psi, eps)
+  r = Celes.fw2m(gamb, phib, psi, eps)
 
   vvd(r[0][0], 0.9999995505176007047, 1e-12,
-    "Celes::fw2m", "11")
+    'Celes.fw2m', '11')
   vvd(r[0][1], 0.8695404617348192957e-3, 1e-12,
-    "Celes::fw2m", "12")
+    'Celes.fw2m', '12')
   vvd(r[0][2], 0.3779735201865582571e-3, 1e-12,
-    "Celes::fw2m", "13")
+    'Celes.fw2m', '13')
 
   vvd(r[1][0], -0.8695404723772016038e-3, 1e-12,
-    "Celes::fw2m", "21")
+    'Celes.fw2m', '21')
   vvd(r[1][1], 0.9999996219496027161, 1e-12,
-    "Celes::fw2m", "22")
+    'Celes.fw2m', '22')
   vvd(r[1][2], -0.1361752496887100026e-6, 1e-12,
-    "Celes::fw2m", "23")
+    'Celes.fw2m', '23')
 
   vvd(r[2][0], -0.3779734957034082790e-3, 1e-12,
-    "Celes::fw2m", "31")
+    'Celes.fw2m', '31')
   vvd(r[2][1], -0.1924880848087615651e-6, 1e-12,
-    "Celes::fw2m", "32")
+    'Celes.fw2m', '32')
   vvd(r[2][2], 0.9999999285679971958, 1e-12,
-    "Celes::fw2m", "33")
+    'Celes.fw2m', '33')
 end
 
 #static void t_fw2xy(int *status)
 #{
-=======
-  r = Celes.fw2m(gamb, phib, psi, eps)
-
-  vvd(r[0][0], 0.9999995505176007047, 1e-12,
-      'Celes::fw2m', '11')
-  vvd(r[0][1], 0.8695404617348192957e-3, 1e-12,
-      'Celes::fw2m', '12')
-  vvd(r[0][2], 0.3779735201865582571e-3, 1e-12,
-      'Celes::fw2m', '13')
-
-  vvd(r[1][0], -0.8695404723772016038e-3, 1e-12,
-      'Celes::fw2m', '21')
-  vvd(r[1][1], 0.9999996219496027161, 1e-12,
-      'Celes::fw2m', '22')
-  vvd(r[1][2], -0.1361752496887100026e-6, 1e-12,
-      'Celes::fw2m', '23')
-
-  vvd(r[2][0], -0.3779734957034082790e-3, 1e-12,
-      'Celes::fw2m', '31')
-  vvd(r[2][1], -0.1924880848087615651e-6, 1e-12,
-      'Celes::fw2m', '32')
-  vvd(r[2][2], 0.9999999285679971958, 1e-12,
-      'Celes::fw2m', '33')
-end
-
-# static void t_fw2xy(int *status)
-# {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double gamb, phib, psi, eps, x, y
 #
 #
@@ -3493,292 +2433,199 @@ end
 #	psi  = -0.9501954178013015092e-3
 #	eps  =  0.4091014316587367472
 #
-#	Celes::fw2xy(gamb, phib, psi, eps, &x, &y)
+#	Celes.fw2xy(gamb, phib, psi, eps, &x, &y)
 #
-#	vvd(x, -0.3779734957034082790e-3, 1e-14, "Celes::fw2xy", "x")
-#	vvd(y, -0.1924880848087615651e-6, 1e-14, "Celes::fw2xy", "y")
+#	vvd(x, -0.3779734957034082790e-3, 1e-14, 'Celes.fw2xy', 'x')
+#	vvd(y, -0.1924880848087615651e-6, 1e-14, 'Celes.fw2xy', 'y')
 #
-# }
+#}
 def t_fw2xy
   gamb = -0.2243387670997992368e-5
   phib =  0.4091014602391312982
   psi  = -0.9501954178013015092e-3
   eps  =  0.4091014316587367472
 
-<<<<<<< HEAD
-  x, y = Celes::fw2xy(gamb, phib, psi, eps)
-
-  vvd(x, -0.3779734957034082790e-3, 1e-14, "Celes::fw2xy", "x")
-  vvd(y, -0.1924880848087615651e-6, 1e-14, "Celes::fw2xy", "y")
-=======
   x, y = Celes.fw2xy(gamb, phib, psi, eps)
 
-  vvd(x, -0.3779734957034082790e-3, 1e-14, 'Celes::fw2xy', 'x')
-  vvd(y, -0.1924880848087615651e-6, 1e-14, 'Celes::fw2xy', 'y')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(x, -0.3779734957034082790e-3, 1e-14, 'Celes.fw2xy', 'x')
+  vvd(y, -0.1924880848087615651e-6, 1e-14, 'Celes.fw2xy', 'y')
 end
 
-# static void t_gc2gd(int *status)
-# {
+#static void t_gc2gd(int *status)
+#{
 #	int j
 #	double xyz[] = {2e6, 3e6, 5.244e6}
 #	double e, p, h
 #
-#	j = Celes::gc2gd(0, xyz, &e, &p, &h)
+#	j = Celes.gc2gd(0, xyz, &e, &p, &h)
 #
-#	viv(j, -1, "Celes::gc2gd", "j0")
+#	viv(j, -1, 'Celes.gc2gd', 'j0')
 #
-#	j = Celes::gc2gd(WGS84, xyz, &e, &p, &h)
+#	j = Celes.gc2gd(WGS84, xyz, &e, &p, &h)
 #
-#	viv(j, 0, "Celes::gc2gd", "j1")
-#	vvd(e, 0.98279372324732907, 1e-14, "Celes::gc2gd", "e1")
-#	vvd(p, 0.97160184819075459, 1e-14, "Celes::gc2gd", "p1")
-#	vvd(h, 331.41724614260599, 1e-8, "Celes::gc2gd", "h1")
+#	viv(j, 0, 'Celes.gc2gd', 'j1')
+#	vvd(e, 0.98279372324732907, 1e-14, 'Celes.gc2gd', 'e1')
+#	vvd(p, 0.97160184819075459, 1e-14, 'Celes.gc2gd', 'p1')
+#	vvd(h, 331.41724614260599, 1e-8, 'Celes.gc2gd', 'h1')
 #
-#	j = Celes::gc2gd(GRS80, xyz, &e, &p, &h)
+#	j = Celes.gc2gd(GRS80, xyz, &e, &p, &h)
 #
-#	viv(j, 0, "Celes::gc2gd", "j2")
-#	vvd(e, 0.98279372324732907, 1e-14, "Celes::gc2gd", "e2")
-#	vvd(p, 0.97160184820607853, 1e-14, "Celes::gc2gd", "p2")
-#	vvd(h, 331.41731754844348, 1e-8, "Celes::gc2gd", "h2")
+#	viv(j, 0, 'Celes.gc2gd', 'j2')
+#	vvd(e, 0.98279372324732907, 1e-14, 'Celes.gc2gd', 'e2')
+#	vvd(p, 0.97160184820607853, 1e-14, 'Celes.gc2gd', 'p2')
+#	vvd(h, 331.41731754844348, 1e-8, 'Celes.gc2gd', 'h2')
 #
-#	j = Celes::gc2gd(WGS72, xyz, &e, &p, &h)
+#	j = Celes.gc2gd(WGS72, xyz, &e, &p, &h)
 #
-#	viv(j, 0, "Celes::gc2gd", "j3")
-#	vvd(e, 0.98279372324732907, 1e-14, "Celes::gc2gd", "e3")
-#	vvd(p, 0.97160181811015119, 1e-14, "Celes::gc2gd", "p3")
-#	vvd(h, 333.27707261303181, 1e-8, "Celes::gc2gd", "h3")
+#	viv(j, 0, 'Celes.gc2gd', 'j3')
+#	vvd(e, 0.98279372324732907, 1e-14, 'Celes.gc2gd', 'e3')
+#	vvd(p, 0.97160181811015119, 1e-14, 'Celes.gc2gd', 'p3')
+#	vvd(h, 333.27707261303181, 1e-8, 'Celes.gc2gd', 'h3')
 #
-#	j = Celes::gc2gd(4, xyz, &e, &p, &h)
+#	j = Celes.gc2gd(4, xyz, &e, &p, &h)
 #
-#	viv(j, -1, "Celes::gc2gd", "j4")
-# }
+#	viv(j, -1, 'Celes.gc2gd', 'j4')
+#}
 def t_gc2gd
   xyz = [2e6, 3e6, 5.244e6]
 
   begin
-<<<<<<< HEAD
-    e, p, h = Celes::gc2gd(0, xyz)
-  rescue
-    nil
-  ensure
-    viv(Celes::status, -1, "Celes::gc2gd", "j0")
-  end
-
-  e, p, h = Celes::gc2gd(Celes::WGS84, xyz)
-
-  viv(Celes::status, 0, "Celes::gc2gd", "j1")
-  vvd(e, 0.98279372324732907, 1e-14, "Celes::gc2gd", "e1")
-  vvd(p, 0.97160184819075459, 1e-14, "Celes::gc2gd", "p1")
-  vvd(h, 331.41724614260599, 1e-8, "Celes::gc2gd", "h1")
-
-  e, p, h = Celes::gc2gd(Celes::GRS80, xyz)
-
-  viv(Celes::status, 0, "Celes::gc2gd", "j2")
-  vvd(e, 0.98279372324732907, 1e-14, "Celes::gc2gd", "e2")
-  vvd(p, 0.97160184820607853, 1e-14, "Celes::gc2gd", "p2")
-  vvd(h, 331.41731754844348, 1e-8, "Celes::gc2gd", "h2")
-
-  e, p, h = Celes::gc2gd(Celes::WGS72, xyz)
-
-  viv(Celes::status, 0, "Celes::gc2gd", "j3")
-  vvd(e, 0.98279372324732907, 1e-14, "Celes::gc2gd", "e3")
-  vvd(p, 0.97160181811015119, 1e-14, "Celes::gc2gd", "p3")
-  vvd(h, 333.27707261303181, 1e-8, "Celes::gc2gd", "h3")
-
-  begin
-    e, p, h = Celes::gc2gd(4, xyz)
-  rescue
-    nil
-  ensure
-    viv(Celes::status, -1, "Celes::gc2gd", "j4")
-=======
     e, p, h = Celes.gc2gd(0, xyz)
   rescue
     nil
   ensure
-    viv(Celes.status, -1, 'Celes::gc2gd', 'j0')
+    viv(Celes.status, -1, 'Celes.gc2gd', 'j0')
   end
 
   e, p, h = Celes.gc2gd(Celes::WGS84, xyz)
 
-  viv(Celes.status, 0, 'Celes::gc2gd', 'j1')
-  vvd(e, 0.98279372324732907, 1e-14, 'Celes::gc2gd', 'e1')
-  vvd(p, 0.97160184819075459, 1e-14, 'Celes::gc2gd', 'p1')
-  vvd(h, 331.41724614260599, 1e-8, 'Celes::gc2gd', 'h1')
+  viv(Celes.status, 0, 'Celes.gc2gd', 'j1')
+  vvd(e, 0.98279372324732907, 1e-14, 'Celes.gc2gd', 'e1')
+  vvd(p, 0.97160184819075459, 1e-14, 'Celes.gc2gd', 'p1')
+  vvd(h, 331.41724614260599, 1e-8, 'Celes.gc2gd', 'h1')
 
   e, p, h = Celes.gc2gd(Celes::GRS80, xyz)
 
-  viv(Celes.status, 0, 'Celes::gc2gd', 'j2')
-  vvd(e, 0.98279372324732907, 1e-14, 'Celes::gc2gd', 'e2')
-  vvd(p, 0.97160184820607853, 1e-14, 'Celes::gc2gd', 'p2')
-  vvd(h, 331.41731754844348, 1e-8, 'Celes::gc2gd', 'h2')
+  viv(Celes.status, 0, 'Celes.gc2gd', 'j2')
+  vvd(e, 0.98279372324732907, 1e-14, 'Celes.gc2gd', 'e2')
+  vvd(p, 0.97160184820607853, 1e-14, 'Celes.gc2gd', 'p2')
+  vvd(h, 331.41731754844348, 1e-8, 'Celes.gc2gd', 'h2')
 
   e, p, h = Celes.gc2gd(Celes::WGS72, xyz)
 
-  viv(Celes.status, 0, 'Celes::gc2gd', 'j3')
-  vvd(e, 0.98279372324732907, 1e-14, 'Celes::gc2gd', 'e3')
-  vvd(p, 0.97160181811015119, 1e-14, 'Celes::gc2gd', 'p3')
-  vvd(h, 333.27707261303181, 1e-8, 'Celes::gc2gd', 'h3')
+  viv(Celes.status, 0, 'Celes.gc2gd', 'j3')
+  vvd(e, 0.98279372324732907, 1e-14, 'Celes.gc2gd', 'e3')
+  vvd(p, 0.97160181811015119, 1e-14, 'Celes.gc2gd', 'p3')
+  vvd(h, 333.27707261303181, 1e-8, 'Celes.gc2gd', 'h3')
 
   begin
     e, p, h = Celes.gc2gd(4, xyz)
   rescue
     nil
   ensure
-    viv(Celes.status, -1, 'Celes::gc2gd', 'j4')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    viv(Celes.status, -1, 'Celes.gc2gd', 'j4')
   end
 end
 
-# static void t_gc2gde(int *status)
-# {
+#static void t_gc2gde(int *status)
+#{
 #	int j
 #	double a = 6378136.0, f = 0.0033528
 #	double xyz[] = {2e6, 3e6, 5.244e6}
 #	double e, p, h
 #
-#	j = Celes::gc2gde(a, f, xyz, &e, &p, &h)
+#	j = Celes.gc2gde(a, f, xyz, &e, &p, &h)
 #
-#	viv(j, 0, "Celes::gc2gde", "j")
-#	vvd(e, 0.98279372324732907, 1e-14, "Celes::gc2gde", "e")
-#	vvd(p, 0.97160183775704115, 1e-14, "Celes::gc2gde", "p")
-#	vvd(h, 332.36862495764397, 1e-8, "Celes::gc2gde", "h")
-# }
+#	viv(j, 0, 'Celes.gc2gde', 'j')
+#	vvd(e, 0.98279372324732907, 1e-14, 'Celes.gc2gde', 'e')
+#	vvd(p, 0.97160183775704115, 1e-14, 'Celes.gc2gde', 'p')
+#	vvd(h, 332.36862495764397, 1e-8, 'Celes.gc2gde', 'h')
+#}
 def t_gc2gde
-<<<<<<< HEAD
   a = 6378136.0; f = 0.0033528
-  xyz = [2e6, 3e6, 5.244e6]
-
-  e, p, h = Celes::gc2gde(a, f, xyz)
-
-  viv(Celes::status, 0, "Celes::gc2gde", "j")
-  vvd(e, 0.98279372324732907, 1e-14, "Celes::gc2gde", "e")
-  vvd(p, 0.97160183775704115, 1e-14, "Celes::gc2gde", "p")
-  vvd(h, 332.36862495764397, 1e-8, "Celes::gc2gde", "h")
-=======
-  a = 6_378_136.0; f = 0.0033528
   xyz = [2e6, 3e6, 5.244e6]
 
   e, p, h = Celes.gc2gde(a, f, xyz)
 
-  viv(Celes.status, 0, 'Celes::gc2gde', 'j')
-  vvd(e, 0.98279372324732907, 1e-14, 'Celes::gc2gde', 'e')
-  vvd(p, 0.97160183775704115, 1e-14, 'Celes::gc2gde', 'p')
-  vvd(h, 332.36862495764397, 1e-8, 'Celes::gc2gde', 'h')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  viv(Celes.status, 0, 'Celes.gc2gde', 'j')
+  vvd(e, 0.98279372324732907, 1e-14, 'Celes.gc2gde', 'e')
+  vvd(p, 0.97160183775704115, 1e-14, 'Celes.gc2gde', 'p')
+  vvd(h, 332.36862495764397, 1e-8, 'Celes.gc2gde', 'h')
 end
 
-# static void t_gd2gc(int *status)
-# {
+#static void t_gd2gc(int *status)
+#{
 #	int j
 #	double e = 3.1, p = -0.5, h = 2500.0
 #	double xyz[3]
 #
-#	j = Celes::gd2gc(0, e, p, h, xyz)
+#	j = Celes.gd2gc(0, e, p, h, xyz)
 #
-#	viv(j, -1, "Celes::gd2gc", "j0")
+#	viv(j, -1, 'Celes.gd2gc', 'j0')
 #
-#	j = Celes::gd2gc(WGS84, e, p, h, xyz)
+#	j = Celes.gd2gc(WGS84, e, p, h, xyz)
 #
-#	viv(j, 0, "Celes::gd2gc", "j1")
-#	vvd(xyz[0], -5599000.5577049947, 1e-7, "Celes::gd2gc", "0/1")
-#	vvd(xyz[1], 233011.67223479203, 1e-7, "Celes::gd2gc", "1/1")
-#	vvd(xyz[2], -3040909.4706983363, 1e-7, "Celes::gd2gc", "2/1")
+#	viv(j, 0, 'Celes.gd2gc', 'j1')
+#	vvd(xyz[0], -5599000.5577049947, 1e-7, 'Celes.gd2gc', '0/1')
+#	vvd(xyz[1], 233011.67223479203, 1e-7, 'Celes.gd2gc', '1/1')
+#	vvd(xyz[2], -3040909.4706983363, 1e-7, 'Celes.gd2gc', '2/1')
 #
-#	j = Celes::gd2gc(GRS80, e, p, h, xyz)
+#	j = Celes.gd2gc(GRS80, e, p, h, xyz)
 #
-#	viv(j, 0, "Celes::gd2gc", "j2")
-#	vvd(xyz[0], -5599000.5577260984, 1e-7, "Celes::gd2gc", "0/2")
-#	vvd(xyz[1], 233011.6722356703, 1e-7, "Celes::gd2gc", "1/2")
-#	vvd(xyz[2], -3040909.4706095476, 1e-7, "Celes::gd2gc", "2/2")
+#	viv(j, 0, 'Celes.gd2gc', 'j2')
+#	vvd(xyz[0], -5599000.5577260984, 1e-7, 'Celes.gd2gc', '0/2')
+#	vvd(xyz[1], 233011.6722356703, 1e-7, 'Celes.gd2gc', '1/2')
+#	vvd(xyz[2], -3040909.4706095476, 1e-7, 'Celes.gd2gc', '2/2')
 #
-#	j = Celes::gd2gc(WGS72, e, p, h, xyz)
+#	j = Celes.gd2gc(WGS72, e, p, h, xyz)
 #
-#	viv(j, 0, "Celes::gd2gc", "j3")
-#	vvd(xyz[0], -5598998.7626301490, 1e-7, "Celes::gd2gc", "0/3")
-#	vvd(xyz[1], 233011.5975297822, 1e-7, "Celes::gd2gc", "1/3")
-#	vvd(xyz[2], -3040908.6861467111, 1e-7, "Celes::gd2gc", "2/3")
+#	viv(j, 0, 'Celes.gd2gc', 'j3')
+#	vvd(xyz[0], -5598998.7626301490, 1e-7, 'Celes.gd2gc', '0/3')
+#	vvd(xyz[1], 233011.5975297822, 1e-7, 'Celes.gd2gc', '1/3')
+#	vvd(xyz[2], -3040908.6861467111, 1e-7, 'Celes.gd2gc', '2/3')
 #
-#	j = Celes::gd2gc(4, e, p, h, xyz)
+#	j = Celes.gd2gc(4, e, p, h, xyz)
 #
-#	viv(j, -1, "Celes::gd2gc", "j4")
-# }
+#	viv(j, -1, 'Celes.gd2gc', 'j4')
+#}
 def t_gd2gc
   e = 3.1; p = -0.5; h = 2500.0
 
   begin
-<<<<<<< HEAD
-    xyz = Celes::gd2gc(0, e, p, h)
-  rescue
-    nil
-  ensure
-    viv(Celes::status, -1, "Celes::gd2gc", "j0")
-  end
-
-  xyz = Celes::gd2gc(Celes::WGS84, e, p, h)
-
-  viv(Celes::status, 0, "Celes::gd2gc", "j1")
-  vvd(xyz[0], -5599000.5577049947, 1e-7, "Celes::gd2gc", "0/1")
-  vvd(xyz[1], 233011.67223479203, 1e-7, "Celes::gd2gc", "1/1")
-  vvd(xyz[2], -3040909.4706983363, 1e-7, "Celes::gd2gc", "2/1")
-
-  xyz = Celes::gd2gc(Celes::GRS80, e, p, h)
-
-  viv(Celes::status, 0, "Celes::gd2gc", "j2")
-  vvd(xyz[0], -5599000.5577260984, 1e-7, "Celes::gd2gc", "0/2")
-  vvd(xyz[1], 233011.6722356703, 1e-7, "Celes::gd2gc", "1/2")
-  vvd(xyz[2], -3040909.4706095476, 1e-7, "Celes::gd2gc", "2/2")
-
-  xyz = Celes::gd2gc(Celes::WGS72, e, p, h)
-
-  viv(Celes::status, 0, "Celes::gd2gc", "j3")
-  vvd(xyz[0], -5598998.7626301490, 1e-7, "Celes::gd2gc", "0/3")
-  vvd(xyz[1], 233011.5975297822, 1e-7, "Celes::gd2gc", "1/3")
-  vvd(xyz[2], -3040908.6861467111, 1e-7, "Celes::gd2gc", "2/3")
-
-  begin
-    xyz = Celes::gd2gc(4, e, p, h)
-  rescue
-    nil
-  ensure
-    viv(Celes::status, -1, "Celes::gd2gc", "j4")
-=======
     xyz = Celes.gd2gc(0, e, p, h)
   rescue
     nil
   ensure
-    viv(Celes.status, -1, 'Celes::gd2gc', 'j0')
+    viv(Celes.status, -1, 'Celes.gd2gc', 'j0')
   end
 
   xyz = Celes.gd2gc(Celes::WGS84, e, p, h)
 
-  viv(Celes.status, 0, 'Celes::gd2gc', 'j1')
-  vvd(xyz[0], -5_599_000.5577049947, 1e-7, 'Celes::gd2gc', '0/1')
-  vvd(xyz[1], 233_011.67223479203, 1e-7, 'Celes::gd2gc', '1/1')
-  vvd(xyz[2], -3_040_909.4706983363, 1e-7, 'Celes::gd2gc', '2/1')
+  viv(Celes.status, 0, 'Celes.gd2gc', 'j1')
+  vvd(xyz[0], -5599000.5577049947, 1e-7, 'Celes.gd2gc', '0/1')
+  vvd(xyz[1], 233011.67223479203, 1e-7, 'Celes.gd2gc', '1/1')
+  vvd(xyz[2], -3040909.4706983363, 1e-7, 'Celes.gd2gc', '2/1')
 
   xyz = Celes.gd2gc(Celes::GRS80, e, p, h)
 
-  viv(Celes.status, 0, 'Celes::gd2gc', 'j2')
-  vvd(xyz[0], -5_599_000.5577260984, 1e-7, 'Celes::gd2gc', '0/2')
-  vvd(xyz[1], 233_011.6722356703, 1e-7, 'Celes::gd2gc', '1/2')
-  vvd(xyz[2], -3_040_909.4706095476, 1e-7, 'Celes::gd2gc', '2/2')
+  viv(Celes.status, 0, 'Celes.gd2gc', 'j2')
+  vvd(xyz[0], -5599000.5577260984, 1e-7, 'Celes.gd2gc', '0/2')
+  vvd(xyz[1], 233011.6722356703, 1e-7, 'Celes.gd2gc', '1/2')
+  vvd(xyz[2], -3040909.4706095476, 1e-7, 'Celes.gd2gc', '2/2')
 
   xyz = Celes.gd2gc(Celes::WGS72, e, p, h)
 
-  viv(Celes.status, 0, 'Celes::gd2gc', 'j3')
-  vvd(xyz[0], -5_598_998.7626301490, 1e-7, 'Celes::gd2gc', '0/3')
-  vvd(xyz[1], 233_011.5975297822, 1e-7, 'Celes::gd2gc', '1/3')
-  vvd(xyz[2], -3_040_908.6861467111, 1e-7, 'Celes::gd2gc', '2/3')
+  viv(Celes.status, 0, 'Celes.gd2gc', 'j3')
+  vvd(xyz[0], -5598998.7626301490, 1e-7, 'Celes.gd2gc', '0/3')
+  vvd(xyz[1], 233011.5975297822, 1e-7, 'Celes.gd2gc', '1/3')
+  vvd(xyz[2], -3040908.6861467111, 1e-7, 'Celes.gd2gc', '2/3')
 
   begin
     xyz = Celes.gd2gc(4, e, p, h)
   rescue
     nil
   ensure
-    viv(Celes.status, -1, 'Celes::gd2gc', 'j4')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    viv(Celes.status, -1, 'Celes.gd2gc', 'j4')
   end
 end
 
@@ -3789,35 +2636,23 @@ end
 #	double e = 3.1, p = -0.5, h = 2500.0
 #	double xyz[3]
 #
-#	j = Celes::gd2gce(a, f, e, p, h, xyz)
+#	j = Celes.gd2gce(a, f, e, p, h, xyz)
 #
-#	viv(j, 0, "Celes::gd2gce", "j")
-#	vvd(xyz[0], -5598999.6665116328, 1e-7, "Celes::gd2gce", "0")
-#	vvd(xyz[1], 233011.63514630572, 1e-7, "Celes::gd2gce", "1")
-#	vvd(xyz[2], -3040909.0517314132, 1e-7, "Celes::gd2gce", "2")
+#	viv(j, 0, 'Celes.gd2gce', 'j')
+#	vvd(xyz[0], -5598999.6665116328, 1e-7, 'Celes.gd2gce', '0')
+#	vvd(xyz[1], 233011.63514630572, 1e-7, 'Celes.gd2gce', '1')
+#	vvd(xyz[2], -3040909.0517314132, 1e-7, 'Celes.gd2gce', '2')
 # }
 def t_gd2gce
-<<<<<<< HEAD
   a = 6378136.0; f = 0.0033528
-  e = 3.1; p = -0.5; h = 2500.0
-
-  xyz = Celes::gd2gce(a, f, e, p, h)
-
-  viv(Celes::status, 0, "Celes::gd2gce", "j")
-  vvd(xyz[0], -5598999.6665116328, 1e-7, "Celes::gd2gce", "0")
-  vvd(xyz[1], 233011.63514630572, 1e-7, "Celes::gd2gce", "1")
-  vvd(xyz[2], -3040909.0517314132, 1e-7, "Celes::gd2gce", "2")
-=======
-  a = 6_378_136.0; f = 0.0033528
   e = 3.1; p = -0.5; h = 2500.0
 
   xyz = Celes.gd2gce(a, f, e, p, h)
 
-  viv(Celes.status, 0, 'Celes::gd2gce', 'j')
-  vvd(xyz[0], -5_598_999.6665116328, 1e-7, 'Celes::gd2gce', '0')
-  vvd(xyz[1], 233_011.63514630572, 1e-7, 'Celes::gd2gce', '1')
-  vvd(xyz[2], -3_040_909.0517314132, 1e-7, 'Celes::gd2gce', '2')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  viv(Celes.status, 0, 'Celes.gd2gce', 'j')
+  vvd(xyz[0], -5598999.6665116328, 1e-7, 'Celes.gd2gce', '0')
+  vvd(xyz[1], 233011.63514630572, 1e-7, 'Celes.gd2gce', '1')
+  vvd(xyz[2], -3040909.0517314132, 1e-7, 'Celes.gd2gce', '2')
 end
 
 # static void t_gmst00(int *status)
@@ -3825,21 +2660,15 @@ end
 #	double theta
 #
 #
-#	theta = Celes::gmst00(2400000.5, 53736.0, 2400000.5, 53736.0)
+#	theta = Celes.gmst00(2400000.5, 53736.0, 2400000.5, 53736.0)
 #
-#	vvd(theta, 1.754174972210740592, 1e-12, "Celes::gmst00", "")
+#	vvd(theta, 1.754174972210740592, 1e-12, 'Celes.gmst00', '')
 #
 # }
 def t_gmst00
-<<<<<<< HEAD
-  theta = Celes::gmst00(2400000.5, 53736.0, 2400000.5, 53736.0)
+  theta = Celes.gmst00(2400000.5, 53736.0, 2400000.5, 53736.0)
 
-  vvd(theta, 1.754174972210740592, 1e-12, "Celes::gmst00", "")
-=======
-  theta = Celes.gmst00(2_400_000.5, 53_736.0, 2_400_000.5, 53_736.0)
-
-  vvd(theta, 1.754174972210740592, 1e-12, 'Celes::gmst00', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, 1.754174972210740592, 1e-12, 'Celes.gmst00', '')
 end
 
 # static void t_gmst06(int *status)
@@ -3847,21 +2676,15 @@ end
 #	double theta
 #
 #
-#	theta = Celes::gmst06(2400000.5, 53736.0, 2400000.5, 53736.0)
+#	theta = Celes.gmst06(2400000.5, 53736.0, 2400000.5, 53736.0)
 #
-#	vvd(theta, 1.754174971870091203, 1e-12, "Celes::gmst06", "")
+#	vvd(theta, 1.754174971870091203, 1e-12, 'Celes.gmst06', '')
 #
 # }
 def t_gmst06
-<<<<<<< HEAD
-  theta = Celes::gmst06(2400000.5, 53736.0, 2400000.5, 53736.0)
+  theta = Celes.gmst06(2400000.5, 53736.0, 2400000.5, 53736.0)
 
-  vvd(theta, 1.754174971870091203, 1e-12, "Celes::gmst06", "")
-=======
-  theta = Celes.gmst06(2_400_000.5, 53_736.0, 2_400_000.5, 53_736.0)
-
-  vvd(theta, 1.754174971870091203, 1e-12, 'Celes::gmst06', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, 1.754174971870091203, 1e-12, 'Celes.gmst06', '')
 end
 
 # static void t_gmst82(int *status)
@@ -3869,21 +2692,15 @@ end
 #	double theta
 #
 #
-#	theta = Celes::gmst82(2400000.5, 53736.0)
+#	theta = Celes.gmst82(2400000.5, 53736.0)
 #
-#	vvd(theta, 1.754174981860675096, 1e-12, "Celes::gmst82", "")
+#	vvd(theta, 1.754174981860675096, 1e-12, 'Celes.gmst82', '')
 #
 # }
 def t_gmst82
-<<<<<<< HEAD
-  theta = Celes::gmst82(2400000.5, 53736.0)
+  theta = Celes.gmst82(2400000.5, 53736.0)
 
-  vvd(theta, 1.754174981860675096, 1e-12, "Celes::gmst82", "")
-=======
-  theta = Celes.gmst82(2_400_000.5, 53_736.0)
-
-  vvd(theta, 1.754174981860675096, 1e-12, 'Celes::gmst82', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, 1.754174981860675096, 1e-12, 'Celes.gmst82', '')
 end
 
 # static void t_gst00a(int *status)
@@ -3891,43 +2708,31 @@ end
 #	double theta
 #
 #
-#	theta = Celes::gst00a(2400000.5, 53736.0, 2400000.5, 53736.0)
+#	theta = Celes.gst00a(2400000.5, 53736.0, 2400000.5, 53736.0)
 #
-#	vvd(theta, 1.754166138018281369, 1e-12, "Celes::gst00a", "")
+#	vvd(theta, 1.754166138018281369, 1e-12, 'Celes.gst00a', '')
 #
 # }
 def t_gst00a
-<<<<<<< HEAD
-  theta = Celes::gst00a(2400000.5, 53736.0, 2400000.5, 53736.0)
+  theta = Celes.gst00a(2400000.5, 53736.0, 2400000.5, 53736.0)
 
-  vvd(theta, 1.754166138018281369, 1e-12, "Celes::gst00a", "")
-=======
-  theta = Celes.gst00a(2_400_000.5, 53_736.0, 2_400_000.5, 53_736.0)
-
-  vvd(theta, 1.754166138018281369, 1e-12, 'Celes::gst00a', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, 1.754166138018281369, 1e-12, 'Celes.gst00a', '')
 end
 
 # static void t_gst00b(int *status)
-# {
+#{
 #	double theta
 #
 #
-#	theta = Celes::gst00b(2400000.5, 53736.0)
+#	theta = Celes.gst00b(2400000.5, 53736.0)
 #
-#	vvd(theta, 1.754166136510680589, 1e-12, "Celes::gst00b", "")
+#	vvd(theta, 1.754166136510680589, 1e-12, 'Celes.gst00b', '')
 #
 # }
 def t_gst00b
-<<<<<<< HEAD
-  theta = Celes::gst00b(2400000.5, 53736.0)
+  theta = Celes.gst00b(2400000.5, 53736.0)
 
-  vvd(theta, 1.754166136510680589, 1e-12, "Celes::gst00b", "")
-=======
-  theta = Celes.gst00b(2_400_000.5, 53_736.0)
-
-  vvd(theta, 1.754166136510680589, 1e-12, 'Celes::gst00b', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, 1.754166136510680589, 1e-12, 'Celes.gst00b', '')
 end
 
 # static void t_gst06(int *status)
@@ -3947,9 +2752,9 @@ end
 #	rnpb[2][1] =  0.4020595661593994396e-4
 #	rnpb[2][2] =  0.9999998314954572365
 #
-#	theta = Celes::gst06(2400000.5, 53736.0, 2400000.5, 53736.0, rnpb)
+#	theta = Celes.gst06(2400000.5, 53736.0, 2400000.5, 53736.0, rnpb)
 #
-#	vvd(theta, 1.754166138018167568, 1e-12, "Celes::gst06", "")
+#	vvd(theta, 1.754166138018167568, 1e-12, 'Celes.gst06', '')
 #
 # }
 def t_gst06
@@ -3967,15 +2772,9 @@ def t_gst06
   rnpb[2][1] =  0.4020595661593994396e-4
   rnpb[2][2] =  0.9999998314954572365
 
-<<<<<<< HEAD
-  theta = Celes::gst06(2400000.5, 53736.0, 2400000.5, 53736.0, rnpb)
+  theta = Celes.gst06(2400000.5, 53736.0, 2400000.5, 53736.0, rnpb)
 
-  vvd(theta, 1.754166138018167568, 1e-12, "Celes::gst06", "")
-=======
-  theta = Celes.gst06(2_400_000.5, 53_736.0, 2_400_000.5, 53_736.0, rnpb)
-
-  vvd(theta, 1.754166138018167568, 1e-12, 'Celes::gst06', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, 1.754166138018167568, 1e-12, 'Celes.gst06', '')
 end
 
 # static void t_gst06a(int *status)
@@ -3983,21 +2782,15 @@ end
 #	double theta
 #
 #
-#	theta = Celes::gst06a(2400000.5, 53736.0, 2400000.5, 53736.0)
+#	theta = Celes.gst06a(2400000.5, 53736.0, 2400000.5, 53736.0)
 #
-#	vvd(theta, 1.754166137675019159, 1e-12, "Celes::gst06a", "")
+#	vvd(theta, 1.754166137675019159, 1e-12, 'Celes.gst06a', '')
 #
 # }
 def t_gst06a
-<<<<<<< HEAD
-  theta = Celes::gst06a(2400000.5, 53736.0, 2400000.5, 53736.0)
+  theta = Celes.gst06a(2400000.5, 53736.0, 2400000.5, 53736.0)
 
-  vvd(theta, 1.754166137675019159, 1e-12, "Celes::gst06a", "")
-=======
-  theta = Celes.gst06a(2_400_000.5, 53_736.0, 2_400_000.5, 53_736.0)
-
-  vvd(theta, 1.754166137675019159, 1e-12, 'Celes::gst06a', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, 1.754166137675019159, 1e-12, 'Celes.gst06a', '')
 end
 
 # static void t_gst94(int *status)
@@ -4005,21 +2798,15 @@ end
 #	double theta
 #
 #
-#	theta = Celes::gst94(2400000.5, 53736.0)
+#	theta = Celes.gst94(2400000.5, 53736.0)
 #
-#	vvd(theta, 1.754166136020645203, 1e-12, "Celes::gst94", "")
+#	vvd(theta, 1.754166136020645203, 1e-12, 'Celes.gst94', '')
 #
 # }
 def t_gst94
-<<<<<<< HEAD
-  theta = Celes::gst94(2400000.5, 53736.0)
+  theta = Celes.gst94(2400000.5, 53736.0)
 
-  vvd(theta, 1.754166136020645203, 1e-12, "Celes::gst94", "")
-=======
-  theta = Celes.gst94(2_400_000.5, 53_736.0)
-
-  vvd(theta, 1.754166136020645203, 1e-12, 'Celes::gst94', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, 1.754166136020645203, 1e-12, 'Celes.gst94', '')
 end
 
 # static void t_h2fk5(int *status)
@@ -4034,21 +2821,21 @@ end
 #	pxh =  0.379210
 #	rvh = -7.6
 #
-#	Celes::h2fk5(rh, dh, drh, ddh, pxh, rvh,
+#	Celes.h2fk5(rh, dh, drh, ddh, pxh, rvh,
 #			&r5, &d5, &dr5, &dd5, &px5, &rv5)
 #
 #	vvd(r5, 1.767794455700065506, 1e-13,
-#			"Celes::h2fk5", "ra")
+#			'Celes.h2fk5', 'ra')
 #	vvd(d5, -0.2917513626469638890, 1e-13,
-#			"Celes::h2fk5", "dec")
+#			'Celes.h2fk5', 'dec')
 #	vvd(dr5, -0.27597945024511204e-5, 1e-18,
-#			"Celes::h2fk5", "dr5")
+#			'Celes.h2fk5', 'dr5')
 #	vvd(dd5, -0.59308014093262838e-5, 1e-18,
-#			"Celes::h2fk5", "dd5")
+#			'Celes.h2fk5', 'dd5')
 #	vvd(px5, 0.37921, 1e-13,
-#			"Celes::h2fk5", "px")
+#			'Celes.h2fk5', 'px')
 #	vvd(rv5, -7.6000001309071126, 1e-10,
-#			"Celes::h2fk5", "rv")
+#			'Celes.h2fk5', 'rv')
 #
 # }
 def t_h2fk5
@@ -4059,45 +2846,24 @@ def t_h2fk5
   pxh =  0.379210
   rvh = -7.6
 
-<<<<<<< HEAD
-  r5, d5, dr5, dd5, px5, rv5 = Celes::h2fk5(rh, dh, drh, ddh, pxh, rvh)
-
-  vvd(r5, 1.767794455700065506, 1e-13,
-    "Celes::h2fk5", "ra")
-  vvd(d5, -0.2917513626469638890, 1e-13,
-    "Celes::h2fk5", "dec")
-  vvd(dr5, -0.27597945024511204e-5, 1e-18,
-    "Celes::h2fk5", "dr5")
-  vvd(dd5, -0.59308014093262838e-5, 1e-18,
-    "Celes::h2fk5", "dd5")
-  vvd(px5, 0.37921, 1e-13,
-    "Celes::h2fk5", "px")
-  vvd(rv5, -7.6000001309071126, 1e-10,
-    "Celes::h2fk5", "rv")
-end
-
-#static void t_hfk5z(int *status)
-#{
-=======
   r5, d5, dr5, dd5, px5, rv5 = Celes.h2fk5(rh, dh, drh, ddh, pxh, rvh)
 
   vvd(r5, 1.767794455700065506, 1e-13,
-      'Celes::h2fk5', 'ra')
+    'Celes.h2fk5', 'ra')
   vvd(d5, -0.2917513626469638890, 1e-13,
-      'Celes::h2fk5', 'dec')
+    'Celes.h2fk5', 'dec')
   vvd(dr5, -0.27597945024511204e-5, 1e-18,
-      'Celes::h2fk5', 'dr5')
+    'Celes.h2fk5', 'dr5')
   vvd(dd5, -0.59308014093262838e-5, 1e-18,
-      'Celes::h2fk5', 'dd5')
+    'Celes.h2fk5', 'dd5')
   vvd(px5, 0.37921, 1e-13,
-      'Celes::h2fk5', 'px')
+    'Celes.h2fk5', 'px')
   vvd(rv5, -7.6000001309071126, 1e-10,
-      'Celes::h2fk5', 'rv')
+    'Celes.h2fk5', 'rv')
 end
 
 # static void t_hfk5z(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rh, dh, r5, d5, dr5, dd5
 #
 #
@@ -4105,45 +2871,32 @@ end
 #	rh =  1.767794352
 #	dh = -0.2917512594
 #
-#	Celes::hfk5z(rh, dh, 2400000.5, 54479.0, &r5, &d5, &dr5, &dd5)
+#	Celes.hfk5z(rh, dh, 2400000.5, 54479.0, &r5, &d5, &dr5, &dd5)
 #
 #	vvd(r5, 1.767794490535581026, 1e-13,
-#			"Celes::hfk5z", "ra")
+#			'Celes.hfk5z', 'ra')
 #	vvd(d5, -0.2917513695320114258, 1e-14,
-#			"Celes::hfk5z", "dec")
+#			'Celes.hfk5z', 'dec')
 #	vvd(dr5, 0.4335890983539243029e-8, 1e-22,
-#			"Celes::hfk5z", "dr5")
+#			'Celes.hfk5z', 'dr5')
 #	vvd(dd5, -0.8569648841237745902e-9, 1e-23,
-#			"Celes::hfk5z", "dd5")
+#			'Celes.hfk5z', 'dd5')
 #
 # }
 def t_hfk5z
   rh =  1.767794352
   dh = -0.2917512594
 
-<<<<<<< HEAD
-  r5, d5, dr5, dd5 = Celes::hfk5z(rh, dh, 2400000.5, 54479.0)
+  r5, d5, dr5, dd5 = Celes.hfk5z(rh, dh, 2400000.5, 54479.0)
 
   vvd(r5, 1.767794490535581026, 1e-13,
-    "Celes::hfk5z", "ra")
+    'Celes.hfk5z', 'ra')
   vvd(d5, -0.2917513695320114258, 1e-14,
-    "Celes::hfk5z", "dec")
+    'Celes.hfk5z', 'dec')
   vvd(dr5, 0.4335890983539243029e-8, 1e-22,
-    "Celes::hfk5z", "dr5")
+    'Celes.hfk5z', 'dr5')
   vvd(dd5, -0.8569648841237745902e-9, 1e-23,
-    "Celes::hfk5z", "dd5")
-=======
-  r5, d5, dr5, dd5 = Celes.hfk5z(rh, dh, 2_400_000.5, 54_479.0)
-
-  vvd(r5, 1.767794490535581026, 1e-13,
-      'Celes::hfk5z', 'ra')
-  vvd(d5, -0.2917513695320114258, 1e-14,
-      'Celes::hfk5z', 'dec')
-  vvd(dr5, 0.4335890983539243029e-8, 1e-22,
-      'Celes::hfk5z', 'dr5')
-  vvd(dd5, -0.8569648841237745902e-9, 1e-23,
-      'Celes::hfk5z', 'dd5')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.hfk5z', 'dd5')
 end
 
 # static void t_ir(int *status)
@@ -4163,19 +2916,19 @@ end
 #	r[2][1] = 4.0
 #	r[2][2] = 5.0
 #
-#	Celes::ir(r)
+#	Celes.ir(r)
 #
-#	vvd(r[0][0], 1.0, 0.0, "Celes::ir", "11")
-#	vvd(r[0][1], 0.0, 0.0, "Celes::ir", "12")
-#	vvd(r[0][2], 0.0, 0.0, "Celes::ir", "13")
+#	vvd(r[0][0], 1.0, 0.0, 'Celes.ir', '11')
+#	vvd(r[0][1], 0.0, 0.0, 'Celes.ir', '12')
+#	vvd(r[0][2], 0.0, 0.0, 'Celes.ir', '13')
 #
-#	vvd(r[1][0], 0.0, 0.0, "Celes::ir", "21")
-#	vvd(r[1][1], 1.0, 0.0, "Celes::ir", "22")
-#	vvd(r[1][2], 0.0, 0.0, "Celes::ir", "23")
+#	vvd(r[1][0], 0.0, 0.0, 'Celes.ir', '21')
+#	vvd(r[1][1], 1.0, 0.0, 'Celes.ir', '22')
+#	vvd(r[1][2], 0.0, 0.0, 'Celes.ir', '23')
 #
-#	vvd(r[2][0], 0.0, 0.0, "Celes::ir", "31")
-#	vvd(r[2][1], 0.0, 0.0, "Celes::ir", "32")
-#	vvd(r[2][2], 1.0, 0.0, "Celes::ir", "33")
+#	vvd(r[2][0], 0.0, 0.0, 'Celes.ir', '31')
+#	vvd(r[2][1], 0.0, 0.0, 'Celes.ir', '32')
+#	vvd(r[2][2], 1.0, 0.0, 'Celes.ir', '33')
 #
 # }
 def t_ir
@@ -4193,35 +2946,19 @@ def t_ir
   r[2][1] = 4.0
   r[2][2] = 5.0
 
-<<<<<<< HEAD
-  Celes::ir!(r)
-
-  vvd(r[0][0], 1.0, 0.0, "Celes::ir!", "11")
-  vvd(r[0][1], 0.0, 0.0, "Celes::ir!", "12")
-  vvd(r[0][2], 0.0, 0.0, "Celes::ir!", "13")
-
-  vvd(r[1][0], 0.0, 0.0, "Celes::ir!", "21")
-  vvd(r[1][1], 1.0, 0.0, "Celes::ir!", "22")
-  vvd(r[1][2], 0.0, 0.0, "Celes::ir!", "23")
-
-  vvd(r[2][0], 0.0, 0.0, "Celes::ir!", "31")
-  vvd(r[2][1], 0.0, 0.0, "Celes::ir!", "32")
-  vvd(r[2][2], 1.0, 0.0, "Celes::ir!", "33")
-=======
   Celes.ir!(r)
 
-  vvd(r[0][0], 1.0, 0.0, 'Celes::ir!', '11')
-  vvd(r[0][1], 0.0, 0.0, 'Celes::ir!', '12')
-  vvd(r[0][2], 0.0, 0.0, 'Celes::ir!', '13')
+  vvd(r[0][0], 1.0, 0.0, 'Celes.ir!', '11')
+  vvd(r[0][1], 0.0, 0.0, 'Celes.ir!', '12')
+  vvd(r[0][2], 0.0, 0.0, 'Celes.ir!', '13')
 
-  vvd(r[1][0], 0.0, 0.0, 'Celes::ir!', '21')
-  vvd(r[1][1], 1.0, 0.0, 'Celes::ir!', '22')
-  vvd(r[1][2], 0.0, 0.0, 'Celes::ir!', '23')
+  vvd(r[1][0], 0.0, 0.0, 'Celes.ir!', '21')
+  vvd(r[1][1], 1.0, 0.0, 'Celes.ir!', '22')
+  vvd(r[1][2], 0.0, 0.0, 'Celes.ir!', '23')
 
-  vvd(r[2][0], 0.0, 0.0, 'Celes::ir!', '31')
-  vvd(r[2][1], 0.0, 0.0, 'Celes::ir!', '32')
-  vvd(r[2][2], 1.0, 0.0, 'Celes::ir!', '33')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(r[2][0], 0.0, 0.0, 'Celes.ir!', '31')
+  vvd(r[2][1], 0.0, 0.0, 'Celes.ir!', '32')
+  vvd(r[2][2], 1.0, 0.0, 'Celes.ir!', '33')
 end
 
 # static void t_jd2cal(int *status)
@@ -4233,39 +2970,26 @@ end
 #	dj1 = 2400000.5
 #	dj2 = 50123.9999
 #
-#	j = Celes::jd2cal(dj1, dj2, &iy, &im, &id, &fd)
+#	j = Celes.jd2cal(dj1, dj2, &iy, &im, &id, &fd)
 #
-#	viv(iy, 1996, "Celes::jd2cal", "y")
-#	viv(im, 2, "Celes::jd2cal", "m")
-#	viv(id, 10, "Celes::jd2cal", "d")
-#	vvd(fd, 0.9999, 1e-7, "Celes::jd2cal", "fd")
-#	viv(j, 0, "Celes::jd2cal", "j")
+#	viv(iy, 1996, 'Celes.jd2cal', 'y')
+#	viv(im, 2, 'Celes.jd2cal', 'm')
+#	viv(id, 10, 'Celes.jd2cal', 'd')
+#	vvd(fd, 0.9999, 1e-7, 'Celes.jd2cal', 'fd')
+#	viv(j, 0, 'Celes.jd2cal', 'j')
 #
 # }
 def t_jd2cal
-<<<<<<< HEAD
   dj1 = 2400000.5
   dj2 = 50123.9999
 
-  iy, im, id, fd = Celes::jd2cal(dj1, dj2)
-
-  viv(iy, 1996, "Celes::jd2cal", "y")
-  viv(im, 2, "Celes::jd2cal", "m")
-  viv(id, 10, "Celes::jd2cal", "d")
-  vvd(fd, 0.9999, 1e-7, "Celes::jd2cal", "fd")
-  viv(Celes::status, 0, "Celes::jd2cal", "j")
-=======
-  dj1 = 2_400_000.5
-  dj2 = 50_123.9999
-
   iy, im, id, fd = Celes.jd2cal(dj1, dj2)
 
-  viv(iy, 1996, 'Celes::jd2cal', 'y')
-  viv(im, 2, 'Celes::jd2cal', 'm')
-  viv(id, 10, 'Celes::jd2cal', 'd')
-  vvd(fd, 0.9999, 1e-7, 'Celes::jd2cal', 'fd')
-  viv(Celes.status, 0, 'Celes::jd2cal', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  viv(iy, 1996, 'Celes.jd2cal', 'y')
+  viv(im, 2, 'Celes.jd2cal', 'm')
+  viv(id, 10, 'Celes.jd2cal', 'd')
+  vvd(fd, 0.9999, 1e-7, 'Celes.jd2cal', 'fd')
+  viv(Celes.status, 0, 'Celes.jd2cal', 'j')
 end
 
 # static void t_jdcalf(int *status)
@@ -4277,42 +3001,28 @@ end
 #	dj1 = 2400000.5
 #	dj2 = 50123.9999
 #
-#	j = Celes::jdcalf(4, dj1, dj2, iydmf)
+#	j = Celes.jdcalf(4, dj1, dj2, iydmf)
 #
-#	viv(iydmf[0], 1996, "Celes::jdcalf", "y")
-#	viv(iydmf[1], 2, "Celes::jdcalf", "m")
-#	viv(iydmf[2], 10, "Celes::jdcalf", "d")
-#	viv(iydmf[3], 9999, "Celes::jdcalf", "f")
+#	viv(iydmf[0], 1996, 'Celes.jdcalf', 'y')
+#	viv(iydmf[1], 2, 'Celes.jdcalf', 'm')
+#	viv(iydmf[2], 10, 'Celes.jdcalf', 'd')
+#	viv(iydmf[3], 9999, 'Celes.jdcalf', 'f')
 #
-#	viv(j, 0, "Celes::jdcalf", "j")
+#	viv(j, 0, 'Celes.jdcalf', 'j')
 #
 # }
 def t_jdcalf
-<<<<<<< HEAD
   dj1 = 2400000.5
   dj2 = 50123.9999
 
-  iydmf = Celes::jdcalf(4, dj1, dj2)
-
-  viv(iydmf[0], 1996, "Celes::jdcalf", "y")
-  viv(iydmf[1], 2, "Celes::jdcalf", "m")
-  viv(iydmf[2], 10, "Celes::jdcalf", "d")
-  viv(iydmf[3], 9999, "Celes::jdcalf", "f")
-
-  viv(Celes::status, 0, "Celes::jdcalf", "j")
-=======
-  dj1 = 2_400_000.5
-  dj2 = 50_123.9999
-
   iydmf = Celes.jdcalf(4, dj1, dj2)
 
-  viv(iydmf[0], 1996, 'Celes::jdcalf', 'y')
-  viv(iydmf[1], 2, 'Celes::jdcalf', 'm')
-  viv(iydmf[2], 10, 'Celes::jdcalf', 'd')
-  viv(iydmf[3], 9999, 'Celes::jdcalf', 'f')
+  viv(iydmf[0], 1996, 'Celes.jdcalf', 'y')
+  viv(iydmf[1], 2, 'Celes.jdcalf', 'm')
+  viv(iydmf[2], 10, 'Celes.jdcalf', 'd')
+  viv(iydmf[3], 9999, 'Celes.jdcalf', 'f')
 
-  viv(Celes.status, 0, 'Celes::jdcalf', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  viv(Celes.status, 0, 'Celes.jdcalf', 'j')
 end
 
 # static void t_num00a(int *status)
@@ -4320,250 +3030,163 @@ end
 #	double rmatn[3][3]
 #
 #
-#	Celes::num00a(2400000.5, 53736.0, rmatn)
+#	Celes.num00a(2400000.5, 53736.0, rmatn)
 #
 #	vvd(rmatn[0][0], 0.9999999999536227949, 1e-12,
-#			"Celes::num00a", "11")
+#			'Celes.num00a', '11')
 #	vvd(rmatn[0][1], 0.8836238544090873336e-5, 1e-12,
-#			"Celes::num00a", "12")
+#			'Celes.num00a', '12')
 #	vvd(rmatn[0][2], 0.3830835237722400669e-5, 1e-12,
-#			"Celes::num00a", "13")
+#			'Celes.num00a', '13')
 #
 #	vvd(rmatn[1][0], -0.8836082880798569274e-5, 1e-12,
-#			"Celes::num00a", "21")
+#			'Celes.num00a', '21')
 #	vvd(rmatn[1][1], 0.9999999991354655028, 1e-12,
-#			"Celes::num00a", "22")
+#			'Celes.num00a', '22')
 #	vvd(rmatn[1][2], -0.4063240865362499850e-4, 1e-12,
-#			"Celes::num00a", "23")
+#			'Celes.num00a', '23')
 #
 #	vvd(rmatn[2][0], -0.3831194272065995866e-5, 1e-12,
-#			"Celes::num00a", "31")
+#			'Celes.num00a', '31')
 #	vvd(rmatn[2][1], 0.4063237480216291775e-4, 1e-12,
-#			"Celes::num00a", "32")
+#			'Celes.num00a', '32')
 #	vvd(rmatn[2][2], 0.9999999991671660338, 1e-12,
-#			"Celes::num00a", "33")
+#			'Celes.num00a', '33')
 #
 # }
 def t_num00a
-<<<<<<< HEAD
-  rmatn = Celes::num00a(2400000.5, 53736.0)
+  rmatn = Celes.num00a(2400000.5, 53736.0)
 
   vvd(rmatn[0][0], 0.9999999999536227949, 1e-12,
-    "Celes::num00a", "11")
+    'Celes.num00a', '11')
   vvd(rmatn[0][1], 0.8836238544090873336e-5, 1e-12,
-    "Celes::num00a", "12")
+    'Celes.num00a', '12')
   vvd(rmatn[0][2], 0.3830835237722400669e-5, 1e-12,
-    "Celes::num00a", "13")
+    'Celes.num00a', '13')
 
   vvd(rmatn[1][0], -0.8836082880798569274e-5, 1e-12,
-    "Celes::num00a", "21")
+    'Celes.num00a', '21')
   vvd(rmatn[1][1], 0.9999999991354655028, 1e-12,
-    "Celes::num00a", "22")
+    'Celes.num00a', '22')
   vvd(rmatn[1][2], -0.4063240865362499850e-4, 1e-12,
-    "Celes::num00a", "23")
+    'Celes.num00a', '23')
 
   vvd(rmatn[2][0], -0.3831194272065995866e-5, 1e-12,
-    "Celes::num00a", "31")
+    'Celes.num00a', '31')
   vvd(rmatn[2][1], 0.4063237480216291775e-4, 1e-12,
-    "Celes::num00a", "32")
+    'Celes.num00a', '32')
   vvd(rmatn[2][2], 0.9999999991671660338, 1e-12,
-    "Celes::num00a", "33")
-end
-
-#static void t_num00b(int *status)
-#{
-=======
-  rmatn = Celes.num00a(2_400_000.5, 53_736.0)
-
-  vvd(rmatn[0][0], 0.9999999999536227949, 1e-12,
-      'Celes::num00a', '11')
-  vvd(rmatn[0][1], 0.8836238544090873336e-5, 1e-12,
-      'Celes::num00a', '12')
-  vvd(rmatn[0][2], 0.3830835237722400669e-5, 1e-12,
-      'Celes::num00a', '13')
-
-  vvd(rmatn[1][0], -0.8836082880798569274e-5, 1e-12,
-      'Celes::num00a', '21')
-  vvd(rmatn[1][1], 0.9999999991354655028, 1e-12,
-      'Celes::num00a', '22')
-  vvd(rmatn[1][2], -0.4063240865362499850e-4, 1e-12,
-      'Celes::num00a', '23')
-
-  vvd(rmatn[2][0], -0.3831194272065995866e-5, 1e-12,
-      'Celes::num00a', '31')
-  vvd(rmatn[2][1], 0.4063237480216291775e-4, 1e-12,
-      'Celes::num00a', '32')
-  vvd(rmatn[2][2], 0.9999999991671660338, 1e-12,
-      'Celes::num00a', '33')
+    'Celes.num00a', '33')
 end
 
 # static void t_num00b(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rmatn[3][3]
 #
-#	Celes::num00b(2400000.5, 53736, rmatn)
+#	Celes.num00b(2400000.5, 53736, rmatn)
 #
 #	vvd(rmatn[0][0], 0.9999999999536069682, 1e-12,
-#			"Celes::num00b", "11")
+#			'Celes.num00b', '11')
 #	vvd(rmatn[0][1], 0.8837746144871248011e-5, 1e-12,
-#			"Celes::num00b", "12")
+#			'Celes.num00b', '12')
 #	vvd(rmatn[0][2], 0.3831488838252202945e-5, 1e-12,
-#			"Celes::num00b", "13")
+#			'Celes.num00b', '13')
 #
 #	vvd(rmatn[1][0], -0.8837590456632304720e-5, 1e-12,
-#			"Celes::num00b", "21")
+#			'Celes.num00b', '21')
 #	vvd(rmatn[1][1], 0.9999999991354692733, 1e-12,
-#			"Celes::num00b", "22")
+#			'Celes.num00b', '22')
 #	vvd(rmatn[1][2], -0.4063198798559591654e-4, 1e-12,
-#			"Celes::num00b", "23")
+#			'Celes.num00b', '23')
 #
 #	vvd(rmatn[2][0], -0.3831847930134941271e-5, 1e-12,
-#			"Celes::num00b", "31")
+#			'Celes.num00b', '31')
 #	vvd(rmatn[2][1], 0.4063195412258168380e-4, 1e-12,
-#			"Celes::num00b", "32")
+#			'Celes.num00b', '32')
 #	vvd(rmatn[2][2], 0.9999999991671806225, 1e-12,
-#			"Celes::num00b", "33")
+#			'Celes.num00b', '33')
 #
 # }
 def t_num00b
-<<<<<<< HEAD
-  rmatn = Celes::num00b(2400000.5, 53736)
+  rmatn = Celes.num00b(2400000.5, 53736)
 
   vvd(rmatn[0][0], 0.9999999999536069682, 1e-12,
-    "Celes::num00b", "11")
+    'Celes.num00b', '11')
   vvd(rmatn[0][1], 0.8837746144871248011e-5, 1e-12,
-    "Celes::num00b", "12")
+    'Celes.num00b', '12')
   vvd(rmatn[0][2], 0.3831488838252202945e-5, 1e-12,
-    "Celes::num00b", "13")
+    'Celes.num00b', '13')
 
   vvd(rmatn[1][0], -0.8837590456632304720e-5, 1e-12,
-    "Celes::num00b", "21")
+    'Celes.num00b', '21')
   vvd(rmatn[1][1], 0.9999999991354692733, 1e-12,
-    "Celes::num00b", "22")
+    'Celes.num00b', '22')
   vvd(rmatn[1][2], -0.4063198798559591654e-4, 1e-12,
-    "Celes::num00b", "23")
+    'Celes.num00b', '23')
 
   vvd(rmatn[2][0], -0.3831847930134941271e-5, 1e-12,
-    "Celes::num00b", "31")
+    'Celes.num00b', '31')
   vvd(rmatn[2][1], 0.4063195412258168380e-4, 1e-12,
-    "Celes::num00b", "32")
+    'Celes.num00b', '32')
   vvd(rmatn[2][2], 0.9999999991671806225, 1e-12,
-    "Celes::num00b", "33")
-end
-
-#static void t_num06a(int *status)
-#{
-=======
-  rmatn = Celes.num00b(2_400_000.5, 53_736)
-
-  vvd(rmatn[0][0], 0.9999999999536069682, 1e-12,
-      'Celes::num00b', '11')
-  vvd(rmatn[0][1], 0.8837746144871248011e-5, 1e-12,
-      'Celes::num00b', '12')
-  vvd(rmatn[0][2], 0.3831488838252202945e-5, 1e-12,
-      'Celes::num00b', '13')
-
-  vvd(rmatn[1][0], -0.8837590456632304720e-5, 1e-12,
-      'Celes::num00b', '21')
-  vvd(rmatn[1][1], 0.9999999991354692733, 1e-12,
-      'Celes::num00b', '22')
-  vvd(rmatn[1][2], -0.4063198798559591654e-4, 1e-12,
-      'Celes::num00b', '23')
-
-  vvd(rmatn[2][0], -0.3831847930134941271e-5, 1e-12,
-      'Celes::num00b', '31')
-  vvd(rmatn[2][1], 0.4063195412258168380e-4, 1e-12,
-      'Celes::num00b', '32')
-  vvd(rmatn[2][2], 0.9999999991671806225, 1e-12,
-      'Celes::num00b', '33')
+    'Celes.num00b', '33')
 end
 
 # static void t_num06a(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rmatn[3][3]
 #
-#	Celes::num06a(2400000.5, 53736, rmatn)
+#	Celes.num06a(2400000.5, 53736, rmatn)
 #
 #	vvd(rmatn[0][0], 0.9999999999536227668, 1e-12,
-#			"Celes::num06a", "11")
+#			'Celes.num06a', '11')
 #	vvd(rmatn[0][1], 0.8836241998111535233e-5, 1e-12,
-#			"Celes::num06a", "12")
+#			'Celes.num06a', '12')
 #	vvd(rmatn[0][2], 0.3830834608415287707e-5, 1e-12,
-#			"Celes::num06a", "13")
+#			'Celes.num06a', '13')
 #
 #	vvd(rmatn[1][0], -0.8836086334870740138e-5, 1e-12,
-#			"Celes::num06a", "21")
+#			'Celes.num06a', '21')
 #	vvd(rmatn[1][1], 0.9999999991354657474, 1e-12,
-#			"Celes::num06a", "22")
+#			'Celes.num06a', '22')
 #	vvd(rmatn[1][2], -0.4063240188248455065e-4, 1e-12,
-#			"Celes::num06a", "23")
+#			'Celes.num06a', '23')
 #
 #	vvd(rmatn[2][0], -0.3831193642839398128e-5, 1e-12,
-#			"Celes::num06a", "31")
+#			'Celes.num06a', '31')
 #	vvd(rmatn[2][1], 0.4063236803101479770e-4, 1e-12,
-#			"Celes::num06a", "32")
+#			'Celes.num06a', '32')
 #	vvd(rmatn[2][2], 0.9999999991671663114, 1e-12,
-#			"Celes::num06a", "33")
+#			'Celes.num06a', '33')
 #
 # }
 def t_num06a
-<<<<<<< HEAD
-  rmatn = Celes::num06a(2400000.5, 53736)
+  rmatn = Celes.num06a(2400000.5, 53736)
 
   vvd(rmatn[0][0], 0.9999999999536227668, 1e-12,
-    "Celes::num06a", "11")
+    'Celes.num06a', '11')
   vvd(rmatn[0][1], 0.8836241998111535233e-5, 1e-12,
-    "Celes::num06a", "12")
+    'Celes.num06a', '12')
   vvd(rmatn[0][2], 0.3830834608415287707e-5, 1e-12,
-    "Celes::num06a", "13")
+    'Celes.num06a', '13')
 
   vvd(rmatn[1][0], -0.8836086334870740138e-5, 1e-12,
-    "Celes::num06a", "21")
+    'Celes.num06a', '21')
   vvd(rmatn[1][1], 0.9999999991354657474, 1e-12,
-    "Celes::num06a", "22")
+    'Celes.num06a', '22')
   vvd(rmatn[1][2], -0.4063240188248455065e-4, 1e-12,
-    "Celes::num06a", "23")
+    'Celes.num06a', '23')
 
   vvd(rmatn[2][0], -0.3831193642839398128e-5, 1e-12,
-    "Celes::num06a", "31")
+    'Celes.num06a', '31')
   vvd(rmatn[2][1], 0.4063236803101479770e-4, 1e-12,
-    "Celes::num06a", "32")
+    'Celes.num06a', '32')
   vvd(rmatn[2][2], 0.9999999991671663114, 1e-12,
-    "Celes::num06a", "33")
-end
-
-#static void t_numat(int *status)
-#{
-=======
-  rmatn = Celes.num06a(2_400_000.5, 53_736)
-
-  vvd(rmatn[0][0], 0.9999999999536227668, 1e-12,
-      'Celes::num06a', '11')
-  vvd(rmatn[0][1], 0.8836241998111535233e-5, 1e-12,
-      'Celes::num06a', '12')
-  vvd(rmatn[0][2], 0.3830834608415287707e-5, 1e-12,
-      'Celes::num06a', '13')
-
-  vvd(rmatn[1][0], -0.8836086334870740138e-5, 1e-12,
-      'Celes::num06a', '21')
-  vvd(rmatn[1][1], 0.9999999991354657474, 1e-12,
-      'Celes::num06a', '22')
-  vvd(rmatn[1][2], -0.4063240188248455065e-4, 1e-12,
-      'Celes::num06a', '23')
-
-  vvd(rmatn[2][0], -0.3831193642839398128e-5, 1e-12,
-      'Celes::num06a', '31')
-  vvd(rmatn[2][1], 0.4063236803101479770e-4, 1e-12,
-      'Celes::num06a', '32')
-  vvd(rmatn[2][2], 0.9999999991671663114, 1e-12,
-      'Celes::num06a', '33')
+    'Celes.num06a', '33')
 end
 
 # static void t_numat(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double epsa, dpsi, deps, rmatn[3][3]
 #
 #
@@ -4571,28 +3194,28 @@ end
 #	dpsi = -0.9630909107115582393e-5
 #	deps =  0.4063239174001678826e-4
 #
-#	Celes::numat(epsa, dpsi, deps, rmatn)
+#	Celes.numat(epsa, dpsi, deps, rmatn)
 #
 #	vvd(rmatn[0][0], 0.9999999999536227949, 1e-12,
-#			"Celes::numat", "11")
+#			'Celes.numat', '11')
 #	vvd(rmatn[0][1], 0.8836239320236250577e-5, 1e-12,
-#			"Celes::numat", "12")
+#			'Celes.numat', '12')
 #	vvd(rmatn[0][2], 0.3830833447458251908e-5, 1e-12,
-#			"Celes::numat", "13")
+#			'Celes.numat', '13')
 #
 #	vvd(rmatn[1][0], -0.8836083657016688588e-5, 1e-12,
-#			"Celes::numat", "21")
+#			'Celes.numat', '21')
 #	vvd(rmatn[1][1], 0.9999999991354654959, 1e-12,
-#			"Celes::numat", "22")
+#			'Celes.numat', '22')
 #	vvd(rmatn[1][2], -0.4063240865361857698e-4, 1e-12,
-#			"Celes::numat", "23")
+#			'Celes.numat', '23')
 #
 #	vvd(rmatn[2][0], -0.3831192481833385226e-5, 1e-12,
-#			"Celes::numat", "31")
+#			'Celes.numat', '31')
 #	vvd(rmatn[2][1], 0.4063237480216934159e-4, 1e-12,
-#			"Celes::numat", "32")
+#			'Celes.numat', '32')
 #	vvd(rmatn[2][2], 0.9999999991671660407, 1e-12,
-#			"Celes::numat", "33")
+#			'Celes.numat', '33')
 #
 # }
 def t_numat
@@ -4600,88 +3223,50 @@ def t_numat
   dpsi = -0.9630909107115582393e-5
   deps =  0.4063239174001678826e-4
 
-<<<<<<< HEAD
-  rmatn = Celes::numat(epsa, dpsi, deps)
-
-  vvd(rmatn[0][0], 0.9999999999536227949, 1e-12,
-    "Celes::numat", "11")
-  vvd(rmatn[0][1], 0.8836239320236250577e-5, 1e-12,
-    "Celes::numat", "12")
-  vvd(rmatn[0][2], 0.3830833447458251908e-5, 1e-12,
-    "Celes::numat", "13")
-
-  vvd(rmatn[1][0], -0.8836083657016688588e-5, 1e-12,
-    "Celes::numat", "21")
-  vvd(rmatn[1][1], 0.9999999991354654959, 1e-12,
-    "Celes::numat", "22")
-  vvd(rmatn[1][2], -0.4063240865361857698e-4, 1e-12,
-    "Celes::numat", "23")
-
-  vvd(rmatn[2][0], -0.3831192481833385226e-5, 1e-12,
-    "Celes::numat", "31")
-  vvd(rmatn[2][1], 0.4063237480216934159e-4, 1e-12,
-    "Celes::numat", "32")
-  vvd(rmatn[2][2], 0.9999999991671660407, 1e-12,
-    "Celes::numat", "33")
-end
-
-#static void t_nut00a(int *status)
-#{
-=======
   rmatn = Celes.numat(epsa, dpsi, deps)
 
   vvd(rmatn[0][0], 0.9999999999536227949, 1e-12,
-      'Celes::numat', '11')
+    'Celes.numat', '11')
   vvd(rmatn[0][1], 0.8836239320236250577e-5, 1e-12,
-      'Celes::numat', '12')
+    'Celes.numat', '12')
   vvd(rmatn[0][2], 0.3830833447458251908e-5, 1e-12,
-      'Celes::numat', '13')
+    'Celes.numat', '13')
 
   vvd(rmatn[1][0], -0.8836083657016688588e-5, 1e-12,
-      'Celes::numat', '21')
+    'Celes.numat', '21')
   vvd(rmatn[1][1], 0.9999999991354654959, 1e-12,
-      'Celes::numat', '22')
+    'Celes.numat', '22')
   vvd(rmatn[1][2], -0.4063240865361857698e-4, 1e-12,
-      'Celes::numat', '23')
+    'Celes.numat', '23')
 
   vvd(rmatn[2][0], -0.3831192481833385226e-5, 1e-12,
-      'Celes::numat', '31')
+    'Celes.numat', '31')
   vvd(rmatn[2][1], 0.4063237480216934159e-4, 1e-12,
-      'Celes::numat', '32')
+    'Celes.numat', '32')
   vvd(rmatn[2][2], 0.9999999991671660407, 1e-12,
-      'Celes::numat', '33')
+    'Celes.numat', '33')
 end
 
 # static void t_nut00a(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double dpsi, deps
 #
 #
-#	Celes::nut00a(2400000.5, 53736.0, &dpsi, &deps)
+#	Celes.nut00a(2400000.5, 53736.0, &dpsi, &deps)
 #
 #	vvd(dpsi, -0.9630909107115518431e-5, 1e-13,
-#			"Celes::nut00a", "dpsi")
+#			'Celes.nut00a', 'dpsi')
 #	vvd(deps,  0.4063239174001678710e-4, 1e-13,
-#			"Celes::nut00a", "deps")
+#			'Celes.nut00a', 'deps')
 #
 # }
 def t_nut00a
-<<<<<<< HEAD
-  dpsi, deps = Celes::nut00a(2400000.5, 53736.0)
+  dpsi, deps = Celes.nut00a(2400000.5, 53736.0)
 
   vvd(dpsi, -0.9630909107115518431e-5, 1e-13,
-    "Celes::nut00a", "dpsi")
+    'Celes.nut00a', 'dpsi')
   vvd(deps,  0.4063239174001678710e-4, 1e-13,
-    "Celes::nut00a", "deps")
-=======
-  dpsi, deps = Celes.nut00a(2_400_000.5, 53_736.0)
-
-  vvd(dpsi, -0.9630909107115518431e-5, 1e-13,
-      'Celes::nut00a', 'dpsi')
-  vvd(deps,  0.4063239174001678710e-4, 1e-13,
-      'Celes::nut00a', 'deps')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.nut00a', 'deps')
 end
 
 # static void t_nut00b(int *status)
@@ -4689,30 +3274,21 @@ end
 #	double dpsi, deps
 #
 #
-#	Celes::nut00b(2400000.5, 53736.0, &dpsi, &deps)
+#	Celes.nut00b(2400000.5, 53736.0, &dpsi, &deps)
 #
 #	vvd(dpsi, -0.9632552291148362783e-5, 1e-13,
-#			"Celes::nut00b", "dpsi")
+#			'Celes.nut00b', 'dpsi')
 #	vvd(deps,  0.4063197106621159367e-4, 1e-13,
-#			"Celes::nut00b", "deps")
+#			'Celes.nut00b', 'deps')
 #
 # }
 def t_nut00b
-<<<<<<< HEAD
-  dpsi, deps = Celes::nut00b(2400000.5, 53736.0)
+  dpsi, deps = Celes.nut00b(2400000.5, 53736.0)
 
   vvd(dpsi, -0.9632552291148362783e-5, 1e-13,
-    "Celes::nut00b", "dpsi")
+    'Celes.nut00b', 'dpsi')
   vvd(deps,  0.4063197106621159367e-4, 1e-13,
-    "Celes::nut00b", "deps")
-=======
-  dpsi, deps = Celes.nut00b(2_400_000.5, 53_736.0)
-
-  vvd(dpsi, -0.9632552291148362783e-5, 1e-13,
-      'Celes::nut00b', 'dpsi')
-  vvd(deps,  0.4063197106621159367e-4, 1e-13,
-      'Celes::nut00b', 'deps')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.nut00b', 'deps')
 end
 
 # static void t_nut06a(int *status)
@@ -4720,30 +3296,21 @@ end
 #	double dpsi, deps
 #
 #
-#	Celes::nut06a(2400000.5, 53736.0, &dpsi, &deps)
+#	Celes.nut06a(2400000.5, 53736.0, &dpsi, &deps)
 #
 #	vvd(dpsi, -0.9630912025820308797e-5, 1e-13,
-#			"Celes::nut06a", "dpsi")
+#			'Celes.nut06a', 'dpsi')
 #	vvd(deps,  0.4063238496887249798e-4, 1e-13,
-#			"Celes::nut06a", "deps")
+#			'Celes.nut06a', 'deps')
 #
 # }
 def t_nut06a
-<<<<<<< HEAD
-  dpsi, deps = Celes::nut06a(2400000.5, 53736.0)
+  dpsi, deps = Celes.nut06a(2400000.5, 53736.0)
 
   vvd(dpsi, -0.9630912025820308797e-5, 1e-13,
-    "Celes::nut06a", "dpsi")
+    'Celes.nut06a', 'dpsi')
   vvd(deps,  0.4063238496887249798e-4, 1e-13,
-    "Celes::nut06a", "deps")
-=======
-  dpsi, deps = Celes.nut06a(2_400_000.5, 53_736.0)
-
-  vvd(dpsi, -0.9630912025820308797e-5, 1e-13,
-      'Celes::nut06a', 'dpsi')
-  vvd(deps,  0.4063238496887249798e-4, 1e-13,
-      'Celes::nut06a', 'deps')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.nut06a', 'deps')
 end
 
 # static void t_nut80(int *status)
@@ -4751,30 +3318,21 @@ end
 #	double dpsi, deps
 #
 #
-#	Celes::nut80(2400000.5, 53736.0, &dpsi, &deps)
+#	Celes.nut80(2400000.5, 53736.0, &dpsi, &deps)
 #
 #	vvd(dpsi, -0.9643658353226563966e-5, 1e-13,
-#			"Celes::nut80", "dpsi")
+#			'Celes.nut80', 'dpsi')
 #	vvd(deps,  0.4060051006879713322e-4, 1e-13,
-#			"Celes::nut80", "deps")
+#			'Celes.nut80', 'deps')
 #
 # }
 def t_nut80
-<<<<<<< HEAD
-  dpsi, deps = Celes::nut80(2400000.5, 53736.0)
+  dpsi, deps = Celes.nut80(2400000.5, 53736.0)
 
   vvd(dpsi, -0.9643658353226563966e-5, 1e-13,
-    "Celes::nut80", "dpsi")
+    'Celes.nut80', 'dpsi')
   vvd(deps,  0.4060051006879713322e-4, 1e-13,
-    "Celes::nut80", "deps")
-=======
-  dpsi, deps = Celes.nut80(2_400_000.5, 53_736.0)
-
-  vvd(dpsi, -0.9643658353226563966e-5, 1e-13,
-      'Celes::nut80', 'dpsi')
-  vvd(deps,  0.4060051006879713322e-4, 1e-13,
-      'Celes::nut80', 'deps')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.nut80', 'deps')
 end
 
 # static void t_nutm80(int *status)
@@ -4782,97 +3340,63 @@ end
 #	double rmatn[3][3]
 #
 #
-#	Celes::nutm80(2400000.5, 53736.0, rmatn)
+#	Celes.nutm80(2400000.5, 53736.0, rmatn)
 #
 #	vvd(rmatn[0][0], 0.9999999999534999268, 1e-12,
-#			"Celes::nutm80", "11")
+#			'Celes.nutm80', '11')
 #	vvd(rmatn[0][1], 0.8847935789636432161e-5, 1e-12,
-#			"Celes::nutm80", "12")
+#			'Celes.nutm80', '12')
 #	vvd(rmatn[0][2], 0.3835906502164019142e-5, 1e-12,
-#			"Celes::nutm80", "13")
+#			'Celes.nutm80', '13')
 #
 #	vvd(rmatn[1][0], -0.8847780042583435924e-5, 1e-12,
-#			"Celes::nutm80", "21")
+#			'Celes.nutm80', '21')
 #	vvd(rmatn[1][1], 0.9999999991366569963, 1e-12,
-#			"Celes::nutm80", "22")
+#			'Celes.nutm80', '22')
 #	vvd(rmatn[1][2], -0.4060052702727130809e-4, 1e-12,
-#			"Celes::nutm80", "23")
+#			'Celes.nutm80', '23')
 #
 #	vvd(rmatn[2][0], -0.3836265729708478796e-5, 1e-12,
-#			"Celes::nutm80", "31")
+#			'Celes.nutm80', '31')
 #	vvd(rmatn[2][1], 0.4060049308612638555e-4, 1e-12,
-#			"Celes::nutm80", "32")
+#			'Celes.nutm80', '32')
 #	vvd(rmatn[2][2], 0.9999999991684415129, 1e-12,
-#			"Celes::nutm80", "33")
+#			'Celes.nutm80', '33')
 #
 # }
 def t_nutm80
-<<<<<<< HEAD
-  rmatn = Celes::nutm80(2400000.5, 53736.0)
+  rmatn = Celes.nutm80(2400000.5, 53736.0)
 
   vvd(rmatn[0][0], 0.9999999999534999268, 1e-12,
-    "Celes::nutm80", "11")
+    'Celes.nutm80', '11')
   vvd(rmatn[0][1], 0.8847935789636432161e-5, 1e-12,
-    "Celes::nutm80", "12")
+    'Celes.nutm80', '12')
   vvd(rmatn[0][2], 0.3835906502164019142e-5, 1e-12,
-    "Celes::nutm80", "13")
+    'Celes.nutm80', '13')
 
   vvd(rmatn[1][0], -0.8847780042583435924e-5, 1e-12,
-    "Celes::nutm80", "21")
+    'Celes.nutm80', '21')
   vvd(rmatn[1][1], 0.9999999991366569963, 1e-12,
-    "Celes::nutm80", "22")
+    'Celes.nutm80', '22')
   vvd(rmatn[1][2], -0.4060052702727130809e-4, 1e-12,
-    "Celes::nutm80", "23")
+    'Celes.nutm80', '23')
 
   vvd(rmatn[2][0], -0.3836265729708478796e-5, 1e-12,
-    "Celes::nutm80", "31")
+    'Celes.nutm80', '31')
   vvd(rmatn[2][1], 0.4060049308612638555e-4, 1e-12,
-    "Celes::nutm80", "32")
+    'Celes.nutm80', '32')
   vvd(rmatn[2][2], 0.9999999991684415129, 1e-12,
-    "Celes::nutm80", "33")
-end
-
-#static void t_obl06(int *status)
-#{
-=======
-  rmatn = Celes.nutm80(2_400_000.5, 53_736.0)
-
-  vvd(rmatn[0][0], 0.9999999999534999268, 1e-12,
-      'Celes::nutm80', '11')
-  vvd(rmatn[0][1], 0.8847935789636432161e-5, 1e-12,
-      'Celes::nutm80', '12')
-  vvd(rmatn[0][2], 0.3835906502164019142e-5, 1e-12,
-      'Celes::nutm80', '13')
-
-  vvd(rmatn[1][0], -0.8847780042583435924e-5, 1e-12,
-      'Celes::nutm80', '21')
-  vvd(rmatn[1][1], 0.9999999991366569963, 1e-12,
-      'Celes::nutm80', '22')
-  vvd(rmatn[1][2], -0.4060052702727130809e-4, 1e-12,
-      'Celes::nutm80', '23')
-
-  vvd(rmatn[2][0], -0.3836265729708478796e-5, 1e-12,
-      'Celes::nutm80', '31')
-  vvd(rmatn[2][1], 0.4060049308612638555e-4, 1e-12,
-      'Celes::nutm80', '32')
-  vvd(rmatn[2][2], 0.9999999991684415129, 1e-12,
-      'Celes::nutm80', '33')
+    'Celes.nutm80', '33')
 end
 
 # static void t_obl06(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
-#	vvd(Celes::obl06(2400000.5, 54388.0), 0.4090749229387258204, 1e-14,
-#			"Celes::obl06", "")
+#	vvd(Celes.obl06(2400000.5, 54388.0), 0.4090749229387258204, 1e-14,
+#			'Celes.obl06', '')
 # }
 def t_obl06
-<<<<<<< HEAD
-  vvd(Celes::obl06(2400000.5, 54388.0), 0.4090749229387258204, 1e-14,
-    "Celes::obl06", "")
-=======
-  vvd(Celes.obl06(2_400_000.5, 54_388.0), 0.4090749229387258204, 1e-14,
-      'Celes::obl06', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(Celes.obl06(2400000.5, 54388.0), 0.4090749229387258204, 1e-14,
+    'Celes.obl06', '')
 end
 
 # static void t_obl80(int *status)
@@ -4880,21 +3404,15 @@ end
 #	double eps0
 #
 #
-#	eps0 = Celes::obl80(2400000.5, 54388.0)
+#	eps0 = Celes.obl80(2400000.5, 54388.0)
 #
-#	vvd(eps0, 0.4090751347643816218, 1e-14, "Celes::obl80", "")
+#	vvd(eps0, 0.4090751347643816218, 1e-14, 'Celes.obl80', '')
 #
 # }
 def t_obl80
-<<<<<<< HEAD
-  eps0 = Celes::obl80(2400000.5, 54388.0)
+  eps0 = Celes.obl80(2400000.5, 54388.0)
 
-  vvd(eps0, 0.4090751347643816218, 1e-14, "Celes::obl80", "")
-=======
-  eps0 = Celes.obl80(2_400_000.5, 54_388.0)
-
-  vvd(eps0, 0.4090751347643816218, 1e-14, 'Celes::obl80', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(eps0, 0.4090751347643816218, 1e-14, 'Celes.obl80', '')
 end
 
 # static void t_p06e(int *status)
@@ -4903,125 +3421,84 @@ end
 #			epsa, chia, za, zetaa, thetaa, pa, gam, phi, psi
 #
 #
-#	Celes::p06e(2400000.5, 52541.0, &eps0, &psia, &oma, &bpa,
+#	Celes.p06e(2400000.5, 52541.0, &eps0, &psia, &oma, &bpa,
 #			&bqa, &pia, &bpia, &epsa, &chia, &za,
 #			&zetaa, &thetaa, &pa, &gam, &phi, &psi)
 #
 #	vvd(eps0, 0.4090926006005828715, 1e-14,
-#			"Celes::p06e", "eps0")
+#			'Celes.p06e', 'eps0')
 #	vvd(psia, 0.6664369630191613431e-3, 1e-14,
-#			"Celes::p06e", "psia")
+#			'Celes.p06e', 'psia')
 #	vvd(oma , 0.4090925973783255982, 1e-14,
-#			"Celes::p06e", "oma")
+#			'Celes.p06e', 'oma')
 #	vvd(bpa, 0.5561149371265209445e-6, 1e-14,
-#			"Celes::p06e", "bpa")
+#			'Celes.p06e', 'bpa')
 #	vvd(bqa, -0.6191517193290621270e-5, 1e-14,
-#			"Celes::p06e", "bqa")
+#			'Celes.p06e', 'bqa')
 #	vvd(pia, 0.6216441751884382923e-5, 1e-14,
-#			"Celes::p06e", "pia")
+#			'Celes.p06e', 'pia')
 #	vvd(bpia, 3.052014180023779882, 1e-14,
-#			"Celes::p06e", "bpia")
+#			'Celes.p06e', 'bpia')
 #	vvd(epsa, 0.4090864054922431688, 1e-14,
-#			"Celes::p06e", "epsa")
+#			'Celes.p06e', 'epsa')
 #	vvd(chia, 0.1387703379530915364e-5, 1e-14,
-#			"Celes::p06e", "chia")
+#			'Celes.p06e', 'chia')
 #	vvd(za, 0.2921789846651790546e-3, 1e-14,
-#			"Celes::p06e", "za")
+#			'Celes.p06e', 'za')
 #	vvd(zetaa, 0.3178773290332009310e-3, 1e-14,
-#			"Celes::p06e", "zetaa")
+#			'Celes.p06e', 'zetaa')
 #	vvd(thetaa, 0.2650932701657497181e-3, 1e-14,
-#			"Celes::p06e", "thetaa")
+#			'Celes.p06e', 'thetaa')
 #	vvd(pa, 0.6651637681381016344e-3, 1e-14,
-#			"Celes::p06e", "pa")
+#			'Celes.p06e', 'pa')
 #	vvd(gam, 0.1398077115963754987e-5, 1e-14,
-#			"Celes::p06e", "gam")
+#			'Celes.p06e', 'gam')
 #	vvd(phi, 0.4090864090837462602, 1e-14,
-#			"Celes::p06e", "phi")
+#			'Celes.p06e', 'phi')
 #	vvd(psi, 0.6664464807480920325e-3, 1e-14,
-#			"Celes::p06e", "psi")
+#			'Celes.p06e', 'psi')
 #
 # }
 def t_p06e
   eps0, psia, oma, bpa, bqa, pia, bpia, epsa, chia, za, zetaa,
-<<<<<<< HEAD
-    thetaa, pa, gam, phi, psi = Celes::p06e(2400000.5, 52541.0)
+    thetaa, pa, gam, phi, psi = Celes.p06e(2400000.5, 52541.0)
 
   vvd(eps0, 0.4090926006005828715, 1e-14,
-    "Celes::p06e", "eps0")
+    'Celes.p06e', 'eps0')
   vvd(psia, 0.6664369630191613431e-3, 1e-14,
-    "Celes::p06e", "psia")
+    'Celes.p06e', 'psia')
   vvd(oma , 0.4090925973783255982, 1e-14,
-    "Celes::p06e", "oma")
+    'Celes.p06e', 'oma')
   vvd(bpa, 0.5561149371265209445e-6, 1e-14,
-    "Celes::p06e", "bpa")
+    'Celes.p06e', 'bpa')
   vvd(bqa, -0.6191517193290621270e-5, 1e-14,
-    "Celes::p06e", "bqa")
+    'Celes.p06e', 'bqa')
   vvd(pia, 0.6216441751884382923e-5, 1e-14,
-    "Celes::p06e", "pia")
+    'Celes.p06e', 'pia')
   vvd(bpia, 3.052014180023779882, 1e-14,
-    "Celes::p06e", "bpia")
+    'Celes.p06e', 'bpia')
   vvd(epsa, 0.4090864054922431688, 1e-14,
-    "Celes::p06e", "epsa")
+    'Celes.p06e', 'epsa')
   vvd(chia, 0.1387703379530915364e-5, 1e-14,
-    "Celes::p06e", "chia")
+    'Celes.p06e', 'chia')
   vvd(za, 0.2921789846651790546e-3, 1e-14,
-    "Celes::p06e", "za")
+    'Celes.p06e', 'za')
   vvd(zetaa, 0.3178773290332009310e-3, 1e-14,
-    "Celes::p06e", "zetaa")
+    'Celes.p06e', 'zetaa')
   vvd(thetaa, 0.2650932701657497181e-3, 1e-14,
-    "Celes::p06e", "thetaa")
+    'Celes.p06e', 'thetaa')
   vvd(pa, 0.6651637681381016344e-3, 1e-14,
-    "Celes::p06e", "pa")
+    'Celes.p06e', 'pa')
   vvd(gam, 0.1398077115963754987e-5, 1e-14,
-    "Celes::p06e", "gam")
+    'Celes.p06e', 'gam')
   vvd(phi, 0.4090864090837462602, 1e-14,
-    "Celes::p06e", "phi")
+    'Celes.p06e', 'phi')
   vvd(psi, 0.6664464807480920325e-3, 1e-14,
-    "Celes::p06e", "psi")
-end
-
-#static void t_p2pv(int *status)
-#{
-=======
-      thetaa, pa, gam, phi, psi = Celes.p06e(2_400_000.5, 52_541.0)
-
-  vvd(eps0, 0.4090926006005828715, 1e-14,
-      'Celes::p06e', 'eps0')
-  vvd(psia, 0.6664369630191613431e-3, 1e-14,
-      'Celes::p06e', 'psia')
-  vvd(oma, 0.4090925973783255982, 1e-14,
-      'Celes::p06e', 'oma')
-  vvd(bpa, 0.5561149371265209445e-6, 1e-14,
-      'Celes::p06e', 'bpa')
-  vvd(bqa, -0.6191517193290621270e-5, 1e-14,
-      'Celes::p06e', 'bqa')
-  vvd(pia, 0.6216441751884382923e-5, 1e-14,
-      'Celes::p06e', 'pia')
-  vvd(bpia, 3.052014180023779882, 1e-14,
-      'Celes::p06e', 'bpia')
-  vvd(epsa, 0.4090864054922431688, 1e-14,
-      'Celes::p06e', 'epsa')
-  vvd(chia, 0.1387703379530915364e-5, 1e-14,
-      'Celes::p06e', 'chia')
-  vvd(za, 0.2921789846651790546e-3, 1e-14,
-      'Celes::p06e', 'za')
-  vvd(zetaa, 0.3178773290332009310e-3, 1e-14,
-      'Celes::p06e', 'zetaa')
-  vvd(thetaa, 0.2650932701657497181e-3, 1e-14,
-      'Celes::p06e', 'thetaa')
-  vvd(pa, 0.6651637681381016344e-3, 1e-14,
-      'Celes::p06e', 'pa')
-  vvd(gam, 0.1398077115963754987e-5, 1e-14,
-      'Celes::p06e', 'gam')
-  vvd(phi, 0.4090864090837462602, 1e-14,
-      'Celes::p06e', 'phi')
-  vvd(psi, 0.6664464807480920325e-3, 1e-14,
-      'Celes::p06e', 'psi')
+    'Celes.p06e', 'psi')
 end
 
 # static void t_p2pv(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double p[3], pv[2][3]
 #
 #
@@ -5037,15 +3514,15 @@ end
 #	pv[1][1] =  3.1
 #	pv[1][2] =  0.9
 #
-#	Celes::p2pv(p, pv)
+#	Celes.p2pv(p, pv)
 #
-#	vvd(pv[0][0], 0.25, 0.0, "Celes::p2pv", "p1")
-#	vvd(pv[0][1], 1.2,  0.0, "Celes::p2pv", "p2")
-#	vvd(pv[0][2], 3.0,  0.0, "Celes::p2pv", "p3")
+#	vvd(pv[0][0], 0.25, 0.0, 'Celes.p2pv', 'p1')
+#	vvd(pv[0][1], 1.2,  0.0, 'Celes.p2pv', 'p2')
+#	vvd(pv[0][2], 3.0,  0.0, 'Celes.p2pv', 'p3')
 #
-#	vvd(pv[1][0], 0.0,  0.0, "Celes::p2pv", "v1")
-#	vvd(pv[1][1], 0.0,  0.0, "Celes::p2pv", "v2")
-#	vvd(pv[1][2], 0.0,  0.0, "Celes::p2pv", "v3")
+#	vvd(pv[1][0], 0.0,  0.0, 'Celes.p2pv', 'v1')
+#	vvd(pv[1][1], 0.0,  0.0, 'Celes.p2pv', 'v2')
+#	vvd(pv[1][2], 0.0,  0.0, 'Celes.p2pv', 'v3')
 #
 # }
 def t_p2pv
@@ -5055,27 +3532,15 @@ def t_p2pv
   p[1] = 1.2
   p[2] = 3.0
 
-<<<<<<< HEAD
-  pv = Celes::p2pv(p)
-
-  vvd(pv[0][0], 0.25, 0.0, "Celes::p2pv", "p1")
-  vvd(pv[0][1], 1.2,  0.0, "Celes::p2pv", "p2")
-  vvd(pv[0][2], 3.0,  0.0, "Celes::p2pv", "p3")
-
-  vvd(pv[1][0], 0.0,  0.0, "Celes::p2pv", "v1")
-  vvd(pv[1][1], 0.0,  0.0, "Celes::p2pv", "v2")
-  vvd(pv[1][2], 0.0,  0.0, "Celes::p2pv", "v3")
-=======
   pv = Celes.p2pv(p)
 
-  vvd(pv[0][0], 0.25, 0.0, 'Celes::p2pv', 'p1')
-  vvd(pv[0][1], 1.2,  0.0, 'Celes::p2pv', 'p2')
-  vvd(pv[0][2], 3.0,  0.0, 'Celes::p2pv', 'p3')
+  vvd(pv[0][0], 0.25, 0.0, 'Celes.p2pv', 'p1')
+  vvd(pv[0][1], 1.2,  0.0, 'Celes.p2pv', 'p2')
+  vvd(pv[0][2], 3.0,  0.0, 'Celes.p2pv', 'p3')
 
-  vvd(pv[1][0], 0.0,  0.0, 'Celes::p2pv', 'v1')
-  vvd(pv[1][1], 0.0,  0.0, 'Celes::p2pv', 'v2')
-  vvd(pv[1][2], 0.0,  0.0, 'Celes::p2pv', 'v3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(pv[1][0], 0.0,  0.0, 'Celes.p2pv', 'v1')
+  vvd(pv[1][1], 0.0,  0.0, 'Celes.p2pv', 'v2')
+  vvd(pv[1][2], 0.0,  0.0, 'Celes.p2pv', 'v3')
 end
 
 # static void t_p2s(int *status)
@@ -5087,11 +3552,11 @@ end
 #	p[1] = -50.0
 #	p[2] =  25.0
 #
-#	Celes::p2s(p, &theta, &phi, &r)
+#	Celes.p2s(p, &theta, &phi, &r)
 #
-#	vvd(theta, -0.4636476090008061162, 1e-12, "Celes::p2s", "theta")
-#	vvd(phi, 0.2199879773954594463, 1e-12, "Celes::p2s", "phi")
-#	vvd(r, 114.5643923738960002, 1e-9, "Celes::p2s", "r")
+#	vvd(theta, -0.4636476090008061162, 1e-12, 'Celes.p2s', 'theta')
+#	vvd(phi, 0.2199879773954594463, 1e-12, 'Celes.p2s', 'phi')
+#	vvd(r, 114.5643923738960002, 1e-9, 'Celes.p2s', 'r')
 #
 # }
 def t_p2s
@@ -5101,19 +3566,11 @@ def t_p2s
   p[1] = -50.0
   p[2] =  25.0
 
-<<<<<<< HEAD
-  theta, phi, r = Celes::p2s(p)
-
-  vvd(theta, -0.4636476090008061162, 1e-12, "Celes::p2s", "theta")
-  vvd(phi, 0.2199879773954594463, 1e-12, "Celes::p2s", "phi")
-  vvd(r, 114.5643923738960002, 1e-9, "Celes::p2s", "r")
-=======
   theta, phi, r = Celes.p2s(p)
 
-  vvd(theta, -0.4636476090008061162, 1e-12, 'Celes::p2s', 'theta')
-  vvd(phi, 0.2199879773954594463, 1e-12, 'Celes::p2s', 'phi')
-  vvd(r, 114.5643923738960002, 1e-9, 'Celes::p2s', 'r')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, -0.4636476090008061162, 1e-12, 'Celes.p2s', 'theta')
+  vvd(phi, 0.2199879773954594463, 1e-12, 'Celes.p2s', 'phi')
+  vvd(r, 114.5643923738960002, 1e-9, 'Celes.p2s', 'r')
 end
 
 # static void t_pap(int *status)
@@ -5129,9 +3586,9 @@ end
 #	b[1] = 1e-3
 #	b[2] =  0.2
 #
-#	theta = Celes::pap(a, b)
+#	theta = Celes.pap(a, b)
 #
-#	vvd(theta, 0.3671514267841113674, 1e-12, "Celes::pap", "")
+#	vvd(theta, 0.3671514267841113674, 1e-12, 'Celes.pap', '')
 #
 # }
 def t_pap
@@ -5146,15 +3603,9 @@ def t_pap
   b[1] = 1e-3
   b[2] =  0.2
 
-<<<<<<< HEAD
-  theta = Celes::pap(a, b)
-
-  vvd(theta, 0.3671514267841113674, 1e-12, "Celes::pap", "")
-=======
   theta = Celes.pap(a, b)
 
-  vvd(theta, 0.3671514267841113674, 1e-12, 'Celes::pap', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, 0.3671514267841113674, 1e-12, 'Celes.pap', '')
 end
 
 # static void t_pas(int *status)
@@ -5167,9 +3618,9 @@ end
 #	bl =  0.2
 #	bp = -1.0
 #
-#	theta = Celes::pas(al, ap, bl, bp)
+#	theta = Celes.pas(al, ap, bl, bp)
 #
-#	vvd(theta, -2.724544922932270424, 1e-12, "Celes::pas", "")
+#	vvd(theta, -2.724544922932270424, 1e-12, 'Celes.pas', '')
 #
 # }
 def t_pas
@@ -5178,15 +3629,9 @@ def t_pas
   bl =  0.2
   bp = -1.0
 
-<<<<<<< HEAD
-  theta = Celes::pas(al, ap, bl, bp)
-
-  vvd(theta, -2.724544922932270424, 1e-12, "Celes::pas", "")
-=======
   theta = Celes.pas(al, ap, bl, bp)
 
-  vvd(theta, -2.724544922932270424, 1e-12, 'Celes::pas', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, -2.724544922932270424, 1e-12, 'Celes.pas', '')
 end
 
 # static void t_pb06(int *status)
@@ -5194,36 +3639,25 @@ end
 #	double bzeta, bz, btheta
 #
 #
-#	Celes::pb06(2400000.5, 50123.9999, &bzeta, &bz, &btheta)
+#	Celes.pb06(2400000.5, 50123.9999, &bzeta, &bz, &btheta)
 #
 #	vvd(bzeta, -0.5092634016326478238e-3, 1e-12,
-#			"Celes::pb06", "bzeta")
+#			'Celes.pb06', 'bzeta')
 #	vvd(bz, -0.3602772060566044413e-3, 1e-12,
-#			"Celes::pb06", "bz")
+#			'Celes.pb06', 'bz')
 #	vvd(btheta, -0.3779735537167811177e-3, 1e-12,
-#			"Celes::pb06", "btheta")
+#			'Celes.pb06', 'btheta')
 #
 # }
 def t_pb06
-<<<<<<< HEAD
-  bzeta, bz, btheta = Celes::pb06(2400000.5, 50123.9999)
+  bzeta, bz, btheta = Celes.pb06(2400000.5, 50123.9999)
 
   vvd(bzeta, -0.5092634016326478238e-3, 1e-12,
-    "Celes::pb06", "bzeta")
+    'Celes.pb06', 'bzeta')
   vvd(bz, -0.3602772060566044413e-3, 1e-12,
-    "Celes::pb06", "bz")
+    'Celes.pb06', 'bz')
   vvd(btheta, -0.3779735537167811177e-3, 1e-12,
-    "Celes::pb06", "btheta")
-=======
-  bzeta, bz, btheta = Celes.pb06(2_400_000.5, 50_123.9999)
-
-  vvd(bzeta, -0.5092634016326478238e-3, 1e-12,
-      'Celes::pb06', 'bzeta')
-  vvd(bz, -0.3602772060566044413e-3, 1e-12,
-      'Celes::pb06', 'bz')
-  vvd(btheta, -0.3779735537167811177e-3, 1e-12,
-      'Celes::pb06', 'btheta')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.pb06', 'btheta')
 end
 
 # static void t_pdp(int *status)
@@ -5239,9 +3673,9 @@ end
 #	b[1] = 3.0
 #	b[2] = 4.0
 #
-#	adb = Celes::pdp(a, b)
+#	adb = Celes.pdp(a, b)
 #
-#	vvd(adb, 20, 1e-12, "Celes::pdp", "")
+#	vvd(adb, 20, 1e-12, 'Celes.pdp', '')
 #
 # }
 def t_pdp
@@ -5256,15 +3690,9 @@ def t_pdp
   b[1] = 3.0
   b[2] = 4.0
 
-<<<<<<< HEAD
-  adb = Celes::pdp(a, b)
-
-  vvd(adb, 20, 1e-12, "Celes::pdp", "")
-=======
   adb = Celes.pdp(a, b)
 
-  vvd(adb, 20, 1e-12, 'Celes::pdp', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(adb, 20, 1e-12, 'Celes.pdp', '')
 end
 
 # static void t_pfw06(int *status)
@@ -5272,42 +3700,29 @@ end
 #	double gamb, phib, psib, epsa
 #
 #
-#	Celes::pfw06(2400000.5, 50123.9999, &gamb, &phib, &psib, &epsa)
+#	Celes.pfw06(2400000.5, 50123.9999, &gamb, &phib, &psib, &epsa)
 #
 #	vvd(gamb, -0.2243387670997995690e-5, 1e-16,
-#			"Celes::pfw06", "gamb")
+#			'Celes.pfw06', 'gamb')
 #	vvd(phib,  0.4091014602391312808, 1e-12,
-#			"Celes::pfw06", "phib")
+#			'Celes.pfw06', 'phib')
 #	vvd(psib, -0.9501954178013031895e-3, 1e-14,
-#			"Celes::pfw06", "psib")
+#			'Celes.pfw06', 'psib')
 #	vvd(epsa,  0.4091014316587367491, 1e-12,
-#			"Celes::pfw06", "epsa")
+#			'Celes.pfw06', 'epsa')
 #
 # }
 def t_pfw06
-<<<<<<< HEAD
-  gamb, phib, psib, epsa = Celes::pfw06(2400000.5, 50123.9999)
+  gamb, phib, psib, epsa = Celes.pfw06(2400000.5, 50123.9999)
 
   vvd(gamb, -0.2243387670997995690e-5, 1e-16,
-    "Celes::pfw06", "gamb")
+    'Celes.pfw06', 'gamb')
   vvd(phib,  0.4091014602391312808, 1e-12,
-    "Celes::pfw06", "phib")
+    'Celes.pfw06', 'phib')
   vvd(psib, -0.9501954178013031895e-3, 1e-14,
-    "Celes::pfw06", "psib")
+    'Celes.pfw06', 'psib')
   vvd(epsa,  0.4091014316587367491, 1e-12,
-    "Celes::pfw06", "epsa")
-=======
-  gamb, phib, psib, epsa = Celes.pfw06(2_400_000.5, 50_123.9999)
-
-  vvd(gamb, -0.2243387670997995690e-5, 1e-16,
-      'Celes::pfw06', 'gamb')
-  vvd(phib,  0.4091014602391312808, 1e-12,
-      'Celes::pfw06', 'phib')
-  vvd(psib, -0.9501954178013031895e-3, 1e-14,
-      'Celes::pfw06', 'psib')
-  vvd(epsa,  0.4091014316587367491, 1e-12,
-      'Celes::pfw06', 'epsa')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.pfw06', 'epsa')
 end
 
 # static void t_plan94(int *status)
@@ -5316,437 +3731,285 @@ end
 #	int j
 #
 #
-#	j = Celes::plan94(2400000.5, 1e6, 0, pv)
+#	j = Celes.plan94(2400000.5, 1e6, 0, pv)
 #
-#	vvd(pv[0][0], 0.0, 0.0, "Celes::plan94", "x 1")
-#	vvd(pv[0][1], 0.0, 0.0, "Celes::plan94", "y 1")
-#	vvd(pv[0][2], 0.0, 0.0, "Celes::plan94", "z 1")
+#	vvd(pv[0][0], 0.0, 0.0, 'Celes.plan94', 'x 1')
+#	vvd(pv[0][1], 0.0, 0.0, 'Celes.plan94', 'y 1')
+#	vvd(pv[0][2], 0.0, 0.0, 'Celes.plan94', 'z 1')
 #
-#	vvd(pv[1][0], 0.0, 0.0, "Celes::plan94", "xd 1")
-#	vvd(pv[1][1], 0.0, 0.0, "Celes::plan94", "yd 1")
-#	vvd(pv[1][2], 0.0, 0.0, "Celes::plan94", "zd 1")
+#	vvd(pv[1][0], 0.0, 0.0, 'Celes.plan94', 'xd 1')
+#	vvd(pv[1][1], 0.0, 0.0, 'Celes.plan94', 'yd 1')
+#	vvd(pv[1][2], 0.0, 0.0, 'Celes.plan94', 'zd 1')
 #
-#	viv(j, -1, "Celes::plan94", "j 1")
+#	viv(j, -1, 'Celes.plan94', 'j 1')
 #
-#	j = Celes::plan94(2400000.5, 1e6, 10, pv)
+#	j = Celes.plan94(2400000.5, 1e6, 10, pv)
 #
-#	viv(j, -1, "Celes::plan94", "j 2")
+#	viv(j, -1, 'Celes.plan94', 'j 2')
 #
-#	j = Celes::plan94(2400000.5, -320000, 3, pv)
+#	j = Celes.plan94(2400000.5, -320000, 3, pv)
 #
 #	vvd(pv[0][0], 0.9308038666832975759, 1e-11,
-#			"Celes::plan94", "x 3")
+#			'Celes.plan94', 'x 3')
 #	vvd(pv[0][1], 0.3258319040261346000, 1e-11,
-#			"Celes::plan94", "y 3")
+#			'Celes.plan94', 'y 3')
 #	vvd(pv[0][2], 0.1422794544481140560, 1e-11,
-#			"Celes::plan94", "z 3")
+#			'Celes.plan94', 'z 3')
 #
 #	vvd(pv[1][0], -0.6429458958255170006e-2, 1e-11,
-#			"Celes::plan94", "xd 3")
+#			'Celes.plan94', 'xd 3')
 #	vvd(pv[1][1], 0.1468570657704237764e-1, 1e-11,
-#			"Celes::plan94", "yd 3")
+#			'Celes.plan94', 'yd 3')
 #	vvd(pv[1][2], 0.6406996426270981189e-2, 1e-11,
-#			"Celes::plan94", "zd 3")
+#			'Celes.plan94', 'zd 3')
 #
-#	viv(j, 1, "Celes::plan94", "j 3")
+#	viv(j, 1, 'Celes.plan94', 'j 3')
 #
-#	j = Celes::plan94(2400000.5, 43999.9, 1, pv)
+#	j = Celes.plan94(2400000.5, 43999.9, 1, pv)
 #
 #	vvd(pv[0][0], 0.2945293959257430832, 1e-11,
-#			"Celes::plan94", "x 4")
+#			'Celes.plan94', 'x 4')
 #	vvd(pv[0][1], -0.2452204176601049596, 1e-11,
-#			"Celes::plan94", "y 4")
+#			'Celes.plan94', 'y 4')
 #	vvd(pv[0][2], -0.1615427700571978153, 1e-11,
-#			"Celes::plan94", "z 4")
+#			'Celes.plan94', 'z 4')
 #
 #	vvd(pv[1][0], 0.1413867871404614441e-1, 1e-11,
-#			"Celes::plan94", "xd 4")
+#			'Celes.plan94', 'xd 4')
 #	vvd(pv[1][1], 0.1946548301104706582e-1, 1e-11,
-#			"Celes::plan94", "yd 4")
+#			'Celes.plan94', 'yd 4')
 #	vvd(pv[1][2], 0.8929809783898904786e-2, 1e-11,
-#			"Celes::plan94", "zd 4")
+#			'Celes.plan94', 'zd 4')
 #
-#	viv(j, 0, "Celes::plan94", "j 4")
+#	viv(j, 0, 'Celes.plan94', 'j 4')
 #
 # }
 def t_plan94
   begin
-<<<<<<< HEAD
-    pv = Celes::plan94(2400000.5, 1e6, 0)
+    pv = Celes.plan94(2400000.5, 1e6, 0)
 
-    vvd(pv[0][0], 0.0, 0.0, "Celes::plan94", "x 1")
-    vvd(pv[0][1], 0.0, 0.0, "Celes::plan94", "y 1")
-    vvd(pv[0][2], 0.0, 0.0, "Celes::plan94", "z 1")
+    vvd(pv[0][0], 0.0, 0.0, 'Celes.plan94', 'x 1')
+    vvd(pv[0][1], 0.0, 0.0, 'Celes.plan94', 'y 1')
+    vvd(pv[0][2], 0.0, 0.0, 'Celes.plan94', 'z 1')
 
-    vvd(pv[1][0], 0.0, 0.0, "Celes::plan94", "xd 1")
-    vvd(pv[1][1], 0.0, 0.0, "Celes::plan94", "yd 1")
-    vvd(pv[1][2], 0.0, 0.0, "Celes::plan94", "zd 1")
+    vvd(pv[1][0], 0.0, 0.0, 'Celes.plan94', 'xd 1')
+    vvd(pv[1][1], 0.0, 0.0, 'Celes.plan94', 'yd 1')
+    vvd(pv[1][2], 0.0, 0.0, 'Celes.plan94', 'zd 1')
   rescue
     nil
   ensure
-    viv(Celes::status, -1, "Celes::plan94", "j 1")
+    viv(Celes.status, -1, 'Celes.plan94', 'j 1')
   end
 
   begin
-    pv = Celes::plan94(2400000.5, 1e6, 10)
+    pv = Celes.plan94(2400000.5, 1e6, 10)
   rescue
     nil
   ensure
-    viv(Celes::status, -1, "Celes::plan94", "j 2")
+    viv(Celes.status, -1, 'Celes.plan94', 'j 2')
   end
 
-  pv = Celes::plan94(2400000.5, -320000, 3)
+  pv = Celes.plan94(2400000.5, -320000, 3)
 
   vvd(pv[0][0], 0.9308038666832975759, 1e-11,
-    "Celes::plan94", "x 3")
+    'Celes.plan94', 'x 3')
   vvd(pv[0][1], 0.3258319040261346000, 1e-11,
-    "Celes::plan94", "y 3")
+    'Celes.plan94', 'y 3')
   vvd(pv[0][2], 0.1422794544481140560, 1e-11,
-    "Celes::plan94", "z 3")
+    'Celes.plan94', 'z 3')
 
   vvd(pv[1][0], -0.6429458958255170006e-2, 1e-11,
-    "Celes::plan94", "xd 3")
+    'Celes.plan94', 'xd 3')
   vvd(pv[1][1], 0.1468570657704237764e-1, 1e-11,
-    "Celes::plan94", "yd 3")
+    'Celes.plan94', 'yd 3')
   vvd(pv[1][2], 0.6406996426270981189e-2, 1e-11,
-    "Celes::plan94", "zd 3")
+    'Celes.plan94', 'zd 3')
 
-  viv(Celes::status, 1, "Celes::plan94", "j 3")
+  viv(Celes.status, 1, 'Celes.plan94', 'j 3')
 
-  pv = Celes::plan94(2400000.5, 43999.9, 1)
+  pv = Celes.plan94(2400000.5, 43999.9, 1)
 
   vvd(pv[0][0], 0.2945293959257430832, 1e-11,
-    "Celes::plan94", "x 4")
+    'Celes.plan94', 'x 4')
   vvd(pv[0][1], -0.2452204176601049596, 1e-11,
-    "Celes::plan94", "y 4")
+    'Celes.plan94', 'y 4')
   vvd(pv[0][2], -0.1615427700571978153, 1e-11,
-    "Celes::plan94", "z 4")
+    'Celes.plan94', 'z 4')
 
   vvd(pv[1][0], 0.1413867871404614441e-1, 1e-11,
-    "Celes::plan94", "xd 4")
+    'Celes.plan94', 'xd 4')
   vvd(pv[1][1], 0.1946548301104706582e-1, 1e-11,
-    "Celes::plan94", "yd 4")
+    'Celes.plan94', 'yd 4')
   vvd(pv[1][2], 0.8929809783898904786e-2, 1e-11,
-    "Celes::plan94", "zd 4")
+    'Celes.plan94', 'zd 4')
 
-  viv(Celes::status, 0, "Celes::plan94", "j 4")
-end
-
-#static void t_pmat00(int *status)
-#{
-=======
-    pv = Celes.plan94(2_400_000.5, 1e6, 0)
-
-    vvd(pv[0][0], 0.0, 0.0, 'Celes::plan94', 'x 1')
-    vvd(pv[0][1], 0.0, 0.0, 'Celes::plan94', 'y 1')
-    vvd(pv[0][2], 0.0, 0.0, 'Celes::plan94', 'z 1')
-
-    vvd(pv[1][0], 0.0, 0.0, 'Celes::plan94', 'xd 1')
-    vvd(pv[1][1], 0.0, 0.0, 'Celes::plan94', 'yd 1')
-    vvd(pv[1][2], 0.0, 0.0, 'Celes::plan94', 'zd 1')
-  rescue
-    nil
-  ensure
-    viv(Celes.status, -1, 'Celes::plan94', 'j 1')
-  end
-
-  begin
-    pv = Celes.plan94(2_400_000.5, 1e6, 10)
-  rescue
-    nil
-  ensure
-    viv(Celes.status, -1, 'Celes::plan94', 'j 2')
-  end
-
-  pv = Celes.plan94(2_400_000.5, -320_000, 3)
-
-  vvd(pv[0][0], 0.9308038666832975759, 1e-11,
-      'Celes::plan94', 'x 3')
-  vvd(pv[0][1], 0.3258319040261346000, 1e-11,
-      'Celes::plan94', 'y 3')
-  vvd(pv[0][2], 0.1422794544481140560, 1e-11,
-      'Celes::plan94', 'z 3')
-
-  vvd(pv[1][0], -0.6429458958255170006e-2, 1e-11,
-      'Celes::plan94', 'xd 3')
-  vvd(pv[1][1], 0.1468570657704237764e-1, 1e-11,
-      'Celes::plan94', 'yd 3')
-  vvd(pv[1][2], 0.6406996426270981189e-2, 1e-11,
-      'Celes::plan94', 'zd 3')
-
-  viv(Celes.status, 1, 'Celes::plan94', 'j 3')
-
-  pv = Celes.plan94(2_400_000.5, 43_999.9, 1)
-
-  vvd(pv[0][0], 0.2945293959257430832, 1e-11,
-      'Celes::plan94', 'x 4')
-  vvd(pv[0][1], -0.2452204176601049596, 1e-11,
-      'Celes::plan94', 'y 4')
-  vvd(pv[0][2], -0.1615427700571978153, 1e-11,
-      'Celes::plan94', 'z 4')
-
-  vvd(pv[1][0], 0.1413867871404614441e-1, 1e-11,
-      'Celes::plan94', 'xd 4')
-  vvd(pv[1][1], 0.1946548301104706582e-1, 1e-11,
-      'Celes::plan94', 'yd 4')
-  vvd(pv[1][2], 0.8929809783898904786e-2, 1e-11,
-      'Celes::plan94', 'zd 4')
-
-  viv(Celes.status, 0, 'Celes::plan94', 'j 4')
+  viv(Celes.status, 0, 'Celes.plan94', 'j 4')
 end
 
 # static void t_pmat00(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rbp[3][3]
 #
 #
-#	Celes::pmat00(2400000.5, 50123.9999, rbp)
+#	Celes.pmat00(2400000.5, 50123.9999, rbp)
 #
 #	vvd(rbp[0][0], 0.9999995505175087260, 1e-12,
-#			"Celes::pmat00", "11")
+#			'Celes.pmat00', '11')
 #	vvd(rbp[0][1], 0.8695405883617884705e-3, 1e-14,
-#			"Celes::pmat00", "12")
+#			'Celes.pmat00', '12')
 #	vvd(rbp[0][2], 0.3779734722239007105e-3, 1e-14,
-#			"Celes::pmat00", "13")
+#			'Celes.pmat00', '13')
 #
 #	vvd(rbp[1][0], -0.8695405990410863719e-3, 1e-14,
-#			"Celes::pmat00", "21")
+#			'Celes.pmat00', '21')
 #	vvd(rbp[1][1], 0.9999996219494925900, 1e-12,
-#			"Celes::pmat00", "22")
+#			'Celes.pmat00', '22')
 #	vvd(rbp[1][2], -0.1360775820404982209e-6, 1e-14,
-#			"Celes::pmat00", "23")
+#			'Celes.pmat00', '23')
 #
 #	vvd(rbp[2][0], -0.3779734476558184991e-3, 1e-14,
-#			"Celes::pmat00", "31")
+#			'Celes.pmat00', '31')
 #	vvd(rbp[2][1], -0.1925857585832024058e-6, 1e-14,
-#			"Celes::pmat00", "32")
+#			'Celes.pmat00', '32')
 #	vvd(rbp[2][2], 0.9999999285680153377, 1e-12,
-#			"Celes::pmat00", "33")
+#			'Celes.pmat00', '33')
 #
 # }
 def t_pmat00
-<<<<<<< HEAD
-  rbp = Celes::pmat00(2400000.5, 50123.9999)
+  rbp = Celes.pmat00(2400000.5, 50123.9999)
 
   vvd(rbp[0][0], 0.9999995505175087260, 1e-12,
-    "Celes::pmat00", "11")
+    'Celes.pmat00', '11')
   vvd(rbp[0][1], 0.8695405883617884705e-3, 1e-14,
-    "Celes::pmat00", "12")
+    'Celes.pmat00', '12')
   vvd(rbp[0][2], 0.3779734722239007105e-3, 1e-14,
-    "Celes::pmat00", "13")
+    'Celes.pmat00', '13')
 
   vvd(rbp[1][0], -0.8695405990410863719e-3, 1e-14,
-    "Celes::pmat00", "21")
+    'Celes.pmat00', '21')
   vvd(rbp[1][1], 0.9999996219494925900, 1e-12,
-    "Celes::pmat00", "22")
+    'Celes.pmat00', '22')
   vvd(rbp[1][2], -0.1360775820404982209e-6, 1e-14,
-    "Celes::pmat00", "23")
+    'Celes.pmat00', '23')
 
   vvd(rbp[2][0], -0.3779734476558184991e-3, 1e-14,
-    "Celes::pmat00", "31")
+    'Celes.pmat00', '31')
   vvd(rbp[2][1], -0.1925857585832024058e-6, 1e-14,
-    "Celes::pmat00", "32")
+    'Celes.pmat00', '32')
   vvd(rbp[2][2], 0.9999999285680153377, 1e-12,
-    "Celes::pmat00", "33")
-end
-
-#static void t_pmat06(int *status)
-#{
-=======
-  rbp = Celes.pmat00(2_400_000.5, 50_123.9999)
-
-  vvd(rbp[0][0], 0.9999995505175087260, 1e-12,
-      'Celes::pmat00', '11')
-  vvd(rbp[0][1], 0.8695405883617884705e-3, 1e-14,
-      'Celes::pmat00', '12')
-  vvd(rbp[0][2], 0.3779734722239007105e-3, 1e-14,
-      'Celes::pmat00', '13')
-
-  vvd(rbp[1][0], -0.8695405990410863719e-3, 1e-14,
-      'Celes::pmat00', '21')
-  vvd(rbp[1][1], 0.9999996219494925900, 1e-12,
-      'Celes::pmat00', '22')
-  vvd(rbp[1][2], -0.1360775820404982209e-6, 1e-14,
-      'Celes::pmat00', '23')
-
-  vvd(rbp[2][0], -0.3779734476558184991e-3, 1e-14,
-      'Celes::pmat00', '31')
-  vvd(rbp[2][1], -0.1925857585832024058e-6, 1e-14,
-      'Celes::pmat00', '32')
-  vvd(rbp[2][2], 0.9999999285680153377, 1e-12,
-      'Celes::pmat00', '33')
+    'Celes.pmat00', '33')
 end
 
 # static void t_pmat06(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rbp[3][3]
 #
 #
-#	Celes::pmat06(2400000.5, 50123.9999, rbp)
+#	Celes.pmat06(2400000.5, 50123.9999, rbp)
 #
 #	vvd(rbp[0][0], 0.9999995505176007047, 1e-12,
-#			"Celes::pmat06", "11")
+#			'Celes.pmat06', '11')
 #	vvd(rbp[0][1], 0.8695404617348208406e-3, 1e-14,
-#			"Celes::pmat06", "12")
+#			'Celes.pmat06', '12')
 #	vvd(rbp[0][2], 0.3779735201865589104e-3, 1e-14,
-#			"Celes::pmat06", "13")
+#			'Celes.pmat06', '13')
 #
 #	vvd(rbp[1][0], -0.8695404723772031414e-3, 1e-14,
-#			"Celes::pmat06", "21")
+#			'Celes.pmat06', '21')
 #	vvd(rbp[1][1], 0.9999996219496027161, 1e-12,
-#			"Celes::pmat06", "22")
+#			'Celes.pmat06', '22')
 #	vvd(rbp[1][2], -0.1361752497080270143e-6, 1e-14,
-#			"Celes::pmat06", "23")
+#			'Celes.pmat06', '23')
 #
 #	vvd(rbp[2][0], -0.3779734957034089490e-3, 1e-14,
-#			"Celes::pmat06", "31")
+#			'Celes.pmat06', '31')
 #	vvd(rbp[2][1], -0.1924880847894457113e-6, 1e-14,
-#			"Celes::pmat06", "32")
+#			'Celes.pmat06', '32')
 #	vvd(rbp[2][2], 0.9999999285679971958, 1e-12,
-#			"Celes::pmat06", "33")
+#			'Celes.pmat06', '33')
 #
 # }
 def t_pmat06
-<<<<<<< HEAD
-  rbp = Celes::pmat06(2400000.5, 50123.9999)
+  rbp = Celes.pmat06(2400000.5, 50123.9999)
 
   vvd(rbp[0][0], 0.9999995505176007047, 1e-12,
-    "Celes::pmat06", "11")
+    'Celes.pmat06', '11')
   vvd(rbp[0][1], 0.8695404617348208406e-3, 1e-14,
-    "Celes::pmat06", "12")
+    'Celes.pmat06', '12')
   vvd(rbp[0][2], 0.3779735201865589104e-3, 1e-14,
-    "Celes::pmat06", "13")
+    'Celes.pmat06', '13')
 
   vvd(rbp[1][0], -0.8695404723772031414e-3, 1e-14,
-    "Celes::pmat06", "21")
+    'Celes.pmat06', '21')
   vvd(rbp[1][1], 0.9999996219496027161, 1e-12,
-    "Celes::pmat06", "22")
+    'Celes.pmat06', '22')
   vvd(rbp[1][2], -0.1361752497080270143e-6, 1e-14,
-    "Celes::pmat06", "23")
+    'Celes.pmat06', '23')
 
   vvd(rbp[2][0], -0.3779734957034089490e-3, 1e-14,
-    "Celes::pmat06", "31")
+    'Celes.pmat06', '31')
   vvd(rbp[2][1], -0.1924880847894457113e-6, 1e-14,
-    "Celes::pmat06", "32")
+    'Celes.pmat06', '32')
   vvd(rbp[2][2], 0.9999999285679971958, 1e-12,
-    "Celes::pmat06", "33")
-end
-
-#static void t_pmat76(int *status)
-#{
-=======
-  rbp = Celes.pmat06(2_400_000.5, 50_123.9999)
-
-  vvd(rbp[0][0], 0.9999995505176007047, 1e-12,
-      'Celes::pmat06', '11')
-  vvd(rbp[0][1], 0.8695404617348208406e-3, 1e-14,
-      'Celes::pmat06', '12')
-  vvd(rbp[0][2], 0.3779735201865589104e-3, 1e-14,
-      'Celes::pmat06', '13')
-
-  vvd(rbp[1][0], -0.8695404723772031414e-3, 1e-14,
-      'Celes::pmat06', '21')
-  vvd(rbp[1][1], 0.9999996219496027161, 1e-12,
-      'Celes::pmat06', '22')
-  vvd(rbp[1][2], -0.1361752497080270143e-6, 1e-14,
-      'Celes::pmat06', '23')
-
-  vvd(rbp[2][0], -0.3779734957034089490e-3, 1e-14,
-      'Celes::pmat06', '31')
-  vvd(rbp[2][1], -0.1924880847894457113e-6, 1e-14,
-      'Celes::pmat06', '32')
-  vvd(rbp[2][2], 0.9999999285679971958, 1e-12,
-      'Celes::pmat06', '33')
+    'Celes.pmat06', '33')
 end
 
 # static void t_pmat76(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rmatp[3][3]
 #
 #
-#	Celes::pmat76(2400000.5, 50123.9999, rmatp)
+#	Celes.pmat76(2400000.5, 50123.9999, rmatp)
 #
 #	vvd(rmatp[0][0], 0.9999995504328350733, 1e-12,
-#			"Celes::pmat76", "11")
+#			'Celes.pmat76', '11')
 #	vvd(rmatp[0][1], 0.8696632209480960785e-3, 1e-14,
-#			"Celes::pmat76", "12")
+#			'Celes.pmat76', '12')
 #	vvd(rmatp[0][2], 0.3779153474959888345e-3, 1e-14,
-#			"Celes::pmat76", "13")
+#			'Celes.pmat76', '13')
 #
 #	vvd(rmatp[1][0], -0.8696632209485112192e-3, 1e-14,
-#			"Celes::pmat76", "21")
+#			'Celes.pmat76', '21')
 #	vvd(rmatp[1][1], 0.9999996218428560614, 1e-12,
-#			"Celes::pmat76", "22")
+#			'Celes.pmat76', '22')
 #	vvd(rmatp[1][2], -0.1643284776111886407e-6, 1e-14,
-#			"Celes::pmat76", "23")
+#			'Celes.pmat76', '23')
 #
 #	vvd(rmatp[2][0], -0.3779153474950335077e-3, 1e-14,
-#			"Celes::pmat76", "31")
+#			'Celes.pmat76', '31')
 #	vvd(rmatp[2][1], -0.1643306746147366896e-6, 1e-14,
-#			"Celes::pmat76", "32")
+#			'Celes.pmat76', '32')
 #	vvd(rmatp[2][2], 0.9999999285899790119, 1e-12,
-#			"Celes::pmat76", "33")
+#			'Celes.pmat76', '33')
 #
 # }
 def t_pmat76
-<<<<<<< HEAD
-  rmatp = Celes::pmat76(2400000.5, 50123.9999)
+  rmatp = Celes.pmat76(2400000.5, 50123.9999)
 
   vvd(rmatp[0][0], 0.9999995504328350733, 1e-12,
-    "Celes::pmat76", "11")
+    'Celes.pmat76', '11')
   vvd(rmatp[0][1], 0.8696632209480960785e-3, 1e-14,
-    "Celes::pmat76", "12")
+    'Celes.pmat76', '12')
   vvd(rmatp[0][2], 0.3779153474959888345e-3, 1e-14,
-    "Celes::pmat76", "13")
+    'Celes.pmat76', '13')
 
   vvd(rmatp[1][0], -0.8696632209485112192e-3, 1e-14,
-    "Celes::pmat76", "21")
+    'Celes.pmat76', '21')
   vvd(rmatp[1][1], 0.9999996218428560614, 1e-12,
-    "Celes::pmat76", "22")
+    'Celes.pmat76', '22')
   vvd(rmatp[1][2], -0.1643284776111886407e-6, 1e-14,
-    "Celes::pmat76", "23")
+    'Celes.pmat76', '23')
 
   vvd(rmatp[2][0], -0.3779153474950335077e-3, 1e-14,
-    "Celes::pmat76", "31")
+    'Celes.pmat76', '31')
   vvd(rmatp[2][1], -0.1643306746147366896e-6, 1e-14,
-    "Celes::pmat76", "32")
+    'Celes.pmat76', '32')
   vvd(rmatp[2][2], 0.9999999285899790119, 1e-12,
-    "Celes::pmat76", "33")
-end
-
-#static void t_pm(int *status)
-#{
-=======
-  rmatp = Celes.pmat76(2_400_000.5, 50_123.9999)
-
-  vvd(rmatp[0][0], 0.9999995504328350733, 1e-12,
-      'Celes::pmat76', '11')
-  vvd(rmatp[0][1], 0.8696632209480960785e-3, 1e-14,
-      'Celes::pmat76', '12')
-  vvd(rmatp[0][2], 0.3779153474959888345e-3, 1e-14,
-      'Celes::pmat76', '13')
-
-  vvd(rmatp[1][0], -0.8696632209485112192e-3, 1e-14,
-      'Celes::pmat76', '21')
-  vvd(rmatp[1][1], 0.9999996218428560614, 1e-12,
-      'Celes::pmat76', '22')
-  vvd(rmatp[1][2], -0.1643284776111886407e-6, 1e-14,
-      'Celes::pmat76', '23')
-
-  vvd(rmatp[2][0], -0.3779153474950335077e-3, 1e-14,
-      'Celes::pmat76', '31')
-  vvd(rmatp[2][1], -0.1643306746147366896e-6, 1e-14,
-      'Celes::pmat76', '32')
-  vvd(rmatp[2][2], 0.9999999285899790119, 1e-12,
-      'Celes::pmat76', '33')
+    'Celes.pmat76', '33')
 end
 
 # static void t_pm(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double p[3], r
 #
 #
@@ -5754,9 +4017,9 @@ end
 #	p[1] =  1.2
 #	p[2] = -2.5
 #
-#	r = Celes::pm(p)
+#	r = Celes.pm(p)
 #
-#	vvd(r, 2.789265136196270604, 1e-12, "Celes::pm", "")
+#	vvd(r, 2.789265136196270604, 1e-12, 'Celes.pm', '')
 #
 # }
 def t_pm
@@ -5766,15 +4029,9 @@ def t_pm
   p[1] =  1.2
   p[2] = -2.5
 
-<<<<<<< HEAD
-  r = Celes::pm(p)
-
-  vvd(r, 2.789265136196270604, 1e-12, "Celes::pm", "")
-=======
   r = Celes.pm(p)
 
-  vvd(r, 2.789265136196270604, 1e-12, 'Celes::pm', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(r, 2.789265136196270604, 1e-12, 'Celes.pm', '')
 end
 
 # static void t_pmp(int *status)
@@ -5790,11 +4047,11 @@ end
 #	b[1] = 3.0
 #	b[2] = 4.0
 #
-#	Celes::pmp(a, b, amb)
+#	Celes.pmp(a, b, amb)
 #
-#	vvd(amb[0],  1.0, 1e-12, "Celes::pmp", "0")
-#	vvd(amb[1], -1.0, 1e-12, "Celes::pmp", "1")
-#	vvd(amb[2], -1.0, 1e-12, "Celes::pmp", "2")
+#	vvd(amb[0],  1.0, 1e-12, 'Celes.pmp', '0')
+#	vvd(amb[1], -1.0, 1e-12, 'Celes.pmp', '1')
+#	vvd(amb[2], -1.0, 1e-12, 'Celes.pmp', '2')
 #
 # }
 def t_pmp
@@ -5809,19 +4066,11 @@ def t_pmp
   b[1] = 3.0
   b[2] = 4.0
 
-<<<<<<< HEAD
-  amb = Celes::pmp(a, b)
-
-  vvd(amb[0],  1.0, 1e-12, "Celes::pmp", "0")
-  vvd(amb[1], -1.0, 1e-12, "Celes::pmp", "1")
-  vvd(amb[2], -1.0, 1e-12, "Celes::pmp", "2")
-=======
   amb = Celes.pmp(a, b)
 
-  vvd(amb[0],  1.0, 1e-12, 'Celes::pmp', '0')
-  vvd(amb[1], -1.0, 1e-12, 'Celes::pmp', '1')
-  vvd(amb[2], -1.0, 1e-12, 'Celes::pmp', '2')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(amb[0],  1.0, 1e-12, 'Celes.pmp', '0')
+  vvd(amb[1], -1.0, 1e-12, 'Celes.pmp', '1')
+  vvd(amb[2], -1.0, 1e-12, 'Celes.pmp', '2')
 end
 
 # static void t_pn(int *status)
@@ -5833,13 +4082,13 @@ end
 #	p[1] =  1.2
 #	p[2] = -2.5
 #
-#	Celes::pn(p, &r, u)
+#	Celes.pn(p, &r, u)
 #
-#	vvd(r, 2.789265136196270604, 1e-12, "Celes::pn", "r")
+#	vvd(r, 2.789265136196270604, 1e-12, 'Celes.pn', 'r')
 #
-#	vvd(u[0], 0.1075552109073112058, 1e-12, "Celes::pn", "u1")
-#	vvd(u[1], 0.4302208436292448232, 1e-12, "Celes::pn", "u2")
-#	vvd(u[2], -0.8962934242275933816, 1e-12, "Celes::pn", "u3")
+#	vvd(u[0], 0.1075552109073112058, 1e-12, 'Celes.pn', 'u1')
+#	vvd(u[1], 0.4302208436292448232, 1e-12, 'Celes.pn', 'u2')
+#	vvd(u[2], -0.8962934242275933816, 1e-12, 'Celes.pn', 'u3')
 #
 # }
 def t_pn
@@ -5849,23 +4098,13 @@ def t_pn
   p[1] =  1.2
   p[2] = -2.5
 
-<<<<<<< HEAD
-  r, u = Celes::pn(p)
-
-  vvd(r, 2.789265136196270604, 1e-12, "Celes::pn", "r")
-
-  vvd(u[0], 0.1075552109073112058, 1e-12, "Celes::pn", "u1")
-  vvd(u[1], 0.4302208436292448232, 1e-12, "Celes::pn", "u2")
-  vvd(u[2], -0.8962934242275933816, 1e-12, "Celes::pn", "u3")
-=======
   r, u = Celes.pn(p)
 
-  vvd(r, 2.789265136196270604, 1e-12, 'Celes::pn', 'r')
+  vvd(r, 2.789265136196270604, 1e-12, 'Celes.pn', 'r')
 
-  vvd(u[0], 0.1075552109073112058, 1e-12, 'Celes::pn', 'u1')
-  vvd(u[1], 0.4302208436292448232, 1e-12, 'Celes::pn', 'u2')
-  vvd(u[2], -0.8962934242275933816, 1e-12, 'Celes::pn', 'u3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(u[0], 0.1075552109073112058, 1e-12, 'Celes.pn', 'u1')
+  vvd(u[1], 0.4302208436292448232, 1e-12, 'Celes.pn', 'u2')
+  vvd(u[2], -0.8962934242275933816, 1e-12, 'Celes.pn', 'u3')
 end
 
 # static void t_pn00(int *status)
@@ -5877,1415 +4116,943 @@ end
 #	dpsi = -0.9632552291149335877e-5
 #	deps =  0.4063197106621141414e-4
 #
-#	Celes::pn00(2400000.5, 53736.0, dpsi, deps,
+#	Celes.pn00(2400000.5, 53736.0, dpsi, deps,
 #					&epsa, rb, rp, rbp, rn, rbpn)
 #
-#	vvd(epsa, 0.4090791789404229916, 1e-12, "Celes::pn00", "epsa")
+#	vvd(epsa, 0.4090791789404229916, 1e-12, 'Celes.pn00', 'epsa')
 #
 #	vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-#			"Celes::pn00", "rb11")
+#			'Celes.pn00', 'rb11')
 #	vvd(rb[0][1], -0.7078279744199196626e-7, 1e-18,
-#			"Celes::pn00", "rb12")
+#			'Celes.pn00', 'rb12')
 #	vvd(rb[0][2], 0.8056217146976134152e-7, 1e-18,
-#			"Celes::pn00", "rb13")
+#			'Celes.pn00', 'rb13')
 #
 #	vvd(rb[1][0], 0.7078279477857337206e-7, 1e-18,
-#			"Celes::pn00", "rb21")
+#			'Celes.pn00', 'rb21')
 #	vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-#			"Celes::pn00", "rb22")
+#			'Celes.pn00', 'rb22')
 #	vvd(rb[1][2], 0.3306041454222136517e-7, 1e-18,
-#			"Celes::pn00", "rb23")
+#			'Celes.pn00', 'rb23')
 #
 #	vvd(rb[2][0], -0.8056217380986972157e-7, 1e-18,
-#			"Celes::pn00", "rb31")
+#			'Celes.pn00', 'rb31')
 #	vvd(rb[2][1], -0.3306040883980552500e-7, 1e-18,
-#			"Celes::pn00", "rb32")
+#			'Celes.pn00', 'rb32')
 #	vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-#			"Celes::pn00", "rb33")
+#			'Celes.pn00', 'rb33')
 #
 #	vvd(rp[0][0], 0.9999989300532289018, 1e-12,
-#			"Celes::pn00", "rp11")
+#			'Celes.pn00', 'rp11')
 #	vvd(rp[0][1], -0.1341647226791824349e-2, 1e-14,
-#			"Celes::pn00", "rp12")
+#			'Celes.pn00', 'rp12')
 #	vvd(rp[0][2], -0.5829880927190296547e-3, 1e-14,
-#			"Celes::pn00", "rp13")
+#			'Celes.pn00', 'rp13')
 #
 #	vvd(rp[1][0], 0.1341647231069759008e-2, 1e-14,
-#			"Celes::pn00", "rp21")
+#			'Celes.pn00', 'rp21')
 #	vvd(rp[1][1], 0.9999990999908750433, 1e-12,
-#			"Celes::pn00", "rp22")
+#			'Celes.pn00', 'rp22')
 #	vvd(rp[1][2], -0.3837444441583715468e-6, 1e-14,
-#			"Celes::pn00", "rp23")
+#			'Celes.pn00', 'rp23')
 #
 #	vvd(rp[2][0], 0.5829880828740957684e-3, 1e-14,
-#			"Celes::pn00", "rp31")
+#			'Celes.pn00', 'rp31')
 #	vvd(rp[2][1], -0.3984203267708834759e-6, 1e-14,
-#			"Celes::pn00", "rp32")
+#			'Celes.pn00', 'rp32')
 #	vvd(rp[2][2], 0.9999998300623538046, 1e-12,
-#			"Celes::pn00", "rp33")
+#			'Celes.pn00', 'rp33')
 #
 #	vvd(rbp[0][0], 0.9999989300052243993, 1e-12,
-#			"Celes::pn00", "rbp11")
+#			'Celes.pn00', 'rbp11')
 #	vvd(rbp[0][1], -0.1341717990239703727e-2, 1e-14,
-#			"Celes::pn00", "rbp12")
+#			'Celes.pn00', 'rbp12')
 #	vvd(rbp[0][2], -0.5829075749891684053e-3, 1e-14,
-#			"Celes::pn00", "rbp13")
+#			'Celes.pn00', 'rbp13')
 #
 #	vvd(rbp[1][0], 0.1341718013831739992e-2, 1e-14,
-#			"Celes::pn00", "rbp21")
+#			'Celes.pn00', 'rbp21')
 #	vvd(rbp[1][1], 0.9999990998959191343, 1e-12,
-#			"Celes::pn00", "rbp22")
+#			'Celes.pn00', 'rbp22')
 #	vvd(rbp[1][2], -0.3505759733565421170e-6, 1e-14,
-#			"Celes::pn00", "rbp23")
+#			'Celes.pn00', 'rbp23')
 #
 #	vvd(rbp[2][0], 0.5829075206857717883e-3, 1e-14,
-#			"Celes::pn00", "rbp31")
+#			'Celes.pn00', 'rbp31')
 #	vvd(rbp[2][1], -0.4315219955198608970e-6, 1e-14,
-#			"Celes::pn00", "rbp32")
+#			'Celes.pn00', 'rbp32')
 #	vvd(rbp[2][2], 0.9999998301093036269, 1e-12,
-#			"Celes::pn00", "rbp33")
+#			'Celes.pn00', 'rbp33')
 #
 #	vvd(rn[0][0], 0.9999999999536069682, 1e-12,
-#			"Celes::pn00", "rn11")
+#			'Celes.pn00', 'rn11')
 #	vvd(rn[0][1], 0.8837746144872140812e-5, 1e-16,
-#			"Celes::pn00", "rn12")
+#			'Celes.pn00', 'rn12')
 #	vvd(rn[0][2], 0.3831488838252590008e-5, 1e-16,
-#			"Celes::pn00", "rn13")
+#			'Celes.pn00', 'rn13')
 #
 #	vvd(rn[1][0], -0.8837590456633197506e-5, 1e-16,
-#			"Celes::pn00", "rn21")
+#			'Celes.pn00', 'rn21')
 #	vvd(rn[1][1], 0.9999999991354692733, 1e-12,
-#			"Celes::pn00", "rn22")
+#			'Celes.pn00', 'rn22')
 #	vvd(rn[1][2], -0.4063198798559573702e-4, 1e-16,
-#			"Celes::pn00", "rn23")
+#			'Celes.pn00', 'rn23')
 #
 #	vvd(rn[2][0], -0.3831847930135328368e-5, 1e-16,
-#			"Celes::pn00", "rn31")
+#			'Celes.pn00', 'rn31')
 #	vvd(rn[2][1], 0.4063195412258150427e-4, 1e-16,
-#			"Celes::pn00", "rn32")
+#			'Celes.pn00', 'rn32')
 #	vvd(rn[2][2], 0.9999999991671806225, 1e-12,
-#			"Celes::pn00", "rn33")
+#			'Celes.pn00', 'rn33')
 #
 #	vvd(rbpn[0][0], 0.9999989440499982806, 1e-12,
-#			"Celes::pn00", "rbpn11")
+#			'Celes.pn00', 'rbpn11')
 #	vvd(rbpn[0][1], -0.1332880253640848301e-2, 1e-14,
-#			"Celes::pn00", "rbpn12")
+#			'Celes.pn00', 'rbpn12')
 #	vvd(rbpn[0][2], -0.5790760898731087295e-3, 1e-14,
-#			"Celes::pn00", "rbpn13")
+#			'Celes.pn00', 'rbpn13')
 #
 #	vvd(rbpn[1][0], 0.1332856746979948745e-2, 1e-14,
-#			"Celes::pn00", "rbpn21")
+#			'Celes.pn00', 'rbpn21')
 #	vvd(rbpn[1][1], 0.9999991109064768883, 1e-12,
-#			"Celes::pn00", "rbpn22")
+#			'Celes.pn00', 'rbpn22')
 #	vvd(rbpn[1][2], -0.4097740555723063806e-4, 1e-14,
-#			"Celes::pn00", "rbpn23")
+#			'Celes.pn00', 'rbpn23')
 #
 #	vvd(rbpn[2][0], 0.5791301929950205000e-3, 1e-14,
-#			"Celes::pn00", "rbpn31")
+#			'Celes.pn00', 'rbpn31')
 #	vvd(rbpn[2][1], 0.4020553681373702931e-4, 1e-14,
-#			"Celes::pn00", "rbpn32")
+#			'Celes.pn00', 'rbpn32')
 #	vvd(rbpn[2][2], 0.9999998314958529887, 1e-12,
-#			"Celes::pn00", "rbpn33")
+#			'Celes.pn00', 'rbpn33')
 #
 # }
 def t_pn00
   dpsi = -0.9632552291149335877e-5
   deps =  0.4063197106621141414e-4
 
-<<<<<<< HEAD
-  epsa, rb, rp, rbp, rn, rbpn = Celes::pn00(2400000.5, 53736.0, dpsi, deps)
+  epsa, rb, rp, rbp, rn, rbpn = Celes.pn00(2400000.5, 53736.0, dpsi, deps)
 
-  vvd(epsa, 0.4090791789404229916, 1e-12, "Celes::pn00", "epsa")
-
-  vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-    "Celes::pn00", "rb11")
-  vvd(rb[0][1], -0.7078279744199196626e-7, 1e-18,
-    "Celes::pn00", "rb12")
-  vvd(rb[0][2], 0.8056217146976134152e-7, 1e-18,
-    "Celes::pn00", "rb13")
-
-  vvd(rb[1][0], 0.7078279477857337206e-7, 1e-18,
-    "Celes::pn00", "rb21")
-  vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-    "Celes::pn00", "rb22")
-  vvd(rb[1][2], 0.3306041454222136517e-7, 1e-18,
-    "Celes::pn00", "rb23")
-
-  vvd(rb[2][0], -0.8056217380986972157e-7, 1e-18,
-    "Celes::pn00", "rb31")
-  vvd(rb[2][1], -0.3306040883980552500e-7, 1e-18,
-    "Celes::pn00", "rb32")
-  vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-    "Celes::pn00", "rb33")
-
-  vvd(rp[0][0], 0.9999989300532289018, 1e-12,
-    "Celes::pn00", "rp11")
-  vvd(rp[0][1], -0.1341647226791824349e-2, 1e-14,
-    "Celes::pn00", "rp12")
-  vvd(rp[0][2], -0.5829880927190296547e-3, 1e-14,
-    "Celes::pn00", "rp13")
-
-  vvd(rp[1][0], 0.1341647231069759008e-2, 1e-14,
-    "Celes::pn00", "rp21")
-  vvd(rp[1][1], 0.9999990999908750433, 1e-12,
-    "Celes::pn00", "rp22")
-  vvd(rp[1][2], -0.3837444441583715468e-6, 1e-14,
-    "Celes::pn00", "rp23")
-
-  vvd(rp[2][0], 0.5829880828740957684e-3, 1e-14,
-    "Celes::pn00", "rp31")
-  vvd(rp[2][1], -0.3984203267708834759e-6, 1e-14,
-    "Celes::pn00", "rp32")
-  vvd(rp[2][2], 0.9999998300623538046, 1e-12,
-    "Celes::pn00", "rp33")
-
-  vvd(rbp[0][0], 0.9999989300052243993, 1e-12,
-    "Celes::pn00", "rbp11")
-  vvd(rbp[0][1], -0.1341717990239703727e-2, 1e-14,
-    "Celes::pn00", "rbp12")
-  vvd(rbp[0][2], -0.5829075749891684053e-3, 1e-14,
-    "Celes::pn00", "rbp13")
-
-  vvd(rbp[1][0], 0.1341718013831739992e-2, 1e-14,
-    "Celes::pn00", "rbp21")
-  vvd(rbp[1][1], 0.9999990998959191343, 1e-12,
-    "Celes::pn00", "rbp22")
-  vvd(rbp[1][2], -0.3505759733565421170e-6, 1e-14,
-    "Celes::pn00", "rbp23")
-
-  vvd(rbp[2][0], 0.5829075206857717883e-3, 1e-14,
-    "Celes::pn00", "rbp31")
-  vvd(rbp[2][1], -0.4315219955198608970e-6, 1e-14,
-    "Celes::pn00", "rbp32")
-  vvd(rbp[2][2], 0.9999998301093036269, 1e-12,
-    "Celes::pn00", "rbp33")
-
-  vvd(rn[0][0], 0.9999999999536069682, 1e-12,
-    "Celes::pn00", "rn11")
-  vvd(rn[0][1], 0.8837746144872140812e-5, 1e-16,
-    "Celes::pn00", "rn12")
-  vvd(rn[0][2], 0.3831488838252590008e-5, 1e-16,
-    "Celes::pn00", "rn13")
-
-  vvd(rn[1][0], -0.8837590456633197506e-5, 1e-16,
-    "Celes::pn00", "rn21")
-  vvd(rn[1][1], 0.9999999991354692733, 1e-12,
-    "Celes::pn00", "rn22")
-  vvd(rn[1][2], -0.4063198798559573702e-4, 1e-16,
-    "Celes::pn00", "rn23")
-
-  vvd(rn[2][0], -0.3831847930135328368e-5, 1e-16,
-    "Celes::pn00", "rn31")
-  vvd(rn[2][1], 0.4063195412258150427e-4, 1e-16,
-    "Celes::pn00", "rn32")
-  vvd(rn[2][2], 0.9999999991671806225, 1e-12,
-    "Celes::pn00", "rn33")
-
-  vvd(rbpn[0][0], 0.9999989440499982806, 1e-12,
-    "Celes::pn00", "rbpn11")
-  vvd(rbpn[0][1], -0.1332880253640848301e-2, 1e-14,
-    "Celes::pn00", "rbpn12")
-  vvd(rbpn[0][2], -0.5790760898731087295e-3, 1e-14,
-    "Celes::pn00", "rbpn13")
-
-  vvd(rbpn[1][0], 0.1332856746979948745e-2, 1e-14,
-    "Celes::pn00", "rbpn21")
-  vvd(rbpn[1][1], 0.9999991109064768883, 1e-12,
-    "Celes::pn00", "rbpn22")
-  vvd(rbpn[1][2], -0.4097740555723063806e-4, 1e-14,
-    "Celes::pn00", "rbpn23")
-
-  vvd(rbpn[2][0], 0.5791301929950205000e-3, 1e-14,
-    "Celes::pn00", "rbpn31")
-  vvd(rbpn[2][1], 0.4020553681373702931e-4, 1e-14,
-    "Celes::pn00", "rbpn32")
-  vvd(rbpn[2][2], 0.9999998314958529887, 1e-12,
-    "Celes::pn00", "rbpn33")
-end
-
-#static void t_pn00a(int *status)
-#{
-=======
-  epsa, rb, rp, rbp, rn, rbpn = Celes.pn00(2_400_000.5, 53_736.0, dpsi, deps)
-
-  vvd(epsa, 0.4090791789404229916, 1e-12, 'Celes::pn00', 'epsa')
+  vvd(epsa, 0.4090791789404229916, 1e-12, 'Celes.pn00', 'epsa')
 
   vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-      'Celes::pn00', 'rb11')
+    'Celes.pn00', 'rb11')
   vvd(rb[0][1], -0.7078279744199196626e-7, 1e-18,
-      'Celes::pn00', 'rb12')
+    'Celes.pn00', 'rb12')
   vvd(rb[0][2], 0.8056217146976134152e-7, 1e-18,
-      'Celes::pn00', 'rb13')
+    'Celes.pn00', 'rb13')
 
   vvd(rb[1][0], 0.7078279477857337206e-7, 1e-18,
-      'Celes::pn00', 'rb21')
+    'Celes.pn00', 'rb21')
   vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-      'Celes::pn00', 'rb22')
+    'Celes.pn00', 'rb22')
   vvd(rb[1][2], 0.3306041454222136517e-7, 1e-18,
-      'Celes::pn00', 'rb23')
+    'Celes.pn00', 'rb23')
 
   vvd(rb[2][0], -0.8056217380986972157e-7, 1e-18,
-      'Celes::pn00', 'rb31')
+    'Celes.pn00', 'rb31')
   vvd(rb[2][1], -0.3306040883980552500e-7, 1e-18,
-      'Celes::pn00', 'rb32')
+    'Celes.pn00', 'rb32')
   vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-      'Celes::pn00', 'rb33')
+    'Celes.pn00', 'rb33')
 
   vvd(rp[0][0], 0.9999989300532289018, 1e-12,
-      'Celes::pn00', 'rp11')
+    'Celes.pn00', 'rp11')
   vvd(rp[0][1], -0.1341647226791824349e-2, 1e-14,
-      'Celes::pn00', 'rp12')
+    'Celes.pn00', 'rp12')
   vvd(rp[0][2], -0.5829880927190296547e-3, 1e-14,
-      'Celes::pn00', 'rp13')
+    'Celes.pn00', 'rp13')
 
   vvd(rp[1][0], 0.1341647231069759008e-2, 1e-14,
-      'Celes::pn00', 'rp21')
+    'Celes.pn00', 'rp21')
   vvd(rp[1][1], 0.9999990999908750433, 1e-12,
-      'Celes::pn00', 'rp22')
+    'Celes.pn00', 'rp22')
   vvd(rp[1][2], -0.3837444441583715468e-6, 1e-14,
-      'Celes::pn00', 'rp23')
+    'Celes.pn00', 'rp23')
 
   vvd(rp[2][0], 0.5829880828740957684e-3, 1e-14,
-      'Celes::pn00', 'rp31')
+    'Celes.pn00', 'rp31')
   vvd(rp[2][1], -0.3984203267708834759e-6, 1e-14,
-      'Celes::pn00', 'rp32')
+    'Celes.pn00', 'rp32')
   vvd(rp[2][2], 0.9999998300623538046, 1e-12,
-      'Celes::pn00', 'rp33')
+    'Celes.pn00', 'rp33')
 
   vvd(rbp[0][0], 0.9999989300052243993, 1e-12,
-      'Celes::pn00', 'rbp11')
+    'Celes.pn00', 'rbp11')
   vvd(rbp[0][1], -0.1341717990239703727e-2, 1e-14,
-      'Celes::pn00', 'rbp12')
+    'Celes.pn00', 'rbp12')
   vvd(rbp[0][2], -0.5829075749891684053e-3, 1e-14,
-      'Celes::pn00', 'rbp13')
+    'Celes.pn00', 'rbp13')
 
   vvd(rbp[1][0], 0.1341718013831739992e-2, 1e-14,
-      'Celes::pn00', 'rbp21')
+    'Celes.pn00', 'rbp21')
   vvd(rbp[1][1], 0.9999990998959191343, 1e-12,
-      'Celes::pn00', 'rbp22')
+    'Celes.pn00', 'rbp22')
   vvd(rbp[1][2], -0.3505759733565421170e-6, 1e-14,
-      'Celes::pn00', 'rbp23')
+    'Celes.pn00', 'rbp23')
 
   vvd(rbp[2][0], 0.5829075206857717883e-3, 1e-14,
-      'Celes::pn00', 'rbp31')
+    'Celes.pn00', 'rbp31')
   vvd(rbp[2][1], -0.4315219955198608970e-6, 1e-14,
-      'Celes::pn00', 'rbp32')
+    'Celes.pn00', 'rbp32')
   vvd(rbp[2][2], 0.9999998301093036269, 1e-12,
-      'Celes::pn00', 'rbp33')
+    'Celes.pn00', 'rbp33')
 
   vvd(rn[0][0], 0.9999999999536069682, 1e-12,
-      'Celes::pn00', 'rn11')
+    'Celes.pn00', 'rn11')
   vvd(rn[0][1], 0.8837746144872140812e-5, 1e-16,
-      'Celes::pn00', 'rn12')
+    'Celes.pn00', 'rn12')
   vvd(rn[0][2], 0.3831488838252590008e-5, 1e-16,
-      'Celes::pn00', 'rn13')
+    'Celes.pn00', 'rn13')
 
   vvd(rn[1][0], -0.8837590456633197506e-5, 1e-16,
-      'Celes::pn00', 'rn21')
+    'Celes.pn00', 'rn21')
   vvd(rn[1][1], 0.9999999991354692733, 1e-12,
-      'Celes::pn00', 'rn22')
+    'Celes.pn00', 'rn22')
   vvd(rn[1][2], -0.4063198798559573702e-4, 1e-16,
-      'Celes::pn00', 'rn23')
+    'Celes.pn00', 'rn23')
 
   vvd(rn[2][0], -0.3831847930135328368e-5, 1e-16,
-      'Celes::pn00', 'rn31')
+    'Celes.pn00', 'rn31')
   vvd(rn[2][1], 0.4063195412258150427e-4, 1e-16,
-      'Celes::pn00', 'rn32')
+    'Celes.pn00', 'rn32')
   vvd(rn[2][2], 0.9999999991671806225, 1e-12,
-      'Celes::pn00', 'rn33')
+    'Celes.pn00', 'rn33')
 
   vvd(rbpn[0][0], 0.9999989440499982806, 1e-12,
-      'Celes::pn00', 'rbpn11')
+    'Celes.pn00', 'rbpn11')
   vvd(rbpn[0][1], -0.1332880253640848301e-2, 1e-14,
-      'Celes::pn00', 'rbpn12')
+    'Celes.pn00', 'rbpn12')
   vvd(rbpn[0][2], -0.5790760898731087295e-3, 1e-14,
-      'Celes::pn00', 'rbpn13')
+    'Celes.pn00', 'rbpn13')
 
   vvd(rbpn[1][0], 0.1332856746979948745e-2, 1e-14,
-      'Celes::pn00', 'rbpn21')
+    'Celes.pn00', 'rbpn21')
   vvd(rbpn[1][1], 0.9999991109064768883, 1e-12,
-      'Celes::pn00', 'rbpn22')
+    'Celes.pn00', 'rbpn22')
   vvd(rbpn[1][2], -0.4097740555723063806e-4, 1e-14,
-      'Celes::pn00', 'rbpn23')
+    'Celes.pn00', 'rbpn23')
 
   vvd(rbpn[2][0], 0.5791301929950205000e-3, 1e-14,
-      'Celes::pn00', 'rbpn31')
+    'Celes.pn00', 'rbpn31')
   vvd(rbpn[2][1], 0.4020553681373702931e-4, 1e-14,
-      'Celes::pn00', 'rbpn32')
+    'Celes.pn00', 'rbpn32')
   vvd(rbpn[2][2], 0.9999998314958529887, 1e-12,
-      'Celes::pn00', 'rbpn33')
+    'Celes.pn00', 'rbpn33')
 end
 
 # static void t_pn00a(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double dpsi, deps, epsa,
 #			rb[3][3], rp[3][3], rbp[3][3], rn[3][3], rbpn[3][3]
 #
 #
-#	Celes::pn00a(2400000.5, 53736.0,
+#	Celes.pn00a(2400000.5, 53736.0,
 #			&dpsi, &deps, &epsa, rb, rp, rbp, rn, rbpn)
 #
 #	vvd(dpsi, -0.9630909107115518431e-5, 1e-12,
-#			"Celes::pn00a", "dpsi")
+#			'Celes.pn00a', 'dpsi')
 #	vvd(deps,  0.4063239174001678710e-4, 1e-12,
-#			"Celes::pn00a", "deps")
-#	vvd(epsa,  0.4090791789404229916, 1e-12, "Celes::pn00a", "epsa")
+#			'Celes.pn00a', 'deps')
+#	vvd(epsa,  0.4090791789404229916, 1e-12, 'Celes.pn00a', 'epsa')
 #
 #	vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-#			"Celes::pn00a", "rb11")
+#			'Celes.pn00a', 'rb11')
 #	vvd(rb[0][1], -0.7078279744199196626e-7, 1e-16,
-#			"Celes::pn00a", "rb12")
+#			'Celes.pn00a', 'rb12')
 #	vvd(rb[0][2], 0.8056217146976134152e-7, 1e-16,
-#			"Celes::pn00a", "rb13")
+#			'Celes.pn00a', 'rb13')
 #
 #	vvd(rb[1][0], 0.7078279477857337206e-7, 1e-16,
-#			"Celes::pn00a", "rb21")
+#			'Celes.pn00a', 'rb21')
 #	vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-#			"Celes::pn00a", "rb22")
+#			'Celes.pn00a', 'rb22')
 #	vvd(rb[1][2], 0.3306041454222136517e-7, 1e-16,
-#			"Celes::pn00a", "rb23")
+#			'Celes.pn00a', 'rb23')
 #
 #	vvd(rb[2][0], -0.8056217380986972157e-7, 1e-16,
-#			"Celes::pn00a", "rb31")
+#			'Celes.pn00a', 'rb31')
 #	vvd(rb[2][1], -0.3306040883980552500e-7, 1e-16,
-#			"Celes::pn00a", "rb32")
+#			'Celes.pn00a', 'rb32')
 #	vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-#			"Celes::pn00a", "rb33")
+#			'Celes.pn00a', 'rb33')
 #
 #	vvd(rp[0][0], 0.9999989300532289018, 1e-12,
-#			"Celes::pn00a", "rp11")
+#			'Celes.pn00a', 'rp11')
 #	vvd(rp[0][1], -0.1341647226791824349e-2, 1e-14,
-#			"Celes::pn00a", "rp12")
+#			'Celes.pn00a', 'rp12')
 #	vvd(rp[0][2], -0.5829880927190296547e-3, 1e-14,
-#			"Celes::pn00a", "rp13")
+#			'Celes.pn00a', 'rp13')
 #
 #	vvd(rp[1][0], 0.1341647231069759008e-2, 1e-14,
-#			"Celes::pn00a", "rp21")
+#			'Celes.pn00a', 'rp21')
 #	vvd(rp[1][1], 0.9999990999908750433, 1e-12,
-#			"Celes::pn00a", "rp22")
+#			'Celes.pn00a', 'rp22')
 #	vvd(rp[1][2], -0.3837444441583715468e-6, 1e-14,
-#			"Celes::pn00a", "rp23")
+#			'Celes.pn00a', 'rp23')
 #
 #	vvd(rp[2][0], 0.5829880828740957684e-3, 1e-14,
-#			"Celes::pn00a", "rp31")
+#			'Celes.pn00a', 'rp31')
 #	vvd(rp[2][1], -0.3984203267708834759e-6, 1e-14,
-#			"Celes::pn00a", "rp32")
+#			'Celes.pn00a', 'rp32')
 #	vvd(rp[2][2], 0.9999998300623538046, 1e-12,
-#			"Celes::pn00a", "rp33")
+#			'Celes.pn00a', 'rp33')
 #
 #	vvd(rbp[0][0], 0.9999989300052243993, 1e-12,
-#			"Celes::pn00a", "rbp11")
+#			'Celes.pn00a', 'rbp11')
 #	vvd(rbp[0][1], -0.1341717990239703727e-2, 1e-14,
-#			"Celes::pn00a", "rbp12")
+#			'Celes.pn00a', 'rbp12')
 #	vvd(rbp[0][2], -0.5829075749891684053e-3, 1e-14,
-#			"Celes::pn00a", "rbp13")
+#			'Celes.pn00a', 'rbp13')
 #
 #	vvd(rbp[1][0], 0.1341718013831739992e-2, 1e-14,
-#			"Celes::pn00a", "rbp21")
+#			'Celes.pn00a', 'rbp21')
 #	vvd(rbp[1][1], 0.9999990998959191343, 1e-12,
-#			"Celes::pn00a", "rbp22")
+#			'Celes.pn00a', 'rbp22')
 #	vvd(rbp[1][2], -0.3505759733565421170e-6, 1e-14,
-#			"Celes::pn00a", "rbp23")
+#			'Celes.pn00a', 'rbp23')
 #
 #	vvd(rbp[2][0], 0.5829075206857717883e-3, 1e-14,
-#			"Celes::pn00a", "rbp31")
+#			'Celes.pn00a', 'rbp31')
 #	vvd(rbp[2][1], -0.4315219955198608970e-6, 1e-14,
-#			"Celes::pn00a", "rbp32")
+#			'Celes.pn00a', 'rbp32')
 #	vvd(rbp[2][2], 0.9999998301093036269, 1e-12,
-#			"Celes::pn00a", "rbp33")
+#			'Celes.pn00a', 'rbp33')
 #
 #	vvd(rn[0][0], 0.9999999999536227949, 1e-12,
-#			"Celes::pn00a", "rn11")
+#			'Celes.pn00a', 'rn11')
 #	vvd(rn[0][1], 0.8836238544090873336e-5, 1e-14,
-#			"Celes::pn00a", "rn12")
+#			'Celes.pn00a', 'rn12')
 #	vvd(rn[0][2], 0.3830835237722400669e-5, 1e-14,
-#			"Celes::pn00a", "rn13")
+#			'Celes.pn00a', 'rn13')
 #
 #	vvd(rn[1][0], -0.8836082880798569274e-5, 1e-14,
-#			"Celes::pn00a", "rn21")
+#			'Celes.pn00a', 'rn21')
 #	vvd(rn[1][1], 0.9999999991354655028, 1e-12,
-#			"Celes::pn00a", "rn22")
+#			'Celes.pn00a', 'rn22')
 #	vvd(rn[1][2], -0.4063240865362499850e-4, 1e-14,
-#			"Celes::pn00a", "rn23")
+#			'Celes.pn00a', 'rn23')
 #
 #	vvd(rn[2][0], -0.3831194272065995866e-5, 1e-14,
-#			"Celes::pn00a", "rn31")
+#			'Celes.pn00a', 'rn31')
 #	vvd(rn[2][1], 0.4063237480216291775e-4, 1e-14,
-#			"Celes::pn00a", "rn32")
+#			'Celes.pn00a', 'rn32')
 #	vvd(rn[2][2], 0.9999999991671660338, 1e-12,
-#			"Celes::pn00a", "rn33")
+#			'Celes.pn00a', 'rn33')
 #
 #	vvd(rbpn[0][0], 0.9999989440476103435, 1e-12,
-#			"Celes::pn00a", "rbpn11")
+#			'Celes.pn00a', 'rbpn11')
 #	vvd(rbpn[0][1], -0.1332881761240011763e-2, 1e-14,
-#			"Celes::pn00a", "rbpn12")
+#			'Celes.pn00a', 'rbpn12')
 #	vvd(rbpn[0][2], -0.5790767434730085751e-3, 1e-14,
-#			"Celes::pn00a", "rbpn13")
+#			'Celes.pn00a', 'rbpn13')
 #
 #	vvd(rbpn[1][0], 0.1332858254308954658e-2, 1e-14,
-#			"Celes::pn00a", "rbpn21")
+#			'Celes.pn00a', 'rbpn21')
 #	vvd(rbpn[1][1], 0.9999991109044505577, 1e-12,
-#			"Celes::pn00a", "rbpn22")
+#			'Celes.pn00a', 'rbpn22')
 #	vvd(rbpn[1][2], -0.4097782710396580452e-4, 1e-14,
-#			"Celes::pn00a", "rbpn23")
+#			'Celes.pn00a', 'rbpn23')
 #
 #	vvd(rbpn[2][0], 0.5791308472168152904e-3, 1e-14,
-#			"Celes::pn00a", "rbpn31")
+#			'Celes.pn00a', 'rbpn31')
 #	vvd(rbpn[2][1], 0.4020595661591500259e-4, 1e-14,
-#			"Celes::pn00a", "rbpn32")
+#			'Celes.pn00a', 'rbpn32')
 #	vvd(rbpn[2][2], 0.9999998314954572304, 1e-12,
-#			"Celes::pn00a", "rbpn33")
+#			'Celes.pn00a', 'rbpn33')
 #
 # }
 def t_pn00a
   dpsi, deps, epsa, rb, rp, rbp, rn, rbpn =
-<<<<<<< HEAD
-    Celes::pn00a(2400000.5, 53736.0)
+    Celes.pn00a(2400000.5, 53736.0)
 
   vvd(dpsi, -0.9630909107115518431e-5, 1e-12,
-    "Celes::pn00a", "dpsi")
+    'Celes.pn00a', 'dpsi')
   vvd(deps,  0.4063239174001678710e-4, 1e-12,
-    "Celes::pn00a", "deps")
-  vvd(epsa,  0.4090791789404229916, 1e-12, "Celes::pn00a", "epsa")
+    'Celes.pn00a', 'deps')
+  vvd(epsa,  0.4090791789404229916, 1e-12, 'Celes.pn00a', 'epsa')
 
   vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-    "Celes::pn00a", "rb11")
+    'Celes.pn00a', 'rb11')
   vvd(rb[0][1], -0.7078279744199196626e-7, 1e-16,
-    "Celes::pn00a", "rb12")
+    'Celes.pn00a', 'rb12')
   vvd(rb[0][2], 0.8056217146976134152e-7, 1e-16,
-    "Celes::pn00a", "rb13")
+    'Celes.pn00a', 'rb13')
 
   vvd(rb[1][0], 0.7078279477857337206e-7, 1e-16,
-    "Celes::pn00a", "rb21")
+    'Celes.pn00a', 'rb21')
   vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-    "Celes::pn00a", "rb22")
+    'Celes.pn00a', 'rb22')
   vvd(rb[1][2], 0.3306041454222136517e-7, 1e-16,
-    "Celes::pn00a", "rb23")
+    'Celes.pn00a', 'rb23')
 
   vvd(rb[2][0], -0.8056217380986972157e-7, 1e-16,
-    "Celes::pn00a", "rb31")
+    'Celes.pn00a', 'rb31')
   vvd(rb[2][1], -0.3306040883980552500e-7, 1e-16,
-    "Celes::pn00a", "rb32")
+    'Celes.pn00a', 'rb32')
   vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-    "Celes::pn00a", "rb33")
+    'Celes.pn00a', 'rb33')
 
   vvd(rp[0][0], 0.9999989300532289018, 1e-12,
-    "Celes::pn00a", "rp11")
+    'Celes.pn00a', 'rp11')
   vvd(rp[0][1], -0.1341647226791824349e-2, 1e-14,
-    "Celes::pn00a", "rp12")
+    'Celes.pn00a', 'rp12')
   vvd(rp[0][2], -0.5829880927190296547e-3, 1e-14,
-    "Celes::pn00a", "rp13")
+    'Celes.pn00a', 'rp13')
 
   vvd(rp[1][0], 0.1341647231069759008e-2, 1e-14,
-    "Celes::pn00a", "rp21")
+    'Celes.pn00a', 'rp21')
   vvd(rp[1][1], 0.9999990999908750433, 1e-12,
-    "Celes::pn00a", "rp22")
+    'Celes.pn00a', 'rp22')
   vvd(rp[1][2], -0.3837444441583715468e-6, 1e-14,
-    "Celes::pn00a", "rp23")
+    'Celes.pn00a', 'rp23')
 
   vvd(rp[2][0], 0.5829880828740957684e-3, 1e-14,
-    "Celes::pn00a", "rp31")
+    'Celes.pn00a', 'rp31')
   vvd(rp[2][1], -0.3984203267708834759e-6, 1e-14,
-    "Celes::pn00a", "rp32")
+    'Celes.pn00a', 'rp32')
   vvd(rp[2][2], 0.9999998300623538046, 1e-12,
-    "Celes::pn00a", "rp33")
+    'Celes.pn00a', 'rp33')
 
   vvd(rbp[0][0], 0.9999989300052243993, 1e-12,
-    "Celes::pn00a", "rbp11")
+    'Celes.pn00a', 'rbp11')
   vvd(rbp[0][1], -0.1341717990239703727e-2, 1e-14,
-    "Celes::pn00a", "rbp12")
+    'Celes.pn00a', 'rbp12')
   vvd(rbp[0][2], -0.5829075749891684053e-3, 1e-14,
-    "Celes::pn00a", "rbp13")
+    'Celes.pn00a', 'rbp13')
 
   vvd(rbp[1][0], 0.1341718013831739992e-2, 1e-14,
-    "Celes::pn00a", "rbp21")
+    'Celes.pn00a', 'rbp21')
   vvd(rbp[1][1], 0.9999990998959191343, 1e-12,
-    "Celes::pn00a", "rbp22")
+    'Celes.pn00a', 'rbp22')
   vvd(rbp[1][2], -0.3505759733565421170e-6, 1e-14,
-    "Celes::pn00a", "rbp23")
+    'Celes.pn00a', 'rbp23')
 
   vvd(rbp[2][0], 0.5829075206857717883e-3, 1e-14,
-    "Celes::pn00a", "rbp31")
+    'Celes.pn00a', 'rbp31')
   vvd(rbp[2][1], -0.4315219955198608970e-6, 1e-14,
-    "Celes::pn00a", "rbp32")
+    'Celes.pn00a', 'rbp32')
   vvd(rbp[2][2], 0.9999998301093036269, 1e-12,
-    "Celes::pn00a", "rbp33")
+    'Celes.pn00a', 'rbp33')
 
   vvd(rn[0][0], 0.9999999999536227949, 1e-12,
-    "Celes::pn00a", "rn11")
+    'Celes.pn00a', 'rn11')
   vvd(rn[0][1], 0.8836238544090873336e-5, 1e-14,
-    "Celes::pn00a", "rn12")
+    'Celes.pn00a', 'rn12')
   vvd(rn[0][2], 0.3830835237722400669e-5, 1e-14,
-    "Celes::pn00a", "rn13")
+    'Celes.pn00a', 'rn13')
 
   vvd(rn[1][0], -0.8836082880798569274e-5, 1e-14,
-    "Celes::pn00a", "rn21")
+    'Celes.pn00a', 'rn21')
   vvd(rn[1][1], 0.9999999991354655028, 1e-12,
-    "Celes::pn00a", "rn22")
+    'Celes.pn00a', 'rn22')
   vvd(rn[1][2], -0.4063240865362499850e-4, 1e-14,
-    "Celes::pn00a", "rn23")
+    'Celes.pn00a', 'rn23')
 
   vvd(rn[2][0], -0.3831194272065995866e-5, 1e-14,
-    "Celes::pn00a", "rn31")
+    'Celes.pn00a', 'rn31')
   vvd(rn[2][1], 0.4063237480216291775e-4, 1e-14,
-    "Celes::pn00a", "rn32")
+    'Celes.pn00a', 'rn32')
   vvd(rn[2][2], 0.9999999991671660338, 1e-12,
-    "Celes::pn00a", "rn33")
+    'Celes.pn00a', 'rn33')
 
   vvd(rbpn[0][0], 0.9999989440476103435, 1e-12,
-    "Celes::pn00a", "rbpn11")
+    'Celes.pn00a', 'rbpn11')
   vvd(rbpn[0][1], -0.1332881761240011763e-2, 1e-14,
-    "Celes::pn00a", "rbpn12")
+    'Celes.pn00a', 'rbpn12')
   vvd(rbpn[0][2], -0.5790767434730085751e-3, 1e-14,
-    "Celes::pn00a", "rbpn13")
+    'Celes.pn00a', 'rbpn13')
 
   vvd(rbpn[1][0], 0.1332858254308954658e-2, 1e-14,
-    "Celes::pn00a", "rbpn21")
+    'Celes.pn00a', 'rbpn21')
   vvd(rbpn[1][1], 0.9999991109044505577, 1e-12,
-    "Celes::pn00a", "rbpn22")
+    'Celes.pn00a', 'rbpn22')
   vvd(rbpn[1][2], -0.4097782710396580452e-4, 1e-14,
-    "Celes::pn00a", "rbpn23")
+    'Celes.pn00a', 'rbpn23')
 
   vvd(rbpn[2][0], 0.5791308472168152904e-3, 1e-14,
-    "Celes::pn00a", "rbpn31")
+    'Celes.pn00a', 'rbpn31')
   vvd(rbpn[2][1], 0.4020595661591500259e-4, 1e-14,
-    "Celes::pn00a", "rbpn32")
+    'Celes.pn00a', 'rbpn32')
   vvd(rbpn[2][2], 0.9999998314954572304, 1e-12,
-    "Celes::pn00a", "rbpn33")
-end
-
-#static void t_pn00b(int *status)
-#{
-=======
-      Celes.pn00a(2_400_000.5, 53_736.0)
-
-  vvd(dpsi, -0.9630909107115518431e-5, 1e-12,
-      'Celes::pn00a', 'dpsi')
-  vvd(deps,  0.4063239174001678710e-4, 1e-12,
-      'Celes::pn00a', 'deps')
-  vvd(epsa,  0.4090791789404229916, 1e-12, 'Celes::pn00a', 'epsa')
-
-  vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-      'Celes::pn00a', 'rb11')
-  vvd(rb[0][1], -0.7078279744199196626e-7, 1e-16,
-      'Celes::pn00a', 'rb12')
-  vvd(rb[0][2], 0.8056217146976134152e-7, 1e-16,
-      'Celes::pn00a', 'rb13')
-
-  vvd(rb[1][0], 0.7078279477857337206e-7, 1e-16,
-      'Celes::pn00a', 'rb21')
-  vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-      'Celes::pn00a', 'rb22')
-  vvd(rb[1][2], 0.3306041454222136517e-7, 1e-16,
-      'Celes::pn00a', 'rb23')
-
-  vvd(rb[2][0], -0.8056217380986972157e-7, 1e-16,
-      'Celes::pn00a', 'rb31')
-  vvd(rb[2][1], -0.3306040883980552500e-7, 1e-16,
-      'Celes::pn00a', 'rb32')
-  vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-      'Celes::pn00a', 'rb33')
-
-  vvd(rp[0][0], 0.9999989300532289018, 1e-12,
-      'Celes::pn00a', 'rp11')
-  vvd(rp[0][1], -0.1341647226791824349e-2, 1e-14,
-      'Celes::pn00a', 'rp12')
-  vvd(rp[0][2], -0.5829880927190296547e-3, 1e-14,
-      'Celes::pn00a', 'rp13')
-
-  vvd(rp[1][0], 0.1341647231069759008e-2, 1e-14,
-      'Celes::pn00a', 'rp21')
-  vvd(rp[1][1], 0.9999990999908750433, 1e-12,
-      'Celes::pn00a', 'rp22')
-  vvd(rp[1][2], -0.3837444441583715468e-6, 1e-14,
-      'Celes::pn00a', 'rp23')
-
-  vvd(rp[2][0], 0.5829880828740957684e-3, 1e-14,
-      'Celes::pn00a', 'rp31')
-  vvd(rp[2][1], -0.3984203267708834759e-6, 1e-14,
-      'Celes::pn00a', 'rp32')
-  vvd(rp[2][2], 0.9999998300623538046, 1e-12,
-      'Celes::pn00a', 'rp33')
-
-  vvd(rbp[0][0], 0.9999989300052243993, 1e-12,
-      'Celes::pn00a', 'rbp11')
-  vvd(rbp[0][1], -0.1341717990239703727e-2, 1e-14,
-      'Celes::pn00a', 'rbp12')
-  vvd(rbp[0][2], -0.5829075749891684053e-3, 1e-14,
-      'Celes::pn00a', 'rbp13')
-
-  vvd(rbp[1][0], 0.1341718013831739992e-2, 1e-14,
-      'Celes::pn00a', 'rbp21')
-  vvd(rbp[1][1], 0.9999990998959191343, 1e-12,
-      'Celes::pn00a', 'rbp22')
-  vvd(rbp[1][2], -0.3505759733565421170e-6, 1e-14,
-      'Celes::pn00a', 'rbp23')
-
-  vvd(rbp[2][0], 0.5829075206857717883e-3, 1e-14,
-      'Celes::pn00a', 'rbp31')
-  vvd(rbp[2][1], -0.4315219955198608970e-6, 1e-14,
-      'Celes::pn00a', 'rbp32')
-  vvd(rbp[2][2], 0.9999998301093036269, 1e-12,
-      'Celes::pn00a', 'rbp33')
-
-  vvd(rn[0][0], 0.9999999999536227949, 1e-12,
-      'Celes::pn00a', 'rn11')
-  vvd(rn[0][1], 0.8836238544090873336e-5, 1e-14,
-      'Celes::pn00a', 'rn12')
-  vvd(rn[0][2], 0.3830835237722400669e-5, 1e-14,
-      'Celes::pn00a', 'rn13')
-
-  vvd(rn[1][0], -0.8836082880798569274e-5, 1e-14,
-      'Celes::pn00a', 'rn21')
-  vvd(rn[1][1], 0.9999999991354655028, 1e-12,
-      'Celes::pn00a', 'rn22')
-  vvd(rn[1][2], -0.4063240865362499850e-4, 1e-14,
-      'Celes::pn00a', 'rn23')
-
-  vvd(rn[2][0], -0.3831194272065995866e-5, 1e-14,
-      'Celes::pn00a', 'rn31')
-  vvd(rn[2][1], 0.4063237480216291775e-4, 1e-14,
-      'Celes::pn00a', 'rn32')
-  vvd(rn[2][2], 0.9999999991671660338, 1e-12,
-      'Celes::pn00a', 'rn33')
-
-  vvd(rbpn[0][0], 0.9999989440476103435, 1e-12,
-      'Celes::pn00a', 'rbpn11')
-  vvd(rbpn[0][1], -0.1332881761240011763e-2, 1e-14,
-      'Celes::pn00a', 'rbpn12')
-  vvd(rbpn[0][2], -0.5790767434730085751e-3, 1e-14,
-      'Celes::pn00a', 'rbpn13')
-
-  vvd(rbpn[1][0], 0.1332858254308954658e-2, 1e-14,
-      'Celes::pn00a', 'rbpn21')
-  vvd(rbpn[1][1], 0.9999991109044505577, 1e-12,
-      'Celes::pn00a', 'rbpn22')
-  vvd(rbpn[1][2], -0.4097782710396580452e-4, 1e-14,
-      'Celes::pn00a', 'rbpn23')
-
-  vvd(rbpn[2][0], 0.5791308472168152904e-3, 1e-14,
-      'Celes::pn00a', 'rbpn31')
-  vvd(rbpn[2][1], 0.4020595661591500259e-4, 1e-14,
-      'Celes::pn00a', 'rbpn32')
-  vvd(rbpn[2][2], 0.9999998314954572304, 1e-12,
-      'Celes::pn00a', 'rbpn33')
+    'Celes.pn00a', 'rbpn33')
 end
 
 # static void t_pn00b(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double dpsi, deps, epsa,
 #			rb[3][3], rp[3][3], rbp[3][3], rn[3][3], rbpn[3][3]
 #
 #
-#	Celes::pn00b(2400000.5, 53736.0, &dpsi, &deps, &epsa,
+#	Celes.pn00b(2400000.5, 53736.0, &dpsi, &deps, &epsa,
 #			rb, rp, rbp, rn, rbpn)
 #
 #	vvd(dpsi, -0.9632552291148362783e-5, 1e-12,
-#			"Celes::pn00b", "dpsi")
+#			'Celes.pn00b', 'dpsi')
 #	vvd(deps,  0.4063197106621159367e-4, 1e-12,
-#			"Celes::pn00b", "deps")
-#	vvd(epsa,  0.4090791789404229916, 1e-12, "Celes::pn00b", "epsa")
+#			'Celes.pn00b', 'deps')
+#	vvd(epsa,  0.4090791789404229916, 1e-12, 'Celes.pn00b', 'epsa')
 #
 #	vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-#			"Celes::pn00b", "rb11")
+#			'Celes.pn00b', 'rb11')
 #	vvd(rb[0][1], -0.7078279744199196626e-7, 1e-16,
-#			"Celes::pn00b", "rb12")
+#			'Celes.pn00b', 'rb12')
 #	vvd(rb[0][2], 0.8056217146976134152e-7, 1e-16,
-#			"Celes::pn00b", "rb13")
+#			'Celes.pn00b', 'rb13')
 #
 #	vvd(rb[1][0], 0.7078279477857337206e-7, 1e-16,
-#			"Celes::pn00b", "rb21")
+#			'Celes.pn00b', 'rb21')
 #	vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-#			"Celes::pn00b", "rb22")
+#			'Celes.pn00b', 'rb22')
 #	vvd(rb[1][2], 0.3306041454222136517e-7, 1e-16,
-#			"Celes::pn00b", "rb23")
+#			'Celes.pn00b', 'rb23')
 #
 #	vvd(rb[2][0], -0.8056217380986972157e-7, 1e-16,
-#			"Celes::pn00b", "rb31")
+#			'Celes.pn00b', 'rb31')
 #	vvd(rb[2][1], -0.3306040883980552500e-7, 1e-16,
-#			"Celes::pn00b", "rb32")
+#			'Celes.pn00b', 'rb32')
 #	vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-#			"Celes::pn00b", "rb33")
+#			'Celes.pn00b', 'rb33')
 #
 #	vvd(rp[0][0], 0.9999989300532289018, 1e-12,
-#			"Celes::pn00b", "rp11")
+#			'Celes.pn00b', 'rp11')
 #	vvd(rp[0][1], -0.1341647226791824349e-2, 1e-14,
-#			"Celes::pn00b", "rp12")
+#			'Celes.pn00b', 'rp12')
 #	vvd(rp[0][2], -0.5829880927190296547e-3, 1e-14,
-#			"Celes::pn00b", "rp13")
+#			'Celes.pn00b', 'rp13')
 #
 #	vvd(rp[1][0], 0.1341647231069759008e-2, 1e-14,
-#			"Celes::pn00b", "rp21")
+#			'Celes.pn00b', 'rp21')
 #	vvd(rp[1][1], 0.9999990999908750433, 1e-12,
-#			"Celes::pn00b", "rp22")
+#			'Celes.pn00b', 'rp22')
 #	vvd(rp[1][2], -0.3837444441583715468e-6, 1e-14,
-#			"Celes::pn00b", "rp23")
+#			'Celes.pn00b', 'rp23')
 #
 #	vvd(rp[2][0], 0.5829880828740957684e-3, 1e-14,
-#			"Celes::pn00b", "rp31")
+#			'Celes.pn00b', 'rp31')
 #	vvd(rp[2][1], -0.3984203267708834759e-6, 1e-14,
-#			"Celes::pn00b", "rp32")
+#			'Celes.pn00b', 'rp32')
 #	vvd(rp[2][2], 0.9999998300623538046, 1e-12,
-#			"Celes::pn00b", "rp33")
+#			'Celes.pn00b', 'rp33')
 #
 #	vvd(rbp[0][0], 0.9999989300052243993, 1e-12,
-#			"Celes::pn00b", "rbp11")
+#			'Celes.pn00b', 'rbp11')
 #	vvd(rbp[0][1], -0.1341717990239703727e-2, 1e-14,
-#			"Celes::pn00b", "rbp12")
+#			'Celes.pn00b', 'rbp12')
 #	vvd(rbp[0][2], -0.5829075749891684053e-3, 1e-14,
-#			"Celes::pn00b", "rbp13")
+#			'Celes.pn00b', 'rbp13')
 #
 #	vvd(rbp[1][0], 0.1341718013831739992e-2, 1e-14,
-#			"Celes::pn00b", "rbp21")
+#			'Celes.pn00b', 'rbp21')
 #	vvd(rbp[1][1], 0.9999990998959191343, 1e-12,
-#			"Celes::pn00b", "rbp22")
+#			'Celes.pn00b', 'rbp22')
 #	vvd(rbp[1][2], -0.3505759733565421170e-6, 1e-14,
-#			"Celes::pn00b", "rbp23")
+#			'Celes.pn00b', 'rbp23')
 #
 #	vvd(rbp[2][0], 0.5829075206857717883e-3, 1e-14,
-#			"Celes::pn00b", "rbp31")
+#			'Celes.pn00b', 'rbp31')
 #	vvd(rbp[2][1], -0.4315219955198608970e-6, 1e-14,
-#			"Celes::pn00b", "rbp32")
+#			'Celes.pn00b', 'rbp32')
 #	vvd(rbp[2][2], 0.9999998301093036269, 1e-12,
-#			"Celes::pn00b", "rbp33")
+#			'Celes.pn00b', 'rbp33')
 #
 #	vvd(rn[0][0], 0.9999999999536069682, 1e-12,
-#			"Celes::pn00b", "rn11")
+#			'Celes.pn00b', 'rn11')
 #	vvd(rn[0][1], 0.8837746144871248011e-5, 1e-14,
-#			"Celes::pn00b", "rn12")
+#			'Celes.pn00b', 'rn12')
 #	vvd(rn[0][2], 0.3831488838252202945e-5, 1e-14,
-#			"Celes::pn00b", "rn13")
+#			'Celes.pn00b', 'rn13')
 #
 #	vvd(rn[1][0], -0.8837590456632304720e-5, 1e-14,
-#			"Celes::pn00b", "rn21")
+#			'Celes.pn00b', 'rn21')
 #	vvd(rn[1][1], 0.9999999991354692733, 1e-12,
-#			"Celes::pn00b", "rn22")
+#			'Celes.pn00b', 'rn22')
 #	vvd(rn[1][2], -0.4063198798559591654e-4, 1e-14,
-#			"Celes::pn00b", "rn23")
+#			'Celes.pn00b', 'rn23')
 #
 #	vvd(rn[2][0], -0.3831847930134941271e-5, 1e-14,
-#			"Celes::pn00b", "rn31")
+#			'Celes.pn00b', 'rn31')
 #	vvd(rn[2][1], 0.4063195412258168380e-4, 1e-14,
-#			"Celes::pn00b", "rn32")
+#			'Celes.pn00b', 'rn32')
 #	vvd(rn[2][2], 0.9999999991671806225, 1e-12,
-#			"Celes::pn00b", "rn33")
+#			'Celes.pn00b', 'rn33')
 #
 #	vvd(rbpn[0][0], 0.9999989440499982806, 1e-12,
-#			"Celes::pn00b", "rbpn11")
+#			'Celes.pn00b', 'rbpn11')
 #	vvd(rbpn[0][1], -0.1332880253640849194e-2, 1e-14,
-#			"Celes::pn00b", "rbpn12")
+#			'Celes.pn00b', 'rbpn12')
 #	vvd(rbpn[0][2], -0.5790760898731091166e-3, 1e-14,
-#			"Celes::pn00b", "rbpn13")
+#			'Celes.pn00b', 'rbpn13')
 #
 #	vvd(rbpn[1][0], 0.1332856746979949638e-2, 1e-14,
-#			"Celes::pn00b", "rbpn21")
+#			'Celes.pn00b', 'rbpn21')
 #	vvd(rbpn[1][1], 0.9999991109064768883, 1e-12,
-#			"Celes::pn00b", "rbpn22")
+#			'Celes.pn00b', 'rbpn22')
 #	vvd(rbpn[1][2], -0.4097740555723081811e-4, 1e-14,
-#			"Celes::pn00b", "rbpn23")
+#			'Celes.pn00b', 'rbpn23')
 #
 #	vvd(rbpn[2][0], 0.5791301929950208873e-3, 1e-14,
-#			"Celes::pn00b", "rbpn31")
+#			'Celes.pn00b', 'rbpn31')
 #	vvd(rbpn[2][1], 0.4020553681373720832e-4, 1e-14,
-#			"Celes::pn00b", "rbpn32")
+#			'Celes.pn00b', 'rbpn32')
 #	vvd(rbpn[2][2], 0.9999998314958529887, 1e-12,
-#			"Celes::pn00b", "rbpn33")
+#			'Celes.pn00b', 'rbpn33')
 #
 # }
 def t_pn00b
   dpsi, deps, epsa, rb, rp, rbp, rn, rbpn =
-<<<<<<< HEAD
-    Celes::pn00b(2400000.5, 53736.0)
+    Celes.pn00b(2400000.5, 53736.0)
 
   vvd(dpsi, -0.9632552291148362783e-5, 1e-12,
-    "Celes::pn00b", "dpsi")
+    'Celes.pn00b', 'dpsi')
   vvd(deps,  0.4063197106621159367e-4, 1e-12,
-    "Celes::pn00b", "deps")
-  vvd(epsa,  0.4090791789404229916, 1e-12, "Celes::pn00b", "epsa")
+    'Celes.pn00b', 'deps')
+  vvd(epsa,  0.4090791789404229916, 1e-12, 'Celes.pn00b', 'epsa')
 
   vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-    "Celes::pn00b", "rb11")
+    'Celes.pn00b', 'rb11')
   vvd(rb[0][1], -0.7078279744199196626e-7, 1e-16,
-    "Celes::pn00b", "rb12")
+    'Celes.pn00b', 'rb12')
   vvd(rb[0][2], 0.8056217146976134152e-7, 1e-16,
-    "Celes::pn00b", "rb13")
+    'Celes.pn00b', 'rb13')
 
   vvd(rb[1][0], 0.7078279477857337206e-7, 1e-16,
-    "Celes::pn00b", "rb21")
+    'Celes.pn00b', 'rb21')
   vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-    "Celes::pn00b", "rb22")
+    'Celes.pn00b', 'rb22')
   vvd(rb[1][2], 0.3306041454222136517e-7, 1e-16,
-    "Celes::pn00b", "rb23")
+    'Celes.pn00b', 'rb23')
 
   vvd(rb[2][0], -0.8056217380986972157e-7, 1e-16,
-    "Celes::pn00b", "rb31")
+    'Celes.pn00b', 'rb31')
   vvd(rb[2][1], -0.3306040883980552500e-7, 1e-16,
-    "Celes::pn00b", "rb32")
+    'Celes.pn00b', 'rb32')
   vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-    "Celes::pn00b", "rb33")
+    'Celes.pn00b', 'rb33')
 
   vvd(rp[0][0], 0.9999989300532289018, 1e-12,
-    "Celes::pn00b", "rp11")
+    'Celes.pn00b', 'rp11')
   vvd(rp[0][1], -0.1341647226791824349e-2, 1e-14,
-    "Celes::pn00b", "rp12")
+    'Celes.pn00b', 'rp12')
   vvd(rp[0][2], -0.5829880927190296547e-3, 1e-14,
-    "Celes::pn00b", "rp13")
+    'Celes.pn00b', 'rp13')
 
   vvd(rp[1][0], 0.1341647231069759008e-2, 1e-14,
-    "Celes::pn00b", "rp21")
+    'Celes.pn00b', 'rp21')
   vvd(rp[1][1], 0.9999990999908750433, 1e-12,
-    "Celes::pn00b", "rp22")
+    'Celes.pn00b', 'rp22')
   vvd(rp[1][2], -0.3837444441583715468e-6, 1e-14,
-    "Celes::pn00b", "rp23")
+    'Celes.pn00b', 'rp23')
 
   vvd(rp[2][0], 0.5829880828740957684e-3, 1e-14,
-    "Celes::pn00b", "rp31")
+    'Celes.pn00b', 'rp31')
   vvd(rp[2][1], -0.3984203267708834759e-6, 1e-14,
-    "Celes::pn00b", "rp32")
+    'Celes.pn00b', 'rp32')
   vvd(rp[2][2], 0.9999998300623538046, 1e-12,
-    "Celes::pn00b", "rp33")
+    'Celes.pn00b', 'rp33')
 
   vvd(rbp[0][0], 0.9999989300052243993, 1e-12,
-    "Celes::pn00b", "rbp11")
+    'Celes.pn00b', 'rbp11')
   vvd(rbp[0][1], -0.1341717990239703727e-2, 1e-14,
-    "Celes::pn00b", "rbp12")
+    'Celes.pn00b', 'rbp12')
   vvd(rbp[0][2], -0.5829075749891684053e-3, 1e-14,
-    "Celes::pn00b", "rbp13")
+    'Celes.pn00b', 'rbp13')
 
   vvd(rbp[1][0], 0.1341718013831739992e-2, 1e-14,
-    "Celes::pn00b", "rbp21")
+    'Celes.pn00b', 'rbp21')
   vvd(rbp[1][1], 0.9999990998959191343, 1e-12,
-    "Celes::pn00b", "rbp22")
+    'Celes.pn00b', 'rbp22')
   vvd(rbp[1][2], -0.3505759733565421170e-6, 1e-14,
-    "Celes::pn00b", "rbp23")
+    'Celes.pn00b', 'rbp23')
 
   vvd(rbp[2][0], 0.5829075206857717883e-3, 1e-14,
-    "Celes::pn00b", "rbp31")
+    'Celes.pn00b', 'rbp31')
   vvd(rbp[2][1], -0.4315219955198608970e-6, 1e-14,
-    "Celes::pn00b", "rbp32")
+    'Celes.pn00b', 'rbp32')
   vvd(rbp[2][2], 0.9999998301093036269, 1e-12,
-    "Celes::pn00b", "rbp33")
+    'Celes.pn00b', 'rbp33')
 
   vvd(rn[0][0], 0.9999999999536069682, 1e-12,
-    "Celes::pn00b", "rn11")
+    'Celes.pn00b', 'rn11')
   vvd(rn[0][1], 0.8837746144871248011e-5, 1e-14,
-    "Celes::pn00b", "rn12")
+    'Celes.pn00b', 'rn12')
   vvd(rn[0][2], 0.3831488838252202945e-5, 1e-14,
-    "Celes::pn00b", "rn13")
+    'Celes.pn00b', 'rn13')
 
   vvd(rn[1][0], -0.8837590456632304720e-5, 1e-14,
-    "Celes::pn00b", "rn21")
+    'Celes.pn00b', 'rn21')
   vvd(rn[1][1], 0.9999999991354692733, 1e-12,
-    "Celes::pn00b", "rn22")
+    'Celes.pn00b', 'rn22')
   vvd(rn[1][2], -0.4063198798559591654e-4, 1e-14,
-    "Celes::pn00b", "rn23")
+    'Celes.pn00b', 'rn23')
 
   vvd(rn[2][0], -0.3831847930134941271e-5, 1e-14,
-    "Celes::pn00b", "rn31")
+    'Celes.pn00b', 'rn31')
   vvd(rn[2][1], 0.4063195412258168380e-4, 1e-14,
-    "Celes::pn00b", "rn32")
+    'Celes.pn00b', 'rn32')
   vvd(rn[2][2], 0.9999999991671806225, 1e-12,
-    "Celes::pn00b", "rn33")
+    'Celes.pn00b', 'rn33')
 
   vvd(rbpn[0][0], 0.9999989440499982806, 1e-12,
-    "Celes::pn00b", "rbpn11")
+    'Celes.pn00b', 'rbpn11')
   vvd(rbpn[0][1], -0.1332880253640849194e-2, 1e-14,
-    "Celes::pn00b", "rbpn12")
+    'Celes.pn00b', 'rbpn12')
   vvd(rbpn[0][2], -0.5790760898731091166e-3, 1e-14,
-    "Celes::pn00b", "rbpn13")
+    'Celes.pn00b', 'rbpn13')
 
   vvd(rbpn[1][0], 0.1332856746979949638e-2, 1e-14,
-    "Celes::pn00b", "rbpn21")
+    'Celes.pn00b', 'rbpn21')
   vvd(rbpn[1][1], 0.9999991109064768883, 1e-12,
-    "Celes::pn00b", "rbpn22")
+    'Celes.pn00b', 'rbpn22')
   vvd(rbpn[1][2], -0.4097740555723081811e-4, 1e-14,
-    "Celes::pn00b", "rbpn23")
+    'Celes.pn00b', 'rbpn23')
 
   vvd(rbpn[2][0], 0.5791301929950208873e-3, 1e-14,
-    "Celes::pn00b", "rbpn31")
+    'Celes.pn00b', 'rbpn31')
   vvd(rbpn[2][1], 0.4020553681373720832e-4, 1e-14,
-    "Celes::pn00b", "rbpn32")
+    'Celes.pn00b', 'rbpn32')
   vvd(rbpn[2][2], 0.9999998314958529887, 1e-12,
-    "Celes::pn00b", "rbpn33")
-end
-
-#static void t_pn06a(int *status)
-#{
-=======
-      Celes.pn00b(2_400_000.5, 53_736.0)
-
-  vvd(dpsi, -0.9632552291148362783e-5, 1e-12,
-      'Celes::pn00b', 'dpsi')
-  vvd(deps,  0.4063197106621159367e-4, 1e-12,
-      'Celes::pn00b', 'deps')
-  vvd(epsa,  0.4090791789404229916, 1e-12, 'Celes::pn00b', 'epsa')
-
-  vvd(rb[0][0], 0.9999999999999942498, 1e-12,
-      'Celes::pn00b', 'rb11')
-  vvd(rb[0][1], -0.7078279744199196626e-7, 1e-16,
-      'Celes::pn00b', 'rb12')
-  vvd(rb[0][2], 0.8056217146976134152e-7, 1e-16,
-      'Celes::pn00b', 'rb13')
-
-  vvd(rb[1][0], 0.7078279477857337206e-7, 1e-16,
-      'Celes::pn00b', 'rb21')
-  vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-      'Celes::pn00b', 'rb22')
-  vvd(rb[1][2], 0.3306041454222136517e-7, 1e-16,
-      'Celes::pn00b', 'rb23')
-
-  vvd(rb[2][0], -0.8056217380986972157e-7, 1e-16,
-      'Celes::pn00b', 'rb31')
-  vvd(rb[2][1], -0.3306040883980552500e-7, 1e-16,
-      'Celes::pn00b', 'rb32')
-  vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-      'Celes::pn00b', 'rb33')
-
-  vvd(rp[0][0], 0.9999989300532289018, 1e-12,
-      'Celes::pn00b', 'rp11')
-  vvd(rp[0][1], -0.1341647226791824349e-2, 1e-14,
-      'Celes::pn00b', 'rp12')
-  vvd(rp[0][2], -0.5829880927190296547e-3, 1e-14,
-      'Celes::pn00b', 'rp13')
-
-  vvd(rp[1][0], 0.1341647231069759008e-2, 1e-14,
-      'Celes::pn00b', 'rp21')
-  vvd(rp[1][1], 0.9999990999908750433, 1e-12,
-      'Celes::pn00b', 'rp22')
-  vvd(rp[1][2], -0.3837444441583715468e-6, 1e-14,
-      'Celes::pn00b', 'rp23')
-
-  vvd(rp[2][0], 0.5829880828740957684e-3, 1e-14,
-      'Celes::pn00b', 'rp31')
-  vvd(rp[2][1], -0.3984203267708834759e-6, 1e-14,
-      'Celes::pn00b', 'rp32')
-  vvd(rp[2][2], 0.9999998300623538046, 1e-12,
-      'Celes::pn00b', 'rp33')
-
-  vvd(rbp[0][0], 0.9999989300052243993, 1e-12,
-      'Celes::pn00b', 'rbp11')
-  vvd(rbp[0][1], -0.1341717990239703727e-2, 1e-14,
-      'Celes::pn00b', 'rbp12')
-  vvd(rbp[0][2], -0.5829075749891684053e-3, 1e-14,
-      'Celes::pn00b', 'rbp13')
-
-  vvd(rbp[1][0], 0.1341718013831739992e-2, 1e-14,
-      'Celes::pn00b', 'rbp21')
-  vvd(rbp[1][1], 0.9999990998959191343, 1e-12,
-      'Celes::pn00b', 'rbp22')
-  vvd(rbp[1][2], -0.3505759733565421170e-6, 1e-14,
-      'Celes::pn00b', 'rbp23')
-
-  vvd(rbp[2][0], 0.5829075206857717883e-3, 1e-14,
-      'Celes::pn00b', 'rbp31')
-  vvd(rbp[2][1], -0.4315219955198608970e-6, 1e-14,
-      'Celes::pn00b', 'rbp32')
-  vvd(rbp[2][2], 0.9999998301093036269, 1e-12,
-      'Celes::pn00b', 'rbp33')
-
-  vvd(rn[0][0], 0.9999999999536069682, 1e-12,
-      'Celes::pn00b', 'rn11')
-  vvd(rn[0][1], 0.8837746144871248011e-5, 1e-14,
-      'Celes::pn00b', 'rn12')
-  vvd(rn[0][2], 0.3831488838252202945e-5, 1e-14,
-      'Celes::pn00b', 'rn13')
-
-  vvd(rn[1][0], -0.8837590456632304720e-5, 1e-14,
-      'Celes::pn00b', 'rn21')
-  vvd(rn[1][1], 0.9999999991354692733, 1e-12,
-      'Celes::pn00b', 'rn22')
-  vvd(rn[1][2], -0.4063198798559591654e-4, 1e-14,
-      'Celes::pn00b', 'rn23')
-
-  vvd(rn[2][0], -0.3831847930134941271e-5, 1e-14,
-      'Celes::pn00b', 'rn31')
-  vvd(rn[2][1], 0.4063195412258168380e-4, 1e-14,
-      'Celes::pn00b', 'rn32')
-  vvd(rn[2][2], 0.9999999991671806225, 1e-12,
-      'Celes::pn00b', 'rn33')
-
-  vvd(rbpn[0][0], 0.9999989440499982806, 1e-12,
-      'Celes::pn00b', 'rbpn11')
-  vvd(rbpn[0][1], -0.1332880253640849194e-2, 1e-14,
-      'Celes::pn00b', 'rbpn12')
-  vvd(rbpn[0][2], -0.5790760898731091166e-3, 1e-14,
-      'Celes::pn00b', 'rbpn13')
-
-  vvd(rbpn[1][0], 0.1332856746979949638e-2, 1e-14,
-      'Celes::pn00b', 'rbpn21')
-  vvd(rbpn[1][1], 0.9999991109064768883, 1e-12,
-      'Celes::pn00b', 'rbpn22')
-  vvd(rbpn[1][2], -0.4097740555723081811e-4, 1e-14,
-      'Celes::pn00b', 'rbpn23')
-
-  vvd(rbpn[2][0], 0.5791301929950208873e-3, 1e-14,
-      'Celes::pn00b', 'rbpn31')
-  vvd(rbpn[2][1], 0.4020553681373720832e-4, 1e-14,
-      'Celes::pn00b', 'rbpn32')
-  vvd(rbpn[2][2], 0.9999998314958529887, 1e-12,
-      'Celes::pn00b', 'rbpn33')
+    'Celes.pn00b', 'rbpn33')
 end
 
 # static void t_pn06a(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double dpsi, deps, epsa
 #	double rb[3][3], rp[3][3], rbp[3][3], rn[3][3], rbpn[3][3]
 #
 #
-#	Celes::pn06a(2400000.5, 53736.0, &dpsi, &deps, &epsa,
+#	Celes.pn06a(2400000.5, 53736.0, &dpsi, &deps, &epsa,
 #			rb, rp, rbp, rn, rbpn)
 #
 #	vvd(dpsi, -0.9630912025820308797e-5, 1e-12,
-#			"Celes::pn06a", "dpsi")
+#			'Celes.pn06a', 'dpsi')
 #	vvd(deps,  0.4063238496887249798e-4, 1e-12,
-#			"Celes::pn06a", "deps")
-#	vvd(epsa,  0.4090789763356509926, 1e-12, "Celes::pn06a", "epsa")
+#			'Celes.pn06a', 'deps')
+#	vvd(epsa,  0.4090789763356509926, 1e-12, 'Celes.pn06a', 'epsa')
 #
 #	vvd(rb[0][0], 0.9999999999999942497, 1e-12,
-#			"Celes::pn06a", "rb11")
+#			'Celes.pn06a', 'rb11')
 #	vvd(rb[0][1], -0.7078368960971557145e-7, 1e-14,
-#			"Celes::pn06a", "rb12")
+#			'Celes.pn06a', 'rb12')
 #	vvd(rb[0][2], 0.8056213977613185606e-7, 1e-14,
-#			"Celes::pn06a", "rb13")
+#			'Celes.pn06a', 'rb13')
 #
 #	vvd(rb[1][0], 0.7078368694637674333e-7, 1e-14,
-#			"Celes::pn06a", "rb21")
+#			'Celes.pn06a', 'rb21')
 #	vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-#			"Celes::pn06a", "rb22")
+#			'Celes.pn06a', 'rb22')
 #	vvd(rb[1][2], 0.3305943742989134124e-7, 1e-14,
-#			"Celes::pn06a", "rb23")
+#			'Celes.pn06a', 'rb23')
 #
 #	vvd(rb[2][0], -0.8056214211620056792e-7, 1e-14,
-#			"Celes::pn06a", "rb31")
+#			'Celes.pn06a', 'rb31')
 #	vvd(rb[2][1], -0.3305943172740586950e-7, 1e-14,
-#			"Celes::pn06a", "rb32")
+#			'Celes.pn06a', 'rb32')
 #	vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-#			"Celes::pn06a", "rb33")
+#			'Celes.pn06a', 'rb33')
 #
 #	vvd(rp[0][0], 0.9999989300536854831, 1e-12,
-#			"Celes::pn06a", "rp11")
+#			'Celes.pn06a', 'rp11')
 #	vvd(rp[0][1], -0.1341646886204443795e-2, 1e-14,
-#			"Celes::pn06a", "rp12")
+#			'Celes.pn06a', 'rp12')
 #	vvd(rp[0][2], -0.5829880933488627759e-3, 1e-14,
-#			"Celes::pn06a", "rp13")
+#			'Celes.pn06a', 'rp13')
 #
 #	vvd(rp[1][0], 0.1341646890569782183e-2, 1e-14,
-#			"Celes::pn06a", "rp21")
+#			'Celes.pn06a', 'rp21')
 #	vvd(rp[1][1], 0.9999990999913319321, 1e-12,
-#			"Celes::pn06a", "rp22")
+#			'Celes.pn06a', 'rp22')
 #	vvd(rp[1][2], -0.3835944216374477457e-6, 1e-14,
-#			"Celes::pn06a", "rp23")
+#			'Celes.pn06a', 'rp23')
 #
 #	vvd(rp[2][0], 0.5829880833027867368e-3, 1e-14,
-#			"Celes::pn06a", "rp31")
+#			'Celes.pn06a', 'rp31')
 #	vvd(rp[2][1], -0.3985701514686976112e-6, 1e-14,
-#			"Celes::pn06a", "rp32")
+#			'Celes.pn06a', 'rp32')
 #	vvd(rp[2][2], 0.9999998300623534950, 1e-12,
-#			"Celes::pn06a", "rp33")
+#			'Celes.pn06a', 'rp33')
 #
 #	vvd(rbp[0][0], 0.9999989300056797893, 1e-12,
-#			"Celes::pn06a", "rbp11")
+#			'Celes.pn06a', 'rbp11')
 #	vvd(rbp[0][1], -0.1341717650545059598e-2, 1e-14,
-#			"Celes::pn06a", "rbp12")
+#			'Celes.pn06a', 'rbp12')
 #	vvd(rbp[0][2], -0.5829075756493728856e-3, 1e-14,
-#			"Celes::pn06a", "rbp13")
+#			'Celes.pn06a', 'rbp13')
 #
 #	vvd(rbp[1][0], 0.1341717674223918101e-2, 1e-14,
-#			"Celes::pn06a", "rbp21")
+#			'Celes.pn06a', 'rbp21')
 #	vvd(rbp[1][1], 0.9999990998963748448, 1e-12,
-#			"Celes::pn06a", "rbp22")
+#			'Celes.pn06a', 'rbp22')
 #	vvd(rbp[1][2], -0.3504269280170069029e-6, 1e-14,
-#			"Celes::pn06a", "rbp23")
+#			'Celes.pn06a', 'rbp23')
 #
 #	vvd(rbp[2][0], 0.5829075211461454599e-3, 1e-14,
-#			"Celes::pn06a", "rbp31")
+#			'Celes.pn06a', 'rbp31')
 #	vvd(rbp[2][1], -0.4316708436255949093e-6, 1e-14,
-#			"Celes::pn06a", "rbp32")
+#			'Celes.pn06a', 'rbp32')
 #	vvd(rbp[2][2], 0.9999998301093032943, 1e-12,
-#			"Celes::pn06a", "rbp33")
+#			'Celes.pn06a', 'rbp33')
 #
 #	vvd(rn[0][0], 0.9999999999536227668, 1e-12,
-#			"Celes::pn06a", "rn11")
+#			'Celes.pn06a', 'rn11')
 #	vvd(rn[0][1], 0.8836241998111535233e-5, 1e-14,
-#			"Celes::pn06a", "rn12")
+#			'Celes.pn06a', 'rn12')
 #	vvd(rn[0][2], 0.3830834608415287707e-5, 1e-14,
-#			"Celes::pn06a", "rn13")
+#			'Celes.pn06a', 'rn13')
 #
 #	vvd(rn[1][0], -0.8836086334870740138e-5, 1e-14,
-#			"Celes::pn06a", "rn21")
+#			'Celes.pn06a', 'rn21')
 #	vvd(rn[1][1], 0.9999999991354657474, 1e-12,
-#			"Celes::pn06a", "rn22")
+#			'Celes.pn06a', 'rn22')
 #	vvd(rn[1][2], -0.4063240188248455065e-4, 1e-14,
-#			"Celes::pn06a", "rn23")
+#			'Celes.pn06a', 'rn23')
 #
 #	vvd(rn[2][0], -0.3831193642839398128e-5, 1e-14,
-#			"Celes::pn06a", "rn31")
+#			'Celes.pn06a', 'rn31')
 #	vvd(rn[2][1], 0.4063236803101479770e-4, 1e-14,
-#			"Celes::pn06a", "rn32")
+#			'Celes.pn06a', 'rn32')
 #	vvd(rn[2][2], 0.9999999991671663114, 1e-12,
-#			"Celes::pn06a", "rn33")
+#			'Celes.pn06a', 'rn33')
 #
 #	vvd(rbpn[0][0], 0.9999989440480669738, 1e-12,
-#			"Celes::pn06a", "rbpn11")
+#			'Celes.pn06a', 'rbpn11')
 #	vvd(rbpn[0][1], -0.1332881418091915973e-2, 1e-14,
-#			"Celes::pn06a", "rbpn12")
+#			'Celes.pn06a', 'rbpn12')
 #	vvd(rbpn[0][2], -0.5790767447612042565e-3, 1e-14,
-#			"Celes::pn06a", "rbpn13")
+#			'Celes.pn06a', 'rbpn13')
 #
 #	vvd(rbpn[1][0], 0.1332857911250989133e-2, 1e-14,
-#			"Celes::pn06a", "rbpn21")
+#			'Celes.pn06a', 'rbpn21')
 #	vvd(rbpn[1][1], 0.9999991109049141908, 1e-12,
-#			"Celes::pn06a", "rbpn22")
+#			'Celes.pn06a', 'rbpn22')
 #	vvd(rbpn[1][2], -0.4097767128546784878e-4, 1e-14,
-#			"Celes::pn06a", "rbpn23")
+#			'Celes.pn06a', 'rbpn23')
 #
 #	vvd(rbpn[2][0], 0.5791308482835292617e-3, 1e-14,
-#			"Celes::pn06a", "rbpn31")
+#			'Celes.pn06a', 'rbpn31')
 #	vvd(rbpn[2][1], 0.4020580099454020310e-4, 1e-14,
-#			"Celes::pn06a", "rbpn32")
+#			'Celes.pn06a', 'rbpn32')
 #	vvd(rbpn[2][2], 0.9999998314954628695, 1e-12,
-#			"Celes::pn06a", "rbpn33")
-#
+#			'Celes.pn06a', 'rbpn33')
+# }
 def t_pn06a
   dpsi, deps, epsa, rb, rp, rbp, rn, rbpn =
-<<<<<<< HEAD
-    Celes::pn06a(2400000.5, 53736.0)
+    Celes.pn06a(2400000.5, 53736.0)
 
   vvd(dpsi, -0.9630912025820308797e-5, 1e-12,
-    "Celes::pn06a", "dpsi")
+    'Celes.pn06a', 'dpsi')
   vvd(deps,  0.4063238496887249798e-4, 1e-12,
-    "Celes::pn06a", "deps")
-  vvd(epsa,  0.4090789763356509926, 1e-12, "Celes::pn06a", "epsa")
+    'Celes.pn06a', 'deps')
+  vvd(epsa,  0.4090789763356509926, 1e-12, 'Celes.pn06a', 'epsa')
 
   vvd(rb[0][0], 0.9999999999999942497, 1e-12,
-    "Celes::pn06a", "rb11")
+    'Celes.pn06a', 'rb11')
   vvd(rb[0][1], -0.7078368960971557145e-7, 1e-14,
-    "Celes::pn06a", "rb12")
+    'Celes.pn06a', 'rb12')
   vvd(rb[0][2], 0.8056213977613185606e-7, 1e-14,
-    "Celes::pn06a", "rb13")
+    'Celes.pn06a', 'rb13')
 
   vvd(rb[1][0], 0.7078368694637674333e-7, 1e-14,
-    "Celes::pn06a", "rb21")
+    'Celes.pn06a', 'rb21')
   vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-    "Celes::pn06a", "rb22")
+    'Celes.pn06a', 'rb22')
   vvd(rb[1][2], 0.3305943742989134124e-7, 1e-14,
-    "Celes::pn06a", "rb23")
+    'Celes.pn06a', 'rb23')
 
   vvd(rb[2][0], -0.8056214211620056792e-7, 1e-14,
-    "Celes::pn06a", "rb31")
+    'Celes.pn06a', 'rb31')
   vvd(rb[2][1], -0.3305943172740586950e-7, 1e-14,
-    "Celes::pn06a", "rb32")
+    'Celes.pn06a', 'rb32')
   vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-    "Celes::pn06a", "rb33")
+    'Celes.pn06a', 'rb33')
 
   vvd(rp[0][0], 0.9999989300536854831, 1e-12,
-    "Celes::pn06a", "rp11")
+    'Celes.pn06a', 'rp11')
   vvd(rp[0][1], -0.1341646886204443795e-2, 1e-14,
-    "Celes::pn06a", "rp12")
+    'Celes.pn06a', 'rp12')
   vvd(rp[0][2], -0.5829880933488627759e-3, 1e-14,
-    "Celes::pn06a", "rp13")
+    'Celes.pn06a', 'rp13')
 
   vvd(rp[1][0], 0.1341646890569782183e-2, 1e-14,
-    "Celes::pn06a", "rp21")
+    'Celes.pn06a', 'rp21')
   vvd(rp[1][1], 0.9999990999913319321, 1e-12,
-    "Celes::pn06a", "rp22")
+    'Celes.pn06a', 'rp22')
   vvd(rp[1][2], -0.3835944216374477457e-6, 1e-14,
-    "Celes::pn06a", "rp23")
+    'Celes.pn06a', 'rp23')
 
   vvd(rp[2][0], 0.5829880833027867368e-3, 1e-14,
-    "Celes::pn06a", "rp31")
+    'Celes.pn06a', 'rp31')
   vvd(rp[2][1], -0.3985701514686976112e-6, 1e-14,
-    "Celes::pn06a", "rp32")
+    'Celes.pn06a', 'rp32')
   vvd(rp[2][2], 0.9999998300623534950, 1e-12,
-    "Celes::pn06a", "rp33")
+    'Celes.pn06a', 'rp33')
 
   vvd(rbp[0][0], 0.9999989300056797893, 1e-12,
-    "Celes::pn06a", "rbp11")
+    'Celes.pn06a', 'rbp11')
   vvd(rbp[0][1], -0.1341717650545059598e-2, 1e-14,
-    "Celes::pn06a", "rbp12")
+    'Celes.pn06a', 'rbp12')
   vvd(rbp[0][2], -0.5829075756493728856e-3, 1e-14,
-    "Celes::pn06a", "rbp13")
+    'Celes.pn06a', 'rbp13')
 
   vvd(rbp[1][0], 0.1341717674223918101e-2, 1e-14,
-    "Celes::pn06a", "rbp21")
+    'Celes.pn06a', 'rbp21')
   vvd(rbp[1][1], 0.9999990998963748448, 1e-12,
-    "Celes::pn06a", "rbp22")
+    'Celes.pn06a', 'rbp22')
   vvd(rbp[1][2], -0.3504269280170069029e-6, 1e-14,
-    "Celes::pn06a", "rbp23")
+    'Celes.pn06a', 'rbp23')
 
   vvd(rbp[2][0], 0.5829075211461454599e-3, 1e-14,
-    "Celes::pn06a", "rbp31")
+    'Celes.pn06a', 'rbp31')
   vvd(rbp[2][1], -0.4316708436255949093e-6, 1e-14,
-    "Celes::pn06a", "rbp32")
+    'Celes.pn06a', 'rbp32')
   vvd(rbp[2][2], 0.9999998301093032943, 1e-12,
-    "Celes::pn06a", "rbp33")
+    'Celes.pn06a', 'rbp33')
 
   vvd(rn[0][0], 0.9999999999536227668, 1e-12,
-    "Celes::pn06a", "rn11")
+    'Celes.pn06a', 'rn11')
   vvd(rn[0][1], 0.8836241998111535233e-5, 1e-14,
-    "Celes::pn06a", "rn12")
+    'Celes.pn06a', 'rn12')
   vvd(rn[0][2], 0.3830834608415287707e-5, 1e-14,
-    "Celes::pn06a", "rn13")
+    'Celes.pn06a', 'rn13')
 
   vvd(rn[1][0], -0.8836086334870740138e-5, 1e-14,
-    "Celes::pn06a", "rn21")
+    'Celes.pn06a', 'rn21')
   vvd(rn[1][1], 0.9999999991354657474, 1e-12,
-    "Celes::pn06a", "rn22")
+    'Celes.pn06a', 'rn22')
   vvd(rn[1][2], -0.4063240188248455065e-4, 1e-14,
-    "Celes::pn06a", "rn23")
+    'Celes.pn06a', 'rn23')
 
   vvd(rn[2][0], -0.3831193642839398128e-5, 1e-14,
-    "Celes::pn06a", "rn31")
+    'Celes.pn06a', 'rn31')
   vvd(rn[2][1], 0.4063236803101479770e-4, 1e-14,
-    "Celes::pn06a", "rn32")
+    'Celes.pn06a', 'rn32')
   vvd(rn[2][2], 0.9999999991671663114, 1e-12,
-    "Celes::pn06a", "rn33")
+    'Celes.pn06a', 'rn33')
 
   vvd(rbpn[0][0], 0.9999989440480669738, 1e-12,
-    "Celes::pn06a", "rbpn11")
+    'Celes.pn06a', 'rbpn11')
   vvd(rbpn[0][1], -0.1332881418091915973e-2, 1e-14,
-    "Celes::pn06a", "rbpn12")
+    'Celes.pn06a', 'rbpn12')
   vvd(rbpn[0][2], -0.5790767447612042565e-3, 1e-14,
-    "Celes::pn06a", "rbpn13")
+    'Celes.pn06a', 'rbpn13')
 
   vvd(rbpn[1][0], 0.1332857911250989133e-2, 1e-14,
-    "Celes::pn06a", "rbpn21")
+    'Celes.pn06a', 'rbpn21')
   vvd(rbpn[1][1], 0.9999991109049141908, 1e-12,
-    "Celes::pn06a", "rbpn22")
+    'Celes.pn06a', 'rbpn22')
   vvd(rbpn[1][2], -0.4097767128546784878e-4, 1e-14,
-    "Celes::pn06a", "rbpn23")
+    'Celes.pn06a', 'rbpn23')
 
   vvd(rbpn[2][0], 0.5791308482835292617e-3, 1e-14,
-    "Celes::pn06a", "rbpn31")
+    'Celes.pn06a', 'rbpn31')
   vvd(rbpn[2][1], 0.4020580099454020310e-4, 1e-14,
-    "Celes::pn06a", "rbpn32")
+    'Celes.pn06a', 'rbpn32')
   vvd(rbpn[2][2], 0.9999998314954628695, 1e-12,
-    "Celes::pn06a", "rbpn33")
-end
-
-#static void t_pn06(int *status)
-#{
-=======
-      Celes.pn06a(2_400_000.5, 53_736.0)
-
-  vvd(dpsi, -0.9630912025820308797e-5, 1e-12,
-      'Celes::pn06a', 'dpsi')
-  vvd(deps,  0.4063238496887249798e-4, 1e-12,
-      'Celes::pn06a', 'deps')
-  vvd(epsa,  0.4090789763356509926, 1e-12, 'Celes::pn06a', 'epsa')
-
-  vvd(rb[0][0], 0.9999999999999942497, 1e-12,
-      'Celes::pn06a', 'rb11')
-  vvd(rb[0][1], -0.7078368960971557145e-7, 1e-14,
-      'Celes::pn06a', 'rb12')
-  vvd(rb[0][2], 0.8056213977613185606e-7, 1e-14,
-      'Celes::pn06a', 'rb13')
-
-  vvd(rb[1][0], 0.7078368694637674333e-7, 1e-14,
-      'Celes::pn06a', 'rb21')
-  vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-      'Celes::pn06a', 'rb22')
-  vvd(rb[1][2], 0.3305943742989134124e-7, 1e-14,
-      'Celes::pn06a', 'rb23')
-
-  vvd(rb[2][0], -0.8056214211620056792e-7, 1e-14,
-      'Celes::pn06a', 'rb31')
-  vvd(rb[2][1], -0.3305943172740586950e-7, 1e-14,
-      'Celes::pn06a', 'rb32')
-  vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-      'Celes::pn06a', 'rb33')
-
-  vvd(rp[0][0], 0.9999989300536854831, 1e-12,
-      'Celes::pn06a', 'rp11')
-  vvd(rp[0][1], -0.1341646886204443795e-2, 1e-14,
-      'Celes::pn06a', 'rp12')
-  vvd(rp[0][2], -0.5829880933488627759e-3, 1e-14,
-      'Celes::pn06a', 'rp13')
-
-  vvd(rp[1][0], 0.1341646890569782183e-2, 1e-14,
-      'Celes::pn06a', 'rp21')
-  vvd(rp[1][1], 0.9999990999913319321, 1e-12,
-      'Celes::pn06a', 'rp22')
-  vvd(rp[1][2], -0.3835944216374477457e-6, 1e-14,
-      'Celes::pn06a', 'rp23')
-
-  vvd(rp[2][0], 0.5829880833027867368e-3, 1e-14,
-      'Celes::pn06a', 'rp31')
-  vvd(rp[2][1], -0.3985701514686976112e-6, 1e-14,
-      'Celes::pn06a', 'rp32')
-  vvd(rp[2][2], 0.9999998300623534950, 1e-12,
-      'Celes::pn06a', 'rp33')
-
-  vvd(rbp[0][0], 0.9999989300056797893, 1e-12,
-      'Celes::pn06a', 'rbp11')
-  vvd(rbp[0][1], -0.1341717650545059598e-2, 1e-14,
-      'Celes::pn06a', 'rbp12')
-  vvd(rbp[0][2], -0.5829075756493728856e-3, 1e-14,
-      'Celes::pn06a', 'rbp13')
-
-  vvd(rbp[1][0], 0.1341717674223918101e-2, 1e-14,
-      'Celes::pn06a', 'rbp21')
-  vvd(rbp[1][1], 0.9999990998963748448, 1e-12,
-      'Celes::pn06a', 'rbp22')
-  vvd(rbp[1][2], -0.3504269280170069029e-6, 1e-14,
-      'Celes::pn06a', 'rbp23')
-
-  vvd(rbp[2][0], 0.5829075211461454599e-3, 1e-14,
-      'Celes::pn06a', 'rbp31')
-  vvd(rbp[2][1], -0.4316708436255949093e-6, 1e-14,
-      'Celes::pn06a', 'rbp32')
-  vvd(rbp[2][2], 0.9999998301093032943, 1e-12,
-      'Celes::pn06a', 'rbp33')
-
-  vvd(rn[0][0], 0.9999999999536227668, 1e-12,
-      'Celes::pn06a', 'rn11')
-  vvd(rn[0][1], 0.8836241998111535233e-5, 1e-14,
-      'Celes::pn06a', 'rn12')
-  vvd(rn[0][2], 0.3830834608415287707e-5, 1e-14,
-      'Celes::pn06a', 'rn13')
-
-  vvd(rn[1][0], -0.8836086334870740138e-5, 1e-14,
-      'Celes::pn06a', 'rn21')
-  vvd(rn[1][1], 0.9999999991354657474, 1e-12,
-      'Celes::pn06a', 'rn22')
-  vvd(rn[1][2], -0.4063240188248455065e-4, 1e-14,
-      'Celes::pn06a', 'rn23')
-
-  vvd(rn[2][0], -0.3831193642839398128e-5, 1e-14,
-      'Celes::pn06a', 'rn31')
-  vvd(rn[2][1], 0.4063236803101479770e-4, 1e-14,
-      'Celes::pn06a', 'rn32')
-  vvd(rn[2][2], 0.9999999991671663114, 1e-12,
-      'Celes::pn06a', 'rn33')
-
-  vvd(rbpn[0][0], 0.9999989440480669738, 1e-12,
-      'Celes::pn06a', 'rbpn11')
-  vvd(rbpn[0][1], -0.1332881418091915973e-2, 1e-14,
-      'Celes::pn06a', 'rbpn12')
-  vvd(rbpn[0][2], -0.5790767447612042565e-3, 1e-14,
-      'Celes::pn06a', 'rbpn13')
-
-  vvd(rbpn[1][0], 0.1332857911250989133e-2, 1e-14,
-      'Celes::pn06a', 'rbpn21')
-  vvd(rbpn[1][1], 0.9999991109049141908, 1e-12,
-      'Celes::pn06a', 'rbpn22')
-  vvd(rbpn[1][2], -0.4097767128546784878e-4, 1e-14,
-      'Celes::pn06a', 'rbpn23')
-
-  vvd(rbpn[2][0], 0.5791308482835292617e-3, 1e-14,
-      'Celes::pn06a', 'rbpn31')
-  vvd(rbpn[2][1], 0.4020580099454020310e-4, 1e-14,
-      'Celes::pn06a', 'rbpn32')
-  vvd(rbpn[2][2], 0.9999998314954628695, 1e-12,
-      'Celes::pn06a', 'rbpn33')
+    'Celes.pn06a', 'rbpn33')
 end
 
 # static void t_pn06(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double dpsi, deps, epsa,
 #			rb[3][3], rp[3][3], rbp[3][3], rn[3][3], rbpn[3][3]
 #
@@ -7293,680 +5060,449 @@ end
 #	dpsi = -0.9632552291149335877e-5
 #	deps =  0.4063197106621141414e-4
 #
-#	Celes::pn06(2400000.5, 53736.0, dpsi, deps,
+#	Celes.pn06(2400000.5, 53736.0, dpsi, deps,
 #					&epsa, rb, rp, rbp, rn, rbpn)
 #
-#	vvd(epsa, 0.4090789763356509926, 1e-12, "Celes::pn06", "epsa")
+#	vvd(epsa, 0.4090789763356509926, 1e-12, 'Celes.pn06', 'epsa')
 #
 #	vvd(rb[0][0], 0.9999999999999942497, 1e-12,
-#			"Celes::pn06", "rb11")
+#			'Celes.pn06', 'rb11')
 #	vvd(rb[0][1], -0.7078368960971557145e-7, 1e-14,
-#			"Celes::pn06", "rb12")
+#			'Celes.pn06', 'rb12')
 #	vvd(rb[0][2], 0.8056213977613185606e-7, 1e-14,
-#			"Celes::pn06", "rb13")
+#			'Celes.pn06', 'rb13')
 #
 #	vvd(rb[1][0], 0.7078368694637674333e-7, 1e-14,
-#			"Celes::pn06", "rb21")
+#			'Celes.pn06', 'rb21')
 #	vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-#			"Celes::pn06", "rb22")
+#			'Celes.pn06', 'rb22')
 #	vvd(rb[1][2], 0.3305943742989134124e-7, 1e-14,
-#			"Celes::pn06", "rb23")
+#			'Celes.pn06', 'rb23')
 #
 #	vvd(rb[2][0], -0.8056214211620056792e-7, 1e-14,
-#			"Celes::pn06", "rb31")
+#			'Celes.pn06', 'rb31')
 #	vvd(rb[2][1], -0.3305943172740586950e-7, 1e-14,
-#			"Celes::pn06", "rb32")
+#			'Celes.pn06', 'rb32')
 #	vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-#			"Celes::pn06", "rb33")
+#			'Celes.pn06', 'rb33')
 #
 #	vvd(rp[0][0], 0.9999989300536854831, 1e-12,
-#			"Celes::pn06", "rp11")
+#			'Celes.pn06', 'rp11')
 #	vvd(rp[0][1], -0.1341646886204443795e-2, 1e-14,
-#			"Celes::pn06", "rp12")
+#			'Celes.pn06', 'rp12')
 #	vvd(rp[0][2], -0.5829880933488627759e-3, 1e-14,
-#			"Celes::pn06", "rp13")
+#			'Celes.pn06', 'rp13')
 #
 #	vvd(rp[1][0], 0.1341646890569782183e-2, 1e-14,
-#			"Celes::pn06", "rp21")
+#			'Celes.pn06', 'rp21')
 #	vvd(rp[1][1], 0.9999990999913319321, 1e-12,
-#			"Celes::pn06", "rp22")
+#			'Celes.pn06', 'rp22')
 #	vvd(rp[1][2], -0.3835944216374477457e-6, 1e-14,
-#			"Celes::pn06", "rp23")
+#			'Celes.pn06', 'rp23')
 #
 #	vvd(rp[2][0], 0.5829880833027867368e-3, 1e-14,
-#			"Celes::pn06", "rp31")
+#			'Celes.pn06', 'rp31')
 #	vvd(rp[2][1], -0.3985701514686976112e-6, 1e-14,
-#			"Celes::pn06", "rp32")
+#			'Celes.pn06', 'rp32')
 #	vvd(rp[2][2], 0.9999998300623534950, 1e-12,
-#			"Celes::pn06", "rp33")
+#			'Celes.pn06', 'rp33')
 #
 #	vvd(rbp[0][0], 0.9999989300056797893, 1e-12,
-#			"Celes::pn06", "rbp11")
+#			'Celes.pn06', 'rbp11')
 #	vvd(rbp[0][1], -0.1341717650545059598e-2, 1e-14,
-#			"Celes::pn06", "rbp12")
+#			'Celes.pn06', 'rbp12')
 #	vvd(rbp[0][2], -0.5829075756493728856e-3, 1e-14,
-#			"Celes::pn06", "rbp13")
+#			'Celes.pn06', 'rbp13')
 #
 #	vvd(rbp[1][0], 0.1341717674223918101e-2, 1e-14,
-#			"Celes::pn06", "rbp21")
+#			'Celes.pn06', 'rbp21')
 #	vvd(rbp[1][1], 0.9999990998963748448, 1e-12,
-#			"Celes::pn06", "rbp22")
+#			'Celes.pn06', 'rbp22')
 #	vvd(rbp[1][2], -0.3504269280170069029e-6, 1e-14,
-#			"Celes::pn06", "rbp23")
+#			'Celes.pn06', 'rbp23')
 #
 #	vvd(rbp[2][0], 0.5829075211461454599e-3, 1e-14,
-#			"Celes::pn06", "rbp31")
+#			'Celes.pn06', 'rbp31')
 #	vvd(rbp[2][1], -0.4316708436255949093e-6, 1e-14,
-#			"Celes::pn06", "rbp32")
+#			'Celes.pn06', 'rbp32')
 #	vvd(rbp[2][2], 0.9999998301093032943, 1e-12,
-#			"Celes::pn06", "rbp33")
+#			'Celes.pn06', 'rbp33')
 #
 #	vvd(rn[0][0], 0.9999999999536069682, 1e-12,
-#			"Celes::pn06", "rn11")
+#			'Celes.pn06', 'rn11')
 #	vvd(rn[0][1], 0.8837746921149881914e-5, 1e-14,
-#			"Celes::pn06", "rn12")
+#			'Celes.pn06', 'rn12')
 #	vvd(rn[0][2], 0.3831487047682968703e-5, 1e-14,
-#			"Celes::pn06", "rn13")
+#			'Celes.pn06', 'rn13')
 #
 #	vvd(rn[1][0], -0.8837591232983692340e-5, 1e-14,
-#			"Celes::pn06", "rn21")
+#			'Celes.pn06', 'rn21')
 #	vvd(rn[1][1], 0.9999999991354692664, 1e-12,
-#			"Celes::pn06", "rn22")
+#			'Celes.pn06', 'rn22')
 #	vvd(rn[1][2], -0.4063198798558931215e-4, 1e-14,
-#			"Celes::pn06", "rn23")
+#			'Celes.pn06', 'rn23')
 #
 #	vvd(rn[2][0], -0.3831846139597250235e-5, 1e-14,
-#			"Celes::pn06", "rn31")
+#			'Celes.pn06', 'rn31')
 #	vvd(rn[2][1], 0.4063195412258792914e-4, 1e-14,
-#			"Celes::pn06", "rn32")
+#			'Celes.pn06', 'rn32')
 #	vvd(rn[2][2], 0.9999999991671806293, 1e-12,
-#			"Celes::pn06", "rn33")
+#			'Celes.pn06', 'rn33')
 #
 #	vvd(rbpn[0][0], 0.9999989440504506688, 1e-12,
-#			"Celes::pn06", "rbpn11")
+#			'Celes.pn06', 'rbpn11')
 #	vvd(rbpn[0][1], -0.1332879913170492655e-2, 1e-14,
-#			"Celes::pn06", "rbpn12")
+#			'Celes.pn06', 'rbpn12')
 #	vvd(rbpn[0][2], -0.5790760923225655753e-3, 1e-14,
-#			"Celes::pn06", "rbpn13")
+#			'Celes.pn06', 'rbpn13')
 #
 #	vvd(rbpn[1][0], 0.1332856406595754748e-2, 1e-14,
-#			"Celes::pn06", "rbpn21")
+#			'Celes.pn06', 'rbpn21')
 #	vvd(rbpn[1][1], 0.9999991109069366795, 1e-12,
-#			"Celes::pn06", "rbpn22")
+#			'Celes.pn06', 'rbpn22')
 #	vvd(rbpn[1][2], -0.4097725651142641812e-4, 1e-14,
-#			"Celes::pn06", "rbpn23")
+#			'Celes.pn06', 'rbpn23')
 #
 #	vvd(rbpn[2][0], 0.5791301952321296716e-3, 1e-14,
-#			"Celes::pn06", "rbpn31")
+#			'Celes.pn06', 'rbpn31')
 #	vvd(rbpn[2][1], 0.4020538796195230577e-4, 1e-14,
-#			"Celes::pn06", "rbpn32")
+#			'Celes.pn06', 'rbpn32')
 #	vvd(rbpn[2][2], 0.9999998314958576778, 1e-12,
-#			"Celes::pn06", "rbpn33")
+#			'Celes.pn06', 'rbpn33')
 #
 # }
 def t_pn06
   dpsi = -0.9632552291149335877e-5
   deps =  0.4063197106621141414e-4
 
-<<<<<<< HEAD
-  epsa, rb, rp, rbp, rn, rbpn = Celes::pn06(2400000.5, 53736.0, dpsi, deps)
+  epsa, rb, rp, rbp, rn, rbpn = Celes.pn06(2400000.5, 53736.0, dpsi, deps)
 
-  vvd(epsa, 0.4090789763356509926, 1e-12, "Celes::pn06", "epsa")
-
-  vvd(rb[0][0], 0.9999999999999942497, 1e-12,
-    "Celes::pn06", "rb11")
-  vvd(rb[0][1], -0.7078368960971557145e-7, 1e-14,
-    "Celes::pn06", "rb12")
-  vvd(rb[0][2], 0.8056213977613185606e-7, 1e-14,
-    "Celes::pn06", "rb13")
-
-  vvd(rb[1][0], 0.7078368694637674333e-7, 1e-14,
-    "Celes::pn06", "rb21")
-  vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-    "Celes::pn06", "rb22")
-  vvd(rb[1][2], 0.3305943742989134124e-7, 1e-14,
-    "Celes::pn06", "rb23")
-
-  vvd(rb[2][0], -0.8056214211620056792e-7, 1e-14,
-    "Celes::pn06", "rb31")
-  vvd(rb[2][1], -0.3305943172740586950e-7, 1e-14,
-    "Celes::pn06", "rb32")
-  vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-    "Celes::pn06", "rb33")
-
-  vvd(rp[0][0], 0.9999989300536854831, 1e-12,
-    "Celes::pn06", "rp11")
-  vvd(rp[0][1], -0.1341646886204443795e-2, 1e-14,
-    "Celes::pn06", "rp12")
-  vvd(rp[0][2], -0.5829880933488627759e-3, 1e-14,
-    "Celes::pn06", "rp13")
-
-  vvd(rp[1][0], 0.1341646890569782183e-2, 1e-14,
-    "Celes::pn06", "rp21")
-  vvd(rp[1][1], 0.9999990999913319321, 1e-12,
-    "Celes::pn06", "rp22")
-  vvd(rp[1][2], -0.3835944216374477457e-6, 1e-14,
-    "Celes::pn06", "rp23")
-
-  vvd(rp[2][0], 0.5829880833027867368e-3, 1e-14,
-    "Celes::pn06", "rp31")
-  vvd(rp[2][1], -0.3985701514686976112e-6, 1e-14,
-    "Celes::pn06", "rp32")
-  vvd(rp[2][2], 0.9999998300623534950, 1e-12,
-    "Celes::pn06", "rp33")
-
-  vvd(rbp[0][0], 0.9999989300056797893, 1e-12,
-    "Celes::pn06", "rbp11")
-  vvd(rbp[0][1], -0.1341717650545059598e-2, 1e-14,
-    "Celes::pn06", "rbp12")
-  vvd(rbp[0][2], -0.5829075756493728856e-3, 1e-14,
-    "Celes::pn06", "rbp13")
-
-  vvd(rbp[1][0], 0.1341717674223918101e-2, 1e-14,
-    "Celes::pn06", "rbp21")
-  vvd(rbp[1][1], 0.9999990998963748448, 1e-12,
-    "Celes::pn06", "rbp22")
-  vvd(rbp[1][2], -0.3504269280170069029e-6, 1e-14,
-    "Celes::pn06", "rbp23")
-
-  vvd(rbp[2][0], 0.5829075211461454599e-3, 1e-14,
-    "Celes::pn06", "rbp31")
-  vvd(rbp[2][1], -0.4316708436255949093e-6, 1e-14,
-    "Celes::pn06", "rbp32")
-  vvd(rbp[2][2], 0.9999998301093032943, 1e-12,
-    "Celes::pn06", "rbp33")
-
-  vvd(rn[0][0], 0.9999999999536069682, 1e-12,
-    "Celes::pn06", "rn11")
-  vvd(rn[0][1], 0.8837746921149881914e-5, 1e-14,
-    "Celes::pn06", "rn12")
-  vvd(rn[0][2], 0.3831487047682968703e-5, 1e-14,
-    "Celes::pn06", "rn13")
-
-  vvd(rn[1][0], -0.8837591232983692340e-5, 1e-14,
-    "Celes::pn06", "rn21")
-  vvd(rn[1][1], 0.9999999991354692664, 1e-12,
-    "Celes::pn06", "rn22")
-  vvd(rn[1][2], -0.4063198798558931215e-4, 1e-14,
-    "Celes::pn06", "rn23")
-
-  vvd(rn[2][0], -0.3831846139597250235e-5, 1e-14,
-    "Celes::pn06", "rn31")
-  vvd(rn[2][1], 0.4063195412258792914e-4, 1e-14,
-    "Celes::pn06", "rn32")
-  vvd(rn[2][2], 0.9999999991671806293, 1e-12,
-    "Celes::pn06", "rn33")
-
-  vvd(rbpn[0][0], 0.9999989440504506688, 1e-12,
-    "Celes::pn06", "rbpn11")
-  vvd(rbpn[0][1], -0.1332879913170492655e-2, 1e-14,
-    "Celes::pn06", "rbpn12")
-  vvd(rbpn[0][2], -0.5790760923225655753e-3, 1e-14,
-    "Celes::pn06", "rbpn13")
-
-  vvd(rbpn[1][0], 0.1332856406595754748e-2, 1e-14,
-    "Celes::pn06", "rbpn21")
-  vvd(rbpn[1][1], 0.9999991109069366795, 1e-12,
-    "Celes::pn06", "rbpn22")
-  vvd(rbpn[1][2], -0.4097725651142641812e-4, 1e-14,
-    "Celes::pn06", "rbpn23")
-
-  vvd(rbpn[2][0], 0.5791301952321296716e-3, 1e-14,
-    "Celes::pn06", "rbpn31")
-  vvd(rbpn[2][1], 0.4020538796195230577e-4, 1e-14,
-    "Celes::pn06", "rbpn32")
-  vvd(rbpn[2][2], 0.9999998314958576778, 1e-12,
-    "Celes::pn06", "rbpn33")
-end
-
-#static void t_pnm00a(int *status)
-#{
-=======
-  epsa, rb, rp, rbp, rn, rbpn = Celes.pn06(2_400_000.5, 53_736.0, dpsi, deps)
-
-  vvd(epsa, 0.4090789763356509926, 1e-12, 'Celes::pn06', 'epsa')
+  vvd(epsa, 0.4090789763356509926, 1e-12, 'Celes.pn06', 'epsa')
 
   vvd(rb[0][0], 0.9999999999999942497, 1e-12,
-      'Celes::pn06', 'rb11')
+    'Celes.pn06', 'rb11')
   vvd(rb[0][1], -0.7078368960971557145e-7, 1e-14,
-      'Celes::pn06', 'rb12')
+    'Celes.pn06', 'rb12')
   vvd(rb[0][2], 0.8056213977613185606e-7, 1e-14,
-      'Celes::pn06', 'rb13')
+    'Celes.pn06', 'rb13')
 
   vvd(rb[1][0], 0.7078368694637674333e-7, 1e-14,
-      'Celes::pn06', 'rb21')
+    'Celes.pn06', 'rb21')
   vvd(rb[1][1], 0.9999999999999969484, 1e-12,
-      'Celes::pn06', 'rb22')
+    'Celes.pn06', 'rb22')
   vvd(rb[1][2], 0.3305943742989134124e-7, 1e-14,
-      'Celes::pn06', 'rb23')
+    'Celes.pn06', 'rb23')
 
   vvd(rb[2][0], -0.8056214211620056792e-7, 1e-14,
-      'Celes::pn06', 'rb31')
+    'Celes.pn06', 'rb31')
   vvd(rb[2][1], -0.3305943172740586950e-7, 1e-14,
-      'Celes::pn06', 'rb32')
+    'Celes.pn06', 'rb32')
   vvd(rb[2][2], 0.9999999999999962084, 1e-12,
-      'Celes::pn06', 'rb33')
+    'Celes.pn06', 'rb33')
 
   vvd(rp[0][0], 0.9999989300536854831, 1e-12,
-      'Celes::pn06', 'rp11')
+    'Celes.pn06', 'rp11')
   vvd(rp[0][1], -0.1341646886204443795e-2, 1e-14,
-      'Celes::pn06', 'rp12')
+    'Celes.pn06', 'rp12')
   vvd(rp[0][2], -0.5829880933488627759e-3, 1e-14,
-      'Celes::pn06', 'rp13')
+    'Celes.pn06', 'rp13')
 
   vvd(rp[1][0], 0.1341646890569782183e-2, 1e-14,
-      'Celes::pn06', 'rp21')
+    'Celes.pn06', 'rp21')
   vvd(rp[1][1], 0.9999990999913319321, 1e-12,
-      'Celes::pn06', 'rp22')
+    'Celes.pn06', 'rp22')
   vvd(rp[1][2], -0.3835944216374477457e-6, 1e-14,
-      'Celes::pn06', 'rp23')
+    'Celes.pn06', 'rp23')
 
   vvd(rp[2][0], 0.5829880833027867368e-3, 1e-14,
-      'Celes::pn06', 'rp31')
+    'Celes.pn06', 'rp31')
   vvd(rp[2][1], -0.3985701514686976112e-6, 1e-14,
-      'Celes::pn06', 'rp32')
+    'Celes.pn06', 'rp32')
   vvd(rp[2][2], 0.9999998300623534950, 1e-12,
-      'Celes::pn06', 'rp33')
+    'Celes.pn06', 'rp33')
 
   vvd(rbp[0][0], 0.9999989300056797893, 1e-12,
-      'Celes::pn06', 'rbp11')
+    'Celes.pn06', 'rbp11')
   vvd(rbp[0][1], -0.1341717650545059598e-2, 1e-14,
-      'Celes::pn06', 'rbp12')
+    'Celes.pn06', 'rbp12')
   vvd(rbp[0][2], -0.5829075756493728856e-3, 1e-14,
-      'Celes::pn06', 'rbp13')
+    'Celes.pn06', 'rbp13')
 
   vvd(rbp[1][0], 0.1341717674223918101e-2, 1e-14,
-      'Celes::pn06', 'rbp21')
+    'Celes.pn06', 'rbp21')
   vvd(rbp[1][1], 0.9999990998963748448, 1e-12,
-      'Celes::pn06', 'rbp22')
+    'Celes.pn06', 'rbp22')
   vvd(rbp[1][2], -0.3504269280170069029e-6, 1e-14,
-      'Celes::pn06', 'rbp23')
+    'Celes.pn06', 'rbp23')
 
   vvd(rbp[2][0], 0.5829075211461454599e-3, 1e-14,
-      'Celes::pn06', 'rbp31')
+    'Celes.pn06', 'rbp31')
   vvd(rbp[2][1], -0.4316708436255949093e-6, 1e-14,
-      'Celes::pn06', 'rbp32')
+    'Celes.pn06', 'rbp32')
   vvd(rbp[2][2], 0.9999998301093032943, 1e-12,
-      'Celes::pn06', 'rbp33')
+    'Celes.pn06', 'rbp33')
 
   vvd(rn[0][0], 0.9999999999536069682, 1e-12,
-      'Celes::pn06', 'rn11')
+    'Celes.pn06', 'rn11')
   vvd(rn[0][1], 0.8837746921149881914e-5, 1e-14,
-      'Celes::pn06', 'rn12')
+    'Celes.pn06', 'rn12')
   vvd(rn[0][2], 0.3831487047682968703e-5, 1e-14,
-      'Celes::pn06', 'rn13')
+    'Celes.pn06', 'rn13')
 
   vvd(rn[1][0], -0.8837591232983692340e-5, 1e-14,
-      'Celes::pn06', 'rn21')
+    'Celes.pn06', 'rn21')
   vvd(rn[1][1], 0.9999999991354692664, 1e-12,
-      'Celes::pn06', 'rn22')
+    'Celes.pn06', 'rn22')
   vvd(rn[1][2], -0.4063198798558931215e-4, 1e-14,
-      'Celes::pn06', 'rn23')
+    'Celes.pn06', 'rn23')
 
   vvd(rn[2][0], -0.3831846139597250235e-5, 1e-14,
-      'Celes::pn06', 'rn31')
+    'Celes.pn06', 'rn31')
   vvd(rn[2][1], 0.4063195412258792914e-4, 1e-14,
-      'Celes::pn06', 'rn32')
+    'Celes.pn06', 'rn32')
   vvd(rn[2][2], 0.9999999991671806293, 1e-12,
-      'Celes::pn06', 'rn33')
+    'Celes.pn06', 'rn33')
 
   vvd(rbpn[0][0], 0.9999989440504506688, 1e-12,
-      'Celes::pn06', 'rbpn11')
+    'Celes.pn06', 'rbpn11')
   vvd(rbpn[0][1], -0.1332879913170492655e-2, 1e-14,
-      'Celes::pn06', 'rbpn12')
+    'Celes.pn06', 'rbpn12')
   vvd(rbpn[0][2], -0.5790760923225655753e-3, 1e-14,
-      'Celes::pn06', 'rbpn13')
+    'Celes.pn06', 'rbpn13')
 
   vvd(rbpn[1][0], 0.1332856406595754748e-2, 1e-14,
-      'Celes::pn06', 'rbpn21')
+    'Celes.pn06', 'rbpn21')
   vvd(rbpn[1][1], 0.9999991109069366795, 1e-12,
-      'Celes::pn06', 'rbpn22')
+    'Celes.pn06', 'rbpn22')
   vvd(rbpn[1][2], -0.4097725651142641812e-4, 1e-14,
-      'Celes::pn06', 'rbpn23')
+    'Celes.pn06', 'rbpn23')
 
   vvd(rbpn[2][0], 0.5791301952321296716e-3, 1e-14,
-      'Celes::pn06', 'rbpn31')
+    'Celes.pn06', 'rbpn31')
   vvd(rbpn[2][1], 0.4020538796195230577e-4, 1e-14,
-      'Celes::pn06', 'rbpn32')
+    'Celes.pn06', 'rbpn32')
   vvd(rbpn[2][2], 0.9999998314958576778, 1e-12,
-      'Celes::pn06', 'rbpn33')
+    'Celes.pn06', 'rbpn33')
 end
 
 # static void t_pnm00a(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rbpn[3][3]
 #
 #
-#	Celes::pnm00a(2400000.5, 50123.9999, rbpn)
+#	Celes.pnm00a(2400000.5, 50123.9999, rbpn)
 #
 #	vvd(rbpn[0][0], 0.9999995832793134257, 1e-12,
-#			"Celes::pnm00a", "11")
+#			'Celes.pnm00a', '11')
 #	vvd(rbpn[0][1], 0.8372384254137809439e-3, 1e-14,
-#			"Celes::pnm00a", "12")
+#			'Celes.pnm00a', '12')
 #	vvd(rbpn[0][2], 0.3639684306407150645e-3, 1e-14,
-#			"Celes::pnm00a", "13")
+#			'Celes.pnm00a', '13')
 #
 #	vvd(rbpn[1][0], -0.8372535226570394543e-3, 1e-14,
-#			"Celes::pnm00a", "21")
+#			'Celes.pnm00a', '21')
 #	vvd(rbpn[1][1], 0.9999996486491582471, 1e-12,
-#			"Celes::pnm00a", "22")
+#			'Celes.pnm00a', '22')
 #	vvd(rbpn[1][2], 0.4132915262664072381e-4, 1e-14,
-#			"Celes::pnm00a", "23")
+#			'Celes.pnm00a', '23')
 #
 #	vvd(rbpn[2][0], -0.3639337004054317729e-3, 1e-14,
-#			"Celes::pnm00a", "31")
+#			'Celes.pnm00a', '31')
 #	vvd(rbpn[2][1], -0.4163386925461775873e-4, 1e-14,
-#			"Celes::pnm00a", "32")
+#			'Celes.pnm00a', '32')
 #	vvd(rbpn[2][2], 0.9999999329094390695, 1e-12,
-#			"Celes::pnm00a", "33")
+#			'Celes.pnm00a', '33')
 #
 # }
 def t_pnm00a
-<<<<<<< HEAD
-  rbpn = Celes::pnm00a(2400000.5, 50123.9999)
+  rbpn = Celes.pnm00a(2400000.5, 50123.9999)
 
   vvd(rbpn[0][0], 0.9999995832793134257, 1e-12,
-    "Celes::pnm00a", "11")
+    'Celes.pnm00a', '11')
   vvd(rbpn[0][1], 0.8372384254137809439e-3, 1e-14,
-    "Celes::pnm00a", "12")
+    'Celes.pnm00a', '12')
   vvd(rbpn[0][2], 0.3639684306407150645e-3, 1e-14,
-    "Celes::pnm00a", "13")
+    'Celes.pnm00a', '13')
 
   vvd(rbpn[1][0], -0.8372535226570394543e-3, 1e-14,
-    "Celes::pnm00a", "21")
+    'Celes.pnm00a', '21')
   vvd(rbpn[1][1], 0.9999996486491582471, 1e-12,
-    "Celes::pnm00a", "22")
+    'Celes.pnm00a', '22')
   vvd(rbpn[1][2], 0.4132915262664072381e-4, 1e-14,
-    "Celes::pnm00a", "23")
+    'Celes.pnm00a', '23')
 
   vvd(rbpn[2][0], -0.3639337004054317729e-3, 1e-14,
-    "Celes::pnm00a", "31")
+    'Celes.pnm00a', '31')
   vvd(rbpn[2][1], -0.4163386925461775873e-4, 1e-14,
-    "Celes::pnm00a", "32")
+    'Celes.pnm00a', '32')
   vvd(rbpn[2][2], 0.9999999329094390695, 1e-12,
-    "Celes::pnm00a", "33")
-end
-
-#static void t_pnm00b(int *status)
-#{
-=======
-  rbpn = Celes.pnm00a(2_400_000.5, 50_123.9999)
-
-  vvd(rbpn[0][0], 0.9999995832793134257, 1e-12,
-      'Celes::pnm00a', '11')
-  vvd(rbpn[0][1], 0.8372384254137809439e-3, 1e-14,
-      'Celes::pnm00a', '12')
-  vvd(rbpn[0][2], 0.3639684306407150645e-3, 1e-14,
-      'Celes::pnm00a', '13')
-
-  vvd(rbpn[1][0], -0.8372535226570394543e-3, 1e-14,
-      'Celes::pnm00a', '21')
-  vvd(rbpn[1][1], 0.9999996486491582471, 1e-12,
-      'Celes::pnm00a', '22')
-  vvd(rbpn[1][2], 0.4132915262664072381e-4, 1e-14,
-      'Celes::pnm00a', '23')
-
-  vvd(rbpn[2][0], -0.3639337004054317729e-3, 1e-14,
-      'Celes::pnm00a', '31')
-  vvd(rbpn[2][1], -0.4163386925461775873e-4, 1e-14,
-      'Celes::pnm00a', '32')
-  vvd(rbpn[2][2], 0.9999999329094390695, 1e-12,
-      'Celes::pnm00a', '33')
+    'Celes.pnm00a', '33')
 end
 
 # static void t_pnm00b(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rbpn[3][3]
 #
 #
-#	Celes::pnm00b(2400000.5, 50123.9999, rbpn)
+#	Celes.pnm00b(2400000.5, 50123.9999, rbpn)
 #
 #	vvd(rbpn[0][0], 0.9999995832776208280, 1e-12,
-#			"Celes::pnm00b", "11")
+#			'Celes.pnm00b', '11')
 #	vvd(rbpn[0][1], 0.8372401264429654837e-3, 1e-14,
-#			"Celes::pnm00b", "12")
+#			'Celes.pnm00b', '12')
 #	vvd(rbpn[0][2], 0.3639691681450271771e-3, 1e-14,
-#			"Celes::pnm00b", "13")
+#			'Celes.pnm00b', '13')
 #
 #	vvd(rbpn[1][0], -0.8372552234147137424e-3, 1e-14,
-#			"Celes::pnm00b", "21")
+#			'Celes.pnm00b', '21')
 #	vvd(rbpn[1][1], 0.9999996486477686123, 1e-12,
-#			"Celes::pnm00b", "22")
+#			'Celes.pnm00b', '22')
 #	vvd(rbpn[1][2], 0.4132832190946052890e-4, 1e-14,
-#			"Celes::pnm00b", "23")
+#			'Celes.pnm00b', '23')
 #
 #	vvd(rbpn[2][0], -0.3639344385341866407e-3, 1e-14,
-#			"Celes::pnm00b", "31")
+#			'Celes.pnm00b', '31')
 #	vvd(rbpn[2][1], -0.4163303977421522785e-4, 1e-14,
-#			"Celes::pnm00b", "32")
+#			'Celes.pnm00b', '32')
 #	vvd(rbpn[2][2], 0.9999999329092049734, 1e-12,
-#			"Celes::pnm00b", "33")
+#			'Celes.pnm00b', '33')
 #
 # }
 def t_pnm00b
-<<<<<<< HEAD
-  rbpn = Celes::pnm00b(2400000.5, 50123.9999)
+  rbpn = Celes.pnm00b(2400000.5, 50123.9999)
 
   vvd(rbpn[0][0], 0.9999995832776208280, 1e-12,
-    "Celes::pnm00b", "11")
+    'Celes.pnm00b', '11')
   vvd(rbpn[0][1], 0.8372401264429654837e-3, 1e-14,
-    "Celes::pnm00b", "12")
+    'Celes.pnm00b', '12')
   vvd(rbpn[0][2], 0.3639691681450271771e-3, 1e-14,
-    "Celes::pnm00b", "13")
+    'Celes.pnm00b', '13')
 
   vvd(rbpn[1][0], -0.8372552234147137424e-3, 1e-14,
-    "Celes::pnm00b", "21")
+    'Celes.pnm00b', '21')
   vvd(rbpn[1][1], 0.9999996486477686123, 1e-12,
-    "Celes::pnm00b", "22")
+    'Celes.pnm00b', '22')
   vvd(rbpn[1][2], 0.4132832190946052890e-4, 1e-14,
-    "Celes::pnm00b", "23")
+    'Celes.pnm00b', '23')
 
   vvd(rbpn[2][0], -0.3639344385341866407e-3, 1e-14,
-    "Celes::pnm00b", "31")
+    'Celes.pnm00b', '31')
   vvd(rbpn[2][1], -0.4163303977421522785e-4, 1e-14,
-    "Celes::pnm00b", "32")
+    'Celes.pnm00b', '32')
   vvd(rbpn[2][2], 0.9999999329092049734, 1e-12,
-    "Celes::pnm00b", "33")
-end
-
-#static void t_pnm06a(int *status)
-#{
-=======
-  rbpn = Celes.pnm00b(2_400_000.5, 50_123.9999)
-
-  vvd(rbpn[0][0], 0.9999995832776208280, 1e-12,
-      'Celes::pnm00b', '11')
-  vvd(rbpn[0][1], 0.8372401264429654837e-3, 1e-14,
-      'Celes::pnm00b', '12')
-  vvd(rbpn[0][2], 0.3639691681450271771e-3, 1e-14,
-      'Celes::pnm00b', '13')
-
-  vvd(rbpn[1][0], -0.8372552234147137424e-3, 1e-14,
-      'Celes::pnm00b', '21')
-  vvd(rbpn[1][1], 0.9999996486477686123, 1e-12,
-      'Celes::pnm00b', '22')
-  vvd(rbpn[1][2], 0.4132832190946052890e-4, 1e-14,
-      'Celes::pnm00b', '23')
-
-  vvd(rbpn[2][0], -0.3639344385341866407e-3, 1e-14,
-      'Celes::pnm00b', '31')
-  vvd(rbpn[2][1], -0.4163303977421522785e-4, 1e-14,
-      'Celes::pnm00b', '32')
-  vvd(rbpn[2][2], 0.9999999329092049734, 1e-12,
-      'Celes::pnm00b', '33')
+    'Celes.pnm00b', '33')
 end
 
 # static void t_pnm06a(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rbpn[3][3]
 #
 #
-#	Celes::pnm06a(2400000.5, 50123.9999, rbpn)
+#	Celes.pnm06a(2400000.5, 50123.9999, rbpn)
 #
 #	vvd(rbpn[0][0], 0.9999995832794205484, 1e-12,
-#			"Celes::pnm06a", "11")
+#			'Celes.pnm06a', '11')
 #	vvd(rbpn[0][1], 0.8372382772630962111e-3, 1e-14,
-#			"Celes::pnm06a", "12")
+#			'Celes.pnm06a', '12')
 #	vvd(rbpn[0][2], 0.3639684771140623099e-3, 1e-14,
-#			"Celes::pnm06a", "13")
+#			'Celes.pnm06a', '13')
 #
 #	vvd(rbpn[1][0], -0.8372533744743683605e-3, 1e-14,
-#			"Celes::pnm06a", "21")
+#			'Celes.pnm06a', '21')
 #	vvd(rbpn[1][1], 0.9999996486492861646, 1e-12,
-#			"Celes::pnm06a", "22")
+#			'Celes.pnm06a', '22')
 #	vvd(rbpn[1][2], 0.4132905944611019498e-4, 1e-14,
-#			"Celes::pnm06a", "23")
+#			'Celes.pnm06a', '23')
 #
 #	vvd(rbpn[2][0], -0.3639337469629464969e-3, 1e-14,
-#			"Celes::pnm06a", "31")
+#			'Celes.pnm06a', '31')
 #	vvd(rbpn[2][1], -0.4163377605910663999e-4, 1e-14,
-#			"Celes::pnm06a", "32")
+#			'Celes.pnm06a', '32')
 #	vvd(rbpn[2][2], 0.9999999329094260057, 1e-12,
-#			"Celes::pnm06a", "33")
+#			'Celes.pnm06a', '33')
 #
 # }
 def t_pnm06a
-<<<<<<< HEAD
-  rbpn = Celes::pnm06a(2400000.5, 50123.9999)
+  rbpn = Celes.pnm06a(2400000.5, 50123.9999)
 
   vvd(rbpn[0][0], 0.9999995832794205484, 1e-12,
-    "Celes::pnm06a", "11")
+    'Celes.pnm06a', '11')
   vvd(rbpn[0][1], 0.8372382772630962111e-3, 1e-14,
-    "Celes::pnm06a", "12")
+    'Celes.pnm06a', '12')
   vvd(rbpn[0][2], 0.3639684771140623099e-3, 1e-14,
-    "Celes::pnm06a", "13")
+    'Celes.pnm06a', '13')
 
   vvd(rbpn[1][0], -0.8372533744743683605e-3, 1e-14,
-    "Celes::pnm06a", "21")
+    'Celes.pnm06a', '21')
   vvd(rbpn[1][1], 0.9999996486492861646, 1e-12,
-    "Celes::pnm06a", "22")
+    'Celes.pnm06a', '22')
   vvd(rbpn[1][2], 0.4132905944611019498e-4, 1e-14,
-    "Celes::pnm06a", "23")
+    'Celes.pnm06a', '23')
 
   vvd(rbpn[2][0], -0.3639337469629464969e-3, 1e-14,
-    "Celes::pnm06a", "31")
+    'Celes.pnm06a', '31')
   vvd(rbpn[2][1], -0.4163377605910663999e-4, 1e-14,
-    "Celes::pnm06a", "32")
+    'Celes.pnm06a', '32')
   vvd(rbpn[2][2], 0.9999999329094260057, 1e-12,
-    "Celes::pnm06a", "33")
-end
-
-#static void t_pnm80(int *status)
-#{
-=======
-  rbpn = Celes.pnm06a(2_400_000.5, 50_123.9999)
-
-  vvd(rbpn[0][0], 0.9999995832794205484, 1e-12,
-      'Celes::pnm06a', '11')
-  vvd(rbpn[0][1], 0.8372382772630962111e-3, 1e-14,
-      'Celes::pnm06a', '12')
-  vvd(rbpn[0][2], 0.3639684771140623099e-3, 1e-14,
-      'Celes::pnm06a', '13')
-
-  vvd(rbpn[1][0], -0.8372533744743683605e-3, 1e-14,
-      'Celes::pnm06a', '21')
-  vvd(rbpn[1][1], 0.9999996486492861646, 1e-12,
-      'Celes::pnm06a', '22')
-  vvd(rbpn[1][2], 0.4132905944611019498e-4, 1e-14,
-      'Celes::pnm06a', '23')
-
-  vvd(rbpn[2][0], -0.3639337469629464969e-3, 1e-14,
-      'Celes::pnm06a', '31')
-  vvd(rbpn[2][1], -0.4163377605910663999e-4, 1e-14,
-      'Celes::pnm06a', '32')
-  vvd(rbpn[2][2], 0.9999999329094260057, 1e-12,
-      'Celes::pnm06a', '33')
+    'Celes.pnm06a', '33')
 end
 
 # static void t_pnm80(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double rmatpn[3][3]
 #
 #
-#	Celes::pnm80(2400000.5, 50123.9999, rmatpn)
+#	Celes.pnm80(2400000.5, 50123.9999, rmatpn)
 #
 #	vvd(rmatpn[0][0], 0.9999995831934611169, 1e-12,
-#			"Celes::pnm80", "11")
+#			'Celes.pnm80', '11')
 #	vvd(rmatpn[0][1], 0.8373654045728124011e-3, 1e-14,
-#			"Celes::pnm80", "12")
+#			'Celes.pnm80', '12')
 #	vvd(rmatpn[0][2], 0.3639121916933106191e-3, 1e-14,
-#			"Celes::pnm80", "13")
+#			'Celes.pnm80', '13')
 #
 #	vvd(rmatpn[1][0], -0.8373804896118301316e-3, 1e-14,
-#			"Celes::pnm80", "21")
+#			'Celes.pnm80', '21')
 #	vvd(rmatpn[1][1], 0.9999996485439674092, 1e-12,
-#			"Celes::pnm80", "22")
+#			'Celes.pnm80', '22')
 #	vvd(rmatpn[1][2], 0.4130202510421549752e-4, 1e-14,
-#			"Celes::pnm80", "23")
+#			'Celes.pnm80', '23')
 #
 #	vvd(rmatpn[2][0], -0.3638774789072144473e-3, 1e-14,
-#			"Celes::pnm80", "31")
+#			'Celes.pnm80', '31')
 #	vvd(rmatpn[2][1], -0.4160674085851722359e-4, 1e-14,
-#			"Celes::pnm80", "32")
+#			'Celes.pnm80', '32')
 #	vvd(rmatpn[2][2], 0.9999999329310274805, 1e-12,
-#			"Celes::pnm80", "33")
+#			'Celes.pnm80', '33')
 #
 # }
 def t_pnm80
-<<<<<<< HEAD
-  rmatpn = Celes::pnm80(2400000.5, 50123.9999)
+  rmatpn = Celes.pnm80(2400000.5, 50123.9999)
 
   vvd(rmatpn[0][0], 0.9999995831934611169, 1e-12,
-    "Celes::pnm80", "11")
+    'Celes.pnm80', '11')
   vvd(rmatpn[0][1], 0.8373654045728124011e-3, 1e-14,
-    "Celes::pnm80", "12")
+    'Celes.pnm80', '12')
   vvd(rmatpn[0][2], 0.3639121916933106191e-3, 1e-14,
-    "Celes::pnm80", "13")
+    'Celes.pnm80', '13')
 
   vvd(rmatpn[1][0], -0.8373804896118301316e-3, 1e-14,
-    "Celes::pnm80", "21")
+    'Celes.pnm80', '21')
   vvd(rmatpn[1][1], 0.9999996485439674092, 1e-12,
-    "Celes::pnm80", "22")
+    'Celes.pnm80', '22')
   vvd(rmatpn[1][2], 0.4130202510421549752e-4, 1e-14,
-    "Celes::pnm80", "23")
+    'Celes.pnm80', '23')
 
   vvd(rmatpn[2][0], -0.3638774789072144473e-3, 1e-14,
-    "Celes::pnm80", "31")
+    'Celes.pnm80', '31')
   vvd(rmatpn[2][1], -0.4160674085851722359e-4, 1e-14,
-    "Celes::pnm80", "32")
+    'Celes.pnm80', '32')
   vvd(rmatpn[2][2], 0.9999999329310274805, 1e-12,
-    "Celes::pnm80", "33")
-end
-
-#static void t_pom00(int *status)
-#{
-=======
-  rmatpn = Celes.pnm80(2_400_000.5, 50_123.9999)
-
-  vvd(rmatpn[0][0], 0.9999995831934611169, 1e-12,
-      'Celes::pnm80', '11')
-  vvd(rmatpn[0][1], 0.8373654045728124011e-3, 1e-14,
-      'Celes::pnm80', '12')
-  vvd(rmatpn[0][2], 0.3639121916933106191e-3, 1e-14,
-      'Celes::pnm80', '13')
-
-  vvd(rmatpn[1][0], -0.8373804896118301316e-3, 1e-14,
-      'Celes::pnm80', '21')
-  vvd(rmatpn[1][1], 0.9999996485439674092, 1e-12,
-      'Celes::pnm80', '22')
-  vvd(rmatpn[1][2], 0.4130202510421549752e-4, 1e-14,
-      'Celes::pnm80', '23')
-
-  vvd(rmatpn[2][0], -0.3638774789072144473e-3, 1e-14,
-      'Celes::pnm80', '31')
-  vvd(rmatpn[2][1], -0.4160674085851722359e-4, 1e-14,
-      'Celes::pnm80', '32')
-  vvd(rmatpn[2][2], 0.9999999329310274805, 1e-12,
-      'Celes::pnm80', '33')
+    'Celes.pnm80', '33')
 end
 
 # static void t_pom00(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double xp, yp, sp, rpom[3][3]
 #
 #
@@ -7974,28 +5510,28 @@ end
 #	yp =  1.860359247e-6
 #	sp = -0.1367174580728891460e-10
 #
-#	Celes::pom00(xp, yp, sp, rpom)
+#	Celes.pom00(xp, yp, sp, rpom)
 #
 #	vvd(rpom[0][0], 0.9999999999999674721, 1e-12,
-#			"Celes::pom00", "11")
+#			'Celes.pom00', '11')
 #	vvd(rpom[0][1], -0.1367174580728846989e-10, 1e-16,
-#			"Celes::pom00", "12")
+#			'Celes.pom00', '12')
 #	vvd(rpom[0][2], 0.2550602379999972345e-6, 1e-16,
-#			"Celes::pom00", "13")
+#			'Celes.pom00', '13')
 #
 #	vvd(rpom[1][0], 0.1414624947957029801e-10, 1e-16,
-#			"Celes::pom00", "21")
+#			'Celes.pom00', '21')
 #	vvd(rpom[1][1], 0.9999999999982695317, 1e-12,
-#			"Celes::pom00", "22")
+#			'Celes.pom00', '22')
 #	vvd(rpom[1][2], -0.1860359246998866389e-5, 1e-16,
-#			"Celes::pom00", "23")
+#			'Celes.pom00', '23')
 #
 #	vvd(rpom[2][0], -0.2550602379741215021e-6, 1e-16,
-#			"Celes::pom00", "31")
+#			'Celes.pom00', '31')
 #	vvd(rpom[2][1], 0.1860359247002414021e-5, 1e-16,
-#			"Celes::pom00", "32")
+#			'Celes.pom00', '32')
 #	vvd(rpom[2][2], 0.9999999999982370039, 1e-12,
-#			"Celes::pom00", "33")
+#			'Celes.pom00', '33')
 #
 # }
 def t_pom00
@@ -8003,61 +5539,32 @@ def t_pom00
   yp =  1.860359247e-6
   sp = -0.1367174580728891460e-10
 
-<<<<<<< HEAD
-  rpom = Celes::pom00(xp, yp, sp)
-
-  vvd(rpom[0][0], 0.9999999999999674721, 1e-12,
-    "Celes::pom00", "11")
-  vvd(rpom[0][1], -0.1367174580728846989e-10, 1e-16,
-    "Celes::pom00", "12")
-  vvd(rpom[0][2], 0.2550602379999972345e-6, 1e-16,
-    "Celes::pom00", "13")
-
-  vvd(rpom[1][0], 0.1414624947957029801e-10, 1e-16,
-    "Celes::pom00", "21")
-  vvd(rpom[1][1], 0.9999999999982695317, 1e-12,
-    "Celes::pom00", "22")
-  vvd(rpom[1][2], -0.1860359246998866389e-5, 1e-16,
-    "Celes::pom00", "23")
-
-  vvd(rpom[2][0], -0.2550602379741215021e-6, 1e-16,
-    "Celes::pom00", "31")
-  vvd(rpom[2][1], 0.1860359247002414021e-5, 1e-16,
-    "Celes::pom00", "32")
-  vvd(rpom[2][2], 0.9999999999982370039, 1e-12,
-    "Celes::pom00", "33")
-end
-
-#static void t_ppp(int *status)
-#{
-=======
   rpom = Celes.pom00(xp, yp, sp)
 
   vvd(rpom[0][0], 0.9999999999999674721, 1e-12,
-      'Celes::pom00', '11')
+    'Celes.pom00', '11')
   vvd(rpom[0][1], -0.1367174580728846989e-10, 1e-16,
-      'Celes::pom00', '12')
+    'Celes.pom00', '12')
   vvd(rpom[0][2], 0.2550602379999972345e-6, 1e-16,
-      'Celes::pom00', '13')
+    'Celes.pom00', '13')
 
   vvd(rpom[1][0], 0.1414624947957029801e-10, 1e-16,
-      'Celes::pom00', '21')
+    'Celes.pom00', '21')
   vvd(rpom[1][1], 0.9999999999982695317, 1e-12,
-      'Celes::pom00', '22')
+    'Celes.pom00', '22')
   vvd(rpom[1][2], -0.1860359246998866389e-5, 1e-16,
-      'Celes::pom00', '23')
+    'Celes.pom00', '23')
 
   vvd(rpom[2][0], -0.2550602379741215021e-6, 1e-16,
-      'Celes::pom00', '31')
+    'Celes.pom00', '31')
   vvd(rpom[2][1], 0.1860359247002414021e-5, 1e-16,
-      'Celes::pom00', '32')
+    'Celes.pom00', '32')
   vvd(rpom[2][2], 0.9999999999982370039, 1e-12,
-      'Celes::pom00', '33')
+    'Celes.pom00', '33')
 end
 
 # static void t_ppp(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double a[3], b[3], apb[3]
 #
 #
@@ -8069,11 +5576,11 @@ end
 #	b[1] = 3.0
 #	b[2] = 4.0
 #
-#	Celes::ppp(a, b, apb)
+#	Celes.ppp(a, b, apb)
 #
-#	vvd(apb[0], 3.0, 1e-12, "Celes::ppp", "0")
-#	vvd(apb[1], 5.0, 1e-12, "Celes::ppp", "1")
-#	vvd(apb[2], 7.0, 1e-12, "Celes::ppp", "2")
+#	vvd(apb[0], 3.0, 1e-12, 'Celes.ppp', '0')
+#	vvd(apb[1], 5.0, 1e-12, 'Celes.ppp', '1')
+#	vvd(apb[2], 7.0, 1e-12, 'Celes.ppp', '2')
 #
 # }
 def t_ppp
@@ -8088,19 +5595,11 @@ def t_ppp
   b[1] = 3.0
   b[2] = 4.0
 
-<<<<<<< HEAD
-  apb = Celes::ppp(a, b)
-
-  vvd(apb[0], 3.0, 1e-12, "Celes::ppp", "0")
-  vvd(apb[1], 5.0, 1e-12, "Celes::ppp", "1")
-  vvd(apb[2], 7.0, 1e-12, "Celes::ppp", "2")
-=======
   apb = Celes.ppp(a, b)
 
-  vvd(apb[0], 3.0, 1e-12, 'Celes::ppp', '0')
-  vvd(apb[1], 5.0, 1e-12, 'Celes::ppp', '1')
-  vvd(apb[2], 7.0, 1e-12, 'Celes::ppp', '2')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(apb[0], 3.0, 1e-12, 'Celes.ppp', '0')
+  vvd(apb[1], 5.0, 1e-12, 'Celes.ppp', '1')
+  vvd(apb[2], 7.0, 1e-12, 'Celes.ppp', '2')
 end
 
 # static void t_ppsp(int *status)
@@ -8118,11 +5617,11 @@ end
 #	b[1] = 3.0
 #	b[2] = 4.0
 #
-#	Celes::ppsp(a, s, b, apsb)
+#	Celes.ppsp(a, s, b, apsb)
 #
-#	vvd(apsb[0], 7.0, 1e-12, "Celes::ppsp", "0")
-#	vvd(apsb[1], 17.0, 1e-12, "Celes::ppsp", "1")
-#	vvd(apsb[2], 23.0, 1e-12, "Celes::ppsp", "2")
+#	vvd(apsb[0], 7.0, 1e-12, 'Celes.ppsp', '0')
+#	vvd(apsb[1], 17.0, 1e-12, 'Celes.ppsp', '1')
+#	vvd(apsb[2], 23.0, 1e-12, 'Celes.ppsp', '2')
 #
 # }
 def t_ppsp
@@ -8139,49 +5638,32 @@ def t_ppsp
   b[1] = 3.0
   b[2] = 4.0
 
-<<<<<<< HEAD
-  apsb = Celes::ppsp(a, s, b)
-
-  vvd(apsb[0], 7.0, 1e-12, "Celes::ppsp", "0")
-  vvd(apsb[1], 17.0, 1e-12, "Celes::ppsp", "1")
-  vvd(apsb[2], 23.0, 1e-12, "Celes::ppsp", "2")
-=======
   apsb = Celes.ppsp(a, s, b)
 
-  vvd(apsb[0], 7.0, 1e-12, 'Celes::ppsp', '0')
-  vvd(apsb[1], 17.0, 1e-12, 'Celes::ppsp', '1')
-  vvd(apsb[2], 23.0, 1e-12, 'Celes::ppsp', '2')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(apsb[0], 7.0, 1e-12, 'Celes.ppsp', '0')
+  vvd(apsb[1], 17.0, 1e-12, 'Celes.ppsp', '1')
+  vvd(apsb[2], 23.0, 1e-12, 'Celes.ppsp', '2')
 end
 
 # static void t_pr00(int *status)
 # {
 #	double dpsipr, depspr
 #
-#	Celes::pr00(2400000.5, 53736, &dpsipr, &depspr)
+#	Celes.pr00(2400000.5, 53736, &dpsipr, &depspr)
 #
 #	vvd(dpsipr, -0.8716465172668347629e-7, 1e-22,
-#			"Celes::pr00", "dpsipr")
+#			'Celes.pr00', 'dpsipr')
 #	vvd(depspr, -0.7342018386722813087e-8, 1e-22,
-#			"Celes::pr00", "depspr")
+#			'Celes.pr00', 'depspr')
 #
 # }
 def t_pr00
-<<<<<<< HEAD
-  dpsipr, depspr = Celes::pr00(2400000.5, 53736)
+  dpsipr, depspr = Celes.pr00(2400000.5, 53736)
 
   vvd(dpsipr, -0.8716465172668347629e-7, 1e-22,
-    "Celes::pr00", "dpsipr")
+    'Celes.pr00', 'dpsipr')
   vvd(depspr, -0.7342018386722813087e-8, 1e-22,
-    "Celes::pr00", "depspr")
-=======
-  dpsipr, depspr = Celes.pr00(2_400_000.5, 53_736)
-
-  vvd(dpsipr, -0.8716465172668347629e-7, 1e-22,
-      'Celes::pr00', 'dpsipr')
-  vvd(depspr, -0.7342018386722813087e-8, 1e-22,
-      'Celes::pr00', 'depspr')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.pr00', 'depspr')
 end
 
 # static void t_prec76(int *status)
@@ -8194,46 +5676,30 @@ end
 #	ep11 = 2400000.5
 #	ep12 = 51544.0
 #
-#	Celes::prec76(ep01, ep02, ep11, ep12, &zeta, &z, &theta)
+#	Celes.prec76(ep01, ep02, ep11, ep12, &zeta, &z, &theta)
 #
 #	vvd(zeta,  0.5588961642000161243e-2, 1e-12,
-#			"Celes::prec76", "zeta")
+#			'Celes.prec76', 'zeta')
 #	vvd(z,     0.5589922365870680624e-2, 1e-12,
-#			"Celes::prec76", "z")
+#			'Celes.prec76', 'z')
 #	vvd(theta, 0.4858945471687296760e-2, 1e-12,
-#			"Celes::prec76", "theta")
+#			'Celes.prec76', 'theta')
 #
 # }
 def t_prec76
-<<<<<<< HEAD
   ep01 = 2400000.5
   ep02 = 33282.0
   ep11 = 2400000.5
   ep12 = 51544.0
 
-  zeta, z, theta = Celes::prec76(ep01, ep02, ep11, ep12)
-
-  vvd(zeta,  0.5588961642000161243e-2, 1e-12,
-    "Celes::prec76", "zeta")
-  vvd(z,     0.5589922365870680624e-2, 1e-12,
-    "Celes::prec76", "z")
-  vvd(theta, 0.4858945471687296760e-2, 1e-12,
-    "Celes::prec76", "theta")
-=======
-  ep01 = 2_400_000.5
-  ep02 = 33_282.0
-  ep11 = 2_400_000.5
-  ep12 = 51_544.0
-
   zeta, z, theta = Celes.prec76(ep01, ep02, ep11, ep12)
 
   vvd(zeta,  0.5588961642000161243e-2, 1e-12,
-      'Celes::prec76', 'zeta')
+    'Celes.prec76', 'zeta')
   vvd(z,     0.5589922365870680624e-2, 1e-12,
-      'Celes::prec76', 'z')
+    'Celes.prec76', 'z')
   vvd(theta, 0.4858945471687296760e-2, 1e-12,
-      'Celes::prec76', 'theta')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.prec76', 'theta')
 end
 
 # static void t_pv2p(int *status)
@@ -8249,11 +5715,11 @@ end
 #	pv[1][1] =  3.1
 #	pv[1][2] =  0.9
 #
-#	Celes::pv2p(pv, p)
+#	Celes.pv2p(pv, p)
 #
-#	vvd(p[0],  0.3, 0.0, "Celes::pv2p", "1")
-#	vvd(p[1],  1.2, 0.0, "Celes::pv2p", "2")
-#	vvd(p[2], -2.5, 0.0, "Celes::pv2p", "3")
+#	vvd(p[0],  0.3, 0.0, 'Celes.pv2p', '1')
+#	vvd(p[1],  1.2, 0.0, 'Celes.pv2p', '2')
+#	vvd(p[2], -2.5, 0.0, 'Celes.pv2p', '3')
 #
 # }
 def t_pv2p
@@ -8267,19 +5733,11 @@ def t_pv2p
   pv[1][1] =  3.1
   pv[1][2] =  0.9
 
-<<<<<<< HEAD
-  p = Celes::pv2p(pv)
-
-  vvd(p[0],  0.3, 0.0, "Celes::pv2p", "1")
-  vvd(p[1],  1.2, 0.0, "Celes::pv2p", "2")
-  vvd(p[2], -2.5, 0.0, "Celes::pv2p", "3")
-=======
   p = Celes.pv2p(pv)
 
-  vvd(p[0],  0.3, 0.0, 'Celes::pv2p', '1')
-  vvd(p[1],  1.2, 0.0, 'Celes::pv2p', '2')
-  vvd(p[2], -2.5, 0.0, 'Celes::pv2p', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(p[0],  0.3, 0.0, 'Celes.pv2p', '1')
+  vvd(p[1],  1.2, 0.0, 'Celes.pv2p', '2')
+  vvd(p[2], -2.5, 0.0, 'Celes.pv2p', '3')
 end
 
 # static void t_pv2s(int *status)
@@ -8295,14 +5753,14 @@ end
 #	pv[1][1] =  2.652814182060692e-6
 #	pv[1][2] =  2.568431853930293e-6
 #
-#	Celes::pv2s(pv, &theta, &phi, &r, &td, &pd, &rd)
+#	Celes.pv2s(pv, &theta, &phi, &r, &td, &pd, &rd)
 #
-#	vvd(theta, 3.073185307179586515, 1e-12, "Celes::pv2s", "theta")
-#	vvd(phi, 0.1229999999999999992, 1e-12, "Celes::pv2s", "phi")
-#	vvd(r, 0.4559999999999999757, 1e-12, "Celes::pv2s", "r")
-#	vvd(td, -0.7800000000000000364e-5, 1e-16, "Celes::pv2s", "td")
-#	vvd(pd, 0.9010000000000001639e-5, 1e-16, "Celes::pv2s", "pd")
-#	vvd(rd, -0.1229999999999999832e-4, 1e-16, "Celes::pv2s", "rd")
+#	vvd(theta, 3.073185307179586515, 1e-12, 'Celes.pv2s', 'theta')
+#	vvd(phi, 0.1229999999999999992, 1e-12, 'Celes.pv2s', 'phi')
+#	vvd(r, 0.4559999999999999757, 1e-12, 'Celes.pv2s', 'r')
+#	vvd(td, -0.7800000000000000364e-5, 1e-16, 'Celes.pv2s', 'td')
+#	vvd(pd, 0.9010000000000001639e-5, 1e-16, 'Celes.pv2s', 'pd')
+#	vvd(rd, -0.1229999999999999832e-4, 1e-16, 'Celes.pv2s', 'rd')
 #
 # }
 def t_pv2s
@@ -8316,25 +5774,14 @@ def t_pv2s
   pv[1][1] =  2.652814182060692e-6
   pv[1][2] =  2.568431853930293e-6
 
-<<<<<<< HEAD
-  theta, phi, r, td, pd, rd = Celes::pv2s(pv)
-
-  vvd(theta, 3.073185307179586515, 1e-12, "Celes::pv2s", "theta")
-  vvd(phi, 0.1229999999999999992, 1e-12, "Celes::pv2s", "phi")
-  vvd(r, 0.4559999999999999757, 1e-12, "Celes::pv2s", "r")
-  vvd(td, -0.7800000000000000364e-5, 1e-16, "Celes::pv2s", "td")
-  vvd(pd, 0.9010000000000001639e-5, 1e-16, "Celes::pv2s", "pd")
-  vvd(rd, -0.1229999999999999832e-4, 1e-16, "Celes::pv2s", "rd")
-=======
   theta, phi, r, td, pd, rd = Celes.pv2s(pv)
 
-  vvd(theta, 3.073185307179586515, 1e-12, 'Celes::pv2s', 'theta')
-  vvd(phi, 0.1229999999999999992, 1e-12, 'Celes::pv2s', 'phi')
-  vvd(r, 0.4559999999999999757, 1e-12, 'Celes::pv2s', 'r')
-  vvd(td, -0.7800000000000000364e-5, 1e-16, 'Celes::pv2s', 'td')
-  vvd(pd, 0.9010000000000001639e-5, 1e-16, 'Celes::pv2s', 'pd')
-  vvd(rd, -0.1229999999999999832e-4, 1e-16, 'Celes::pv2s', 'rd')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(theta, 3.073185307179586515, 1e-12, 'Celes.pv2s', 'theta')
+  vvd(phi, 0.1229999999999999992, 1e-12, 'Celes.pv2s', 'phi')
+  vvd(r, 0.4559999999999999757, 1e-12, 'Celes.pv2s', 'r')
+  vvd(td, -0.7800000000000000364e-5, 1e-16, 'Celes.pv2s', 'td')
+  vvd(pd, 0.9010000000000001639e-5, 1e-16, 'Celes.pv2s', 'pd')
+  vvd(rd, -0.1229999999999999832e-4, 1e-16, 'Celes.pv2s', 'rd')
 end
 
 # static void t_pvdpv(int *status)
@@ -8358,10 +5805,10 @@ end
 #	b[1][1] = 2.0
 #	b[1][2] = 8.0
 #
-#	Celes::pvdpv(a, b, adb)
+#	Celes.pvdpv(a, b, adb)
 #
-#	vvd(adb[0], 20.0, 1e-12, "Celes::pvdpv", "1")
-#	vvd(adb[1], 50.0, 1e-12, "Celes::pvdpv", "2")
+#	vvd(adb[0], 20.0, 1e-12, 'Celes.pvdpv', '1')
+#	vvd(adb[1], 50.0, 1e-12, 'Celes.pvdpv', '2')
 #
 # }
 def t_pvdpv
@@ -8384,17 +5831,10 @@ def t_pvdpv
   b[1][1] = 2.0
   b[1][2] = 8.0
 
-<<<<<<< HEAD
-  adb = Celes::pvdpv(a, b)
-
-  vvd(adb[0], 20.0, 1e-12, "Celes::pvdpv", "1")
-  vvd(adb[1], 50.0, 1e-12, "Celes::pvdpv", "2")
-=======
   adb = Celes.pvdpv(a, b)
 
-  vvd(adb[0], 20.0, 1e-12, 'Celes::pvdpv', '1')
-  vvd(adb[1], 50.0, 1e-12, 'Celes::pvdpv', '2')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(adb[0], 20.0, 1e-12, 'Celes.pvdpv', '1')
+  vvd(adb[1], 50.0, 1e-12, 'Celes.pvdpv', '2')
 end
 
 # static void t_pvm(int *status)
@@ -8410,10 +5850,10 @@ end
 #	pv[1][1] = -0.25
 #	pv[1][2] =  1.1
 #
-#	Celes::pvm(pv, &r, &s)
+#	Celes.pvm(pv, &r, &s)
 #
-#	vvd(r, 2.789265136196270604, 1e-12, "Celes::pvm", "r")
-#	vvd(s, 1.214495780149111922, 1e-12, "Celes::pvm", "s")
+#	vvd(r, 2.789265136196270604, 1e-12, 'Celes.pvm', 'r')
+#	vvd(s, 1.214495780149111922, 1e-12, 'Celes.pvm', 's')
 #
 # }
 def t_pvm
@@ -8427,17 +5867,10 @@ def t_pvm
   pv[1][1] = -0.25
   pv[1][2] =  1.1
 
-<<<<<<< HEAD
-  r, s = Celes::pvm(pv)
-
-  vvd(r, 2.789265136196270604, 1e-12, "Celes::pvm", "r")
-  vvd(s, 1.214495780149111922, 1e-12, "Celes::pvm", "s")
-=======
   r, s = Celes.pvm(pv)
 
-  vvd(r, 2.789265136196270604, 1e-12, 'Celes::pvm', 'r')
-  vvd(s, 1.214495780149111922, 1e-12, 'Celes::pvm', 's')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(r, 2.789265136196270604, 1e-12, 'Celes.pvm', 'r')
+  vvd(s, 1.214495780149111922, 1e-12, 'Celes.pvm', 's')
 end
 
 # static void t_pvmpv(int *status)
@@ -8461,15 +5894,15 @@ end
 #	b[1][1] = 2.0
 #	b[1][2] = 1.0
 #
-#	Celes::pvmpv(a, b, amb)
+#	Celes.pvmpv(a, b, amb)
 #
-#	vvd(amb[0][0],  1.0, 1e-12, "Celes::pvmpv", "11")
-#	vvd(amb[0][1], -1.0, 1e-12, "Celes::pvmpv", "21")
-#	vvd(amb[0][2], -1.0, 1e-12, "Celes::pvmpv", "31")
+#	vvd(amb[0][0],  1.0, 1e-12, 'Celes.pvmpv', '11')
+#	vvd(amb[0][1], -1.0, 1e-12, 'Celes.pvmpv', '21')
+#	vvd(amb[0][2], -1.0, 1e-12, 'Celes.pvmpv', '31')
 #
-#	vvd(amb[1][0],  2.0, 1e-12, "Celes::pvmpv", "12")
-#	vvd(amb[1][1],  4.0, 1e-12, "Celes::pvmpv", "22")
-#	vvd(amb[1][2],  2.0, 1e-12, "Celes::pvmpv", "32")
+#	vvd(amb[1][0],  2.0, 1e-12, 'Celes.pvmpv', '12')
+#	vvd(amb[1][1],  4.0, 1e-12, 'Celes.pvmpv', '22')
+#	vvd(amb[1][2],  2.0, 1e-12, 'Celes.pvmpv', '32')
 #
 # }
 def t_pvmpv
@@ -8492,27 +5925,15 @@ def t_pvmpv
   b[1][1] = 2.0
   b[1][2] = 1.0
 
-<<<<<<< HEAD
-  amb = Celes::pvmpv(a, b)
-
-  vvd(amb[0][0],  1.0, 1e-12, "Celes::pvmpv", "11")
-  vvd(amb[0][1], -1.0, 1e-12, "Celes::pvmpv", "21")
-  vvd(amb[0][2], -1.0, 1e-12, "Celes::pvmpv", "31")
-
-  vvd(amb[1][0],  2.0, 1e-12, "Celes::pvmpv", "12")
-  vvd(amb[1][1],  4.0, 1e-12, "Celes::pvmpv", "22")
-  vvd(amb[1][2],  2.0, 1e-12, "Celes::pvmpv", "32")
-=======
   amb = Celes.pvmpv(a, b)
 
-  vvd(amb[0][0],  1.0, 1e-12, 'Celes::pvmpv', '11')
-  vvd(amb[0][1], -1.0, 1e-12, 'Celes::pvmpv', '21')
-  vvd(amb[0][2], -1.0, 1e-12, 'Celes::pvmpv', '31')
+  vvd(amb[0][0],  1.0, 1e-12, 'Celes.pvmpv', '11')
+  vvd(amb[0][1], -1.0, 1e-12, 'Celes.pvmpv', '21')
+  vvd(amb[0][2], -1.0, 1e-12, 'Celes.pvmpv', '31')
 
-  vvd(amb[1][0],  2.0, 1e-12, 'Celes::pvmpv', '12')
-  vvd(amb[1][1],  4.0, 1e-12, 'Celes::pvmpv', '22')
-  vvd(amb[1][2],  2.0, 1e-12, 'Celes::pvmpv', '32')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(amb[1][0],  2.0, 1e-12, 'Celes.pvmpv', '12')
+  vvd(amb[1][1],  4.0, 1e-12, 'Celes.pvmpv', '22')
+  vvd(amb[1][2],  2.0, 1e-12, 'Celes.pvmpv', '32')
 end
 
 # static void t_pvppv(int *status)
@@ -8536,15 +5957,15 @@ end
 #	b[1][1] = 2.0
 #	b[1][2] = 1.0
 #
-#	Celes::pvppv(a, b, apb)
+#	Celes.pvppv(a, b, apb)
 #
-#	vvd(apb[0][0], 3.0, 1e-12, "Celes::pvppv", "p1")
-#	vvd(apb[0][1], 5.0, 1e-12, "Celes::pvppv", "p2")
-#	vvd(apb[0][2], 7.0, 1e-12, "Celes::pvppv", "p3")
+#	vvd(apb[0][0], 3.0, 1e-12, 'Celes.pvppv', 'p1')
+#	vvd(apb[0][1], 5.0, 1e-12, 'Celes.pvppv', 'p2')
+#	vvd(apb[0][2], 7.0, 1e-12, 'Celes.pvppv', 'p3')
 #
-#	vvd(apb[1][0], 8.0, 1e-12, "Celes::pvppv", "v1")
-#	vvd(apb[1][1], 8.0, 1e-12, "Celes::pvppv", "v2")
-#	vvd(apb[1][2], 4.0, 1e-12, "Celes::pvppv", "v3")
+#	vvd(apb[1][0], 8.0, 1e-12, 'Celes.pvppv', 'v1')
+#	vvd(apb[1][1], 8.0, 1e-12, 'Celes.pvppv', 'v2')
+#	vvd(apb[1][2], 4.0, 1e-12, 'Celes.pvppv', 'v3')
 #
 # }
 def t_pvppv
@@ -8567,27 +5988,15 @@ def t_pvppv
   b[1][1] = 2.0
   b[1][2] = 1.0
 
-<<<<<<< HEAD
-  apb = Celes::pvppv(a, b)
-
-  vvd(apb[0][0], 3.0, 1e-12, "Celes::pvppv", "p1")
-  vvd(apb[0][1], 5.0, 1e-12, "Celes::pvppv", "p2")
-  vvd(apb[0][2], 7.0, 1e-12, "Celes::pvppv", "p3")
-
-  vvd(apb[1][0], 8.0, 1e-12, "Celes::pvppv", "v1")
-  vvd(apb[1][1], 8.0, 1e-12, "Celes::pvppv", "v2")
-  vvd(apb[1][2], 4.0, 1e-12, "Celes::pvppv", "v3")
-=======
   apb = Celes.pvppv(a, b)
 
-  vvd(apb[0][0], 3.0, 1e-12, 'Celes::pvppv', 'p1')
-  vvd(apb[0][1], 5.0, 1e-12, 'Celes::pvppv', 'p2')
-  vvd(apb[0][2], 7.0, 1e-12, 'Celes::pvppv', 'p3')
+  vvd(apb[0][0], 3.0, 1e-12, 'Celes.pvppv', 'p1')
+  vvd(apb[0][1], 5.0, 1e-12, 'Celes.pvppv', 'p2')
+  vvd(apb[0][2], 7.0, 1e-12, 'Celes.pvppv', 'p3')
 
-  vvd(apb[1][0], 8.0, 1e-12, 'Celes::pvppv', 'v1')
-  vvd(apb[1][1], 8.0, 1e-12, 'Celes::pvppv', 'v2')
-  vvd(apb[1][2], 4.0, 1e-12, 'Celes::pvppv', 'v3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(apb[1][0], 8.0, 1e-12, 'Celes.pvppv', 'v1')
+  vvd(apb[1][1], 8.0, 1e-12, 'Celes.pvppv', 'v2')
+  vvd(apb[1][2], 4.0, 1e-12, 'Celes.pvppv', 'v3')
 end
 
 # static void t_pvstar(int *status)
@@ -8604,58 +6013,39 @@ end
 #	pv[1][1] = -0.6253919754866173866e-2
 #	pv[1][2] =  0.1189353719774107189e-1
 #
-#	j = Celes::pvstar(pv, &ra, &dec, &pmr, &pmd, &px, &rv)
+#	j = Celes.pvstar(pv, &ra, &dec, &pmr, &pmd, &px, &rv)
 #
-#	vvd(ra, 0.1686756e-1, 1e-12, "Celes::pvstar", "ra")
-#	vvd(dec, -1.093989828, 1e-12, "Celes::pvstar", "dec")
-#	vvd(pmr, -0.178323516e-4, 1e-16, "Celes::pvstar", "pmr")
-#	vvd(pmd, 0.2336024047e-5, 1e-16, "Celes::pvstar", "pmd")
-#	vvd(px, 0.74723, 1e-12, "Celes::pvstar", "px")
-#	vvd(rv, -21.6, 1e-11, "Celes::pvstar", "rv")
+#	vvd(ra, 0.1686756e-1, 1e-12, 'Celes.pvstar', 'ra')
+#	vvd(dec, -1.093989828, 1e-12, 'Celes.pvstar', 'dec')
+#	vvd(pmr, -0.178323516e-4, 1e-16, 'Celes.pvstar', 'pmr')
+#	vvd(pmd, 0.2336024047e-5, 1e-16, 'Celes.pvstar', 'pmd')
+#	vvd(px, 0.74723, 1e-12, 'Celes.pvstar', 'px')
+#	vvd(rv, -21.6, 1e-11, 'Celes.pvstar', 'rv')
 #
-#	viv(j, 0, "Celes::pvstar", "j")
+#	viv(j, 0, 'Celes.pvstar', 'j')
 #
 # }
 def t_pvstar
   pv = [[], []]
 
-<<<<<<< HEAD
   pv[0][0] =  126668.5912743160601
   pv[0][1] =  2136.792716839935195
   pv[0][2] = -245251.2339876830091
-=======
-  pv[0][0] =  126_668.5912743160601
-  pv[0][1] =  2136.792716839935195
-  pv[0][2] = -245_251.2339876830091
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 
   pv[1][0] = -0.4051854035740712739e-2
   pv[1][1] = -0.6253919754866173866e-2
   pv[1][2] =  0.1189353719774107189e-1
 
-<<<<<<< HEAD
-  ra, dec, pmr, pmd, px, rv = Celes::pvstar(pv)
-
-  vvd(ra, 0.1686756e-1, 1e-12, "Celes::pvstar", "ra")
-  vvd(dec, -1.093989828, 1e-12, "Celes::pvstar", "dec")
-  vvd(pmr, -0.178323516e-4, 1e-16, "Celes::pvstar", "pmr")
-  vvd(pmd, 0.2336024047e-5, 1e-16, "Celes::pvstar", "pmd")
-  vvd(px, 0.74723, 1e-12, "Celes::pvstar", "px")
-  vvd(rv, -21.6, 1e-11, "Celes::pvstar", "rv")
-
-  viv(Celes::status, 0, "Celes::pvstar", "j")
-=======
   ra, dec, pmr, pmd, px, rv = Celes.pvstar(pv)
 
-  vvd(ra, 0.1686756e-1, 1e-12, 'Celes::pvstar', 'ra')
-  vvd(dec, -1.093989828, 1e-12, 'Celes::pvstar', 'dec')
-  vvd(pmr, -0.178323516e-4, 1e-16, 'Celes::pvstar', 'pmr')
-  vvd(pmd, 0.2336024047e-5, 1e-16, 'Celes::pvstar', 'pmd')
-  vvd(px, 0.74723, 1e-12, 'Celes::pvstar', 'px')
-  vvd(rv, -21.6, 1e-11, 'Celes::pvstar', 'rv')
+  vvd(ra, 0.1686756e-1, 1e-12, 'Celes.pvstar', 'ra')
+  vvd(dec, -1.093989828, 1e-12, 'Celes.pvstar', 'dec')
+  vvd(pmr, -0.178323516e-4, 1e-16, 'Celes.pvstar', 'pmr')
+  vvd(pmd, 0.2336024047e-5, 1e-16, 'Celes.pvstar', 'pmd')
+  vvd(px, 0.74723, 1e-12, 'Celes.pvstar', 'px')
+  vvd(rv, -21.6, 1e-11, 'Celes.pvstar', 'rv')
 
-  viv(Celes.status, 0, 'Celes::pvstar', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  viv(Celes.status, 0, 'Celes.pvstar', 'j')
 end
 
 # static void t_pvu(int *status)
@@ -8671,73 +6061,49 @@ end
 #	pv[1][1] = -0.6253919754866175788e-2
 #	pv[1][2] =  0.1189353719774107615e-1
 #
-#	Celes::pvu(2920.0, pv, upv)
+#	Celes.pvu(2920.0, pv, upv)
 #
 #	vvd(upv[0][0], 126656.7598605317105, 1e-12,
-#			"Celes::pvu", "p1")
+#			'Celes.pvu', 'p1')
 #	vvd(upv[0][1], 2118.531271155726332, 1e-12,
-#			"Celes::pvu", "p2")
+#			'Celes.pvu', 'p2')
 #	vvd(upv[0][2], -245216.5048590656190, 1e-12,
-#			"Celes::pvu", "p3")
+#			'Celes.pvu', 'p3')
 #
 #	vvd(upv[1][0], -0.4051854035740713039e-2, 1e-12,
-#			"Celes::pvu", "v1")
+#			'Celes.pvu', 'v1')
 #	vvd(upv[1][1], -0.6253919754866175788e-2, 1e-12,
-#			"Celes::pvu", "v2")
+#			'Celes.pvu', 'v2')
 #	vvd(upv[1][2], 0.1189353719774107615e-1, 1e-12,
-#			"Celes::pvu", "v3")
+#			'Celes.pvu', 'v3')
 #
 # }
 def t_pvu
   pv = [[], []]
 
-<<<<<<< HEAD
   pv[0][0] =  126668.5912743160734
   pv[0][1] =  2136.792716839935565
   pv[0][2] = -245251.2339876830229
-=======
-  pv[0][0] =  126_668.5912743160734
-  pv[0][1] =  2136.792716839935565
-  pv[0][2] = -245_251.2339876830229
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 
   pv[1][0] = -0.4051854035740713039e-2
   pv[1][1] = -0.6253919754866175788e-2
   pv[1][2] =  0.1189353719774107615e-1
 
-<<<<<<< HEAD
-  upv = Celes::pvu(2920.0, pv)
-
-  vvd(upv[0][0], 126656.7598605317105, 1e-12,
-    "Celes::pvu", "p1")
-  vvd(upv[0][1], 2118.531271155726332, 1e-12,
-    "Celes::pvu", "p2")
-  vvd(upv[0][2], -245216.5048590656190, 1e-12,
-    "Celes::pvu", "p3")
-
-  vvd(upv[1][0], -0.4051854035740713039e-2, 1e-12,
-    "Celes::pvu", "v1")
-  vvd(upv[1][1], -0.6253919754866175788e-2, 1e-12,
-    "Celes::pvu", "v2")
-  vvd(upv[1][2], 0.1189353719774107615e-1, 1e-12,
-    "Celes::pvu", "v3")
-=======
   upv = Celes.pvu(2920.0, pv)
 
-  vvd(upv[0][0], 126_656.7598605317105, 1e-12,
-      'Celes::pvu', 'p1')
+  vvd(upv[0][0], 126656.7598605317105, 1e-12,
+    'Celes.pvu', 'p1')
   vvd(upv[0][1], 2118.531271155726332, 1e-12,
-      'Celes::pvu', 'p2')
-  vvd(upv[0][2], -245_216.5048590656190, 1e-12,
-      'Celes::pvu', 'p3')
+    'Celes.pvu', 'p2')
+  vvd(upv[0][2], -245216.5048590656190, 1e-12,
+    'Celes.pvu', 'p3')
 
   vvd(upv[1][0], -0.4051854035740713039e-2, 1e-12,
-      'Celes::pvu', 'v1')
+    'Celes.pvu', 'v1')
   vvd(upv[1][1], -0.6253919754866175788e-2, 1e-12,
-      'Celes::pvu', 'v2')
+    'Celes.pvu', 'v2')
   vvd(upv[1][2], 0.1189353719774107615e-1, 1e-12,
-      'Celes::pvu', 'v3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.pvu', 'v3')
 end
 
 # static void t_pvup(int *status)
@@ -8753,43 +6119,29 @@ end
 #	pv[1][1] = -0.6253919754866175788e-2
 #	pv[1][2] =  0.1189353719774107615e-1
 #
-#	Celes::pvup(2920.0, pv, p)
+#	Celes.pvup(2920.0, pv, p)
 #
-#	vvd(p[0],  126656.7598605317105,   1e-12, "Celes::pvup", "1")
-#	vvd(p[1],    2118.531271155726332, 1e-12, "Celes::pvup", "2")
-#	vvd(p[2], -245216.5048590656190,   1e-12, "Celes::pvup", "3")
+#	vvd(p[0],  126656.7598605317105,   1e-12, 'Celes.pvup', '1')
+#	vvd(p[1],    2118.531271155726332, 1e-12, 'Celes.pvup', '2')
+#	vvd(p[2], -245216.5048590656190,   1e-12, 'Celes.pvup', '3')
 #
 # }
 def t_pvup
   pv = [[], []]
 
-<<<<<<< HEAD
   pv[0][0] =  126668.5912743160734
   pv[0][1] =  2136.792716839935565
   pv[0][2] = -245251.2339876830229
-=======
-  pv[0][0] =  126_668.5912743160734
-  pv[0][1] =  2136.792716839935565
-  pv[0][2] = -245_251.2339876830229
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 
   pv[1][0] = -0.4051854035740713039e-2
   pv[1][1] = -0.6253919754866175788e-2
   pv[1][2] =  0.1189353719774107615e-1
 
-<<<<<<< HEAD
-  p = Celes::pvup(2920.0, pv)
-
-  vvd(p[0],  126656.7598605317105,   1e-12, "Celes::pvup", "1")
-  vvd(p[1],    2118.531271155726332, 1e-12, "Celes::pvup", "2")
-  vvd(p[2], -245216.5048590656190,   1e-12, "Celes::pvup", "3")
-=======
   p = Celes.pvup(2920.0, pv)
 
-  vvd(p[0],  126_656.7598605317105,   1e-12, 'Celes::pvup', '1')
-  vvd(p[1],    2118.531271155726332, 1e-12, 'Celes::pvup', '2')
-  vvd(p[2], -245_216.5048590656190,   1e-12, 'Celes::pvup', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(p[0],  126656.7598605317105,   1e-12, 'Celes.pvup', '1')
+  vvd(p[1],    2118.531271155726332, 1e-12, 'Celes.pvup', '2')
+  vvd(p[2], -245216.5048590656190,   1e-12, 'Celes.pvup', '3')
 end
 
 # static void t_pvxpv(int *status)
@@ -8813,15 +6165,15 @@ end
 #	b[1][1] = 2.0
 #	b[1][2] = 8.0
 #
-#	Celes::pvxpv(a, b, axb)
+#	Celes.pvxpv(a, b, axb)
 #
-#	vvd(axb[0][0],  -1.0, 1e-12, "Celes::pvxpv", "p1")
-#	vvd(axb[0][1],  -5.0, 1e-12, "Celes::pvxpv", "p2")
-#	vvd(axb[0][2],   4.0, 1e-12, "Celes::pvxpv", "p3")
+#	vvd(axb[0][0],  -1.0, 1e-12, 'Celes.pvxpv', 'p1')
+#	vvd(axb[0][1],  -5.0, 1e-12, 'Celes.pvxpv', 'p2')
+#	vvd(axb[0][2],   4.0, 1e-12, 'Celes.pvxpv', 'p3')
 #
-#	vvd(axb[1][0],  -2.0, 1e-12, "Celes::pvxpv", "v1")
-#	vvd(axb[1][1], -36.0, 1e-12, "Celes::pvxpv", "v2")
-#	vvd(axb[1][2],  22.0, 1e-12, "Celes::pvxpv", "v3")
+#	vvd(axb[1][0],  -2.0, 1e-12, 'Celes.pvxpv', 'v1')
+#	vvd(axb[1][1], -36.0, 1e-12, 'Celes.pvxpv', 'v2')
+#	vvd(axb[1][2],  22.0, 1e-12, 'Celes.pvxpv', 'v3')
 #
 # }
 def t_pvxpv
@@ -8844,27 +6196,15 @@ def t_pvxpv
   b[1][1] = 2.0
   b[1][2] = 8.0
 
-<<<<<<< HEAD
-  axb = Celes::pvxpv(a, b)
-
-  vvd(axb[0][0],  -1.0, 1e-12, "Celes::pvxpv", "p1")
-  vvd(axb[0][1],  -5.0, 1e-12, "Celes::pvxpv", "p2")
-  vvd(axb[0][2],   4.0, 1e-12, "Celes::pvxpv", "p3")
-
-  vvd(axb[1][0],  -2.0, 1e-12, "Celes::pvxpv", "v1")
-  vvd(axb[1][1], -36.0, 1e-12, "Celes::pvxpv", "v2")
-  vvd(axb[1][2],  22.0, 1e-12, "Celes::pvxpv", "v3")
-=======
   axb = Celes.pvxpv(a, b)
 
-  vvd(axb[0][0],  -1.0, 1e-12, 'Celes::pvxpv', 'p1')
-  vvd(axb[0][1],  -5.0, 1e-12, 'Celes::pvxpv', 'p2')
-  vvd(axb[0][2],   4.0, 1e-12, 'Celes::pvxpv', 'p3')
+  vvd(axb[0][0],  -1.0, 1e-12, 'Celes.pvxpv', 'p1')
+  vvd(axb[0][1],  -5.0, 1e-12, 'Celes.pvxpv', 'p2')
+  vvd(axb[0][2],   4.0, 1e-12, 'Celes.pvxpv', 'p3')
 
-  vvd(axb[1][0],  -2.0, 1e-12, 'Celes::pvxpv', 'v1')
-  vvd(axb[1][1], -36.0, 1e-12, 'Celes::pvxpv', 'v2')
-  vvd(axb[1][2],  22.0, 1e-12, 'Celes::pvxpv', 'v3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(axb[1][0],  -2.0, 1e-12, 'Celes.pvxpv', 'v1')
+  vvd(axb[1][1], -36.0, 1e-12, 'Celes.pvxpv', 'v2')
+  vvd(axb[1][2],  22.0, 1e-12, 'Celes.pvxpv', 'v3')
 end
 
 # static void t_pxp(int *status)
@@ -8880,11 +6220,11 @@ end
 #	b[1] = 3.0
 #	b[2] = 4.0
 #
-#	Celes::pxp(a, b, axb)
+#	Celes.pxp(a, b, axb)
 #
-#	vvd(axb[0], -1.0, 1e-12, "Celes::pxp", "1")
-#	vvd(axb[1], -5.0, 1e-12, "Celes::pxp", "2")
-#	vvd(axb[2],  4.0, 1e-12, "Celes::pxp", "3")
+#	vvd(axb[0], -1.0, 1e-12, 'Celes.pxp', '1')
+#	vvd(axb[1], -5.0, 1e-12, 'Celes.pxp', '2')
+#	vvd(axb[2],  4.0, 1e-12, 'Celes.pxp', '3')
 #
 # }
 def t_pxp
@@ -8899,19 +6239,11 @@ def t_pxp
   b[1] = 3.0
   b[2] = 4.0
 
-<<<<<<< HEAD
-  axb = Celes::pxp(a, b)
-
-  vvd(axb[0], -1.0, 1e-12, "Celes::pxp", "1")
-  vvd(axb[1], -5.0, 1e-12, "Celes::pxp", "2")
-  vvd(axb[2],  4.0, 1e-12, "Celes::pxp", "3")
-=======
   axb = Celes.pxp(a, b)
 
-  vvd(axb[0], -1.0, 1e-12, 'Celes::pxp', '1')
-  vvd(axb[1], -5.0, 1e-12, 'Celes::pxp', '2')
-  vvd(axb[2],  4.0, 1e-12, 'Celes::pxp', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(axb[0], -1.0, 1e-12, 'Celes.pxp', '1')
+  vvd(axb[1], -5.0, 1e-12, 'Celes.pxp', '2')
+  vvd(axb[2],  4.0, 1e-12, 'Celes.pxp', '3')
 end
 
 # static void t_rm2v(int *status)
@@ -8931,11 +6263,11 @@ end
 #	r[2][1] =  0.48
 #	r[2][2] = -0.64
 #
-#	Celes::rm2v(r, w)
+#	Celes.rm2v(r, w)
 #
-#	vvd(w[0],  0.0,                  1e-12, "Celes::rm2v", "1")
-#	vvd(w[1],  1.413716694115406957, 1e-12, "Celes::rm2v", "2")
-#	vvd(w[2], -1.884955592153875943, 1e-12, "Celes::rm2v", "3")
+#	vvd(w[0],  0.0,                  1e-12, 'Celes.rm2v', '1')
+#	vvd(w[1],  1.413716694115406957, 1e-12, 'Celes.rm2v', '2')
+#	vvd(w[2], -1.884955592153875943, 1e-12, 'Celes.rm2v', '3')
 #
 # }
 def t_rm2v
@@ -8953,19 +6285,11 @@ def t_rm2v
   r[2][1] =  0.48
   r[2][2] = -0.64
 
-<<<<<<< HEAD
-  w = Celes::rm2v(r)
-
-  vvd(w[0],  0.0,                  1e-12, "Celes::rm2v", "1")
-  vvd(w[1],  1.413716694115406957, 1e-12, "Celes::rm2v", "2")
-  vvd(w[2], -1.884955592153875943, 1e-12, "Celes::rm2v", "3")
-=======
   w = Celes.rm2v(r)
 
-  vvd(w[0],  0.0,                  1e-12, 'Celes::rm2v', '1')
-  vvd(w[1],  1.413716694115406957, 1e-12, 'Celes::rm2v', '2')
-  vvd(w[2], -1.884955592153875943, 1e-12, 'Celes::rm2v', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(w[0],  0.0,                  1e-12, 'Celes.rm2v', '1')
+  vvd(w[1],  1.413716694115406957, 1e-12, 'Celes.rm2v', '2')
+  vvd(w[2], -1.884955592153875943, 1e-12, 'Celes.rm2v', '3')
 end
 
 # static void t_rv2m(int *status)
@@ -8977,19 +6301,19 @@ end
 #	w[1] =  1.41371669
 #	w[2] = -1.88495559
 #
-#	Celes::rv2m(w, r)
+#	Celes.rv2m(w, r)
 #
-#	vvd(r[0][0], -0.7071067782221119905, 1e-14, "Celes::rv2m", "11")
-#	vvd(r[0][1], -0.5656854276809129651, 1e-14, "Celes::rv2m", "12")
-#	vvd(r[0][2], -0.4242640700104211225, 1e-14, "Celes::rv2m", "13")
+#	vvd(r[0][0], -0.7071067782221119905, 1e-14, 'Celes.rv2m', '11')
+#	vvd(r[0][1], -0.5656854276809129651, 1e-14, 'Celes.rv2m', '12')
+#	vvd(r[0][2], -0.4242640700104211225, 1e-14, 'Celes.rv2m', '13')
 #
-#	vvd(r[1][0],  0.5656854276809129651, 1e-14, "Celes::rv2m", "21")
-#	vvd(r[1][1], -0.0925483394532274246, 1e-14, "Celes::rv2m", "22")
-#	vvd(r[1][2], -0.8194112531408833269, 1e-14, "Celes::rv2m", "23")
+#	vvd(r[1][0],  0.5656854276809129651, 1e-14, 'Celes.rv2m', '21')
+#	vvd(r[1][1], -0.0925483394532274246, 1e-14, 'Celes.rv2m', '22')
+#	vvd(r[1][2], -0.8194112531408833269, 1e-14, 'Celes.rv2m', '23')
 #
-#	vvd(r[2][0],  0.4242640700104211225, 1e-14, "Celes::rv2m", "31")
-#	vvd(r[2][1], -0.8194112531408833269, 1e-14, "Celes::rv2m", "32")
-#	vvd(r[2][2],  0.3854415612311154341, 1e-14, "Celes::rv2m", "33")
+#	vvd(r[2][0],  0.4242640700104211225, 1e-14, 'Celes.rv2m', '31')
+#	vvd(r[2][1], -0.8194112531408833269, 1e-14, 'Celes.rv2m', '32')
+#	vvd(r[2][2],  0.3854415612311154341, 1e-14, 'Celes.rv2m', '33')
 #
 # }
 def t_rv2m
@@ -8999,35 +6323,19 @@ def t_rv2m
   w[1] =  1.41371669
   w[2] = -1.88495559
 
-<<<<<<< HEAD
-  r = Celes::rv2m(w)
-
-  vvd(r[0][0], -0.7071067782221119905, 1e-14, "Celes::rv2m", "11")
-  vvd(r[0][1], -0.5656854276809129651, 1e-14, "Celes::rv2m", "12")
-  vvd(r[0][2], -0.4242640700104211225, 1e-14, "Celes::rv2m", "13")
-
-  vvd(r[1][0],  0.5656854276809129651, 1e-14, "Celes::rv2m", "21")
-  vvd(r[1][1], -0.0925483394532274246, 1e-14, "Celes::rv2m", "22")
-  vvd(r[1][2], -0.8194112531408833269, 1e-14, "Celes::rv2m", "23")
-
-  vvd(r[2][0],  0.4242640700104211225, 1e-14, "Celes::rv2m", "31")
-  vvd(r[2][1], -0.8194112531408833269, 1e-14, "Celes::rv2m", "32")
-  vvd(r[2][2],  0.3854415612311154341, 1e-14, "Celes::rv2m", "33")
-=======
   r = Celes.rv2m(w)
 
-  vvd(r[0][0], -0.7071067782221119905, 1e-14, 'Celes::rv2m', '11')
-  vvd(r[0][1], -0.5656854276809129651, 1e-14, 'Celes::rv2m', '12')
-  vvd(r[0][2], -0.4242640700104211225, 1e-14, 'Celes::rv2m', '13')
+  vvd(r[0][0], -0.7071067782221119905, 1e-14, 'Celes.rv2m', '11')
+  vvd(r[0][1], -0.5656854276809129651, 1e-14, 'Celes.rv2m', '12')
+  vvd(r[0][2], -0.4242640700104211225, 1e-14, 'Celes.rv2m', '13')
 
-  vvd(r[1][0],  0.5656854276809129651, 1e-14, 'Celes::rv2m', '21')
-  vvd(r[1][1], -0.0925483394532274246, 1e-14, 'Celes::rv2m', '22')
-  vvd(r[1][2], -0.8194112531408833269, 1e-14, 'Celes::rv2m', '23')
+  vvd(r[1][0],  0.5656854276809129651, 1e-14, 'Celes.rv2m', '21')
+  vvd(r[1][1], -0.0925483394532274246, 1e-14, 'Celes.rv2m', '22')
+  vvd(r[1][2], -0.8194112531408833269, 1e-14, 'Celes.rv2m', '23')
 
-  vvd(r[2][0],  0.4242640700104211225, 1e-14, 'Celes::rv2m', '31')
-  vvd(r[2][1], -0.8194112531408833269, 1e-14, 'Celes::rv2m', '32')
-  vvd(r[2][2],  0.3854415612311154341, 1e-14, 'Celes::rv2m', '33')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(r[2][0],  0.4242640700104211225, 1e-14, 'Celes.rv2m', '31')
+  vvd(r[2][1], -0.8194112531408833269, 1e-14, 'Celes.rv2m', '32')
+  vvd(r[2][2],  0.3854415612311154341, 1e-14, 'Celes.rv2m', '33')
 end
 
 # static void t_rx(int *status)
@@ -9049,19 +6357,19 @@ end
 #	r[2][1] = 4.0
 #	r[2][2] = 5.0
 #
-#	Celes::rx(phi, r)
+#	Celes.rx(phi, r)
 #
-#	vvd(r[0][0], 2.0, 0.0, "Celes::rx", "11")
-#	vvd(r[0][1], 3.0, 0.0, "Celes::rx", "12")
-#	vvd(r[0][2], 2.0, 0.0, "Celes::rx", "13")
+#	vvd(r[0][0], 2.0, 0.0, 'Celes.rx', '11')
+#	vvd(r[0][1], 3.0, 0.0, 'Celes.rx', '12')
+#	vvd(r[0][2], 2.0, 0.0, 'Celes.rx', '13')
 #
-#	vvd(r[1][0], 3.839043388235612460, 1e-12, "Celes::rx", "21")
-#	vvd(r[1][1], 3.237033249594111899, 1e-12, "Celes::rx", "22")
-#	vvd(r[1][2], 4.516714379005982719, 1e-12, "Celes::rx", "23")
+#	vvd(r[1][0], 3.839043388235612460, 1e-12, 'Celes.rx', '21')
+#	vvd(r[1][1], 3.237033249594111899, 1e-12, 'Celes.rx', '22')
+#	vvd(r[1][2], 4.516714379005982719, 1e-12, 'Celes.rx', '23')
 #
-#	vvd(r[2][0], 1.806030415924501684, 1e-12, "Celes::rx", "31")
-#	vvd(r[2][1], 3.085711545336372503, 1e-12, "Celes::rx", "32")
-#	vvd(r[2][2], 3.687721683977873065, 1e-12, "Celes::rx", "33")
+#	vvd(r[2][0], 1.806030415924501684, 1e-12, 'Celes.rx', '31')
+#	vvd(r[2][1], 3.085711545336372503, 1e-12, 'Celes.rx', '32')
+#	vvd(r[2][2], 3.687721683977873065, 1e-12, 'Celes.rx', '33')
 #
 # }
 def t_rx
@@ -9080,35 +6388,19 @@ def t_rx
   r[2][1] = 4.0
   r[2][2] = 5.0
 
-<<<<<<< HEAD
-  Celes::rx!(phi, r)
-
-  vvd(r[0][0], 2.0, 0.0, "Celes::rx!", "11")
-  vvd(r[0][1], 3.0, 0.0, "Celes::rx!", "12")
-  vvd(r[0][2], 2.0, 0.0, "Celes::rx!", "13")
-
-  vvd(r[1][0], 3.839043388235612460, 1e-12, "Celes::rx!", "21")
-  vvd(r[1][1], 3.237033249594111899, 1e-12, "Celes::rx!", "22")
-  vvd(r[1][2], 4.516714379005982719, 1e-12, "Celes::rx!", "23")
-
-  vvd(r[2][0], 1.806030415924501684, 1e-12, "Celes::rx!", "31")
-  vvd(r[2][1], 3.085711545336372503, 1e-12, "Celes::rx!", "32")
-  vvd(r[2][2], 3.687721683977873065, 1e-12, "Celes::rx!", "33")
-=======
   Celes.rx!(phi, r)
 
-  vvd(r[0][0], 2.0, 0.0, 'Celes::rx!', '11')
-  vvd(r[0][1], 3.0, 0.0, 'Celes::rx!', '12')
-  vvd(r[0][2], 2.0, 0.0, 'Celes::rx!', '13')
+  vvd(r[0][0], 2.0, 0.0, 'Celes.rx!', '11')
+  vvd(r[0][1], 3.0, 0.0, 'Celes.rx!', '12')
+  vvd(r[0][2], 2.0, 0.0, 'Celes.rx!', '13')
 
-  vvd(r[1][0], 3.839043388235612460, 1e-12, 'Celes::rx!', '21')
-  vvd(r[1][1], 3.237033249594111899, 1e-12, 'Celes::rx!', '22')
-  vvd(r[1][2], 4.516714379005982719, 1e-12, 'Celes::rx!', '23')
+  vvd(r[1][0], 3.839043388235612460, 1e-12, 'Celes.rx!', '21')
+  vvd(r[1][1], 3.237033249594111899, 1e-12, 'Celes.rx!', '22')
+  vvd(r[1][2], 4.516714379005982719, 1e-12, 'Celes.rx!', '23')
 
-  vvd(r[2][0], 1.806030415924501684, 1e-12, 'Celes::rx!', '31')
-  vvd(r[2][1], 3.085711545336372503, 1e-12, 'Celes::rx!', '32')
-  vvd(r[2][2], 3.687721683977873065, 1e-12, 'Celes::rx!', '33')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(r[2][0], 1.806030415924501684, 1e-12, 'Celes.rx!', '31')
+  vvd(r[2][1], 3.085711545336372503, 1e-12, 'Celes.rx!', '32')
+  vvd(r[2][2], 3.687721683977873065, 1e-12, 'Celes.rx!', '33')
 end
 
 # static void t_rxp(int *status)
@@ -9132,11 +6424,11 @@ end
 #	p[1] = 1.5
 #	p[2] = 0.1
 #
-#	Celes::rxp(r, p, rp)
+#	Celes.rxp(r, p, rp)
 #
-#	vvd(rp[0], 5.1, 1e-12, "Celes::rxp", "1")
-#	vvd(rp[1], 3.9, 1e-12, "Celes::rxp", "2")
-#	vvd(rp[2], 7.1, 1e-12, "Celes::rxp", "3")
+#	vvd(rp[0], 5.1, 1e-12, 'Celes.rxp', '1')
+#	vvd(rp[1], 3.9, 1e-12, 'Celes.rxp', '2')
+#	vvd(rp[2], 7.1, 1e-12, 'Celes.rxp', '3')
 #
 # }
 def t_rxp
@@ -9159,19 +6451,11 @@ def t_rxp
   p[1] = 1.5
   p[2] = 0.1
 
-<<<<<<< HEAD
-  rp = Celes::rxp(r, p)
-
-  vvd(rp[0], 5.1, 1e-12, "Celes::rxp", "1")
-  vvd(rp[1], 3.9, 1e-12, "Celes::rxp", "2")
-  vvd(rp[2], 7.1, 1e-12, "Celes::rxp", "3")
-=======
   rp = Celes.rxp(r, p)
 
-  vvd(rp[0], 5.1, 1e-12, 'Celes::rxp', '1')
-  vvd(rp[1], 3.9, 1e-12, 'Celes::rxp', '2')
-  vvd(rp[2], 7.1, 1e-12, 'Celes::rxp', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(rp[0], 5.1, 1e-12, 'Celes.rxp', '1')
+  vvd(rp[1], 3.9, 1e-12, 'Celes.rxp', '2')
+  vvd(rp[2], 7.1, 1e-12, 'Celes.rxp', '3')
 end
 
 # static void t_rxpv(int *status)
@@ -9199,16 +6483,16 @@ end
 #	pv[1][1] = 0.2
 #	pv[1][2] = 0.1
 #
-#	Celes::rxpv(r, pv, rpv)
+#	Celes.rxpv(r, pv, rpv)
 #
-#	vvd(rpv[0][0], 5.1, 1e-12, "Celes::rxpv", "11")
-#	vvd(rpv[1][0], 3.8, 1e-12, "Celes::rxpv", "12")
+#	vvd(rpv[0][0], 5.1, 1e-12, 'Celes.rxpv', '11')
+#	vvd(rpv[1][0], 3.8, 1e-12, 'Celes.rxpv', '12')
 #
-#	vvd(rpv[0][1], 3.9, 1e-12, "Celes::rxpv", "21")
-#	vvd(rpv[1][1], 5.2, 1e-12, "Celes::rxpv", "22")
+#	vvd(rpv[0][1], 3.9, 1e-12, 'Celes.rxpv', '21')
+#	vvd(rpv[1][1], 5.2, 1e-12, 'Celes.rxpv', '22')
 #
-#	vvd(rpv[0][2], 7.1, 1e-12, "Celes::rxpv", "31")
-#	vvd(rpv[1][2], 5.8, 1e-12, "Celes::rxpv", "32")
+#	vvd(rpv[0][2], 7.1, 1e-12, 'Celes.rxpv', '31')
+#	vvd(rpv[1][2], 5.8, 1e-12, 'Celes.rxpv', '32')
 #
 # }
 def t_rxpv
@@ -9235,29 +6519,16 @@ def t_rxpv
   pv[1][1] = 0.2
   pv[1][2] = 0.1
 
-<<<<<<< HEAD
-  rpv = Celes::rxpv(r, pv)
-
-  vvd(rpv[0][0], 5.1, 1e-12, "Celes::rxpv", "11")
-  vvd(rpv[1][0], 3.8, 1e-12, "Celes::rxpv", "12")
-
-  vvd(rpv[0][1], 3.9, 1e-12, "Celes::rxpv", "21")
-  vvd(rpv[1][1], 5.2, 1e-12, "Celes::rxpv", "22")
-
-  vvd(rpv[0][2], 7.1, 1e-12, "Celes::rxpv", "31")
-  vvd(rpv[1][2], 5.8, 1e-12, "Celes::rxpv", "32")
-=======
   rpv = Celes.rxpv(r, pv)
 
-  vvd(rpv[0][0], 5.1, 1e-12, 'Celes::rxpv', '11')
-  vvd(rpv[1][0], 3.8, 1e-12, 'Celes::rxpv', '12')
+  vvd(rpv[0][0], 5.1, 1e-12, 'Celes.rxpv', '11')
+  vvd(rpv[1][0], 3.8, 1e-12, 'Celes.rxpv', '12')
 
-  vvd(rpv[0][1], 3.9, 1e-12, 'Celes::rxpv', '21')
-  vvd(rpv[1][1], 5.2, 1e-12, 'Celes::rxpv', '22')
+  vvd(rpv[0][1], 3.9, 1e-12, 'Celes.rxpv', '21')
+  vvd(rpv[1][1], 5.2, 1e-12, 'Celes.rxpv', '22')
 
-  vvd(rpv[0][2], 7.1, 1e-12, 'Celes::rxpv', '31')
-  vvd(rpv[1][2], 5.8, 1e-12, 'Celes::rxpv', '32')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(rpv[0][2], 7.1, 1e-12, 'Celes.rxpv', '31')
+  vvd(rpv[1][2], 5.8, 1e-12, 'Celes.rxpv', '32')
 end
 
 # static void t_rxr(int *status)
@@ -9289,19 +6560,19 @@ end
 #	b[2][1] = 0.0
 #	b[2][2] = 1.0
 #
-#	Celes::rxr(a, b, atb)
+#	Celes.rxr(a, b, atb)
 #
-#	vvd(atb[0][0], 20.0, 1e-12, "Celes::rxr", "11")
-#	vvd(atb[0][1],  7.0, 1e-12, "Celes::rxr", "12")
-#	vvd(atb[0][2],  9.0, 1e-12, "Celes::rxr", "13")
+#	vvd(atb[0][0], 20.0, 1e-12, 'Celes.rxr', '11')
+#	vvd(atb[0][1],  7.0, 1e-12, 'Celes.rxr', '12')
+#	vvd(atb[0][2],  9.0, 1e-12, 'Celes.rxr', '13')
 #
-#	vvd(atb[1][0], 20.0, 1e-12, "Celes::rxr", "21")
-#	vvd(atb[1][1],  8.0, 1e-12, "Celes::rxr", "22")
-#	vvd(atb[1][2], 11.0, 1e-12, "Celes::rxr", "23")
+#	vvd(atb[1][0], 20.0, 1e-12, 'Celes.rxr', '21')
+#	vvd(atb[1][1],  8.0, 1e-12, 'Celes.rxr', '22')
+#	vvd(atb[1][2], 11.0, 1e-12, 'Celes.rxr', '23')
 #
-#	vvd(atb[2][0], 34.0, 1e-12, "Celes::rxr", "31")
-#	vvd(atb[2][1], 10.0, 1e-12, "Celes::rxr", "32")
-#	vvd(atb[2][2], 15.0, 1e-12, "Celes::rxr", "33")
+#	vvd(atb[2][0], 34.0, 1e-12, 'Celes.rxr', '31')
+#	vvd(atb[2][1], 10.0, 1e-12, 'Celes.rxr', '32')
+#	vvd(atb[2][2], 15.0, 1e-12, 'Celes.rxr', '33')
 #
 # }
 def t_rxr
@@ -9332,35 +6603,19 @@ def t_rxr
   b[2][1] = 0.0
   b[2][2] = 1.0
 
-<<<<<<< HEAD
-  atb = Celes::rxr(a, b)
-
-  vvd(atb[0][0], 20.0, 1e-12, "Celes::rxr", "11")
-  vvd(atb[0][1],  7.0, 1e-12, "Celes::rxr", "12")
-  vvd(atb[0][2],  9.0, 1e-12, "Celes::rxr", "13")
-
-  vvd(atb[1][0], 20.0, 1e-12, "Celes::rxr", "21")
-  vvd(atb[1][1],  8.0, 1e-12, "Celes::rxr", "22")
-  vvd(atb[1][2], 11.0, 1e-12, "Celes::rxr", "23")
-
-  vvd(atb[2][0], 34.0, 1e-12, "Celes::rxr", "31")
-  vvd(atb[2][1], 10.0, 1e-12, "Celes::rxr", "32")
-  vvd(atb[2][2], 15.0, 1e-12, "Celes::rxr", "33")
-=======
   atb = Celes.rxr(a, b)
 
-  vvd(atb[0][0], 20.0, 1e-12, 'Celes::rxr', '11')
-  vvd(atb[0][1],  7.0, 1e-12, 'Celes::rxr', '12')
-  vvd(atb[0][2],  9.0, 1e-12, 'Celes::rxr', '13')
+  vvd(atb[0][0], 20.0, 1e-12, 'Celes.rxr', '11')
+  vvd(atb[0][1],  7.0, 1e-12, 'Celes.rxr', '12')
+  vvd(atb[0][2],  9.0, 1e-12, 'Celes.rxr', '13')
 
-  vvd(atb[1][0], 20.0, 1e-12, 'Celes::rxr', '21')
-  vvd(atb[1][1],  8.0, 1e-12, 'Celes::rxr', '22')
-  vvd(atb[1][2], 11.0, 1e-12, 'Celes::rxr', '23')
+  vvd(atb[1][0], 20.0, 1e-12, 'Celes.rxr', '21')
+  vvd(atb[1][1],  8.0, 1e-12, 'Celes.rxr', '22')
+  vvd(atb[1][2], 11.0, 1e-12, 'Celes.rxr', '23')
 
-  vvd(atb[2][0], 34.0, 1e-12, 'Celes::rxr', '31')
-  vvd(atb[2][1], 10.0, 1e-12, 'Celes::rxr', '32')
-  vvd(atb[2][2], 15.0, 1e-12, 'Celes::rxr', '33')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(atb[2][0], 34.0, 1e-12, 'Celes.rxr', '31')
+  vvd(atb[2][1], 10.0, 1e-12, 'Celes.rxr', '32')
+  vvd(atb[2][2], 15.0, 1e-12, 'Celes.rxr', '33')
 end
 
 # static void t_ry(int *status)
@@ -9382,19 +6637,19 @@ end
 #	r[2][1] = 4.0
 #	r[2][2] = 5.0
 #
-#	Celes::ry(theta, r)
+#	Celes.ry(theta, r)
 #
-#	vvd(r[0][0], 0.8651847818978159930, 1e-12, "Celes::ry", "11")
-#	vvd(r[0][1], 1.467194920539316554, 1e-12, "Celes::ry", "12")
-#	vvd(r[0][2], 0.1875137911274457342, 1e-12, "Celes::ry", "13")
+#	vvd(r[0][0], 0.8651847818978159930, 1e-12, 'Celes.ry', '11')
+#	vvd(r[0][1], 1.467194920539316554, 1e-12, 'Celes.ry', '12')
+#	vvd(r[0][2], 0.1875137911274457342, 1e-12, 'Celes.ry', '13')
 #
-#	vvd(r[1][0], 3, 1e-12, "Celes::ry", "21")
-#	vvd(r[1][1], 2, 1e-12, "Celes::ry", "22")
-#	vvd(r[1][2], 3, 1e-12, "Celes::ry", "23")
+#	vvd(r[1][0], 3, 1e-12, 'Celes.ry', '21')
+#	vvd(r[1][1], 2, 1e-12, 'Celes.ry', '22')
+#	vvd(r[1][2], 3, 1e-12, 'Celes.ry', '23')
 #
-#	vvd(r[2][0], 3.500207892850427330, 1e-12, "Celes::ry", "31")
-#	vvd(r[2][1], 4.779889022262298150, 1e-12, "Celes::ry", "32")
-#	vvd(r[2][2], 5.381899160903798712, 1e-12, "Celes::ry", "33")
+#	vvd(r[2][0], 3.500207892850427330, 1e-12, 'Celes.ry', '31')
+#	vvd(r[2][1], 4.779889022262298150, 1e-12, 'Celes.ry', '32')
+#	vvd(r[2][2], 5.381899160903798712, 1e-12, 'Celes.ry', '33')
 #
 # }
 def t_ry
@@ -9413,35 +6668,19 @@ def t_ry
   r[2][1] = 4.0
   r[2][2] = 5.0
 
-<<<<<<< HEAD
-  Celes::ry!(theta, r)
-
-  vvd(r[0][0], 0.8651847818978159930, 1e-12, "Celes::ry!", "11")
-  vvd(r[0][1], 1.467194920539316554, 1e-12, "Celes::ry!", "12")
-  vvd(r[0][2], 0.1875137911274457342, 1e-12, "Celes::ry!", "13")
-
-  vvd(r[1][0], 3, 1e-12, "Celes::ry!", "21")
-  vvd(r[1][1], 2, 1e-12, "Celes::ry!", "22")
-  vvd(r[1][2], 3, 1e-12, "Celes::ry!", "23")
-
-  vvd(r[2][0], 3.500207892850427330, 1e-12, "Celes::ry!", "31")
-  vvd(r[2][1], 4.779889022262298150, 1e-12, "Celes::ry!", "32")
-  vvd(r[2][2], 5.381899160903798712, 1e-12, "Celes::ry!", "33")
-=======
   Celes.ry!(theta, r)
 
-  vvd(r[0][0], 0.8651847818978159930, 1e-12, 'Celes::ry!', '11')
-  vvd(r[0][1], 1.467194920539316554, 1e-12, 'Celes::ry!', '12')
-  vvd(r[0][2], 0.1875137911274457342, 1e-12, 'Celes::ry!', '13')
+  vvd(r[0][0], 0.8651847818978159930, 1e-12, 'Celes.ry!', '11')
+  vvd(r[0][1], 1.467194920539316554, 1e-12, 'Celes.ry!', '12')
+  vvd(r[0][2], 0.1875137911274457342, 1e-12, 'Celes.ry!', '13')
 
-  vvd(r[1][0], 3, 1e-12, 'Celes::ry!', '21')
-  vvd(r[1][1], 2, 1e-12, 'Celes::ry!', '22')
-  vvd(r[1][2], 3, 1e-12, 'Celes::ry!', '23')
+  vvd(r[1][0], 3, 1e-12, 'Celes.ry!', '21')
+  vvd(r[1][1], 2, 1e-12, 'Celes.ry!', '22')
+  vvd(r[1][2], 3, 1e-12, 'Celes.ry!', '23')
 
-  vvd(r[2][0], 3.500207892850427330, 1e-12, 'Celes::ry!', '31')
-  vvd(r[2][1], 4.779889022262298150, 1e-12, 'Celes::ry!', '32')
-  vvd(r[2][2], 5.381899160903798712, 1e-12, 'Celes::ry!', '33')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(r[2][0], 3.500207892850427330, 1e-12, 'Celes.ry!', '31')
+  vvd(r[2][1], 4.779889022262298150, 1e-12, 'Celes.ry!', '32')
+  vvd(r[2][2], 5.381899160903798712, 1e-12, 'Celes.ry!', '33')
 end
 
 # static void t_rz(int *status)
@@ -9463,19 +6702,19 @@ end
 #	r[2][1] = 4.0
 #	r[2][2] = 5.0
 #
-#	Celes::rz(psi, r)
+#	Celes.rz(psi, r)
 #
-#	vvd(r[0][0], 2.898197754208926769, 1e-12, "Celes::rz", "11")
-#	vvd(r[0][1], 3.500207892850427330, 1e-12, "Celes::rz", "12")
-#	vvd(r[0][2], 2.898197754208926769, 1e-12, "Celes::rz", "13")
+#	vvd(r[0][0], 2.898197754208926769, 1e-12, 'Celes.rz', '11')
+#	vvd(r[0][1], 3.500207892850427330, 1e-12, 'Celes.rz', '12')
+#	vvd(r[0][2], 2.898197754208926769, 1e-12, 'Celes.rz', '13')
 #
-#	vvd(r[1][0], 2.144865911309686813, 1e-12, "Celes::rz", "21")
-#	vvd(r[1][1], 0.865184781897815993, 1e-12, "Celes::rz", "22")
-#	vvd(r[1][2], 2.144865911309686813, 1e-12, "Celes::rz", "23")
+#	vvd(r[1][0], 2.144865911309686813, 1e-12, 'Celes.rz', '21')
+#	vvd(r[1][1], 0.865184781897815993, 1e-12, 'Celes.rz', '22')
+#	vvd(r[1][2], 2.144865911309686813, 1e-12, 'Celes.rz', '23')
 #
-#	vvd(r[2][0], 3.0, 1e-12, "Celes::rz", "31")
-#	vvd(r[2][1], 4.0, 1e-12, "Celes::rz", "32")
-#	vvd(r[2][2], 5.0, 1e-12, "Celes::rz", "33")
+#	vvd(r[2][0], 3.0, 1e-12, 'Celes.rz', '31')
+#	vvd(r[2][1], 4.0, 1e-12, 'Celes.rz', '32')
+#	vvd(r[2][2], 5.0, 1e-12, 'Celes.rz', '33')
 #
 # }
 def t_rz
@@ -9494,35 +6733,19 @@ def t_rz
   r[2][1] = 4.0
   r[2][2] = 5.0
 
-<<<<<<< HEAD
-  Celes::rz!(psi, r)
-
-  vvd(r[0][0], 2.898197754208926769, 1e-12, "Celes::rz!", "11")
-  vvd(r[0][1], 3.500207892850427330, 1e-12, "Celes::rz!", "12")
-  vvd(r[0][2], 2.898197754208926769, 1e-12, "Celes::rz!", "13")
-
-  vvd(r[1][0], 2.144865911309686813, 1e-12, "Celes::rz!", "21")
-  vvd(r[1][1], 0.865184781897815993, 1e-12, "Celes::rz!", "22")
-  vvd(r[1][2], 2.144865911309686813, 1e-12, "Celes::rz!", "23")
-
-  vvd(r[2][0], 3.0, 1e-12, "Celes::rz!", "31")
-  vvd(r[2][1], 4.0, 1e-12, "Celes::rz!", "32")
-  vvd(r[2][2], 5.0, 1e-12, "Celes::rz!", "33")
-=======
   Celes.rz!(psi, r)
 
-  vvd(r[0][0], 2.898197754208926769, 1e-12, 'Celes::rz!', '11')
-  vvd(r[0][1], 3.500207892850427330, 1e-12, 'Celes::rz!', '12')
-  vvd(r[0][2], 2.898197754208926769, 1e-12, 'Celes::rz!', '13')
+  vvd(r[0][0], 2.898197754208926769, 1e-12, 'Celes.rz!', '11')
+  vvd(r[0][1], 3.500207892850427330, 1e-12, 'Celes.rz!', '12')
+  vvd(r[0][2], 2.898197754208926769, 1e-12, 'Celes.rz!', '13')
 
-  vvd(r[1][0], 2.144865911309686813, 1e-12, 'Celes::rz!', '21')
-  vvd(r[1][1], 0.865184781897815993, 1e-12, 'Celes::rz!', '22')
-  vvd(r[1][2], 2.144865911309686813, 1e-12, 'Celes::rz!', '23')
+  vvd(r[1][0], 2.144865911309686813, 1e-12, 'Celes.rz!', '21')
+  vvd(r[1][1], 0.865184781897815993, 1e-12, 'Celes.rz!', '22')
+  vvd(r[1][2], 2.144865911309686813, 1e-12, 'Celes.rz!', '23')
 
-  vvd(r[2][0], 3.0, 1e-12, 'Celes::rz!', '31')
-  vvd(r[2][1], 4.0, 1e-12, 'Celes::rz!', '32')
-  vvd(r[2][2], 5.0, 1e-12, 'Celes::rz!', '33')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(r[2][0], 3.0, 1e-12, 'Celes.rz!', '31')
+  vvd(r[2][1], 4.0, 1e-12, 'Celes.rz!', '32')
+  vvd(r[2][2], 5.0, 1e-12, 'Celes.rz!', '33')
 end
 
 # static void t_s00a(int *status)
@@ -9530,21 +6753,15 @@ end
 #	double s
 #
 #
-#	s = Celes::s00a(2400000.5, 52541.0)
+#	s = Celes.s00a(2400000.5, 52541.0)
 #
-#	vvd(s, -0.1340684448919163584e-7, 1e-18, "Celes::s00a", "")
+#	vvd(s, -0.1340684448919163584e-7, 1e-18, 'Celes.s00a', '')
 #
 # }
 def t_s00a
-<<<<<<< HEAD
-  s = Celes::s00a(2400000.5, 52541.0)
+  s = Celes.s00a(2400000.5, 52541.0)
 
-  vvd(s, -0.1340684448919163584e-7, 1e-18, "Celes::s00a", "")
-=======
-  s = Celes.s00a(2_400_000.5, 52_541.0)
-
-  vvd(s, -0.1340684448919163584e-7, 1e-18, 'Celes::s00a', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(s, -0.1340684448919163584e-7, 1e-18, 'Celes.s00a', '')
 end
 
 # static void t_s00b(int *status)
@@ -9552,21 +6769,15 @@ end
 #	double s
 #
 #
-#	s = Celes::s00b(2400000.5, 52541.0)
+#	s = Celes.s00b(2400000.5, 52541.0)
 #
-#	vvd(s, -0.1340695782951026584e-7, 1e-18, "Celes::s00b", "")
+#	vvd(s, -0.1340695782951026584e-7, 1e-18, 'Celes.s00b', '')
 #
 # }
 def t_s00b
-<<<<<<< HEAD
-  s = Celes::s00b(2400000.5, 52541.0)
+  s = Celes.s00b(2400000.5, 52541.0)
 
-  vvd(s, -0.1340695782951026584e-7, 1e-18, "Celes::s00b", "")
-=======
-  s = Celes.s00b(2_400_000.5, 52_541.0)
-
-  vvd(s, -0.1340695782951026584e-7, 1e-18, 'Celes::s00b', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(s, -0.1340695782951026584e-7, 1e-18, 'Celes.s00b', '')
 end
 
 # static void t_s00(int *status)
@@ -9577,24 +6788,18 @@ end
 #	x = 0.5791308486706011000e-3
 #	y = 0.4020579816732961219e-4
 #
-#	s = Celes::s00(2400000.5, 53736.0, x, y)
+#	s = Celes.s00(2400000.5, 53736.0, x, y)
 #
-#	vvd(s, -0.1220036263270905693e-7, 1e-18, "Celes::s00", "")
+#	vvd(s, -0.1220036263270905693e-7, 1e-18, 'Celes.s00', '')
 #
 # }
 def t_s00
   x = 0.5791308486706011000e-3
   y = 0.4020579816732961219e-4
 
-<<<<<<< HEAD
-  s = Celes::s00(2400000.5, 53736.0, x, y)
+  s = Celes.s00(2400000.5, 53736.0, x, y)
 
-  vvd(s, -0.1220036263270905693e-7, 1e-18, "Celes::s00", "")
-=======
-  s = Celes.s00(2_400_000.5, 53_736.0, x, y)
-
-  vvd(s, -0.1220036263270905693e-7, 1e-18, 'Celes::s00', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(s, -0.1220036263270905693e-7, 1e-18, 'Celes.s00', '')
 end
 
 # static void t_s06a(int *status)
@@ -9602,21 +6807,15 @@ end
 #	double s
 #
 #
-#	s = Celes::s06a(2400000.5, 52541.0)
+#	s = Celes.s06a(2400000.5, 52541.0)
 #
-#	vvd(s, -0.1340680437291812383e-7, 1e-18, "Celes::s06a", "")
+#	vvd(s, -0.1340680437291812383e-7, 1e-18, 'Celes.s06a', '')
 #
 # }
 def t_s06a
-<<<<<<< HEAD
-  s = Celes::s06a(2400000.5, 52541.0)
+  s = Celes.s06a(2400000.5, 52541.0)
 
-  vvd(s, -0.1340680437291812383e-7, 1e-18, "Celes::s06a", "")
-=======
-  s = Celes.s06a(2_400_000.5, 52_541.0)
-
-  vvd(s, -0.1340680437291812383e-7, 1e-18, 'Celes::s06a', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(s, -0.1340680437291812383e-7, 1e-18, 'Celes.s06a', '')
 end
 
 # static void t_s06(int *status)
@@ -9627,24 +6826,18 @@ end
 #	x = 0.5791308486706011000e-3
 #	y = 0.4020579816732961219e-4
 #
-#	s = Celes::s06(2400000.5, 53736.0, x, y)
+#	s = Celes.s06(2400000.5, 53736.0, x, y)
 #
-#	vvd(s, -0.1220032213076463117e-7, 1e-18, "Celes::s06", "")
+#	vvd(s, -0.1220032213076463117e-7, 1e-18, 'Celes.s06', '')
 #
 # }
 def t_s06
   x = 0.5791308486706011000e-3
   y = 0.4020579816732961219e-4
 
-<<<<<<< HEAD
-  s = Celes::s06(2400000.5, 53736.0, x, y)
+  s = Celes.s06(2400000.5, 53736.0, x, y)
 
-  vvd(s, -0.1220032213076463117e-7, 1e-18, "Celes::s06", "")
-=======
-  s = Celes.s06(2_400_000.5, 53_736.0, x, y)
-
-  vvd(s, -0.1220032213076463117e-7, 1e-18, 'Celes::s06', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(s, -0.1220032213076463117e-7, 1e-18, 'Celes.s06', '')
 end
 
 # static void t_s2c(int *status)
@@ -9652,27 +6845,19 @@ end
 #	double c[3]
 #
 #
-#	Celes::s2c(3.0123, -0.999, c)
+#	Celes.s2c(3.0123, -0.999, c)
 #
-#	vvd(c[0], -0.5366267667260523906, 1e-12, "Celes::s2c", "1")
-#	vvd(c[1],  0.0697711109765145365, 1e-12, "Celes::s2c", "2")
-#	vvd(c[2], -0.8409302618566214041, 1e-12, "Celes::s2c", "3")
+#	vvd(c[0], -0.5366267667260523906, 1e-12, 'Celes.s2c', '1')
+#	vvd(c[1],  0.0697711109765145365, 1e-12, 'Celes.s2c', '2')
+#	vvd(c[2], -0.8409302618566214041, 1e-12, 'Celes.s2c', '3')
 #
 # }
 def t_s2c
-<<<<<<< HEAD
-  c = Celes::s2c(3.0123, -0.999)
-
-  vvd(c[0], -0.5366267667260523906, 1e-12, "Celes::s2c", "1")
-  vvd(c[1],  0.0697711109765145365, 1e-12, "Celes::s2c", "2")
-  vvd(c[2], -0.8409302618566214041, 1e-12, "Celes::s2c", "3")
-=======
   c = Celes.s2c(3.0123, -0.999)
 
-  vvd(c[0], -0.5366267667260523906, 1e-12, 'Celes::s2c', '1')
-  vvd(c[1],  0.0697711109765145365, 1e-12, 'Celes::s2c', '2')
-  vvd(c[2], -0.8409302618566214041, 1e-12, 'Celes::s2c', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(c[0], -0.5366267667260523906, 1e-12, 'Celes.s2c', '1')
+  vvd(c[1],  0.0697711109765145365, 1e-12, 'Celes.s2c', '2')
+  vvd(c[2], -0.8409302618566214041, 1e-12, 'Celes.s2c', '3')
 end
 
 # static void t_s2p(int *status)
@@ -9680,27 +6865,19 @@ end
 #	double p[3]
 #
 #
-#	Celes::s2p(-3.21, 0.123, 0.456, p)
+#	Celes.s2p(-3.21, 0.123, 0.456, p)
 #
-#	vvd(p[0], -0.4514964673880165228, 1e-12, "Celes::s2p", "x")
-#	vvd(p[1],  0.0309339427734258688, 1e-12, "Celes::s2p", "y")
-#	vvd(p[2],  0.0559466810510877933, 1e-12, "Celes::s2p", "z")
+#	vvd(p[0], -0.4514964673880165228, 1e-12, 'Celes.s2p', 'x')
+#	vvd(p[1],  0.0309339427734258688, 1e-12, 'Celes.s2p', 'y')
+#	vvd(p[2],  0.0559466810510877933, 1e-12, 'Celes.s2p', 'z')
 #
 # }
 def t_s2p
-<<<<<<< HEAD
-  p = Celes::s2p(-3.21, 0.123, 0.456)
-
-  vvd(p[0], -0.4514964673880165228, 1e-12, "Celes::s2p", "x")
-  vvd(p[1],  0.0309339427734258688, 1e-12, "Celes::s2p", "y")
-  vvd(p[2],  0.0559466810510877933, 1e-12, "Celes::s2p", "z")
-=======
   p = Celes.s2p(-3.21, 0.123, 0.456)
 
-  vvd(p[0], -0.4514964673880165228, 1e-12, 'Celes::s2p', 'x')
-  vvd(p[1],  0.0309339427734258688, 1e-12, 'Celes::s2p', 'y')
-  vvd(p[2],  0.0559466810510877933, 1e-12, 'Celes::s2p', 'z')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(p[0], -0.4514964673880165228, 1e-12, 'Celes.s2p', 'x')
+  vvd(p[1],  0.0309339427734258688, 1e-12, 'Celes.s2p', 'y')
+  vvd(p[2],  0.0559466810510877933, 1e-12, 'Celes.s2p', 'z')
 end
 
 # static void t_s2pv(int *status)
@@ -9708,48 +6885,33 @@ end
 #	double pv[2][3]
 #
 #
-#	Celes::s2pv(-3.21, 0.123, 0.456, -7.8e-6, 9.01e-6, -1.23e-5, pv)
+#	Celes.s2pv(-3.21, 0.123, 0.456, -7.8e-6, 9.01e-6, -1.23e-5, pv)
 #
-#	vvd(pv[0][0], -0.4514964673880165228, 1e-12, "Celes::s2pv", "x")
-#	vvd(pv[0][1],  0.0309339427734258688, 1e-12, "Celes::s2pv", "y")
-#	vvd(pv[0][2],  0.0559466810510877933, 1e-12, "Celes::s2pv", "z")
+#	vvd(pv[0][0], -0.4514964673880165228, 1e-12, 'Celes.s2pv', 'x')
+#	vvd(pv[0][1],  0.0309339427734258688, 1e-12, 'Celes.s2pv', 'y')
+#	vvd(pv[0][2],  0.0559466810510877933, 1e-12, 'Celes.s2pv', 'z')
 #
 #	vvd(pv[1][0],  0.1292270850663260170e-4, 1e-16,
-#			"Celes::s2pv", "vx")
+#			'Celes.s2pv', 'vx')
 #	vvd(pv[1][1],  0.2652814182060691422e-5, 1e-16,
-#			"Celes::s2pv", "vy")
+#			'Celes.s2pv', 'vy')
 #	vvd(pv[1][2],  0.2568431853930292259e-5, 1e-16,
-#			"Celes::s2pv", "vz")
+#			'Celes.s2pv', 'vz')
 #
 # }
 def t_s2pv
-<<<<<<< HEAD
-  pv = Celes::s2pv(-3.21, 0.123, 0.456, -7.8e-6, 9.01e-6, -1.23e-5)
-
-  vvd(pv[0][0], -0.4514964673880165228, 1e-12, "Celes::s2pv", "x")
-  vvd(pv[0][1],  0.0309339427734258688, 1e-12, "Celes::s2pv", "y")
-  vvd(pv[0][2],  0.0559466810510877933, 1e-12, "Celes::s2pv", "z")
-
-  vvd(pv[1][0],  0.1292270850663260170e-4, 1e-16,
-    "Celes::s2pv", "vx")
-  vvd(pv[1][1],  0.2652814182060691422e-5, 1e-16,
-    "Celes::s2pv", "vy")
-  vvd(pv[1][2],  0.2568431853930292259e-5, 1e-16,
-    "Celes::s2pv", "vz")
-=======
   pv = Celes.s2pv(-3.21, 0.123, 0.456, -7.8e-6, 9.01e-6, -1.23e-5)
 
-  vvd(pv[0][0], -0.4514964673880165228, 1e-12, 'Celes::s2pv', 'x')
-  vvd(pv[0][1],  0.0309339427734258688, 1e-12, 'Celes::s2pv', 'y')
-  vvd(pv[0][2],  0.0559466810510877933, 1e-12, 'Celes::s2pv', 'z')
+  vvd(pv[0][0], -0.4514964673880165228, 1e-12, 'Celes.s2pv', 'x')
+  vvd(pv[0][1],  0.0309339427734258688, 1e-12, 'Celes.s2pv', 'y')
+  vvd(pv[0][2],  0.0559466810510877933, 1e-12, 'Celes.s2pv', 'z')
 
   vvd(pv[1][0],  0.1292270850663260170e-4, 1e-16,
-      'Celes::s2pv', 'vx')
+    'Celes.s2pv', 'vx')
   vvd(pv[1][1],  0.2652814182060691422e-5, 1e-16,
-      'Celes::s2pv', 'vy')
+    'Celes.s2pv', 'vy')
   vvd(pv[1][2],  0.2568431853930292259e-5, 1e-16,
-      'Celes::s2pv', 'vz')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+    'Celes.s2pv', 'vz')
 end
 
 # static void t_s2xpv(int *status)
@@ -9768,15 +6930,15 @@ end
 #	pv[1][1] =  2.3
 #	pv[1][2] = -0.4
 #
-#	Celes::s2xpv(s1, s2, pv, spv)
+#	Celes.s2xpv(s1, s2, pv, spv)
 #
-#	vvd(spv[0][0],  0.6, 1e-12, "Celes::s2xpv", "p1")
-#	vvd(spv[0][1],  2.4, 1e-12, "Celes::s2xpv", "p2")
-#	vvd(spv[0][2], -5.0, 1e-12, "Celes::s2xpv", "p3")
+#	vvd(spv[0][0],  0.6, 1e-12, 'Celes.s2xpv', 'p1')
+#	vvd(spv[0][1],  2.4, 1e-12, 'Celes.s2xpv', 'p2')
+#	vvd(spv[0][2], -5.0, 1e-12, 'Celes.s2xpv', 'p3')
 #
-#	vvd(spv[1][0],  1.5, 1e-12, "Celes::s2xpv", "v1")
-#	vvd(spv[1][1],  6.9, 1e-12, "Celes::s2xpv", "v2")
-#	vvd(spv[1][2], -1.2, 1e-12, "Celes::s2xpv", "v3")
+#	vvd(spv[1][0],  1.5, 1e-12, 'Celes.s2xpv', 'v1')
+#	vvd(spv[1][1],  6.9, 1e-12, 'Celes.s2xpv', 'v2')
+#	vvd(spv[1][2], -1.2, 1e-12, 'Celes.s2xpv', 'v3')
 #
 # }
 def t_s2xpv
@@ -9793,27 +6955,15 @@ def t_s2xpv
   pv[1][1] =  2.3
   pv[1][2] = -0.4
 
-<<<<<<< HEAD
-  spv = Celes::s2xpv(s1, s2, pv)
-
-  vvd(spv[0][0],  0.6, 1e-12, "Celes::s2xpv", "p1")
-  vvd(spv[0][1],  2.4, 1e-12, "Celes::s2xpv", "p2")
-  vvd(spv[0][2], -5.0, 1e-12, "Celes::s2xpv", "p3")
-
-  vvd(spv[1][0],  1.5, 1e-12, "Celes::s2xpv", "v1")
-  vvd(spv[1][1],  6.9, 1e-12, "Celes::s2xpv", "v2")
-  vvd(spv[1][2], -1.2, 1e-12, "Celes::s2xpv", "v3")
-=======
   spv = Celes.s2xpv(s1, s2, pv)
 
-  vvd(spv[0][0],  0.6, 1e-12, 'Celes::s2xpv', 'p1')
-  vvd(spv[0][1],  2.4, 1e-12, 'Celes::s2xpv', 'p2')
-  vvd(spv[0][2], -5.0, 1e-12, 'Celes::s2xpv', 'p3')
+  vvd(spv[0][0],  0.6, 1e-12, 'Celes.s2xpv', 'p1')
+  vvd(spv[0][1],  2.4, 1e-12, 'Celes.s2xpv', 'p2')
+  vvd(spv[0][2], -5.0, 1e-12, 'Celes.s2xpv', 'p3')
 
-  vvd(spv[1][0],  1.5, 1e-12, 'Celes::s2xpv', 'v1')
-  vvd(spv[1][1],  6.9, 1e-12, 'Celes::s2xpv', 'v2')
-  vvd(spv[1][2], -1.2, 1e-12, 'Celes::s2xpv', 'v3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(spv[1][0],  1.5, 1e-12, 'Celes.s2xpv', 'v1')
+  vvd(spv[1][1],  6.9, 1e-12, 'Celes.s2xpv', 'v2')
+  vvd(spv[1][2], -1.2, 1e-12, 'Celes.s2xpv', 'v3')
 end
 
 # static void t_sepp(int *status)
@@ -9829,9 +6979,9 @@ end
 #	b[1] =  1e-3
 #	b[2] =  0.2
 #
-#	s = Celes::sepp(a, b)
+#	s = Celes.sepp(a, b)
 #
-#	vvd(s, 2.860391919024660768, 1e-12, "Celes::sepp", "")
+#	vvd(s, 2.860391919024660768, 1e-12, 'Celes.sepp', '')
 #
 # }
 def t_sepp
@@ -9846,15 +6996,9 @@ def t_sepp
   b[1] =  1e-3
   b[2] =  0.2
 
-<<<<<<< HEAD
-  s = Celes::sepp(a, b)
-
-  vvd(s, 2.860391919024660768, 1e-12, "Celes::sepp", "")
-=======
   s = Celes.sepp(a, b)
 
-  vvd(s, 2.860391919024660768, 1e-12, 'Celes::sepp', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(s, 2.860391919024660768, 1e-12, 'Celes.sepp', '')
 end
 
 # static void t_seps(int *status)
@@ -9868,9 +7012,9 @@ end
 #	bl =  0.2
 #	bp = -3.0
 #
-#	s = Celes::seps(al, ap, bl, bp)
+#	s = Celes.seps(al, ap, bl, bp)
 #
-#	vvd(s, 2.346722016996998842, 1e-14, "Celes::seps", "")
+#	vvd(s, 2.346722016996998842, 1e-14, 'Celes.seps', '')
 #
 # }
 def t_seps
@@ -9880,31 +7024,20 @@ def t_seps
   bl =  0.2
   bp = -3.0
 
-<<<<<<< HEAD
-  s = Celes::seps(al, ap, bl, bp)
-
-  vvd(s, 2.346722016996998842, 1e-14, "Celes::seps", "")
-=======
   s = Celes.seps(al, ap, bl, bp)
 
-  vvd(s, 2.346722016996998842, 1e-14, 'Celes::seps', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(s, 2.346722016996998842, 1e-14, 'Celes.seps', '')
 end
 
 # static void t_sp00(int *status)
 # {
-#	vvd(Celes::sp00(2400000.5, 52541.0),
-#			-0.6216698469981019309e-11, 1e-12, "Celes::sp00", "")
+#	vvd(Celes.sp00(2400000.5, 52541.0),
+#			-0.6216698469981019309e-11, 1e-12, 'Celes.sp00', '')
 #
 # }
 def t_sp00
-<<<<<<< HEAD
-  vvd(Celes::sp00(2400000.5, 52541.0),
-    -0.6216698469981019309e-11, 1e-12, "Celes::sp00", "")
-=======
-  vvd(Celes.sp00(2_400_000.5, 52_541.0),
-      -0.6216698469981019309e-11, 1e-12, 'Celes::sp00', '')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(Celes.sp00(2400000.5, 52541.0),
+    -0.6216698469981019309e-11, 1e-12, 'Celes.sp00', '')
 end
 
 # static void t_starpm(int *status)
@@ -9921,24 +7054,24 @@ end
 #	px1 =   0.74723
 #	rv1 = -21.6
 #
-#	j = Celes::starpm(ra1, dec1, pmr1, pmd1, px1, rv1,
+#	j = Celes.starpm(ra1, dec1, pmr1, pmd1, px1, rv1,
 #				2400000.5, 50083.0, 2400000.5, 53736.0,
 #				&ra2, &dec2, &pmr2, &pmd2, &px2, &rv2)
 #
 #	vvd(ra2, 0.01668919069414242368, 1e-13,
-#			"Celes::starpm", "ra")
+#			'Celes.starpm', 'ra')
 #	vvd(dec2, -1.093966454217127879, 1e-13,
-#			"Celes::starpm", "dec")
+#			'Celes.starpm', 'dec')
 #	vvd(pmr2, -0.1783662682155932702e-4, 1e-17,
-#			"Celes::starpm", "pmr")
+#			'Celes.starpm', 'pmr')
 #	vvd(pmd2, 0.2338092915987603664e-5, 1e-17,
-#			"Celes::starpm", "pmd")
+#			'Celes.starpm', 'pmd')
 #	vvd(px2, 0.7473533835323493644, 1e-13,
-#			"Celes::starpm", "px")
+#			'Celes.starpm', 'px')
 #	vvd(rv2, -21.59905170476860786, 1e-11,
-#			"Celes::starpm", "rv")
+#			'Celes.starpm', 'rv')
 #
-#	viv(j, 0, "Celes::starpm", "j")
+#	viv(j, 0, 'Celes.starpm', 'j')
 #
 # }
 def t_starpm
@@ -9949,53 +7082,28 @@ def t_starpm
   px1 =   0.74723
   rv1 = -21.6
 
-<<<<<<< HEAD
-  ra2, dec2, pmr2, pmd2, px2, rv2 = Celes::starpm(
+  ra2, dec2, pmr2, pmd2, px2, rv2 = Celes.starpm(
     ra1, dec1, pmr1, pmd1, px1, rv1,
     2400000.5, 50083.0, 2400000.5, 53736.0)
 
   vvd(ra2, 0.01668919069414242368, 1e-13,
-    "Celes::starpm", "ra")
+    'Celes.starpm', 'ra')
   vvd(dec2, -1.093966454217127879, 1e-13,
-    "Celes::starpm", "dec")
+    'Celes.starpm', 'dec')
   vvd(pmr2, -0.1783662682155932702e-4, 1e-17,
-    "Celes::starpm", "pmr")
+    'Celes.starpm', 'pmr')
   vvd(pmd2, 0.2338092915987603664e-5, 1e-17,
-    "Celes::starpm", "pmd")
+    'Celes.starpm', 'pmd')
   vvd(px2, 0.7473533835323493644, 1e-13,
-    "Celes::starpm", "px")
+    'Celes.starpm', 'px')
   vvd(rv2, -21.59905170476860786, 1e-11,
-    "Celes::starpm", "rv")
+    'Celes.starpm', 'rv')
 
-  viv(Celes::status, 0, "Celes::starpm", "j")
-end
-
-#static void t_starpv(int *status)
-#{
-=======
-  ra2, dec2, pmr2, pmd2, px2, rv2 = Celes.starpm(
-        ra1, dec1, pmr1, pmd1, px1, rv1,
-        2_400_000.5, 50_083.0, 2_400_000.5, 53_736.0)
-
-  vvd(ra2, 0.01668919069414242368, 1e-13,
-      'Celes::starpm', 'ra')
-  vvd(dec2, -1.093966454217127879, 1e-13,
-      'Celes::starpm', 'dec')
-  vvd(pmr2, -0.1783662682155932702e-4, 1e-17,
-      'Celes::starpm', 'pmr')
-  vvd(pmd2, 0.2338092915987603664e-5, 1e-17,
-      'Celes::starpm', 'pmd')
-  vvd(px2, 0.7473533835323493644, 1e-13,
-      'Celes::starpm', 'px')
-  vvd(rv2, -21.59905170476860786, 1e-11,
-      'Celes::starpm', 'rv')
-
-  viv(Celes.status, 0, 'Celes::starpm', 'j')
+  viv(Celes.status, 0, 'Celes.starpm', 'j')
 end
 
 # static void t_starpv(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double ra, dec, pmr, pmd, px, rv, pv[2][3]
 #	int j
 #
@@ -10007,23 +7115,23 @@ end
 #	px =   0.74723
 #	rv = -21.6
 #
-#	j = Celes::starpv(ra, dec, pmr, pmd, px, rv, pv)
+#	j = Celes.starpv(ra, dec, pmr, pmd, px, rv, pv)
 #
 #	vvd(pv[0][0], 126668.5912743160601, 1e-10,
-#			"Celes::starpv", "11")
+#			'Celes.starpv', '11')
 #	vvd(pv[0][1], 2136.792716839935195, 1e-12,
-#			"Celes::starpv", "12")
+#			'Celes.starpv', '12')
 #	vvd(pv[0][2], -245251.2339876830091, 1e-10,
-#			"Celes::starpv", "13")
+#			'Celes.starpv', '13')
 #
 #	vvd(pv[1][0], -0.4051854035740712739e-2, 1e-13,
-#			"Celes::starpv", "21")
+#			'Celes.starpv', '21')
 #	vvd(pv[1][1], -0.6253919754866173866e-2, 1e-15,
-#			"Celes::starpv", "22")
+#			'Celes.starpv', '22')
 #	vvd(pv[1][2], 0.1189353719774107189e-1, 1e-13,
-#			"Celes::starpv", "23")
+#			'Celes.starpv', '23')
 #
-#	viv(j, 0, "Celes::starpv", "j")
+#	viv(j, 0, 'Celes.starpv', 'j')
 #
 # }
 def t_starpv
@@ -10034,51 +7142,27 @@ def t_starpv
   px =   0.74723
   rv = -21.6
 
-<<<<<<< HEAD
-  pv = Celes::starpv(ra, dec, pmr, pmd, px, rv)
-
-  vvd(pv[0][0], 126668.5912743160601, 1e-10,
-    "Celes::starpv", "11")
-  vvd(pv[0][1], 2136.792716839935195, 1e-12,
-    "Celes::starpv", "12")
-  vvd(pv[0][2], -245251.2339876830091, 1e-10,
-    "Celes::starpv", "13")
-
-  vvd(pv[1][0], -0.4051854035740712739e-2, 1e-13,
-    "Celes::starpv", "21")
-  vvd(pv[1][1], -0.6253919754866173866e-2, 1e-15,
-    "Celes::starpv", "22")
-  vvd(pv[1][2], 0.1189353719774107189e-1, 1e-13,
-    "Celes::starpv", "23")
-
-  viv(Celes::status, 0, "Celes::starpv", "j")
-end
-
-#static void t_sxp(int *status)
-#{
-=======
   pv = Celes.starpv(ra, dec, pmr, pmd, px, rv)
 
-  vvd(pv[0][0], 126_668.5912743160601, 1e-10,
-      'Celes::starpv', '11')
+  vvd(pv[0][0], 126668.5912743160601, 1e-10,
+    'Celes.starpv', '11')
   vvd(pv[0][1], 2136.792716839935195, 1e-12,
-      'Celes::starpv', '12')
-  vvd(pv[0][2], -245_251.2339876830091, 1e-10,
-      'Celes::starpv', '13')
+    'Celes.starpv', '12')
+  vvd(pv[0][2], -245251.2339876830091, 1e-10,
+    'Celes.starpv', '13')
 
   vvd(pv[1][0], -0.4051854035740712739e-2, 1e-13,
-      'Celes::starpv', '21')
+    'Celes.starpv', '21')
   vvd(pv[1][1], -0.6253919754866173866e-2, 1e-15,
-      'Celes::starpv', '22')
+    'Celes.starpv', '22')
   vvd(pv[1][2], 0.1189353719774107189e-1, 1e-13,
-      'Celes::starpv', '23')
+    'Celes.starpv', '23')
 
-  viv(Celes.status, 0, 'Celes::starpv', 'j')
+  viv(Celes.status, 0, 'Celes.starpv', 'j')
 end
 
 # static void t_sxp(int *status)
 # {
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 #	double s, p[3], sp[3]
 #
 #
@@ -10088,11 +7172,11 @@ end
 #	p[1] =  1.2
 #	p[2] = -2.5
 #
-#	Celes::sxp(s, p, sp)
+#	Celes.sxp(s, p, sp)
 #
-#	vvd(sp[0],  0.6, 0.0, "Celes::sxp", "1")
-#	vvd(sp[1],  2.4, 0.0, "Celes::sxp", "2")
-#	vvd(sp[2], -5.0, 0.0, "Celes::sxp", "3")
+#	vvd(sp[0],  0.6, 0.0, 'Celes.sxp', '1')
+#	vvd(sp[1],  2.4, 0.0, 'Celes.sxp', '2')
+#	vvd(sp[2], -5.0, 0.0, 'Celes.sxp', '3')
 #
 # }
 def t_sxp
@@ -10104,19 +7188,11 @@ def t_sxp
   p[1] =  1.2
   p[2] = -2.5
 
-<<<<<<< HEAD
-  sp = Celes::sxp(s, p)
-
-  vvd(sp[0],  0.6, 0.0, "Celes::sxp", "1")
-  vvd(sp[1],  2.4, 0.0, "Celes::sxp", "2")
-  vvd(sp[2], -5.0, 0.0, "Celes::sxp", "3")
-=======
   sp = Celes.sxp(s, p)
 
-  vvd(sp[0],  0.6, 0.0, 'Celes::sxp', '1')
-  vvd(sp[1],  2.4, 0.0, 'Celes::sxp', '2')
-  vvd(sp[2], -5.0, 0.0, 'Celes::sxp', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(sp[0],  0.6, 0.0, 'Celes.sxp', '1')
+  vvd(sp[1],  2.4, 0.0, 'Celes.sxp', '2')
+  vvd(sp[2], -5.0, 0.0, 'Celes.sxp', '3')
 end
 
 # static void t_sxpv(int *status)
@@ -10134,15 +7210,15 @@ end
 #	pv[1][1] =  3.2
 #	pv[1][2] = -0.7
 #
-#	Celes::sxpv(s, pv, spv)
+#	Celes.sxpv(s, pv, spv)
 #
-#	vvd(spv[0][0],  0.6, 0.0, "Celes::sxpv", "p1")
-#	vvd(spv[0][1],  2.4, 0.0, "Celes::sxpv", "p2")
-#	vvd(spv[0][2], -5.0, 0.0, "Celes::sxpv", "p3")
+#	vvd(spv[0][0],  0.6, 0.0, 'Celes.sxpv', 'p1')
+#	vvd(spv[0][1],  2.4, 0.0, 'Celes.sxpv', 'p2')
+#	vvd(spv[0][2], -5.0, 0.0, 'Celes.sxpv', 'p3')
 #
-#	vvd(spv[1][0],  1.0, 0.0, "Celes::sxpv", "v1")
-#	vvd(spv[1][1],  6.4, 0.0, "Celes::sxpv", "v2")
-#	vvd(spv[1][2], -1.4, 0.0, "Celes::sxpv", "v3")
+#	vvd(spv[1][0],  1.0, 0.0, 'Celes.sxpv', 'v1')
+#	vvd(spv[1][1],  6.4, 0.0, 'Celes.sxpv', 'v2')
+#	vvd(spv[1][2], -1.4, 0.0, 'Celes.sxpv', 'v3')
 #
 # }
 def t_sxpv
@@ -10158,27 +7234,15 @@ def t_sxpv
   pv[1][1] =  3.2
   pv[1][2] = -0.7
 
-<<<<<<< HEAD
-  spv = Celes::sxpv(s, pv)
-
-  vvd(spv[0][0],  0.6, 0.0, "Celes::sxpv", "p1")
-  vvd(spv[0][1],  2.4, 0.0, "Celes::sxpv", "p2")
-  vvd(spv[0][2], -5.0, 0.0, "Celes::sxpv", "p3")
-
-  vvd(spv[1][0],  1.0, 0.0, "Celes::sxpv", "v1")
-  vvd(spv[1][1],  6.4, 0.0, "Celes::sxpv", "v2")
-  vvd(spv[1][2], -1.4, 0.0, "Celes::sxpv", "v3")
-=======
   spv = Celes.sxpv(s, pv)
 
-  vvd(spv[0][0],  0.6, 0.0, 'Celes::sxpv', 'p1')
-  vvd(spv[0][1],  2.4, 0.0, 'Celes::sxpv', 'p2')
-  vvd(spv[0][2], -5.0, 0.0, 'Celes::sxpv', 'p3')
+  vvd(spv[0][0],  0.6, 0.0, 'Celes.sxpv', 'p1')
+  vvd(spv[0][1],  2.4, 0.0, 'Celes.sxpv', 'p2')
+  vvd(spv[0][2], -5.0, 0.0, 'Celes.sxpv', 'p3')
 
-  vvd(spv[1][0],  1.0, 0.0, 'Celes::sxpv', 'v1')
-  vvd(spv[1][1],  6.4, 0.0, 'Celes::sxpv', 'v2')
-  vvd(spv[1][2], -1.4, 0.0, 'Celes::sxpv', 'v3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(spv[1][0],  1.0, 0.0, 'Celes.sxpv', 'v1')
+  vvd(spv[1][1],  6.4, 0.0, 'Celes.sxpv', 'v2')
+  vvd(spv[1][2], -1.4, 0.0, 'Celes.sxpv', 'v3')
 end
 
 # static void t_taitt(int *status)
@@ -10187,27 +7251,19 @@ end
 #	int j
 #
 #
-#	j = Celes::taitt(2453750.5, 0.892482639, &t1, &t2)
+#	j = Celes.taitt(2453750.5, 0.892482639, &t1, &t2)
 #
-#	vvd(t1, 2453750.5, 1e-6, "Celes::taitt", "t1")
-#	vvd(t2, 0.892855139, 1e-12, "Celes::taitt", "t2")
-#	viv(j, 0, "Celes::taitt", "j")
+#	vvd(t1, 2453750.5, 1e-6, 'Celes.taitt', 't1')
+#	vvd(t2, 0.892855139, 1e-12, 'Celes.taitt', 't2')
+#	viv(j, 0, 'Celes.taitt', 'j')
 #
 # }
 def t_taitt
-<<<<<<< HEAD
-  t1, t2 = Celes::taitt(2453750.5, 0.892482639)
+  t1, t2 = Celes.taitt(2453750.5, 0.892482639)
 
-  vvd(t1, 2453750.5, 1e-6, "Celes::taitt", "t1")
-  vvd(t2, 0.892855139, 1e-12, "Celes::taitt", "t2")
-  viv(Celes::status, 0, "Celes::taitt", "j")
-=======
-  t1, t2 = Celes.taitt(2_453_750.5, 0.892482639)
-
-  vvd(t1, 2_453_750.5, 1e-6, 'Celes::taitt', 't1')
-  vvd(t2, 0.892855139, 1e-12, 'Celes::taitt', 't2')
-  viv(Celes.status, 0, 'Celes::taitt', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(t1, 2453750.5, 1e-6, 'Celes.taitt', 't1')
+  vvd(t2, 0.892855139, 1e-12, 'Celes.taitt', 't2')
+  viv(Celes.status, 0, 'Celes.taitt', 'j')
 end
 
 # static void t_taiut1(int *status)
@@ -10216,27 +7272,19 @@ end
 #	int j
 #
 #
-#	j = Celes::taiut1(2453750.5, 0.892482639, -32.6659, &u1, &u2)
+#	j = Celes.taiut1(2453750.5, 0.892482639, -32.6659, &u1, &u2)
 #
-#	vvd(u1, 2453750.5, 1e-6, "Celes::taiut1", "u1")
-#	vvd(u2, 0.8921045614537037037, 1e-12, "Celes::taiut1", "u2")
-#	viv(j, 0, "Celes::taiut1", "j")
+#	vvd(u1, 2453750.5, 1e-6, 'Celes.taiut1', 'u1')
+#	vvd(u2, 0.8921045614537037037, 1e-12, 'Celes.taiut1', 'u2')
+#	viv(j, 0, 'Celes.taiut1', 'j')
 #
 # }
 def t_taiut1
-<<<<<<< HEAD
-  u1, u2 = Celes::taiut1(2453750.5, 0.892482639, -32.6659)
+  u1, u2 = Celes.taiut1(2453750.5, 0.892482639, -32.6659)
 
-  vvd(u1, 2453750.5, 1e-6, "Celes::taiut1", "u1")
-  vvd(u2, 0.8921045614537037037, 1e-12, "Celes::taiut1", "u2")
-  viv(Celes::status, 0, "Celes::taiut1", "j")
-=======
-  u1, u2 = Celes.taiut1(2_453_750.5, 0.892482639, -32.6659)
-
-  vvd(u1, 2_453_750.5, 1e-6, 'Celes::taiut1', 'u1')
-  vvd(u2, 0.8921045614537037037, 1e-12, 'Celes::taiut1', 'u2')
-  viv(Celes.status, 0, 'Celes::taiut1', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(u1, 2453750.5, 1e-6, 'Celes.taiut1', 'u1')
+  vvd(u2, 0.8921045614537037037, 1e-12, 'Celes.taiut1', 'u2')
+  viv(Celes.status, 0, 'Celes.taiut1', 'j')
 end
 
 # static void t_taiutc(int *status)
@@ -10245,27 +7293,19 @@ end
 #	int j
 #
 #
-#	j = Celes::taiutc(2453750.5, 0.892482639, &u1, &u2)
+#	j = Celes.taiutc(2453750.5, 0.892482639, &u1, &u2)
 #
-#	vvd(u1, 2453750.5, 1e-6, "Celes::taiutc", "u1")
-#	vvd(u2, 0.8921006945555555556, 1e-12, "Celes::taiutc", "u2")
-#	viv(j, 0, "Celes::taiutc", "j")
+#	vvd(u1, 2453750.5, 1e-6, 'Celes.taiutc', 'u1')
+#	vvd(u2, 0.8921006945555555556, 1e-12, 'Celes.taiutc', 'u2')
+#	viv(j, 0, 'Celes.taiutc', 'j')
 #
 # }
 def t_taiutc
-<<<<<<< HEAD
-  u1, u2 = Celes::taiutc(2453750.5, 0.892482639)
+  u1, u2 = Celes.taiutc(2453750.5, 0.892482639)
 
-  vvd(u1, 2453750.5, 1e-6, "Celes::taiutc", "u1")
-  vvd(u2, 0.8921006945555555556, 1e-12, "Celes::taiutc", "u2")
-  viv(Celes::status, 0, "Celes::taiutc", "j")
-=======
-  u1, u2 = Celes.taiutc(2_453_750.5, 0.892482639)
-
-  vvd(u1, 2_453_750.5, 1e-6, 'Celes::taiutc', 'u1')
-  vvd(u2, 0.8921006945555555556, 1e-12, 'Celes::taiutc', 'u2')
-  viv(Celes.status, 0, 'Celes::taiutc', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(u1, 2453750.5, 1e-6, 'Celes.taiutc', 'u1')
+  vvd(u2, 0.8921006945555555556, 1e-12, 'Celes.taiutc', 'u2')
+  viv(Celes.status, 0, 'Celes.taiutc', 'j')
 end
 
 # static void t_tcbtdb(int *status)
@@ -10274,27 +7314,19 @@ end
 #	int j
 #
 #
-#	j = Celes::tcbtdb(2453750.5, 0.893019599, &b1, &b2)
+#	j = Celes.tcbtdb(2453750.5, 0.893019599, &b1, &b2)
 #
-#	vvd(b1, 2453750.5, 1e-6, "Celes::tcbtdb", "b1")
-#	vvd(b2, 0.8928551362746343397, 1e-12, "Celes::tcbtdb", "b2")
-#	viv(j, 0, "Celes::tcbtdb", "j")
+#	vvd(b1, 2453750.5, 1e-6, 'Celes.tcbtdb', 'b1')
+#	vvd(b2, 0.8928551362746343397, 1e-12, 'Celes.tcbtdb', 'b2')
+#	viv(j, 0, 'Celes.tcbtdb', 'j')
 #
 # }
 def t_tcbtdb
-<<<<<<< HEAD
-  b1, b2 = Celes::tcbtdb(2453750.5, 0.893019599)
+  b1, b2 = Celes.tcbtdb(2453750.5, 0.893019599)
 
-  vvd(b1, 2453750.5, 1e-6, "Celes::tcbtdb", "b1")
-  vvd(b2, 0.8928551362746343397, 1e-12, "Celes::tcbtdb", "b2")
-  viv(Celes::status, 0, "Celes::tcbtdb", "j")
-=======
-  b1, b2 = Celes.tcbtdb(2_453_750.5, 0.893019599)
-
-  vvd(b1, 2_453_750.5, 1e-6, 'Celes::tcbtdb', 'b1')
-  vvd(b2, 0.8928551362746343397, 1e-12, 'Celes::tcbtdb', 'b2')
-  viv(Celes.status, 0, 'Celes::tcbtdb', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(b1, 2453750.5, 1e-6, 'Celes.tcbtdb', 'b1')
+  vvd(b2, 0.8928551362746343397, 1e-12, 'Celes.tcbtdb', 'b2')
+  viv(Celes.status, 0, 'Celes.tcbtdb', 'j')
 end
 
 # static void t_tcgtt(int *status)
@@ -10303,27 +7335,19 @@ end
 #	int j
 #
 #
-#	j = Celes::tcgtt(2453750.5, 0.892862531, &t1, &t2)
+#	j = Celes.tcgtt(2453750.5, 0.892862531, &t1, &t2)
 #
-#	vvd(t1, 2453750.5, 1e-6, "Celes::tcgtt", "t1")
-#	vvd(t2, 0.8928551387488816828, 1e-12, "Celes::tcgtt", "t2")
-#	viv(j, 0, "Celes::tcgtt", "j")
+#	vvd(t1, 2453750.5, 1e-6, 'Celes.tcgtt', 't1')
+#	vvd(t2, 0.8928551387488816828, 1e-12, 'Celes.tcgtt', 't2')
+#	viv(j, 0, 'Celes.tcgtt', 'j')
 #
 # }
 def t_tcgtt
-<<<<<<< HEAD
-  t1, t2 = Celes::tcgtt(2453750.5, 0.892862531)
+  t1, t2 = Celes.tcgtt(2453750.5, 0.892862531)
 
-  vvd(t1, 2453750.5, 1e-6, "Celes::tcgtt", "t1")
-  vvd(t2, 0.8928551387488816828, 1e-12, "Celes::tcgtt", "t2")
-  viv(Celes::status, 0, "Celes::tcgtt", "j")
-=======
-  t1, t2 = Celes.tcgtt(2_453_750.5, 0.892862531)
-
-  vvd(t1, 2_453_750.5, 1e-6, 'Celes::tcgtt', 't1')
-  vvd(t2, 0.8928551387488816828, 1e-12, 'Celes::tcgtt', 't2')
-  viv(Celes.status, 0, 'Celes::tcgtt', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(t1, 2453750.5, 1e-6, 'Celes.tcgtt', 't1')
+  vvd(t2, 0.8928551387488816828, 1e-12, 'Celes.tcgtt', 't2')
+  viv(Celes.status, 0, 'Celes.tcgtt', 'j')
 end
 
 # static void t_tdbtcb(int *status)
@@ -10332,27 +7356,19 @@ end
 #	int j
 #
 #
-#	j = Celes::tdbtcb(2453750.5, 0.892855137, &b1, &b2)
+#	j = Celes.tdbtcb(2453750.5, 0.892855137, &b1, &b2)
 #
-#	vvd( b1, 2453750.5, 1e-6, "Celes::tdbtcb", "b1")
-#	vvd( b2, 0.8930195997253656716, 1e-12, "Celes::tdbtcb", "b2")
-#	viv(j, 0, "Celes::tdbtcb", "j")
+#	vvd( b1, 2453750.5, 1e-6, 'Celes.tdbtcb', 'b1')
+#	vvd( b2, 0.8930195997253656716, 1e-12, 'Celes.tdbtcb', 'b2')
+#	viv(j, 0, 'Celes.tdbtcb', 'j')
 #
 # }
 def t_tdbtcb
-<<<<<<< HEAD
-  b1, b2 = Celes::tdbtcb(2453750.5, 0.892855137)
+  b1, b2 = Celes.tdbtcb(2453750.5, 0.892855137)
 
-  vvd(b1, 2453750.5, 1e-6, "Celes::tdbtcb", "b1")
-  vvd(b2, 0.8930195997253656716, 1e-12, "Celes::tdbtcb", "b2")
-  viv(Celes::status, 0, "Celes::tdbtcb", "j")
-=======
-  b1, b2 = Celes.tdbtcb(2_453_750.5, 0.892855137)
-
-  vvd(b1, 2_453_750.5, 1e-6, 'Celes::tdbtcb', 'b1')
-  vvd(b2, 0.8930195997253656716, 1e-12, 'Celes::tdbtcb', 'b2')
-  viv(Celes.status, 0, 'Celes::tdbtcb', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(b1, 2453750.5, 1e-6, 'Celes.tdbtcb', 'b1')
+  vvd(b2, 0.8930195997253656716, 1e-12, 'Celes.tdbtcb', 'b2')
+  viv(Celes.status, 0, 'Celes.tdbtcb', 'j')
 end
 
 # static void t_tdbtt(int *status)
@@ -10361,27 +7377,19 @@ end
 #	int j
 #
 #
-#	j = Celes::tdbtt(2453750.5, 0.892855137, -0.000201, &t1, &t2)
+#	j = Celes.tdbtt(2453750.5, 0.892855137, -0.000201, &t1, &t2)
 #
-#	vvd(t1, 2453750.5, 1e-6, "Celes::tdbtt", "t1")
-#	vvd(t2, 0.8928551393263888889, 1e-12, "Celes::tdbtt", "t2")
-#	viv(j, 0, "Celes::tdbtt", "j")
+#	vvd(t1, 2453750.5, 1e-6, 'Celes.tdbtt', 't1')
+#	vvd(t2, 0.8928551393263888889, 1e-12, 'Celes.tdbtt', 't2')
+#	viv(j, 0, 'Celes.tdbtt', 'j')
 #
 # }
 def t_tdbtt
-<<<<<<< HEAD
-  t1, t2 = Celes::tdbtt(2453750.5, 0.892855137, -0.000201)
+  t1, t2 = Celes.tdbtt(2453750.5, 0.892855137, -0.000201)
 
-  vvd(t1, 2453750.5, 1e-6, "Celes::tdbtt", "t1")
-  vvd(t2, 0.8928551393263888889, 1e-12, "Celes::tdbtt", "t2")
-  viv(Celes::status, 0, "Celes::tdbtt", "j")
-=======
-  t1, t2 = Celes.tdbtt(2_453_750.5, 0.892855137, -0.000201)
-
-  vvd(t1, 2_453_750.5, 1e-6, 'Celes::tdbtt', 't1')
-  vvd(t2, 0.8928551393263888889, 1e-12, 'Celes::tdbtt', 't2')
-  viv(Celes.status, 0, 'Celes::tdbtt', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(t1, 2453750.5, 1e-6, 'Celes.tdbtt', 't1')
+  vvd(t2, 0.8928551393263888889, 1e-12, 'Celes.tdbtt', 't2')
+  viv(Celes.status, 0, 'Celes.tdbtt', 'j')
 end
 
 # static void t_tf2a(int *status)
@@ -10390,24 +7398,17 @@ end
 #	int j
 #
 #
-#	j = Celes::tf2a('+', 4, 58, 20.2, &a)
+#	j = Celes.tf2a('+', 4, 58, 20.2, &a)
 #
-#	vvd(a, 1.301739278189537429, 1e-12, "Celes::tf2a", "a")
-#	viv(j, 0, "Celes::tf2a", "j")
+#	vvd(a, 1.301739278189537429, 1e-12, 'Celes.tf2a', 'a')
+#	viv(j, 0, 'Celes.tf2a', 'j')
 #
 # }
 def t_tf2a
-<<<<<<< HEAD
-  a = Celes::tf2a('+', 4, 58, 20.2)
-
-  vvd(a, 1.301739278189537429, 1e-12, "Celes::tf2a", "a")
-  viv(Celes::status, 0, "Celes::tf2a", "j")
-=======
   a = Celes.tf2a('+', 4, 58, 20.2)
 
-  vvd(a, 1.301739278189537429, 1e-12, 'Celes::tf2a', 'a')
-  viv(Celes.status, 0, 'Celes::tf2a', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(a, 1.301739278189537429, 1e-12, 'Celes.tf2a', 'a')
+  viv(Celes.status, 0, 'Celes.tf2a', 'j')
 end
 
 # static void t_tf2d(int *status)
@@ -10416,24 +7417,17 @@ end
 #	int j
 #
 #
-#	j = Celes::tf2d(' ', 23, 55, 10.9, &d)
+#	j = Celes.tf2d(' ', 23, 55, 10.9, &d)
 #
-#	vvd(d, 0.9966539351851851852, 1e-12, "Celes::tf2d", "d")
-#	viv(j, 0, "Celes::tf2d", "j")
+#	vvd(d, 0.9966539351851851852, 1e-12, 'Celes.tf2d', 'd')
+#	viv(j, 0, 'Celes.tf2d', 'j')
 #
 # }
 def t_tf2d
-<<<<<<< HEAD
-  d = Celes::tf2d(' ', 23, 55, 10.9)
-
-  vvd(d, 0.9966539351851851852, 1e-12, "Celes::tf2d", "d")
-  viv(Celes::status, 0, "Celes::tf2d", "j")
-=======
   d = Celes.tf2d(' ', 23, 55, 10.9)
 
-  vvd(d, 0.9966539351851851852, 1e-12, 'Celes::tf2d', 'd')
-  viv(Celes.status, 0, 'Celes::tf2d', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(d, 0.9966539351851851852, 1e-12, 'Celes.tf2d', 'd')
+  viv(Celes.status, 0, 'Celes.tf2d', 'j')
 end
 
 # static void t_tr(int *status)
@@ -10453,19 +7447,19 @@ end
 #	r[2][1] = 4.0
 #	r[2][2] = 5.0
 #
-#	Celes::tr(r, rt)
+#	Celes.tr(r, rt)
 #
-#	vvd(rt[0][0], 2.0, 0.0, "Celes::tr", "11")
-#	vvd(rt[0][1], 3.0, 0.0, "Celes::tr", "12")
-#	vvd(rt[0][2], 3.0, 0.0, "Celes::tr", "13")
+#	vvd(rt[0][0], 2.0, 0.0, 'Celes.tr', '11')
+#	vvd(rt[0][1], 3.0, 0.0, 'Celes.tr', '12')
+#	vvd(rt[0][2], 3.0, 0.0, 'Celes.tr', '13')
 #
-#	vvd(rt[1][0], 3.0, 0.0, "Celes::tr", "21")
-#	vvd(rt[1][1], 2.0, 0.0, "Celes::tr", "22")
-#	vvd(rt[1][2], 4.0, 0.0, "Celes::tr", "23")
+#	vvd(rt[1][0], 3.0, 0.0, 'Celes.tr', '21')
+#	vvd(rt[1][1], 2.0, 0.0, 'Celes.tr', '22')
+#	vvd(rt[1][2], 4.0, 0.0, 'Celes.tr', '23')
 #
-#	vvd(rt[2][0], 2.0, 0.0, "Celes::tr", "31")
-#	vvd(rt[2][1], 3.0, 0.0, "Celes::tr", "32")
-#	vvd(rt[2][2], 5.0, 0.0, "Celes::tr", "33")
+#	vvd(rt[2][0], 2.0, 0.0, 'Celes.tr', '31')
+#	vvd(rt[2][1], 3.0, 0.0, 'Celes.tr', '32')
+#	vvd(rt[2][2], 5.0, 0.0, 'Celes.tr', '33')
 #
 # }
 def t_tr
@@ -10483,35 +7477,19 @@ def t_tr
   r[2][1] = 4.0
   r[2][2] = 5.0
 
-<<<<<<< HEAD
-  rt = Celes::tr(r)
-
-  vvd(rt[0][0], 2.0, 0.0, "Celes::tr", "11")
-  vvd(rt[0][1], 3.0, 0.0, "Celes::tr", "12")
-  vvd(rt[0][2], 3.0, 0.0, "Celes::tr", "13")
-
-  vvd(rt[1][0], 3.0, 0.0, "Celes::tr", "21")
-  vvd(rt[1][1], 2.0, 0.0, "Celes::tr", "22")
-  vvd(rt[1][2], 4.0, 0.0, "Celes::tr", "23")
-
-  vvd(rt[2][0], 2.0, 0.0, "Celes::tr", "31")
-  vvd(rt[2][1], 3.0, 0.0, "Celes::tr", "32")
-  vvd(rt[2][2], 5.0, 0.0, "Celes::tr", "33")
-=======
   rt = Celes.tr(r)
 
-  vvd(rt[0][0], 2.0, 0.0, 'Celes::tr', '11')
-  vvd(rt[0][1], 3.0, 0.0, 'Celes::tr', '12')
-  vvd(rt[0][2], 3.0, 0.0, 'Celes::tr', '13')
+  vvd(rt[0][0], 2.0, 0.0, 'Celes.tr', '11')
+  vvd(rt[0][1], 3.0, 0.0, 'Celes.tr', '12')
+  vvd(rt[0][2], 3.0, 0.0, 'Celes.tr', '13')
 
-  vvd(rt[1][0], 3.0, 0.0, 'Celes::tr', '21')
-  vvd(rt[1][1], 2.0, 0.0, 'Celes::tr', '22')
-  vvd(rt[1][2], 4.0, 0.0, 'Celes::tr', '23')
+  vvd(rt[1][0], 3.0, 0.0, 'Celes.tr', '21')
+  vvd(rt[1][1], 2.0, 0.0, 'Celes.tr', '22')
+  vvd(rt[1][2], 4.0, 0.0, 'Celes.tr', '23')
 
-  vvd(rt[2][0], 2.0, 0.0, 'Celes::tr', '31')
-  vvd(rt[2][1], 3.0, 0.0, 'Celes::tr', '32')
-  vvd(rt[2][2], 5.0, 0.0, 'Celes::tr', '33')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(rt[2][0], 2.0, 0.0, 'Celes.tr', '31')
+  vvd(rt[2][1], 3.0, 0.0, 'Celes.tr', '32')
+  vvd(rt[2][2], 5.0, 0.0, 'Celes.tr', '33')
 end
 
 # static void t_trxp(int *status)
@@ -10535,11 +7513,11 @@ end
 #	p[1] = 1.5
 #	p[2] = 0.1
 #
-#	Celes::trxp(r, p, trp)
+#	Celes.trxp(r, p, trp)
 #
-#	vvd(trp[0], 5.2, 1e-12, "Celes::trxp", "1")
-#	vvd(trp[1], 4.0, 1e-12, "Celes::trxp", "2")
-#	vvd(trp[2], 5.4, 1e-12, "Celes::trxp", "3")
+#	vvd(trp[0], 5.2, 1e-12, 'Celes.trxp', '1')
+#	vvd(trp[1], 4.0, 1e-12, 'Celes.trxp', '2')
+#	vvd(trp[2], 5.4, 1e-12, 'Celes.trxp', '3')
 #
 # }
 def t_trxp
@@ -10562,19 +7540,11 @@ def t_trxp
   p[1] = 1.5
   p[2] = 0.1
 
-<<<<<<< HEAD
-  trp = Celes::trxp(r, p)
-
-  vvd(trp[0], 5.2, 1e-12, "Celes::trxp", "1")
-  vvd(trp[1], 4.0, 1e-12, "Celes::trxp", "2")
-  vvd(trp[2], 5.4, 1e-12, "Celes::trxp", "3")
-=======
   trp = Celes.trxp(r, p)
 
-  vvd(trp[0], 5.2, 1e-12, 'Celes::trxp', '1')
-  vvd(trp[1], 4.0, 1e-12, 'Celes::trxp', '2')
-  vvd(trp[2], 5.4, 1e-12, 'Celes::trxp', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(trp[0], 5.2, 1e-12, 'Celes.trxp', '1')
+  vvd(trp[1], 4.0, 1e-12, 'Celes.trxp', '2')
+  vvd(trp[2], 5.4, 1e-12, 'Celes.trxp', '3')
 end
 
 # static void t_trxpv(int *status)
@@ -10602,15 +7572,15 @@ end
 #	pv[1][1] = 0.2
 #	pv[1][2] = 0.1
 #
-#	Celes::trxpv(r, pv, trpv)
+#	Celes.trxpv(r, pv, trpv)
 #
-#	vvd(trpv[0][0], 5.2, 1e-12, "Celes::trxpv", "p1")
-#	vvd(trpv[0][1], 4.0, 1e-12, "Celes::trxpv", "p1")
-#	vvd(trpv[0][2], 5.4, 1e-12, "Celes::trxpv", "p1")
+#	vvd(trpv[0][0], 5.2, 1e-12, 'Celes.trxpv', 'p1')
+#	vvd(trpv[0][1], 4.0, 1e-12, 'Celes.trxpv', 'p1')
+#	vvd(trpv[0][2], 5.4, 1e-12, 'Celes.trxpv', 'p1')
 #
-#	vvd(trpv[1][0], 3.9, 1e-12, "Celes::trxpv", "v1")
-#	vvd(trpv[1][1], 5.3, 1e-12, "Celes::trxpv", "v2")
-#	vvd(trpv[1][2], 4.1, 1e-12, "Celes::trxpv", "v3")
+#	vvd(trpv[1][0], 3.9, 1e-12, 'Celes.trxpv', 'v1')
+#	vvd(trpv[1][1], 5.3, 1e-12, 'Celes.trxpv', 'v2')
+#	vvd(trpv[1][2], 4.1, 1e-12, 'Celes.trxpv', 'v3')
 #
 # }
 def t_trxpv
@@ -10637,27 +7607,15 @@ def t_trxpv
   pv[1][1] = 0.2
   pv[1][2] = 0.1
 
-<<<<<<< HEAD
-  trpv = Celes::trxpv(r, pv)
-
-  vvd(trpv[0][0], 5.2, 1e-12, "Celes::trxpv", "p1")
-  vvd(trpv[0][1], 4.0, 1e-12, "Celes::trxpv", "p1")
-  vvd(trpv[0][2], 5.4, 1e-12, "Celes::trxpv", "p1")
-
-  vvd(trpv[1][0], 3.9, 1e-12, "Celes::trxpv", "v1")
-  vvd(trpv[1][1], 5.3, 1e-12, "Celes::trxpv", "v2")
-  vvd(trpv[1][2], 4.1, 1e-12, "Celes::trxpv", "v3")
-=======
   trpv = Celes.trxpv(r, pv)
 
-  vvd(trpv[0][0], 5.2, 1e-12, 'Celes::trxpv', 'p1')
-  vvd(trpv[0][1], 4.0, 1e-12, 'Celes::trxpv', 'p1')
-  vvd(trpv[0][2], 5.4, 1e-12, 'Celes::trxpv', 'p1')
+  vvd(trpv[0][0], 5.2, 1e-12, 'Celes.trxpv', 'p1')
+  vvd(trpv[0][1], 4.0, 1e-12, 'Celes.trxpv', 'p1')
+  vvd(trpv[0][2], 5.4, 1e-12, 'Celes.trxpv', 'p1')
 
-  vvd(trpv[1][0], 3.9, 1e-12, 'Celes::trxpv', 'v1')
-  vvd(trpv[1][1], 5.3, 1e-12, 'Celes::trxpv', 'v2')
-  vvd(trpv[1][2], 4.1, 1e-12, 'Celes::trxpv', 'v3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(trpv[1][0], 3.9, 1e-12, 'Celes.trxpv', 'v1')
+  vvd(trpv[1][1], 5.3, 1e-12, 'Celes.trxpv', 'v2')
+  vvd(trpv[1][2], 4.1, 1e-12, 'Celes.trxpv', 'v3')
 end
 
 # static void t_tttai(int *status)
@@ -10666,27 +7624,19 @@ end
 #	int j
 #
 #
-#	j = Celes::tttai(2453750.5, 0.892482639, &a1, &a2)
+#	j = Celes.tttai(2453750.5, 0.892482639, &a1, &a2)
 #
-#	vvd(a1, 2453750.5, 1e-6, "Celes::tttai", "a1")
-#	vvd(a2, 0.892110139, 1e-12, "Celes::tttai", "a2")
-#	viv(j, 0, "Celes::tttai", "j")
+#	vvd(a1, 2453750.5, 1e-6, 'Celes.tttai', 'a1')
+#	vvd(a2, 0.892110139, 1e-12, 'Celes.tttai', 'a2')
+#	viv(j, 0, 'Celes.tttai', 'j')
 #
 # }
 def t_tttai
-<<<<<<< HEAD
-  a1, a2 = Celes::tttai(2453750.5, 0.892482639)
+  a1, a2 = Celes.tttai(2453750.5, 0.892482639)
 
-  vvd(a1, 2453750.5, 1e-6, "Celes::tttai", "a1")
-  vvd(a2, 0.892110139, 1e-12, "Celes::tttai", "a2")
-  viv(Celes::status, 0, "Celes::tttai", "j")
-=======
-  a1, a2 = Celes.tttai(2_453_750.5, 0.892482639)
-
-  vvd(a1, 2_453_750.5, 1e-6, 'Celes::tttai', 'a1')
-  vvd(a2, 0.892110139, 1e-12, 'Celes::tttai', 'a2')
-  viv(Celes.status, 0, 'Celes::tttai', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(a1, 2453750.5, 1e-6, 'Celes.tttai', 'a1')
+  vvd(a2, 0.892110139, 1e-12, 'Celes.tttai', 'a2')
+  viv(Celes.status, 0, 'Celes.tttai', 'j')
 end
 
 # static void t_tttcg(int *status)
@@ -10695,27 +7645,19 @@ end
 #	int j
 #
 #
-#	j = Celes::tttcg(2453750.5, 0.892482639, &g1, &g2)
+#	j = Celes.tttcg(2453750.5, 0.892482639, &g1, &g2)
 #
-#	vvd( g1, 2453750.5, 1e-6, "Celes::tttcg", "g1")
-#	vvd( g2, 0.8924900312508587113, 1e-12, "Celes::tttcg", "g2")
-#	viv(j, 0, "Celes::tttcg", "j")
+#	vvd( g1, 2453750.5, 1e-6, 'Celes.tttcg', 'g1')
+#	vvd( g2, 0.8924900312508587113, 1e-12, 'Celes.tttcg', 'g2')
+#	viv(j, 0, 'Celes.tttcg', 'j')
 #
 # }
 def t_tttcg
-<<<<<<< HEAD
-  g1, g2 = Celes::tttcg(2453750.5, 0.892482639)
+  g1, g2 = Celes.tttcg(2453750.5, 0.892482639)
 
-  vvd( g1, 2453750.5, 1e-6, "Celes::tttcg", "g1")
-  vvd( g2, 0.8924900312508587113, 1e-12, "Celes::tttcg", "g2")
-  viv(Celes::status, 0, "Celes::tttcg", "j")
-=======
-  g1, g2 = Celes.tttcg(2_453_750.5, 0.892482639)
-
-  vvd(g1, 2_453_750.5, 1e-6, 'Celes::tttcg', 'g1')
-  vvd(g2, 0.8924900312508587113, 1e-12, 'Celes::tttcg', 'g2')
-  viv(Celes.status, 0, 'Celes::tttcg', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd( g1, 2453750.5, 1e-6, 'Celes.tttcg', 'g1')
+  vvd( g2, 0.8924900312508587113, 1e-12, 'Celes.tttcg', 'g2')
+  viv(Celes.status, 0, 'Celes.tttcg', 'j')
 end
 
 # static void t_tttdb(int *status)
@@ -10724,27 +7666,19 @@ end
 #	int j
 #
 #
-#	j = Celes::tttdb(2453750.5, 0.892855139, -0.000201, &b1, &b2)
+#	j = Celes.tttdb(2453750.5, 0.892855139, -0.000201, &b1, &b2)
 #
-#	vvd(b1, 2453750.5, 1e-6, "Celes::tttdb", "b1")
-#	vvd(b2, 0.8928551366736111111, 1e-12, "Celes::tttdb", "b2")
-#	viv(j, 0, "Celes::tttdb", "j")
+#	vvd(b1, 2453750.5, 1e-6, 'Celes.tttdb', 'b1')
+#	vvd(b2, 0.8928551366736111111, 1e-12, 'Celes.tttdb', 'b2')
+#	viv(j, 0, 'Celes.tttdb', 'j')
 #
 # }
 def t_tttdb
-<<<<<<< HEAD
-  b1, b2 = Celes::tttdb(2453750.5, 0.892855139, -0.000201)
+  b1, b2 = Celes.tttdb(2453750.5, 0.892855139, -0.000201)
 
-  vvd(b1, 2453750.5, 1e-6, "Celes::tttdb", "b1")
-  vvd(b2, 0.8928551366736111111, 1e-12, "Celes::tttdb", "b2")
-  viv(Celes::status, 0, "Celes::tttdb", "j")
-=======
-  b1, b2 = Celes.tttdb(2_453_750.5, 0.892855139, -0.000201)
-
-  vvd(b1, 2_453_750.5, 1e-6, 'Celes::tttdb', 'b1')
-  vvd(b2, 0.8928551366736111111, 1e-12, 'Celes::tttdb', 'b2')
-  viv(Celes.status, 0, 'Celes::tttdb', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(b1, 2453750.5, 1e-6, 'Celes.tttdb', 'b1')
+  vvd(b2, 0.8928551366736111111, 1e-12, 'Celes.tttdb', 'b2')
+  viv(Celes.status, 0, 'Celes.tttdb', 'j')
 end
 
 # static void t_ttut1(int *status)
@@ -10753,27 +7687,19 @@ end
 #	int j
 #
 #
-#	j = Celes::ttut1(2453750.5, 0.892855139, 64.8499, &u1, &u2)
+#	j = Celes.ttut1(2453750.5, 0.892855139, 64.8499, &u1, &u2)
 #
-#	vvd(u1, 2453750.5, 1e-6, "Celes::ttut1", "u1")
-#	vvd(u2, 0.8921045614537037037, 1e-12, "Celes::ttut1", "u2")
-#	viv(j, 0, "Celes::ttut1", "j")
+#	vvd(u1, 2453750.5, 1e-6, 'Celes.ttut1', 'u1')
+#	vvd(u2, 0.8921045614537037037, 1e-12, 'Celes.ttut1', 'u2')
+#	viv(j, 0, 'Celes.ttut1', 'j')
 #
 # }
 def t_ttut1
-<<<<<<< HEAD
-  u1, u2 = Celes::ttut1(2453750.5, 0.892855139, 64.8499)
+  u1, u2 = Celes.ttut1(2453750.5, 0.892855139, 64.8499)
 
-  vvd(u1, 2453750.5, 1e-6, "Celes::ttut1", "u1")
-  vvd(u2, 0.8921045614537037037, 1e-12, "Celes::ttut1", "u2")
-  viv(Celes::status, 0, "Celes::ttut1", "j")
-=======
-  u1, u2 = Celes.ttut1(2_453_750.5, 0.892855139, 64.8499)
-
-  vvd(u1, 2_453_750.5, 1e-6, 'Celes::ttut1', 'u1')
-  vvd(u2, 0.8921045614537037037, 1e-12, 'Celes::ttut1', 'u2')
-  viv(Celes.status, 0, 'Celes::ttut1', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(u1, 2453750.5, 1e-6, 'Celes.ttut1', 'u1')
+  vvd(u2, 0.8921045614537037037, 1e-12, 'Celes.ttut1', 'u2')
+  viv(Celes.status, 0, 'Celes.ttut1', 'j')
 end
 
 # static void t_ut1tai(int *status)
@@ -10782,27 +7708,19 @@ end
 #	int j
 #
 #
-#	j = Celes::ut1tai(2453750.5, 0.892104561, -32.6659, &a1, &a2)
+#	j = Celes.ut1tai(2453750.5, 0.892104561, -32.6659, &a1, &a2)
 #
-#	vvd(a1, 2453750.5, 1e-6, "Celes::ut1tai", "a1")
-#	vvd(a2, 0.8924826385462962963, 1e-12, "Celes::ut1tai", "a2")
-#	viv(j, 0, "Celes::ut1tai", "j")
+#	vvd(a1, 2453750.5, 1e-6, 'Celes.ut1tai', 'a1')
+#	vvd(a2, 0.8924826385462962963, 1e-12, 'Celes.ut1tai', 'a2')
+#	viv(j, 0, 'Celes.ut1tai', 'j')
 #
 # }
 def t_ut1tai
-<<<<<<< HEAD
-  a1, a2 = Celes::ut1tai(2453750.5, 0.892104561, -32.6659)
+  a1, a2 = Celes.ut1tai(2453750.5, 0.892104561, -32.6659)
 
-  vvd(a1, 2453750.5, 1e-6, "Celes::ut1tai", "a1")
-  vvd(a2, 0.8924826385462962963, 1e-12, "Celes::ut1tai", "a2")
-  viv(Celes::status, 0, "Celes::ut1tai", "j")
-=======
-  a1, a2 = Celes.ut1tai(2_453_750.5, 0.892104561, -32.6659)
-
-  vvd(a1, 2_453_750.5, 1e-6, 'Celes::ut1tai', 'a1')
-  vvd(a2, 0.8924826385462962963, 1e-12, 'Celes::ut1tai', 'a2')
-  viv(Celes.status, 0, 'Celes::ut1tai', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(a1, 2453750.5, 1e-6, 'Celes.ut1tai', 'a1')
+  vvd(a2, 0.8924826385462962963, 1e-12, 'Celes.ut1tai', 'a2')
+  viv(Celes.status, 0, 'Celes.ut1tai', 'j')
 end
 
 # static void t_ut1tt(int *status)
@@ -10811,27 +7729,19 @@ end
 #	int j
 #
 #
-#	j = Celes::ut1tt(2453750.5, 0.892104561, 64.8499, &t1, &t2)
+#	j = Celes.ut1tt(2453750.5, 0.892104561, 64.8499, &t1, &t2)
 #
-#	vvd(t1, 2453750.5, 1e-6, "Celes::ut1tt", "t1")
-#	vvd(t2, 0.8928551385462962963, 1e-12, "Celes::ut1tt", "t2")
-#	viv(j, 0, "Celes::ut1tt", "j")
+#	vvd(t1, 2453750.5, 1e-6, 'Celes.ut1tt', 't1')
+#	vvd(t2, 0.8928551385462962963, 1e-12, 'Celes.ut1tt', 't2')
+#	viv(j, 0, 'Celes.ut1tt', 'j')
 #
 # }
 def t_ut1tt
-<<<<<<< HEAD
-  t1, t2 = Celes::ut1tt(2453750.5, 0.892104561, 64.8499)
+  t1, t2 = Celes.ut1tt(2453750.5, 0.892104561, 64.8499)
 
-  vvd(t1, 2453750.5, 1e-6, "Celes::ut1tt", "t1")
-  vvd(t2, 0.8928551385462962963, 1e-12, "Celes::ut1tt", "t2")
-  viv(Celes::status, 0, "Celes::ut1tt", "j")
-=======
-  t1, t2 = Celes.ut1tt(2_453_750.5, 0.892104561, 64.8499)
-
-  vvd(t1, 2_453_750.5, 1e-6, 'Celes::ut1tt', 't1')
-  vvd(t2, 0.8928551385462962963, 1e-12, 'Celes::ut1tt', 't2')
-  viv(Celes.status, 0, 'Celes::ut1tt', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(t1, 2453750.5, 1e-6, 'Celes.ut1tt', 't1')
+  vvd(t2, 0.8928551385462962963, 1e-12, 'Celes.ut1tt', 't2')
+  viv(Celes.status, 0, 'Celes.ut1tt', 'j')
 end
 
 # static void t_ut1utc(int *status)
@@ -10840,27 +7750,19 @@ end
 #	int j
 #
 #
-#	j = Celes::ut1utc(2453750.5, 0.892104561, 0.3341, &u1, &u2)
+#	j = Celes.ut1utc(2453750.5, 0.892104561, 0.3341, &u1, &u2)
 #
-#	vvd(u1, 2453750.5, 1e-6, "Celes::ut1utc", "u1")
-#	vvd(u2, 0.8921006941018518519, 1e-12, "Celes::ut1utc", "u2")
-#	viv(j, 0, "Celes::ut1utc", "j")
+#	vvd(u1, 2453750.5, 1e-6, 'Celes.ut1utc', 'u1')
+#	vvd(u2, 0.8921006941018518519, 1e-12, 'Celes.ut1utc', 'u2')
+#	viv(j, 0, 'Celes.ut1utc', 'j')
 #
 # }
 def t_ut1utc
-<<<<<<< HEAD
-  u1, u2 = Celes::ut1utc(2453750.5, 0.892104561, 0.3341)
+  u1, u2 = Celes.ut1utc(2453750.5, 0.892104561, 0.3341)
 
-  vvd(u1, 2453750.5, 1e-6, "Celes::ut1utc", "u1")
-  vvd(u2, 0.8921006941018518519, 1e-12, "Celes::ut1utc", "u2")
-  viv(Celes::status, 0, "Celes::ut1utc", "j")
-=======
-  u1, u2 = Celes.ut1utc(2_453_750.5, 0.892104561, 0.3341)
-
-  vvd(u1, 2_453_750.5, 1e-6, 'Celes::ut1utc', 'u1')
-  vvd(u2, 0.8921006941018518519, 1e-12, 'Celes::ut1utc', 'u2')
-  viv(Celes.status, 0, 'Celes::ut1utc', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(u1, 2453750.5, 1e-6, 'Celes.ut1utc', 'u1')
+  vvd(u2, 0.8921006941018518519, 1e-12, 'Celes.ut1utc', 'u2')
+  viv(Celes.status, 0, 'Celes.ut1utc', 'j')
 end
 
 # static void t_utctai(int *status)
@@ -10869,27 +7771,19 @@ end
 #	int j
 #
 #
-#	j = Celes::utctai(2453750.5, 0.892100694, &u1, &u2)
+#	j = Celes.utctai(2453750.5, 0.892100694, &u1, &u2)
 #
-#	vvd(u1, 2453750.5, 1e-6, "Celes::utctai", "u1")
-#	vvd(u2, 0.8924826384444444444, 1e-12, "Celes::utctai", "u2")
-#	viv(j, 0, "Celes::utctai", "j")
+#	vvd(u1, 2453750.5, 1e-6, 'Celes.utctai', 'u1')
+#	vvd(u2, 0.8924826384444444444, 1e-12, 'Celes.utctai', 'u2')
+#	viv(j, 0, 'Celes.utctai', 'j')
 #
 # }
 def t_utctai
-<<<<<<< HEAD
-  u1, u2 = Celes::utctai(2453750.5, 0.892100694)
+  u1, u2 = Celes.utctai(2453750.5, 0.892100694)
 
-  vvd(u1, 2453750.5, 1e-6, "Celes::utctai", "u1")
-  vvd(u2, 0.8924826384444444444, 1e-12, "Celes::utctai", "u2")
-  viv(Celes::status, 0, "Celes::utctai", "j")
-=======
-  u1, u2 = Celes.utctai(2_453_750.5, 0.892100694)
-
-  vvd(u1, 2_453_750.5, 1e-6, 'Celes::utctai', 'u1')
-  vvd(u2, 0.8924826384444444444, 1e-12, 'Celes::utctai', 'u2')
-  viv(Celes.status, 0, 'Celes::utctai', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(u1, 2453750.5, 1e-6, 'Celes.utctai', 'u1')
+  vvd(u2, 0.8924826384444444444, 1e-12, 'Celes.utctai', 'u2')
+  viv(Celes.status, 0, 'Celes.utctai', 'j')
 end
 
 # static void t_utcut1(int *status)
@@ -10898,27 +7792,19 @@ end
 #	int j
 #
 #
-#	j = Celes::utcut1(2453750.5, 0.892100694, 0.3341, &u1, &u2)
+#	j = Celes.utcut1(2453750.5, 0.892100694, 0.3341, &u1, &u2)
 #
-#	vvd(u1, 2453750.5, 1e-6, "Celes::utcut1", "u1")
-#	vvd(u2, 0.8921045608981481481, 1e-12, "Celes::utcut1", "u2")
-#	viv(j, 0, "Celes::utcut1", "j")
+#	vvd(u1, 2453750.5, 1e-6, 'Celes.utcut1', 'u1')
+#	vvd(u2, 0.8921045608981481481, 1e-12, 'Celes.utcut1', 'u2')
+#	viv(j, 0, 'Celes.utcut1', 'j')
 #
 # }
 def t_utcut1
-<<<<<<< HEAD
-  u1, u2 = Celes::utcut1(2453750.5, 0.892100694, 0.3341)
+  u1, u2 = Celes.utcut1(2453750.5, 0.892100694, 0.3341)
 
-  vvd(u1, 2453750.5, 1e-6, "Celes::utcut1", "u1")
-  vvd(u2, 0.8921045608981481481, 1e-12, "Celes::utcut1", "u2")
-  viv(Celes::status, 0, "Celes::utcut1", "j")
-=======
-  u1, u2 = Celes.utcut1(2_453_750.5, 0.892100694, 0.3341)
-
-  vvd(u1, 2_453_750.5, 1e-6, 'Celes::utcut1', 'u1')
-  vvd(u2, 0.8921045608981481481, 1e-12, 'Celes::utcut1', 'u2')
-  viv(Celes.status, 0, 'Celes::utcut1', 'j')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(u1, 2453750.5, 1e-6, 'Celes.utcut1', 'u1')
+  vvd(u2, 0.8921045608981481481, 1e-12, 'Celes.utcut1', 'u2')
+  viv(Celes.status, 0, 'Celes.utcut1', 'j')
 end
 
 # static void t_xy06(int *status)
@@ -10926,24 +7812,17 @@ end
 #	double x, y
 #
 #
-#	Celes::xy06(2400000.5, 53736.0, &x, &y)
+#	Celes.xy06(2400000.5, 53736.0, &x, &y)
 #
-#	vvd(x, 0.5791308486706010975e-3, 1e-15, "Celes::xy06", "x")
-#	vvd(y, 0.4020579816732958141e-4, 1e-16, "Celes::xy06", "y")
+#	vvd(x, 0.5791308486706010975e-3, 1e-15, 'Celes.xy06', 'x')
+#	vvd(y, 0.4020579816732958141e-4, 1e-16, 'Celes.xy06', 'y')
 #
 # }
 def t_xy06
-<<<<<<< HEAD
-  x, y = Celes::xy06(2400000.5, 53736.0)
+  x, y = Celes.xy06(2400000.5, 53736.0)
 
-  vvd(x, 0.5791308486706010975e-3, 1e-15, "Celes::xy06", "x")
-  vvd(y, 0.4020579816732958141e-4, 1e-16, "Celes::xy06", "y")
-=======
-  x, y = Celes.xy06(2_400_000.5, 53_736.0)
-
-  vvd(x, 0.5791308486706010975e-3, 1e-15, 'Celes::xy06', 'x')
-  vvd(y, 0.4020579816732958141e-4, 1e-16, 'Celes::xy06', 'y')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(x, 0.5791308486706010975e-3, 1e-15, 'Celes.xy06', 'x')
+  vvd(y, 0.4020579816732958141e-4, 1e-16, 'Celes.xy06', 'y')
 end
 
 # static void t_xys00a(int *status)
@@ -10951,27 +7830,19 @@ end
 #	double x, y, s
 #
 #
-#	Celes::xys00a(2400000.5, 53736.0, &x, &y, &s)
+#	Celes.xys00a(2400000.5, 53736.0, &x, &y, &s)
 #
-#	vvd(x,  0.5791308472168152904e-3, 1e-14, "Celes::xys00a", "x")
-#	vvd(y,  0.4020595661591500259e-4, 1e-15, "Celes::xys00a", "y")
-#	vvd(s, -0.1220040848471549623e-7, 1e-18, "Celes::xys00a", "s")
+#	vvd(x,  0.5791308472168152904e-3, 1e-14, 'Celes.xys00a', 'x')
+#	vvd(y,  0.4020595661591500259e-4, 1e-15, 'Celes.xys00a', 'y')
+#	vvd(s, -0.1220040848471549623e-7, 1e-18, 'Celes.xys00a', 's')
 #
 # }
 def t_xys00a
-<<<<<<< HEAD
-  x, y, s = Celes::xys00a(2400000.5, 53736.0)
+  x, y, s = Celes.xys00a(2400000.5, 53736.0)
 
-  vvd(x,  0.5791308472168152904e-3, 1e-14, "Celes::xys00a", "x")
-  vvd(y,  0.4020595661591500259e-4, 1e-15, "Celes::xys00a", "y")
-  vvd(s, -0.1220040848471549623e-7, 1e-18, "Celes::xys00a", "s")
-=======
-  x, y, s = Celes.xys00a(2_400_000.5, 53_736.0)
-
-  vvd(x,  0.5791308472168152904e-3, 1e-14, 'Celes::xys00a', 'x')
-  vvd(y,  0.4020595661591500259e-4, 1e-15, 'Celes::xys00a', 'y')
-  vvd(s, -0.1220040848471549623e-7, 1e-18, 'Celes::xys00a', 's')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(x,  0.5791308472168152904e-3, 1e-14, 'Celes.xys00a', 'x')
+  vvd(y,  0.4020595661591500259e-4, 1e-15, 'Celes.xys00a', 'y')
+  vvd(s, -0.1220040848471549623e-7, 1e-18, 'Celes.xys00a', 's')
 end
 
 # static void t_xys00b(int *status)
@@ -10979,27 +7850,19 @@ end
 #	double x, y, s
 #
 #
-#	Celes::xys00b(2400000.5, 53736.0, &x, &y, &s)
+#	Celes.xys00b(2400000.5, 53736.0, &x, &y, &s)
 #
-#	vvd(x,  0.5791301929950208873e-3, 1e-14, "Celes::xys00b", "x")
-#	vvd(y,  0.4020553681373720832e-4, 1e-15, "Celes::xys00b", "y")
-#	vvd(s, -0.1220027377285083189e-7, 1e-18, "Celes::xys00b", "s")
+#	vvd(x,  0.5791301929950208873e-3, 1e-14, 'Celes.xys00b', 'x')
+#	vvd(y,  0.4020553681373720832e-4, 1e-15, 'Celes.xys00b', 'y')
+#	vvd(s, -0.1220027377285083189e-7, 1e-18, 'Celes.xys00b', 's')
 #
 # }
 def t_xys00b
-<<<<<<< HEAD
-  x, y, s = Celes::xys00b(2400000.5, 53736.0)
+  x, y, s = Celes.xys00b(2400000.5, 53736.0)
 
-  vvd(x,  0.5791301929950208873e-3, 1e-14, "Celes::xys00b", "x")
-  vvd(y,  0.4020553681373720832e-4, 1e-15, "Celes::xys00b", "y")
-  vvd(s, -0.1220027377285083189e-7, 1e-18, "Celes::xys00b", "s")
-=======
-  x, y, s = Celes.xys00b(2_400_000.5, 53_736.0)
-
-  vvd(x,  0.5791301929950208873e-3, 1e-14, 'Celes::xys00b', 'x')
-  vvd(y,  0.4020553681373720832e-4, 1e-15, 'Celes::xys00b', 'y')
-  vvd(s, -0.1220027377285083189e-7, 1e-18, 'Celes::xys00b', 's')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(x,  0.5791301929950208873e-3, 1e-14, 'Celes.xys00b', 'x')
+  vvd(y,  0.4020553681373720832e-4, 1e-15, 'Celes.xys00b', 'y')
+  vvd(s, -0.1220027377285083189e-7, 1e-18, 'Celes.xys00b', 's')
 end
 
 # static void t_xys06a(int *status)
@@ -11007,27 +7870,19 @@ end
 #	double x, y, s
 #
 #
-#	Celes::xys06a(2400000.5, 53736.0, &x, &y, &s)
+#	Celes.xys06a(2400000.5, 53736.0, &x, &y, &s)
 #
-#	vvd(x,  0.5791308482835292617e-3, 1e-14, "Celes::xys06a", "x")
-#	vvd(y,  0.4020580099454020310e-4, 1e-15, "Celes::xys06a", "y")
-#	vvd(s, -0.1220032294164579896e-7, 1e-18, "Celes::xys06a", "s")
+#	vvd(x,  0.5791308482835292617e-3, 1e-14, 'Celes.xys06a', 'x')
+#	vvd(y,  0.4020580099454020310e-4, 1e-15, 'Celes.xys06a', 'y')
+#	vvd(s, -0.1220032294164579896e-7, 1e-18, 'Celes.xys06a', 's')
 #
 # }
 def t_xys06a
-<<<<<<< HEAD
-  x, y, s = Celes::xys06a(2400000.5, 53736.0)
+  x, y, s = Celes.xys06a(2400000.5, 53736.0)
 
-  vvd(x,  0.5791308482835292617e-3, 1e-14, "Celes::xys06a", "x")
-  vvd(y,  0.4020580099454020310e-4, 1e-15, "Celes::xys06a", "y")
-  vvd(s, -0.1220032294164579896e-7, 1e-18, "Celes::xys06a", "s")
-=======
-  x, y, s = Celes.xys06a(2_400_000.5, 53_736.0)
-
-  vvd(x,  0.5791308482835292617e-3, 1e-14, 'Celes::xys06a', 'x')
-  vvd(y,  0.4020580099454020310e-4, 1e-15, 'Celes::xys06a', 'y')
-  vvd(s, -0.1220032294164579896e-7, 1e-18, 'Celes::xys06a', 's')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(x,  0.5791308482835292617e-3, 1e-14, 'Celes.xys06a', 'x')
+  vvd(y,  0.4020580099454020310e-4, 1e-15, 'Celes.xys06a', 'y')
+  vvd(s, -0.1220032294164579896e-7, 1e-18, 'Celes.xys06a', 's')
 end
 
 # static void t_zp(int *status)
@@ -11039,11 +7894,11 @@ end
 #	p[1] =  1.2
 #	p[2] = -2.5
 #
-#	Celes::zp(p)
+#	Celes.zp(p)
 #
-#	vvd(p[0], 0.0, 0.0, "Celes::zp", "1")
-#	vvd(p[1], 0.0, 0.0, "Celes::zp", "2")
-#	vvd(p[2], 0.0, 0.0, "Celes::zp", "3")
+#	vvd(p[0], 0.0, 0.0, 'Celes.zp', '1')
+#	vvd(p[1], 0.0, 0.0, 'Celes.zp', '2')
+#	vvd(p[2], 0.0, 0.0, 'Celes.zp', '3')
 #
 # }
 def t_zp
@@ -11053,19 +7908,11 @@ def t_zp
   p[1] =  1.2
   p[2] = -2.5
 
-<<<<<<< HEAD
-  Celes::zp!(p)
-
-  vvd(p[0], 0.0, 0.0, "Celes::zp!", "1")
-  vvd(p[1], 0.0, 0.0, "Celes::zp!", "2")
-  vvd(p[2], 0.0, 0.0, "Celes::zp!", "3")
-=======
   Celes.zp!(p)
 
-  vvd(p[0], 0.0, 0.0, 'Celes::zp!', '1')
-  vvd(p[1], 0.0, 0.0, 'Celes::zp!', '2')
-  vvd(p[2], 0.0, 0.0, 'Celes::zp!', '3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(p[0], 0.0, 0.0, 'Celes.zp!', '1')
+  vvd(p[1], 0.0, 0.0, 'Celes.zp!', '2')
+  vvd(p[2], 0.0, 0.0, 'Celes.zp!', '3')
 end
 
 # static void t_zpv(int *status)
@@ -11081,16 +7928,16 @@ end
 #	pv[1][1] =  3.1
 #	pv[1][2] =  0.9
 #
-#	Celes::zpv(pv)
+#	Celes.zpv(pv)
 #
-#	vvd(pv[0][0], 0.0, 0.0, "Celes::zpv", "p1")
-#	vvd(pv[0][1], 0.0, 0.0, "Celes::zpv", "p2")
-#	vvd(pv[0][2], 0.0, 0.0, "Celes::zpv", "p3")
+#	vvd(pv[0][0], 0.0, 0.0, 'Celes.zpv', 'p1')
+#	vvd(pv[0][1], 0.0, 0.0, 'Celes.zpv', 'p2')
+#	vvd(pv[0][2], 0.0, 0.0, 'Celes.zpv', 'p3')
 #
-#	vvd(pv[1][0], 0.0, 0.0, "Celes::zpv", "v1")
-#	vvd(pv[1][1], 0.0, 0.0, "Celes::zpv", "v2")
-#	vvd(pv[1][2], 0.0, 0.0, "Celes::zpv", "v3")
-#
+#	vvd(pv[1][0], 0.0, 0.0, 'Celes.zpv', 'v1')
+#	vvd(pv[1][1], 0.0, 0.0, 'Celes.zpv', 'v2')
+#	vvd(pv[1][2], 0.0, 0.0, 'Celes.zpv', 'v3')
+# }
 def t_zpv
   pv = [[], []]
 
@@ -11102,27 +7949,15 @@ def t_zpv
   pv[1][1] =  3.1
   pv[1][2] =  0.9
 
-<<<<<<< HEAD
-  Celes::zpv!(pv)
-
-  vvd(pv[0][0], 0.0, 0.0, "Celes::zpv!", "p1")
-  vvd(pv[0][1], 0.0, 0.0, "Celes::zpv!", "p2")
-  vvd(pv[0][2], 0.0, 0.0, "Celes::zpv!", "p3")
-
-  vvd(pv[1][0], 0.0, 0.0, "Celes::zpv!", "v1")
-  vvd(pv[1][1], 0.0, 0.0, "Celes::zpv!", "v2")
-  vvd(pv[1][2], 0.0, 0.0, "Celes::zpv!", "v3")
-=======
   Celes.zpv!(pv)
 
-  vvd(pv[0][0], 0.0, 0.0, 'Celes::zpv!', 'p1')
-  vvd(pv[0][1], 0.0, 0.0, 'Celes::zpv!', 'p2')
-  vvd(pv[0][2], 0.0, 0.0, 'Celes::zpv!', 'p3')
+  vvd(pv[0][0], 0.0, 0.0, 'Celes.zpv!', 'p1')
+  vvd(pv[0][1], 0.0, 0.0, 'Celes.zpv!', 'p2')
+  vvd(pv[0][2], 0.0, 0.0, 'Celes.zpv!', 'p3')
 
-  vvd(pv[1][0], 0.0, 0.0, 'Celes::zpv!', 'v1')
-  vvd(pv[1][1], 0.0, 0.0, 'Celes::zpv!', 'v2')
-  vvd(pv[1][2], 0.0, 0.0, 'Celes::zpv!', 'v3')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(pv[1][0], 0.0, 0.0, 'Celes.zpv!', 'v1')
+  vvd(pv[1][1], 0.0, 0.0, 'Celes.zpv!', 'v2')
+  vvd(pv[1][2], 0.0, 0.0, 'Celes.zpv!', 'v3')
 end
 
 # static void t_zr(int *status)
@@ -11142,19 +7977,19 @@ end
 #	r[1][2] = 4.0
 #	r[2][2] = 5.0
 #
-#	Celes::zr(r)
+#	Celes.zr(r)
 #
-#	vvd(r[0][0], 0.0, 0.0, "Celes::zr", "00")
-#	vvd(r[1][0], 0.0, 0.0, "Celes::zr", "01")
-#	vvd(r[2][0], 0.0, 0.0, "Celes::zr", "02")
+#	vvd(r[0][0], 0.0, 0.0, 'Celes.zr', '00')
+#	vvd(r[1][0], 0.0, 0.0, 'Celes.zr', '01')
+#	vvd(r[2][0], 0.0, 0.0, 'Celes.zr', '02')
 #
-#	vvd(r[0][1], 0.0, 0.0, "Celes::zr", "10")
-#	vvd(r[1][1], 0.0, 0.0, "Celes::zr", "11")
-#	vvd(r[2][1], 0.0, 0.0, "Celes::zr", "12")
+#	vvd(r[0][1], 0.0, 0.0, 'Celes.zr', '10')
+#	vvd(r[1][1], 0.0, 0.0, 'Celes.zr', '11')
+#	vvd(r[2][1], 0.0, 0.0, 'Celes.zr', '12')
 #
-#	vvd(r[0][2], 0.0, 0.0, "Celes::zr", "20")
-#	vvd(r[1][2], 0.0, 0.0, "Celes::zr", "21")
-#	vvd(r[2][2], 0.0, 0.0, "Celes::zr", "22")
+#	vvd(r[0][2], 0.0, 0.0, 'Celes.zr', '20')
+#	vvd(r[1][2], 0.0, 0.0, 'Celes.zr', '21')
+#	vvd(r[2][2], 0.0, 0.0, 'Celes.zr', '22')
 #
 # }
 def t_zr
@@ -11172,38 +8007,24 @@ def t_zr
   r[1][2] = 4.0
   r[2][2] = 5.0
 
-<<<<<<< HEAD
-  Celes::zr!(r)
-
-  vvd(r[0][0], 0.0, 0.0, "Celes::zr!", "00")
-  vvd(r[1][0], 0.0, 0.0, "Celes::zr!", "01")
-  vvd(r[2][0], 0.0, 0.0, "Celes::zr!", "02")
-
-  vvd(r[0][1], 0.0, 0.0, "Celes::zr!", "10")
-  vvd(r[1][1], 0.0, 0.0, "Celes::zr!", "11")
-  vvd(r[2][1], 0.0, 0.0, "Celes::zr!", "12")
-
-  vvd(r[0][2], 0.0, 0.0, "Celes::zr!", "20")
-  vvd(r[1][2], 0.0, 0.0, "Celes::zr!", "21")
-  vvd(r[2][2], 0.0, 0.0, "Celes::zr!", "22")
-=======
   Celes.zr!(r)
 
-  vvd(r[0][0], 0.0, 0.0, 'Celes::zr!', '00')
-  vvd(r[1][0], 0.0, 0.0, 'Celes::zr!', '01')
-  vvd(r[2][0], 0.0, 0.0, 'Celes::zr!', '02')
+  vvd(r[0][0], 0.0, 0.0, 'Celes.zr!', '00')
+  vvd(r[1][0], 0.0, 0.0, 'Celes.zr!', '01')
+  vvd(r[2][0], 0.0, 0.0, 'Celes.zr!', '02')
 
-  vvd(r[0][1], 0.0, 0.0, 'Celes::zr!', '10')
-  vvd(r[1][1], 0.0, 0.0, 'Celes::zr!', '11')
-  vvd(r[2][1], 0.0, 0.0, 'Celes::zr!', '12')
+  vvd(r[0][1], 0.0, 0.0, 'Celes.zr!', '10')
+  vvd(r[1][1], 0.0, 0.0, 'Celes.zr!', '11')
+  vvd(r[2][1], 0.0, 0.0, 'Celes.zr!', '12')
 
-  vvd(r[0][2], 0.0, 0.0, 'Celes::zr!', '20')
-  vvd(r[1][2], 0.0, 0.0, 'Celes::zr!', '21')
-  vvd(r[2][2], 0.0, 0.0, 'Celes::zr!', '22')
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
+  vvd(r[0][2], 0.0, 0.0, 'Celes.zr!', '20')
+  vvd(r[1][2], 0.0, 0.0, 'Celes.zr!', '21')
+  vvd(r[2][2], 0.0, 0.0, 'Celes.zr!', '22')
 end
 
-$status = 0
+
+
+status = 0
 
 t_a2af
 t_a2tf
@@ -11392,14 +8213,8 @@ t_zp
 t_zpv
 t_zr
 
-if $status > 0
-<<<<<<< HEAD
-  puts "t_sofa validation failed!"
-else
-  puts "t_sofa validation successful"
-=======
+if status > 0
   puts 't_sofa validation failed!'
 else
   puts 't_sofa validation successful'
->>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 end

@@ -8,7 +8,7 @@ puts "360 degrees x #{factor} = #{360 * factor} degrees"
 puts "360 degrees x #{bd_factor} = #{360 * bd_factor} degrees"
 
 sidereal_minutes = 4 / factor
-bd_sidereal_minutes = 4 / bd_factor
+# bd_sidereal_minutes = 4 / bd_factor
 puts sidereal_minutes
 puts sidereal_minutes
 
@@ -24,12 +24,12 @@ eot = Eot.new
 # From angles.rb:<br>
 # angle factor for daily sidereal time (experimental)
 def factor(eot)
-  eot.ajd  =        Date.parse('2000-01-01').jd
-  tlaa  =           eot.tl_Aries
-  eot.ajd  =        eot.ajd + 1
-  tlab  =           eot.tl_Aries
-  dif   =           (tlab - tlaa) * Eot::R2D
-  f1    =           dif / 360.0 + 1
+  eot.ajd = Date.parse('2000-01-01').jd
+  tlaa    = eot.tl_Aries
+  eot.ajd = eot.ajd + 1
+  tlab    = eot.tl_Aries
+  dif     = (tlab - tlaa) * Eot::R2D
+  f1      = dif / 360.0 + 1
   1 / f1
 end
 

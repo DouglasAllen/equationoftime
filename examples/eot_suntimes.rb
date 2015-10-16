@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
-# eot_suntimes.rb leftover from building the parts in the gem so just left it here.
+# eot_suntimes.rb leftover from building the parts in the gem
+# so just left it here.
 #
 begin
   require 'eot'
@@ -11,46 +12,52 @@ end
 
 # def sunrise_jd(arg)
 #
-#	arg.date.nil? ? result = "date parameter not set" : result = "date parameter OK"
+#   arg.date.nil? ? result =
+#   "date parameter not set" : result = "date parameter OK"
 #
-#	arg.longitude.nil? ? result = "longitude parameter not set" : result = "longitude parameter OK"
+#   arg.longitude.nil? ? result =
+#    "longitude parameter not set" : result = "longitude parameter OK"
 #
-#	arg.latitude.nil? ? result = "latitude parameter not set" : result = "latitude parameter OK"
+#   arg.latitude.nil? ? result =
+#    "latitude parameter not set" : result = "latitude parameter OK"
 #
-#	utc_noon_jd = arg.date.jd
+#   utc_noon_jd = arg.date.jd
 #
-#	lng_jd = arg.longitude / 360.0
+#   lng_jd = arg.longitude / 360.0
 #
-#	mean_utc_noon_jd = utc_noon_jd - lng_jd
+#   mean_utc_noon_jd = utc_noon_jd - lng_jd
 #
-#	tjc_mean_local_noon_array = arg.time_julian_century(mean_utc_noon_jd)
+#   tjc_mean_local_noon_array = arg.time_julian_century(mean_utc_noon_jd)
 #
-#	eot = arg.equation_of_time(tjc_mean_local_noon_array)
+#   eot = arg.equation_of_time(tjc_mean_local_noon_array)
 #
-#	eot_jd = eot / 1440.0
+#   eot_jd = eot / 1440.0
 #
-#	true_utc_noon_jd = mean_utc_noon_jd - eot_jd
+#   true_utc_noon_jd = mean_utc_noon_jd - eot_jd
 #
-#	tjc_true_local_noon_array = arg.time_julian_century(true_utc_noon_jd)
+#   tjc_true_local_noon_array = arg.time_julian_century(true_utc_noon_jd)
 #
-#	mean_anomaly = arg.ma_Sun(tjc_true_local_noon_array)
+#   mean_anomaly = arg.ma_Sun(tjc_true_local_noon_array)
 #
-#	lha = arg.ha_Sun(tjc_true_local_noon_array, mean_anomaly)
+#   lha = arg.ha_Sun(tjc_true_local_noon_array, mean_anomaly)
 #
-#	lha_jd = lha / 360.0
+#   lha_jd = lha / 360.0
 #
-#	# rise_jd
-#	true_utc_noon_jd - lha_jd
+#   # rise_jd
+#   true_utc_noon_jd - lha_jd
 #
 # end
 #
 # def sunset_jd(arg)
 #
-#  arg.date.nil? ? result = "date parameter not set" : result = "date parameter OK"
+#  arg.date.nil? ? result =
+#   "date parameter not set" : result = "date parameter OK"
 #
-#  arg.longitude.nil? ? result = "longitude parameter not set" : result = "longitude parameter OK"
+#  arg.longitude.nil? ? result =
+#   "longitude parameter not set" : result = "longitude parameter OK"
 #
-#  arg.latitude.nil? ? result = "latitude parameter not set" : result = "latitude parameter OK"
+#  arg.latitude.nil? ? result =
+#   "latitude parameter not set" : result = "latitude parameter OK"
 #
 #  utc_noon_jd = arg.date.jd
 #

@@ -22,7 +22,7 @@ end
 
 # show the new data file contents as an array.
 data = []
-File.open('nutation_table5_3a.yaml')  do |f|
+File.open('nutation_table5_3a.yaml') do |f|
   YAML.load_documents(f) do |doc|
     data = doc
     p data

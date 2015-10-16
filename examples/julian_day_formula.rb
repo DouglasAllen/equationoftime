@@ -4,22 +4,13 @@
 require 'date'
 
 def date_to_ajd(date)
-  year = date.year
-  month = date.month
-
-  if month <= 2
-    year = year - 1
-    month = month + 12
-  end
-
+  date.month <= 2 ? year = date.year -= 1 : year = date.year
+  date.month <= 2 ? month = date.month += 12 : month = date.month 
   day = date.day
-
-  a = (year / 100).floor
-  b  = (a / 4).floor
-  c = 2 - a + b
-  e = (365.25  * (year + 4716)).floor
-  f = (30.6001 * (month + 1)).floor
-  c + day + e + f - 1524.5
+  day + 2 -  
+    (year / 100).floor + ((year / 100).floor / 4).floor +
+    (365.25 * (year + 4716)).floor +
+    (30.6001 * (month + 1)).floor - 1524.5
 end
 
 t = Time.now.utc

@@ -50,20 +50,23 @@ It's just a rough estimate and is always changing.
 Lets subtract mean solar longitude from solar mean anomaly.
 eot.mean_anomaly
 #{eot.mean_anomaly} radians
-That's what we have been seeing after we do eot.ma_ta_set so don't worry it's normal.
+That's what we have been seeing after we do eot.ma_ta_set
+so don't worry it's normal.
 Ruby methods evaluate the last term in them.
 eot.mean_longitude
 #{eot.mean_longitude}
 eot.mean_anomaly - eot.mean_longitude
 #{eot.mean_anomaly - eot.mean_longitude}
 What is that in degrees?
-#{(eot.mean_anomaly - eot.mean_longitude) * 180/Math::PI}
+#{(eot.mean_anomaly - eot.mean_longitude) * 180 / Math::PI}
 Let's see, minus degrees would mean to add that to say 360.
-right ascension on the celestial sphere. 
-360 + (eot.mean_anomaly - eot.mean_longitude) * 180/Math::PI
-#{360 + (eot.mean_anomaly - eot.mean_longitude) * 180/Math::PI}
-What's my point? If you know the exact time that the Vernal Equinox occurs then you may find
-the exact time that Perihelion for Earth occurs. But how do we do the math for that?
-I only have a clue. http://analemma.com 
+right ascension on the celestial sphere.
+360 + (eot.mean_anomaly - eot.mean_longitude) * 180 / Math::PI
+#{360 + (eot.mean_anomaly - eot.mean_longitude) * 180 / Math::PI}
+What's my point?
+If you know the exact time that the Vernal Equinox occurs
+then you may find the exact time that Perihelion for Earth occurs.
+But how do we do the math for that?
+I only have a clue. http://analemma.com
 HD
 puts heredoc
