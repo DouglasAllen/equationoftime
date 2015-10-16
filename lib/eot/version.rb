@@ -1,6 +1,6 @@
 # class Eot file = version.rb
 # contains gem version
-module Version
+class Eot
   # current version
-  VERSION = '5.0.0'
+  VERSION = '4.1.8'
 end

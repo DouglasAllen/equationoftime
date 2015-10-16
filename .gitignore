@@ -13,10 +13,12 @@ coverage
 doc
 lib/bundler/man
 pkg
-tmp
 rdoc
 spec/reports
 test/tmp
 test/version_tmp
 tmp
-lib/eot/helio.so
+ext/ceot/*.o
+ext/ceot/*.so
+ext/ceot/Makefile
+lib/*.so

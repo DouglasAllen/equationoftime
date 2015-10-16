@@ -1,8 +1,7 @@
-sudo: true
 language: ruby
 
 rbenv: 
 
-  - 2.2.0
+  - 1.9.3
 
-script: bundle exec rake
+script: bundle exec rake test

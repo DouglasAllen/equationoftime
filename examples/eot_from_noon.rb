@@ -1,8 +1,4 @@
-lib = File.expand_path('../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
 require 'eot'
-
 eot = Eot.new
 puts "My Longitude: #{eot.longitude = -75.324}"
 puts "The current UTC noon as ajd: #{eot.ajd}"

@@ -1,19 +1,15 @@
-require 'mini_portile'
+
+# require "rubygems"
 require 'bundler/gem_tasks'
-#require "bundler/install_tasks"
-
-require 'rake/extensiontask'
-#require 'rake/testtask'
-# require "rake/win32"
-
-require 'rdoc/task'
-
-#require 'rspec/core/rake_task'
-
-require 'yard'
-
+# require "bundler/install_tasks"
 require 'hoe'
 
+require 'rake/extensiontask'
+require 'rake/testtask'
+# require "rake/win32"
+require 'rdoc/task'
+require 'rspec/core/rake_task'
+require 'yard'
 # begin
 #   require 'rubygems/gempackagetask'
 # rescue LoadError
@@ -24,22 +20,22 @@ require 'hoe'
 
 # Hoe.plugins.delete :newb
 # Hoe.plugins.delete :test
-# Hoe.plugins.delete :signing
-# Hoe.plugins.delete :publish
-# Hoe.plugins.delete :clean
+Hoe.plugins.delete :signing
+Hoe.plugins.delete :publish
+# Hoe.plugins.delete  :clean
 # Hoe.plugins.delete :package
-# Hoe.plugins.delete :compiler
-# Hoe.plugins.delete :debug
-# Hoe.plugins.delete :rcov
-# Hoe.plugins.delete :gemcutter
-# Hoe.plugins.delete :racc
+Hoe.plugins.delete :compiler
+Hoe.plugins.delete :debug
+Hoe.plugins.delete :rcov
+Hoe.plugins.delete :gemcutter
+Hoe.plugins.delete :racc
 # Hoe.plugins.delete :inline
-# Hoe.plugins.delete :gem_prelude_sucks
-# Hoe.plugins.delete :flog
-# Hoe.plugins.delete :flay
+Hoe.plugins.delete :gem_prelude_sucks
+Hoe.plugins.delete :flog
+Hoe.plugins.delete :flay
 # Hoe.plugins.delete :deps
 # Hoe.plugins.delete :minitest
-# Hoe.plugins.delete :rdoc
+Hoe.plugins.delete :rdoc
 # Hoe.plugins.delete :travis
 
 # Hoe.plugin :newb
@@ -58,58 +54,40 @@ require 'hoe'
 # Hoe.plugin :flog
 # Hoe.plugin :flay
 # Hoe.plugin :deps
-# Hoe.plugin :minitest
+Hoe.plugin :minitest
 # Hoe.plugin :rdoc
-# Hoe.plugin :travis
+Hoe.plugin :travis
 
 Hoe.spec 'equationoftime' do
   developer('Douglas Allen', 'kb9agt@gmail.com')
   license('MIT')
   
-  self.readme_file   = 'README.rdoc'
-  self.history_file  = 'CHANGELOG.rdoc'
-  self.extra_rdoc_files  = FileList[]
+  #self.readme_file   = 'README.rdoc'
+  #self.history_file  = 'CHANGELOG.rdoc'
+  #self.extra_rdoc_files  = FileList[]
   extra_dev_deps << ['rake-compiler', '~> 0.9', '>= 0.9.3']
-  #self.spec_extras = { extensions: ['ext/helio/extconf.rb'] }
+  self.spec_extras = { extensions: ['ext/eot/extconf.rb'] }
 
-  Rake::ExtensionTask.new('helio', spec) do |ext|
-    ext.lib_dir = File.join('lib', 'eot/helio')
+  Rake::ExtensionTask.new('eot', spec) do |ext|
+    ext.lib_dir = File.join('lib', 'eot')
   end
 end
 
-Rake::Task[:install].prerequisites << :libsofa_c << :compile
+Rake::Task[:test].prerequisites << :compile
 
-task :libsofa_c do
-  recipe = MiniPortile.new("libsofa_c", "1.0")
-  recipe.files = ["https://github.com/DouglasAllen/libsofa_c-1.0/raw/master/libsofa_c-1.0.tar"]
-  checkpoint = ".#{recipe.name}-#{recipe.version}.installed"
+task default: [:test]
 
-  unless File.exist?(checkpoint)
-    recipe.download
-    recipe.extract
-    recipe.compile
-    recipe.install unless recipe.installed?
-    
-    touch checkpoint
-  end
-
-  recipe.activate
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'test'
+  t.test_files = FileList['test/eot/*_spec.rb']
+  t.verbose = true
+  t.options
 end
 
-#task default: [:test]
-
-#Rake::TestTask.new(:test) do |t|
-  #t.libs << 'test'
-  #t.test_files = FileList['test/eot/*.rb']
-  #t.verbose = true
-  #t.options
-#end
-
-#RSpec::Core::RakeTask.new(:spec) do | t |
-  #t.libs << 'test'
-  #t.pattern = './test/eot/*.rb'
-  #t.rspec_opts = []
-#end
+# RSpec::Core::RakeTask.new(:spec) do | t |
+#   t.pattern = './test/eot/*_spec.rb'
+#   t.rspec_opts = []
+# end
 
 YARD::Rake::YardocTask.new(:yardoc) do |t|
   t.files = ['lib/eot/*.rb']

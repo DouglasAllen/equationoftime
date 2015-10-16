@@ -1,8 +1,6 @@
 # class Eot file = utilities.rb
 # methods for general use
-
 class Eot
-  
   # From utilities.rb:
   # A check for default J2000
   # sets default when arg is nil
@@ -31,31 +29,27 @@ class Eot
     dt == 0 ? DT2000 : check_t_nil(dt)
   end
 
-  ##
   # From utilities.rb:
-
-  # used by ha_sun method
-  # to select rise set and civil, nautical, astronomical twilights.
-
-  def choice(c)
-    case c
-    when 1
-      return 90.8333 # Sunrise and Sunset
-    when 2
-      return 96 # Civil Twilight
-    when 3
-      return 102 # Nautical Twilight
-    when 4
-      return 108 # Astronomical Twilight
-    end
+  # formats degree string
+  def f_string(sgn, u, m, s, ds)
+    sgn +
+      format('%03d', u) +
+    ':' +
+      format('%02d', m) +
+    ':' +
+      format('%02d', s) +
+    '.' +
+    format('%3.3d', ds)
   end
 
   # From utilities.rb:
   # Keeps large angles in range of 360.0
+  # aliased by truncate
   def mod_360(x = 0.0)
     x.nil? ? x = 0.0 : x
     360.0 * (x / 360.0 - Integer(x / 360.0))
   end
+  alias_method :truncate, :mod_360
 end
 
 if __FILE__ == $PROGRAM_NAME
