@@ -7,6 +7,7 @@ require 'eot/version.rb'
 Gem::Specification.new do |spec|
   # Metadata
   spec.name          = 'equationoftime'
+<<<<<<< HEAD
   spec.version       = Version::VERSION
   spec.authors       = ['DouglasAllen']
   spec.email         = ['kb9agt@gmail.com']
@@ -39,13 +40,51 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'rake', '~> 10.0'
   # spec.add_development_dependency 'rake-compiler', '~> 0.9.3'
+=======
+  spec.version       = Eot::VERSION
+  spec.authors       = ['DouglasAllen']
+  spec.email         = ['kb9agt@gmail.com']
+  spec.summary       = 'Equation of Time calculates time of solar transition.'
+  spec.description   = 'Calculate Sunrise and Sunset. Now uses native C wrappers.
+                       Lots of examples to play with for learning.'
+  # spec.homepage      = "http://equationoftime.herokuapp.com"
+  spec.homepage      = 'https://github.com/DouglasAllen/equationoftime'
+  spec.license       = 'MIT'
+
+  # Manifest
+  spec.files         = Dir.glob('ext/**/*.{c,h,rb, so}') + Dir.glob('**') +
+                       Dir.glob('lib/**/*.rb') + Dir.glob('.*')
+  # spec.files         = `git ls-files -z`.split($/)#split("\x0")
+  spec.extensions    << 'ext/eot/extconf.rb'
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ['lib']
+  spec.platform      = Gem::Platform::RUBY
+  # note: the last good build was with these development dependencies below
+  spec.add_development_dependency 'bundler', '~> 1.7'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  # spec. add_development_dependency 'rake-compiler', '~> 0.9.3'
+>>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
   # spec.add_development_dependency "hoe", "~> 3.12.0"
   # spec.add_development_dependency "guard", "~> 2.6.1"
   # spec.add_development_dependency "guard-minitest", "~> 2.3.2"
   # spec.add_development_dependency "minitest", "~> 5.4.1"
+<<<<<<< HEAD
   spec.add_development_dependency "ZenTest", "~> 4.11.0"
+=======
+  # spec.add_development_dependency "ZenTest", "~> 4.10.1"
+>>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
   # spec.add_development_dependency "rspec", "~> 3.1.0"
   # spec.add_development_dependency "yard", "~> 0.8.7.4"
   # spec.add_development_dependency "rdoc", "~> 4.1.2"
 
+<<<<<<< HEAD
+=======
+  spec.add_runtime_dependency 'celes'
+  # spec.add_runtime_dependency "astro-algo"
+  # spec.add_runtime_dependency "multi_xml"
+  spec.add_runtime_dependency 'rest-client'
+  # spec.add_runtime_dependency "safe_yaml"
+
+>>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 end

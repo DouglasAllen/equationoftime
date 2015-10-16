@@ -1,5 +1,6 @@
 # eot.rb
 
+<<<<<<< HEAD
 # require 'multi_xml'
 require 'addressable/uri'
 #require 'celes'
@@ -26,7 +27,19 @@ require 'eot/times/delta_times'
 require 'eot/times/delta_jd_times'
 require 'eot/times/dt_times'
 require 'eot/times/jd_times'
+=======
+require 'eot/version'
+require 'eot/eot'
+>>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
 require 'eot/constants'
 require 'eot/trigonometric'
 require 'eot/utilities'
+<<<<<<< HEAD
 require 'eot/version'
+=======
+require 'eot/angles'
+require 'eot/times'
+require 'eot/displays'
+require 'eot/nutation'
+require 'eot/geo_lat_lng_smt'
+>>>>>>> 4134ca23c425bd1337a39d7ee1ef2a10a4f89f9e
