@@ -18,8 +18,12 @@ end
 
 # Wiki 2:
 
-latitude,  longitude, date = 41.9474, -88.74467, '2013-12-25'
-eot.latitude = latitude; eot.longitude = longitude; eot.ajd = Date.parse(date).jd
+latitude = 41.9474
+longitude = -88.74467
+date = '2013-12-25'
+eot.latitude = latitude
+eot.longitude = longitude
+eot.ajd = Date.parse(date).jd
 p eot.sunrise_dt.to_time
 p eot.sunset_dt.to_time
 
@@ -36,7 +40,8 @@ end
 puts "There are #{Eot::SM * 6} hours in a sidereal day."
 puts 'That is why on the next day the stars are about 4 minutes earlier.'
 p obtime0 = Time.now
-p obtime1 = obtime0 + Eot::SM * 6 * 3600
+obtime1 = obtime0 + Eot::SM * 6 * 3600
+p obtime1
 puts 'Now you know when to look next time.'
 
 # Wiki 5:

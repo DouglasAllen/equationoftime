@@ -10,206 +10,222 @@ end
 
 file = <<DISPLAY
 
-This will explain how the equation of time is derived by showing each method that comprises the formula.
+  This will explain how the equation of time is derived by showing each method
+  that comprises the formula.
 
-eot = Eot.new
+  eot = Eot.new
 
-Instance of Eot class eot = #{eot = Eot.new}
+  Instance of Eot class eot = #{eot = Eot.new}
 
+  Set the class attribute ajd for the deisired date ex :
+  eot.ajd = Date.parse("yyyy, mm, dd").jd.to_f
 
-Set the class attribute ajd for the deisired date ex : eot.ajd = Date.parse("yyyy, mm, dd").jd.to_f
+  eot.ajd = Date.today.jd.to_f
 
-eot.ajd = Date.today.jd.to_f
+  eot.ajd = #{eot.ajd = Date.today.jd.to_f}
 
-eot.ajd = #{eot.ajd = Date.today.jd.to_f}
+  The class attribute ajd has been set to a nice whole number even though it is
+  a Float class now.
 
-The class attribute ajd has been set to a nice whole number even though it is a Float class now.
+  The Astronomical Julian Day Number is a half day less than Julian Day Number
+  with the fractional day time included when we DateTime class.
 
-The Astronomical Julian Day Number is a half day less than Julian Day Number with the fractional day time included when we DateTime class.
+  DateTime.now.day_fraction.to_f = #{DateTime.now.day_fraction.to_f}
 
-DateTime.now.day_fraction.to_f = #{DateTime.now.day_fraction.to_f}
+  DateTime class has the method day_fraction and Date class does not.
 
-DateTime class has the method day_fraction and Date class does not.
+  We used Date class which doesn't give us the UTC time of date. It yields your
+  time zone date.
 
-We used Date class which doesn't give us the UTC time of date. It yields your time zone date.
+  Let's just prove this.
 
-Let's just prove this.
+  Date.today.to_time.utc = #{Date.today.to_time.utc}
 
-Date.today.to_time.utc = #{Date.today.to_time.utc}
+  It looks like that was your midnight in UTC time.
 
-It looks like that was your midnight in UTC time.
+  Maybe we could get away with getting the ajd from that.
 
-Maybe we could get away with getting the ajd from that.
+  Date.today.to_time.utc.to_date.ajd.to_f =
+  #{Date.today.to_time.utc.to_date.ajd.to_f}
 
-Date.today.to_time.utc.to_date.ajd.to_f = #{Date.today.to_time.utc.to_date.ajd.to_f}
+  No. That's a half day less than the Julian Day Number.
 
-No. That's a half day less than the Julian Day Number.
+  So let's start over setting the adj correctly for UTC using the
+  DateTime class.
 
-So let's start over setting the adj correctly for UTC using the DateTime class.
+  eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
 
-eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
+  eot.ajd = #{eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f}
 
-eot.ajd = #{eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f}
+  Because this gem is going to calculate the sunrise and sunset times it's
+  okay to set the day for noon and is encouraged.(Let's do lunch ;-))
 
+  So go ahead and set the ajd using the Date class and jd method as was done.
 
-Because this gem is going to calculate the sunrise and sunset times it's okay to set the day for noon and is encouraged.
+  The class init.rb sets everything to defaults and one of them is today's
+  datetime.jd
 
-So go ahead and set the ajd using the Date class and jd method as was first done.
+  But for right now we won't do that so we get current angles of the present
+  time UTC.
 
-The class init.rb sets everything to defaults and one of them is today's datetime.jd
+  eot.ma is the solar Mean anomaly mu(M) and is called quite often hence the
+  attribute.
 
-But for right now we won't do that so we get current angles of the present time UTC.
+  eot.ma was set using eot.ma_Sun() method.
 
+  It is an angle with respect to perihelion of Earth orbit around Sun in an
+  assumed circular orbit.
 
+  M is calculated within the nutation.rb file under delta_equinox() method and
+  returned as the third element of an array.
 
-eot.ma is the solar Mean anomaly mu(M) and is called quite often hence the attribute.
+  M = #{eot.ma}
+  nu = #{eot.true_anomaly}
 
-eot.ma was set using eot.ma_Sun() method.
+  angle one = eot.ma_Sun() - eot.ta_Sun()
 
-It is an angle with respect to perihelion of Earth orbit around Sun in an assumed circular orbit.
+  a1 = #{eot.ma - eot.true_anomaly} radians
 
-M is calculated within the nutation.rb file under delta_equinox() method and returned as the third element of an array.
+  a1 is a delta angle difference for mean and true anomalies in radians.
 
-eot.ma = #{eot.ma}
+  True anomaly (nu) is the actual angle with respect to perihelion in an
+  eliptical orbit.
 
-eot.ma_Sun() = #{eot.ma_Sun}
+  It was calculated by using the equation of center formula which you may access
+  also.
 
+  eot.center() = #{eot.equation_of_center} degrees.
 
-angle one = eot.ma_Sun() - eot.ta_Sun()
+  nu = equation of center + M or mu or mean anomaly
 
-a1 = #{eot.ma_Sun - eot.ta_Sun} degrees
+  The delta is M - nu
 
-a1 is a delta angle difference for mean and true anomalies in degrees.
+  The method inside the gem is called delta_orbit()
 
-True anomaly (nu) is the actual angle with respect to perihelion in an eliptical orbit.
+  eot.delta_orbit = #{eot.delta_orbit} degrees
 
-It was calculated by using the equation of center formula which you may access also.
+  We could just change the sign of eot.center().
 
-eot.center() = #{eot.center} degrees.
+  In fact let's just do that now. a1 = - eot.center()
 
-nu = equation of center + M or mu or mean anomaly
+  - eot.center() = #{-eot.equation_of_center}
 
-The delta is M - nu.
+  The next delta is calculated as follows.
 
+  lambda or apparent longitude of the Sun minus alpha or right ascension of the
+  Sun. Remember lamba is eliptical but right ascension is more circular.
+  lamba has been corrected with equation of center to compensate for eliptical
+  orbit.
 
-The method inside the gem is called delta_orbit()
+  a2 = lambda - alpha
 
-eot.delta_orbit = #{eot.delta_orbit} degrees
+  lambda = mean longitude + equation of center
 
-We could just change the sign of eot.center().
+  eot.gml_Sun() + eot.center() =
+  #{eot.mean_longitude + eot.equation_of_center}
+  or
+  eot.tl_Sun = #{eot.true_longitude}
 
-In fact let's just do that now. a1 = - eot.center()
+  Lambda is the \"ecliptic coordinate system\" angle of the sun.
 
-- eot.center() = #{- eot.center}
+  Alpha is the Right Ascension of the sun in the celestial coordinate system.
 
+  alpha = eot.ra_Sun()
 
-The next delta is calculated as follows.
+  alpha = #{eot.right_ascension}
 
-lambda or apparent longitude of the Sun minus alpha or right ascension of the Sun.
+  lambda - alpha = #{eot.true_longitude - eot.right_ascension}
 
-a2 = lambda - alpha
+  The method inside the gem is called delta_oblique.
 
-lambda = mean longitude + equation of center
+  eot.delta_oblique() = #{eot.delta_oblique}
 
-eot.gml_Sun() + eot.center() = #{eot.gml_Sun + eot.center} or
+  The sum of these two delta angles is the equation of time angle in degrees not
+  time.
 
-eot.tl_Sun = #{eot.tl_Sun}
+  eot.eot() = #{eot.delta_total}
 
-Lambda is the \"ecliptic coordinate system\" angle of the sun.
+  That was for the time UTC now which was easy.
 
-Alpha is the Right Ascension of the sun in the celestial coordinate system.
+  Now using your longitude to compute your mean solar transit from
+  longitude / 15.0
 
-alpha = eot.ra_Sun()
+  my longitude is -88.74467 deg.
+  So I'll set the longitude attribute in Eot class.
 
-alpha = #{eot.ra_Sun}
+  eot.longitude = #{eot.longitude = -88.74467}
 
-lambda - alpha = #{eot.tl_Sun - eot.ra_Sun}
+  So my mean solar transit UTC is 12.0 - my_longitude / 15.0
 
-The method inside the gem is called delta_oblique.
+  my_mean_noon = #{12.0 - -88.74467 / 15.0} hr.
 
-eot.delta_oblique() = #{eot.delta_oblique}
+  Be sure to set everything for UTC noon before adding it to your longitude
+  because we were doing angles for time now.
 
+  eot.ajd = #{eot.ajd = Date.today.jd.to_f}
 
-The sum of these two delta angles is the equation of time angle in degrees not time.
+  Using the Eot class I may also compute it with eot.mean_local_noon_dt() method
+  if I have the ajd set right.
 
-eot.eot() = #{eot.eot}
+  eot.mean_local_noon_dt() = #{eot.mean_local_noon_dt}
 
-That was for the time UTC now which was easy.
+  I'm showing what time mean noon for my_longitude normally is without the
+  equation of time considered.
 
+  This time is true only four days a year. Lets get the right one for today to
+  be sure.
 
-Now using your longitude to compute your mean solar transit from longitude / 15.0
+  We can add longitude plus equation of time as angles.
 
-my longitude is -88.74467 deg. so I'll set the longitude attribute in Eot class.
+  eot.longitude + eot.eot() = #{eot.longitude} + #{eot.delta_total}
 
-eot.longitude = #{eot.longitude = -88.74467}
+  What's the time of solar transit here now?
 
+  12.0 - (eot.longitude + eot.eot()) / 15.0 =
+  #{12.0 - (eot.longitude + eot.delta_total) / 15.0}
 
-So my mean solar transit UTC is 12.0 - my_longitude / 15.0
+  That looks about right.
 
-my_mean_noon = #{12.0 - -88.74467 / 15.0} hr.
+  Let's make a time out of that by converting it to a fractional day.
 
-Be sure to set everything for UTC noon before adding it to your longitude because we were doing angles for time now.
+  (12.0 - (eot.longitude + eot.eot()) / 15.0) / 24.0 =
+  #{(12.0 - (eot.longitude + eot.delta_total) / 15.0) / 24.0}
 
-eot.ajd = #{eot.ajd = Date.today.jd.to_f}
+  We'll add that to the ajd then.
 
+  ajd = Date.today.ajd.to_f
+  ajd = #{ajd = Date.today.ajd.to_f}
 
+  ajd + (12.0 - (eot.longitude + eot.delta_total) / 15.0) / 24.0
 
-Using the Eot class I may also compute it with eot.mean_local_noon_dt() method if I have the ajd set right.
+  #{ajd} + #{(12.0 - (eot.longitude + eot.delta_total) / 15.0) / 24.0} =
+  #{ajd + (12.0 - (eot.longitude + eot.delta_total) / 15.0) / 24.0}
 
-eot.mean_local_noon_dt() = #{eot.mean_local_noon_dt}
+  There is a method in Eot class to make that a DateTime object.
 
-I'm showing what time mean noon for my_longitude normally is without the equation of time considered.
+  eot.ajd_to_datetime(ajd + transit)
 
-This time is true only four days a year. Lets get the right one for today to be sure.
+  tst = (12.0 - (eot.longitude + eot.eot) / 15.0) / 24.0
+  #{tst = (12.0 - (eot.longitude + eot.delta_total) / 15.0) / 24.0}
+  eot.ajd_to_datetime(Date.today.ajd.to_f + tst)
+  #{eot.ajd_to_datetime(Date.today.ajd.to_f + tst)}
 
+  Be sure to set your latitude attribute as well when you want to compute
+  sunrise and sunset times for the days of interest.
 
+  eot.latitude = my_latitude
 
-We can add longitude plus equation of time as angles.
+  Your longitude and the GHA of the Sun will match at True Solar Transit time.
 
-eot.longitude + eot.eot() = #{eot.longitude} + #{eot.eot}
+  Check it here http://douglasallen.github.io/planets/ just put in the correct
+  time and date then hit calculate.
 
-What's the time of solar transit here now?
+  Does GHA Sun = your longitude?
 
-12.0 - (eot.longitude + eot.eot()) / 15.0 = #{12.0 - (eot.longitude + eot.eot) / 15.0}
+  It's off a little bit because that site uses a different formula that is
+  commonly used in older programs.
 
-That looks about right.
-
-
-
-Let's make a time out of that by converting it to a fractional day.
-
-(12.0 - (eot.longitude + eot.eot()) / 15.0) / 24.0 = #{(12.0 - (eot.longitude + eot.eot) / 15.0) / 24.0}
-
-We'll add that to the ajd then.
-
-ajd = Date.today.ajd.to_f
-
-ajd = #{Date.today.ajd.to_f}
-
-#{Date.today.ajd.to_f} + #{(12.0 - (eot.longitude + eot.eot) / 15.0) / 24.0} = #{Date.today.ajd.to_f + (12.0 - (eot.longitude + eot.eot) / 15.0) / 24.0}
-
-
-There is a method in Eot class to make that a DateTime object.
-
-eot.ajd_to_datetime(ajd + transit)
-
-#{eot.ajd_to_datetime(Date.today.ajd.to_f + (12.0 - (eot.longitude + eot.eot) / 15.0) / 24.0)}
-
-
-Be sure to set your latitude attribute as well when you want to compute sunrise and sunset times for the days of interest.
-
-eot.latitude = my_latitude
-
-
-Your longitude and the GHA of the Sun will match at True Solar Transit time.
-
-Check it here http://douglasallen.github.io/planets/ just put in the correct time and date then hit calculate.
-
-Does GHA Sun = your longitude?
-
-It's off a little bit because that site uses a different formula that is commonly used in older programs.
-
-I get about 3 seconds difference in the EOT is all.
+  I get about 3 seconds difference in the EOT is all.
 DISPLAY
 
 puts file

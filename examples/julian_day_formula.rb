@@ -1,16 +1,31 @@
 # julian_day_formula.rb
 
-# 3) Dropping the fractional part of all results of all multiplications and divisions, let
+# 3) Dropping the fractional part of all results of all
+# multiplications and divisions, let
 require 'date'
 
+def date_string(date)
+  "#{date.year}-#{date.month}-#{date.day}"
+end
+
+def ajd_year(year)
+  (365.25 * (year + 4716)).floor +
+    ((year / 100).floor / 4).floor +
+    (year / 100).floor
+end
+
+def ajd(day, month, year)
+  month = (30.6001 * (month + 1)).floor - 1524.5
+  day + 2 - ajd_year(year) + month
+end
+
 def date_to_ajd(date)
-  date.month <= 2 ? year = date.year -= 1 : year = date.year
-  date.month <= 2 ? month = date.month += 12 : month = date.month 
+  year = date.yaer
+  month = date.month
   day = date.day
-  day + 2 -  
-    (year / 100).floor + ((year / 100).floor / 4).floor +
-    (365.25 * (year + 4716)).floor +
-    (30.6001 * (month + 1)).floor - 1524.5
+  month <= 2 ? year -= 1 : year
+  month <= 2 ? month += 12 : month
+  ajd(day, month, year)
 end
 
 t = Time.now.utc

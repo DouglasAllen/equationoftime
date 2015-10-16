@@ -8,7 +8,7 @@ rescue LoadError
   require 'eot'
 end
 
-eot = Eot.new
+@eot = Eot.new
 
 # Change these for your geographic location Ex: of mine.
 # Note the two coordinate parameters must be passed as floats.
@@ -16,34 +16,34 @@ eot = Eot.new
 # eot.date = @date
 # eot.longitude = @longitude
 # eot.latitude = @latitude
-@latitude = 0.0 # sign in Northern Hemishere is none,  - (minus)for Southern Hemisphere
-@longitude = 0.0  # East of UTC is none, - (minus)West of UTC
-@date = '2000-01-01'
-eot.jd = Date.parse(@date).jd
+# sign in Northern Hemishere is none, (minus)for Southern Hemisphere
+@latitude = 39.3339
+# East of UTC is none, - (minus)West of UTC
+@longitude = -125.099
 
 print "Enter your longitude in decimal format Ex: -125.099 \n"
 
-lng = gets
+lng = gets.chomp
 
-lng.nil? ? eot.longitude = @longitude : eot.longitude = lng.chomp.to_f
+lng == "" ? @eot.longitude = @longitude : @eot.longitude = lng.to_f
 
-puts "Your longitude is #{eot.longitude}"
+puts "Your longitude is #{@eot.longitude}"
 
 print "Enter your latitude in decimal format Ex: 39.3339 \n"
 
-lat = gets
+lat = gets.chomp
 
-lat.nil? ? eot.latitude = @latitude : eot.latitude = lat.chomp.to_f
+lat == "" ? @eot.latitude = @latitude : @eot.latitude = lat.to_f
 
-puts "Your latitude is #{eot.latitude}"
+puts "Your latitude is #{@eot.latitude}"
 
-print "Enter the date you want to compute sun times for Ex: yyyy-mm-dd \n"
+print "Enter the date Ex: yyyy-mm-dd \ndefaults to today."
 
-date = gets
+date = gets.chomp
 
-date.nil? ? eot.date = @date : eot.date = date.chomp.to_f
+date == "" ? @eot.date : @eot.date = Date.parse(date)
 
-puts "The date is #{eot.date}"
+puts "The date is #{@eot.date.to_date}"
 
-puts "Sunrise #{eot.sunrise_dt.to_time}"
-puts "Sunset #{eot.sunset_dt.to_time}"
+puts "Sunrise #{@eot.sunrise_dt.to_time}"
+puts "Sunset #{@eot.sunset_dt.to_time}"
