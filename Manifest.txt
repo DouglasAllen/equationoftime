@@ -45,12 +45,15 @@ lib/eot/trigonometric.rb
 lib/eot/utilities.rb
 lib/eot/version.rb
 run_tests_eclipse.rb
+test/test_helper.rb
 test/eot/aliased_angles_spec.rb
 test/eot/aliased_displays_spec.rb
 test/eot/aliased_utilities_spec.rb
 test/eot/angles_spec.rb
 test/eot/constants_spec.rb
 test/eot/displays_spec.rb
+test/eot/eot_test.rb
+test/eot/geo_lat_lng_test.rb
 test/eot/geo_spec.rb
 test/eot/init_spec.rb
 test/eot/times_spec.rb

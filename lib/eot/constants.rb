@@ -2,6 +2,8 @@
 # class Eot file = constants.rb:
 # has the constants used and more
 
+require 'date'
+
 class Eot
 
   ##

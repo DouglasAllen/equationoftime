@@ -10,6 +10,7 @@ class Eot
   # Apparent solar longitude = true longitude - aberation
 
   def al_sun
+    ma_ta_set
     Celes.anp(al(@ma, @ta, omega))
   end
   alias_method :apparent_longitude, :al_sun
@@ -22,6 +23,7 @@ class Eot
   # added to mean anomaly to get true anomaly.
 
   def center
+    ma_ta_set
     eqc(@ma, @ta)
   end
   alias_method :equation_of_center, :center
@@ -32,6 +34,7 @@ class Eot
   # solar declination 
 
   def dec_sun
+    ma_ta_set
     sun_dec(al_sun, to_earth)
   end
   alias_method :declination, :dec_sun
@@ -43,6 +46,7 @@ class Eot
   # Horners' calculation method
 
   def eccentricity_earth
+    ma_ta_set
     eoe(@ta)
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_earth
@@ -78,6 +82,7 @@ class Eot
   # needed to get true longitude for low accuracy.
 
   def gml_sun
+    ma_ta_set
     ml(@ta)
   end
   alias_method :geometric_mean_longitude, :gml_sun
@@ -124,6 +129,7 @@ class Eot
   # and to get true anomaly true longitude via center equation
 
   def ma_sun
+    ma_ta_set
     @ta = (@ajd - DJ00) / DJC
     @ma = Celes.falp03(@ta)
   end
@@ -136,6 +142,7 @@ class Eot
   # # see http://www.iausofa.org/publications/aas04.pdf
 
   def ml_aries
+    ma_ta_set
     dt = 67.184
     tt = @ajd + dt / 86_400.0
     Celes.gmst06(@ajd, 0, tt, 0)
@@ -162,6 +169,7 @@ class Eot
   # on the ecliptic plane measured from the mean equinox of date.
 
   def omega
+    ma_ta_set
     Celes.faom03(@ta)
   end
 
@@ -171,6 +179,7 @@ class Eot
   # solar right ascension
 
   def ra_sun
+    ma_ta_set
     y0 = sine_al_sun * cosine_to_earth
     ra = sun_ra(y0, cosine_al_sun) 
     # Celes.anp(PI + atan2(-y0, -cosine_al_sun))
@@ -185,6 +194,7 @@ class Eot
   # used in equation of time
 
   def ta_sun
+    ma_ta_set
     Celes.anp(@ma + eqc(@ma, @ta))
   end
   alias_method :true_anomaly, :ta_sun
@@ -209,6 +219,7 @@ class Eot
   # used in equation of time
 
   def tl_sun
+    ma_ta_set
     tl(@ma, @ta)
   end
   alias_method :true_longitude, :tl_sun
@@ -230,9 +241,27 @@ end
 
 if __FILE__ == $PROGRAM_NAME
 
-  spec = File.expand_path('../../../test/eot', __FILE__)
+  spec = File.expand_path('../../', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-  require 'angles_spec'
-  require 'aliased_angles_spec'
+
+  require 'eot'
+
+  @s = Eot.new
+  @s.longitude = -88.74277
+  @s.latitude = 41.94788
+  p @s.sunrise_dt.to_time.localtime
+  p @s.sunrise_dt.to_time.sec
+  @s.ajd = @s.ajd + 1
+  p @s.sunrise_dt.to_time.localtime
+  p @s.sunrise_dt.to_time.sec
+  @s.ajd = @s.ajd + 1
+  p @s.sunrise_dt.to_time.localtime
+  p @s.sunrise_dt.to_time.sec
+  @s.ajd = @s.ajd + 1
+  p @s.sunrise_dt.to_time.localtime
+  p @s.sunrise_dt.to_time.sec
+  @s.ajd = @s.ajd + 1
+  p @s.sunrise_dt.to_time.localtime
+  p @s.sunrise_dt.to_time.sec
 
 end

@@ -1,10 +1,6 @@
 # aliased_displays_spec.rb
-gem 'minitest'
-require 'minitest/autorun'
 
-lib = File.expand_path('../../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eot'
+require File.expand_path('../../test_helper', __FILE__)
 
 aliased_displays = Eot.new
 
