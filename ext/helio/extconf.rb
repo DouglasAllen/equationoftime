@@ -17,25 +17,31 @@ unless find_header('ruby.h', RINCLUDEDIR)
 end
 
 $LIBS << " #{ENV["LIBS"]}"
-SOFAH = File.expand_path("../../../tmp/i686-linux/helio/2.2.2/tmp/i486-linux-gnu/ports/libsofa_c/1.0/libsofa_c-1.0/sofa.h", __FILE__)
-SOFAMH = File.expand_path("../../../tmp/i686-linux/helio/2.2.2/tmp/i486-linux-gnu/ports/libsofa_c/1.0/libsofa_c-1.0/sofam.h", __FILE__)
-HEADERDIRS = File.expand_path("../", __FILE__)
-p system "cp #{SOFAH} #{HEADERDIRS}/sofa.h"
-system "cp #{SOFAMH} #{HEADERDIRS}/sofam.h"
+SOFAH = File.expand_path("../tmp/i486-linux-gnu/ports/libsofa_c/1.0/libsofa_c-1.0/sofa.h", __FILE__)
+SOFAMH = File.expand_path("../tmp/i486-linux-gnu/ports/libsofa_c/1.0/libsofa_c-1.0/sofam.h", __FILE__)
+HEADERDIR = File.expand_path("../", __FILE__)
+puts "copying sofa.h from #{SOFAH}"
+puts "putting sofa.h in #{HEADERDIR}"
+system "cp #{SOFAH} #{HEADERDIR}/sofa.h"
+puts "copying sofa.h from #{SOFAMH}"
+puts "putting sofam.h in #{HEADERDIR}"
+system "cp #{SOFAMH} #{HEADERDIR}/sofam.h"
 
-unless find_header('sofa.h', HEADERDIRS)
+unless find_header('sofa.h', HEADERDIR)
   abort "sofa.h and sofam.h are missing.  please install libsofa-c-dev"
 end
 
 # setup constant that is equal to that of the file path that holds that static libraries 
 # that will need to be compiled against
-LIBSOFA = File.expand_path("../../../tmp/i686-linux/helio/2.2.2/tmp/i486-linux-gnu/ports/libsofa_c/1.0/libsofa_c-1.0/libsofa_c.a", __FILE__)
-LIBDIRS = File.expand_path("../", __FILE__)
-system "cp #{LIBSOFA} #{LIBDIRS}/libsofa_c.a"
+LIBSOFA = File.expand_path("../tmp/i486-linux-gnu/ports/libsofa_c/1.0/libsofa_c-1.0/libsofa_c.a", __FILE__)
+LIBDIR = File.expand_path("../", __FILE__)
+puts "copying libsofa_c.a from #{LIBSOFA}"
+puts "putting sofa.h in #{HEADERDIR}"
+system "cp #{LIBSOFA} #{LIBDIR}/libsofa_c.a"
 
 LIBS = 'sofa_c'
 FUNC = 'iauFalp03'
-unless find_library(LIBS, FUNC, LIBDIRS)
+unless find_library(LIBS, FUNC, LIBDIR)
   abort "libsofa_c.a is missing.  please install libsofa-c"
 end
 
@@ -47,6 +53,6 @@ libs.each do |lib|
   $LOCAL_LIBS << "#{lib} "
 end
 
-dir_config('sofa_c', HEADERDIRS, LIBDIRS)
+dir_config('sofa_c', HEADERDIR, LIBDIR)
 dir_config(extension_name)
 create_makefile(extension_name)
