@@ -77,24 +77,7 @@ Hoe.spec 'equationoftime' do
   end
 end
 
-Rake::Task[:install].prerequisites << :libsofa_c << :compile
-
-task :libsofa_c do
-  recipe = MiniPortile.new("libsofa_c", "1.0")
-  recipe.files = ["https://github.com/DouglasAllen/libsofa_c-1.0/raw/master/libsofa_c-1.0.tar"]
-  checkpoint = ".#{recipe.name}-#{recipe.version}.installed"
-
-  unless File.exist?(checkpoint)
-    recipe.download
-    recipe.extract
-    recipe.compile
-    recipe.install unless recipe.installed?
-    
-    touch checkpoint
-  end
-
-  recipe.activate
-end
+Rake::Task[:test].prerequisites << :compile
 
 #task default: [:test]
 
