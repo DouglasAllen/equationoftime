@@ -1,5 +1,8 @@
 # class Eot file = int.rb
 # attributes, a setter and init method
+
+java_import 'com.herokuapp.equationoftime.Angles'
+
 class Eot
   # From init.rb:
   # address is a String ex: "houston, tx"
@@ -26,7 +29,7 @@ class Eot
   # see: :ajd attribute
   def ma_ta_set
     @ta = ((@ajd - DJ00) / DJC).to_f
-    @ma = Celes.falp03(@ta)
+    @ma = Angles.getMeanAnomaly(@ta)
   end
   alias_method :set_t_ma, :ma_ta_set
 
@@ -94,26 +97,4 @@ class Eot
     @longitude = 0.0
     set_t_ma      
   end
-end
-
-# we can run some tests from inside this file.
-if __FILE__ == $PROGRAM_NAME
-  lib = File.expand_path('../../../lib', __FILE__)
-  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot'
-  eot = Eot.new
-  p eot.ajd
-  p eot.date
-  p eot.jd
-  p eot.ma
-  p eot.ta
-  p eot.addr
-  p eot.latitude
-  p eot.longitude
-  list = eot.public_methods(false).sort
-  list.each { |i| puts i.to_sym }
-  spec = File.expand_path('../../../test/eot', __FILE__)
-  $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-  require 'init_spec'
-  # bundle exec rake
 end

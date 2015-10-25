@@ -134,7 +134,7 @@ class Eot
   def ma_sun
     ma_ta_set
     @ta = (@ajd - DJ00) / DJC
-    @ma = Celes.falp03(@ta)
+    @ma = Angles.getMeanAnomaly(@ta)
   end
   alias_method :mean_anomaly, :ma_sun
 

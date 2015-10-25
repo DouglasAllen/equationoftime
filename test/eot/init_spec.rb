@@ -10,10 +10,10 @@ describe 'Eot_initialize has set attributes ' do
   lng = 0.0  
   addr = nil
 
-  ajd_now = Time.now.utc.to_datetime.ajd.to_f.round(8)
-  it "expected #{ajd_now} from Eot.new.ajd" do
-    ajd_now = Time.now.utc.to_datetime.ajd.to_f.round(8)
-    assert_equal(ajd_now, Eot.new.ajd.round(8))
+  ajd_now = Time.now.utc.to_datetime.ajd.to_f.round(6)
+  it "expected #{ajd_now.round(6)} from Eot.new.ajd" do
+    ajd_now = Time.now.utc.to_datetime.ajd.to_f.round(6)
+    assert_equal(ajd_now, Eot.new.ajd.round(6))
   end
 
   it "expected #{jd_today} from Eot.new.jd" do
@@ -28,10 +28,10 @@ describe 'Eot_initialize has set attributes ' do
     assert_equal(lng, Eot.new.longitude)
   end
   
-  ma_sun = Eot.new.ma_sun.round(9)
-  it "expected #{ma_sun} from @ma" do
-    ma_sun = Eot.new.ma_sun.round(9)
-    assert_equal(ma_sun, Eot.new.ma.round(9))
+  ma_sun = Eot.new.ma_sun.round(8)
+  it "expected #{ma_sun.round(8)} from @ma" do
+    ma_sun = Eot.new.ma_sun.round(8)
+    assert_equal(ma_sun, Eot.new.ma.round(8))
   end
 
   frac_cent = (Eot.new.ajd - Eot::DJ00) / Eot::DJC
