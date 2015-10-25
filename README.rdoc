@@ -1,14 +1,9 @@
 = equationoftime
-
-Home    :: http://equationoftime.herokuapp.com/
-Code    :: https://github.com/DouglasAllen/equationoftime
-RDoc    :: http://rubydoc.info/gems/equationoftime/4.1.5/frames
-Issues  :: https://github.com/DouglasAllen/equationoftime/issues
-
+Under development for JRuby.
 
 == DESCRIPTION:
 
-Calculate Sunrise and Sunset. Now uses native C wrappers.
+Calculate Sunrise and Sunset. Has a .jar file that you may use with Java also.
 Lots of examples to play with for learning about Eot.
 
 == FEATURES/PROBLEMS:
@@ -17,66 +12,21 @@ Lots of examples to play with for learning about Eot.
 
 == SYNOPSIS:
 
-  $ irb --simple-prompt
+    $ jruby test/eot/init_spec.rb
 
-        require 'eot'
-        eot = Eot.new
-        eot.string_eot          # todays eot
-        eot.ajd                 # was initialized to noon today ei. jd
-        
-        # check and set a new address                        
-        geo = GeoLatLng.new
-        geo.addr
-        geo.addr = "houston, tx"     # set new location
-        geo.set_coordinates          # set new coordinates
-        eot.latitude = geo.lat       # set the Eot class attributes
-        eot.longitude = geo.lng
+Other parts are pending but go ahead and work on it youself.
 
-        # Be shure you have the date set right
-        eot.ajd = DateTime.new(2014,11,07).to_time.utc.to_datetime.jd.to_f
+    $ git clone git@github.com:DouglasAllen/gem-equationoftime.git
 
-        eot.sunrise_jd          # the dates sunrise as a jd
-        eot.sunset_jd           # the dates sunset as a jd
-        eot.sunrise_dt          # the dates sunrise as DateTime
-        eot.sunset_dt           # the dates sunset as a DateTime
+or download the ZIP
 
-
-        eot.ajd += 1            # the days after times can be read
-        
-        eot.ajd = 2451545       # ajd set to 2001-01-01 12:00 
-        
-
-== Gem patch:
-
-  $ gem install eot
-
-After realizing this name was available I decided to use it.
-It installs the needed requirements and includes a binary named 'eot'
-Just run it without arguments to get help with usage. Please note
-that it will install version 4.1.8
-
-== REQUIREMENTS:
-
-  $ bundle install
-
-== INSTALL:
-
-  $ bundle exec rake install
-
-== DEVELOPERS:
-
-After checking out the source, run:
-
-  $ bundle exec rake newb
-
-This task will install any missing dependencies, run the tests/specs,
-and generate the RDoc.
+    $ git checkout jruby-dev
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2014
+Copyright (c) 2015
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
