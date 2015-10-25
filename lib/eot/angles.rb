@@ -50,6 +50,7 @@ class Eot
     eoe(@ta)
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_earth
+  alias_method :eccentricity, :eccentricity_earth
 
   ##
   # From angles.rb:
@@ -63,6 +64,7 @@ class Eot
   def eq_of_equinox
     Celes.ee06a(@ajd, 0.0)
   end
+  alias_method :equation_of_equinox, :eq_of_equinox
 
   
   ##
@@ -87,6 +89,7 @@ class Eot
   end
   alias_method :geometric_mean_longitude, :gml_sun
   alias_method :ml_sun, :gml_sun
+  alias_method :mean_longitude, :gml_sun
 
   ##
   # From angles.rb:

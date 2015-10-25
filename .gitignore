@@ -18,7 +18,3 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
-ext/ceot/*.o
-ext/ceot/*.so
-ext/ceot/Makefile
-lib/*.so

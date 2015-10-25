@@ -4,38 +4,45 @@ require File.expand_path('../../test_helper', __FILE__)
 
 describe 'Eot_initialize has set attributes ' do
 
-  JD_TODAY = DateTime.now.to_time.utc.to_datetime.jd.to_f
-  it "expected #{JD_TODAY} from Eot.new.ajd" do
-    assert_equal(JD_TODAY, Eot.new.ajd)
+  
+  jd_today = Time.now.utc.to_datetime.jd.to_f
+  lat = 0.0
+  lng = 0.0  
+  addr = nil
+
+  ajd_now = Time.now.utc.to_datetime.ajd.to_f.round(8)
+  it "expected #{ajd_now} from Eot.new.ajd" do
+    ajd_now = Time.now.utc.to_datetime.ajd.to_f.round(8)
+    assert_equal(ajd_now, Eot.new.ajd.round(8))
   end
 
-  UK_LAT = 0.0
-  it "expected #{UK_LAT} from Eot.new.latitude" do
-    assert_equal(UK_LAT, Eot.new.latitude)
+  it "expected #{jd_today} from Eot.new.jd" do
+    assert_equal(jd_today, Eot.new.jd)
+  end
+  
+  it "expected #{lat} from Eot.new.latitude" do
+    assert_equal(lat, Eot.new.latitude)
+  end
+  
+  it "expected #{lng} from Eot.new.longitude" do
+    assert_equal(lng, Eot.new.longitude)
+  end
+  
+  ma_sun = Eot.new.ma_sun.round(9)
+  it "expected #{ma_sun} from @ma" do
+    ma_sun = Eot.new.ma_sun.round(9)
+    assert_equal(ma_sun, Eot.new.ma.round(9))
   end
 
-  UK_LNG = 0.0
-  it "expected #{UK_LNG} from Eot.new.longitude" do
-    assert_equal(UK_LNG, Eot.new.longitude)
+  frac_cent = (Eot.new.ajd - Eot::DJ00) / Eot::DJC
+  it "expected #{frac_cent.round(9)} from @ta" do
+    frac_cent = (Eot.new.ajd - Eot::DJ00) / Eot::DJC
+    assert_equal(frac_cent.round(9), Eot.new.ta.round(9))
+    assert_equal(frac_cent.round(9), Eot.new.t.round(9))
   end
-
-  MA_SUN = Eot.new.ma_sun
-  it "expected #{MA_SUN} from @ma" do
-    eot = Eot.new
-    eot.ajd = JD_TODAY
-    assert_equal(MA_SUN, eot.ma)
-  end
-
-  FRAC_CENT = (Eot.new.ajd - Eot::DJ00) / Eot::DJC
-  it "expected #{FRAC_CENT} from @ta" do
-    eot = Eot.new
-    eot.ajd = JD_TODAY
-    assert_equal(FRAC_CENT, eot.ta)
-  end
-
-  DEFAULT_INT = nil
-  it "expected #{DEFAULT_INT} from Eot.new.addr" do
-    assert_equal(DEFAULT_INT,  Eot.new.addr)
+  
+  it "expected #{addr} from Eot.new.addr" do
+    assert_equal(addr,  Eot.new.addr)
   end
 
 end
