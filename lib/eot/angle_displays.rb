@@ -9,8 +9,17 @@ class Eot
   # String formatter for d:m:s display
   def degrees_to_s(radians = 0.0)
     radians.nil? ? radians = 0.0 : radians
-    s, idmsf = Celes.a2af(3, radians)
-    f_string(s, idmsf[0], idmsf[1], idmsf[2], idmsf[3])
+    radians < 0 ? sign = '-': sign = '+'
+    degrees = radians * 180.0 / Math::PI
+    d = Integer(degrees)
+    min = (degrees - d) * 60.0
+    m = Integer(min)
+    sec = (min - m) * 60.0
+    s = Integer(sec)
+    frac = (sec - s) * 1000.0
+    f = Integer(frac)
+    idmsf = [d, m, s, f]
+    f_string(sign, idmsf[0], idmsf[1], idmsf[2], idmsf[3])
   end
 
   # From angle_displays.rb
