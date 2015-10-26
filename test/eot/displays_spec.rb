@@ -22,8 +22,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal '2014-08-15T12:00:00+00:00', displays.date.to_s
   end
 
-  it 'expected   3.8508003966038915, from displays.' do
-    assert_equal 3.8508003966038915, displays.ma
+  it 'expected   3.8508003966038906, from displays.' do
+    assert_equal 3.8508003966038906, displays.ma
   end
 
   it 'expected   "+000:00:00.000" from displays.degrees_to_s() ' do
@@ -32,8 +32,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal '+000:00:00.000', displays.degrees_to_s(0)
   end
 
-  it 'expected   "+142:35:33.356" from displays.string_al_sun() ' do
-    assert_equal '+142:35:33.356', displays.string_al_sun
+  it 'expected   "+142:35:33.347" from displays.string_al_sun() ' do
+    assert_equal '+142:35:33.347', displays.string_al_sun
   end
 
   it 'expected   "12:00:00" from displays.string_day_fraction_to_time() ' do
@@ -42,8 +42,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal '12:00:00', displays.string_day_fraction_to_time(0)
   end
 
-  it 'expected   "+013:58:51.522" from displays.string_dec_sun() ' do
-    assert_equal '+013:58:51.522', displays.string_dec_sun
+  it 'expected   "+013:58:51.600" from displays.string_dec_sun() ' do
+    assert_equal '+013:58:51.600', displays.string_dec_sun
   end
 
   it 'expected   "-04m, 29.2s" from displays.string_eot() ' do
@@ -61,16 +61,16 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal '2014-08-15', displays.jd_to_date_string(displays.ajd)
   end
 
-  it 'expected   "+220:38:04.598" from displays.string_ma_sun() ' do
-    assert_equal '+220:38:04.598', displays.string_ma_sun
+  it 'expected   "+220:38:04.597" from displays.string_ma_sun() ' do
+    assert_equal '+220:38:04.597', displays.string_ma_sun
   end
 
-  it 'expected   "+144:56:36.571" from displays.string_ra_sun() ' do
-    assert_equal '+144:56:36.571', displays.string_ra_sun
+  it 'expected   "+144:56:36.589" from displays.string_ra_sun() ' do
+    assert_equal '+144:56:36.589', displays.string_ra_sun
   end
 
-  it 'expected   "+219:24:27.798" from displays.string_ta_sun() ' do
-    assert_equal '+219:24:27.798', displays.string_ta_sun
+  it 'expected   "+219:24:27.789" from displays.string_ta_sun() ' do
+    assert_equal '+219:24:27.789', displays.string_ta_sun
   end
 
   it 'expected   "12:00:00.000" from displays.string_time() ' do
@@ -85,13 +85,13 @@ describe 'Eot displays using ajd of 2456885.0' do
                  displays.display_time_string(displays.date)
   end
 
-  it 'expected   "+142:35:47.318" from \
+  it 'expected   "+142:35:47.309" from \
       displays.string_tl_sun() ' do
-    assert_equal '+142:35:47.318', displays.string_tl_sun
+    assert_equal '+142:35:47.309', displays.string_tl_sun
   end
 
-  it 'expected   "+023:26:06.164" from displays.string_to_earth() ' do
-    assert_equal '+023:26:06.164', displays.string_to_earth
+  it 'expected   "+023:26:06.296" from displays.string_to_earth() ' do
+    assert_equal '+023:26:06.296', displays.string_to_earth
   end
 
 end
