@@ -2,6 +2,7 @@
 # attributes, a setter and init method
 
 java_import 'com.herokuapp.equationoftime.Angles'
+java_import 'com.herokuapp.equationoftime.CLArgs'
 
 class Eot
   # From init.rb:

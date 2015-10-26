@@ -11,7 +11,7 @@ class Eot
 
   def al_sun
     ma_ta_set
-    Celes.anp(al(@ma, @ta, omega))
+    Angles.getApparentLongitude(@ta)
   end
   alias_method :apparent_longitude, :al_sun
   alias_method :alsun, :al_sun
@@ -24,7 +24,7 @@ class Eot
 
   def center
     ma_ta_set
-    eqc(@ma, @ta)
+    Angles.getEQofCenter(@ta)
   end
   alias_method :equation_of_center, :center
 
@@ -35,7 +35,7 @@ class Eot
 
   def dec_sun
     ma_ta_set
-    sun_dec(al_sun, to_earth)
+    Angles.getDeclination(@ta)
   end
   alias_method :declination, :dec_sun
 
@@ -47,7 +47,7 @@ class Eot
 
   def eccentricity_earth
     ma_ta_set
-    eoe(@ta)
+    
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_earth
   alias_method :eccentricity, :eccentricity_earth
@@ -62,7 +62,7 @@ class Eot
   # see: #cosine_to_earth and #angle_delta_psi
 
   def eq_of_equinox
-    Celes.ee06a(@ajd, 0.0)
+    
   end
   alias_method :equation_of_equinox, :eq_of_equinox
 
@@ -85,7 +85,7 @@ class Eot
 
   def gml_sun
     ma_ta_set
-    ml(@ta)
+    Angles.getMeanLongitude(@ta)
   end
   alias_method :geometric_mean_longitude, :gml_sun
   alias_method :ml_sun, :gml_sun
@@ -117,8 +117,8 @@ class Eot
   # used for angles from transit to horizons.
 
   def ha_sun(c)
-    zenith = choice(c)
-    sun(zenith, dec_sun, @latitude)
+    CLArgs.myZenith = choice(c)
+    Angles.getLocalHorizonAngle(@ta)
   end
   alias_method :horizon_angle, :ha_sun
 
@@ -148,7 +148,7 @@ class Eot
     ma_ta_set
     dt = 67.184
     tt = @ajd + dt / 86_400.0
-    Celes.gmst06(@ajd, 0, tt, 0)
+    
   end
   alias_method :mean_longitude_aries, :ml_aries
 
@@ -158,7 +158,7 @@ class Eot
   # mean obliquity of Earth
 
   def mo_earth
-    Celes.obl06(@ajd, 0)
+    Angles.getMeanObliquity(@ta)
   end
   alias_method :mean_obliquity_of_ecliptic, :mo_earth
   alias_method :mean_obliquity, :mo_earth
@@ -173,7 +173,7 @@ class Eot
 
   def omega
     ma_ta_set
-    Celes.faom03(@ta)
+    Angles.getOmega(@ta)
   end
 
   ##
@@ -183,10 +183,7 @@ class Eot
 
   def ra_sun
     ma_ta_set
-    y0 = sine_al_sun * cosine_to_earth
-    ra = sun_ra(y0, cosine_al_sun) 
-    # Celes.anp(PI + atan2(-y0, -cosine_al_sun))
-    Celes.anp(PI + ra)
+    Angles.getRightAscension(@ta)
   end
   alias_method :right_ascension, :ra_sun
 
@@ -198,7 +195,7 @@ class Eot
 
   def ta_sun
     ma_ta_set
-    Celes.anp(@ma + eqc(@ma, @ta))
+    Angles.getTrueAnomaly(@ta)
   end
   alias_method :true_anomaly, :ta_sun
 
@@ -211,7 +208,7 @@ class Eot
   def tl_aries
     dt = 67.184
     tt = @ajd + dt / 86_400.0
-    Celes.gst06a(@ajd, 0, tt, 0)
+    
   end
   alias_method :true_longitude_aries, :tl_aries
 
@@ -223,7 +220,7 @@ class Eot
 
   def tl_sun
     ma_ta_set
-    tl(@ma, @ta)
+    Angles.getTrueLongitude(@ta)
   end
   alias_method :true_longitude, :tl_sun
   alias_method :ecliptic_longitude, :tl_sun
@@ -235,7 +232,7 @@ class Eot
   # true obliquity considers nutation
 
   def to_earth
-    mo_earth + angle_delta_epsilon
+    Angles.getTrueObliquity(@ta)
   end
   alias_method :obliquity_correction, :to_earth
   alias_method :true_obliquity, :to_earth
@@ -244,27 +241,6 @@ end
 
 if __FILE__ == $PROGRAM_NAME
 
-  spec = File.expand_path('../../', __FILE__)
-  $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-
-  require 'eot'
-
-  @s = Eot.new
-  @s.longitude = -88.74277
-  @s.latitude = 41.94788
-  p @s.sunrise_dt.to_time.localtime
-  p @s.sunrise_dt.to_time.sec
-  @s.ajd = @s.ajd + 1
-  p @s.sunrise_dt.to_time.localtime
-  p @s.sunrise_dt.to_time.sec
-  @s.ajd = @s.ajd + 1
-  p @s.sunrise_dt.to_time.localtime
-  p @s.sunrise_dt.to_time.sec
-  @s.ajd = @s.ajd + 1
-  p @s.sunrise_dt.to_time.localtime
-  p @s.sunrise_dt.to_time.sec
-  @s.ajd = @s.ajd + 1
-  p @s.sunrise_dt.to_time.localtime
-  p @s.sunrise_dt.to_time.sec
+ 
 
 end
