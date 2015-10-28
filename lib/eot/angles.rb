@@ -46,8 +46,7 @@ class Eot
   # Horners' calculation method
 
   def eccentricity_earth
-    ma_ta_set
-    
+    nil
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_earth
   alias_method :eccentricity, :eccentricity_earth
@@ -62,7 +61,7 @@ class Eot
   # see: #cosine_to_earth and #angle_delta_psi
 
   def eq_of_equinox
-    
+    nil  
   end
   alias_method :equation_of_equinox, :eq_of_equinox
 
@@ -74,7 +73,7 @@ class Eot
   # which uses gmst06)
 
   def era
-    Celes.era00(@ajd, 0.0)
+    nil
   end
 
   ## 
@@ -133,7 +132,7 @@ class Eot
 
   def ma_sun
     ma_ta_set
-    @ta = (@ajd - DJ00) / DJC
+    @ta = (@jd - DJ00) / DJC
     @ma = Angles.getMeanAnomaly(@ta)
   end
   alias_method :mean_anomaly, :ma_sun
@@ -146,9 +145,9 @@ class Eot
 
   def ml_aries
     ma_ta_set
-    dt = 67.184
+    dt = 68.184
     tt = @ajd + dt / 86_400.0
-    
+    nil
   end
   alias_method :mean_longitude_aries, :ml_aries
 
@@ -206,9 +205,9 @@ class Eot
   # considers nutation
 
   def tl_aries
-    dt = 67.184
+    dt = 68.184
     tt = @ajd + dt / 86_400.0
-    
+    nil
   end
   alias_method :true_longitude_aries, :tl_aries
 

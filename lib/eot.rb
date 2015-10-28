@@ -1,6 +1,6 @@
 # eot.rb
 require 'java'
-require 'eot/EoT-9_1'
+require 'EoT-9_1'
 require 'addressable/uri'
 require 'rest-client'
 require 'date'
@@ -14,8 +14,8 @@ require 'eot/delta_times'
 
 require 'eot/geo_lat_lng_smt'
 require 'eot/init'
-require 'eot/jd_times'
-require 'eot/times'
+require 'eot/times_dt'
+require 'eot/times_jd'
 require 'eot/time_displays'
 require 'eot/trigonometric'
 require 'eot/utilities'

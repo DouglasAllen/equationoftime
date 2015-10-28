@@ -4,24 +4,40 @@ require File.expand_path('../../test_helper', __FILE__)
 
 aliased_angles = Eot.new
 
-describe 'tests ajd of 2456885.0 ' do
+describe 'tests date of "2014-08-15" ' do
 
   before(:each) do
-    aliased_angles.ajd  = 2_456_885.0
-    ajd = aliased_angles.ajd
-    aliased_angles.ma_ta_set
-    # somtimes need date to check values somewhere else
-    aliased_angles.date = aliased_angles.ajd_to_datetime(ajd)
+    aliased_angles.new_date("2014-08-15")
   end
 
-  it 'expected   2_456_885.0 for aliased_angles.ajd 'do
-    assert_equal(2_456_885.0, aliased_angles.ajd)
+  it 'expected   "2014-08-15" from \
+      aliased_angles.date' do
+    assert_equal('2014-08-15', \
+                 aliased_angles.date)
   end
 
-  it 'expected   "2014-08-15T12:00:00+00:00" from \
-      aliased_angles.date.to_s' do
-    assert_equal('2014-08-15T12:00:00+00:00', \
-                 aliased_angles.date.to_s)
+  it 'expected   2_456_884.5 for \
+      aliased_angles.ajd 'do
+    assert_equal(2_456_884.5, \
+                 aliased_angles.ajd)
+  end
+
+  it 'expected   2_456_885.0 for \
+      aliased_angles.jd 'do
+    assert_equal(2_456_885.0, \
+                 aliased_angles.jd)
+  end
+
+  it 'expected   3.8508003966038906 from \
+      aliased_angles.ta' do
+    assert_equal(3.8508003966038906, \
+                 aliased_angles.ta)
+  end
+
+  it 'expected   3.8508003966038906 from \
+      aliased_angles.t' do
+    assert_equal(3.8508003966038906, \
+                 aliased_angles.t)
   end
 
   it 'expected   3.8508003966038906 from \
@@ -102,9 +118,9 @@ describe 'tests ajd of 2456885.0 ' do
                  aliased_angles.mean_anomaly)
   end
 
-  it 'expected   2456885.0007775924 from \
+  it 'expected   nil from \
       aliased_angles.mean_longitude_aries()' do
-    assert_equal(2456885.0007775924, \
+    assert_equal(nil, \
                  aliased_angles.mean_longitude_aries)
   end
 
@@ -156,9 +172,9 @@ describe 'tests ajd of 2456885.0 ' do
                  aliased_angles.true_longitude)
   end
 
-  it 'expected   2456885.0007775924 from \
+  it 'expected   nil from \
       aliased_angles.true_longitude_aries()' do
-    assert_equal(2456885.0007775924, \
+    assert_equal(nil, \
                  aliased_angles.true_longitude_aries)
   end
 
@@ -169,24 +185,40 @@ describe 'tests ajd of 2456885.0 ' do
   end
 end
 
-describe 'tests ajd of 2455055.5 ' do
+describe 'tests date of "2009-08-11" ' do
 
   before(:each) do
-    aliased_angles.ajd                   = 2_455_055.0
-    ajd = aliased_angles.ajd
-    aliased_angles.ma_ta_set
-    # check date for this ajd when needed.
-    aliased_angles.date = aliased_angles.ajd_to_datetime(ajd)
+    aliased_angles.new_date("2009-08-11")  
   end
 
-  it 'expected   2_455_055.0, from aliased_angles.' do
-    assert_equal(2_455_055.0, aliased_angles.ajd)
-  end
-
-  it 'expected   "2009-08-11T12:00:00+00:00" from \
+  it 'expected   "2009-08-11" from \
       aliased_angles.date.to_s' do
-    assert_equal('2009-08-11T12:00:00+00:00', \
+    assert_equal('2009-08-11', \
                  aliased_angles.date.to_s)
+  end
+
+  it 'expected   2_455_054.5, from \
+      aliased_angles.a' do
+    assert_equal(2_455_054.5, \
+                 aliased_angles.ajd)
+  end
+
+  it 'expected   2_455_055.0, from \
+      aliased_angles.jd' do
+    assert_equal(2_455_055.0, \
+                 aliased_angles.jd)
+  end
+
+  it 'expected   3.7871218188949243, \
+      from aliased_angles.ta' do
+    assert_equal(3.7871218188949243, \
+                 aliased_angles.ta)
+  end
+
+  it 'expected   3.7871218188949243, \
+      from aliased_angles.t' do
+    assert_equal(3.7871218188949243, \
+                 aliased_angles.t)
   end
 
   it 'expected   3.7871218188949243, \
@@ -273,9 +305,9 @@ describe 'tests ajd of 2455055.5 ' do
                  aliased_angles.mean_anomaly)
   end
 
-  it 'expected   2455055.0007775924 from \
+  it 'expected   nil from \
       aliased_angles.mean_longitude_aries()' do
-    assert_equal(2455055.0007775924, \
+    assert_equal(nil, \
                  aliased_angles.mean_longitude_aries)
   end
 
@@ -321,9 +353,9 @@ describe 'tests ajd of 2455055.5 ' do
                  aliased_angles.true_longitude)
   end
 
-  it 'expected   2455055.0007775924 from \
+  it 'expected   nil from \
       aliased_angles.true_longitude_aries()' do
-    assert_equal(2455055.0007775924, \
+    assert_equal(nil, \
                  aliased_angles.true_longitude_aries)
   end
 

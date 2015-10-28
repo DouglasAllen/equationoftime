@@ -4,23 +4,23 @@ require File.expand_path('../../test_helper', __FILE__)
 
 times = Eot.new
 
-describe 'tests ajd of 2456885.0 ' do
+describe 'tests date of "2014-08-15" ' do
 
   before(:each) do
-    times.ajd                =   2_456_885.0
-    ajd = times.ajd
-    times.ma_ta_set
+    times.date = '2014-08-15'
+    # ajd = times.jd
+    # times.ma_ta_set
     # check date for this ajd when needed.
-    times.date = times.ajd_to_datetime(ajd)
+    # times.date = times.jd_to_datetime(timejd)
   end
 
-  it 'expected   2456885.0 for times.ajd'do
-    assert_equal(2_456_885.0, times.ajd)
+  it 'expected   2456885.0 for times.jd'do
+    assert_equal(2_456_885.0, times.jd)
   end
 
-  it 'expected   "2014-08-15T12:00:00+00:00" for \
+  it 'expected   "2014-08-15" for \
                  times.date'.to_s do
-    assert_equal '2014-08-15T12:00:00+00:00', \
+    assert_equal '2014-08-15', \
                  times.date.to_s
   end
 
@@ -31,9 +31,9 @@ describe 'tests ajd of 2456885.0 ' do
   end
 
   it 'expected   "2014-08-15T12:00:00+00:00" from \
-      times.ajd_to_datetime(times.ajd).to_s' do
+      times.jd_to_datetime(times.jd).to_s' do
     assert_equal '2014-08-15T12:00:00+00:00',\
-                 times.ajd_to_datetime(times.ajd).to_s
+                 times.jd_to_datetime(times.jd).to_s
   end
 
   it 'expected   "2014-08-15T19:18:45+00:00" from \
@@ -164,23 +164,23 @@ describe 'tests ajd of 2456885.0 ' do
 
 end
 
-describe 'tests ajd of 2455055.0 ' do
+describe 'tests ajd of "2009-08-11" ' do
 
   before(:each) do
-    times.ajd                     = 2_455_055.0
-    ajd = times.ajd
-    times.ma_ta_set
+    times.date = "2009-08-11"             
+    #ajd = times.jd
+    #times.ma_ta_set
     # check date for this ajd when needed.
-    times.date = times.ajd_to_datetime(ajd)
+    #times.date = times.jd_to_datetime(ajd)
   end
 
   it 'expected   2_455_055.0, from times.' do
-    assert_equal(2_455_055.0, times.ajd)
+    assert_equal(2_455_055.0, times.jd)
   end
 
-  it 'expected   "2009-08-11T12:00:00+00:00" from \
+  it 'expected   "2009-08-11" from \
                   times.date.to_s' do
-    assert_equal '2009-08-11T12:00:00+00:00', \
+    assert_equal '2009-08-11', \
                  times.date.to_s
   end
 
@@ -189,9 +189,9 @@ describe 'tests ajd of 2455055.0 ' do
   end
 
   it 'expected   "2009-08-11T12:00:00+00:00" from \
-      times.ajd_to_datetime(times.ajd).to_s' do
+      times.jd_to_datetime(times.jd).to_s' do
     assert_equal '2009-08-11T12:00:00+00:00', \
-                 times.ajd_to_datetime(times.ajd).to_s
+                 times.jd_to_datetime(times.jd).to_s
   end
 
   it 'expected   -0.0035839456590805374 from \

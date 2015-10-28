@@ -5,7 +5,7 @@ class Eot
   # delta epsilon
   # component of equation of equinox
   def angle_delta_epsilon
-    
+    nil 
   end
   alias_method :delta_epsilon, :angle_delta_epsilon
 
@@ -30,7 +30,7 @@ class Eot
   # From angles.rb:
   # component of equation of equinox
   def angle_delta_psi
-    
+    nil  
   end
   alias_method :delta_psi, :angle_delta_psi
 
