@@ -84,18 +84,17 @@ j_rise = j_transit - Math.acos(cos_omega) / rad / 360.0
 # j_set is the actual Julian date of sunset;
 # j_rise is the actual Julian date of sunrise.
 
-@set = DateTime.jd(0.5 + j_set)
-@rise = DateTime.jd(0.5 + j_rise)
-@transit = DateTime.jd(0.5 + j_transit)
+p @rise = DateTime.jd(0.5 + j_rise)
+p @transit = DateTime.jd(0.5 + j_transit)
+p @set = DateTime.jd(0.5 + j_set)
+
 # from gem root terminal $ irb
 # > load 'examples/wikipedia_model.rb'
-# > @rise
-# > @transit
-# > @set
 
 # Now let the gem do it's thing.
 eot.latitude = phi
 eot.longitude = -l_w
-@sunrise = eot.sunrise_dt
-@solar_noon = eot.local_noon_dt
-@sunset = eot.sunset_dt
+eot.new_date(DateTime.now.to_time.utc.to_date.to_s)
+p @sunrise = eot.sunrise_dt
+p @solar_noon = eot.solar_noon_dt
+p @sunset = eot.sunset_dt

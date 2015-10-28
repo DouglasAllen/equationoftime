@@ -32,13 +32,14 @@ Lots of examples to play with for learning about Eot.
 
     $ jruby test/eot/init_spec.rb
 
-Other parts are pending but go ahead and work on it youself.
-
     $ git clone git@github.com:DouglasAllen/gem-equationoftime.git
 
-or download the ZIP
+or download the ZIP then
 
     $ git checkout jruby-dev
+
+    $ jirb
+    > load 'examples/wikipedia_model.rb'
 
 == LICENSE:
 
