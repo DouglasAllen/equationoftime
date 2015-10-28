@@ -47,8 +47,8 @@ class Eot
   # From times.rb:
   # Uses @jd and @longitude attributes
   # Returns DateTime object of local noon or solar transit
-  def local_noon_dt
-    jd_to_datetime(mean_local_noon_jd)
+  def solar_noon_dt
+    jd_to_datetime(solar_noon_jd)
   end
 
   # From times.rb:

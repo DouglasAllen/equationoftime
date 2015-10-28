@@ -41,6 +41,8 @@ class Eot
     @jd = d.jd.to_f
     @ajd = d.ajd.to_f
     ma_ta_set
+    CLArgs.myLatitude = @latitude 
+    CLArgs.myLongitude = @longitude
   end
 
   # From init.rb:

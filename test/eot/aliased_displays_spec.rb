@@ -4,29 +4,34 @@ require File.expand_path('../../test_helper', __FILE__)
 
 aliased_displays = Eot.new
 
-describe 'aliased_displays using ajd of 2456885.0' do
+describe 'aliased_displays for date of "2014-08-15"' do
 
   before(:each) do
-    aliased_displays.ajd  = 2_456_885.0
-    ajd = aliased_displays.ajd
-    aliased_displays.ma_ta_set
-    # check date for this ajd when needed.
-    aliased_displays.date = aliased_displays.ajd_to_datetime(ajd)
-
+    aliased_displays.new_date("2014-08-15")  
   end
 
-  it 'expected   2456885.0 , from aliased_displays.' do
-    assert_equal 2_456_885.0, aliased_displays.ajd
+  it 'expected   "2014-08-15", \
+      from aliased_displays.date' do
+    assert_equal '2014-08-15', \
+                  aliased_displays.date
   end
 
-  it 'expected   "2014-08-15T12:00:00+00:00", \
-      from aliased_displays.date.to_s' do
-    assert_equal '2014-08-15T12:00:00+00:00', \
-                  aliased_displays.date.to_s
+  it 'expected   2_456_884.5 , from \
+      aliased_displays.ajd' do
+    assert_equal 2_456_884.5, \
+                 aliased_displays.ajd
   end
 
-  it 'expected   3.8508003966038906, from aliased_displays.' do
-    assert_equal 3.8508003966038906, aliased_displays.ma
+  it 'expected   2_456_885.0 , from \
+      aliased_displays.jd' do
+    assert_equal 2_456_885.0, \
+                 aliased_displays.jd
+  end
+
+  it 'expected   3.8508003966038906, from \
+      aliased_displays.' do
+    assert_equal 3.8508003966038906, \
+                 aliased_displays.ma
   end
 
   it 'expected   "+142:35:33.347" \
@@ -58,9 +63,11 @@ describe 'aliased_displays using ajd of 2456885.0' do
   end
 
   it 'expected   "12:00:00.000" from \
-      aliased_displays.display_time_string(aliased_displays.date)' do
+      aliased_displays.display_time_string(\
+        Date.parse(aliased_displays.date))' do
     assert_equal '12:00:00.000', \
-                 aliased_displays.display_time_string(aliased_displays.date)
+                 aliased_displays.display_time_string(\
+                   Date.parse(aliased_displays.date))
   end
 
   it 'expected   "2000-01-01" from \
@@ -73,10 +80,10 @@ describe 'aliased_displays using ajd of 2456885.0' do
                   aliased_displays.jd_to_date_string(0)
   end
 
-  it 'expected   "2014-08-15" \
-      from aliased_displays.jd_to_date_string(aliased_displays.ajd)' do
+  it 'expected   "2014-08-15" from \
+      aliased_displays.jd_to_date_string(aliased_displays.jd)' do
     assert_equal '2014-08-15', \
-                 aliased_displays.jd_to_date_string(aliased_displays.ajd)
+                 aliased_displays.jd_to_date_string(aliased_displays.jd)
   end
 
   it 'expected   "12:00:00" from \

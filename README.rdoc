@@ -9,6 +9,24 @@ Lots of examples to play with for learning about Eot.
 == FEATURES/PROBLEMS:
 
 * Use GeoLatLng class to set coordinates or set them manually.
+* You may run the .jar in Java
+
+    $ java -jar EoT-9_1.jar <lat> <lng> <zenith>
+
+  where lat is your latitude in decimal
+
+  where lng is your longitude in decimal
+
+  where zenith is a number for the type of expected return value.
+  
+  90.8333 Sunrise and Sunset
+
+  96  Civil Twilight
+
+  102 Nautical Twilight
+
+  108 Astronomical Twilight
+
 
 == SYNOPSIS:
 

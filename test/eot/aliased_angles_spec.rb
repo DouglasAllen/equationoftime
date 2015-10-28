@@ -28,15 +28,15 @@ describe 'tests date of "2014-08-15" ' do
                  aliased_angles.jd)
   end
 
-  it 'expected   3.8508003966038906 from \
+  it 'expected   0.1462012320328542 from \
       aliased_angles.ta' do
-    assert_equal(3.8508003966038906, \
+    assert_equal(0.1462012320328542, \
                  aliased_angles.ta)
   end
 
-  it 'expected   3.8508003966038906 from \
+  it 'expected   0.1462012320328542 from \
       aliased_angles.t' do
-    assert_equal(3.8508003966038906, \
+    assert_equal(0.1462012320328542, \
                  aliased_angles.t)
   end
 
@@ -88,9 +88,9 @@ describe 'tests date of "2014-08-15" ' do
                  aliased_angles.delta_t_elliptic)
   end
 
-  it 'expected   3.8508003966038906 from \
+  it 'expected   nil from \
       aliased_angles.eccentricity_earth_orbit()' do
-    assert_equal(3.8508003966038906, \
+    assert_equal(nil, \
                  aliased_angles.eccentricity_earth_orbit)
   end
 
@@ -209,15 +209,15 @@ describe 'tests date of "2009-08-11" ' do
                  aliased_angles.jd)
   end
 
-  it 'expected   3.7871218188949243, \
+  it 'expected   0.09609856262833676, \
       from aliased_angles.ta' do
-    assert_equal(3.7871218188949243, \
+    assert_equal(0.09609856262833676, \
                  aliased_angles.ta)
   end
 
-  it 'expected   3.7871218188949243, \
+  it 'expected   0.09609856262833676, \
       from aliased_angles.t' do
-    assert_equal(3.7871218188949243, \
+    assert_equal(0.09609856262833676, \
                  aliased_angles.t)
   end
 
@@ -275,9 +275,9 @@ describe 'tests date of "2009-08-11" ' do
                  aliased_angles.delta_t_elliptic)
   end
 
-  it 'expected   3.7871218188949243 from \
+  it 'expected   nil from \
       aliased_angles.eccentricity_earth_orbit()' do
-    assert_equal(3.7871218188949243, \
+    assert_equal(nil, \
                  aliased_angles.eccentricity_earth_orbit)
   end
 

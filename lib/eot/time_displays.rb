@@ -102,6 +102,7 @@ class Eot
   # From displays.rb
   # creates [h,m,s,ds] from hours Float 
   def float_parts(val)
+    val.class == Date ? val = 12.0 : val
     hours = Integer(val % DAY_HOURS)
     mins = 60.0 * (val % DAY_HOURS - hours)
     imins = Integer(mins)
