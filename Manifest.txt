@@ -13,16 +13,19 @@ Manifest.txt
 README.rdoc
 Rakefile
 equationoftime.gemspec
+examples/Equation of time.png
 examples/Equation_of_Time.png
 examples/eot_from_noon.rb
+examples/eot_gnuplot.plot
 examples/eot_methods_list.rb
 examples/my_lst.rb
 examples/radians2degformated.rb
 examples/test_eot_c.rb
 examples/use_addr.rb
 examples/use_ajd.rb
+examples/wikipedia_model.rb
+lib/EoT-9_1.jar
 lib/eot.rb
-lib/eot/EoT-9_1.jar
 lib/eot/all.rb
 lib/eot/angle_displays.rb
 lib/eot/angles.rb
@@ -31,9 +34,9 @@ lib/eot/delta_times.rb
 lib/eot/deltas.rb
 lib/eot/geo_lat_lng_smt.rb
 lib/eot/init.rb
-lib/eot/jd_times.rb
 lib/eot/time_displays.rb
-lib/eot/times.rb
+lib/eot/times_dt.rb
+lib/eot/times_jd.rb
 lib/eot/trigonometric.rb
 lib/eot/utilities.rb
 lib/eot/version.rb
@@ -48,6 +51,7 @@ test/eot/eot_test.rb
 test/eot/geo_lat_lng_test.rb
 test/eot/geo_spec.rb
 test/eot/init_spec.rb
+test/eot/my_local_spec.rb
 test/eot/times_spec.rb
 test/test_helper.rb
 wiki.md

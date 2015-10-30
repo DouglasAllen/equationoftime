@@ -11,7 +11,7 @@ class Eot
 
   def al_sun
     ma_ta_set
-    Angles.getApparentLongitude(@ta)
+    Angles.getApparentLongitude(@ta) % P2
   end
   alias_method :apparent_longitude, :al_sun
   alias_method :alsun, :al_sun
@@ -44,6 +44,7 @@ class Eot
 
   # eccentricity of elliptical Earth orbit around Sun
   # Horners' calculation method
+  # Not used in JRuby version.
 
   def eccentricity_earth
     nil
@@ -57,8 +58,9 @@ class Eot
   # equation of equinox is
   # used for true longitude of Aries but 
   # Depricated by Celes.gst06a()
-  # compinents are still used
+  # components are still used
   # see: #cosine_to_earth and #angle_delta_psi
+  # Not used in JRuby version.
 
   def eq_of_equinox
     nil  
@@ -71,6 +73,7 @@ class Eot
 
   # Earth rotation angle (for comparison to tl_aries
   # which uses gmst06)
+  # Not used in JRuby version.
 
   def era
     nil
@@ -84,7 +87,7 @@ class Eot
 
   def gml_sun
     ma_ta_set
-    Angles.getMeanLongitude(@ta)
+    Angles.getMeanLongitude(@ta) % P2
   end
   alias_method :geometric_mean_longitude, :gml_sun
   alias_method :ml_sun, :gml_sun
@@ -133,7 +136,7 @@ class Eot
   def ma_sun
     ma_ta_set
     @ta = (@jd - DJ00) / DJC
-    @ma = Angles.getMeanAnomaly(@ta)
+    @ma = Angles.getMeanAnomaly(@ta) % P2
   end
   alias_method :mean_anomaly, :ma_sun
 
@@ -142,6 +145,7 @@ class Eot
 
   # Mean equinox point where right ascension is measured from as zero hours.
   # # see http://www.iausofa.org/publications/aas04.pdf
+  # Not used in JRuby version.
 
   def ml_aries
     ma_ta_set
@@ -182,7 +186,7 @@ class Eot
 
   def ra_sun
     ma_ta_set
-    Angles.getRightAscension(@ta)
+    Angles.getRightAscension(@ta) % P2
   end
   alias_method :right_ascension, :ra_sun
 
@@ -194,7 +198,7 @@ class Eot
 
   def ta_sun
     ma_ta_set
-    Angles.getTrueAnomaly(@ta)
+    Angles.getTrueAnomaly(@ta) % P2
   end
   alias_method :true_anomaly, :ta_sun
 
@@ -203,6 +207,7 @@ class Eot
 
   # true longitude of equinox 'first point of aries'
   # considers nutation
+  # Not used in JRuby version.
 
   def tl_aries
     dt = 68.184
@@ -219,7 +224,7 @@ class Eot
 
   def tl_sun
     ma_ta_set
-    Angles.getTrueLongitude(@ta)
+    Angles.getTrueLongitude(@ta) % P2
   end
   alias_method :true_longitude, :tl_sun
   alias_method :ecliptic_longitude, :tl_sun
