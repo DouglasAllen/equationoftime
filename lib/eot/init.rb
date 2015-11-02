@@ -20,6 +20,7 @@ class Eot
     @ta = ((@jd - DJ00) / DJC).to_f
     @ma = Celes.falp03(@ta)
   end
+  alias_method :set_t_ma, :ma_ta_set
 
   # From init.rb:
   # Date
@@ -49,18 +50,21 @@ class Eot
   # instance of Float class
   # initialized to = 0.0
   attr_accessor :latitude
+  alias_method :lat, :latitude
 
   # From init.rb:
   # Longitude input
   # instance of Float class
   # initialized to = 0.0
   attr_accessor :longitude
+  alias_method :lng, :longitude
 
   # From init.rb:
   # Julian Century gets called often
   # instance of Float class
-  # ta = (( @ajd - DJ00 ) / DJC).to_f
+  # ta = (( @jd - DJ00 ) / DJC).to_f
   attr_accessor :ta
+  alias_method :t, :ta
 
   # From init.rb:
   # Mean Anomaly gets called often
