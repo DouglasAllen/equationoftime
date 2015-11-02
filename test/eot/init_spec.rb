@@ -4,38 +4,39 @@ require File.expand_path('../../test_helper', __FILE__)
 
 describe 'Eot_initialize has set attributes ' do
 
-  JD_TODAY = DateTime.now.to_time.utc.to_datetime.jd.to_f
-  it "expected #{JD_TODAY} from Eot.new.ajd" do
-    assert_equal(JD_TODAY, Eot.new.ajd)
+  it "expected    nil from Eot.new.addr" do
+    assert_equal(nil,  Eot.new.addr)
   end
 
-  UK_LAT = 0.0
-  it "expected #{UK_LAT} from Eot.new.latitude" do
-    assert_equal(UK_LAT, Eot.new.latitude)
+  it "expected #{Date.today.to_s} from Eot.new.date" do
+    assert_equal(Date.today.to_s, Eot.new.date)
   end
 
-  UK_LNG = 0.0
-  it "expected #{UK_LNG} from Eot.new.longitude" do
-    assert_equal(UK_LNG, Eot.new.longitude)
+  it "expected #{Date.today.jd} from Eot.new.jd" do
+    assert_equal(Date.today.jd, Eot.new.jd)
   end
 
-  MA_SUN = Eot.new.ma_sun
-  it "expected #{MA_SUN} from @ma" do
-    eot = Eot.new
-    eot.ajd = JD_TODAY
-    assert_equal(MA_SUN, eot.ma)
+  it "expected #{Date.today.ajd} from Eot.new.ajd" do
+    assert_equal(Date.today.ajd, Eot.new.ajd)
+  end
+  
+  it "expected    0.0 from Eot.new.latitude" do
+    assert_equal(0.0, Eot.new.latitude)
+  end
+  
+  it "expected    0.0 from Eot.new.longitude" do
+    assert_equal(0.0, Eot.new.longitude)
   end
 
-  FRAC_CENT = (Eot.new.ajd - Eot::DJ00) / Eot::DJC
-  it "expected #{FRAC_CENT} from @ta" do
-    eot = Eot.new
-    eot.ajd = JD_TODAY
-    assert_equal(FRAC_CENT, eot.ta)
+  frac_cent = (Eot.new.jd - Eot::DJ00) / Eot::DJC
+  it "expected #{frac_cent} from @ta" do
+    frac_cent = (Eot.new.jd - Eot::DJ00) / Eot::DJC
+    assert_equal(frac_cent, Eot.new.ta)
+    assert_equal(frac_cent, Eot.new.t)
   end
-
-  DEFAULT_INT = nil
-  it "expected #{DEFAULT_INT} from Eot.new.addr" do
-    assert_equal(DEFAULT_INT,  Eot.new.addr)
+  
+  it "expected #{Eot.new.ma_sun} from Eot.new.ma" do    
+    assert_equal(Eot.new.ma_sun, Eot.new.ma)
   end
 
 end

@@ -17,7 +17,7 @@ class Eot
   # init sets them using ajd initial Float value
   # see: :ajd attribute
   def ma_ta_set
-    @ta = ((@ajd - DJ00) / DJC).to_f
+    @ta = ((@jd - DJ00) / DJC).to_f
     @ma = Celes.falp03(@ta)
   end
 
@@ -26,6 +26,17 @@ class Eot
   # instance of DateTime class
   # initialized to = ajd_to_datetime(@ajd)
   attr_accessor :date
+
+  # From init.rb:
+  # changes date, jd, ajd without re-initializing
+  # re-calc t and ma if used  
+  def new_date(string)
+    @date = string
+    d = Date.parse(string)
+    @jd = d.jd.to_f
+    @ajd = d.ajd.to_f
+    ma_ta_set
+  end
 
   # From init.rb:
   # Julian Day Number
@@ -60,12 +71,13 @@ class Eot
   # From init.rb:
   # Initialize to set attributes
   def initialize
-    d = DateTime.now.to_time.utc.to_datetime
-    djm0, djm = Celes::cal2jd(d.year, d.month, d.day + d.day_fraction)
-    @ajd = djm0 + djm + 0.5
+    dt = Time.now.utc
+    @date = "#{dt.year}-#{dt.month}-#{dt.day}"
+    @ajd = Date.parse(@date).ajd
+    @jd = Date.parse(@date).jd
     ma_ta_set
-    @date, @jd = ajd_to_datetime(@ajd), @ajd    
-    @latitude,  @longitude = 0.0,  0.0      
+    @latitude = 0.0  
+    @longitude = 0.0       
   end
 end
 
