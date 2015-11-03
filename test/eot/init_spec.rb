@@ -20,11 +20,11 @@ describe 'Eot_initialize has set attributes ' do
     assert_equal(Date.today.ajd, Eot.new.ajd)
   end
   
-  it "expected    0.0 from Eot.new.latitude" do
+  it "expected   0.0 from Eot.new.latitude" do
     assert_equal(0.0, Eot.new.latitude)
   end
   
-  it "expected    0.0 from Eot.new.longitude" do
+  it "expected   0.0 from Eot.new.longitude" do
     assert_equal(0.0, Eot.new.longitude)
   end
 

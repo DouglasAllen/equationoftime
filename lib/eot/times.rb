@@ -12,7 +12,7 @@ class Eot
   # only DateTime#jd() to work with so
   # add a half day to make it work.
 
-  def ajd_to_datetime(ajd)
+  def jd_to_datetime(ajd)
     DateTime.jd(ajd + 0.5)
   end
 
@@ -20,49 +20,49 @@ class Eot
   # Uses @ajd attribute
   # Returns astronomical twilight end as a DateTime
   def astronomical_twilight_end_dt
-    ajd_to_datetime(astronomical_twilight_end_jd)
+    jd_to_datetime(astronomical_twilight_end_jd)
   end
 
   # From times.rb:
   # Uses @ajd attribute
   # Returns astronomical twilight start as a DateTime
   def astronomical_twilight_start_dt
-    ajd_to_datetime(astronomical_twilight_start_jd)
+    jd_to_datetime(astronomical_twilight_start_jd)
   end
 
   # From times.rb:
   # Uses @ajd attribute
   # Returns civil twilight end as a DateTime
   def civil_twilight_end_dt
-    ajd_to_datetime(civil_twilight_end_jd)
+    jd_to_datetime(civil_twilight_end_jd)
   end
 
   # From times.rb:
   # Uses @ajd attribute
   # Returns civil twilight start as a DateTime
   def civil_twilight_start_dt
-    ajd_to_datetime(civil_twilight_start_jd)
+    jd_to_datetime(civil_twilight_start_jd)
   end
 
   # From times.rb:
   # Uses @ajd and @longitude attributes
   # Returns DateTime object of local noon or solar transit
-  def local_noon_dt
-    ajd_to_datetime(mean_local_noon_jd - eot_jd)
+  def solar_noon_dt
+    jd_to_datetime(mean_local_noon_jd - eot_jd)
   end
 
   # From times.rb:
   # Uses @ajd attribute
   # Returns nautical twilight end as a DateTime
   def nautical_twilight_end_dt
-    ajd_to_datetime(nautical_twilight_end_jd)
+    jd_to_datetime(nautical_twilight_end_jd)
   end
 
   # From times.rb:
   # Uses @ajd attribute
   # Returns nautical twilight start as a DateTime
   def nautical_twilight_start_dt
-    ajd_to_datetime(nautical_twilight_start_jd)
+    jd_to_datetime(nautical_twilight_start_jd)
   end
 
   # From times.rb:
@@ -78,14 +78,14 @@ class Eot
   # Uses @ajd attribute
   # Returns a DateTime object of local sunrise
   def sunrise_dt
-    ajd_to_datetime(sunrise_jd)
+    jd_to_datetime(sunrise_jd)
   end
 
   # From times.rb:
   # Uses @ajd attribute
   # Returns a DateTime object of local sunset
   def sunset_dt
-    ajd_to_datetime(sunset_jd)
+    jd_to_datetime(sunset_jd)
   end
 end
 
