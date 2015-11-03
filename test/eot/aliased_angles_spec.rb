@@ -64,21 +64,21 @@ describe 'tests date of "2014-08-15" ' do
                  aliased_angles.cosine_true_longitude)
   end
 
-  it 'expected   0.9175115167182523 from \
+  it 'expected   0.9175115179545029 from \
       aliased_angles.cosine_true_obliquity()' do
-    assert_equal(0.9175115167182523, \
+    assert_equal(0.9175115179545029, \
                  aliased_angles.cosine_true_obliquity)
   end
 
-  it 'expected   0.24401412812807313 from \
+  it 'expected   0.2440141263426414 from \
       aliased_angles.declination()' do
-    assert_equal(0.24401412812807313, \
+    assert_equal(0.2440141263426414, \
                  aliased_angles.declination)
   end
 
-  it 'expected   -0.04103083479322045 from \
+  it 'expected   -0.041030834159698326 from \
       aliased_angles.delta_t_ecliptic()' do
-    assert_equal(-0.04103083479322045, \
+    assert_equal(-0.041030834159698326, \
                  aliased_angles.delta_t_ecliptic)
   end
 
@@ -106,45 +106,45 @@ describe 'tests date of "2014-08-15" ' do
                  aliased_angles.geometric_mean_longitude)
   end
 
-  it 'expected   1.5857841878907755 from \
+  it 'expected   1.5857841878841126 from \
       aliased_angles.horizon_angle(1)' do
-    assert_equal(1.5857841878907755, \
+    assert_equal(1.5857841878841126, \
                  aliased_angles.horizon_angle(1))
   end
 
-  it 'expected   3.842199411602012 from \
+  it 'expected   3.8508003966038915 from \
       aliased_angles.mean_anomaly()' do
-    assert_equal(3.842199411602012, \
+    assert_equal(3.8508003966038915, \
                  aliased_angles.mean_anomaly)
   end
 
-  it 'expected   5.643081122658806 from \
+  it 'expected   2.510089864980358 from \
       aliased_angles.mean_longitude_aries()' do
-    assert_equal(5.643081122658806, \
+    assert_equal(2.510089864980358, \
                  aliased_angles.mean_longitude_aries)
   end
 
-  it 'expected   0.40905940565108695 from \
+  it 'expected   0.40905940254265843 from \
       aliased_angles.mean_obliquity()' do
-    assert_equal(0.40905940565108695, \
+    assert_equal(0.40905940254265843, \
                  aliased_angles.mean_obliquity)
   end
 
-  it 'expected   0.40905940565108695 from \
+  it 'expected   0.40905940254265843 from \
       aliased_angles.mean_obliquity_of_ecliptic()' do
-    assert_equal(0.40905940565108695, \
+    assert_equal(0.40905940254265843, \
                  aliased_angles.mean_obliquity_of_ecliptic)
   end
 
-  it 'expected   0.4090187497814907 from \
+  it 'expected   0.4090187466730622 from \
       aliased_angles.obliquity_correction()' do
-    assert_equal(0.4090187497814907, \
+    assert_equal(0.4090187466730622, \
                  aliased_angles.obliquity_correction)
   end
 
-  it 'expected   2.529741174636835 from \
+  it 'expected   2.5297411740033127 from \
       aliased_angles.right_ascension()' do
-    assert_equal(2.529741174636835, \
+    assert_equal(2.5297411740033127, \
                  aliased_angles.right_ascension)
   end
 
@@ -172,15 +172,15 @@ describe 'tests date of "2014-08-15" ' do
                  aliased_angles.true_longitude)
   end
 
-  it 'expected   5.64311570907547 from \
+  it 'expected   2.5101242776531474 from \
       aliased_angles.true_longitude_aries()' do
-    assert_equal(5.64311570907547, \
+    assert_equal(2.5101242776531474, \
                  aliased_angles.true_longitude_aries)
   end
 
-  it 'expected   0.4090187497814907 from \
+  it 'expected   0.4090187466730622 from \
       aliased_angles.true_obliquity()' do
-    assert_equal(0.4090187497814907, \
+    assert_equal(0.4090187466730622, \
                  aliased_angles.true_obliquity)
   end
 end
@@ -227,9 +227,9 @@ describe 'tests date of "2009-08-11" ' do
                  aliased_angles.ma)
   end
 
-  it 'expected   3.7785208338893628 from \
+  it 'expected   3.7871218188949207 from \
       aliased_angles.ma' do
-    assert_equal(3.7785208338893628, \
+    assert_equal(3.7871218188949207, \
                  aliased_angles.mean_anomaly)
   end
 
@@ -251,21 +251,21 @@ describe 'tests date of "2009-08-11" ' do
                  aliased_angles.cosine_true_longitude)
   end
 
-  it 'expected   0.9174817861104532 from \
+  it 'expected   0.9174817873469184 from \
       aliased_angles.cosine_true_obliquity()' do
-    assert_equal(0.9174817861104532, \
+    assert_equal(0.9174817873469184, \
                  aliased_angles.cosine_true_obliquity)
   end
 
-  it 'expected   0.26426916284845214 from \
+  it 'expected   0.2642691609083573 from \
       aliased_angles.declination()' do
-    assert_equal(0.26426916284845214, \
+    assert_equal(0.2642691609083573, \
                  aliased_angles.declination)
   end
 
-  it 'expected   -0.04234906104039293 from \
+  it 'expected   -0.04234906038320263 from \
       aliased_angles.delta_t_ecliptic()' do
-    assert_equal(-0.04234906104039293, \
+    assert_equal(-0.04234906038320263, \
                  aliased_angles.delta_t_ecliptic)
   end
 
@@ -293,39 +293,39 @@ describe 'tests date of "2009-08-11" ' do
                  aliased_angles.geometric_mean_longitude)
   end
 
-  it 'expected   1.5858632618985065 from \
+  it 'expected   1.585863261890596 from \
       aliased_angles.horizon_angle()' do
-    assert_equal(1.5858632618985065, \
+    assert_equal(1.585863261890596, \
                  aliased_angles.horizon_angle(1))
   end
 
-  it 'expected   3.7785208338893628 from \
+  it 'expected   3.7871218188949207 from \
       aliased_angles.mean_anomaly()' do
-    assert_equal(3.7785208338893628, \
+    assert_equal(3.7871218188949207, \
                  aliased_angles.mean_anomaly)
   end
 
-  it 'expected   5.577898639948448 from \
+  it 'expected   2.444907382260759 from \
       aliased_angles.mean_longitude_aries()' do
-    assert_equal(5.577898639948448, \
+    assert_equal(2.444907382260759, \
                  aliased_angles.mean_longitude_aries)
   end
 
-  it 'expected   0.40907078250658124 from \
+  it 'expected   0.4090707793981491 from \
       aliased_angles.mean_obliquity()' do
-    assert_equal(0.40907078250658124, \
+    assert_equal(0.4090707793981491, \
                  aliased_angles.mean_obliquity)
   end
 
-  it 'expected   0.4090934979738523 from \
+  it 'expected   0.4090934948654202 from \
       aliased_angles.obliquity_correction()' do
-    assert_equal(0.4090934979738523, \
+    assert_equal(0.4090934948654202, \
                  aliased_angles.obliquity_correction)
   end
 
-  it 'expected   2.4675631256128963 from \
+  it 'expected   2.467563124955706 from \
       aliased_angles.right_ascension()' do
-    assert_equal(2.4675631256128963, \
+    assert_equal(2.467563124955706, \
                  aliased_angles.right_ascension)
   end
 
@@ -353,15 +353,15 @@ describe 'tests date of "2009-08-11" ' do
                  aliased_angles.true_longitude)
   end
 
-  it 'expected   5.577968910556418 from \
+  it 'expected   2.4449774607872907 from \
       aliased_angles.true_longitude_aries()' do
-    assert_equal(5.577968910556418, \
+    assert_equal(2.4449774607872907, \
                  aliased_angles.true_longitude_aries)
   end
 
-  it 'expected   0.4090934979738523 from \
+  it 'expected   0.4090934948654202 from \
       aliased_angles.true_obliquity()' do
-    assert_equal(0.4090934979738523, \
+    assert_equal(0.4090934948654202, \
                  aliased_angles.true_obliquity)
   end
 

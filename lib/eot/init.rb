@@ -76,10 +76,10 @@ class Eot
   # Initialize to set attributes
   def initialize
     dt = Time.now.utc
-    @date = "#{dt.year}-#{dt.month}-#{dt.day}"
-    @ajd = Date.parse(@date).ajd
-    @jd = Date.parse(@date).jd
-    ma_ta_set
+    @date = Date.parse("#{dt.year}-#{dt.month}-#{dt.day}")
+    @ajd = @date.ajd
+    @jd = @date.jd
+    ma_ta_set # set the @t and @ma attributes
     @latitude = 0.0  
     @longitude = 0.0       
   end

@@ -8,16 +8,21 @@ describe 'Eot_initialize has set attributes ' do
     assert_equal(nil,  Eot.new.addr)
   end
 
-  it "expected #{Date.today.to_s} from Eot.new.date" do
-    assert_equal(Date.today.to_s, Eot.new.date)
+  it "expected #{DateTime.now.to_time.utc.to_date} from \
+      Eot.new.date" do
+    assert_equal(DateTime.now.to_time.utc.to_date, Eot.new.date)
   end
 
-  it "expected #{Date.today.jd} from Eot.new.jd" do
-    assert_equal(Date.today.jd, Eot.new.jd)
+  it "expected #{DateTime.now.to_time.utc.to_date.jd} from \
+      Eot.new.jd" do
+    assert_equal(DateTime.now.to_time.utc.to_date.jd, \
+                 Eot.new.jd)
   end
 
-  it "expected #{Date.today.ajd} from Eot.new.ajd" do
-    assert_equal(Date.today.ajd, Eot.new.ajd)
+  it "expected #{DateTime.now.to_time.utc.to_date.ajd} from \
+      Eot.new.ajd" do
+    assert_equal(DateTime.now.to_time.utc.to_date.ajd, \
+                 Eot.new.ajd)
   end
   
   it "expected   0.0 from Eot.new.latitude" do

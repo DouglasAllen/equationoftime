@@ -61,7 +61,7 @@ class Eot
   # see: #cosine_to_earth and #angle_delta_psi
 
   def eq_of_equinox
-    Celes.ee06a(@ajd, 0.0)
+    Celes.ee06a(@jd, 0.0)
   end
 
   
@@ -72,7 +72,7 @@ class Eot
   # which uses gmst06)
 
   def era
-    Celes.era00(@ajd, 0.0)
+    Celes.era00(@jd, 0.0)
   end
 
   ## 
@@ -130,7 +130,7 @@ class Eot
 
   def ma_sun
     ma_ta_set
-    @ta = (@ajd - DJ00) / DJC
+    @ta = (@jd - DJ00) / DJC
     @ma = Celes.falp03(@ta)
   end
   alias_method :mean_anomaly, :ma_sun
@@ -144,8 +144,8 @@ class Eot
   def ml_aries
     ma_ta_set
     dt = 67.184
-    tt = @ajd + dt / 86_400.0
-    Celes.gmst06(@ajd, 0, tt, 0)
+    tt = @jd + dt / 86_400.0
+    Celes.gmst06(@jd, 0, tt, 0)
   end
   alias_method :mean_longitude_aries, :ml_aries
 
@@ -155,7 +155,7 @@ class Eot
   # mean obliquity of Earth
 
   def mo_earth
-    Celes.obl06(@ajd, 0)
+    Celes.obl06(@jd, 0)
   end
   alias_method :mean_obliquity_of_ecliptic, :mo_earth
   alias_method :mean_obliquity, :mo_earth
@@ -207,8 +207,8 @@ class Eot
 
   def tl_aries
     dt = 67.184
-    tt = @ajd + dt / 86_400.0
-    Celes.gst06a(@ajd, 0, tt, 0)
+    tt = @jd + dt / 86_400.0
+    Celes.gst06a(@jd, 0, tt, 0)
   end
   alias_method :true_longitude_aries, :tl_aries
 
@@ -241,27 +241,5 @@ end
 
 if __FILE__ == $PROGRAM_NAME
 
-  spec = File.expand_path('../../', __FILE__)
-  $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-
-  require 'eot'
-
-  @s = Eot.new
-  @s.longitude = -88.74277
-  @s.latitude = 41.94788
-  p @s.sunrise_dt.to_time.localtime
-  p @s.sunrise_dt.to_time.sec
-  @s.ajd = @s.ajd + 1
-  p @s.sunrise_dt.to_time.localtime
-  p @s.sunrise_dt.to_time.sec
-  @s.ajd = @s.ajd + 1
-  p @s.sunrise_dt.to_time.localtime
-  p @s.sunrise_dt.to_time.sec
-  @s.ajd = @s.ajd + 1
-  p @s.sunrise_dt.to_time.localtime
-  p @s.sunrise_dt.to_time.sec
-  @s.ajd = @s.ajd + 1
-  p @s.sunrise_dt.to_time.localtime
-  p @s.sunrise_dt.to_time.sec
 
 end

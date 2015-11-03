@@ -28,9 +28,9 @@ describe 'Eot displays for date of "2014-08-15"' do
                  displays.jd
   end
 
-  it 'expected   3.8508003966038906, from 
+  it 'expected   3.8508003966038915, from 
       displays.' do
-    assert_equal 3.8508003966038906, \
+    assert_equal 3.8508003966038915, \
                  displays.ma
   end
 
@@ -44,9 +44,9 @@ describe 'Eot displays for date of "2014-08-15"' do
                  displays.degrees_to_s(0)
   end
 
-  it 'expected   "+142:35:33.347" from \
+  it 'expected   "+142:35:33.356" from \
       displays.string_al_sun()' do
-    assert_equal '+142:35:33.347', \
+    assert_equal '+142:35:33.356', \
                  displays.string_al_sun
   end
 
@@ -60,9 +60,9 @@ describe 'Eot displays for date of "2014-08-15"' do
                  displays.string_day_fraction_to_time(0)
   end
 
-  it 'expected   "+013:58:51.600" from 
+  it 'expected   "+013:58:51.526" from 
       displays.string_dec_sun()' do
-    assert_equal '+013:58:51.600', \
+    assert_equal '+013:58:51.526', \
                  displays.string_dec_sun
   end
 
@@ -94,21 +94,21 @@ describe 'Eot displays for date of "2014-08-15"' do
                  displays.jd_to_date_string(displays.jd)
   end
 
-  it 'expected   "+220:38:04.597" from \
+  it 'expected   "+220:38:04.598" from \
       displays.string_ma_sun()' do
-    assert_equal '+220:38:04.597', \
+    assert_equal '+220:38:04.598', \
                  displays.string_ma_sun
   end
 
-  it 'expected   "+144:56:36.589" from \
+  it 'expected   "+144:56:36.573" from \
       displays.string_ra_sun()' do
-    assert_equal '+144:56:36.589', \
+    assert_equal '+144:56:36.573', \
                  displays.string_ra_sun
   end
 
-  it 'expected   "+219:24:27.789" from \
+  it 'expected   "+219:24:27.798" from \
       displays.string_ta_sun()' do
-    assert_equal '+219:24:27.789', \
+    assert_equal '+219:24:27.798', \
                  displays.string_ta_sun
   end
 
@@ -130,15 +130,15 @@ describe 'Eot displays for date of "2014-08-15"' do
                    Date.parse(displays.date))
   end
 
-  it 'expected   "+142:35:47.309" from \
+  it 'expected   "+142:35:47.318" from \
       displays.string_tl_sun()' do
-    assert_equal '+142:35:47.309', \
+    assert_equal '+142:35:47.318', \
                  displays.string_tl_sun
   end
 
-  it 'expected   "+023:26:06.296" from \
+  it 'expected   "+023:26:06.173" from \
       displays.string_to_earth()' do
-    assert_equal '+023:26:06.296', \
+    assert_equal '+023:26:06.173', \
                  displays.string_to_earth
   end
 

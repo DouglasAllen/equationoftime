@@ -28,21 +28,21 @@ describe 'aliased_displays for date of "2014-08-15"' do
                  aliased_displays.jd
   end
 
-  it 'expected   3.8508003966038906, from \
+  it 'expected   3.8508003966038915, from \
       aliased_displays.' do
-    assert_equal 3.8508003966038906, \
+    assert_equal 3.8508003966038915, \
                  aliased_displays.ma
   end
 
-  it 'expected   "+142:35:33.347" \
+  it 'expected   "+142:35:33.356" \
       from aliased_displays.apparent_longitude_string()' do
-    assert_equal '+142:35:33.347', \
+    assert_equal '+142:35:33.356', \
                   aliased_displays.apparent_longitude_string
   end
 
-  it 'expected   "+013:58:51.600" \
+  it 'expected   "+013:58:51.526" \
       from aliased_displays.declination_string()' do
-    assert_equal '+013:58:51.600', \
+    assert_equal '+013:58:51.526', \
                   aliased_displays.declination_string
   end
 
@@ -96,33 +96,33 @@ describe 'aliased_displays for date of "2014-08-15"' do
                  aliased_displays.julian_period_day_fraction_to_time(0)
   end
 
-  it 'expected   "+220:38:04.597" from \
+  it 'expected   "+220:38:04.598" from \
       aliased_displays.mean_anomaly_string()' do
-    assert_equal '+220:38:04.597', \
+    assert_equal '+220:38:04.598', \
                   aliased_displays.mean_anomaly_string
   end
 
-  it 'expected   "+144:56:36.589" from \
+  it 'expected   "+144:56:36.573" from \
       aliased_displays.right_ascension_string()' do
-    assert_equal '+144:56:36.589', \
+    assert_equal '+144:56:36.573', \
                   aliased_displays.right_ascension_string
   end
 
-  it 'expected   "+219:24:27.789" from \
+  it 'expected   "+219:24:27.798" from \
       aliased_displays.true_anomaly_string()' do
-    assert_equal '+219:24:27.789', \
+    assert_equal '+219:24:27.798', \
                   aliased_displays.true_anomaly_string
   end
 
-  it 'expected   "+142:35:47.309" from \
+  it 'expected   "+142:35:47.318" from \
       aliased_displays.true_longitude_string()' do
-    assert_equal '+142:35:47.309', \
+    assert_equal '+142:35:47.318', \
                   aliased_displays.true_longitude_string
   end
 
-  it 'expected   "+023:26:06.296" from \
+  it 'expected   "+023:26:06.173" from \
       aliased_displays.true_obliquity_string()' do
-    assert_equal '+023:26:06.296', \
+    assert_equal '+023:26:06.173', \
                   aliased_displays.true_obliquity_string
   end
 

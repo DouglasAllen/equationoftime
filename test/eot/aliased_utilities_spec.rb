@@ -28,9 +28,9 @@ describe 'tests date of "2014-08-15"' do
                  aliased_utilities.jd
   end
 
-  it 'expected   3.8508003966038906 for \
+  it 'expected   3.8508003966038915 for \
       aliased_utilities.ma'do
-    assert_equal 3.8508003966038906, \
+    assert_equal 3.8508003966038915, \
                  aliased_utilities.ma
   end
 
