@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Equation of Time calculates time of solar transition.'
   spec.description   = 'Calculate Sunrise and Sunset. Uses native C wrappers.
                         Use the patch "gem install eot" to install it.'
-  # spec.homepage      = "http://equationoftime.herokuapp.com"
+  #spec.website       = "http://equationoftime.herokuapp.com"
   spec.homepage      = 'https://github.com/DouglasAllen/equationoftime'
   spec.license       = 'MIT'
 
@@ -35,17 +35,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'addressable', '~> 2.3.6'
   spec.add_runtime_dependency 'rest-client'
   spec.add_runtime_dependency 'celes', '~> 0.0.1'
+
   # note: the last good build was with these development dependencies below
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'rake', '~> 10.0'
-  # spec.add_development_dependency 'rake-compiler', '~> 0.9.3'
-  # spec.add_development_dependency "hoe", "~> 3.12.0"
-  # spec.add_development_dependency "guard", "~> 2.6.1"
-  # spec.add_development_dependency "guard-minitest", "~> 2.3.2"
-  # spec.add_development_dependency "minitest", "~> 5.4.1"
-  # spec.add_development_dependency "ZenTest", "~> 4.10.1"
-  # spec.add_development_dependency "rspec", "~> 3.1.0"
-  # spec.add_development_dependency "yard", "~> 0.8.7.4"
-  # spec.add_development_dependency "rdoc", "~> 4.1.2"
-
 end
