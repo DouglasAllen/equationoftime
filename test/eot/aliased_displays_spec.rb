@@ -40,9 +40,9 @@ describe 'aliased_displays for date of "2014-08-15"' do
                   aliased_displays.apparent_longitude_string
   end
 
-  it 'expected   "+013:58:51.526" \
+  it 'expected   "+013:58:51.522" \
       from aliased_displays.declination_string()' do
-    assert_equal '+013:58:51.526', \
+    assert_equal '+013:58:51.522', \
                   aliased_displays.declination_string
   end
 
@@ -102,9 +102,9 @@ describe 'aliased_displays for date of "2014-08-15"' do
                   aliased_displays.mean_anomaly_string
   end
 
-  it 'expected   "+144:56:36.573" from \
+  it 'expected   "+144:56:36.571" from \
       aliased_displays.right_ascension_string()' do
-    assert_equal '+144:56:36.573', \
+    assert_equal '+144:56:36.571', \
                   aliased_displays.right_ascension_string
   end
 
@@ -120,9 +120,9 @@ describe 'aliased_displays for date of "2014-08-15"' do
                   aliased_displays.true_longitude_string
   end
 
-  it 'expected   "+023:26:06.173" from \
+  it 'expected   "+023:26:06.164" from \
       aliased_displays.true_obliquity_string()' do
-    assert_equal '+023:26:06.173', \
+    assert_equal '+023:26:06.164', \
                   aliased_displays.true_obliquity_string
   end
 

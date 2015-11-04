@@ -16,11 +16,11 @@ class Eot
   # method to reset ma and ta after initialization
   # init sets them using ajd initial Float value
   # see: :ajd attribute
-  def ma_ta_set
-    @ta = ((@jd - DJ00) / DJC).to_f
-    @ma = Celes.falp03(@ta)
+  def set_t_ma
+    @t = ((@jd - DJ00) / DJC).to_f
+    @ma = Celes.falp03(@t)
   end
-  alias_method :set_t_ma, :ma_ta_set
+  alias_method :ma_ta_set, :set_t_ma 
 
   # From init.rb:
   # Date
@@ -36,7 +36,7 @@ class Eot
     d = Date.parse(string)
     @jd = d.jd.to_f
     @ajd = d.ajd.to_f
-    ma_ta_set
+    set_t_ma
   end
 
   # From init.rb:
@@ -62,9 +62,9 @@ class Eot
   # From init.rb:
   # Julian Century gets called often
   # instance of Float class
-  # ta = (( @jd - DJ00 ) / DJC).to_f
-  attr_accessor :ta
-  alias_method :t, :ta
+  # t = (( @jd - DJ00 ) / DJC).to_f
+  attr_accessor :t
+  alias_method :ta, :t
 
   # From init.rb:
   # Mean Anomaly gets called often
@@ -79,7 +79,7 @@ class Eot
     @date = Date.parse("#{dt.year}-#{dt.month}-#{dt.day}")
     @ajd = @date.ajd
     @jd = @date.jd
-    ma_ta_set # set the @t and @ma attributes
+    set_t_ma # set the @t and @ma attributes
     @latitude = 0.0  
     @longitude = 0.0       
   end
@@ -87,22 +87,5 @@ end
 
 # we can run some tests from inside this file.
 if __FILE__ == $PROGRAM_NAME
-  lib = File.expand_path('../../../lib', __FILE__)
-  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-  require 'eot'
-  eot = Eot.new
-  p eot.ajd
-  p eot.date
-  p eot.jd
-  p eot.ma
-  p eot.ta
-  p eot.addr
-  p eot.latitude
-  p eot.longitude
-  list = eot.public_methods(false).sort
-  list.each { |i| puts i.to_sym }
-  spec = File.expand_path('../../../test/eot', __FILE__)
-  $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-  require 'init_spec'
-  # bundle exec rake
+
 end

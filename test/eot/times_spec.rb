@@ -52,9 +52,9 @@ describe 'tests date of "2014-08-15" ' do
                  times.astronomical_twilight_start_dt.to_s)
   end
 
-  it 'expected   2_456_884.7015324305 from \
+  it 'expected   2_456_884.701532429 from \
       times.astronomical_twilight_start_jd' do
-    assert_equal(2_456_884.7015324305, \
+    assert_equal(2_456_884.701532429, \
                  times.astronomical_twilight_start_jd)
   end
 
@@ -64,9 +64,9 @@ describe 'tests date of "2014-08-15" ' do
                  times.nautical_twilight_start_dt.to_s)
   end
 
-  it 'expected   2_456_884.7187468987 from \
+  it 'expected   2_456_884.7187468973 from \
       times.nautical_twilight_start_jd' do
-    assert_equal(2_456_884.7187468987, \
+    assert_equal(2_456_884.7187468973, \
                  times.nautical_twilight_start_jd)
   end
 
@@ -76,9 +76,9 @@ describe 'tests date of "2014-08-15" ' do
                  times.civil_twilight_start_dt.to_s)
   end
 
-  it 'expected   2_456_884.735936282 from \
+  it 'expected   2_456_884.735936281 from \
       times.civil_twilight_start_jd()' do
-    assert_equal(2_456_884.735936282, \
+    assert_equal(2_456_884.735936281, \
                  times.civil_twilight_start_jd)
   end
 
@@ -88,15 +88,15 @@ describe 'tests date of "2014-08-15" ' do
                  times.sunrise_dt.to_s
   end
 
-  it 'expected   2_456_884.750728318 from \
+  it 'expected   2_456_884.7507283166 from \
                  times.sunrise_jd()' do
-    assert_equal(2_456_884.750728318, \
+    assert_equal(2_456_884.7507283166, \
                  times.sunrise_jd)
   end
 
-  it 'expected   -9.377898672541324 from \
+  it 'expected   -9.37789671342477 from \
                  times.time_delta_oblique()' do
-    assert_equal(-9.377898672541324, \
+    assert_equal(-9.37789671342477, \
                  times.time_delta_oblique)
   end
 
@@ -106,15 +106,15 @@ describe 'tests date of "2014-08-15" ' do
                  times.time_delta_orbit)
   end
 
-  it 'expected   -4.483743088256027 from \
+  it 'expected   -4.483741129139473 from \
                  times.time_eot()' do
-    assert_equal(-4.483743088256027, \
+    assert_equal(-4.483741129139473, \
                  times.time_eot)
   end
 
-  it 'expected   -0.0031137104779555744 from \
+  it 'expected   -0.003113709117457967 from \
                  times.eot_jd()' do
-    assert_equal(-0.0031137104779555744, \
+    assert_equal(-0.003113709117457967, \
                  times.eot_jd)
   end
 
@@ -124,9 +124,9 @@ describe 'tests date of "2014-08-15" ' do
                  times.solar_noon_dt.to_s
   end
 
-  it 'expected   2456885.0031137103 \
+  it 'expected   2456885.003113709 \
       from times.solar_noon_jd' do
-    assert_equal 2456885.0031137103, \
+    assert_equal 2456885.003113709, \
                  times.solar_noon_jd
   end
 
@@ -136,9 +136,9 @@ describe 'tests date of "2014-08-15" ' do
                  times.sunset_dt.to_s
   end
 
-  it 'expected   2_456_885.2554991026 from \
+  it 'expected   2_456_885.2554991012 from \
                  times.sunset_jd()' do
-    assert_equal(2_456_885.2554991026, \
+    assert_equal(2_456_885.2554991012, \
                  times.sunset_jd)
   end
 
@@ -148,9 +148,9 @@ describe 'tests date of "2014-08-15" ' do
                  times.civil_twilight_end_dt.to_s)
   end
 
-  it 'expected   2_456_885.2702911384 from \
+  it 'expected   2_456_885.270291137 from \
                  times.civil_twilight_end_jd()' do
-    assert_equal(2_456_885.2702911384, \
+    assert_equal(2_456_885.270291137, \
                  times.civil_twilight_end_jd)
   end
 
@@ -160,9 +160,9 @@ describe 'tests date of "2014-08-15" ' do
                  times.nautical_twilight_end_dt.to_s)
   end
 
-  it 'expected   2_456_885.287480522 from \
+  it 'expected   2_456_885.2874805206 from \
       times.nautical_twilight_end_jd' do
-    assert_equal(2_456_885.287480522, \
+    assert_equal(2_456_885.2874805206, \
                  times.nautical_twilight_end_jd)
   end
 
@@ -172,9 +172,9 @@ describe 'tests date of "2014-08-15" ' do
                  times.astronomical_twilight_end_dt.to_s)
   end
 
-  it 'expected   2_456_885.30469499 from \
+  it 'expected   2_456_885.3046949888 from \
       times.astronomical_twilight_end_jd' do
-    assert_equal(2_456_885.30469499, \
+    assert_equal(2_456_885.3046949888, \
                  times.astronomical_twilight_end_jd)
   end
 
@@ -222,15 +222,15 @@ describe 'tests date of "2009-08-11" ' do
                  times.jd_to_datetime(times.jd).to_s
   end
 
-  it 'expected   -5.160972794578869 is from \
+  it 'expected   -5.160970187096279 is from \
                  times.time_eot()' do
-    assert_equal(-5.160972794578869, \
+    assert_equal(-5.160970187096279, \
                  times.time_eot)
   end
 
-  it 'expected   -0.0035840088851242144 from \
+  it 'expected   -0.003584007074372416 from \
                  times.eot_jd()' do
-    assert_equal(-0.0035840088851242144, \
+    assert_equal(-0.003584007074372416, \
                  times.eot_jd)
   end
 
@@ -240,9 +240,9 @@ describe 'tests date of "2009-08-11" ' do
                   times.sunrise_dt.to_s
   end
 
-  it 'expected   2_455_054.7511860314 from \
+  it 'expected   2_455_054.75118603 from \
                  times.sunrise_jd()' do
-    assert_equal(2_455_054.7511860314, \
+    assert_equal(2_455_054.75118603, \
                  times.sunrise_jd)
   end
 
@@ -252,9 +252,9 @@ describe 'tests date of "2009-08-11" ' do
                  times.sunset_dt.to_s
   end
 
-  it 'expected   2_455_055.255981986 from \
+  it 'expected   2_455_055.2559819845 from \
                  times.sunset_jd()' do
-    assert_equal(2_455_055.255981986, \
+    assert_equal(2_455_055.2559819845, \
                  times.sunset_jd)
   end
 

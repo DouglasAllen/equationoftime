@@ -11,7 +11,7 @@ class Eot
 
   def al_sun
     ma_ta_set
-    Celes.anp(al(@ma, @ta, omega))
+    Celes.anp(al(@ma, @t, omega))
   end
   alias_method :apparent_longitude, :al_sun
   alias_method :alsun, :al_sun
@@ -24,7 +24,7 @@ class Eot
 
   def center
     ma_ta_set
-    eqc(@ma, @ta)
+    eqc(@ma, @t)
   end
   alias_method :equation_of_center, :center
 
@@ -47,7 +47,7 @@ class Eot
 
   def eccentricity_earth
     ma_ta_set
-    eoe(@ta)
+    eoe(@t)
   end
   alias_method :eccentricity_earth_orbit, :eccentricity_earth
 
@@ -61,6 +61,7 @@ class Eot
   # see: #cosine_to_earth and #angle_delta_psi
 
   def eq_of_equinox
+    ma_ta_set
     Celes.ee06a(@jd, 0.0)
   end
 
@@ -72,6 +73,7 @@ class Eot
   # which uses gmst06)
 
   def era
+    ma_ta_set
     Celes.era00(@jd, 0.0)
   end
 
@@ -83,7 +85,7 @@ class Eot
 
   def gml_sun
     ma_ta_set
-    ml(@ta)
+    ml(@t)
   end
   alias_method :geometric_mean_longitude, :gml_sun
   alias_method :ml_sun, :gml_sun
@@ -130,8 +132,7 @@ class Eot
 
   def ma_sun
     ma_ta_set
-    @ta = (@jd - DJ00) / DJC
-    @ma = Celes.falp03(@ta)
+    @ma = Celes.falp03(@t)
   end
   alias_method :mean_anomaly, :ma_sun
 
@@ -143,7 +144,7 @@ class Eot
 
   def ml_aries
     ma_ta_set
-    dt = 67.184
+    dt = 68.184
     tt = @jd + dt / 86_400.0
     Celes.gmst06(@jd, 0, tt, 0)
   end
@@ -155,6 +156,7 @@ class Eot
   # mean obliquity of Earth
 
   def mo_earth
+    ma_ta_set
     Celes.obl06(@jd, 0)
   end
   alias_method :mean_obliquity_of_ecliptic, :mo_earth
@@ -170,7 +172,7 @@ class Eot
 
   def omega
     ma_ta_set
-    Celes.faom03(@ta)
+    Celes.faom03(@t)
   end
 
   ##
@@ -195,7 +197,7 @@ class Eot
 
   def ta_sun
     ma_ta_set
-    Celes.anp(@ma + eqc(@ma, @ta))
+    Celes.anp(@ma + eqc(@ma, @t))
   end
   alias_method :true_anomaly, :ta_sun
 
@@ -206,7 +208,8 @@ class Eot
   # considers nutation
 
   def tl_aries
-    dt = 67.184
+    ma_ta_set
+    dt = 68.184
     tt = @jd + dt / 86_400.0
     Celes.gst06a(@jd, 0, tt, 0)
   end
@@ -220,7 +223,7 @@ class Eot
 
   def tl_sun
     ma_ta_set
-    tl(@ma, @ta)
+    tl(@ma, @t)
   end
   alias_method :true_longitude, :tl_sun
   alias_method :ecliptic_longitude, :tl_sun

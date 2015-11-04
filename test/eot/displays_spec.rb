@@ -60,9 +60,9 @@ describe 'Eot displays for date of "2014-08-15"' do
                  displays.string_day_fraction_to_time(0)
   end
 
-  it 'expected   "+013:58:51.526" from 
+  it 'expected   "+013:58:51.522" from 
       displays.string_dec_sun()' do
-    assert_equal '+013:58:51.526', \
+    assert_equal '+013:58:51.522', \
                  displays.string_dec_sun
   end
 
@@ -100,9 +100,9 @@ describe 'Eot displays for date of "2014-08-15"' do
                  displays.string_ma_sun
   end
 
-  it 'expected   "+144:56:36.573" from \
+  it 'expected   "+144:56:36.571" from \
       displays.string_ra_sun()' do
-    assert_equal '+144:56:36.573', \
+    assert_equal '+144:56:36.571', \
                  displays.string_ra_sun
   end
 
@@ -136,9 +136,9 @@ describe 'Eot displays for date of "2014-08-15"' do
                  displays.string_tl_sun
   end
 
-  it 'expected   "+023:26:06.173" from \
+  it 'expected   "+023:26:06.164" from \
       displays.string_to_earth()' do
-    assert_equal '+023:26:06.173', \
+    assert_equal '+023:26:06.164', \
                  displays.string_to_earth
   end
 
