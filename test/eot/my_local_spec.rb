@@ -17,15 +17,15 @@ describe "tests date of #{DateTime.now.to_time.utc.to_date}" do
                  times.date
   end
 
-  it 'expected "#{Date.today.jd.to_f}" for \
+  it 'expected   2457330.0 for \
       times.jd'do
-    assert_equal(Date.today.jd.to_f, \
+    assert_equal(2457330.0, \
                  times.jd)
   end
 
-  it 'expected "#{Date.today.ajd.to_f}" for \
+  it 'expected   2457329.5 for \
       times.ajd'do
-    assert_equal(Date.today.ajd.to_f, \
+    assert_equal(2457329.5, \
                  times.ajd)
   end
 
