@@ -31,27 +31,21 @@ end
 @pl = [@pr2, @pr1, @pr0, @pl0].reduce {|acc, v| acc * @t + v}
 #@ma = ((@l0 - @pl) % 360) * @pi / 180
 @ec = [@er2, @er1, @er0, @ec0].reduce {|acc, v| acc * @t + v}
-#@ec = @ec * @pi / 180
 
-p @e0 = @ma + @ec * Math.sin(@ma) * (1.0 + @ec * Math.cos(@ma))
-@eps = 0.0
-def e1(eps, ma, ec, e)
+def ea(ma, ec)
   c = 0
-  e0 = e
+  e0 = ma + ec * Math.sin(ma) * (1.0 + ec * Math.cos(ma))
   while c < 8 do
-    #e1 = e0 + ((ma + ec * Math.sin(e0) - e0) / (1 - ec * Math.cos(e0)))
     e1 = ma + @ec * Math.sin(e0)
-    p c += 1
-    p e0 = e1              
+    c += 1
+    e0 = e1              
   end
   e0
 end
 
-
-p @e1 = e1(@eps, @ma, @ec, @e0)
-
+p @e1 = ea(@ma, @ec)
 
 v_over_2 = Math.atan(Math.sqrt((1 + @ec) / (1 - @ec)) * Math.tan(@e1 / 2))
 p @v = ((2 * v_over_2) % @pi2) * 180/@pi * 3600
 p @tv * 180/@pi * 3600
-#end
+

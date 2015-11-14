@@ -7,9 +7,9 @@ require 'hoe'
 require 'rake/extensiontask'
 require 'rake/testtask'
 # require "rake/win32"
-require 'rdoc/task'
-require 'rspec/core/rake_task'
-require 'yard'
+#require 'rdoc/task'
+#require 'rspec/core/rake_task'
+#require 'yard'
 # begin
 #   require 'rubygems/gempackagetask'
 # rescue LoadError
@@ -89,21 +89,21 @@ end
 #   t.rspec_opts = []
 # end
 
-YARD::Rake::YardocTask.new(:yardoc) do |t|
-  t.files = ['lib/eot/*.rb']
-  #  puts t.methods
-end
+#YARD::Rake::YardocTask.new(:yardoc) do |t|
+#  t.files = ['lib/eot/*.rb']
+#  puts t.methods
+#end
 
-desc 'generate API documentation to rdocs/index.html'
-Rake::RDocTask.new(:docs) do |rd|
+#desc 'generate API documentation to rdocs/index.html'
+#Rake::RDocTask.new(:docs) do |rd|
 
-  rd.rdoc_dir = 'rdocs'
+#  rd.rdoc_dir = 'rdocs'
 
-  rd.rdoc_files.include 'lib/eot/*.rb', 'README.rdoc', 'wiki.md'
+#  rd.rdoc_files.include 'lib/eot/*.rb', 'README.rdoc', 'wiki.md'
 
-  rd.options << '--line-numbers'
+#  rd.options << '--line-numbers'
 
-end
+#end
 
 # require 'rake/extensiontask'
 # spec = Gem::Specification.load('equationoftime.gemspec')

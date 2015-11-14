@@ -11,14 +11,15 @@ ruby '2.2.2'
 gemspec
 
 group :development, :test do
-  gem 'rubocop'
   gem 'hoe'
   gem 'rake-compiler', '~> 0.9.3'
-  gem 'guard'
   gem 'minitest'
-  gem 'guard-minitest'
-  gem 'ZenTest'
-  gem 'rspec'
-  gem 'yard'
-  gem 'rdoc'
+
+  #gem 'rubocop'
+  #gem 'guard'
+  #gem 'guard-minitest'
+  #gem 'ZenTest'
+  #gem 'rspec'
+  #gem 'yard'
+  #gem 'rdoc'
 end
