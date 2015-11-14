@@ -17,4 +17,9 @@ class Eot
     Celes.faom03(@t)
   end
 
+  def lunar_mean_anomaly
+    set_t_ma
+    Celes.fal03(@t)
+  end
+
 end

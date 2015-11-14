@@ -2,23 +2,32 @@
 
 require 'date'
 
-num = DateTime.now.ajd - 2451545.0
-@t = num / 36525.0
+@d = DateTime.now.to_time.utc.to_date.ajd - 2451545.0
+ 
+@t = @d / 36525.0
 
-# the terms in reverse order form for the array
-@l0_a = [1.0/-19880000.0,
-         1.0/-152990.0,
-         1.0/499310.0,
-         0.0003032028,
-         36000.76982779,
-         280.4664567]
+# the terms in reverse order form for the arrays fot @d and @t
 
-# make an enumerator
-@l0_e = @l0_a.each
+@l0_ad = [1.0/-38710000,
+          0.00387933,
+          36_000.770053608,
+          100.46061837]
+
+@l0_at = [1.0 / -2403846.153846154,
+          1.0 / -152998.776009792,
+          1.0 /  499251.123315027,
+          0.000303203,
+          36000.769827652,
+          280.4664567]
+
+# make enumerators
+@l0_ed = @l0_ad.each
+@l0_et = @l0_at.each
 
 # make a lambda to pass the enumerator to.
 def my_lambda
- ->(x) {x.reduce {|acc, el| acc * @t + el} % 360}
+ ->(x, t) {x.reduce {|acc, el| acc * t + el} % 360}
 end
 
-puts  my_lambda.call(@l0_e)
+puts  (my_lambda.(@l0_ed, @t) % 360) / 15
+puts  ((my_lambda.(@l0_et, @t) + 180) % 360) / 15
