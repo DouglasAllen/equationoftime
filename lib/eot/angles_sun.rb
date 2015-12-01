@@ -40,6 +40,16 @@ class Eot
   end
   alias_method :dec_sun, :declination
 
+  ##
+  # From angles_sun.rb:
+
+  # angle mean geocentric longitude sun
+  # mean heliocentric longitude earth + 180 degrees
+
+  def mean_geocentric_longitude
+    earth_mean_heliocentric_longitude + Math::PI
+  end
+
   ## 
   # From angles_sun.rb:
 

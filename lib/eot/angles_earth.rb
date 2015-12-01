@@ -51,6 +51,16 @@ class Eot
   ##
   # From angles_earth.rb:
 
+  # mean heliocentric longitude of Earth
+
+  def earth_mean_heliocentric_longitude
+    pvh = Celes.epv00(@jd, 0.0)[0]
+    Celes.pv2s(pvh)[0]
+  end
+
+  ##
+  # From angles_earth.rb:
+
   # mean obliquity of Earth
 
   def mean_obliquity

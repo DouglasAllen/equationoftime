@@ -2,7 +2,7 @@
 # but is not being used to find mean anomaly. This is however good for other planets.
 
 require 'date'
-require 'eot'
+#require 'eot'
 
 @pi = Math::PI
 @pi2 = @pi * 2
@@ -11,19 +11,30 @@ require 'eot'
 
 @ax = 1.000_001_018
 
+# for Earth
 @ec0 = 0.016_708_630
 # rates
 @er0 = -0.000_042_037
 @er1 = -0.000_000_126_700
 @er2 = 0.000_000_000_140
 
+# for Earth
 @ml0 = 100.466_457
+
+# for Sun
+@ml0 = 100.466_457 + 180
+
 # rates
 @mr0 = 36_000.769_827_800
 @mr1 = 0.000_303_220
 @mr2 = 0.000_000_020
 
+# for Earth
 @pl0 = 102.937_348
+
+# for Sun
+@pl0 = 102.937_348 + 180
+
 # rates
 @pr0 = 1.719_536_600
 @pr1 = 0.000_456_880
@@ -74,8 +85,8 @@ end
 @ma = @l0 - @pl
 @ec = [@er2, @er1, @er0, @ec0].reduce {|acc, v| acc * @t + v}
 
-@ma = Eot.new.mean_anomaly
-@ec = Eot.new.eccentricity 
+#@ma = Eot.new.mean_anomaly
+#@ec = Eot.new.eccentricity 
 @ea = ea(@ma, @ec)
 puts "eccentric anomaly now: #{@ea * @toD}"
 
@@ -89,8 +100,8 @@ v_over_2 = Math.atan(Math.sqrt((1 + @ec) / (1 - @ec)) * Math.tan(@ea / 2))
 @v = (2 * v_over_2) % @pi2
 puts "true anomaly now from eq2: #{@v * @toD}"
 
-@tv = Eot.new.true_anomaly
-puts "true anomaly now from Eot: #{@tv * @toD}"
+#@tv = Eot.new.true_anomaly
+puts "true anomaly now from here: #{@v * @toD}"
 
 ## Calc the eccentric anomaly for true anomaly of 90 degrees.
 v = 90.0 * @toR

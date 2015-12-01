@@ -6,7 +6,7 @@ require 'date'
  
 @t = @d / 36525.0
 
-# the terms in reverse order form for the arrays fot @d and @t
+# the terms in reverse order form for the arrays for @d and @t
 
 @l0_ad = [1.0/-38710000,
           0.00387933,
