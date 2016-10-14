@@ -26,8 +26,8 @@ describe 'Eot displays using ajd of 2456885.0' do
     assert_equal '2014-08-15T12:00:00+00:00', displays.date.to_s
   end
 
-  it 'expected   3.8508003966038915, from displays.' do
-    assert_equal 3.8508003966038915, displays.ma
+  it 'expected   3.8508003966, from displays.' do
+    assert_equal 3.8508003966, displays.ma.round(10)
   end
 
   it 'expected   "+000:00:00.000" from displays.degrees_to_s() ' do

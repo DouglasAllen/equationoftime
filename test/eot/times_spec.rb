@@ -192,8 +192,10 @@ describe 'tests ajd of 2455055.0 ' do
     assert_equal(2_455_055.2559819845, times.sunset_jd)
   end
 
-  it 'expected   -5.160970187096279 is from times.time_eot() ' do
-    assert_equal(-5.160970187096279, times.time_eot)
+  it 'expected from times.time_eot.round(10) \
+                 -5.1609701871 ' do
+    assert_equal(-5.1609701871, 
+    times.time_eot.round(10))
   end
 
 end
