@@ -32,12 +32,12 @@ Gem::Specification.new do |spec|
      '--title' <<  'Equation of Time -- Solar Position Calculator in Ruby' <<
      '--line-numbers'
   spec.platform      = Gem::Platform::RUBY
-  spec.add_runtime_dependency 'addressable', '~> 2.3.6'
+  spec.add_runtime_dependency 'addressable'
   spec.add_runtime_dependency 'rest-client'
-  spec.add_runtime_dependency 'celes', '~> 0.0.1'
+  spec.add_runtime_dependency 'celes'
   # note: the last good build was with these development dependencies below
   spec.add_development_dependency 'bundler', '~> 1.7'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rake'
   # spec.add_development_dependency 'rake-compiler', '~> 0.9.3'
   # spec.add_development_dependency "hoe", "~> 3.12.0"
   # spec.add_development_dependency "guard", "~> 2.6.1"

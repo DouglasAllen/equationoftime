@@ -18,24 +18,24 @@ require 'yard'
 # require 'rbconfig'
 # include RbConfig
 
-# Hoe.plugins.delete :newb
-# Hoe.plugins.delete :test
-Hoe.plugins.delete :signing
-Hoe.plugins.delete :publish
-# Hoe.plugins.delete  :clean
-# Hoe.plugins.delete :package
-Hoe.plugins.delete :compiler
-Hoe.plugins.delete :debug
-Hoe.plugins.delete :rcov
-Hoe.plugins.delete :gemcutter
-Hoe.plugins.delete :racc
-# Hoe.plugins.delete :inline
-Hoe.plugins.delete :gem_prelude_sucks
-Hoe.plugins.delete :flog
-Hoe.plugins.delete :flay
+#Hoe.plugins.delete :newb
+#Hoe.plugins.delete :test
+#Hoe.plugins.delete :signing
+#Hoe.plugins.delete :publish
+#Hoe.plugins.delete  :clean
+#Hoe.plugins.delete :package
+#Hoe.plugins.delete :compiler
+#Hoe.plugins.delete :debug
+#Hoe.plugins.delete :rcov
+#Hoe.plugins.delete :gemcutter
+#Hoe.plugins.delete :racc
+#Hoe.plugins.delete :inline
+#Hoe.plugins.delete :gem_prelude_sucks
+#Hoe.plugins.delete :flog
+#Hoe.plugins.delete :flay
 # Hoe.plugins.delete :deps
 # Hoe.plugins.delete :minitest
-Hoe.plugins.delete :rdoc
+#Hoe.plugins.delete :rdoc
 # Hoe.plugins.delete :travis
 
 # Hoe.plugin :newb

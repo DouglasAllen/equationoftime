@@ -70,6 +70,12 @@ gem install equationoftime doesn't always. Hoe hoe hoe!
 
   $ bundle exec rake install
 
+  
+=== Build with DEVKIT
+ 
+   cd to devkit dir and run devkitvars.bat
+   cd to gem-equationoftime dir
+
 == DEVELOPERS:
 
 After checking out the source, run:
