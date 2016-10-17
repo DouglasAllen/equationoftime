@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/DouglasAllen/gem-equationoftime.svg?branch=master)](https://travis-ci.org/DouglasAllen/gem-equationoftime)
+{<img src="https://travis-ci.org/DouglasAllen/gem-equationoftime.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/DouglasAllen/gem-equationoftime]
 
 = equationoftime
 
