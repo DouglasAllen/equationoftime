@@ -16,5 +16,7 @@ Use comma or space seperated terms.
 ex: "huston, tx"
 #{geo.addr = 'huston, tx'}
 #{geo.set_coordinates}
+#{geo.lat}
+#{geo.lng}
 HD
 puts heredoc
