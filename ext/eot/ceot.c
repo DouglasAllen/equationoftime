@@ -61,7 +61,7 @@ double ra_sun(double y0, double cos_al_sun)
 
 double eot(double ma, double t, double o, double y0)
 {
-  return -eqc(ma, t) + al_sun(ma, t, o) - ra_sun(y0, al_sun(ma, t, o));
+  return -eqc(ma, t) + al_sun(ma, t, o) - ra_sun(y0, cos_al_sun(al_sun(ma, t, o)));
 }
 
 double cosZ(double zenith)
