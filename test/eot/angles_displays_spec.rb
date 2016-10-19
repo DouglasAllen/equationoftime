@@ -26,34 +26,68 @@ describe 'Eot angles_displays using ajd of 2456885.0' do
 
   it 'expected from angles_displays.string_al_sun \
                   +142:35:33.356 ' do
-    assert_equal '+142:35:33.356', angles_displays.string_al_sun
+    assert_equal '+142:35:33.356',
+                 angles_displays.string_al_sun
   end
 
   it 'expected from angles_displays.string_dec_sun \
                   +013:58:51.522 ' do
-    assert_equal '+013:58:51.522', angles_displays.string_dec_sun
+    assert_equal '+013:58:51.522',
+                 angles_displays.string_dec_sun
   end
 
-  it 'expected   "+220:38:04.598" from angles_displays.string_ma_sun() ' do
-    assert_equal '+220:38:04.598', angles_displays.string_ma_sun
+  it 'expected from angles_displays.string_delta_oblique \
+                  -00:02.461 ' do
+    assert_equal '-00:02.461',
+                 angles_displays.string_delta_oblique
   end
 
-  it 'expected   "+144:56:36.571" from angles_displays.string_ra_sun() ' do
-    assert_equal '+144:56:36.571', angles_displays.string_ra_sun
+  it 'expected from angles_displays.string_delta_orbit \
+                  +00:01.284 ' do
+    assert_equal '+00:01.284',
+                 angles_displays.string_delta_orbit
   end
 
-  it 'expected   "+219:24:27.798" from angles_displays.string_ta_sun() ' do
-    assert_equal '+219:24:27.798', angles_displays.string_ta_sun
+  it 'expected from angles_displays.string_eqc \
+                  -001:13:36.800 ' do
+    assert_equal '-001:13:36.800',
+                 angles_displays.string_eqc
+  end
+
+  it 'expected from angles_displays.string_eot \
+                  -04m, 29.2s ' do
+    assert_equal '-04m, 29.2s',
+                 angles_displays.string_eot
+  end
+
+  it 'expected from angles_displays.string_ma_sun \
+                  +220:38:04.598 ' do
+    assert_equal '+220:38:04.598',
+                 angles_displays.string_ma_sun
+  end
+
+  it 'expected from angles_displays.string_ra_sun \
+                  +144:56:36.571 ' do
+    assert_equal '+144:56:36.571',
+                 angles_displays.string_ra_sun
+  end
+
+  it 'expected from angles_displays.string_ta_sun \
+                  +219:24:27.798 ' do
+    assert_equal '+219:24:27.798',
+                 angles_displays.string_ta_sun
   end
 
   it 'expected from angles_displays.string_tl_sun \
                   +142:35:47.318 ' do
-    assert_equal '+142:35:47.318', angles_displays.string_tl_sun
+    assert_equal '+142:35:47.318',
+                 angles_displays.string_tl_sun
   end
 
   it 'expected from angles_displays.string_to_earth \
                   +023:26:06.164 ' do
-    assert_equal '+023:26:06.164', angles_displays.string_to_earth
+    assert_equal '+023:26:06.164',
+                 angles_displays.string_to_earth
   end
 end
 
@@ -74,71 +108,75 @@ describe 'Eot angles_displays using ajd of 2_455_055.5' do
   end
 
   it 'expected from angles_displays.string_al_sun \
-                  +142:35:33.356 ' do
-    assert_equal '+142:35:33.356', angles_displays.string_al_sun
+                  +139:26:03.631 ' do
+    assert_equal '+139:26:03.631',
+                 angles_displays.string_al_sun
   end
 
- it 'expected from angles_displays.string_dec_sun \
-                  +013:58:51.522 ' do
-    assert_equal '+013:58:51.522', angles_displays.string_dec_sun
+  it 'expected from angles_displays.string_dec_sun \
+                  +014:59:30.817 ' do
+    assert_equal '+014:59:30.817',
+                 angles_displays.string_dec_sun
   end
 
-  it 'expected   "-04m, 29.2s" from angles_displays.string_eot() ' do
-    assert_equal '-04m, 29.2s', angles_displays.string_eot
+  it 'expected from angles_displays.string_delta_oblique \
+                  -00:02.532 ' do
+    assert_equal '-00:02.532',
+                 angles_displays.string_delta_oblique
   end
 
-  it 'expected   "2000-01-01" from angles_displays.string_jd_to_date() ' do
-    assert_equal '2000-01-01', angles_displays.string_jd_to_date
-    assert_equal '2000-01-01', angles_displays.string_jd_to_date(nil)
-    assert_equal '2000-01-01', angles_displays.string_jd_to_date(0)
+  it 'expected from angles_displays.string_delta_orbit \
+                  +00:01.199 ' do
+    assert_equal '+00:01.199',
+                 angles_displays.string_delta_orbit
   end
 
-  it 'expected  "2014-08-15" from \
-      angles_displays.jd_to_date_string(angles_displays.ajd)? ' do
-    assert_equal '2014-08-15', angles_displays.jd_to_date_string(angles_displays.ajd)
+  it 'expected from angles_displays.string_eqc \
+                  -001:08:44.376 ' do
+    assert_equal '-001:08:44.376',
+                 angles_displays.string_eqc
   end
 
-  it 'expected   "+220:38:04.598" from angles_displays.string_ma_sun() ' do
-    assert_equal '+220:38:04.598', angles_displays.string_ma_sun
+  it 'expected from angles_displays.string_eot \
+                  -05m, 04.70s ' do
+    assert_equal '-05m, 04.70s',
+                 angles_displays.string_eot
   end
 
-  it 'expected   "+144:56:36.571" from angles_displays.string_ra_sun() ' do
-    assert_equal '+144:56:36.571', angles_displays.string_ra_sun
+  it 'expected from angles_displays.string_ma_sun \
+                  +217:28:44.029 ' do
+    assert_equal '+217:28:44.029',
+                 angles_displays.string_ma_sun
   end
 
-  it 'expected   "+219:24:27.798" from angles_displays.string_ta_sun() ' do
-    assert_equal '+219:24:27.798', angles_displays.string_ta_sun
+  it 'expected from angles_displays.string_mo_earth \
+                  +023:26:16.904 ' do
+    assert_equal '+023:26:16.904',
+                 angles_displays.string_mo_earth
   end
 
-  it 'expected   "12:00:00.000" from angles_displays.string_time() ' do
-    assert_equal '12:00:00.000', angles_displays.string_time
-    assert_equal '12:00:00.000', angles_displays.string_time(nil)
-    assert_equal '12:00:00.000', angles_displays.string_time(0)
+  it 'expected from angles_displays.string_ra_sun \
+                  +141:51:11.058 ' do
+    assert_equal '+141:51:11.058',
+                 angles_displays.string_ra_sun
   end
 
-  it 'expected   "12:00:00.000" from \
-      angles_displays.display_time_string(Eot_aangles_displays.date)? ' do
-    assert_equal '12:00:00.000', \
-                 angles_displays.display_time_string(angles_displays.date)
+  it 'expected from angles_displays.string_ta_sun \
+                  +216:19:59.653 ' do
+    assert_equal '+216:19:59.653',
+                 angles_displays.string_ta_sun
   end
 
-  it 'expected   "+142:35:47.318" from \
-      angles_displays.string_tl_sun() ' do
-    assert_equal '+142:35:47.318', angles_displays.string_tl_sun
+  it 'expected from angles_displays.string_tl_sun \
+                  +139:26:09.086 ' do
+    assert_equal '+139:26:09.086',
+                 angles_displays.string_tl_sun
   end
 
-  it 'expected   "+023:26:06.164" from angles_displays.string_to_earth() ' do
-    assert_equal '+023:26:06.164', angles_displays.string_to_earth
-  end
-end
-
-describe 'Eot angles_displays explicit values' do
-  it 'expected   "16:40:40.800" from angles_displays.string_time(16.6780) ' do
-    assert_equal '16:40:40.800', angles_displays.string_time(16.6780)
+  it 'expected from angles_displays.string_to_earth \
+                  +023:26:21.564 ' do
+    assert_equal '+023:26:21.564',
+                 angles_displays.string_to_earth
   end
 
-  it 'expected   "17:59:16.800" from angles_displays.string_time(17988) ' do
-    angles_displays.date = Date.today.to_s
-    assert_equal '17:59:16.800', angles_displays.string_time(17.988)
-  end
 end
