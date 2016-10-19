@@ -120,3 +120,12 @@ class Eot
   end
   alias_method :display_time_string, :string_time
 end
+
+if __FILE__ == $PROGRAM_NAME
+
+  spec = File.expand_path('../../../test/eot', __FILE__)
+  $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
+  require 'time_displays_spec'
+  require 'aliase_time_displays_spec'
+
+end
