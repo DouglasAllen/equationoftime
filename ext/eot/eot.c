@@ -17,6 +17,11 @@ VALUE func_al(VALUE klass, VALUE vma, VALUE vt, VALUE vo) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
   return DBL2NUM(al_sun(NUM2DBL(vma), NUM2DBL(vt), NUM2DBL(vo)));
 }
+
+VALUE func_et(VALUE klass, VALUE vma, VALUE vt, VALUE vo, VALUE vy0) {
+  rb_ivar_set(klass, id_status, INT2FIX(0));
+  return DBL2NUM(eot(NUM2DBL(vma), NUM2DBL(vt), NUM2DBL(vo), NUM2DBL(vy0)));
+}
 /*
 Cosine of the Zenith type C extension.
 p1 = zenith angle sent by choice method
@@ -161,6 +166,7 @@ Init_eot(void) {
   rb_define_method(cEot, "cos_to_earth", func_cos_to_earth, 1);
   rb_define_method(cEot, "eoe", func_eoe, 1);
   rb_define_method(cEot, "eqc", func_eqc, 2);
+  rb_define_method(cEot, "et", func_et, 4);
   rb_define_method(cEot, "ml", func_ml, 1); 
   rb_define_method(cEot, "sin_al_sun", func_sin_al_sun, 1);
   rb_define_method(cEot, "sin_dec_sun", func_sin_dec_sun, 1);
