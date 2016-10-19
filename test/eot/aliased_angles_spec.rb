@@ -43,40 +43,10 @@ describe 'tests ajd of 2456885.0 ' do
                  aliased_angles.apparent_longitude.round(10))
   end
 
-  it 'expected from aliased_angles.cosine_apparent_longitude.round(10) \
-                 -0.794336157 ' do
-    assert_equal(-0.794336157,
-                 aliased_angles.cosine_apparent_longitude.round(10))
-  end
-
-  it 'expected from aliased_angles.cosine_true_longitude.round(10) \
-                 -0.794377276 ' do
-    assert_equal(-0.794377276,
-                 aliased_angles.cosine_true_longitude.round(10))
-  end
-
-  it 'expected from aliased_angles.cosine_true_obliquity.round(10) \
-                 0.9175115347 ' do
-    assert_equal(0.9175115347,
-                 aliased_angles.cosine_true_obliquity.round(10))
-  end
-
   it 'expected from aliased_angles.declination.round(10) \
                  0.2440141022 ' do
     assert_equal(0.2440141022,
                  aliased_angles.declination.round(10))
-  end
-
-  it 'expected from aliased_angles.delta_t_ecliptic.round(10) \
-                 -0.0410308256' do
-    assert_equal(-0.0410308256,
-                 aliased_angles.delta_t_ecliptic.round(10))
-  end
-
-  it 'expected from aliased_angles.delta_t_elliptic.round(10) \
-                 0.0214132497 ' do
-    assert_equal(0.0214132497,
-                 aliased_angles.delta_t_elliptic.round(10))
   end
 
   it 'expected from aliased_angles.eccentricity_earth_orbit.round(10) \
@@ -241,18 +211,6 @@ describe 'tests ajd of 2455055.5 ' do
                  aliased_angles.declination.round(10))
   end
 
-  it 'expected from aliased_angles.delta_t_ecliptic.round(10) \
-                 -0.042349049 ' do
-    assert_equal(-0.042349049,
-                 aliased_angles.delta_t_ecliptic.round(10))
-  end
-
-  it 'expected from aliased_angles.delta_t_elliptic.round(10) \
-                 0.0197684135 ' do
-    assert_equal(0.0197684135,
-                 aliased_angles.delta_t_elliptic.round(10))
-  end
-
   it 'expected from aliased_angles.eccentricity_earth_orbit.round(10) \
                  0.0167045762 ' do
     assert_equal(0.0167045762,
@@ -271,7 +229,7 @@ describe 'tests ajd of 2455055.5 ' do
                  aliased_angles.geometric_mean_longitude.round(10))
   end
 
-  it 'expected from aliased_angles.horizon_angle.round(10) \
+  it 'expected from aliased_angles.horizon_angle(1).round(10) \
                  1.5858632618 ' do
     assert_equal(1.5858632618,
                  aliased_angles.horizon_angle(1).round(10))

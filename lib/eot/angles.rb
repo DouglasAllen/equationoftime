@@ -104,7 +104,7 @@ class Eot
   # From angles.rb:
 
   # horizon angle for provided geo coordinates
-  # used for angles from transit to horizons.
+  # used for angles from transit to horizons east, west.
 
   def ha_sun(c)
     zenith = choice(c)

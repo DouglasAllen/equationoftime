@@ -7,35 +7,43 @@ class Eot
   def angle_delta_epsilon
     Celes.nut06a(@ajd, 0)[1]
   end
-  alias_method :delta_epsilon, :angle_delta_epsilon
+  alias delta_epsilon angle_delta_epsilon
 
   # From deltas.rb:
   # one time component to total equation of time
   def angle_delta_oblique
     al_sun - right_ascension_sun
   end
-  alias_method :delta_t_ecliptic, :angle_delta_oblique
-  alias_method :delta_oblique, :angle_delta_oblique
+  alias delta_t_ecliptic angle_delta_oblique
+  alias delta_oblique angle_delta_oblique
 
-  # From angles.rb:
+  # From deltas.rb:
   # one time component to total equation of time
   def angle_delta_orbit
     -1.0 * eqc(@ma, @ta)
   end
-  alias_method :delta_t_elliptic, :angle_delta_orbit
-  alias_method :delta_orbit, :angle_delta_orbit
+  alias delta_t_elliptic angle_delta_orbit
+  alias delta_orbit angle_delta_orbit
 
-  # From angles.rb:
+  # From deltas.rb:
   # component of equation of equinox
   def angle_delta_psi
     Celes.nut06a(@ajd, 0)[0]
   end
-  alias_method :delta_psi, :angle_delta_psi
+  alias delta_psi angle_delta_psi
 
-  # From angles.rb:
+  # From deltas.rb:
   # total equation of time
   def angle_equation_of_time
     delta_orbit + delta_oblique
   end
-  alias_method :eot, :angle_equation_of_time
+  alias eot angle_equation_of_time
+end
+
+if __FILE__ == $PROGRAM_NAME
+
+  spec = File.expand_path('../../../test/eot', __FILE__)
+  $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
+  require 'deltas_spec'
+  require 'aliased_deltas_spec'
 end

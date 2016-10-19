@@ -46,52 +46,10 @@ describe 'Tests ajd of 2456885.0 ' do
                  angles.center.round(10))
   end
 
-  it 'expected from angles.cosine_al_sun.round(10) \
-                 -0.794336157 ' do
-    assert_equal(-0.794336157,
-                 angles.cosine_al_sun.round(10))
-  end
-
-  it 'expected from \ angles.cosine_tl_sun.round(10) \
-                 -0.794377276 ' do
-    assert_equal(-0.794377276,
-                 angles.cosine_tl_sun.round(10))
-  end
-
-  it 'expected from angles.cosine_to_earth.round(10) \
-                 0.9175115347 ' do
-    assert_equal(0.9175115347,
-                 angles.cosine_to_earth.round(10))
-  end
-
   it 'expected from angles.dec_sun.round(10) \
                  0.2440141022 ' do
     assert_equal(0.2440141022,
                  angles.dec_sun.round(10))
-  end
-
-  it 'expected from angles.delta_epsilon.round(10) \
-                 -4.06979e-05 ' do
-    assert_equal(-4.06979e-05,
-                 angles.delta_epsilon.round(10))
-  end
-
-  it 'expected from angles.delta_oblique.round(10) \
-                 -0.0410308256 ' do
-    assert_equal(-0.0410308256,
-                 angles.delta_oblique.round(10))
-  end
-
-  it 'expected from angles.delta_orbit.round(10) \
-                 0.0214132497 ' do
-    assert_equal(0.0214132497,
-                 angles.delta_orbit.round(10))
-  end
-
-  it 'expected from angles.delta_psi.round(10) \
-                 3.75124e-05 ' do
-    assert_equal(3.75124e-05,
-                 angles.delta_psi.round(10))
   end
 
   it 'expected from angles.eccentricity_earth.round(10) \
@@ -152,18 +110,6 @@ describe 'Tests ajd of 2456885.0 ' do
                  2.5297411654 ' do
     assert_equal(2.5297411654,
                  angles.right_ascension_sun.round(10))
-  end
-
-  it 'expected from angles.sine_al_sun.round(10) \
-                 0.607478452 ' do
-    assert_equal(0.607478452,
-                 angles.sine_al_sun.round(10))
-  end
-
-  it 'expected from angles.sine_tl_sun.round(10) \
-                 0.6074246813 ' do
-    assert_equal(0.6074246813,
-                 angles.sine_tl_sun.round(10))
   end
 
   it 'expected from angles.ta_sun.round(10) \
@@ -231,52 +177,10 @@ describe 'Tests ajd of 2455055.5 ' do
                  angles.center.round(10))
   end
 
-  it 'expected from angles.cosine_al_sun.round(10) \
-                 -0.754188697 ' do
-    assert_equal(-0.754188697,
-                 angles.cosine_al_sun.round(10))
-  end
-
-  it 'expected from angles.cosine_tl_sun.round(10) \
-                 -0.754206077 ' do
-    assert_equal(-0.754206077,
-                 angles.cosine_tl_sun.round(10))
-  end
-
-  it 'expected from angles.cosine_to_earth.round(10) \
-                 0.9174818088 ' do
-    assert_equal(0.9174818088,
-                 angles.cosine_to_earth.round(10))
-  end
-
   it 'expected from angles.dec_sun.round(10) \
                  0.2642691272 ' do
     assert_equal(0.2642691272,
                  angles.dec_sun.round(10))
-  end
-
-  it 'expected from angles.delta_epsilon.round(10) \
-                 2.26615e-05 ' do
-    assert_equal(2.26615e-05,
-                 angles.delta_epsilon.round(10))
-  end
-
-  it 'expected from angles.delta_oblique() \
-                 -0.042349049? ' do
-    assert_equal(-0.042349049,
-                 angles.delta_oblique.round(10))
-  end
-
-  it 'expected from angles.delta_orbit.round(10) \
-                 0.0197684135' do
-    assert_equal(0.0197684135,
-                 angles.delta_orbit.round(10))
-  end
-
-  it 'expected from angles.delta_psi.round(10) \
-                 7.63934e-05' do
-    assert_equal(7.63934e-05,
-                 angles.delta_psi.round(10))
   end
 
   it 'expected from angles.eccentricity_earth.round(10) \
@@ -337,18 +241,6 @@ describe 'Tests ajd of 2455055.5 ' do
                  2.4675631135 ' do
     assert_equal(2.4675631135,
                  angles.right_ascension_sun.round(10))
-  end
-
-  it 'expected from angles.sine_al_sun.round(10) \
-                 0.6566577566 ' do
-    assert_equal(0.6566577566,
-                 angles.sine_al_sun.round(10))
-  end
-
-  it 'expected from angles.sine_tl_sun.round(10) \
-                 0.6566377947 ' do
-    assert_equal(0.6566377947,
-                 angles.sine_tl_sun.round(10))
   end
 
   it 'expected from angles.ta_sun.round(10) \
