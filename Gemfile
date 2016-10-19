@@ -15,4 +15,5 @@ group :development, :test do
   gem 'rspec'
   gem 'yard'
   gem 'rdoc'
+  gem 'ffi'
 end
