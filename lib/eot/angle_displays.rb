@@ -62,7 +62,7 @@ class Eot
 
   # String format of right ascension
   def string_ra_sun
-    degrees_to_s(ra_sun)
+    degrees_to_s(right_ascension_sun)
   end
   alias_method :right_ascension_string, :string_ra_sun
 

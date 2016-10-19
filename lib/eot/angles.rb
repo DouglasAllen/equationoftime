@@ -3,7 +3,6 @@
 # methods for non delta angle calculations.
 
 class Eot
-
   ##
   # From angles.rb:
 
@@ -12,8 +11,8 @@ class Eot
   def al_sun
     Celes.anp(al(@ma, @ta, omega))
   end
-  alias_method :apparent_longitude, :al_sun
-  alias_method :alsun, :al_sun
+  alias apparent_longitude al_sun
+  alias alsun al_sun
 
   ##
   # From angles.rb:
@@ -24,17 +23,17 @@ class Eot
   def center
     eqc(@ma, @ta)
   end
-  alias_method :equation_of_center, :center
+  alias equation_of_center center
 
   ##
   # From angles.rb:
 
-  # solar declination 
+  # solar declination
 
   def dec_sun
     sun_dec(al_sun, to_earth)
   end
-  alias_method :declination, :dec_sun
+  alias declination dec_sun
 
   ##
   # From angles.rb:
@@ -45,13 +44,13 @@ class Eot
   def eccentricity_earth
     eoe(@ta)
   end
-  alias_method :eccentricity_earth_orbit, :eccentricity_earth
+  alias eccentricity_earth_orbit eccentricity_earth
 
   ##
   # From angles.rb:
 
   # equation of equinox is
-  # used for true longitude of Aries but 
+  # used for true longitude of Aries but
   # Depricated by Celes.gst06a()
   # compinents are still used
   # see: #cosine_to_earth and #angle_delta_psi
@@ -60,7 +59,6 @@ class Eot
     Celes.ee06a(@ajd, 0.0)
   end
 
-  
   ##
   # From angles.rb:
 
@@ -71,7 +69,7 @@ class Eot
     Celes.era00(@ajd, 0.0)
   end
 
-  ## 
+  ##
   # From angles.rb:
 
   # angle geometric mean longitude
@@ -80,8 +78,8 @@ class Eot
   def gml_sun
     ml(@ta)
   end
-  alias_method :geometric_mean_longitude, :gml_sun
-  alias_method :ml_sun, :gml_sun
+  alias geometric_mean_longitude gml_sun
+  alias ml_sun gml_sun
 
   ##
   # From angles.rb:
@@ -112,7 +110,7 @@ class Eot
     zenith = choice(c)
     sun(zenith, dec_sun, @latitude)
   end
-  alias_method :horizon_angle, :ha_sun
+  alias horizon_angle ha_sun
 
   ##
   # From angles.rb:
@@ -127,7 +125,7 @@ class Eot
     @ta = (@ajd - DJ00) / DJC
     @ma = Celes.falp03(@ta)
   end
-  alias_method :mean_anomaly, :ma_sun
+  alias mean_anomaly ma_sun
 
   ##
   # From angles.rb:
@@ -140,7 +138,7 @@ class Eot
     tt = @ajd + dt / 86_400.0
     Celes.gmst06(@ajd, 0, tt, 0)
   end
-  alias_method :mean_longitude_aries, :ml_aries
+  alias mean_longitude_aries ml_aries
 
   ##
   # From angles.rb:
@@ -150,8 +148,8 @@ class Eot
   def mo_earth
     Celes.obl06(@ajd, 0)
   end
-  alias_method :mean_obliquity_of_ecliptic, :mo_earth
-  alias_method :mean_obliquity, :mo_earth
+  alias mean_obliquity_of_ecliptic mo_earth
+  alias mean_obliquity mo_earth
 
   ##
   # From angles.rb:
@@ -170,13 +168,14 @@ class Eot
 
   # solar right ascension
 
-  def ra_sun
+  def right_ascension_sun
     y0 = sine_al_sun * cosine_to_earth
-    ra = sun_ra(y0, cosine_al_sun) 
+    ra = sun_ra(y0, cosine_al_sun)
     # Celes.anp(PI + atan2(-y0, -cosine_al_sun))
     Celes.anp(PI + ra)
   end
-  alias_method :right_ascension, :ra_sun
+  alias right_ascension right_ascension_sun
+  alias ra_sun right_ascension_sun
 
   ##
   # From angles.rb:
@@ -187,7 +186,7 @@ class Eot
   def ta_sun
     Celes.anp(@ma + eqc(@ma, @ta))
   end
-  alias_method :true_anomaly, :ta_sun
+  alias true_anomaly ta_sun
 
   ##
   # From angles.rb:
@@ -200,7 +199,7 @@ class Eot
     tt = @ajd + dt / 86_400.0
     Celes.gst06a(@ajd, 0, tt, 0)
   end
-  alias_method :true_longitude_aries, :tl_aries
+  alias true_longitude_aries tl_aries
 
   ##
   # From angles.rb:
@@ -211,10 +210,10 @@ class Eot
   def tl_sun
     tl(@ma, @ta)
   end
-  alias_method :true_longitude, :tl_sun
-  alias_method :ecliptic_longitude, :tl_sun
-  alias_method :lambda, :tl_sun
- 
+  alias true_longitude tl_sun
+  alias ecliptic_longitude tl_sun
+  alias lambda tl_sun
+
   ##
   # From angles.rb:
 
@@ -223,9 +222,9 @@ class Eot
   def to_earth
     mo_earth + angle_delta_epsilon
   end
-  alias_method :obliquity_correction, :to_earth
-  alias_method :true_obliquity, :to_earth
-  alias_method :toearth, :to_earth
+  alias obliquity_correction to_earth
+  alias true_obliquity to_earth
+  alias toearth to_earth
 end
 
 if __FILE__ == $PROGRAM_NAME

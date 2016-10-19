@@ -15,7 +15,7 @@ p3 = angle of Omega
 */
 VALUE func_al(VALUE klass, VALUE vma, VALUE vt, VALUE vo) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(alSun(NUM2DBL(vma), NUM2DBL(vt), NUM2DBL(vo)));
+  return DBL2NUM(al_sun(NUM2DBL(vma), NUM2DBL(vt), NUM2DBL(vo)));
 }
 /*
 Cosine of the Zenith type C extension.
@@ -45,7 +45,7 @@ C extension
 */
 VALUE func_ml(VALUE klass, VALUE vt) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(mlSun(NUM2DBL(vt)));
+  return DBL2NUM(ml_sun(NUM2DBL(vt)));
 }
 /*
 C extension
@@ -66,7 +66,7 @@ C extension
 */
 VALUE func_tl(VALUE klass, VALUE vma, VALUE vt) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(tlSun(NUM2DBL(vma), NUM2DBL(vt)));
+  return DBL2NUM(tl_sun(NUM2DBL(vma), NUM2DBL(vt)));
 }
 /*
 C extension
@@ -143,7 +143,7 @@ C extension
 */
 VALUE func_sun_ra(VALUE klass, VALUE vy0, VALUE vcas) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(raSun(NUM2DBL(vy0), NUM2DBL(vcas)));
+  return DBL2NUM(ra_sun(NUM2DBL(vy0), NUM2DBL(vcas)));
 }
 
 VALUE cEot;

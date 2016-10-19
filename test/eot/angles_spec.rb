@@ -148,10 +148,10 @@ describe 'Tests ajd of 2456885.0 ' do
                  angles.omega.round(10))
   end
 
-  it 'expected from angles.ra_sun.round(10) \
+  it 'expected from angles.right_ascension_sun.round(10) \
                  2.5297411654 ' do
     assert_equal(2.5297411654,
-                 angles.ra_sun.round(10))
+                 angles.right_ascension_sun.round(10))
   end
 
   it 'expected from angles.sine_al_sun.round(10) \
@@ -333,10 +333,10 @@ describe 'Tests ajd of 2455055.5 ' do
                  angles.omega.round(10))
   end
 
-  it 'expected from angles.ra_sun.round(10) \
+  it 'expected from angles.right_ascension_sun.round(10) \
                  2.4675631135 ' do
     assert_equal(2.4675631135,
-                 angles.ra_sun.round(10))
+                 angles.right_ascension_sun.round(10))
   end
 
   it 'expected from angles.sine_al_sun.round(10) \

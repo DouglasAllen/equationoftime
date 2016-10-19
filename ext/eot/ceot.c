@@ -1,28 +1,21 @@
 #include "ceot.h"
+#include <math.h>
 
 /* Mean geocentric longitude of the Sun */
-double mlSun(double t)
+double ml_sun(double t)
 {
-  double a;
-  
-  a = fmod(      280.4664567    +
+  return fmod(   280.4664567    +
   t * (        36000.76982779   +
   t * (            0.0003032028 +
   t * (   1.0/499310.0          +
   t * (  1.0/-152990.0          +
   t * (1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 0.017453292519943295769236907684886;
-
-  return a;
 }
 
 /* Eccentricity of Earth orbit */
 double eoe(double t)
 {
-  double e;
-
-  e = (0.016708617 + t * (-0.000042037 + t *  -0.0000001235));
-
-  return e; 
+  return (0.016708617 + t * (-0.000042037 + t *  -0.0000001235));
 }
 
 double eqc(double ma, double t)
@@ -48,162 +41,96 @@ double eqc(double ma, double t)
   return e * (a1 + e * (a2 + e * (a3 + e * (a4 + e * a5))));
 }
 
-double tlSun(double ma, double t)
-{
-  double a;
-
-  a = fmod( mlSun(t) + eqc(ma, t), 57.295779513082320876798154814105);
-
-  return a;
+double tl_sun(double ma, double t)
+{ 
+  return fmod( ml_sun(t) + eqc(ma, t), 57.295779513082320876798154814105);
 }
 
-double alSun(double ma, double t, double o)
+double al_sun(double ma, double t, double o)
 {
-  double a;
-
-  a = fmod(tlSun(ma, t) - 
+  return fmod(tl_sun(ma, t) - 
            0.00569 * 0.017453292519943295769236907684886 - 
            0.00478 * 0.017453292519943295769236907684886 * 
            sin(o), 57.295779513082320876798154814105);
-
-  return a;
 }
 
-double raSun(double y0, double cos_al_Sun)
+double ra_sun(double y0, double cos_al_sun)
 {
-  return atan2(-y0, -cos_al_Sun);
+  return atan2(-y0, -cos_al_sun);
+}
+
+double eot(double ma, double t, double o, double y0)
+{
+  return -eqc(ma, t) + al_sun(ma, t, o) - ra_sun(y0, al_sun(ma, t, o));
 }
 
 double cosZ(double zenith)
 {
-
-  double ca;
-
-  ca = cos(zenith * 0.017453292519943295769236907684886);
-
-  return ca;
+  return cos(zenith * 0.017453292519943295769236907684886);
 }
 
 double cos_al_sun(double al_sun) 
 {
-
-  double ca;
-
-  ca = cos(al_sun);
-
-  return ca;
+  return cos(al_sun);
 }
 
 double cos_dec_sun(double dec_sun) 
 {
-
-  double ca;
-
-  ca = cos(dec_sun);
-
-  return ca;
+  return cos(dec_sun);
 } 
 
 double cos_lat(double lat) 
 {
-
-  double ca;
-
-  ca = cos(lat * 0.017453292519943295769236907684886);
-
-  return ca;
+  return cos(lat * 0.017453292519943295769236907684886);
 }                                   
 
 double cos_tl_sun(double tl_sun) 
 {
-
-  double ca;
-
-  ca = cos(tl_sun);
-
-  return ca;
+  return cos(tl_sun);
 }                                               
 
 double cos_to_earth(double to_earth) 
 {
-
-  double ca;
-
-  ca = cos(to_earth);
-
-  return ca;
+  return cos(to_earth);
 } 
 
 double sin_al_sun(double al_sun) 
-{
-
-  double sa;
-
-  sa = sin(al_sun);
-
-  return sa;
+{ 
+  return sin(al_sun);
 }
 
 double sin_dec_sun(double dec_sun) 
 {
-
-  double sa;
-
-  sa = sin(dec_sun);
-
-  return sa;
+  return sin(dec_sun);
 }  
 
 double sin_lat(double lat) 
 {
-
-  double sa;
-
-  sa = sin(lat * 0.017453292519943295769236907684886);
-
-  return sa;
+  return sin(lat * 0.017453292519943295769236907684886);
 }                                   
 
 double sin_tl_sun(double tl_sun) 
 {
-
-  double sa;
-
-  sa = sin(tl_sun);
-
-  return sa;
+  return sin(tl_sun);
 }                                               
 
 double sin_to_earth(double to_earth) 
 {
-
-  double sa;
-
-  sa = sin(to_earth);
-
-  return sa;
+  return sin(to_earth);
 } 
 
 double sun(double zenith, double dec_sun, double lat)
 {
-  double cos1 = cosZ(zenith);
-  double sin2 = sin_dec_sun(dec_sun);
-  double sin3 = sin_lat(lat);
-  double cos2 = cos_dec_sun(dec_sun);
-  double cos3 = cos_lat(lat);
-  double top  = cos1 - sin2 * sin3;
-  double bot  = cos2 * cos3;
+  double top  = cosZ(zenith) - sin_dec_sun(dec_sun) * sin_lat(lat);
+  double bot  = cos_dec_sun(dec_sun) * cos_lat(lat);
   double ca   = top / bot;
-  double c;
-  c = (ca > 1.0 || ca < -1.0) ? 1.0: ca;    
+  double c = (ca > 1.0 || ca < -1.0) ? 1.0: ca;    
   return acos(c);
 }
 
 double sun_dec(double al_sun, double to_earth) 
 {
-  double sin1 = sin_to_earth(to_earth);
-  double sin2 = sin_al_sun(al_sun);
-  double a   = asin(sin1 * sin2);
-  return a;
+  return  asin(sin_to_earth(to_earth) * sin_al_sun(al_sun));
 }
+
 //                                                       

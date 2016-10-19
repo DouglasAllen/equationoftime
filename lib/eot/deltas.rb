@@ -12,7 +12,7 @@ class Eot
   # From deltas.rb:
   # one time component to total equation of time
   def angle_delta_oblique
-    al_sun - ra_sun
+    al_sun - right_ascension_sun
   end
   alias_method :delta_t_ecliptic, :angle_delta_oblique
   alias_method :delta_oblique, :angle_delta_oblique
