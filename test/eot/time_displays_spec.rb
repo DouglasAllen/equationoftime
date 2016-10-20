@@ -1,4 +1,4 @@
-# time_time_displays_spec.rb
+# time_displays_spec.rb
 
 gem 'minitest'
 require 'minitest/autorun'
@@ -50,21 +50,14 @@ describe 'Eot time_displays using ajd of 2456885.0' do
   end
 
   it 'expected from time_displays.string_time \
-                  12:00:00.000 ' do
-    assert_equal '12:00:00.000',
+                  00:00:00.000 ' do
+    assert_equal '00:00:00.000',
                  time_displays.string_time
-    assert_equal '12:00:00.000',
+    assert_equal '00:00:00.000',
                  time_displays.string_time(nil)
-    assert_equal '12:00:00.000',
+    assert_equal '00:00:00.000',
                  time_displays.string_time(0)
   end
-
-  it 'expected from time_displays.display_time_string(time_displays.date) \
-                  12:00:00.000 ' do
-    assert_equal '12:00:00.000',
-                 time_displays.display_time_string(time_displays.date)
-  end
-
 end
 
 describe 'Eot time_displays using ajd of 2_455_055.5' do
@@ -138,12 +131,6 @@ describe 'Eot time_displays using ajd of 2_455_055.5' do
                  time_displays.jd_to_date_string(time_displays.ajd)
   end
 
-  it 'expected from time_displays.display_time_string(time_displays.date) \
-                  00:00:00.000 ' do
-    assert_equal '00:00:00.000',
-                 time_displays.display_time_string(time_displays.date)
-  end
-
   it 'expected from time_displays.format_time(14, 53, 51, 0) \
                   14:53:51.000 ' do
     assert_equal '14:53:51.000',
@@ -163,12 +150,22 @@ describe 'Eot time_displays using ajd of 2_455_055.5' do
   end
 
   it 'expected from time_displays.string_time \
-                  12:00:00.000 ' do
-    assert_equal '12:00:00.000',
+                  00:00:00.000 ' do
+    assert_equal '00:00:00.000',
                  time_displays.string_time
-    assert_equal '12:00:00.000',
+    assert_equal '00:00:00.000',
                  time_displays.string_time(nil)
-    assert_equal '12:00:00.000',
+    assert_equal '00:00:00.000',
+                 time_displays.string_time(0)
+  end
+
+  it 'expected from time_displays.string_time(time_displays.date.to_datetime) \
+                 00:00:00.000 ' do
+    assert_equal '00:00:00.000',
+                 time_displays.string_time(time_displays.date.to_datetime)
+    assert_equal '00:00:00.000',
+                 time_displays.string_time(nil)
+    assert_equal '00:00:00.000',
                  time_displays.string_time(0)
   end
 end

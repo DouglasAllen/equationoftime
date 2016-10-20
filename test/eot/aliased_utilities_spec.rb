@@ -17,18 +17,6 @@ describe 'tests ajd of 2456885.0' do
     aliased_utilities.date = aliased_utilities.ajd_to_datetime(ajd)
   end
 
-  it 'expected from aliased_utilities.ajd \
-                 2_456_885.0 'do
-    assert_equal 2_456_885.0,
-                 aliased_utilities.ajd
-  end
-
-  it 'expected from aliased_utilities.ma.round(10) \
-                 3.8508003966 ' do
-    assert_equal 3.8508003966,
-                 aliased_utilities.ma.round(10)
-  end
-
   it 'expected from aliased_utilities.truncate \
                  0.0 ' do
     assert_equal 0.0,
