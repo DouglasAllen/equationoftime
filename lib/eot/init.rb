@@ -17,8 +17,9 @@ class Eot
   # init sets them using ajd initial Float value
   # see: :ajd attribute
   def ma_ta_set
-    @ta = ((@ajd - DJ00) / DJC).to_f
-    @ma = Celes.falp03(@ta)
+    @t = ((@ajd - DJ00) / DJC).to_f
+    #@ma = Celes.falp03(@ta)
+    @ma = ma_sun
   end
 
   # From init.rb:
@@ -49,7 +50,7 @@ class Eot
   # Julian Century gets called often
   # instance of Float class
   # ta = (( @ajd - DJ00 ) / DJC).to_f
-  attr_accessor :ta
+  attr_accessor :t
 
   # From init.rb:
   # Mean Anomaly gets called often

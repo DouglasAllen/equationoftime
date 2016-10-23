@@ -115,12 +115,6 @@ describe 'tests ajd of 2456885.0 ' do
                  aliased_angles.sine_apparent_longitude.round(10))
   end
 
-  it 'expected from aliased_angles.sine_true_longitude.round(10) \
-                 0.6074246813 ' do
-    assert_equal(0.6074246813,
-                 aliased_angles.sine_true_longitude.round(10))
-  end
-
   it 'expected from aliased_angles.true_anomaly.round(10) \
                  3.8293871469 ' do
     assert_equal(3.8293871469,
@@ -193,12 +187,6 @@ describe 'tests ajd of 2455055.5 ' do
                  aliased_angles.cosine_apparent_longitude.round(10))
   end
 
-  it 'expected from aliased_angles.cosine_true_longitude.round(10) \
-                 -0.754206077 ' do
-    assert_equal(-0.754206077,
-                 aliased_angles.cosine_true_longitude.round(10))
-  end
-
   it 'expected from aliased_angles.cosine_true_obliquity.round(10) \
                  0.9174818088 ' do
     assert_equal(0.9174818088,
@@ -269,12 +257,6 @@ describe 'tests ajd of 2455055.5 ' do
                  0.6566577566 ' do
     assert_equal(0.6566577566,
                  aliased_angles.sine_apparent_longitude.round(10))
-  end
-
-  it 'expected from aliased_angles.sine_true_longitude.round(10) \
-                 0.6566377947 ' do
-    assert_equal(0.6566377947,
-                 aliased_angles.sine_true_longitude.round(10))
   end
 
   it 'expected from aliased_angles.true_anomaly.round(10) \

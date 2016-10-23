@@ -20,7 +20,7 @@ class Eot
   # From deltas.rb:
   # one time component to total equation of time
   def angle_delta_orbit
-    -1.0 * eqc(@ma, @ta)
+    -1.0 * eqc(@t)
   end
   alias delta_t_elliptic angle_delta_orbit
   alias delta_orbit angle_delta_orbit

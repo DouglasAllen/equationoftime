@@ -9,12 +9,14 @@ require 'eot'
 aliased_displays = Eot.new
 
 describe 'aliased_displays using ajd of 2456885.0' do
+
   before(:each) do
-    aliased_displays.ajd = 2_456_885.0
+    aliased_displays.ajd  = 2_456_885.0
     ajd = aliased_displays.ajd
     aliased_displays.ma_ta_set
     # check date for this ajd when needed.
     aliased_displays.date = aliased_displays.ajd_to_datetime(ajd)
+
   end
 
   it 'expected from aliased_displays.ajd \
@@ -55,12 +57,12 @@ describe 'aliased_displays using ajd of 2456885.0' do
   end
 
   it 'expected from aliased_displays.display_time_string \
-                  00:00:00.000 ' do
-    assert_equal '00:00:00.000',
+                  12:00:00.000 ' do
+    assert_equal '12:00:00.000',
                  aliased_displays.display_time_string
-    assert_equal '00:00:00.000',
+    assert_equal '12:00:00.000',
                  aliased_displays.display_time_string(nil)
-    assert_equal '00:00:00.000',
+    assert_equal '12:00:00.000',
                  aliased_displays.display_time_string(0)
   end
 
@@ -82,7 +84,7 @@ describe 'aliased_displays using ajd of 2456885.0' do
 
   it 'expected from aliased_displays.jd_to_date_string(aliased_displays.ajd) \
                   2014-08-15 ' do
-    assert_equal '2014-08-15',
+    assert_equal '2014-08-15', 
                  aliased_displays.jd_to_date_string(aliased_displays.ajd)
   end
 
@@ -125,110 +127,11 @@ describe 'aliased_displays using ajd of 2456885.0' do
     assert_equal '+023:26:06.164',
                  aliased_displays.true_obliquity_string
   end
-end
 
-describe 'Eot aliased_displays using ajd of 2_455_055.5' do
-  before(:each) do
-    aliased_displays.ajd = 2_455_055.5
-    ajd = aliased_displays.ajd
-    aliased_displays.ma_ta_set
-    # check date for this ajd when needed.
-    aliased_displays.date = aliased_displays.ajd_to_datetime(ajd)
-  end
-
-  it 'expected from aliased_displays.apparent_longitude_string \
-                  +139:26:03.631 ' do
-    assert_equal '+139:26:03.631',
-                 aliased_displays.apparent_longitude_string
-  end
-
-  it 'expected from
-      from aliased_displays.declination_string \
-                  +014:59:30.817 ' do
-    assert_equal '+014:59:30.817',
-                 aliased_displays.declination_string
-  end
-
-  it 'expected from aliased_displays.display_equation_of_time \
-                  -05m, 04.70s ' do
-    assert_equal '-05m, 04.70s',
-                 aliased_displays.display_equation_of_time
-  end
-
-  it 'expected from aliased_displays.display_time_string \
-                  00:00:00.000 ' do
-    assert_equal '00:00:00.000',
-                 aliased_displays.display_time_string
-    assert_equal '00:00:00.000',
-                 aliased_displays.display_time_string(nil)
-    assert_equal '00:00:00.000',
-                 aliased_displays.display_time_string(0)
-  end
-
-  it 'expected from aliased_displays.display_time_string(aliased_displays.date) \
-                  00:00:00.000' do
-    assert_equal '00:00:00.000',
-                 aliased_displays.display_time_string(aliased_displays.date)
-  end
-
-  it 'expected from aliased_displays.jd_to_date_string \
-                  2000-01-01 ' do
-    assert_equal '2000-01-01',
-                 aliased_displays.jd_to_date_string
-    assert_equal '2000-01-01',
-                 aliased_displays.jd_to_date_string(nil)
-    assert_equal '2000-01-01',
-                 aliased_displays.jd_to_date_string(0)
-  end
-
-  it 'expected from aliased_displays.jd_to_date_string(aliased_displays.ajd) \
-                  2009-08-11 ' do
-    assert_equal '2009-08-11',
-                 aliased_displays.jd_to_date_string(aliased_displays.ajd)
-  end
-
-  it 'expected from aliased_displays.julian_period_day_fraction_to_time \
-                  12:00:00 ' do
-    assert_equal '12:00:00',
-                 aliased_displays.julian_period_day_fraction_to_time
-    assert_equal '12:00:00',
-                 aliased_displays.julian_period_day_fraction_to_time(nil)
-    assert_equal '12:00:00',
-                 aliased_displays.julian_period_day_fraction_to_time(0)
-  end
-
-  it 'expected from aliased_displays.mean_anomaly_string \
-                  +217:28:44.029 ' do
-    assert_equal '+217:28:44.029',
-                 aliased_displays.mean_anomaly_string
-  end
-
-  it 'expected from aliased_displays.right_ascension_string \
-                  +141:51:11.058 ' do
-    assert_equal '+141:51:11.058',
-                 aliased_displays.right_ascension_string
-  end
-
-  it 'expected from aliased_displays.true_anomaly_string \
-                  +216:19:59.653 ' do
-    assert_equal '+216:19:59.653',
-                 aliased_displays.true_anomaly_string
-  end
-
-  it 'expected from aliased_displays.true_longitude_string \
-                  +139:26:09.086 ' do
-    assert_equal '+139:26:09.086',
-                 aliased_displays.true_longitude_string
-  end
-
-  it 'expected from aliased_displays.true_obliquity_string \
-                  +023:26:21.564 ' do
-    assert_equal '+023:26:21.564',
-                 aliased_displays.true_obliquity_string
-  end
 end
 
 describe 'Eot aliased displays explicit values' do
+
   it 'expected from aliased_displays.display_time_string(16.6780) \
                   16:40:40.800 ' do
     assert_equal '16:40:40.800',
@@ -241,4 +144,5 @@ describe 'Eot aliased displays explicit values' do
     assert_equal '17:59:16.800',
                  aliased_displays.display_time_string(17.988)
   end
+
 end

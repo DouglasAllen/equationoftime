@@ -23,8 +23,8 @@ describe 'Tests ajd of 2456885.0 ' do
   end
 
   it 'expected from \ angles.cosine_tl_sun.round(10) \
-                 -0.794377276 ' do
-    assert_equal(-0.794377276,
+                 -0.794336157 ' do
+    assert_equal(-0.794336157,
                  angles.cosine_tl_sun.round(10))
   end
 
@@ -41,8 +41,8 @@ describe 'Tests ajd of 2456885.0 ' do
   end
 
   it 'expected from angles.sine_tl_sun.round(10) \
-                 0.6074246813 ' do
-    assert_equal(0.6074246813,
+                 -0.8381127163 ' do
+    assert_equal(-0.8381127163,
                  angles.sine_tl_sun.round(10))
   end
 
@@ -69,8 +69,8 @@ describe 'Tests ajd of 2455055.5 ' do
   end
 
   it 'expected from angles.cosine_tl_sun.round(10) \
-                 -0.754206077 ' do
-    assert_equal(-0.754206077,
+                 -0.754188697 ' do
+    assert_equal(-0.754188697,
                  angles.cosine_tl_sun.round(10))
   end
 
@@ -87,8 +87,8 @@ describe 'Tests ajd of 2455055.5 ' do
   end
 
   it 'expected from angles.sine_tl_sun.round(10) \
-                 0.6566377947 ' do
-    assert_equal(0.6566377947,
+                 0.9344039546 ' do
+    assert_equal(0.9344039546,
                  angles.sine_tl_sun.round(10))
   end
 

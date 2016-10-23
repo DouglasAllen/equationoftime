@@ -1,15 +1,43 @@
 #include "ceot.h"
-#include <math.h>
+
+#ifndef CEOT_H_
+#define CEOT_H_
+#define R2D 57.295779513082320876798154814105
+#define D2R 0.017453292519943295769236907684886
+#define M2PI M_PI * 2
+/* Arcseconds to radians */
+#define DAS2R (4.848136811095359935899141e-6)
+
+/* Seconds of time to radians */
+#define DS2R (7.272205216643039903848712e-5)
+
+/* Arcseconds in a full circle */
+#define TURNAS (1296000.0)
+#endif
+
+/* Mean geocentric longitude of the Sun */
+double ma_sun(double t)
+{
+  return 
+    fmod(           357.52910918     +
+    t * (         35999.05029113889  +
+    t * (     1.0/-6507.592190889371 +
+    t * (   1.0/26470588.235294115   +
+    t * ( 1.0/-313315926.8929504   
+            ) ) ) ), 360.0 ) * D2R;
+}
 
 /* Mean geocentric longitude of the Sun */
 double ml_sun(double t)
 {
-  return fmod(   280.4664567    +
-  t * (        36000.76982779   +
-  t * (            0.0003032028 +
-  t * (   1.0/499310.0          +
-  t * (  1.0/-152990.0          +
-  t * (1.0/-19880000.0 ) ) ) ) ), 360.0 ) * 0.017453292519943295769236907684886;
+  return 
+    fmod(          280.4664567    +
+    t * (        36000.76982779   +
+    t * (            0.0003032028 +
+    t * (   1.0/499310.0          +
+    t * (  1.0/-152990.0          +
+    t * (1.0/-19880000.0 
+        ) ) ) ) ), 360.0 ) * D2R;
 }
 
 /* Eccentricity of Earth orbit */
@@ -18,9 +46,11 @@ double eoe(double t)
   return (0.016708617 + t * (-0.000042037 + t *  -0.0000001235));
 }
 
-double eqc(double ma, double t)
+double eqc(double t)
 {             
-  double a1, a2, a3, a4, a5, s1, s2, s3, s4, s5, e;
+  double a1, a2, a3, a4, a5;
+  double ma, e, s1, s2, s3, s4, s5;
+  ma = ma_sun(t);
   e   = eoe(t);  
   s1  = sin( 1.0 * ma );
   s2  = sin( 2.0 * ma );
@@ -41,37 +71,64 @@ double eqc(double ma, double t)
   return e * (a1 + e * (a2 + e * (a3 + e * (a4 + e * a5))));
 }
 
-double tl_sun(double ma, double t)
+double ta_sun(double t)
 { 
-  return fmod( ml_sun(t) + eqc(ma, t), 57.295779513082320876798154814105);
+  double ta;
+  ta = fmod( ma_sun(t) + eqc(t), M2PI);
+  if (ta < 0) ta += M2PI;
+  
+  return ta; 
 }
 
-double al_sun(double ma, double t, double o)
+double tl_sun(double t)
+{ 
+  double tl;
+
+  tl = fmod( ml_sun(t) + 
+             eqc(t), M2PI);
+  if (tl < 0) tl += M2PI;
+  return tl;           
+}
+
+double faom(double t)
 {
-  return fmod(tl_sun(ma, t) - 
-           0.00569 * 0.017453292519943295769236907684886 - 
-           0.00478 * 0.017453292519943295769236907684886 * 
-           sin(o), 57.295779513082320876798154814105);
+   return
+   fmod(              450160.398036 +
+             t * ( - 6962890.5431   +
+             t * (         7.4722   +
+             t * (         0.007702 +
+             t * (       - 0.00005939 ) ) ) ), TURNAS ) * DAS2R;
+}
+
+double al_sun(double t)
+{
+  double al, fo;
+  fo = faom(t);
+  al = fmod(tl_sun(t) - 
+            0.00569 * D2R - 
+            0.00478 * D2R * 
+            sin(fo), M2PI);
+  return al;
 }
 
 double ra_sun(double y0, double cos_al_sun)
 {
-  return atan2(-y0, -cos_al_sun);
+  return fmod(atan2(-y0, -cos_al_sun) + M_PI, R2D);
 }
 
-double eot(double ma, double t, double o, double y0)
+double eot(double eqc, double al, double ra)
 {
-  return -eqc(ma, t) + al_sun(ma, t, o) - ra_sun(y0, cos_al_sun(al_sun(ma, t, o)));
+  return -eqc + al - ra;
 }
 
 double cosZ(double zenith)
 {
-  return cos(zenith * 0.017453292519943295769236907684886);
+  return cos(zenith * D2R);
 }
 
-double cos_al_sun(double al_sun) 
+double cos_al_sun(double t) 
 {
-  return cos(al_sun);
+  return cos(al_sun(t));
 }
 
 double cos_dec_sun(double dec_sun) 
@@ -81,12 +138,12 @@ double cos_dec_sun(double dec_sun)
 
 double cos_lat(double lat) 
 {
-  return cos(lat * 0.017453292519943295769236907684886);
+  return cos(lat * D2R);
 }                                   
 
-double cos_tl_sun(double tl_sun) 
+double cos_tl_sun(double t) 
 {
-  return cos(tl_sun);
+  return cos(tl_sun(t));
 }                                               
 
 double cos_to_earth(double to_earth) 
@@ -94,9 +151,9 @@ double cos_to_earth(double to_earth)
   return cos(to_earth);
 } 
 
-double sin_al_sun(double al_sun) 
+double sin_al_sun(double t) 
 { 
-  return sin(al_sun);
+  return sin(al_sun(t));
 }
 
 double sin_dec_sun(double dec_sun) 
@@ -106,12 +163,12 @@ double sin_dec_sun(double dec_sun)
 
 double sin_lat(double lat) 
 {
-  return sin(lat * 0.017453292519943295769236907684886);
+  return sin(lat * D2R);
 }                                   
 
-double sin_tl_sun(double tl_sun) 
+double sin_tl_sun(double t) 
 {
-  return sin(tl_sun);
+  return sin(tl_sun(t));
 }                                               
 
 double sin_to_earth(double to_earth) 
@@ -128,9 +185,9 @@ double sun(double zenith, double dec_sun, double lat)
   return acos(c);
 }
 
-double sun_dec(double al_sun, double to_earth) 
+double sun_dec(double t, double to_earth) 
 {
-  return  asin(sin_to_earth(to_earth) * sin_al_sun(al_sun));
+  return  asin(sin_to_earth(to_earth) * sin_al_sun(t));
 }
 
 //                                                       

@@ -1,7 +1,6 @@
-##
+
 # class Eot file = angles.rb:
 # methods for non delta angle calculations.
-
 class Eot
   ##
   # From angles.rb:
@@ -9,7 +8,7 @@ class Eot
   # Apparent solar longitude = true longitude - aberation
 
   def al_sun
-    Celes.anp(al(@ma, @ta, omega))
+    al(@t)
   end
   alias apparent_longitude al_sun
   alias alsun al_sun
@@ -21,7 +20,7 @@ class Eot
   # added to mean anomaly to get true anomaly.
 
   def center
-    eqc(@ma, @ta)
+    eqc(@t)
   end
   alias equation_of_center center
 
@@ -31,7 +30,7 @@ class Eot
   # solar declination
 
   def dec_sun
-    sun_dec(al_sun, to_earth)
+    sun_dec(@t, to_earth)
   end
   alias declination dec_sun
 
@@ -42,7 +41,7 @@ class Eot
   # Horners' calculation method
 
   def eccentricity_earth
-    eoe(@ta)
+    eoe(@t)
   end
   alias eccentricity_earth_orbit eccentricity_earth
 
@@ -76,7 +75,7 @@ class Eot
   # needed to get true longitude for low accuracy.
 
   def gml_sun
-    ml(@ta)
+    ml(@t)
   end
   alias geometric_mean_longitude gml_sun
   alias ml_sun gml_sun
@@ -97,6 +96,8 @@ class Eot
       return 102 # Nautical Twilight
     when 4
       return 108 # Astronomical Twilight
+    else
+      return 90.8333
     end
   end
 
@@ -122,8 +123,7 @@ class Eot
   # and to get true anomaly true longitude via center equation
 
   def ma_sun
-    @ta = (@ajd - DJ00) / DJC
-    @ma = Celes.falp03(@ta)
+    mu(@t)
   end
   alias mean_anomaly ma_sun
 
@@ -160,7 +160,7 @@ class Eot
   # on the ecliptic plane measured from the mean equinox of date.
 
   def omega
-    Celes.faom03(@ta)
+    Celes.faom03(@t)
   end
 
   ##
@@ -170,9 +170,9 @@ class Eot
 
   def right_ascension_sun
     y0 = sine_al_sun * cosine_to_earth
-    ra = sun_ra(y0, cosine_al_sun)
+    sun_ra(y0, cosine_al_sun)
     # Celes.anp(PI + atan2(-y0, -cosine_al_sun))
-    Celes.anp(PI + ra)
+    # Celes.anp(PI + ra)
   end
   alias right_ascension right_ascension_sun
   alias ra_sun right_ascension_sun
@@ -184,7 +184,7 @@ class Eot
   # used in equation of time
 
   def ta_sun
-    Celes.anp(@ma + eqc(@ma, @ta))
+    ta(@t)
   end
   alias true_anomaly ta_sun
 
@@ -195,7 +195,7 @@ class Eot
   # considers nutation
 
   def tl_aries
-    dt = 67.184
+    dt = 68.184
     tt = @ajd + dt / 86_400.0
     Celes.gst06a(@ajd, 0, tt, 0)
   end
@@ -208,7 +208,7 @@ class Eot
   # used in equation of time
 
   def tl_sun
-    tl(@ma, @ta)
+    tl(@t)
   end
   alias true_longitude tl_sun
   alias ecliptic_longitude tl_sun

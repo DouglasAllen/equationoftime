@@ -23,18 +23,18 @@ describe 'Eot_initialize has set attributes ' do
     assert_equal(UK_LNG, Eot.new.longitude)
   end
 
-  MA_SUN = Eot.new.ma_sun
-  it "expected #{MA_SUN} from @ma" do
+  MA_SUN = Eot.new.ma_sun.round(10)
+  it "expected #{MA_SUN} from @ma.round(10)" do
     eot = Eot.new
     eot.ajd = JD_TODAY
-    assert_equal(MA_SUN, eot.ma)
+    assert_equal(MA_SUN, eot.ma.round(10))
   end
 
   FRAC_CENT = (Eot.new.ajd - Eot::DJ00) / Eot::DJC
-  it "expected #{FRAC_CENT} from @ta" do
+  it "expected #{FRAC_CENT} from @t" do
     eot = Eot.new
     eot.ajd = JD_TODAY
-    assert_equal(FRAC_CENT, eot.ta)
+    assert_equal(FRAC_CENT, eot.t)
   end
 
   DEFAULT_INT = nil
