@@ -159,9 +159,9 @@ class Eot
   # omega is the longitude of the mean ascending node of the lunar orbit
   # on the ecliptic plane measured from the mean equinox of date.
 
-  def omega
-    Celes.faom03(@t)
-  end
+  # def omega
+  #   Celes.faom03(@t)
+  # end
 
   ##
   # From angles.rb:
@@ -169,8 +169,8 @@ class Eot
   # solar right ascension
 
   def right_ascension_sun
-    y0 = sine_al_sun * cosine_to_earth
-    sun_ra(y0, cosine_al_sun)
+    # y0 = sine_al_sun * cosine_to_earth
+    sun_ra(@t, cosine_to_earth)
     # Celes.anp(PI + atan2(-y0, -cosine_al_sun))
     # Celes.anp(PI + ra)
   end
@@ -231,6 +231,7 @@ if __FILE__ == $PROGRAM_NAME
 
   spec = File.expand_path('../../../test/eot', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
+  @latitude,  @longitude = 0.0,  0.0
   require 'angles_spec'
   require 'aliased_angles_spec'
 

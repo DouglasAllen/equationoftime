@@ -160,9 +160,9 @@ VALUE func_sun_dec(VALUE klass, VALUE vt, VALUE vtoe) {
 /*
 C extension
 */
-VALUE func_sun_ra(VALUE klass, VALUE vy0, VALUE vcas) {
+VALUE func_sun_ra(VALUE klass, VALUE vt, VALUE vctoe) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(ra_sun(NUM2DBL(vy0), NUM2DBL(vcas)));
+  return DBL2NUM(ra_sun(NUM2DBL(vt), NUM2DBL(vctoe)));
 }
 
 VALUE cEot;

@@ -17,18 +17,17 @@ describe 'Tests ajd of 2456885.0 ' do
     c_ext.date = c_ext.ajd_to_datetime(ajd)
     @ma = c_ext.ma
     @eqc = c_ext.center
-    @ma + @eqc
+    # @ma + @eqc
     @ta = c_ext.ta_sun # @ta * 180 / Math::PI
     @al = c_ext.al_sun
     @ca = c_ext.cosine_al_sun
-    @o = c_ext.omega
     @ra = c_ext.right_ascension
     @t = c_ext.t
     c_ext.mu(@t)
     c_ext.eqc(@t)
-    c_ext.eqc(@t) + c_ext.mu(@t)
+    @ctoe = c_ext.cosine_to_earth
+    # c_ext.eqc(@t) + c_ext.mu(@t)
     @et = c_ext.eot
-    @y0 = c_ext.sine_al_sun * c_ext.cosine_to_earth
   end
 
   it 'expected from c_ext.mu(@t) \
@@ -58,6 +57,6 @@ describe 'Tests ajd of 2456885.0 ' do
   it 'expected from  \
                   ' do
     assert_equal(@ra,
-                 c_ext.sun_ra(@y0, @ca))
+                 c_ext.sun_ra(@t, @ctoe))
   end
 end

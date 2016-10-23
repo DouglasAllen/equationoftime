@@ -100,11 +100,11 @@ describe 'Tests ajd of 2456885.0 ' do
                  angles.mo_earth.round(10))
   end
 
-  it 'expected from angles.omega.round(10) \
-                 -2.7528817371 ' do
-    assert_equal(-2.7528817371,
-                 angles.omega.round(10))
-  end
+#   it 'expected from angles.omega.round(10) \
+#                  -2.7528817371 ' do
+#     assert_equal(-2.7528817371,
+#                  angles.omega.round(10))
+#   end
 
   it 'expected from angles.right_ascension_sun.round(10) \
                  2.5297411654 ' do
@@ -207,10 +207,34 @@ describe 'Tests ajd of 2455055.5 ' do
                  angles.gml_sun.round(10))
   end
 
+    it 'expected from angles.ha_sun(nil).round(10) \
+                 1.5858632618 ' do
+    assert_equal(1.5858632618,
+                 angles.ha_sun(nil).round(10))
+  end
+
   it 'expected from angles.ha_sun(1).round(10) \
                  1.5858632618 ' do
     assert_equal(1.5858632618,
                  angles.ha_sun(1).round(10))
+  end
+
+  it 'expected from angles.ha_sun(2).round(10) \
+                 1.6792969059 ' do
+    assert_equal(1.6792969059,
+                 angles.ha_sun(2).round(10))
+  end
+
+  it 'expected from angles.ha_sun(3).round(10) \
+                 1.7878867091 ' do
+    assert_equal(1.7878867091,
+                 angles.ha_sun(3).round(10))
+  end
+
+  it 'expected from angles.ha_sun(4).round(10) \
+                 1.8966638356 ' do
+    assert_equal(1.8966638356,
+                 angles.ha_sun(4).round(10))
   end
 
   it 'expected from angles.ma_sun.round(10) \ 
@@ -231,11 +255,11 @@ describe 'Tests ajd of 2455055.5 ' do
                  angles.mo_earth.round(10))
   end
 
-  it 'expected from angles.omega.round(10) \
-                 -1.0615640635 ' do
-    assert_equal(-1.0615640635,
-                 angles.omega.round(10))
-  end
+#   it 'expected from angles.omega.round(10) \
+#                  -1.0615640635 ' do
+#     assert_equal(-1.0615640635,
+#                  angles.omega.round(10))
+#   end
 
   it 'expected from angles.right_ascension_sun.round(10) \
                  2.4675631135 ' do

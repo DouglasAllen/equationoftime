@@ -15,7 +15,7 @@ double eqc(double t);
 double ma_sun(double t);
 double ml_sun(double t);
 double faom(double t);
-double ra_sun(double y0, double cos_al_sun);
+double ra_sun(double t, double cos_to_earh);
 double sin_al_sun(double t);
 double sin_dec_sun(double dec_sun);
 double sin_lat(double lat);
