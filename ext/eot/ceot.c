@@ -111,15 +111,19 @@ double al_sun(double t)
   return al;
 }
 
-double ra_sun(double t, double cos_to_earth)
+double ra_sun(double t, double to_earth)
 {
-  double y0 = sin_al_sun(t) * cos_to_earth;
+  double y0 = sin_al_sun(t) * cos_to_earth(to_earth);
   return fmod(atan2(-y0, -cos_al_sun(t)) + M_PI, R2D);
 }
 
-double eot(double eqc, double al, double ra)
+double eot(double t, double to_earth)
 {
-  return -eqc + al - ra;
+  double ec, al, ra;
+  ec = eqc(t);
+  al = al_sun(t);
+  ra = ra_sun(t, cos_to_earth(to_earth));
+  return -ec + al - ra;
 }
 
 double cosZ(double zenith)

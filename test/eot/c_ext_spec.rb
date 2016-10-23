@@ -15,48 +15,49 @@ describe 'Tests ajd of 2456885.0 ' do
     c_ext.ma_ta_set
     # check date for this ajd when needed.
     c_ext.date = c_ext.ajd_to_datetime(ajd)
-    @ma = c_ext.ma
-    @eqc = c_ext.center
-    # @ma + @eqc
-    @ta = c_ext.ta_sun # @ta * 180 / Math::PI
-    @al = c_ext.al_sun
-    @ca = c_ext.cosine_al_sun
-    @ra = c_ext.right_ascension
     @t = c_ext.t
-    c_ext.mu(@t)
-    c_ext.eqc(@t)
-    @ctoe = c_ext.cosine_to_earth
-    # c_ext.eqc(@t) + c_ext.mu(@t)
-    @et = c_ext.eot
+    @ctoe = c_ext.to_earth
   end
 
-  it 'expected from c_ext.mu(@t) \
-                 3.8508003966039035' do
-    assert_equal(@ma,
-                 c_ext.mu(@t))
+  it 'expected from c_ext.mu(@t).round(10) \
+                 3.8508003966' do
+    assert_equal(3.8508003966,
+                 c_ext.mu(@t).round(10))
   end
 
-  it 'expected from c_ext.eqc(@t) \
-                 -0.021413249720702764 ' do
-    assert_equal(@eqc,
-                 c_ext.eqc(@t))
+  it 'expected from c_ext.ml(@t).round(10) \
+                 2.5101912804' do
+    assert_equal(2.5101912804,
+                 c_ext.ml(@t).round(10))
   end
 
-  it 'expected from c_ext.ta(@t) \
-                3.829387146883201 ' do
-    assert_equal(@ta,
-                 c_ext.ta(@t))
+  it 'expected from c_ext.eqc(@t).round(10) \
+                 -0.0214132497' do
+    assert_equal(-0.0214132497,
+                 c_ext.eqc(@t).round(10))
   end
 
-  it 'expected from c_ext.al(@ma, @t, @o) \
-                 2.488710339843623 ' do
-    assert_equal(@al,
-                 c_ext.al(@t))
+  it 'expected from c_ext.ta(@t).round(10) \
+                 3.8293871469 ' do
+    assert_equal(3.8293871469,
+                 c_ext.ta(@t).round(10))
   end
 
-  it 'expected from  \
-                  ' do
-    assert_equal(@ra,
-                 c_ext.sun_ra(@t, @ctoe))
+  it 'expected from c_ext.tl(@t).round(10) \
+                 2.4887780307 ' do
+    assert_equal(2.4887780307,
+                 c_ext.tl(@t).round(10))
+  end
+
+  it 'expected from c_ext.al(@ma, @t, @o).round(10) \
+                 2.4887103398 ' do
+    assert_equal(2.4887103398,
+                 c_ext.al(@t).round(10))
+  end
+
+  it 'expected from c_ext.sun_ra(@t, @ctoe).round(10) \
+                 2.5297411654 ' do
+    assert_equal(2.5297411654,
+                 c_ext.sun_ra(@t, @ctoe).round(10))
   end
 end

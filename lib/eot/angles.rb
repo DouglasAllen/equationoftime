@@ -170,7 +170,7 @@ class Eot
 
   def right_ascension_sun
     # y0 = sine_al_sun * cosine_to_earth
-    sun_ra(@t, cosine_to_earth)
+    sun_ra(@t, to_earth)
     # Celes.anp(PI + atan2(-y0, -cosine_al_sun))
     # Celes.anp(PI + ra)
   end
