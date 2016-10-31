@@ -5,10 +5,9 @@
 .config
 .settings
 .yardoc
+_yardoc
 Gemfile.lock
 
-InstalledFiles
-_yardoc
 coverage
 doc
 lib/bundler/man
