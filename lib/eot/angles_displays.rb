@@ -1,7 +1,7 @@
 ##
 # class Eot file = angle_displays.rb:
 # methods for display of angles.
-
+#
 class Eot
   # From angle_displays.rb
 

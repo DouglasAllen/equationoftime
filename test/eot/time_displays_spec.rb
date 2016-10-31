@@ -17,10 +17,10 @@ describe 'Eot time_displays using ajd of 2456885.0' do
     time_displays.date = time_displays.ajd_to_datetime(ajd)
   end
 
-  it 'expected  from time_displays.string_day_fraction_to_time \
+  it 'expected  from time_displays.string_day_fraction_to_time() \
                   12:00:00 ' do
     assert_equal '12:00:00',
-                 time_displays.string_day_fraction_to_time
+                 time_displays.string_day_fraction_to_time()
     assert_equal '12:00:00',
                  time_displays.string_day_fraction_to_time(nil)
     assert_equal '12:00:00',
@@ -33,13 +33,13 @@ describe 'Eot time_displays using ajd of 2456885.0' do
                  time_displays.string_eot
   end
 
-  it 'expected from time_displays.string_jd_to_date \
+  it 'expected from time_displays.string_jd_to_date() \
                   2000-01-01 ' do
     assert_equal '2000-01-01',
-                 time_displays.string_jd_to_date
+                 time_displays.string_jd_to_date()
     assert_equal '2000-01-01',
                  time_displays.string_jd_to_date(nil)
-    assert_equal '2000-01-01',
+    assert_equal '-4712-01-01',
                  time_displays.string_jd_to_date(0)
   end
 
@@ -49,13 +49,13 @@ describe 'Eot time_displays using ajd of 2456885.0' do
                  time_displays.jd_to_date_string(time_displays.ajd)
   end
 
-  it 'expected from time_displays.string_time \
+  it 'expected from time_displays.string_time() \
                   12:00:00.000 ' do
     assert_equal '12:00:00.000',
-                 time_displays.string_time
+                 time_displays.string_time()
     assert_equal '12:00:00.000',
                  time_displays.string_time(nil)
-    assert_equal '12:00:00.000',
+    assert_equal '00:00:00.000',
                  time_displays.string_time(0)
   end
 
@@ -122,13 +122,13 @@ describe 'Eot time_displays using ajd of 2_455_055.5' do
                  time_displays.string_eot
   end
 
-  it 'expected from time_displays.string_jd_to_date \
+  it 'expected from time_displays.string_jd_to_date() \
                   2000-01-01 ' do
     assert_equal '2000-01-01',
-                 time_displays.string_jd_to_date
+                 time_displays.string_jd_to_date()
     assert_equal '2000-01-01',
                  time_displays.string_jd_to_date(nil)
-    assert_equal '2000-01-01',
+    assert_equal '-4712-01-01',
                  time_displays.string_jd_to_date(0)
   end
 
@@ -162,13 +162,13 @@ describe 'Eot time_displays using ajd of 2_455_055.5' do
                  time_displays.float_parts(14.8975)
   end
 
-  it 'expected from time_displays.string_time \
+  it 'expected from time_displays.string_time() \
                   12:00:00.000 ' do
     assert_equal '12:00:00.000',
-                 time_displays.string_time
+                 time_displays.string_time()
     assert_equal '12:00:00.000',
                  time_displays.string_time(nil)
-    assert_equal '12:00:00.000',
+    assert_equal '00:00:00.000',
                  time_displays.string_time(0)
   end
 end

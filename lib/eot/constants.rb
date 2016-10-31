@@ -1,7 +1,7 @@
 ##
 # class Eot file = constants.rb:
 # has the constants used and more
-
+#
 class Eot
 
   ##

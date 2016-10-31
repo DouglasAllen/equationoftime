@@ -1,9 +1,8 @@
 ##
 # class Eot file = angle_displays.rb:
 # methods for display of angles.
-
+#
 class Eot
-
   # From angle_displays.rb
 
   # String formatter for d:m:s display
@@ -19,7 +18,7 @@ class Eot
   def string_al_sun
     degrees_to_s(al_sun)
   end
-  alias_method :apparent_longitude_string, :string_al_sun
+  alias apparent_longitude_string string_al_sun
 
   # From angle_displays.rb
 
@@ -27,7 +26,7 @@ class Eot
   def string_dec_sun
     degrees_to_s(dec_sun)
   end
-  alias_method :declination_string, :string_dec_sun
+  alias declination_string string_dec_sun
 
   # From angle_displays.rb
 
@@ -56,7 +55,7 @@ class Eot
   def string_ma_sun
     degrees_to_s(@ma)
   end
-  alias_method :mean_anomaly_string, :string_ma_sun
+  alias mean_anomaly_string string_ma_sun
 
   # From angle_displays.rb
 
@@ -64,7 +63,7 @@ class Eot
   def string_ra_sun
     degrees_to_s(right_ascension_sun)
   end
-  alias_method :right_ascension_string, :string_ra_sun
+  alias right_ascension_string string_ra_sun
 
   # From angle_displays.rb
 
@@ -72,7 +71,7 @@ class Eot
   def string_ta_sun
     degrees_to_s(ta_sun)
   end
-  alias_method :true_anomaly_string, :string_ta_sun
+  alias true_anomaly_string string_ta_sun
 
   # From angle_displays.rb
 
@@ -80,7 +79,7 @@ class Eot
   def string_tl_sun
     degrees_to_s(tl_sun)
   end
-  alias_method :true_longitude_string, :string_tl_sun
+  alias true_longitude_string string_tl_sun
 
   # From angle_displays.rb
 
@@ -88,7 +87,7 @@ class Eot
   def string_to_earth
     degrees_to_s(to_earth)
   end
-  alias_method :true_obliquity_string, :string_to_earth
+  alias true_obliquity_string string_to_earth
 end
 
 if __FILE__ == $PROGRAM_NAME

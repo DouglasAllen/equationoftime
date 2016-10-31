@@ -1,7 +1,7 @@
 ##
 # class Eot file = times.rb:
 # methods calculating times
-
+#
 class Eot
 
   ##
@@ -15,6 +15,7 @@ class Eot
   def ajd_to_datetime(ajd)
     DateTime.jd(ajd + 0.5)
   end
+  alias jd_to_datetime ajd_to_datetime
 
   # From times.rb:
   # Uses @ajd attribute

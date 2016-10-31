@@ -55,13 +55,13 @@ describe 'Eot displays using ajd of 2456885.0' do
   end
 
   it 'expected   "2000-01-01" from displays.string_jd_to_date() ' do
-    assert_equal '2000-01-01', displays.string_jd_to_date
+    assert_equal '2000-01-01', displays.string_jd_to_date()
     assert_equal '2000-01-01', displays.string_jd_to_date(nil)
-    assert_equal '2000-01-01', displays.string_jd_to_date(0)
+    assert_equal '-4712-01-01', displays.string_jd_to_date(0)
   end
 
-  it 'expected  "2014-08-15" from \
-      displays.jd_to_date_string(displays.ajd)? ' do
+  it 'expected from displays.jd_to_date_string(displays.ajd) \
+                  2014-08-15 ' do
     assert_equal '2014-08-15', displays.jd_to_date_string(displays.ajd)
   end
 
@@ -78,9 +78,9 @@ describe 'Eot displays using ajd of 2456885.0' do
   end
 
   it 'expected   "12:00:00.000" from displays.string_time() ' do
-    assert_equal '12:00:00.000', displays.string_time
+    assert_equal '12:00:00.000', displays.string_time()
     assert_equal '12:00:00.000', displays.string_time(nil)
-    assert_equal '12:00:00.000', displays.string_time(0)
+    assert_equal '00:00:00.000', displays.string_time(0)
   end
 
   it 'expected   "12:00:00.000" from \

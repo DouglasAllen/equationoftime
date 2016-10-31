@@ -26,12 +26,12 @@ class Eot
     m = Integer((fraction - h / DAY_HOURS) * DAY_MINUTES)
     s = Integer((fraction - h / 24.0 - m / DAY_MINUTES) * DAY_SECONDS)
     format('%02d:', h) +
-    # ':' +
-    format('%02d', m) +
-                  ':' +
-    format('%02d', s)
+      # ':' +
+      format('%02d', m) +
+      ':' +
+      format('%02d', s)
   end
-  alias_method :julian_period_day_fraction_to_time, :string_day_fraction_to_time
+  alias julian_period_day_fraction_to_time string_day_fraction_to_time
 
   # From displays.rb
   # radians to time method
@@ -44,48 +44,46 @@ class Eot
   # From displays.rb
   # displays + or - sign
   def sign_min(min)
-    if min < 0.0
-      sign = '-'
-    else
-      sign = '+'
-    end
+    sign = if min < 0.0
+             '-'
+           else
+             '+'
+           end
     sign
   end
 
   # From displays.rb
   # Equation of time output for minutes and seconds
   def string_eot
-    min_eot = time_eot
-    sign = sign_min(min_eot)
-    eot = min_eot.abs
-    minutes = Integer(eot)
-    seconds = (eot - minutes) * 60.0
+    sign = sign_min(time_eot)
+    minutes = Integer(time_eot.abs)
+    seconds = (time_eot.abs - minutes) * 60.0
     decimal_seconds = (seconds - Integer(seconds)) * 100.0
-    min = format('%02d', minutes)
-    sec = format('%02d', seconds)
-    dec_sec = format('%01d', decimal_seconds)
-    sign << min << 'm, ' << sec << '.' << dec_sec << 's'
+    sign << format('%02d', minutes) << 'm, '
+    sign << format('%02d', seconds) << '.'
+    sign << format('%01d', decimal_seconds) << 's'
   end
-  alias_method :display_equation_of_time, :string_eot
+  alias display_equation_of_time string_eot
 
   # From displays.rb
   # String format conversion of jd to date
   def string_jd_to_date(jd = DJ00)
-    jd = check_jd_zero(jd)
+    jd.nil? ? jd = DJ00 : jd
+    # jd = check_jd_zero(jd)
     Date.jd(jd).to_s
   end
-  alias_method :jd_to_date_string, :string_jd_to_date
+  alias jd_to_date_string string_jd_to_date
 
   # From displays.rb
   # formats time components
   def format_time(h, m, s, ds)
-    format('%02d', h)   +
-                 ':' +
-    format('%02d', m) +
-                 ':' +
-    format('%02d', s) +
-                 '.' +
-    format('%3.3d', ds)
+    format('%02d', h) +
+      ':' +
+      format('%02d', m) +
+      ':' +
+      format('%02d', s) +
+      '.' +
+      format('%3.3d', ds)
   end
 
   # From displays.rb
@@ -100,8 +98,9 @@ class Eot
   end
 
   # From displays.rb
-  # creates [h,m,s,ds] from hours Float 
+  # creates [h,m,s,ds] from hours Float
   def float_parts(val)
+    val.nil? ? val = 0.0 : val
     hours = Integer(val % DAY_HOURS)
     mins = 60.0 * (val % DAY_HOURS - hours)
     imins = Integer(mins)
@@ -114,11 +113,11 @@ class Eot
   # From displays.rb
   # String formatter for h:m:s display
   def string_time(dt = DT2000)
-    dt = check_t_zero(dt)
-    dt.class == DateTime ? ta = dt_parts(dt) : ta = float_parts(dt)
+    dt.nil? ? dt = DT2000 : dt
+    ta = dt.class == DateTime ? dt_parts(dt) : float_parts(dt)
     format_time(ta[0], ta[1], ta[2], ta[3])
   end
-  alias_method :display_time_string, :string_time
+  alias display_time_string string_time
 end
 
 if __FILE__ == $PROGRAM_NAME

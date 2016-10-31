@@ -56,13 +56,13 @@ describe 'aliased_displays using ajd of 2456885.0' do
                  aliased_displays.display_equation_of_time
   end
 
-  it 'expected from aliased_displays.display_time_string \
+  it 'expected from aliased_displays.display_time_string() \
                   12:00:00.000 ' do
     assert_equal '12:00:00.000',
-                 aliased_displays.display_time_string
+                 aliased_displays.display_time_string()
     assert_equal '12:00:00.000',
                  aliased_displays.display_time_string(nil)
-    assert_equal '12:00:00.000',
+    assert_equal '00:00:00.000',
                  aliased_displays.display_time_string(0)
   end
 
@@ -72,13 +72,13 @@ describe 'aliased_displays using ajd of 2456885.0' do
                  aliased_displays.display_time_string(aliased_displays.date)
   end
 
-  it 'expected from aliased_displays.jd_to_date_string \
+  it 'expected from aliased_displays.jd_to_date_string() \
                   2000-01-01 ' do
     assert_equal '2000-01-01',
-                 aliased_displays.jd_to_date_string
+                 aliased_displays.jd_to_date_string()
     assert_equal '2000-01-01',
                  aliased_displays.jd_to_date_string(nil)
-    assert_equal '2000-01-01',
+    assert_equal '-4712-01-01',
                  aliased_displays.jd_to_date_string(0)
   end
 

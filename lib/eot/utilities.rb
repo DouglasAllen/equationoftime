@@ -12,7 +12,7 @@ class Eot
   # A check for default J2000
   # sets default when arg is zero
   def check_jd_zero(jd = DJ00)
-    jd == 0 ? DJ00 : check_jd_nil(jd)
+    jd.zero? ? DJ00 : check_jd_nil(jd)
   end
 
   # From utilities.rb:
@@ -26,7 +26,7 @@ class Eot
   # A check for default DT2000
   # sets default when arg is zero
   def check_t_zero(dt = DT2000)
-    dt == 0 ? DT2000 : check_t_nil(dt)
+    dt.zero? ? DT2000 : check_t_nil(dt)
   end
 
   # From utilities.rb:
@@ -34,12 +34,12 @@ class Eot
   def f_string(sgn, u, m, s, ds)
     sgn +
       format('%03d', u) +
-    ':' +
+      ':' +
       format('%02d', m) +
-    ':' +
+      ':' +
       format('%02d', s) +
-    '.' +
-    format('%3.3d', ds)
+      '.' +
+      format('%3.3d', ds)
   end
 
   # From utilities.rb:
@@ -49,7 +49,7 @@ class Eot
     x.nil? ? x = 0.0 : x
     360.0 * (x / 360.0 - Integer(x / 360.0))
   end
-  alias_method :truncate, :mod_360
+  alias truncate mod_360
 end
 
 if __FILE__ == $PROGRAM_NAME
