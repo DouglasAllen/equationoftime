@@ -1,3 +1,4 @@
+lib/eot/eot.so
 .gem
 .rbc
 .rspec
@@ -19,5 +20,4 @@ test/version_tmp
 tmp
 ext/eot/ceot.o
 ext/eot/eot.o
-ext/ceot/Makefile
-lib/eot/eot.so
+ext/eot/Makefile
