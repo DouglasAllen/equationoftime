@@ -134,7 +134,7 @@ class Eot
   # # see http://www.iausofa.org/publications/aas04.pdf
 
   def ml_aries
-    dt = 67.184
+    dt = 68.182
     tt = @ajd + dt / 86_400.0
     Celes.gmst06(@ajd, 0, tt, 0)
   end

@@ -2,7 +2,11 @@
 
 Wiki 1:
 
+start irb
+
      $ irb --simple-prompt
+
+1
 
      require 'eot'; eot = Eot.new()
 

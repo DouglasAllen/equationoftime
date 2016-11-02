@@ -19,7 +19,11 @@ Lots of examples to play with for learning about Eot.
 
 == SYNOPSIS:
 
+=== start irb
+
   $ irb --simple-prompt
+
+=== enter Code
 
         require 'eot'
         eot = Eot.new
