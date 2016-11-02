@@ -65,7 +65,7 @@ Hoe.spec 'equationoftime' do
   #self.readme_file   = 'README.rdoc'
   #self.history_file  = 'CHANGELOG.rdoc'
   #self.extra_rdoc_files  = FileList[]
-  extra_dev_deps << ['rake-compiler', '~> 0.9', '>= 0.9.3']
+  extra_dev_deps << ['rake-compiler']
   self.spec_extras = { extensions: ['ext/eot/extconf.rb'] }
 
   Rake::ExtensionTask.new('eot', spec) do |ext|

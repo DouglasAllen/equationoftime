@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-equationoftime">equationoftime</a>
+    <li><a href="#label-DESCRIPTION-3A">DESCRIPTION:</a>
+    <li><a href="#label-FEATURES-2FPROBLEMS-3A">FEATURES/PROBLEMS:</a>
+    <li><a href="#label-SYNOPSIS-3A">SYNOPSIS:</a>
+    <li><a href="#label-Gem+patch-3A">Gem patch:</a>
+    <li><a href="#label-REQUIREMENTS-3A">REQUIREMENTS:</a>
+    <li><a href="#label-INSTALL-3A">INSTALL:</a>
+    <li><a href="#label-Build+with+DEVKIT">Build with DEVKIT</a>
+    <li><a href="#label-DEVELOPERS-3A">DEVELOPERS:</a>
+    <li><a href="#label-LICENSE-3A">LICENSE:</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+    <li><a href="./wiki_md.html">wiki</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.rdoc">
+
+<p><a href="https://travis-ci.org/DouglasAllen/gem-equationoftime"><img
+src="https://travis-ci.org/DouglasAllen/gem-equationoftime.svg?branch=master"
+alt="Build Status" /></a></p>
+
+<h1 id="label-equationoftime">equationoftime<span><a href="#label-equationoftime">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<dl class="rdoc-list note-list"><dt>Home    
+<dd>
+<p><a
+href="http://equationoftime.herokuapp.com">equationoftime.herokuapp.com</a>/</p>
+</dd><dt>Code    
+<dd>
+<p><a
+href="https://github.com/DouglasAllen/equationoftime">github.com/DouglasAllen/equationoftime</a></p>
+</dd><dt>RDoc    
+<dd>
+<p><a
+href="http://rubydoc.info/gems/equationoftime/4.1.5/frames">rubydoc.info/gems/equationoftime/4.1.5/frames</a></p>
+</dd><dt>Issues  
+<dd>
+<p><a
+href="https://github.com/DouglasAllen/equationoftime/issues">github.com/DouglasAllen/equationoftime/issues</a></p>
+</dd></dl>
+
+<h2 id="label-DESCRIPTION-3A">DESCRIPTION:<span><a href="#label-DESCRIPTION-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Calculate Sunrise and Sunset. Now uses native C wrappers. Lots of examples
+to play with for learning about <a href="Eot.html">Eot</a>.</p>
+
+<h2 id="label-FEATURES-2FPROBLEMS-3A">FEATURES/PROBLEMS:<span><a href="#label-FEATURES-2FPROBLEMS-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Use <a href="GeoLatLng.html">GeoLatLng</a> class to set coordinates or set
+them manually.</p>
+</li></ul>
+
+<h2 id="label-SYNOPSIS-3A">SYNOPSIS:<span><a href="#label-SYNOPSIS-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre>$ irb --simple-prompt
+
+      require &#39;eot&#39;
+      eot = Eot.new
+      eot.string_eot          # todays eot
+      eot.ajd                 # was initialized to noon today ei. jd
+      # Try the real AJD
+      eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
+
+      eot.string_eot          # nothing changes so...
+      eot.ma_ta_set           # recalculate ma and ta after initialization
+      eot.string_eot          # should be different than before
+
+      # check and set a new address                        
+      geo = GeoLatLng.new
+      geo.addr
+      geo.addr = &quot;houston, tx&quot;     # set new location
+      geo.set_coordinates          # set new coordinates
+      eot.latitude = geo.lat       # set the Eot class attributes
+      eot.longitude = geo.lng
+
+      # Be shure you have the date set right
+      eot.ajd = DateTime.new(2014,11,07).to_time.utc.to_datetime.jd.to_f
+
+      eot.ma_ta_set           # recalculate ma and ta after initialization
+
+      eot.sunrise_jd          # the dates sunrise as a jd
+      eot.sunset_jd           # the dates sunset as a jd
+      eot.sunrise_dt          # the dates sunrise as DateTime
+      eot.sunset_dt           # the dates sunset as a DateTime
+
+      eot.ajd += 1            # the days after times can be read
+      eot.ma_ta_set           # recalculate ma and ta after initialization 
+      eot.ajd = 2451545       # ajd set to 2001-01-01 12:00</pre>
+
+<h2 id="label-Gem+patch-3A">Gem patch:<span><a href="#label-Gem+patch-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre>$ gem install eot</pre>
+
+<p>After realizing this name was available I decided to use it. It installs
+the needed requirements as for some reason gem install equationoftime
+doesn&#39;t always. Hoe hoe hoe!</p>
+
+<h2 id="label-REQUIREMENTS-3A">REQUIREMENTS:<span><a href="#label-REQUIREMENTS-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre>$ bundle install</pre>
+
+<h2 id="label-INSTALL-3A">INSTALL:<span><a href="#label-INSTALL-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre>$ bundle exec rake install</pre>
+
+<h3 id="label-Build+with+DEVKIT">Build with DEVKIT<span><a href="#label-Build+with+DEVKIT">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>cd to devkit dir and run devkitvars.bat
+cd to gem-equationoftime dir</pre>
+
+<h2 id="label-DEVELOPERS-3A">DEVELOPERS:<span><a href="#label-DEVELOPERS-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>After checking out the source, run:</p>
+
+<pre>$ bundle exec rake newb</pre>
+
+<p>This task will install any missing dependencies, run the tests/specs, and
+generate the RDoc.</p>
+
+<h2 id="label-LICENSE-3A">LICENSE:<span><a href="#label-LICENSE-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>(The MIT License)</p>
+
+<p>Copyright © 2014</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&#39;Software&#39;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons to whom the Software is furnished to do so, subject to the
+following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &#39;AS IS&#39;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

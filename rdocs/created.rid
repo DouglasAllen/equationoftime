@@ -1,0 +1,18 @@
+Tue, 01 Nov 2016 19:37:15 -0500
+lib/eot/all.rb	Sun, 30 Oct 2016 23:26:51 -0500
+lib/eot/angle_displays.rb	Sun, 30 Oct 2016 23:31:03 -0500
+lib/eot/angles.rb	Sun, 30 Oct 2016 23:26:51 -0500
+lib/eot/angles_displays.rb	Sun, 30 Oct 2016 23:31:23 -0500
+lib/eot/constants.rb	Sun, 30 Oct 2016 23:31:32 -0500
+lib/eot/delta_times.rb	Sun, 30 Oct 2016 23:26:51 -0500
+lib/eot/deltas.rb	Sun, 30 Oct 2016 23:26:51 -0500
+lib/eot/geo_lat_lng_smt.rb	Sun, 30 Oct 2016 23:26:51 -0500
+lib/eot/init.rb	Sun, 30 Oct 2016 23:26:52 -0500
+lib/eot/jd_times.rb	Sun, 30 Oct 2016 23:26:52 -0500
+lib/eot/time_displays.rb	Mon, 31 Oct 2016 00:21:05 -0500
+lib/eot/times.rb	Sun, 30 Oct 2016 23:30:10 -0500
+lib/eot/trigonometric.rb	Sun, 30 Oct 2016 23:26:52 -0500
+lib/eot/utilities.rb	Sun, 30 Oct 2016 23:45:15 -0500
+lib/eot/version.rb	Sun, 30 Oct 2016 23:28:35 -0500
+README.rdoc	Sun, 30 Oct 2016 23:26:51 -0500
+wiki.md	Sun, 30 Oct 2016 23:26:52 -0500
