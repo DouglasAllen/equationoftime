@@ -71,6 +71,16 @@ class Eot
   ##
   # From angles.rb:
 
+  # 
+  # 
+
+  def gha_sun
+    (tl_aries - sun_ra(@t, to_earth)) % 2 * Math::PI  
+  end
+
+  ##
+  # From angles.rb:
+
   # angle geometric mean longitude
   # needed to get true longitude for low accuracy.
 
@@ -88,16 +98,14 @@ class Eot
 
   def choice(c)
     case c
-    when 1
-      return 90.8333 # Sunrise and Sunset
+    when 0..1 || nil
+      90.8333 # Sunrise and Sunset
     when 2
-      return 96 # Civil Twilight
+      96 # Civil Twilight
     when 3
-      return 102 # Nautical Twilight
+      102 # Nautical Twilight
     when 4
-      return 108 # Astronomical Twilight
-    else
-      return 90.8333
+      108 # Astronomical Twilight
     end
   end
 
@@ -108,6 +116,7 @@ class Eot
   # used for angles from transit to horizons east, west.
 
   def ha_sun(c)
+    c.nil? ? c = 1 : c
     zenith = choice(c)
     sun(zenith, dec_sun, @latitude)
   end
@@ -197,7 +206,7 @@ class Eot
   def tl_aries
     dt = 68.184
     tt = @ajd + dt / 86_400.0
-    Celes.gst06a(@ajd, 0, tt, 0)
+    p Celes.gst06a(@ajd, 0, tt, 0)
   end
   alias true_longitude_aries tl_aries
 

@@ -14,7 +14,7 @@ describe 'Eot angles_displays using ajd of 2456885.0' do
     ajd = angles_displays.ajd
     angles_displays.ma_ta_set
     # check date for this ajd when needed.
-    angles_displays.date = angles_displays.ajd_to_datetime(ajd)
+    p angles_displays.date = angles_displays.ajd_to_datetime(ajd)
   end
 
   it 'expected from angles_displays.degrees_to_s \
@@ -28,6 +28,12 @@ describe 'Eot angles_displays using ajd of 2456885.0' do
                   +142:35:33.356 ' do
     assert_equal '+142:35:33.356',
                  angles_displays.string_al_sun
+  end
+
+  it 'expected from angles_displays.string_arc_secs(5.023) \
+                  5.023\" ' do
+    assert_equal "5.023\"",
+                 angles_displays.string_arc_secs(5.023)
   end
 
   it 'expected from angles_displays.string_dec_sun \
@@ -58,6 +64,18 @@ describe 'Eot angles_displays using ajd of 2456885.0' do
                   -04m, 29.2s ' do
     assert_equal '-04m, 29.2s',
                  angles_displays.string_eot
+  end
+
+  it 'expected from angles_displays.string_gha(angles_displays.gha_sun) \
+                  356° 28\' 13.761" ' do
+    assert_equal "356\u00B0 28' 13.761\"",
+                 angles_displays.string_gha(angles_displays.gha_sun)
+  end
+
+  it 'expected from angles_displays.string_gha(angles_displays.tl_aries) \
+                  356° 28\' 13.761" ' do
+    assert_equal "356\u00B0 28' 13.761\"",
+                 angles_displays.string_gha(angles_displays.tl_aries)
   end
 
   it 'expected from angles_displays.string_ma_sun \

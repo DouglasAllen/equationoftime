@@ -70,6 +70,12 @@ describe 'Tests ajd of 2456885.0 ' do
                  angles.eot.round(10))
   end
 
+  it 'expected from angles.gha_sun.round(10) \
+                 6.2215570367 ' do
+    assert_equal(6.2215570367,
+                 angles.gha_sun.round(10))
+  end
+
   it 'expected from angles.gml_sun.round(10) \
                  2.5101912804 ' do
     assert_equal(2.5101912804,
@@ -199,6 +205,12 @@ describe 'Tests ajd of 2455055.5 ' do
                  -0.0225806355' do
     assert_equal(-0.0225806355,
                  angles.eot.round(10))
+  end
+
+  it 'expected from angles.gha_sun.round(10) \
+                 6.2122303864 ' do
+    assert_equal(6.2122303864,
+                 angles.gha_sun.round(10))
   end
 
   it 'expected from angles.gml_sun.round(10) \
