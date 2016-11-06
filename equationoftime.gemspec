@@ -8,11 +8,13 @@ Gem::Specification.new do |spec|
   # Metadata
   spec.name          = 'equationoftime'
   spec.version       = Eot::VERSION
+  spec.author        = 'DouglasAllen'
   spec.authors       = ['DouglasAllen']
   spec.email         = ['kb9agt@gmail.com']
   spec.summary       = 'Equation of Time calculates time of solar transition.'
   spec.description   = 'Calculate Sunrise and Sunset. Uses native C wrappers.
                         Use the patch "gem install eot" to install it.'
+  spec.rubygems_version = '2.6.7'
   # spec.homepage      = "http://equationoftime.herokuapp.com"
   spec.homepage      = 'https://github.com/DouglasAllen/equationoftime'
   spec.license       = 'MIT'
@@ -29,9 +31,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.has_rdoc      = true
   spec.rdoc_options <<
-     '--title' <<  'Equation of Time -- Solar Position Calculator in Ruby' <<
-     '--line-numbers'
-  spec.platform      = Gem::Platform::RUBY
+    '--title' << 'Equation of Time -- Solar Position Calculator in Ruby' <<
+    '--line-numbers'
+  spec.platform = Gem::Platform::RUBY
   spec.add_runtime_dependency 'addressable'
   spec.add_runtime_dependency 'rest-client'
   spec.add_runtime_dependency 'celes'
