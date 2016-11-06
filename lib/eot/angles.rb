@@ -206,7 +206,7 @@ class Eot
   def tl_aries
     dt = 68.184
     tt = @ajd + dt / 86_400.0
-    p Celes.gst06a(@ajd, 0, tt, 0)
+    Celes.gst06a(@ajd, 0, tt, 0)
   end
   alias true_longitude_aries tl_aries
 
