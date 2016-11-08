@@ -12,12 +12,8 @@ aliased_angles_displays = Eot.new
 describe 'aliased_angles_displays using ajd of 2456885.0' do
 
   before(:each) do
-    aliased_angles_displays.ajd  = 2_456_885.0
-    ajd = aliased_angles_displays.ajd
-    aliased_angles_displays.ma_ta_set
-    # check date for this ajd when needed.
-    aliased_angles_displays.date = aliased_angles_displays.ajd_to_datetime(ajd)
-
+    aliased_angles_displays.jd = 2_456_885.0
+    aliased_angles_displays.set_t
   end
 
   it 'expected from aliased_angles_displays.apparent_longitude_string \
@@ -73,9 +69,9 @@ end
 
 describe 'Eot angles_displays using ajd of 2_455_055.5' do
   before(:each) do
-    aliased_angles_displays.ajd = 2_455_055.5
+    aliased_angles_displays.jd = 2_455_055.5
     ajd = aliased_angles_displays.ajd
-    aliased_angles_displays.ma_ta_set
+    aliased_angles_displays.set_t
     # check date for this ajd when needed.
     aliased_angles_displays.date = aliased_angles_displays.ajd_to_datetime(ajd)
   end

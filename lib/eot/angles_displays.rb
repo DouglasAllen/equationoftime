@@ -91,6 +91,14 @@ class Eot
 
   # From angle_displays.rb
 
+  # String format of mean longitude
+  def string_ml_sun
+    degrees_to_s(ml_sun)
+  end
+  alias mean_longitude_string string_ml_sun
+
+  # From angle_displays.rb
+
   # String format of mean obliquity
   def string_mo_earth
     degrees_to_s(mo_earth)

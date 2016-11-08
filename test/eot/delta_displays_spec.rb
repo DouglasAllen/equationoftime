@@ -11,11 +11,8 @@ delta_displays = Eot.new
 
 describe 'Eot delta_displays using ajd of 2_455_055.5' do
   before(:each) do
-    delta_displays.ajd = 2_456_885.0
-    ajd = delta_displays.ajd
-    delta_displays.ma_ta_set
-    # check date for this ajd when needed.
-    delta_displays.date = delta_displays.ajd_to_datetime(ajd)
+    delta_displays.jd = 2_456_885.0
+    delta_displays.set_t
   end
 
   it 'expected from delta_displays.string_delta_epsilon \
@@ -33,11 +30,8 @@ end
 
 describe 'Eot delta_displays using ajd of 2_455_055.5' do
   before(:each) do
-    delta_displays.ajd = 2_455_055.5
-    ajd = delta_displays.ajd
-    delta_displays.ma_ta_set
-    # check date for this ajd when needed.
-    delta_displays.date = delta_displays.ajd_to_datetime(ajd)
+    delta_displays.jd = 2_455_055.5
+    delta_displays.set_t
   end
 
   it 'expected from delta_displays.string_delta_epsilon \

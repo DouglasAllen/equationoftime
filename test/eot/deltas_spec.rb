@@ -9,11 +9,8 @@ deltas = Eot.new
 
 describe 'Tests ajd of 2456885.0 ' do
   before(:each) do
-    deltas.ajd = 2_456_885.0
-    ajd = deltas.ajd
-    deltas.ma_ta_set
-    # check date for this ajd when needed.
-    deltas.date = deltas.ajd_to_datetime(ajd)
+    deltas.jd = 2_456_885.0
+    deltas.set_t
   end
 
   it 'expected from deltas.angle_delta_epsilon.round(10) \
@@ -49,11 +46,8 @@ end
 
 describe 'Tests ajd of 2455055.5 ' do
   before(:each) do
-    deltas.ajd = 2_455_055.0
-    ajd = deltas.ajd
-    deltas.ma_ta_set
-    # check date for this ajd when needed.
-    deltas.date = deltas.ajd_to_datetime(ajd)
+    deltas.jd = 2_455_055.0
+    deltas.set_t
   end
 
   it 'expected from deltas.angle_delta_epsilon.round(10) \

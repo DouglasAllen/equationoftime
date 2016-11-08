@@ -1,3 +1,4 @@
+
 # times_spec.rb
 gem 'minitest'
 require 'minitest/autorun'
@@ -7,13 +8,10 @@ require 'eot'
 
 times = Eot.new
 
-describe 'tests ajd of 2456885.0 ' do
+describe 'tests jd of 2_456_885.0 ' do
   before(:each) do
-    times.ajd = 2_456_885.0
-    ajd = times.ajd
-    times.ma_ta_set
-    # check date for this ajd when needed.
-    times.date = times.ajd_to_datetime(ajd)
+    times.jd = 2_456_885.0
+    times.set_t
   end
 
   it 'expected from times.ajd \
@@ -167,13 +165,10 @@ describe 'tests ajd of 2456885.0 ' do
   end
 end
 
-describe 'tests ajd of 2455055.0 ' do
+describe 'tests jd of 2_455_055.0 ' do
   before(:each) do
-    times.ajd = 2_455_055.0
-    ajd = times.ajd
-    times.ma_ta_set
-    # check date for this ajd when needed.
-    times.date = times.ajd_to_datetime(ajd)
+    times.jd = 2_455_055.0
+    times.set_t
   end
 
   it 'expected from times.ajd \

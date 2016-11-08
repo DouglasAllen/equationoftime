@@ -1,3 +1,4 @@
+
 # geo_spec.rb/
 gem 'minitest'
 require 'minitest/autorun'
@@ -15,7 +16,7 @@ describe 'Geo defaults' do
     assert_equal INTERNATIONAL, geo.addr
   end
 
-  BASE = 'http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address='
+  BASE = "http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address="
   it "expected #{BASE}" do
     assert_equal BASE, geo.base_json
   end

@@ -9,13 +9,10 @@ require 'eot'
 
 time_displays = Eot.new
 
-describe 'Eot time_displays using ajd of 2456885.0' do
+describe 'time_displays using jd of 2_456_885.0' do
   before(:each) do
-    time_displays.ajd = 2_456_885.0
-    ajd = time_displays.ajd
-    time_displays.ma_ta_set
-    # check date for this ajd when needed.
-    time_displays.date = time_displays.ajd_to_datetime(ajd)
+    time_displays.jd = 2_456_885.0
+    time_displays.set_t
   end
 
   it 'expected  from time_displays.julian_period_day_fraction_to_time \
@@ -57,13 +54,10 @@ describe 'Eot time_displays using ajd of 2456885.0' do
   end
 end
 
-describe 'Eot time_displays using ajd of 2_455_055.5' do
+describe 'time_displays using jd of 2_455_055.5' do
   before(:each) do
-    time_displays.ajd = 2_455_055.5
-    ajd = time_displays.ajd
-    time_displays.ma_ta_set
-    # check date for this ajd when needed.
-    time_displays.date = time_displays.ajd_to_datetime(ajd)
+    time_displays.jd = 2_455_055.5
+    time_displays.set_t
   end
 
   it 'expected  from time_displays.julian_period_day_fraction_to_time \

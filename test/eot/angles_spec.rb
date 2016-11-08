@@ -9,29 +9,20 @@ angles = Eot.new
 
 describe 'Tests ajd of 2456885.0 ' do
   before(:each) do
-    angles.ajd = 2_456_885.0
-    ajd = angles.ajd
-    angles.ma_ta_set
-    # check date for this ajd when needed.
-    angles.date = angles.ajd_to_datetime(ajd)
+    angles.jd = 2_456_885.0
+    angles.set_t
   end
 
   it 'expected from angles.ajd \
                  2_456_885.0' do
     assert_equal(2_456_885.0,
-                 angles.ajd)
+                 angles.jd)
   end
 
   it 'expected from angles.date.to_s \
                  "2014-08-15T12:00:00+00:00"' do
     assert_equal('2014-08-15T12:00:00+00:00',
                  angles.date.to_s)
-  end
-
-  it 'expected from angles.ma.round(10) \
-                 3.8508003966' do
-    assert_equal(3.8508003966,
-                 angles.ma.round(10))
   end
 
   it 'expected from angles.al_sun().round(10) \
@@ -145,29 +136,20 @@ end
 
 describe 'Tests ajd of 2455055.5 ' do
   before(:each) do
-    angles.ajd = 2_455_055.0
-    ajd = angles.ajd
-    angles.ma_ta_set
-    # check date for this ajd when needed.
-    angles.date = angles.ajd_to_datetime(ajd)
+    angles.jd = 2_455_055.0
+    angles.set_t
   end
 
   it 'expected from angles.ajd \
                  2_455_055.0 ' do
     assert_equal(2_455_055.0,
-                 angles.ajd)
+                 angles.jd)
   end
 
   it 'expected from angles.date.to_s \
                   2009-08-11T12:00:00+00:00 ' do
     assert_equal('2009-08-11T12:00:00+00:00',
                  angles.date.to_s)
-  end
-
-  it 'expected from angles.ma.round(10) \
-                 3.7871218189 ' do
-    assert_equal(3.7871218189,
-                 angles.ma.round(10))
   end
 
   it 'expected from \

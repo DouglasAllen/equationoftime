@@ -10,19 +10,16 @@ require 'eot'
 
 aliased_angles = Eot.new
 
-describe 'tests ajd of 2456885.0 ' do
+describe 'tests jd of 2_456_885.0 ' do
   before(:each) do
-    aliased_angles.ajd = 2_456_885.0
-    ajd = aliased_angles.ajd
-    aliased_angles.ma_ta_set
-    # somtimes need date to check values somewhere else
-    aliased_angles.date = aliased_angles.ajd_to_datetime(ajd)
+    aliased_angles.jd = 2_456_885.0
+    aliased_angles.set_t
   end
 
-  it 'expected from aliased_angles.ajd \
+  it 'expected from aliased_angles.jd \
                  2_456_885.0 ' do
     assert_equal(2_456_885.0,
-                 aliased_angles.ajd)
+                 aliased_angles.jd)
   end
 
   it 'expected from aliased_angles.date.to_s \
@@ -140,21 +137,16 @@ describe 'tests ajd of 2456885.0 ' do
   end
 end
 
-describe 'tests ajd of 2455055.5 ' do
+describe 'tests jd of 2_455_055.5 ' do
   before(:each) do
-    aliased_angles.ajd =
-      2_455_055.0
-    ajd = aliased_angles.ajd
-    aliased_angles.ma_ta_set
-    # check date for this ajd when needed.
-    aliased_angles.date =
-      aliased_angles.ajd_to_datetime(ajd)
+    aliased_angles.jd = 2_455_055.0
+    aliased_angles.set_t
   end
 
-  it 'expected from from aliased_angles.ajd \
+  it 'expected from from aliased_angles.jd \
                  2_455_055.0 ' do
     assert_equal(2_455_055.0,
-                 aliased_angles.ajd)
+                 aliased_angles.jd)
   end
 
   it 'expected from from aliased_angles.date.to_s \

@@ -10,9 +10,9 @@ time_displays = Eot.new
 
 describe 'Eot time_displays using ajd of 2456885.0' do
   before(:each) do
-    time_displays.ajd = 2_456_885.0
+    time_displays.jd = 2_456_885.0
     ajd = time_displays.ajd
-    time_displays.ma_ta_set
+    time_displays.set_t
     # check date for this ajd when needed.
     time_displays.date = time_displays.ajd_to_datetime(ajd)
   end
@@ -69,9 +69,9 @@ end
 
 describe 'Eot time_displays using ajd of 2_455_055.5' do
   before(:each) do
-    time_displays.ajd = 2_455_055.5
+    time_displays.jd = 2_455_055.5
     ajd = time_displays.ajd
-    time_displays.ma_ta_set
+    time_displays.set_t
     # check date for this ajd when needed.
     time_displays.date = time_displays.ajd_to_datetime(ajd)
   end

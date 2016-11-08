@@ -84,11 +84,11 @@ class Eot
   # angle geometric mean longitude
   # needed to get true longitude for low accuracy.
 
-  def gml_sun
+  def ml_sun
     ml(@t)
   end
-  alias geometric_mean_longitude gml_sun
-  alias ml_sun gml_sun
+  alias geometric_mean_longitude ml_sun
+  alias gml_sun ml_sun
 
   ##
   # From angles.rb:
@@ -240,7 +240,8 @@ if __FILE__ == $PROGRAM_NAME
 
   spec = File.expand_path('../../../test/eot', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-  @latitude,  @longitude = 0.0,  0.0
+  @latitude = 0.0
+  @longitude = 0.0
   require 'angles_spec'
   require 'aliased_angles_spec'
 

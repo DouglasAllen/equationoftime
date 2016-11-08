@@ -1,3 +1,4 @@
+
 # aliased_displays_spec.rb
 gem 'minitest'
 require 'minitest/autorun'
@@ -11,7 +12,7 @@ aliased_displays = Eot.new
 describe 'aliased_displays using ajd of 2456885.0' do
 
   before(:each) do
-    aliased_displays.ajd  = 2_456_885.0
+    aliased_displays.jd  = 2_456_885.0
     ajd = aliased_displays.ajd
     aliased_displays.ma_ta_set
     # check date for this ajd when needed.

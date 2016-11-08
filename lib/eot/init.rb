@@ -1,3 +1,4 @@
+
 # class Eot file = int.rb
 # attributes, a setter and init method
 class Eot
@@ -16,11 +17,13 @@ class Eot
   # method to reset ma and ta after initialization
   # init sets them using ajd initial Float value
   # see: :ajd attribute
-  def ma_ta_set
-    @t = ((@ajd - DJ00) / DJC).to_f
-    #@ma = Celes.falp03(@ta)
+  def set_t
+    @t = ((@jd - DJ00) / DJC).to_f
     @ma = ma_sun
+    @date = jd_to_datetime(@jd)
+    @ajd = @jd
   end
+  alias ma_ta_set set_t
 
   # From init.rb:
   # Date
@@ -62,11 +65,10 @@ class Eot
   # Initialize to set attributes
   def initialize
     d = DateTime.now.to_time.utc.to_datetime
-    djm0, djm = Celes::cal2jd(d.year, d.month, d.day + d.day_fraction)
-    @ajd = djm0 + djm + 0.5
-    ma_ta_set
-    @date, @jd = ajd_to_datetime(@ajd), @ajd    
-    @latitude,  @longitude = 0.0,  0.0      
+    @jd = d.jd
+    set_t
+    @latitude = 0.0
+    @longitude = 0.0
   end
 end
 

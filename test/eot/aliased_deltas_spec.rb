@@ -1,3 +1,4 @@
+
 # aliased_deltas_spec.rb
 
 gem 'minitest'
@@ -11,11 +12,8 @@ aliased_deltas = Eot.new
 
 describe 'tests ajd of 2456885.0 ' do
   before(:each) do
-    aliased_deltas.ajd = 2_456_885.0
-    ajd = aliased_deltas.ajd
-    aliased_deltas.ma_ta_set
-    # somtimes need date to check values somewhere else
-    aliased_deltas.date = aliased_deltas.ajd_to_datetime(ajd)
+    aliased_deltas.jd = 2_456_885.0
+    aliased_deltas.set_t
   end
 
   it 'expected from aliased_deltas.delta_epsilon.round(10) \
@@ -63,13 +61,8 @@ end
 
 describe 'tests ajd of 2455055.5 ' do
   before(:each) do
-    aliased_deltas.ajd =
-      2_455_055.0
-    ajd = aliased_deltas.ajd
-    aliased_deltas.ma_ta_set
-    # check date for this ajd when needed.
-    aliased_deltas.date =
-      aliased_deltas.ajd_to_datetime(ajd)
+    aliased_deltas.jd = 2_455_055.0
+    aliased_deltas.set_t
   end
 
   it 'expected from aliased_deltas.delta_epsilon.round(10) \

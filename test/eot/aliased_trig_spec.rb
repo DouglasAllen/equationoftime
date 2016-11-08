@@ -10,7 +10,7 @@ aliased_trig = Eot.new
 
 describe 'Tests ajd of 2456885.0 ' do
   before(:each) do
-    aliased_trig.ajd = 2_456_885.0
+    aliased_trig.jd = 2_456_885.0
     ajd = aliased_trig.ajd
     aliased_trig.ma_ta_set
     # check date for this ajd when needed.
@@ -62,7 +62,7 @@ end
 
 describe 'Tests ajd of 2455055.5 ' do
   before(:each) do
-    aliased_trig.ajd = 2_455_055.0
+    aliased_trig.jd = 2_455_055.0
     ajd = aliased_trig.ajd
     aliased_trig.ma_ta_set
     # check date for this ajd when needed.

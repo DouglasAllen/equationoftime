@@ -10,7 +10,7 @@ c_ext = Eot.new
 
 describe 'Tests ajd of 2456885.0 ' do
   before(:each) do
-    c_ext.ajd = 2_456_885.0
+    c_ext.jd = 2_456_885.0
     ajd = c_ext.ajd
     c_ext.ma_ta_set
     # check date for this ajd when needed.
