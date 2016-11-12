@@ -40,7 +40,7 @@ double ml_sun(double t)
         ) ) ) ) ), 360.0 ) * D2R;
 }
 
-/* Eccentricity of Earth orbit */
+/* Earth Orbital Eccentricity  */
 double eoe(double t)
 {
   return (0.016708617 + t * (-0.000042037 + t *  -0.0000001235));

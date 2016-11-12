@@ -28,7 +28,7 @@ class Eot
   # From init.rb:
   # Date
   # instance of DateTime class
-  # initialized to = ajd_to_datetime(@ajd)
+  # initialized to = ajd_to_datetime(@jd)
   attr_accessor :date
 
   # From init.rb:

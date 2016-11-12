@@ -4,7 +4,7 @@
 
 Home    :: http://equationoftime.herokuapp.com/
 Code    :: https://github.com/DouglasAllen/equationoftime
-RDoc    :: http://rubydoc.info/gems/equationoftime/4.1.5/frames
+RDoc    :: http://rubydoc.info/gems/equationoftime/4.1.9/frames
 Issues  :: https://github.com/DouglasAllen/equationoftime/issues
 
 
@@ -47,7 +47,7 @@ Lots of examples to play with for learning about Eot.
         # Be shure you have the date set right
         eot.ajd = DateTime.new(2014,11,07).to_time.utc.to_datetime.jd.to_f
 
-        eot.ma_ta_set           # recalculate ma and ta after initialization
+        eot.set_t           # recalculate ma and ta after initialization
 
         eot.sunrise_jd          # the dates sunrise as a jd
         eot.sunset_jd           # the dates sunset as a jd
@@ -56,7 +56,7 @@ Lots of examples to play with for learning about Eot.
 
 
         eot.ajd += 1            # the days after times can be read
-        eot.ma_ta_set           # recalculate ma and ta after initialization 
+        eot.set_t           # recalculate ma and ta after initialization 
         eot.ajd = 2451545       # ajd set to 2001-01-01 12:00 
         
 
@@ -80,7 +80,10 @@ gem install equationoftime doesn't always. Hoe hoe hoe!
 === Build with DEVKIT
  
    cd to devkit dir and run devkitvars.bat
+
+   or make a batchfile to start your envirnment with 'run devkitvars'
    cd to gem-equationoftime dir
+   Rake -T
 
 == DEVELOPERS:
 
