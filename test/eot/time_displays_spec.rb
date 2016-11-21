@@ -11,10 +11,9 @@ time_displays = Eot.new
 describe 'time_displays of dates for ajd of 2_456_885.0' do
   before(:each) do
     time_displays.jd = 2_456_885.0
-    ajd = time_displays.ajd
     time_displays.set_t
-    # check date for this ajd when needed.
-    time_displays.date = time_displays.ajd_to_datetime(ajd)
+    time_displays.date =
+      time_displays.ajd_to_datetime(time_displays.jd)
   end
 
   it 'expected from time_displays.string_jd_to_date() \
@@ -37,10 +36,9 @@ end
 describe 'time_displays of time for ajd of 2456885.0' do
   before(:each) do
     time_displays.jd = 2_456_885.0
-    ajd = time_displays.ajd
     time_displays.set_t
-    # check date for this ajd when needed.
-    time_displays.date = time_displays.ajd_to_datetime(ajd)
+    time_displays.date =
+      time_displays.ajd_to_datetime(time_displays.jd)
   end
 
   it 'expected from time_displays.string_time() \
@@ -63,10 +61,9 @@ end
 describe 'time_displays of other for ajd of 2456885.0' do
   before(:each) do
     time_displays.jd = 2_456_885.0
-    ajd = time_displays.ajd
     time_displays.set_t
-    # check date for this ajd when needed.
-    time_displays.date = time_displays.ajd_to_datetime(ajd)
+    time_displays.date =
+      time_displays.ajd_to_datetime(time_displays.jd)
   end
 
   it 'expected  from time_displays.string_day_fraction_to_time() \
@@ -89,10 +86,9 @@ end
 describe 'time_displays of other for ajd of 2456885.0' do
   before(:each) do
     time_displays.jd = 2_456_885.0
-    ajd = time_displays.ajd
     time_displays.set_t
-    # check date for this ajd when needed.
-    time_displays.date = time_displays.ajd_to_datetime(ajd)
+    time_displays.date =
+      time_displays.ajd_to_datetime(time_displays.jd)
   end
 
   it 'expected  from time_displays.string_day_fraction_to_time() \
@@ -115,10 +111,9 @@ end
 describe 'time_displays of other for ajd of 2_455_055.5' do
   before(:each) do
     time_displays.jd = 2_455_055.5
-    ajd = time_displays.ajd
     time_displays.set_t
-    # check date for this ajd when needed.
-    time_displays.date = time_displays.ajd_to_datetime(ajd)
+    time_displays.date =
+      time_displays.ajd_to_datetime(time_displays.jd)
   end
 
   it 'expected  from time_displays.string_day_fraction_to_time() \
@@ -141,10 +136,9 @@ end
 describe 'time_displays of minutes for ajd of 2_455_055.5' do
   before(:each) do
     time_displays.jd = 2_455_055.5
-    ajd = time_displays.ajd
     time_displays.set_t
-    # check date for this ajd when needed.
-    time_displays.date = time_displays.ajd_to_datetime(ajd)
+    time_displays.date =
+      time_displays.ajd_to_datetime(time_displays.jd)
   end
 
   it 'expected  from time_displays.show_minutes(0.2259) \
@@ -170,7 +164,6 @@ describe 'time_displays of parts for ajd of 2_455_055.5' do
   before(:each) do
     time_displays.jd = 2_455_055.5
     time_displays.set_t
-    # check date for this ajd when needed.
     time_displays.date =
       time_displays.jd_to_datetime(time_displays.jd)
   end
@@ -197,10 +190,9 @@ end
 describe 'time_displays of time for ajd of 2_455_055.5' do
   before(:each) do
     time_displays.jd = 2_455_055.5
-    ajd = time_displays.ajd
     time_displays.set_t
-    # check date for this ajd when needed.
-    time_displays.date = time_displays.ajd_to_datetime(ajd)
+    time_displays.date =
+      time_displays.ajd_to_datetime(time_displays.jd)
   end
 
   it 'expected  from time_displays.string_deg_to_time(1) \
@@ -229,10 +221,9 @@ end
 describe 'time_displays of date for ajd of 2_455_055.5' do
   before(:each) do
     time_displays.jd = 2_455_055.5
-    ajd = time_displays.ajd
     time_displays.set_t
-    # check date for this ajd when needed.
-    time_displays.date = time_displays.ajd_to_datetime(ajd)
+    time_displays.date =
+      time_displays.ajd_to_datetime(time_displays.jd)
   end
 
   it 'expected from time_displays.string_jd_to_date() \
