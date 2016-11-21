@@ -1,3 +1,4 @@
+
 # constants_spec.rb
 gem 'minitest'
 require 'minitest/autorun'
@@ -6,7 +7,6 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
 describe 'Equation of Time constants.' do
-
   it "01 require 'eot' should find all constants." do
     assert_equal 24.0, Eot::DAY_HOURS
     assert_equal 1440.0, Eot::DAY_MINUTES

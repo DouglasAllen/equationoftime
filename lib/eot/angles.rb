@@ -1,8 +1,8 @@
 
+
 # class Eot file = angles.rb:
 # methods for non delta angle calculations.
 class Eot
-
   # ===
   #
   #   Apparent solar longitude = true longitude - abberation
@@ -72,11 +72,11 @@ class Eot
   ##
   # From angles.rb:
 
-  # 
-  # 
+  #
+  #
 
   def gha_sun
-    (tl_aries - sun_ra(@t, to_earth)) % 2 * Math::PI  
+    (tl_aries - sun_ra(@t, to_earth)) % 2 * Math::PI
   end
 
   ##

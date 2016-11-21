@@ -1,3 +1,4 @@
+
 # displays_spec.rb
 
 gem 'minitest'
@@ -8,8 +9,7 @@ require 'eot'
 
 displays = Eot.new
 
-describe 'Eot displays using ajd of 2456885.0' do
-
+describe 'Eot displays using ajd of 2_456_885.0' do
   before(:each) do
     displays.jd = 2_456_885.0
     displays.set_t
@@ -40,7 +40,7 @@ describe 'Eot displays using ajd of 2456885.0' do
   end
 
   it 'expected   "2000-01-01" from displays.string_jd_to_date() ' do
-    assert_equal '2000-01-01', displays.string_jd_to_date()
+    assert_equal '2000-01-01', displays.string_jd_to_date
     assert_equal '2000-01-01', displays.string_jd_to_date(nil)
     assert_equal '-4712-01-01', displays.string_jd_to_date(0)
   end
@@ -63,7 +63,7 @@ describe 'Eot displays using ajd of 2456885.0' do
   end
 
   it 'expected   "12:00:00.000" from displays.string_time() ' do
-    assert_equal '12:00:00.000', displays.string_time()
+    assert_equal '12:00:00.000', displays.string_time
     assert_equal '12:00:00.000', displays.string_time(nil)
     assert_equal '00:00:00.000', displays.string_time(0)
   end

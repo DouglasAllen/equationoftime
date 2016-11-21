@@ -1,3 +1,4 @@
+
 # aliased_angles_displays_spec.rb
 
 gem 'minitest'
@@ -9,8 +10,7 @@ require 'eot'
 
 aliased_angles_displays = Eot.new
 
-describe 'aliased_angles_displays using ajd of 2456885.0' do
-
+describe 'aliased_angles_displays using ajd of 2_456_885.0' do
   before(:each) do
     aliased_angles_displays.jd = 2_456_885.0
     aliased_angles_displays.set_t
@@ -64,7 +64,6 @@ describe 'aliased_angles_displays using ajd of 2456885.0' do
     assert_equal '+023:26:06.164',
                  aliased_angles_displays.true_obliquity_string
   end
-
 end
 
 describe 'Eot angles_displays using ajd of 2_455_055.5' do
@@ -124,6 +123,4 @@ describe 'Eot angles_displays using ajd of 2_455_055.5' do
     assert_equal '+023:26:21.564',
                  aliased_angles_displays.true_obliquity_string
   end
-
-
 end

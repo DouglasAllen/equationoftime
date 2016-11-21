@@ -1,3 +1,4 @@
+
 # class Eot file = jd_times.rb
 # methods returning JD numbers
 class Eot

@@ -10,14 +10,12 @@ require 'eot'
 aliased_displays = Eot.new
 
 describe 'aliased_displays using ajd of 2456885.0' do
-
   before(:each) do
-    aliased_displays.jd  = 2_456_885.0
+    aliased_displays.jd = 2_456_885.0
     ajd = aliased_displays.ajd
     aliased_displays.ma_ta_set
     # check date for this ajd when needed.
     aliased_displays.date = aliased_displays.ajd_to_datetime(ajd)
-
   end
 
   it 'expected from aliased_displays.ajd \
@@ -60,7 +58,7 @@ describe 'aliased_displays using ajd of 2456885.0' do
   it 'expected from aliased_displays.display_time_string() \
                   12:00:00.000 ' do
     assert_equal '12:00:00.000',
-                 aliased_displays.display_time_string()
+                 aliased_displays.display_time_string
     assert_equal '12:00:00.000',
                  aliased_displays.display_time_string(nil)
     assert_equal '00:00:00.000',
@@ -76,7 +74,7 @@ describe 'aliased_displays using ajd of 2456885.0' do
   it 'expected from aliased_displays.jd_to_date_string() \
                   2000-01-01 ' do
     assert_equal '2000-01-01',
-                 aliased_displays.jd_to_date_string()
+                 aliased_displays.jd_to_date_string
     assert_equal '2000-01-01',
                  aliased_displays.jd_to_date_string(nil)
     assert_equal '-4712-01-01',
@@ -85,7 +83,7 @@ describe 'aliased_displays using ajd of 2456885.0' do
 
   it 'expected from aliased_displays.jd_to_date_string(aliased_displays.ajd) \
                   2014-08-15 ' do
-    assert_equal '2014-08-15', 
+    assert_equal '2014-08-15',
                  aliased_displays.jd_to_date_string(aliased_displays.ajd)
   end
 
@@ -128,11 +126,9 @@ describe 'aliased_displays using ajd of 2456885.0' do
     assert_equal '+023:26:06.164',
                  aliased_displays.true_obliquity_string
   end
-
 end
 
 describe 'Eot aliased displays explicit values' do
-
   it 'expected from aliased_displays.display_time_string(16.6780) \
                   16:40:40.800 ' do
     assert_equal '16:40:40.800',
@@ -145,5 +141,4 @@ describe 'Eot aliased displays explicit values' do
     assert_equal '17:59:16.800',
                  aliased_displays.display_time_string(17.988)
   end
-
 end

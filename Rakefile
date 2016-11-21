@@ -70,8 +70,8 @@ Hoe.spec 'equationoftime' do
   developer('Douglas Allen', 'kb9agt@gmail.com')
   license('MIT')
 
-  # self.readme_file   = 'README.rdoc'
-  # self.history_file  = 'CHANGELOG.rdoc'
+  self.readme_file   = 'README.rdoc'
+  self.history_file  = 'CHANGELOG.rdoc'
   # self.extra_rdoc_files  = FileList[]
   extra_dev_deps << ['rake-compiler']
   self.spec_extras = { extensions: ['ext/eot/extconf.rb'] }

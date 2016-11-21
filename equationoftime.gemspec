@@ -1,5 +1,4 @@
 # coding: utf-8
-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot/version.rb'
@@ -24,14 +23,14 @@ Gem::Specification.new do |spec|
   #                      Dir.glob('lib/**/*.rb') + Dir.glob('.*')
   # spec.files         = `git ls-files -z`.split($/)#split("\x0")
   # spec.files         = `git ls-files -z`.split("\x0")
-  spec.files         = `git ls-files`.split($/)
-  spec.extensions    << 'ext/eot/extconf.rb'
+  spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
+  spec.extensions << 'ext/eot/extconf.rb'
   # spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
   spec.has_rdoc      = true
   spec.rdoc_options <<
-    '--title' << 'Equation of Time -- Solar Position Calculator in Ruby' <<
+    '--title' << 'Equation of Time -- Solar Position Calculator in Ruby' \
     '--line-numbers'
   spec.platform = Gem::Platform::RUBY
   spec.add_runtime_dependency 'addressable'
@@ -49,5 +48,4 @@ Gem::Specification.new do |spec|
   # spec.add_development_dependency "rspec", "~> 3.1.0"
   # spec.add_development_dependency "yard", "~> 0.8.7.4"
   # spec.add_development_dependency "rdoc", "~> 4.1.2"
-
 end

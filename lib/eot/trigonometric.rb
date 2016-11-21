@@ -1,3 +1,4 @@
+
 # class Eot file = trigometric.rb
 # methods using trig functions
 class Eot

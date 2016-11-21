@@ -1,3 +1,4 @@
+
 # class Eot file = utilities.rb
 # methods for general use
 class Eot

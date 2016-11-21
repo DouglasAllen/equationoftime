@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'eot'
 eot = Eot.new
 heredoc = <<HD

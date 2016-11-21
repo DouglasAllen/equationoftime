@@ -1,4 +1,5 @@
 
+
 ##
 # = Attributes and initalizer
 #
@@ -25,11 +26,11 @@
 #
 #   calc.jd = DateTime.new(2015, 12, 25).ajd
 #   calc.set_t
-# 
+#
 # Then if you wnat the AJD save it if you need it in your own variable
 # before invoking #set_t again. Perhaps at some point you'll want it
 # for display or your own calculations. Never expect it to be secure
-# from this class. 
+# from this class.
 # read it as follows...
 #
 #   my_var = calc.ajd

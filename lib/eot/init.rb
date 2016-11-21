@@ -1,4 +1,5 @@
 
+
 # class Eot file = int.rb
 # contains initializer and set_t method
 class Eot

@@ -34,7 +34,7 @@ describe 'time_displays using jd of 2_456_885.0' do
   it 'expected from time_displays.jd_to_date_string() \
                   2000-01-01 ' do
     assert_equal '2000-01-01',
-                 time_displays.jd_to_date_string()
+                 time_displays.jd_to_date_string
     assert_equal '2000-01-01',
                  time_displays.jd_to_date_string(nil)
     assert_equal '-4712-01-01',
@@ -79,7 +79,7 @@ describe 'time_displays using jd of 2_455_055.5' do
   it 'expected from time_displays.jd_to_date_string() \
                   2000-01-01 ' do
     assert_equal '2000-01-01',
-                 time_displays.jd_to_date_string()
+                 time_displays.jd_to_date_string
     assert_equal '2000-01-01',
                  time_displays.jd_to_date_string(nil)
     assert_equal '-4712-01-01',

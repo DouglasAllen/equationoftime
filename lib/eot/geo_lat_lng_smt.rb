@@ -1,3 +1,4 @@
+
 # class GeoLatLng file = geo_lat_lng_smt.rb
 # class for location coordinates lookup
 class GeoLatLng
@@ -38,8 +39,8 @@ class GeoLatLng
     if status != 'OK'
       @addr = @default_int
     else
-      @lat   = results[0]['geometry']['location']['lat'].to_f
-      @lng  = results[0]['geometry']['location']['lng'].to_f
+      @lat = results[0]['geometry']['location']['lat'].to_f
+      @lng = results[0]['geometry']['location']['lng'].to_f
     end
   end
 end

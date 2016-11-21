@@ -1,3 +1,4 @@
+
 # class Eot file = time_displays.rb
 # methods for time displays
 class Eot
@@ -125,6 +126,6 @@ if __FILE__ == $PROGRAM_NAME
   spec = File.expand_path('../../../test/eot', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
   require 'time_displays_spec'
-  require 'aliase_time_displays_spec'
+  require 'aliased_time_displays_spec'
 
 end

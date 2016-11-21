@@ -1,3 +1,4 @@
+
 # class Eot file = deltas.rb
 # methods for angle deltas
 class Eot

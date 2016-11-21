@@ -1,3 +1,4 @@
+
 # trig_spec.rb
 gem 'minitest'
 require 'minitest/autorun'
@@ -7,7 +8,7 @@ require 'eot'
 
 angles = Eot.new
 
-describe 'Tests ajd of 2456885.0 ' do
+describe 'Tests cosines for ajd of 2_456_885.0 ' do
   before(:each) do
     angles.jd = 2_456_885.0
     ajd = angles.ajd
@@ -22,7 +23,7 @@ describe 'Tests ajd of 2456885.0 ' do
                  angles.cosine_al_sun.round(10))
   end
 
-  it 'expected from \ angles.cosine_tl_sun.round(10) \
+  it 'expected from angles.cosine_tl_sun.round(10) \
                  -0.794336157 ' do
     assert_equal(-0.794336157,
                  angles.cosine_tl_sun.round(10))
@@ -32,6 +33,16 @@ describe 'Tests ajd of 2456885.0 ' do
                  0.9175115347 ' do
     assert_equal(0.9175115347,
                  angles.cosine_to_earth.round(10))
+  end
+end
+
+describe 'Tests sines for ajd of 2_456_885.0 ' do
+  before(:each) do
+    angles.jd = 2_456_885.0
+    ajd = angles.ajd
+    angles.ma_ta_set
+    # check date for this ajd when needed.
+    angles.date = angles.ajd_to_datetime(ajd)
   end
 
   it 'expected from angles.sine_al_sun.round(10) \
@@ -53,7 +64,7 @@ describe 'Tests ajd of 2456885.0 ' do
   end
 end
 
-describe 'Tests ajd of 2455055.5 ' do
+describe 'Tests cosines for ajd of 2_455_055.5 ' do
   before(:each) do
     angles.jd = 2_455_055.0
     ajd = angles.ajd
@@ -61,7 +72,7 @@ describe 'Tests ajd of 2455055.5 ' do
     # check date for this ajd when needed.
     angles.date = angles.ajd_to_datetime(ajd)
   end
-  
+
   it 'expected from angles.cosine_al_sun.round(10) \
                  -0.754188697 ' do
     assert_equal(-0.754188697,
@@ -79,7 +90,17 @@ describe 'Tests ajd of 2455055.5 ' do
     assert_equal(0.9174818088,
                  angles.cosine_to_earth.round(10))
   end
-  
+end
+
+describe 'Tests sines for ajd of 2_455_055.5 ' do
+  before(:each) do
+    angles.jd = 2_455_055.0
+    ajd = angles.ajd
+    angles.ma_ta_set
+    # check date for this ajd when needed.
+    angles.date = angles.ajd_to_datetime(ajd)
+  end
+
   it 'expected from angles.sine_al_sun.round(10) \
                  0.6566577566 ' do
     assert_equal(0.6566577566,

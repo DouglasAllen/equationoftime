@@ -1,15 +1,14 @@
 
-# frozen_string_literal: true
 source 'https://rubygems.org'
 
 ruby '2.3.1'
 
 gemspec
 
-gem 'apigen', '>=0'
-gem 'mustache'
+# gem 'apigen', '>=0'
 
 group :development, :test do
+  gem 'mustache'
   gem 'rubocop'
   gem 'hoe'
   gem 'rake-compiler'

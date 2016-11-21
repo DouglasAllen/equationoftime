@@ -234,4 +234,3 @@ describe 'Eot angles_displays using ajd of 2_455_055.5' do
                  angles_displays.string_to_earth
   end
 end
-

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # eot_methods_list.rb
 
 require 'eot'

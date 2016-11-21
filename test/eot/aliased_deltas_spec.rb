@@ -107,5 +107,3 @@ describe 'tests ajd of 2455055.5 ' do
                  aliased_deltas.eot.round(10))
   end
 end
-
-

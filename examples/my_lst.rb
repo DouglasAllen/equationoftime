@@ -1,4 +1,5 @@
 
+# frozen_string_literal: true
 require 'eot'
 eot = Eot.new
 puts 'My Local Apparent Sidereal Time'

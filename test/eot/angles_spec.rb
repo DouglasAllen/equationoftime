@@ -1,3 +1,4 @@
+
 # angles_spec.rb
 gem 'minitest'
 require 'minitest/autorun'
@@ -7,7 +8,7 @@ require 'eot'
 
 angles = Eot.new
 
-describe 'Tests ajd of 2456885.0 ' do
+describe 'Tests ajd of 2_456_885.0 ' do
   before(:each) do
     angles.jd = 2_456_885.0
     angles.set_t
@@ -97,11 +98,11 @@ describe 'Tests ajd of 2456885.0 ' do
                  angles.mo_earth.round(10))
   end
 
-#   it 'expected from angles.omega.round(10) \
-#                  -2.7528817371 ' do
-#     assert_equal(-2.7528817371,
-#                  angles.omega.round(10))
-#   end
+  #   it 'expected from angles.omega.round(10) \
+  #                  -2.7528817371 ' do
+  #     assert_equal(-2.7528817371,
+  #                  angles.omega.round(10))
+  #   end
 
   it 'expected from angles.right_ascension_sun.round(10) \
                  2.5297411654 ' do
@@ -201,8 +202,8 @@ describe 'Tests ajd of 2455055.5 ' do
                  angles.gml_sun.round(10))
   end
 
-    it 'expected from angles.ha_sun(nil).round(10) \
-                 1.5858632618 ' do
+  it 'expected from angles.ha_sun(nil).round(10) \
+               1.5858632618 ' do
     assert_equal(1.5858632618,
                  angles.ha_sun(nil).round(10))
   end
@@ -231,7 +232,7 @@ describe 'Tests ajd of 2455055.5 ' do
                  angles.ha_sun(4).round(10))
   end
 
-  it 'expected from angles.ma_sun.round(10) \ 
+  it 'expected from angles.ma_sun.round(10) \
                  3.7871218189 ' do
     assert_equal(3.7871218189,
                  angles.ma_sun.round(10))
@@ -249,11 +250,11 @@ describe 'Tests ajd of 2455055.5 ' do
                  angles.mo_earth.round(10))
   end
 
-#   it 'expected from angles.omega.round(10) \
-#                  -1.0615640635 ' do
-#     assert_equal(-1.0615640635,
-#                  angles.omega.round(10))
-#   end
+  #   it 'expected from angles.omega.round(10) \
+  #                  -1.0615640635 ' do
+  #     assert_equal(-1.0615640635,
+  #                  angles.omega.round(10))
+  #   end
 
   it 'expected from angles.right_ascension_sun.round(10) \
                  2.4675631135 ' do

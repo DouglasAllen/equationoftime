@@ -8,7 +8,6 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 
 describe 'Eot_initialize has set attributes ' do
-
   JD_TODAY = DateTime.now.to_time.utc.to_datetime.jd.to_f
   it "expected #{JD_TODAY} from Eot.new.ajd" do
     assert_equal(JD_TODAY, Eot.new.ajd)
@@ -40,7 +39,6 @@ describe 'Eot_initialize has set attributes ' do
 
   DEFAULT_INT = nil
   it "expected #{DEFAULT_INT} from Eot.new.addr" do
-    assert_equal(DEFAULT_INT,  Eot.new.addr)
+    assert_equal(DEFAULT_INT, Eot.new.addr)
   end
-
 end

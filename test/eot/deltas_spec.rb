@@ -1,3 +1,4 @@
+
 # deltas_spec.rb
 gem 'minitest'
 require 'minitest/autorun'
@@ -7,7 +8,7 @@ require 'eot'
 
 deltas = Eot.new
 
-describe 'Tests ajd of 2456885.0 ' do
+describe 'Tests ajd of 2_456_885.0 ' do
   before(:each) do
     deltas.jd = 2_456_885.0
     deltas.set_t

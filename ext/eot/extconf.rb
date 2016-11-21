@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'mkmf'
 extension_name = 'eot/eot'
 dir_config(extension_name)

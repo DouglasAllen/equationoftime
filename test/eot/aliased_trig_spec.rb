@@ -1,3 +1,4 @@
+
 # aliased_trig_spec.rb
 
 gem 'minitest'
@@ -8,7 +9,7 @@ require 'eot'
 
 aliased_trig = Eot.new
 
-describe 'Tests ajd of 2456885.0 ' do
+describe 'Tests ajd of 2_456_885.0 ' do
   before(:each) do
     aliased_trig.jd = 2_456_885.0
     ajd = aliased_trig.ajd

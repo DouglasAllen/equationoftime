@@ -1,3 +1,4 @@
+
 # More info at https://github.com/guard/guard#readme
 
 guard :minitest do
@@ -8,5 +9,4 @@ guard :minitest do
   # with Minitest::Spec
   watch('test/eot/*_spec.rb')
   watch('lib/eot/*.rb') { |m| "test/#{m[1]}_spec.rb" }
-
 end

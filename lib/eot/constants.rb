@@ -1,4 +1,5 @@
 
+
 require 'date'
 # class Eot file = constants.rb:
 # has the constants used and more
@@ -57,7 +58,7 @@ class Eot
   #   D2000       = '2000-01-01'.freeze
   #
 
-  D2000       = '2000-01-01'.freeze
+  D2000       = '2000-01-01'
 
   # ===
   #
@@ -104,7 +105,6 @@ class Eot
   #
 
   DAY_MINUTES = 1_440.0
-
 
   # ===
   #
@@ -322,7 +322,6 @@ class Eot
   #   max(A,B) - larger (most +ve) of two numbers (generic)
   #   gmax(A,B) = (((A)>(B))?(A):(B))
   #
-
 
   # ===
   #

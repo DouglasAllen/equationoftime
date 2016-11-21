@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'celes'
 
 puts '3 decimal places for 2.345 radians in'

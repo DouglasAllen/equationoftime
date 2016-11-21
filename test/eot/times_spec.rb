@@ -110,13 +110,13 @@ describe 'tests jd of 2_456_885.0 ' do
                  times.nautical_twilight_start_dt.to_s)
   end
 
-  it 'expected from times.nautical_twilight_end_jd \ 
+  it 'expected from times.nautical_twilight_end_jd \
                  2_456_885.2874805206  ' do
     assert_equal(2_456_885.2874805206,
                  times.nautical_twilight_end_jd)
   end
 
-  it 'expected from times.nautical_twilight_start_jd \ 
+  it 'expected from times.nautical_twilight_start_jd \
                  2_456_884.7187468973 ' do
     assert_equal(2_456_884.7187468973,
                  times.nautical_twilight_start_jd)
