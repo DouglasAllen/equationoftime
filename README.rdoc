@@ -4,7 +4,7 @@
 
 Home    :: http://equationoftime.herokuapp.com/
 Code    :: https://github.com/DouglasAllen/equationoftime
-RDoc    :: http://rubydoc.info/gems/equationoftime/4.1.9/frames
+RDoc    :: http://www.rubydoc.info/github/DouglasAllen/gem-equationoftime/master
 Issues  :: https://github.com/DouglasAllen/equationoftime/issues
 
 
