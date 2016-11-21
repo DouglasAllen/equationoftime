@@ -5,8 +5,8 @@ class Eot
 
   # ===
   #
-  #   Apparent solar longitude = true longitude - aberation
-  #   Sometimes this is called lambda in astronomival calculations.
+  #   Apparent solar longitude = true longitude - abberation
+  #   Sometimes this is called lambda in astronomical calculations.
   #
   def al_sun
     al(@t)
