@@ -1,17 +1,14 @@
+
 ##
 # class Eot file = times.rb:
-# methods calculating times
+# methods for calculating times
 #
 class Eot
-
-  ##
-  # From times.rb:
-
-  # Pass in an AJD number
-  # Returns a DateTime object
-  # only DateTime#jd() to work with so
-  # add a half day to make it work.
-
+  # ===
+  #
+  #   Solves the problem for converting back to a
+  #   correct DateTime
+  #
   def ajd_to_datetime(ajd)
     DateTime.jd(ajd + 0.5)
   end

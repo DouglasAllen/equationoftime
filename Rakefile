@@ -1,41 +1,49 @@
 
-# require "rubygems"
+# encoding: utf-8
+
+require 'rubygems'
+require 'bundler'
+begin
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts 'Run `bundle install` to install missing gems'
+  exit e.status_code
+end
 require 'bundler/gem_tasks'
-# require "bundler/install_tasks"
+
 require 'hoe'
 
+require 'rake'
+require 'rake/clean'
 require 'rake/extensiontask'
 require 'rake/testtask'
-# require "rake/win32"
+require 'rake/win32'
 require 'rdoc/task'
 require 'rspec/core/rake_task'
 require 'yard'
-# begin
-#   require 'rubygems/gempackagetask'
-# rescue LoadError
-# end
-# require 'rake/clean'
-# require 'rbconfig'
-# include RbConfig
 
-#Hoe.plugins.delete :newb
-#Hoe.plugins.delete :test
-#Hoe.plugins.delete :signing
-#Hoe.plugins.delete :publish
-#Hoe.plugins.delete  :clean
-#Hoe.plugins.delete :package
-#Hoe.plugins.delete :compiler
-#Hoe.plugins.delete :debug
-#Hoe.plugins.delete :rcov
-#Hoe.plugins.delete :gemcutter
-#Hoe.plugins.delete :racc
-#Hoe.plugins.delete :inline
-#Hoe.plugins.delete :gem_prelude_sucks
-#Hoe.plugins.delete :flog
-#Hoe.plugins.delete :flay
+require 'rbconfig'
+include RbConfig
+
+# Hoe.plugins.delete :newb
+# Hoe.plugins.delete :test
+# Hoe.plugins.delete :signing
+# Hoe.plugins.delete :publish
+# Hoe.plugins.delete :clean
+# Hoe.plugins.delete :package
+# Hoe.plugins.delete :compiler
+# Hoe.plugins.delete :debug
+# Hoe.plugins.delete :rcov
+# Hoe.plugins.delete :gemcutter
+# Hoe.plugins.delete :racc
+# Hoe.plugins.delete :inline
+# Hoe.plugins.delete :gem_prelude_sucks
+# Hoe.plugins.delete :flog
+# Hoe.plugins.delete :flay
 # Hoe.plugins.delete :deps
 # Hoe.plugins.delete :minitest
-#Hoe.plugins.delete :rdoc
+# Hoe.plugins.delete :rdoc
 # Hoe.plugins.delete :travis
 
 # Hoe.plugin :newb
@@ -61,10 +69,10 @@ Hoe.plugin :travis
 Hoe.spec 'equationoftime' do
   developer('Douglas Allen', 'kb9agt@gmail.com')
   license('MIT')
-  
-  #self.readme_file   = 'README.rdoc'
-  #self.history_file  = 'CHANGELOG.rdoc'
-  #self.extra_rdoc_files  = FileList[]
+
+  # self.readme_file   = 'README.rdoc'
+  # self.history_file  = 'CHANGELOG.rdoc'
+  # self.extra_rdoc_files  = FileList[]
   extra_dev_deps << ['rake-compiler']
   self.spec_extras = { extensions: ['ext/eot/extconf.rb'] }
 
@@ -84,6 +92,12 @@ Rake::TestTask.new(:test) do |t|
   t.options
 end
 
+desc 'Code coverage detail'
+task :simplecov do
+  ENV['COVERAGE'] = 'true'
+  Rake::Task['test'].execute
+end
+
 # RSpec::Core::RakeTask.new(:spec) do | t |
 #   t.pattern = './test/eot/*_spec.rb'
 #   t.rspec_opts = []
@@ -96,13 +110,11 @@ end
 
 desc 'generate API documentation to rdocs/index.html'
 Rake::RDocTask.new(:docs) do |rd|
-
   rd.rdoc_dir = 'rdocs'
 
   rd.rdoc_files.include 'lib/eot/*.rb', 'README.rdoc', 'wiki.md'
 
   rd.options << '--line-numbers'
-
 end
 
 # require 'rake/extensiontask'

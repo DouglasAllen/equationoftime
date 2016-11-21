@@ -1,4 +1,5 @@
-# eot.rb
+
+
 # require 'multi_xml'
 require 'addressable/uri'
 require 'celes'

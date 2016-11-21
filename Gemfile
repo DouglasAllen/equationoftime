@@ -6,6 +6,9 @@ ruby '2.3.1'
 
 gemspec
 
+gem 'apigen', '>=0'
+gem 'mustache'
+
 group :development, :test do
   gem 'rubocop'
   gem 'hoe'
@@ -18,4 +21,7 @@ group :development, :test do
   gem 'yard'
   gem 'rdoc'
   gem 'ffi'
+  gem 'simplecov'
+  gem 'test-unit'
+  gem 'shoulda'
 end

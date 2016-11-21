@@ -1,22 +1,39 @@
 
 # class Eot file = int.rb
-# attributes, a setter and init method
+# contains initializer and set_t method
 class Eot
-  # From init.rb:
-  # address is a String ex: "houston, tx"
+  # ===
+  #
+  #   in lib/eot/init.rb:
+  #   :addr is entered as a String ex: "houston, tx"
+  #   and is used for Google Geo location lookup.
+  #   There are two of these. One is in GeoLatLng class
+  #   and this one you may use this for storage only.
+  #   It has no effect otherwise.
+  #   see GeoLatLng class #new and #set_coordinates
+  #
+
   attr_accessor :addr
 
-  # From init.rb:
-  # Astronomical Julian Day Number
-  # instance of Float class.
-  # ajd or jd. Use ajd for time now and jd for noon
-  # init sets ajd = DateTime.now.to_time.utc.to_datetime.jd.to_f
+  # ===
+  #
+  #   in lib/eot/init.rb:
+  #   @ajd gets set the same as @jd all the time.
+  #   This just saves the confusion of which one to use.
+  #   So let Ruby Date and DateTime classes decide.
+  #   You could use this for storage temporarally until
+  #   it gets reset by #set_t method.
+  #
   attr_accessor :ajd
 
-  # From init.rb
-  # method to reset ma and ta after initialization
-  # init sets them using ajd initial Float value
-  # see: :ajd attribute
+  # ===
+  #
+  #   in lib/eot/init.rb:
+  #   see the source.
+  #   Use this every time you make changes for either
+  #   location or date.
+  #   Also see the top document for Eot class.
+  #
   def set_t
     @t = ((@jd - DJ00) / DJC).to_f
     @ma = ma_sun
@@ -25,44 +42,59 @@ class Eot
   end
   alias ma_ta_set set_t
 
-  # From init.rb:
-  # Date
-  # instance of DateTime class
-  # initialized to = ajd_to_datetime(@jd)
+  # ===
+  #
+  #   in lib/eot/init.rb:
+  #   see the top document for Eot class.
+  #
   attr_accessor :date
 
-  # From init.rb:
-  # Julian Day Number
-  # instance of Float class
-  # initialized to = ajd
+  # ===
+  #
+  #   in lib/eot/init.rb:
+  #   see the top document for Eot class.
+  #
   attr_accessor :jd
 
-  # From init.rb:
-  # Latitude input
-  # instance of Float class
-  # initialized to = 0.0
+  # ===
+  #
+  #   in lib/eot/init.rb:
+  #   set this before making new calculations.
+  #   New class objects set this to 0.0
+  #
   attr_accessor :latitude
 
-  # From init.rb:
-  # Longitude input
-  # instance of Float class
-  # initialized to = 0.0
+  # ===
+  #
+  #   in lib/eot/init.rb:
+  #   set this before making new calculations.
+  #   New class objects set this to 0.0
+  #
   attr_accessor :longitude
 
-  # From init.rb:
-  # Julian Century gets called often
-  # instance of Float class
-  # ta = (( @ajd - DJ00 ) / DJC).to_f
+  # ===
+  #
+  #   in lib/eot/init.rb:
+  #   Don't make any changes to this because for
+  #   one it gets reset each time #set_t method is used.
+  #   You may of course look at the value anytime.
+  #
   attr_accessor :t
 
-  # From init.rb:
-  # Mean Anomaly gets called often
-  # instance of Float class
-  # ma = Celes.falp03(@ta) see: celes gem
+  # ===
+  #
+  #   in lib/eot/init.rb:
+  #   Don't make any changes to this because for
+  #   one it gets reset each time #set_t method is used.
+  #   You may of course look at the value anytime.
+  #
   attr_accessor :ma
 
-  # From init.rb:
-  # Initialize to set attributes
+  # ===
+  #
+  #   in lib/eot/init.rb:
+  #   Eot::new
+  #
   def initialize
     d = DateTime.now.to_time.utc.to_datetime
     @jd = d.jd

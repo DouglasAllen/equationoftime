@@ -2,11 +2,12 @@
 # class Eot file = angles.rb:
 # methods for non delta angle calculations.
 class Eot
-  ##
-  # From angles.rb:
 
-  # Apparent solar longitude = true longitude - aberation
-
+  # ===
+  #
+  #   Apparent solar longitude = true longitude - aberation
+  #   Sometimes this is called lambda in astronomival calculations.
+  #
   def al_sun
     al(@t)
   end
