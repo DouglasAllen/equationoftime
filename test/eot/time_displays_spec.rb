@@ -169,10 +169,10 @@ end
 describe 'time_displays of parts for ajd of 2_455_055.5' do
   before(:each) do
     time_displays.jd = 2_455_055.5
-    ajd = time_displays.ajd
     time_displays.set_t
     # check date for this ajd when needed.
-    time_displays.date = time_displays.ajd_to_datetime(ajd)
+    time_displays.date =
+      time_displays.jd_to_datetime(time_displays.jd)
   end
 
   it 'expected from time_displays.format_time(14, 53, 51, 0) \
