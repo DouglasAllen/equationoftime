@@ -38,7 +38,7 @@ class Eot
   def set_t
     @t = ((@jd - DJ00) / DJC).to_f
     @ma = ma_sun
-    @date = jd_to_datetime(@jd)
+    @date = ajd_to_datetime(@jd)
     @ajd = @jd
   end
   alias ma_ta_set set_t
