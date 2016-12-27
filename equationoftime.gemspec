@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Equation of Time calculates time of solar transition.'
   spec.description   = 'Calculate Sunrise and Sunset. Uses native C wrappers.
                         Use the patch "gem install eot" to install it.'
-  spec.web           = "http://equationoftime.herokuapp.com"
+  # spec.web           = "http://equationoftime.herokuapp.com"
   spec.homepage      = 'https://github.com/DouglasAllen/gem-equationoftime'
   spec.license       = 'MIT'
 
