@@ -184,4 +184,11 @@ class TestEot < Minitest::Test
       "Sun sets \t\t\t : #{set.floor}:#{(set % 1 * 60.0).floor} UTC"
     )
   end
+
+  def test_j2000_dif
+    assert_equal(
+      0.0,
+      @t.j2000_dif(2000, 1, 1)
+    )
+  end
 end

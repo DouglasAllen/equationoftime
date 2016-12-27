@@ -7,18 +7,17 @@
 #ifndef DBL2NUM
 # define DBL2NUM(dbl) rb_float_new(dbl)
 #endif
+/* Some conversion factors between radians and degrees */
 #define R2D ( 180.0 / PI )
 #define D2R ( PI / 180.0 )
+
 #define M2PI M_PI * 2
 #define INV24 1.0 / 24.0
 /* 1.1.1970 = JD 2440587.5 */
 #define EJD (double) 2440587.5
 #define DJ00 (double) 2451545.0
-#define days_since_2000_Jan_0(y,m,d) \
-    (367L * (y) - ((7 * ((y) + (((m) + 9) / 12))) / 4) + ((275 * (m))  /9) + (d) - 730531.5L)
-
-/* Some conversion factors between radians and degrees */
-
+#define days_since_2000_Jan_0(y, m, d) \
+(int) 367 * y - (int)(7 * (y + (int)((m + 9) / 12)) / 4) + (int)((275 * m) / 9) + d - 730531.5
 
 static ID id_status;
 static ID id_push;
@@ -535,10 +534,12 @@ func_cjd(VALUE self) {
 C extension
 */
 static VALUE
-func_date(VALUE self) {
-  VALUE obj;
-  obj = rb_intern("jd");
-  return DBL2NUM(obj);
+func_jd_dif(VALUE self, VALUE vy, VALUE vm, VALUE vd) {
+  int y = NUM2INT(vy);
+  int m = NUM2INT(vm);
+  int d = NUM2INT(vd);
+  int vjd = days_since_2000_Jan_0(y, m, d);
+  return INT2NUM(vjd);
 }
 /*
 C extension
@@ -593,7 +594,7 @@ void Init_eot(void)
   // rb_define_method(cEot, "sun", func_sun, 3);
   // rb_define_method(cEot, "sun_ra", func_sun_ra, 2);
   rb_define_method(cEot, "jd", func_cjd, 0);
-  rb_define_method(cEot, "date", func_date, 0);
+  rb_define_method(cEot, "j2000_dif", func_jd_dif, 3);
   id_push = rb_intern("push");
   id_time = rb_intern("time");
 }
