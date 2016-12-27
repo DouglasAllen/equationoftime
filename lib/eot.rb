@@ -1,5 +1,8 @@
 # eot.rb
 require 'eot/eot/eot'
+require 'eot/version'
+require 'eot/constants'
+require 'eot/main'
 # require 'addressable/uri'
 
 # require 'json'
@@ -7,7 +10,7 @@ require 'eot/eot/eot'
 
 # require 'date'
 
-# require 'eot/main'
+
 # require 'eot/all'
 
 # require 'eot/angles/delta_angles'
@@ -24,7 +27,7 @@ require 'eot/eot/eot'
 # require 'eot/times/delta_jd_times'
 # require 'eot/times/dt_times'
 # require 'eot/times/jd_times'
-# require 'eot/constants'
+
 # require 'eot/trigonometric'
 # require 'eot/utilities'
-# require 'eot/version'
+

@@ -7,51 +7,53 @@ lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'eot'
-
-class TestEot < Minitest::Test
-
+#
+class TestMain < Minitest::Test
   describe 'Eot_initialize has set attributes ' do
-
     before(:each) do
-      @main = Eot.new
-      @main.ajd  =   2_456_885.0
-      ajd = @main.ajd
-      @main.set_t_ma
-      # check date for this ajd when needed.
-      @main.date = @main.ajd_to_datetime(ajd)
+      @main = Main.new
+      @main.jd = 2_456_885.0
+      @main.ajd = 2_456_885.0
+      @main.date = DateTime.jd(2_456_885.0 + 0.5)
     end
 
-    it "expected   2456885.0 from @main.jd" do
-      assert_equal(2456885.0, @main.jd)
+    it 'expected   2456885.0 from @main.jd' do
+      assert_equal(2_456_885.0, @main.jd)
     end
 
-    it "expected   2456885.0 from @main.ajd" do
-      assert_equal(2456885.0, @main.ajd)
+    it 'expected   2456885.0 from @main.ajd' do
+      assert_equal(2_456_885.0, @main.ajd)
     end
 
     it "expected   '2014-08-15T12:00:00+00:00' from @main.date.to_s" do
-      assert_equal("2014-08-15T12:00:00+00:00", @main.date.to_s)
+      assert_equal('2014-08-15T12:00:00+00:00', @main.date.to_s)
     end
 
-    it "expected   0.0 from @main.latitude" do
+    it 'expected   0.0 from @main.latitude' do
       assert_equal(0.0, @main.latitude)
     end
 
-    it "expected   0.0 from @main.longitude" do
+    it 'expected   0.0 from @main.longitude' do
       assert_equal(0.0, @main.longitude)
     end
+  end
+end
 
-    it "expected   3.8508003966038915 from @main.ma" do
-      assert_equal(3.8508003966038915, @main.ma)
+#
+class TestMainSetter < Minitest::Test
+  describe 'Eot_initialize has set attributes ' do
+    before(:each) do
+      @main = Main.new
+      @main.jd = 2_456_885.0
+      @main.set_t_ma
     end
 
-    it "expected   0.1462012320328542 from @main.t" do
-      assert_equal(0.1462012320328542, @main.t)
+    it 'expected   3.850800396604 from @main.ma' do
+      assert_equal(3.850800396604, @main.ma.round(12))
     end
 
-    it "expected   nil from @main.addr" do
-      assert_equal(nil,  @main.addr)
+    it 'expected   0.146201232033 from @main.t' do
+      assert_equal(0.146201232033, @main.t.round(12))
     end
-
   end
 end

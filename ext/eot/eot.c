@@ -538,7 +538,7 @@ func_jd_dif(VALUE self, VALUE vy, VALUE vm, VALUE vd) {
   int y = NUM2INT(vy);
   int m = NUM2INT(vm);
   int d = NUM2INT(vd);
-  int vjd = days_since_2000_Jan_0(y, m, d);
+  int vjd = days_since_2000_Jan_0(y, m, d + 1);
   return INT2NUM(vjd);
 }
 /*

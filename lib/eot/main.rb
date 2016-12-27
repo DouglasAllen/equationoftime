@@ -1,7 +1,7 @@
+
 # class Eot file = main.rb
 # attributes, a setter and init method
-
-class Eot
+class Main
 
   # From init.rb:
   # address is a String ex: "houston, tx"
@@ -19,9 +19,8 @@ class Eot
   # init sets them using ajd initial Float value
   # see: :ajd attribute
   def set_t_ma
-    @jd = (Integer(@ajd - 0.5) + 1).to_f
-    @t = ((@ajd - DJ00) / DJC).to_f
-    @ma = Eot.mean_anomaly(@t)
+    @t = (@jd - Eot::DJ00) / 36_525.0
+    @ma = @cs.mean_anomaly(@jd)
   end
 
   # From init.rb:
@@ -61,12 +60,12 @@ class Eot
   # Initialize to set attributes
   def initialize
     d = DateTime.now.to_time.utc.to_datetime
-    @jd = Eot.date2ajd(d.year, d.month, d.day) + 0.5
-    @ajd = Eot.date2ajd(d.year, d.month, d.day) + d.day_fraction
-    @t = (@jd - 2451545.0)/36525
-    @ma = Eot.mean_anomaly
-    @date = ajd_to_datetime(@jd)
-    @latitude,  @longitude = 0.0,  0.0
+    @cs = Eot.new
+    @jd = @cs.j2000_dif(d.year, d.month, d.day) + Eot::DJ00
+    @ajd = @jd + d.day_fraction
+    @date = DateTime.jd(@jd + 0.5)
+    @latitude = 0.0
+    @longitude = 0.0
   end
 end
 
@@ -75,19 +74,5 @@ if __FILE__ == $PROGRAM_NAME
   lib = File.expand_path('../../../lib', __FILE__)
   $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
   require 'eot'
-  eot = Eot.new
-  p eot.ajd
-  p eot.date
-  p eot.jd
-  p eot.ma
-  p eot.ta
-  p eot.addr
-  p eot.latitude
-  p eot.longitude
-  list = eot.public_methods(false).sort
-  list.each { |i| puts i.to_sym }
-  spec = File.expand_path('../../../test/eot', __FILE__)
-  $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-  require 'init_spec'
-  # bundle exec rake
+
 end
