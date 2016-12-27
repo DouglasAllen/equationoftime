@@ -17,7 +17,7 @@ gem 'hoe'
 gem 'rake-compiler', '~> 0.9.3'
 
 group :development, :test do
-  gem 'rubocop'
+  # gem 'rubocop'
   gem 'guard'
   gem 'minitest'
   gem 'guard-minitest'
