@@ -21,7 +21,7 @@ class Eot
   def set_t_ma
     @jd = (Integer(@ajd - 0.5) + 1).to_f
     @t = ((@ajd - DJ00) / DJC).to_f
-    @ma = Helio.mean_anomaly(@t)
+    @ma = Eot.mean_anomaly(@t)
   end
 
   # From init.rb:
@@ -61,12 +61,12 @@ class Eot
   # Initialize to set attributes
   def initialize
     d = DateTime.now.to_time.utc.to_datetime
-    @jd = Helio.date2ajd(d.year, d.month, d.day) + 0.5
-    @ajd = Helio.date2ajd(d.year, d.month, d.day) + d.day_fraction
+    @jd = Eot.date2ajd(d.year, d.month, d.day) + 0.5
+    @ajd = Eot.date2ajd(d.year, d.month, d.day) + d.day_fraction
     @t = (@jd - 2451545.0)/36525
-    @ma = mean_anomaly
-    @date = ajd_to_datetime(@jd)    
-    @latitude,  @longitude = 0.0,  0.0      
+    @ma = Eot.mean_anomaly
+    @date = ajd_to_datetime(@jd)
+    @latitude,  @longitude = 0.0,  0.0
   end
 end
 

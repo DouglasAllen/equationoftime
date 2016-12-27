@@ -4,14 +4,14 @@
 
 class Eot
 
-  ## 
+  ##
   # From angles.rb:
 
   # angle geometric mean longitude
   # needed to get true longitude for low accuracy.
 
   def mean_longitude
-    Helio.mean_longitude(@t)
+    # Helio.mean_longitude(@t)
   end
 
   ##
@@ -24,7 +24,7 @@ class Eot
   # and to get true anomaly true longitude via center equation
 
   def mean_anomaly
-    @ma = Helio.mean_anomaly(@t)
+    @ma = Eot.mean_anomaly(@t)
   end
 
   ##
@@ -34,7 +34,7 @@ class Eot
   # # see http://www.iausofa.org/publications/aas04.pdf
 
   def mean_longitude_aries
-    Helio.mean_longitude_aries(@t);
+    #Helio.mean_longitude_aries(@t);
   end
 
   ##
@@ -43,7 +43,7 @@ class Eot
   # mean obliquity of Earth
 
   def mean_obliquity
-    Helio.mean_obliquity(@t)
+    # Helio.mean_obliquity(@t)
   end
 
 end

@@ -7,12 +7,13 @@ source 'https://rubygems.org'
 # ruby '2.1.2'
 # ruby '2.1.3'
 # ruby '2.1.4'
-ruby '2.2.2'
+# ruby '2.2.2'
+# ruby '2.3.1'
 
 gemspec
 
 gem 'hoe'
-gem 'mini_portile'
+# gem 'mini_portile'
 gem 'rake-compiler', '~> 0.9.3'
 
 group :development, :test do

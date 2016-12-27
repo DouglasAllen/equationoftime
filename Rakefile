@@ -1,14 +1,15 @@
-require 'mini_portile'
+# frozen_string_literal: true
+# require 'mini_portile'
 require 'bundler/gem_tasks'
-#require "bundler/install_tasks"
+# require "bundler/install_tasks"
 
 require 'rake/extensiontask'
-#require 'rake/testtask'
+# require 'rake/testtask'
 # require "rake/win32"
 
 require 'rdoc/task'
 
-#require 'rspec/core/rake_task'
+# require 'rspec/core/rake_task'
 
 require 'yard'
 
@@ -65,34 +66,34 @@ require 'hoe'
 Hoe.spec 'equationoftime' do
   developer('Douglas Allen', 'kb9agt@gmail.com')
   license('MIT')
-  
+
   self.readme_file   = 'README.rdoc'
   self.history_file  = 'CHANGELOG.rdoc'
-  self.extra_rdoc_files  = FileList[]
+  self.extra_rdoc_files = FileList[]
   extra_dev_deps << ['rake-compiler', '~> 0.9', '>= 0.9.3']
-  #self.spec_extras = { extensions: ['ext/helio/extconf.rb'] }
+  self.spec_extras = { extensions: ['ext/eot/extconf.rb'] }
 
-  Rake::ExtensionTask.new('helio', spec) do |ext|
-    ext.lib_dir = File.join('lib', 'eot/helio')
+  Rake::ExtensionTask.new('eot', spec) do |ext|
+    ext.lib_dir = File.join('lib', 'eot/eot')
   end
 end
 
 Rake::Task[:test].prerequisites << :compile
 
-#task default: [:test]
+# task default: [:test]
 
-#Rake::TestTask.new(:test) do |t|
-  #t.libs << 'test'
-  #t.test_files = FileList['test/eot/*.rb']
-  #t.verbose = true
-  #t.options
-#end
+# Rake::TestTask.new(:test) do |t|
+# t.libs << 'test'
+# t.test_files = FileList['test/eot/*.rb']
+# t.verbose = true
+# t.options
+# end
 
-#RSpec::Core::RakeTask.new(:spec) do | t |
-  #t.libs << 'test'
-  #t.pattern = './test/eot/*.rb'
-  #t.rspec_opts = []
-#end
+# RSpec::Core::RakeTask.new(:spec) do | t |
+# t.libs << 'test'
+# t.pattern = './test/eot/*.rb'
+# t.rspec_opts = []
+# end
 
 YARD::Rake::YardocTask.new(:yardoc) do |t|
   t.files = ['lib/eot/*.rb']
@@ -101,13 +102,11 @@ end
 
 desc 'generate API documentation to rdocs/index.html'
 Rake::RDocTask.new(:docs) do |rd|
-
   rd.rdoc_dir = 'rdocs'
 
   rd.rdoc_files.include 'lib/eot/*.rb', 'README.rdoc', 'wiki.md'
 
   rd.options << '--line-numbers'
-
 end
 
 # require 'rake/extensiontask'
