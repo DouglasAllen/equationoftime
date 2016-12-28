@@ -1,54 +1,54 @@
 ##
-# class Eot file = true_angles.rb:
+# class Main file = true_angles.rb:
 # methods for true angle calculations.
-
-class Eot
+class Main
 
   ##
-  # From angles.rb:
+  # From true_angles.rb:
 
   # angle true anomaly
   # used in equation of time
 
   def true_anomaly
-    Helio.true_anomaly(@t)
+    @cs.true_anomaly(@jd)
   end
 
   ##
-  # From angles.rb:
+  # From true_angles.rb:
 
   # true longitude of equinox 'first point of aries'
   # considers nutation
 
   def true_longitude_aries
-    Helio.true_longitude_aries(@t);
+    'not implemented yet'
+    # @cs.true_longitude_aries(@jd);
   end
 
   ##
-  # From angles.rb:
+  # From true_angles.rb:
 
   # angle of true longitude sun
   # used in equation of time
 
   def true_longitude
-    Helio.true_longitude(@t)
+    @cs.true_longitude(@jd)
   end
- 
+
   ##
-  # From angles.rb:
+  # From true_angles.rb:
 
   # true obliquity considers nutation
 
   def true_obliquity
-    Helio.true_obliquity(@t)
+    'not implemented yet'
+    # @cs.true_obliquity(@jd)
   end
-
 end
 
 if __FILE__ == $PROGRAM_NAME
 
-  spec = File.expand_path('../../../test/eot', __FILE__)
+  spec = File.expand_path('../../../../test/eot', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-  require 'angles_spec'
+  require 'true_angles_spec'
 
 end
