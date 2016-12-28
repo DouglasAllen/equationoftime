@@ -1,8 +1,7 @@
 ##
-# class Eot file = other_angles.rb:
+# class Main file = other_angles.rb:
 # methods for non delta other angle calculations.
-
-class Eot
+class Main
   ##
   # From other_angles.rb:
 
@@ -16,19 +15,8 @@ class Eot
   ##
   # From other_angles.rb:
 
-  # eccentricity of elliptical Earth orbit around Sun
-  # Horners' calculation method
-
-  def eccentricity
-    Helio.earth_orbital_eccentricity(@t)
-  end
-
-
-  ##
-  # From other_angles.rb:
-
   # equation of equinox is
-  # used for true longitude of Aries but 
+  # used for true longitude of Aries but
   # Depricated by Celes.gst06a()
   # components are still used
   # see: #cosine_to_earth and #angle_delta_psi
@@ -46,6 +34,6 @@ class Eot
   # on the ecliptic plane measured from the mean equinox of date.
 
   def omega
-    Helio.omega(@t)
+    @cs.faom(@jd)
   end
 end

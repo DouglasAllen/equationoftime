@@ -427,6 +427,66 @@ func_mla(VALUE self, VALUE vjd)
 /*
 C extension
 */
+static VALUE
+func_cosZ(VALUE self, VALUE vz) {
+  double zenith = NUM2DBL(vz);
+  double cz = cos(zenith * D2R);
+  return DBL2NUM(cz);
+}
+/*
+C extension
+*/
+static VALUE
+func_sin_dec(VALUE self, VALUE vjd) {
+  double dec = NUM2DBL(func_dec(self, vjd));
+  double sin_dec = sin(dec);
+  return DBL2NUM(sin_dec);
+}
+/*
+C extension
+*/
+static VALUE
+func_sin_lat(VALUE self, VALUE vlat) {
+  double lat = NUM2DBL(vlat);
+  double sin_lat = sin(lat * D2R);
+  return DBL2NUM(sin_lat);
+}
+/*
+C extension
+*/
+static VALUE
+func_cos_dec(VALUE self, VALUE vjd) {
+  double dec = NUM2DBL(func_dec(self, vjd));
+  double cos_dec = cos(dec);
+  return DBL2NUM(cos_dec);
+}
+/*
+C extension
+*/
+static VALUE
+func_cos_lat(VALUE self, VALUE vlat) {
+  double lat = NUM2DBL(vlat);
+  return DBL2NUM(cos(lat * D2R));
+ }
+/*
+C extension
+*/
+static VALUE
+func_sun(VALUE self, VALUE vz, VALUE vjd, VALUE vlat) {
+  double cosZ = NUM2DBL(func_cosZ(self, vz));
+  double sin_dec = NUM2DBL(func_sin_dec(self, vjd));
+  double sin_lat = NUM2DBL(func_sin_lat(self, vlat));
+  double top  = cosZ - sin_dec * sin_lat;
+  double cos_dec = NUM2DBL(func_cos_dec(self, vjd));
+  double cos_lat = NUM2DBL(func_cos_lat(self, vlat));
+  double bot = cos_dec * cos_lat;
+  double ca = top / bot;
+  double c = (ca > 1.0 || ca < -1.0) ? 1.0: ca;
+   return DBL2NUM(acos(c));
+}
+/*
+C extension
+*/
 // static VALUE
 // func_et(VALUE self, VALUE vt, VALUE vctoe) {
 //   double ec, al, ra;
@@ -436,14 +496,7 @@ C extension
 //   return -ec + al - ra;
 //   return DBL2NUM(eot(NUM2DBL(vt), NUM2DBL(vctoe)));
 // }
-/*
-C extension
-*/
-// static VALUE
-// func_cosZ(VALUE self, VALUE vz) {
-//   cos(zenith * D2R);
-//   return DBL2NUM(cosZ(NUM2DBL(vz)));
-// }
+
 /*
 C extension
 */
@@ -451,14 +504,6 @@ C extension
 // func_cos_al_sun(VALUE self, VALUE vt) {
 //   cos(al_sun(t));
 //   return DBL2NUM(cos_al_sun(NUM2DBL(vt)));
-// }
-/*
-C extension
-*/
-// static VALUE
-// func_cos_dec_sun(VALUE self, VALUE vds) {
-//   cos(dec_sun);
-//   return DBL2NUM(cos_dec_sun(NUM2DBL(vds)));
 // }
 /*
 C extension
@@ -499,42 +544,6 @@ C extension
 // func_sin_to_earth(VALUE self, VALUE vtoe) {
 //   sin(to_earth);
 //   return DBL2NUM(sin_to_earth(NUM2DBL(vtoe)));
-// }
-/*
-C extension
-*/
-// static VALUE
-// func_sin_dec_sun(VALUE self, VALUE vds) {
-//   sin(dec_sun);
-//   return DBL2NUM(sin_dec_sun(NUM2DBL(vds)));
-// }
-/*
-C extension
-*/
-// static VALUE
-// func_sin_lat(VALUE self, VALUE vlat) {
-//   sin(lat * D2R);
-//   return DBL2NUM(sin_lat(NUM2DBL(vlat)));
-// }
-/*
-C extension
-*/
-// static VALUE
-// func_cos_lat(VALUE self, VALUE vlat) {
-//   cos(lat * D2R);
-//   return DBL2NUM(cos_lat(NUM2DBL(vlat)));
-// }
-/*
-C extension
-*/
-// static VALUE
-// func_sun(VALUE self, VALUE vz, VALUE vds, VALUE vlat) {
-//   double top  = cosZ(zenith) - sin_dec_sun(dec_sun) * sin_lat(lat);
-//   double bot  = cos_dec_sun(dec_sun) * cos_lat(lat);
-//   double ca   = top / bot;
-//   double c = (ca > 1.0 || ca < -1.0) ? 1.0: ca;
-//   return acos(c);
-//   return DBL2NUM(sun(NUM2DBL(vz), NUM2DBL(vds), NUM2DBL(vlat)));
 // }
 /*
 C extension
@@ -612,6 +621,7 @@ void Init_eot(void)
   "t_mid_day", func_t_mid_day, 3);
   rb_define_method(cEot, "apparent_longitude", func_al, 1);
   rb_define_method(cEot, "mean_longitude_aries", func_mla, 1);
+  rb_define_method(cEot, "horizon_angle", func_sun, 3);
   // rb_define_method(cEot, "cosZ", func_cosZ, 1);
   // rb_define_method(cEot, "cos_al_sun", func_cos_al_sun, 1);
   // rb_define_method(cEot, "cos_dec_sun", func_cos_dec_sun, 1);
@@ -624,7 +634,6 @@ void Init_eot(void)
   // rb_define_method(cEot, "sin_lat", func_sin_lat, 1);
   // rb_define_method(cEot, "sin_tl_sun", func_sin_tl_sun, 1);
   // rb_define_method(cEot, "sin_to_earth", func_sin_to_earth, 1);
-  // rb_define_method(cEot, "sun", func_sun, 3);
   // rb_define_method(cEot, "sun_ra", func_sun_ra, 2);
   rb_define_method(cEot, "jd", func_cjd, 0);
   rb_define_method(cEot, "j2000_dif", func_jd_dif, 3);

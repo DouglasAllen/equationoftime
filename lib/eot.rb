@@ -5,6 +5,7 @@ require 'eot/constants'
 require 'eot/main'
 require 'eot/angles/mean_angles'
 require 'eot/angles/true_angles'
+require 'eot/angles/solar_angles'
 # require 'addressable/uri'
 # require 'json'
 # require 'rest-client'
@@ -14,7 +15,7 @@ require 'eot/angles/true_angles'
 # require 'eot/angles/delta_angles'
 
 # require 'eot/angles/other_angles'
-# require 'eot/angles/solar_angles'
+
 
 # require 'eot/geo/geo_lat_lng_smt'
 

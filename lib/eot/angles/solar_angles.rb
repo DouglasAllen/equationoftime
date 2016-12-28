@@ -1,62 +1,90 @@
 ##
-# class Eot file = solar_angles.rb:
+# class Mainb file = solar_angles.rb:
 # methods for non delta angle calculations.
-
-class Eot
+class Main
 
   ##
-  # From angles.rb:
+  # From solar_angles.rb:
 
   # Apparent solar longitude = true longitude - aberation
 
   def apparent_longitude
-    Helio.apparent_longitude(@t)
+    @cs.apparent_longitude(@jd)
   end
-  
+
   ##
-  # From angles.rb:
+  # From solar_angles.rb:
+
+  # eccentricity of Earth orbit
+
+  def eccentricity
+    @cs.eccentricity(@jd)
+  end
+
+  ##
+  # From solar_angles.rb:
 
   # equation of center is
   # added to mean anomaly to get true anomaly.
 
   def equation_of_center
-    Helio.equation_of_center(@t)
-  end  
-
-  ##
-  # From angles.rb:
-
-  # solar declination 
-
-  def declination
-    Helio.declination(@t)
+    @cs.equation_of_center(@jd)
   end
 
   ##
-  # From angles.rb:
+  # From solar_angles.rb:
+
+  # solar declination
+
+  def declination
+    @cs.declination(@jd)
+  end
+
+  ##
+  # From solar_angles.rb:
+
+  # used by ha_sun method
+  # to select rise set and civil, nautical, astronomical twilights.
+
+  def choice(c)
+    case c
+    when 1
+      90.8333 # Sunrise and Sunset
+    when 2
+      96 # Civil Twilight
+    when 3
+      102 # Nautical Twilight
+    when 4
+      108 # Astronomical Twilight
+    end
+  end
+
+
+  ##
+  # From solar_angles.rb:
 
   # horizon angle for provided geo coordinates
   # used for angles from transit to horizons.
 
   def ha_sun(c)
     zenith = choice(c)
-    Helio.horizon_angle(zenith, @t, @latitude)
+    @cs.horizon_angle(zenith, @jd, @latitude)
   end
 
   ##
-  # From angles.rb:
+  # From solar_angles.rb:
 
   # solar right ascension
 
-  def right_ascension    
-    Helio.right_ascension(@t) 
+  def right_ascension
+    @cs.right_ascension(@jd)
   end
 
 end
 
 if __FILE__ == $PROGRAM_NAME
 
-  spec = File.expand_path('../../../test/eot', __FILE__)
+  spec = File.expand_path('../../../../test/eot', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
   require 'solar_angles_spec'
 
