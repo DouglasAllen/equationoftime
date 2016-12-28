@@ -19,7 +19,7 @@ class Main
   # init sets them using ajd initial Float value
   # see: :ajd attribute
   def set_t_ma
-    @t = (@jd - Eot::DJ00) / 36_525.0
+    @t = @cs.jc_time(@jd)
     @ma = @cs.mean_anomaly(@jd)
   end
 

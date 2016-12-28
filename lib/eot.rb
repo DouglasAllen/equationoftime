@@ -3,8 +3,8 @@ require 'eot/eot/eot'
 require 'eot/version'
 require 'eot/constants'
 require 'eot/main'
+require 'eot/angles/mean_angles'
 # require 'addressable/uri'
-
 # require 'json'
 # require 'rest-client'
 
@@ -14,7 +14,7 @@ require 'eot/main'
 # require 'eot/all'
 
 # require 'eot/angles/delta_angles'
-# require 'eot/angles/mean_angles'
+
 # require 'eot/angles/other_angles'
 # require 'eot/angles/solar_angles'
 # require 'eot/angles/true_angles'

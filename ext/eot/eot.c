@@ -10,7 +10,12 @@
 /* Some conversion factors between radians and degrees */
 #define R2D ( 180.0 / PI )
 #define D2R ( PI / 180.0 )
-
+/* Arcseconds in a full circle */
+#define TURNAS (1296000.0)
+/* Arcseconds to radians */
+#define DAS2R (4.848136811095359935899141e-6)
+/* Seconds of time to radians */
+#define DS2R (7.272205216643039903848712e-5)
 #define M2PI M_PI * 2
 #define INV24 1.0 / 24.0
 /* 1.1.1970 = JD 2440587.5 */
@@ -380,18 +385,45 @@ func_t_mid_day(VALUE self, VALUE vjd, VALUE vlon, VALUE vlat)
 /*
 C extension
 */
-// static VALUE
-// func_al(VALUE self, VALUE vjd) {
-//   double al, fo;
-//   double tl = NUM2DBL(func_tl(self, vjd));
-//   double t = NUM2DBL(func_jc(self, vjd));
-//   fo = faom(t);
-//   al =
-//   fmod(tl -
-//        0.00569 * D2R -
-//        0.00478 * D2R * sin(fo), M2PI);
-//   return DBL2NUM(al);
-// }
+static VALUE
+faom(VALUE self, VALUE vjd)
+{
+  double t = NUM2DBL(func_jc(self, vjd));
+  double omega;
+  omega =
+   fmod(       450160.398036 +
+        t * (-6962890.5431   +
+        t * (       7.4722   +
+        t * (       0.007702 +
+        t * (      -0.00005939)))), TURNAS) * DAS2R;
+  return DBL2NUM(omega);
+}
+/*
+C extension
+*/
+static VALUE
+func_al(VALUE self, VALUE vjd) {
+  double tl = NUM2DBL(func_tl(self, vjd));
+  double fo = NUM2DBL(faom(self, vjd));
+  double al;
+  al =
+  fmod(tl -
+       0.00569 * D2R -
+       0.00478 * D2R * sin(fo), M2PI);
+  return DBL2NUM(al);
+}
+/*
+C extension
+*/
+static VALUE
+func_mla(VALUE self, VALUE vjd)
+{
+  double t = NUM2DBL(vjd) - DJ00;
+  double w;
+  w = fmod(M2PI * (0.7790572732640 + 0.00273781191135448 * t), M2PI);
+  if (w < 0) w += M2PI;
+  return DBL2NUM(w);
+}
 /*
 C extension
 */
@@ -578,7 +610,8 @@ void Init_eot(void)
   "t_set", func_t_set, 3);
   rb_define_method(cEot,
   "t_mid_day", func_t_mid_day, 3);
-  // rb_define_method(cEot, "apparent_longitude", func_al, 1);
+  rb_define_method(cEot, "apparent_longitude", func_al, 1);
+  rb_define_method(cEot, "mean_longitude_aries", func_mla, 1);
   // rb_define_method(cEot, "cosZ", func_cosZ, 1);
   // rb_define_method(cEot, "cos_al_sun", func_cos_al_sun, 1);
   // rb_define_method(cEot, "cos_dec_sun", func_cos_dec_sun, 1);
