@@ -9,7 +9,8 @@ class Main
   # which uses gmst06)
 
   def earth_rotation_angle
-    Helio.earth_rotation_angle(@t)
+    'not implemented yet'
+    # @cs.earth_rotation_angle(@jd)
   end
 
   ##
@@ -22,7 +23,8 @@ class Main
   # see: #cosine_to_earth and #angle_delta_psi
 
   def equation_of_equinox
-    Helio.equation_of_equinox(@t)
+    'not implemented yet'
+    # @cs.equation_of_equinox(@jd)
   end
 
   ##
@@ -34,6 +36,6 @@ class Main
   # on the ecliptic plane measured from the mean equinox of date.
 
   def omega
-    @cs.faom(@jd)
+    @cs.omega(@jd)
   end
 end

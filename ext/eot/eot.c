@@ -620,6 +620,7 @@ void Init_eot(void)
   rb_define_method(cEot,
   "t_mid_day", func_t_mid_day, 3);
   rb_define_method(cEot, "apparent_longitude", func_al, 1);
+  rb_define_method(cEot, "omega", faom, 1);
   rb_define_method(cEot, "mean_longitude_aries", func_mla, 1);
   rb_define_method(cEot, "horizon_angle", func_sun, 3);
   // rb_define_method(cEot, "cosZ", func_cosZ, 1);
