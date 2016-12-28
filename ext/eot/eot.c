@@ -1,5 +1,5 @@
 #include "ruby.h"
-// #include "ceot.h"
+#include <time.h>
 #ifndef PI
   #define PI        3.1415926535897932384
 #endif
