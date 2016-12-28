@@ -1,36 +1,36 @@
-# class Eot file = deltas.rb
+# class Main file = deltas.rb
 # methods for angle deltas
-
-class Eot
-  # From deltas.rb:
+class Main
+  # From delta_angles.rb:
   # delta epsilon
   # component of equation of equinox
   def delta_epsilon
-    Helio.delta_epsilon(@t)
+    'not implemented yet'
+    # @cs.delta_epsilon(@jd)
   end
 
-  # From deltas.rb:
+  # From delta_angles.rb:
   # one time component to total equation of time
   def delta_oblique
-    apparent_longitude - right_ascension
+    @cs.apparent_longitude(@jd) - @cs.right_ascension(@jd) * 15.0 * Eot::D2R
   end
 
-  # From angles.rb:
+  # From delta_angles.rb:
   # one time component to total equation of time
   def delta_orbit
-    -1.0 * Helio.equation_of_center(@t)
+    -1.0 * @cs.equation_of_center(@jd)
   end
 
-  # From angles.rb:
+  # From delta_angles.rb:
   # component of equation of equinox
   def delta_psi
-    Helio.delta_psi(@t)
+    'not implemented yet'
+    # @cs.delta_psi(@jd)
   end
 
-  # From angles.rb:
+  # From delta_angles.rb:
   # total equation of time
   def delta_total
     delta_orbit + delta_oblique
   end
-
 end
