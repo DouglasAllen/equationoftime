@@ -1,21 +1,3 @@
-First install the C SOFA Library http://www.iausofa.org/current_C.html
-
-The Celes gem has been phased out of this gem version the library above is what Celes is based on anyway so just
-get that installed. You may still use Celes as a good refernce to that library
-http://www.rubydoc.info/gems/celes/0.0.1
-
-I might attempt to miniportile it if I get some requests for that. 
-
-The last release that is still current on rubygems is 4.1.8 and should still work as described below.
-The major changes for the latest release are as follows.
-
-1. A new C ectension library that uses the libsofa_c and sofa_c-dev directly. Just install it.
-2. The C extension is now a module named Helio so all calls may be used for it directly.
-3. Many method names are changed and there are no longer any aliases.
-4. One attribute was changed. @ta is now @t which is the time parameter for many common algorithms in Astrophysics.
-5. The new leap second has been hard coded into the C lib.
-6. Note: This version has not been thoroughly tested.
-7. Heroku probably doesn't have libsofa_c-dev installed and so the site is down but you can clone it from https://github.com/DouglasAllen/sinatra-equationoftime.herokuapp.com
 
 = equationoftime
 
@@ -49,7 +31,7 @@ Lots of examples to play with for learning about Eot.
         eot.ma_ta_set           # recalculate ma and ta after initialization
         eot.string_eot          # should be different than before
 
-        # check and set a new address                        
+        # check and set a new address
         geo = GeoLatLng.new
         geo.addr
         geo.addr = "houston, tx"     # set new location
@@ -69,9 +51,9 @@ Lots of examples to play with for learning about Eot.
 
 
         eot.ajd += 1            # the days after times can be read
-        eot.ma_ta_set           # recalculate ma and ta after initialization 
-        eot.ajd = 2451545       # ajd set to 2001-01-01 12:00 
-        
+        eot.ma_ta_set           # recalculate ma and ta after initialization
+        eot.ajd = 2451545       # ajd set to 2001-01-01 12:00
+
 
 == Gem patch:
 
