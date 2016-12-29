@@ -68,7 +68,7 @@ class Main
 
   def ha_sun(c)
     zenith = choice(c)
-    @cs.horizon_angle(zenith, @jd, @latitude)
+    @cs.horizon_angle(zenith, @jd, @latitude).round(12)
   end
 
   ##

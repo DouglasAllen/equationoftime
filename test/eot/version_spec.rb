@@ -8,8 +8,8 @@ require 'eot'
 #
 class TestEot < Minitest::Test
   describe 'tests for version' do
-    it 'expected   "5.0.0" for Version::VERSION' do
-      assert_equal '5.0.0', Version::VERSION
+    it 'expected   "4.1.10" for Version::VERSION' do
+      assert_equal '4.1.10', Version::VERSION
     end
   end
 end

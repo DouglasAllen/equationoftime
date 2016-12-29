@@ -1,8 +1,7 @@
 ##
-# class Eot file = dt_times.rb:
+# class Main file = dt_times.rb:
 # methods calculating date times
-
-class Eot
+class Main
 
   ##
   # From times.rb:
@@ -89,8 +88,8 @@ end
 
 if __FILE__ == $PROGRAM_NAME
 
-  spec = File.expand_path('../../../tests/minitest', __FILE__)
+  spec = File.expand_path('../../../../test/eot', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-  require 'times_spec'
+  require 'dt_times_spec'
 
 end

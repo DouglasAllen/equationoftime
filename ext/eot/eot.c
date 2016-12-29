@@ -487,64 +487,51 @@ func_sun(VALUE self, VALUE vz, VALUE vjd, VALUE vlat) {
 /*
 C extension
 */
-// static VALUE
-// func_et(VALUE self, VALUE vt, VALUE vctoe) {
-//   double ec, al, ra;
-//   ec = eqc(t);
-//   al = al_sun(t);
-//   ra = ra_sun(t, cos_to_earth(to_earth));
-//   return -ec + al - ra;
-//   return DBL2NUM(eot(NUM2DBL(vt), NUM2DBL(vctoe)));
-// }
-
+static VALUE
+func_cos_al_sun(VALUE self, VALUE vjd) {
+  double cos_al_sun = cos(NUM2DBL(func_al(self, vjd)));
+return DBL2NUM(cos_al_sun);
+}
 /*
 C extension
 */
-// static VALUE
-// func_cos_al_sun(VALUE self, VALUE vt) {
-//   cos(al_sun(t));
-//   return DBL2NUM(cos_al_sun(NUM2DBL(vt)));
-// }
+static VALUE
+func_sin_al_sun(VALUE self, VALUE vjd) {
+  double sin_al_sun = sin(NUM2DBL(func_al(self, vjd)));
+return DBL2NUM(sin_al_sun);
+}
 /*
 C extension
 */
-// static VALUE
-// func_cos_tl_sun(VALUE self, VALUE vt) {
-//   cos(tl_sun(t));
-//   return DBL2NUM(cos_al_sun(NUM2DBL(vt)));
-// }
+static VALUE
+func_cos_tl_sun(VALUE self, VALUE vjd) {
+  double cos_tl_sun = cos(NUM2DBL(func_tl(self, vjd)));
+  return DBL2NUM(cos_tl_sun);
+}
 /*
 C extension
 */
-// static VALUE
-// func_cos_to_earth(VALUE self, VALUE vtoe) {
-//   cos(to_earth);
-//   return DBL2NUM(cos_to_earth(NUM2DBL(vtoe)));
-// }
+static VALUE
+func_sin_tl_sun(VALUE self, VALUE vjd) {
+  double sin_tl_sun = sin(NUM2DBL(func_tl(self, vjd)));
+  return DBL2NUM(sin_tl_sun);
+}
 /*
 C extension
 */
-// static VALUE
-// func_sin_al_sun(VALUE self, VALUE vt) {
-//   sin(al_sun(t));
-//   return DBL2NUM(sin_al_sun(NUM2DBL(vt)));
-// }
+static VALUE
+func_cos_mo_earth(VALUE self, VALUE vjd) {
+  double cos_mo_earth = cos(NUM2DBL(func_ooe(self, vjd)));
+  return DBL2NUM(cos_mo_earth);
+}
 /*
 C extension
 */
-// static VALUE
-// func_sin_tl_sun(VALUE self, VALUE vt) {
-//   sin(tl_sun(t));
-//   return DBL2NUM(sin_tl_sun(NUM2DBL(vt)));
-// }
-/*
-C extension
-*/
-// static VALUE
-// func_sin_to_earth(VALUE self, VALUE vtoe) {
-//   sin(to_earth);
-//   return DBL2NUM(sin_to_earth(NUM2DBL(vtoe)));
-// }
+static VALUE
+func_sin_mo_earth(VALUE self, VALUE vjd) {
+  double sin_mo_earth = sin(NUM2DBL(func_ooe(self, vjd)));
+  return DBL2NUM(sin_mo_earth);
+}
 /*
 C extension
 */
@@ -561,6 +548,18 @@ C extension
 //   double y0 = sin_al_sun(t) * cos_to_earth(to_earth);
 //   return fmod(atan2(-y0, -cos_al_sun(t)) + M_PI, R2D);
 //   return DBL2NUM(ra_sun(NUM2DBL(vt), NUM2DBL(vctoe)));
+// }
+/*
+C extension
+*/
+// static VALUE
+// func_et(VALUE self, VALUE vt, VALUE vctoe) {
+//   double ec, al, ra;
+//   ec = eqc(t);
+//   al = al_sun(t);
+//   ra = ra_sun(t, cos_to_earth(to_earth));
+//   return -ec + al - ra;
+//   return DBL2NUM(eot(NUM2DBL(vt), NUM2DBL(vctoe)));
 // }
 /*
 C extension
@@ -623,18 +622,18 @@ void Init_eot(void)
   rb_define_method(cEot, "omega", faom, 1);
   rb_define_method(cEot, "mean_longitude_aries", func_mla, 1);
   rb_define_method(cEot, "horizon_angle", func_sun, 3);
-  // rb_define_method(cEot, "cosZ", func_cosZ, 1);
-  // rb_define_method(cEot, "cos_al_sun", func_cos_al_sun, 1);
+  rb_define_method(cEot, "cosZ", func_cosZ, 1);
+  rb_define_method(cEot, "cos_al_sun", func_cos_al_sun, 1);
+  rb_define_method(cEot, "sin_al_sun", func_sin_al_sun, 1);
+  rb_define_method(cEot, "cos_tl_sun", func_cos_tl_sun, 1);
+  rb_define_method(cEot, "sin_tl_sun", func_sin_tl_sun, 1);
+  rb_define_method(cEot, "cos_mo_earth", func_cos_mo_earth, 1);
+  rb_define_method(cEot, "sin_mo_earth", func_sin_mo_earth, 1);
   // rb_define_method(cEot, "cos_dec_sun", func_cos_dec_sun, 1);
   // rb_define_method(cEot, "cos_lat", func_cos_lat, 1);
-  // rb_define_method(cEot, "cos_tl_sun", func_cos_tl_sun, 1);
-  // rb_define_method(cEot, "cos_to_earth", func_cos_to_earth, 1);
   // rb_define_method(cEot, "et", func_et, 2);
-  // rb_define_method(cEot, "sin_al_sun", func_sin_al_sun, 1);
   // rb_define_method(cEot, "sin_dec_sun", func_sin_dec_sun, 1);
   // rb_define_method(cEot, "sin_lat", func_sin_lat, 1);
-  // rb_define_method(cEot, "sin_tl_sun", func_sin_tl_sun, 1);
-  // rb_define_method(cEot, "sin_to_earth", func_sin_to_earth, 1);
   // rb_define_method(cEot, "sun_ra", func_sun_ra, 2);
   rb_define_method(cEot, "jd", func_cjd, 0);
   rb_define_method(cEot, "j2000_dif", func_jd_dif, 3);

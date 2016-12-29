@@ -6,7 +6,7 @@ require 'minitest/autorun'
 lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
-
+#
 class TestEot < Minitest::Test
 
   describe 'Equation of Time constants.' do
@@ -19,8 +19,5 @@ class TestEot < Minitest::Test
       assert_equal 57.29577951308232, Eot::R2D
       assert_equal 0.017453292519943295, Eot::D2R
     end
-
   end
-
-
 end

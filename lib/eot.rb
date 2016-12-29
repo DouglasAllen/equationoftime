@@ -14,27 +14,14 @@ require 'eot/utilities'
 require 'eot/times/delta_times'
 require 'eot/times/delta_jd_times'
 require 'eot/strings/time_displays'
-# require 'addressable/uri'
-# require 'json'
-# require 'rest-client'
+require 'eot/times/dt_times'
+require 'eot/times/jd_times'
+require 'eot/trigonometric'
+require 'eot/geo/geo_lat_lng_smt'
+require 'addressable/uri'
+require 'json'
+require 'rest-client'
 # require 'date'
 # require 'eot/all'
-
-
-
-
-
-
-# require 'eot/geo/geo_lat_lng_smt'
-
-
-
-
-
-
-# require 'eot/times/dt_times'
-# require 'eot/times/jd_times'
-
-# require 'eot/trigonometric'
 
 
