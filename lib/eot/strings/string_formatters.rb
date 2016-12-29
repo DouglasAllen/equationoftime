@@ -67,7 +67,7 @@ class Main
   # displays + or - sign
   def sign_min(min = 0.0)
     min.nil? ? min = 0.0 : min
-    sign = min < 0.0 ? '-' : '+'
+    min < 0.0 ? '-' : '+'
   end
 
   # From string_formatters.rb
