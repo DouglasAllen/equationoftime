@@ -8,6 +8,8 @@ require 'eot/angles/true_angles'
 require 'eot/angles/solar_angles'
 require 'eot/angles/other_angles'
 require 'eot/angles/delta_angles'
+require 'eot/strings/solar_strings'
+require 'eot/strings/string_formatters'
 # require 'addressable/uri'
 # require 'json'
 # require 'rest-client'
@@ -21,8 +23,8 @@ require 'eot/angles/delta_angles'
 
 # require 'eot/geo/geo_lat_lng_smt'
 
-# require 'eot/strings/solar_strings'
-# require 'eot/strings/string_formatters'
+
+
 # require 'eot/strings/time_displays'
 # require 'eot/times/delta_times'
 # require 'eot/times/delta_jd_times'

@@ -1,8 +1,7 @@
 ##
-# class Eot file = string_formatters.rb:
+# class Main file = string_formatters.rb:
 # methods for display of angles.
-
-class Eot
+class Main
 
   # From string_formaters.rb
   # String formatter for fraction of Julian day number
@@ -41,7 +40,7 @@ class Eot
   end
 
   # From string_formaters.rb
-  # creates [h,m,s,ds] from hours Float 
+  # creates [h,m,s,ds] from hours Float
   def float_parts(val)
     hours = Integer(val % DAY_HOURS)
     mins = 60.0 * (val % DAY_HOURS - hours)
@@ -66,15 +65,8 @@ class Eot
 
   # From string_formaters.rb
   # formats degree string
-  def f_string(sgn, deg, am, as, asd)
-    sgn +
-      format('%03d', deg) +
-      ':' +
-      format('%02d', am) +
-      ':' +
-      format('%02d', as) +
-      '.' +
-      format('%3.3d', asd)
+  def f_string(sign, deg, min, sec, ms)
+    sign + format('%03d:%02d:%02d.%3.3d', deg, min, sec, ms)
   end
 
   # From string_formatters.rb
