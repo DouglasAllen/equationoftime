@@ -30,7 +30,7 @@ class GeoLatLng
   end
 
   # coordinates lookup
-  def set_coordinates
+  def get_coordinates
     addr = Addressable::URI.escape(@base_json + @addr)
     rest_resource = JSON.parse(RestClient.get(addr))
     results       = rest_resource['results']
@@ -38,8 +38,8 @@ class GeoLatLng
     if status != 'OK'
       @addr = @default_int
     else
-      @lat   = results[0]['geometry']['location']['lat'].to_f
-      @lng  = results[0]['geometry']['location']['lng'].to_f
+      @lat = results[0]['geometry']['location']['lat'].to_f
+      @lng = results[0]['geometry']['location']['lng'].to_f
     end
   end
 end
@@ -59,8 +59,8 @@ if __FILE__ == $PROGRAM_NAME
   geo.get_coordinates
   p geo.lat
   p geo.lng
-  spec = File.expand_path('../../../test/eot', __FILE__)
+  spec = File.expand_path('../../../../test/eot', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-  require 'geo_spec'
-  system 'bundle exec ruby ~/workspace/equationoftime/test/eot/geo_spec.rb'
+  require 'geo_lat_lng_smt_spec'
+  system 'bundle exec ruby ~/github/gems/eot_dev/test/eot/geo_lat_lng_smt_spec.rb'
 end

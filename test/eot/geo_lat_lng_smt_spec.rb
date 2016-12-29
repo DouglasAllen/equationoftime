@@ -7,15 +7,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 #
 class TestGeoLatLng < Minitest::Test
-
   describe 'Geo defaults' do
-
     before(:each) do
+      @geo = GeoLatLng.new
       @base =
         'http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address='
       @international = 'Blackheath Ave, London SE10 8XJ, UK'
       @us = '3333 Coyote Hill Road, Palo Alto, CA, 94304, USA'
-      @geo = GeoLatLng.new
     end
 
     it "expected #{@international}" do
