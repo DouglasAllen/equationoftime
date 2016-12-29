@@ -13,6 +13,7 @@ require 'eot/strings/string_formatters'
 require 'eot/utilities'
 require 'eot/times/delta_times'
 require 'eot/times/delta_jd_times'
+require 'eot/strings/time_displays'
 # require 'addressable/uri'
 # require 'json'
 # require 'rest-client'
@@ -28,7 +29,7 @@ require 'eot/times/delta_jd_times'
 
 
 
-# require 'eot/strings/time_displays'
+
 
 
 # require 'eot/times/dt_times'

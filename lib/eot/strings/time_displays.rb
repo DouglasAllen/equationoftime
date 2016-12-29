@@ -1,14 +1,14 @@
-# class Eot file = time_displays.rb
+# class Main file = time_displays.rb
 # methods for time displays
-
-class Eot
+#
+class Main
 
   # From time_displays.rb
   # String for time now
   def show_now(now = now(Time.now.utc))
     show_minutes(now)
   end
- 
+
   # From time_displays.rb
   # String format conversion of jd to date
   def jd_to_date
