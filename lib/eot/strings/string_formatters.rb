@@ -2,28 +2,28 @@
 # class Main file = string_formatters.rb:
 # methods for display of angles.
 class Main
-
   # From string_formaters.rb
   # String formatter for fraction of Julian day number
   def day_fraction(jpd_time = 0.0)
     jpd_time.nil? ? jpd_time = 0.0 : jpd_time
     fraction = jpd_time + 0.5 - Integer(jpd_time)
-    h = Integer(fraction * DAY_HOURS)
-    m = Integer((fraction - h / DAY_HOURS) * DAY_MINUTES)
-    s = Integer((fraction - h / 24.0 - m / DAY_MINUTES) * DAY_SECONDS)
-    format('%02d:', h) +
-      # ':' +
-    format('%02d', m) +
-      ':' +
-      format('%02d', s)
+    h = Integer(fraction * Eot::DAY_HOURS)
+    m = Integer((fraction - h / Eot::DAY_HOURS) * Eot::DAY_MINUTES)
+    s = Integer((fraction - h / 24.0 - m / Eot::DAY_MINUTES) * Eot::DAY_SECONDS)
+    format('%02d:%02d:%02d', h, m, s)
   end
 
   # From string_formatters.rb
   # radians to time method
   def deg_to_time(radians = 0.0)
     radians.nil? ? radians = 0.0 : radians
-    s, ihmsf = Helio.a2tf(3, radians)
-    f_string(s, ihmsf[0], ihmsf[1], ihmsf[2], ihmsf[3])
+    hours = radians * Eot::R2D / 15.0
+    sgn = hours < 0 ? '-' : '+'
+    h = hours.abs.floor
+    m = ((hours.abs - h) * 60.0).floor
+    s = ((((hours.abs - h) * 60.0) - m) * 60.0).floor
+    ms = ((((((hours.abs - h) * 60.0) - m) * 60.0) - s) * 1000.0).round(0)
+    f_string(sgn, h, m, s, ms)
   end
 
   # From string_formaters.rb
@@ -34,16 +34,16 @@ class Main
     m  = val.min
     s  = val.sec
     ds = val.usec / 1000
-    #is = Integer(s)
-    #ds = Integer((s - is).round(3) * 1000.0)
+    # is = Integer(s)
+    # ds = Integer((s - is).round(3) * 1000.0)
     [h, m, s, ds]
   end
 
   # From string_formaters.rb
   # creates [h,m,s,ds] from hours Float
   def float_parts(val)
-    hours = Integer(val % DAY_HOURS)
-    mins = 60.0 * (val % DAY_HOURS - hours)
+    hours = Integer(val % Eot::DAY_HOURS)
+    mins = 60.0 * (val % Eot::DAY_HOURS - hours)
     imins = Integer(mins)
     secs = 60.0 * (mins - imins)
     isecs = Integer(secs)
@@ -54,13 +54,7 @@ class Main
   # From string_formaters.rb
   # formats time components
   def format_time(h, m, s, ds)
-    format('%02d', h)   +
-      ':' +
-      format('%02d', m) +
-      ':' +
-      format('%02d', s) +
-      '.' +
-      format('%3.3d', ds)
+    format('%02d:%02d:%02d.%3.3d', h, m, s, ds)
   end
 
   # From string_formaters.rb
@@ -73,12 +67,7 @@ class Main
   # displays + or - sign
   def sign_min(min = 0.0)
     min.nil? ? min = 0.0 : min
-    if min < 0.0
-      sign = '-'
-    else
-      sign = '+'
-    end
-    sign
+    sign = min < 0.0 ? '-' : '+'
   end
 
   # From string_formatters.rb
@@ -120,11 +109,9 @@ class Main
 
   # From string_formaters.rb
   # String formatter for h:m:s display
-  def time(dt = DT2000)
+  def time(dt = Eot::DT2000)
     dt = check_t_zero(dt)
-    dt.class == DateTime ? ta = dt_parts(dt) : ta = float_parts(dt)
+    ta = dt.class == DateTime ? dt_parts(dt) : float_parts(dt)
     format_time(ta[0], ta[1], ta[2], ta[3])
   end
-
-
 end

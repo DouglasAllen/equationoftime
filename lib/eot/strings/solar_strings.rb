@@ -14,7 +14,7 @@ class Main
   # From solar_strings.rb
 
   def deg_mins(degs, deg)
-    ((degs - deg) * 60.0).floor
+    ((degs - deg) * 60.0).abs.floor
   end
 
   ##

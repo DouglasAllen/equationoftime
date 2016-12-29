@@ -1,8 +1,7 @@
-# class Eot file = delta_times.rb
+# class Main file = delta_times.rb
 # methods converting delta angles to time
-
-class Eot
-
+#
+class Main
   # From delta_times.rb:
   # Uses @ajd attribute
   # Returns Oblique component of EOT in decimal minutes time
@@ -24,14 +23,12 @@ class Eot
     delta_total_jd * 1440.0
   end
 
-  
   # From times.rb:
   # sets @ajd to DateTime.now
   # Returns EOT (equation of time) now in decimal minutes form
   def now
     @ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
-    @t = (@ajd - DJ00) / DJC
+    @t = (@ajd - Eot::DJ00) / Eot::DJC
     time_delta_total
   end
-
 end

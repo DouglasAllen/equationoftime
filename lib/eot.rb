@@ -10,6 +10,9 @@ require 'eot/angles/other_angles'
 require 'eot/angles/delta_angles'
 require 'eot/strings/solar_strings'
 require 'eot/strings/string_formatters'
+require 'eot/utilities'
+require 'eot/times/delta_times'
+require 'eot/times/delta_jd_times'
 # require 'addressable/uri'
 # require 'json'
 # require 'rest-client'
@@ -26,11 +29,11 @@ require 'eot/strings/string_formatters'
 
 
 # require 'eot/strings/time_displays'
-# require 'eot/times/delta_times'
-# require 'eot/times/delta_jd_times'
+
+
 # require 'eot/times/dt_times'
 # require 'eot/times/jd_times'
 
 # require 'eot/trigonometric'
-# require 'eot/utilities'
+
 
