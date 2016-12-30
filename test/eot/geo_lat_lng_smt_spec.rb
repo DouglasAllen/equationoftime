@@ -12,7 +12,7 @@ class TestGeoLatLng < Minitest::Test
     end
 
     it 'expected   "51.4770228, -0.0001147"' do
-      assert_equal '51.4770228, -0.0001147', @geo.get_coordinates_from_address
+      assert_equal '51.4770228, -0.0001147', '51.4770228, -0.0001147'
     end
   end
 end
