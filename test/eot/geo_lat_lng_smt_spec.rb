@@ -7,6 +7,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
 #
 class TestGeoLatLng < Minitest::Test
+  def setup
+    @geo = GeoLatLng.new
+    @base = @geo.base_json
+    @international = @geo.default_int
+    @us = @geo.default_us
+  end
   describe 'Geo defaults' do
     before(:each) do
       @geo = GeoLatLng.new
