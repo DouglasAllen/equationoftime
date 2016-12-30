@@ -53,6 +53,7 @@ if __FILE__ == $PROGRAM_NAME
   p eot.latitude
   p eot.longitude
   geo = GeoLatLng.new
+  p geo.default_int
   p geo.addr
   p geo.lat
   p geo.lng
@@ -61,6 +62,6 @@ if __FILE__ == $PROGRAM_NAME
   p geo.lng
   spec = File.expand_path('../../../../test/eot', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-  require 'geo_lat_lng_smt_spec'
+  # require 'geo_lat_lng_smt_spec'
   system 'bundle exec ruby ~/github/gems/eot_dev/test/eot/geo_lat_lng_smt_spec.rb'
 end
