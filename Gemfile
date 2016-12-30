@@ -15,6 +15,8 @@ gemspec
 gem 'hoe'
 # gem 'mini_portile'
 gem 'rake-compiler', '~> 0.9.3'
+gem 'geo_lat_lng_smt', '~> 0.0.1'
+gem 'crack'
 
 group :development, :test do
   # gem 'rubocop'

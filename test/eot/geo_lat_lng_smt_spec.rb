@@ -1,38 +1,18 @@
-# geo_lat_lng_smt__spec.rb
+# geo_lat_lng_smt_spec.rb
+
 gem 'minitest'
 require 'minitest/autorun'
 
-lib = File.expand_path('../../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eot'
+require 'geo_lat_lng_smt'
 #
 class TestGeoLatLng < Minitest::Test
   describe 'Geo defaults' do
     def setup
-      @geo = GeoLatLng.new
-      @international = @geo.default_int
-      @base = @geo.base_json
-      @us = @geo.default_us
+      @geo = GeoLatLng.new('Blackheath Ave, London SE10 8XJ, UK')
     end
 
-    it "expected #{@international}" do
-      assert_equal @international, @geo.addr
-    end
-
-    it "expected #{@base}" do
-      assert_equal @base, @geo.base_json
-    end
-
-    it "expected #{@us}" do
-      assert_equal @us, @geo.default_us
-    end
-
-    it 'expected   0.0' do
-      assert_equal 0.0, @geo.lat
-    end
-
-    it 'expected   0.0' do
-      assert_equal 0.0, @geo.lng
+    it 'expected   "51.4770228, -0.0001147"' do
+      assert_equal '51.4770228, -0.0001147', @geo.get_coordinates_from_address
     end
   end
 end

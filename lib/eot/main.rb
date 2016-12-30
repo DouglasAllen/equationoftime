@@ -56,7 +56,7 @@ class Main
   # initialized to = 0.0
   attr_accessor :longitude
 
-  # From init.rb:
+  # From main.rb:
   # Initialize to set attributes
   def initialize
     d = DateTime.now.to_time.utc.to_datetime
