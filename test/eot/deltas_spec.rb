@@ -8,40 +8,47 @@ require 'eot'
 
 deltas = Eot.new
 
+describe 'Tests jd of 2_456_885.0 ' do
+  before(:each) do
+    deltas.jd = 2_456_885.0
+    deltas.set_t
+  end
+
+  it 'expected from deltas.angle_delta_epsilon \
+                 -4.0697927e-05 ' do
+    assert_equal(-4.0697927e-05,
+                 deltas.angle_delta_epsilon)
+  end
+
+  it 'expected from deltas.angle_delta_oblique \
+                 -0.041030825588 ' do
+    assert_equal(-0.041030825588,
+                 deltas.angle_delta_oblique)
+  end
+
+  it 'expected from deltas.angle_delta_orbit \
+                 0.021413249721 ' do
+    assert_equal(0.021413249721,
+                 deltas.angle_delta_orbit)
+  end
+
+  it 'expected from deltas.angle_delta_psi \
+                 3.7512382e-05 ' do
+    assert_equal(3.7512382e-05,
+                 deltas.angle_delta_psi)
+  end
+end
+
 describe 'Tests ajd of 2_456_885.0 ' do
   before(:each) do
     deltas.jd = 2_456_885.0
     deltas.set_t
   end
 
-  it 'expected from deltas.angle_delta_epsilon.round(10) \
-                 -4.06979e-05 ' do
-    assert_equal(-4.06979e-05,
-                 deltas.angle_delta_epsilon.round(10))
-  end
-
-  it 'expected from deltas.angle_delta_oblique.round(10) \
-                 -0.0410308256 ' do
-    assert_equal(-0.0410308256,
-                 deltas.angle_delta_oblique.round(10))
-  end
-
-  it 'expected from deltas.angle_delta_orbit.round(10) \
-                 0.0214132497 ' do
-    assert_equal(0.0214132497,
-                 deltas.angle_delta_orbit.round(10))
-  end
-
-  it 'expected from deltas.angle_delta_psi.round(10) \
-                 3.75124e-05 ' do
-    assert_equal(3.75124e-05,
-                 deltas.angle_delta_psi.round(10))
-  end
-
-  it 'expected from deltas.angle_equation_of_time.round(10) \
-                 -0.0196175759 ' do
-    assert_equal(-0.0196175759,
-                 deltas.angle_equation_of_time.round(10))
+  it 'expected from deltas.angle_equation_of_time \
+                 -0.019617575867 ' do
+    assert_equal(-0.019617575867,
+                 deltas.angle_equation_of_time)
   end
 end
 
@@ -51,33 +58,40 @@ describe 'Tests ajd of 2455055.5 ' do
     deltas.set_t
   end
 
-  it 'expected from deltas.angle_delta_epsilon.round(10) \
-                 2.26615e-05 ' do
-    assert_equal(2.26615e-05,
-                 deltas.angle_delta_epsilon.round(10))
+  it 'expected from deltas.angle_delta_epsilon \
+                 2.2661507e-05 ' do
+    assert_equal(2.2661507e-05,
+                 deltas.angle_delta_epsilon)
   end
 
-  it 'expected from deltas.angle_delta_oblique.round(10) \
-                 -0.042349049 ' do
-    assert_equal(-0.042349049,
-                 deltas.angle_delta_oblique.round(10))
+  it 'expected from deltas.angle_delta_oblique \
+                 -0.042349048974 ' do
+    assert_equal(-0.042349048974,
+                 deltas.angle_delta_oblique)
   end
 
-  it 'expected from deltas.angle_delta_orbit.round(10) \
-                 0.0197684135 ' do
-    assert_equal(0.0197684135,
-                 deltas.angle_delta_orbit.round(10))
+  it 'expected from deltas.angle_delta_orbit \
+                 0.019768413457 ' do
+    assert_equal(0.019768413457,
+                 deltas.angle_delta_orbit)
   end
 
-  it 'expected from deltas.angle_delta_psi.round(10) \
-                 7.63934e-05 ' do
-    assert_equal(7.63934e-05,
-                 deltas.angle_delta_psi.round(10))
+  it 'expected from deltas.angle_delta_psi \
+                 7.6393415e-05 ' do
+    assert_equal(7.6393415e-05,
+                 deltas.angle_delta_psi)
+  end
+end
+
+describe 'Tests ajd of 2455055.5 ' do
+  before(:each) do
+    deltas.jd = 2_455_055.0
+    deltas.set_t
   end
 
-  it 'expected from deltas.angle_equation_of_time.round(10) \
-                 -0.0225806355 ' do
-    assert_equal(-0.0225806355,
-                 deltas.angle_equation_of_time.round(10))
+  it 'expected from deltas.angle_equation_of_time \
+                 -0.022580635517 ' do
+    assert_equal(-0.022580635517,
+                 deltas.angle_equation_of_time)
   end
 end

@@ -6,14 +6,14 @@ class Eot
   # delta epsilon
   # component of equation of equinox
   def angle_delta_epsilon
-    Celes.nut06a(@ajd, 0)[1]
+    Celes.nut06a(@jd, 0)[1].to_f.round(12)
   end
   alias delta_epsilon angle_delta_epsilon
 
   # From deltas.rb:
   # one time component to total equation of time
   def angle_delta_oblique
-    al_sun - right_ascension_sun
+    (al_sun - right_ascension_sun).to_f.round(12)
   end
   alias delta_t_ecliptic angle_delta_oblique
   alias delta_oblique angle_delta_oblique
@@ -21,7 +21,7 @@ class Eot
   # From deltas.rb:
   # one time component to total equation of time
   def angle_delta_orbit
-    -1.0 * eqc(@t)
+    -1.0 * eqc(@t).to_f.round(12)
   end
   alias delta_t_elliptic angle_delta_orbit
   alias delta_orbit angle_delta_orbit
@@ -29,14 +29,14 @@ class Eot
   # From deltas.rb:
   # component of equation of equinox
   def angle_delta_psi
-    Celes.nut06a(@ajd, 0)[0]
+    Celes.nut06a(@jd, 0)[0].to_f.round(12)
   end
   alias delta_psi angle_delta_psi
 
   # From deltas.rb:
   # total equation of time
   def angle_equation_of_time
-    delta_orbit + delta_oblique
+    (delta_orbit + delta_oblique).to_f.round(12)
   end
   alias eot angle_equation_of_time
 end

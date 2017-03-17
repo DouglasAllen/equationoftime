@@ -25,18 +25,18 @@ describe 'Eot displays using ajd of 2_456_885.0' do
     assert_equal '+142:35:33.356', displays.string_al_sun
   end
 
-  it 'expected   "12:00:00" from displays.string_day_fraction_to_time() ' do
-    assert_equal '12:00:00', displays.string_day_fraction_to_time
-    assert_equal '12:00:00', displays.string_day_fraction_to_time(nil)
-    assert_equal '12:00:00', displays.string_day_fraction_to_time(0)
+  it 'expected   "00:00:00" from displays.string_day_fraction_to_time() ' do
+    assert_equal '00:00:00', displays.string_day_fraction_to_time
+    assert_equal '00:00:00', displays.string_day_fraction_to_time(nil)
+    assert_equal '00:00:00', displays.string_day_fraction_to_time(0)
   end
 
   it 'expected   "+013:58:51.522" from displays.string_dec_sun ' do
     assert_equal '+013:58:51.522', displays.string_dec_sun
   end
 
-  it 'expected   "-04m, 29.2s" from displays.string_eot ' do
-    assert_equal '-04m, 29.2s', displays.string_eot
+  it 'expected   "-04m, 29.76s" from displays.string_eot ' do
+    assert_equal '-04m, 29.76s', displays.string_eot
   end
 
   it 'expected   "2000-01-01" from displays.string_jd_to_date() ' do
@@ -47,11 +47,18 @@ describe 'Eot displays using ajd of 2_456_885.0' do
 
   it 'expected from displays.jd_to_date_string(displays.ajd) \
                   2014-08-15 ' do
-    assert_equal '2014-08-15', displays.jd_to_date_string(displays.ajd)
+    assert_equal '2014-08-15', displays.jd_to_date_string(displays.jd)
   end
 
   it 'expected   "+220:38:04.598" from displays.string_ma_sun ' do
     assert_equal '+220:38:04.598', displays.string_ma_sun
+  end
+end
+
+describe 'Eot displays using ajd of 2_456_885.0' do
+  before(:each) do
+    displays.jd = 2_456_885.0
+    displays.set_t
   end
 
   it 'expected   "+144:56:36.571" from displays.string_ra_sun ' do
@@ -72,6 +79,13 @@ describe 'Eot displays using ajd of 2_456_885.0' do
                   12:00:00.000 ' do
     assert_equal '12:00:00.000',
                  displays.display_time_string(displays.date)
+  end
+end
+
+describe 'Eot displays using ajd of 2_456_885.0' do
+  before(:each) do
+    displays.jd = 2_456_885.0
+    displays.set_t
   end
 
   it 'expected from displays.string_tl_sun \

@@ -9,7 +9,7 @@ class Eot
   #   Sometimes this is called lambda in astronomical calculations.
   #
   def al_sun
-    al(@t)
+    al(@t).to_f.round(12)
   end
   alias apparent_longitude al_sun
   alias alsun al_sun
@@ -21,7 +21,7 @@ class Eot
   # added to mean anomaly to get true anomaly.
 
   def center
-    eqc(@t)
+    eqc(@t).to_f.round(12)
   end
   alias equation_of_center center
 
@@ -31,7 +31,7 @@ class Eot
   # solar declination
 
   def dec_sun
-    sun_dec(@t, to_earth)
+    sun_dec(@t, to_earth).to_f.round(12)
   end
   alias declination dec_sun
 
@@ -42,7 +42,7 @@ class Eot
   # Horners' calculation method
 
   def eccentricity_earth
-    eoe(@t)
+    eoe(@t).to_f.round(12)
   end
   alias eccentricity_earth_orbit eccentricity_earth
 
@@ -56,7 +56,7 @@ class Eot
   # see: #cosine_to_earth and #angle_delta_psi
 
   def eq_of_equinox
-    Celes.ee06a(@ajd, 0.0)
+    Celes.ee06a(@jd, 0.0).to_f.round(12)
   end
 
   ##
@@ -66,7 +66,7 @@ class Eot
   # which uses gmst06)
 
   def era
-    Celes.era00(@ajd, 0.0)
+    Celes.era00(@jd, 0.0).to_f.round(12)
   end
 
   ##
@@ -76,7 +76,7 @@ class Eot
   #
 
   def gha_sun
-    (tl_aries - sun_ra(@t, to_earth)) % 2 * Math::PI
+    ((tl_aries - sun_ra(@t, to_earth)) % (2 * PI)).to_f.round(12)
   end
 
   ##
@@ -86,7 +86,7 @@ class Eot
   # needed to get true longitude for low accuracy.
 
   def ml_sun
-    ml(@t)
+    ml(@t).to_f.round(12)
   end
   alias geometric_mean_longitude ml_sun
   alias gml_sun ml_sun
@@ -119,7 +119,7 @@ class Eot
   def ha_sun(c)
     c.nil? ? c = 1 : c
     zenith = choice(c)
-    sun(zenith, dec_sun, @latitude)
+    sun(zenith, dec_sun, @latitude).to_f.round(12)
   end
   alias horizon_angle ha_sun
 
@@ -133,7 +133,7 @@ class Eot
   # and to get true anomaly true longitude via center equation
 
   def ma_sun
-    mu(@t)
+    mu(@t).to_f.round(12)
   end
   alias mean_anomaly ma_sun
 
@@ -145,8 +145,8 @@ class Eot
 
   def ml_aries
     dt = 68.182
-    tt = @ajd + dt / 86_400.0
-    Celes.gmst06(@ajd, 0, tt, 0)
+    tt = @jd + dt / 86_400.0
+    Celes.gmst06(@jd, 0, tt, 0).to_f.round(12)
   end
   alias mean_longitude_aries ml_aries
 
@@ -156,7 +156,7 @@ class Eot
   # mean obliquity of Earth
 
   def mo_earth
-    Celes.obl06(@ajd, 0)
+    Celes.obl06(@jd, 0).to_f.round(12)
   end
   alias mean_obliquity_of_ecliptic mo_earth
   alias mean_obliquity mo_earth
@@ -180,7 +180,7 @@ class Eot
 
   def right_ascension_sun
     # y0 = sine_al_sun * cosine_to_earth
-    sun_ra(@t, to_earth)
+    sun_ra(@t, to_earth).to_f.round(12)
     # Celes.anp(PI + atan2(-y0, -cosine_al_sun))
     # Celes.anp(PI + ra)
   end
@@ -194,7 +194,7 @@ class Eot
   # used in equation of time
 
   def ta_sun
-    ta(@t)
+    ta(@t).to_f.round(12)
   end
   alias true_anomaly ta_sun
 
@@ -206,8 +206,8 @@ class Eot
 
   def tl_aries
     dt = 68.184
-    tt = @ajd + dt / 86_400.0
-    Celes.gst06a(@ajd, 0, tt, 0)
+    tt = @jd + dt / 86_400.0
+    Celes.gst06a(@jd, 0, tt, 0).to_f.round(12)
   end
   alias true_longitude_aries tl_aries
 
@@ -218,7 +218,7 @@ class Eot
   # used in equation of time
 
   def tl_sun
-    tl(@t)
+    tl(@t).to_f.round(12)
   end
   alias true_longitude tl_sun
   alias ecliptic_longitude tl_sun
@@ -230,7 +230,7 @@ class Eot
   # true obliquity considers nutation
 
   def to_earth
-    mo_earth + angle_delta_epsilon
+    (mo_earth + angle_delta_epsilon).to_f.round(12)
   end
   alias obliquity_correction to_earth
   alias true_obliquity to_earth
@@ -243,7 +243,7 @@ if __FILE__ == $PROGRAM_NAME
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
   @latitude = 0.0
   @longitude = 0.0
-  require 'angles_spec'
-  require 'aliased_angles_spec'
+  # require 'angles_spec'
+  # require 'aliased_angles_spec'
 
 end

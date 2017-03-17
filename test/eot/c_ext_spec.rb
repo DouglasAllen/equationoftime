@@ -31,6 +31,18 @@ describe 'Tests ajd of 2_456_885.0 ' do
     assert_equal(2.5101912804,
                  c_ext.ml(@t).round(10))
   end
+end
+
+describe 'Tests ajd of 2_456_885.0 ' do
+  before(:each) do
+    c_ext.jd = 2_456_885.0
+    ajd = c_ext.ajd
+    c_ext.ma_ta_set
+    # check date for this ajd when needed.
+    c_ext.date = c_ext.ajd_to_datetime(ajd)
+    @t = c_ext.t
+    @ctoe = c_ext.to_earth
+  end
 
   it 'expected from c_ext.eqc(@t).round(10) \
                  -0.0214132497' do
@@ -42,6 +54,18 @@ describe 'Tests ajd of 2_456_885.0 ' do
                  3.8293871469 ' do
     assert_equal(3.8293871469,
                  c_ext.ta(@t).round(10))
+  end
+end
+
+describe 'Tests ajd of 2_456_885.0 ' do
+  before(:each) do
+    c_ext.jd = 2_456_885.0
+    ajd = c_ext.ajd
+    c_ext.ma_ta_set
+    # check date for this ajd when needed.
+    c_ext.date = c_ext.ajd_to_datetime(ajd)
+    @t = c_ext.t
+    @ctoe = c_ext.to_earth
   end
 
   it 'expected from c_ext.tl(@t).round(10) \

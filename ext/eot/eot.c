@@ -18,6 +18,21 @@ VALUE func_al(VALUE klass, VALUE vt) {
   return DBL2NUM(al_sun(NUM2DBL(vt)));
 }
 
+/*
+ * call-seq:
+ *  ajd2dt(ajd)
+ *
+ * convert input float to DateTime object.
+ *
+ */
+static VALUE func_ajd_2_datetime(VALUE self, VALUE vajd){
+  VALUE cDateTime = rb_const_get(rb_cObject, rb_intern("DateTime"));
+  double ajd = NUM2DBL(vajd) + 0.5;
+  VALUE vfajd = DBL2NUM(ajd);
+  VALUE vdatetime = rb_funcall(cDateTime, rb_intern("jd"), 1, vfajd);
+  return vdatetime;
+}
+
 VALUE func_et(VALUE klass, VALUE vt, VALUE vctoe) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
   return DBL2NUM(eot(NUM2DBL(vt), NUM2DBL(vctoe)));
@@ -36,14 +51,14 @@ p1 = Apparent Longitude Sun see al
 */
 VALUE func_cos_al_sun(VALUE klass, VALUE vt) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(cos_al_sun(NUM2DBL(vt)));
+  return DBL2NUM(cos_al(NUM2DBL(vt)));
 }
 /*
 Cosine of Solar Declination C extension
 */
 VALUE func_cos_dec_sun(VALUE klass, VALUE vds) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(cos_dec_sun(NUM2DBL(vds)));
+  return DBL2NUM(cos_dec(NUM2DBL(vds)));
 }
 /*
 C extension
@@ -71,7 +86,7 @@ C extension
 */
 VALUE func_eqc(VALUE klass, VALUE vt) {
  rb_ivar_set(klass, id_status, INT2FIX(0));
- return DBL2NUM(eqc(NUM2DBL(vt)));  
+ return DBL2NUM(eqc(NUM2DBL(vt)));
 }
 /*
 C extension
@@ -92,7 +107,7 @@ C extension
 */
 VALUE func_cos_tl_sun(VALUE klass, VALUE vt) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(cos_al_sun(NUM2DBL(vt)));
+  return DBL2NUM(cos_al(NUM2DBL(vt)));
 }
 /*
 C extension
@@ -106,14 +121,14 @@ C extension
 */
 VALUE func_sin_al_sun(VALUE klass, VALUE vt) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(sin_al_sun(NUM2DBL(vt)));
+  return DBL2NUM(sin_al(NUM2DBL(vt)));
 }
 /*
 C extension
 */
 VALUE func_sin_tl_sun(VALUE klass, VALUE vt) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(sin_tl_sun(NUM2DBL(vt)));
+  return DBL2NUM(sin_tl(NUM2DBL(vt)));
 }
 /*
 C extension
@@ -127,7 +142,7 @@ C extension
 */
 VALUE func_sin_dec_sun(VALUE klass, VALUE vds) {
   rb_ivar_set(klass, id_status, INT2FIX(0));
-  return DBL2NUM(sin_dec_sun(NUM2DBL(vds)));
+  return DBL2NUM(sin_dec(NUM2DBL(vds)));
 }
 /*
 C extension
@@ -172,26 +187,27 @@ Init_eot(void) {
   VALUE cEot = rb_define_class("Eot", rb_cObject);
   id_status = rb_intern("@status");
   rb_define_method(cEot, "al", func_al, 1);
+  rb_define_method(cEot, "ajd2dt", func_ajd_2_datetime, 1);
   rb_define_method(cEot, "cosZ", func_cosZ, 1);
-  rb_define_method(cEot, "cos_al_sun", func_cos_al_sun, 1);
-  rb_define_method(cEot, "cos_dec_sun", func_cos_dec_sun, 1);
+  rb_define_method(cEot, "cos_al", func_cos_al_sun, 1);
+  rb_define_method(cEot, "cos_dec", func_cos_dec_sun, 1);
   rb_define_method(cEot, "cos_lat", func_cos_lat, 1);
-  rb_define_method(cEot, "cos_tl_sun", func_cos_tl_sun, 1);
+  rb_define_method(cEot, "cos_tl", func_cos_tl_sun, 1);
   rb_define_method(cEot, "cos_to_earth", func_cos_to_earth, 1);
   rb_define_method(cEot, "eoe", func_eoe, 1);
   rb_define_method(cEot, "eqc", func_eqc, 1);
   rb_define_method(cEot, "et", func_et, 2);
-  rb_define_method(cEot, "mu", func_mu, 1); 
-  rb_define_method(cEot, "ml", func_ml, 1); 
-  rb_define_method(cEot, "sin_al_sun", func_sin_al_sun, 1);
-  rb_define_method(cEot, "sin_dec_sun", func_sin_dec_sun, 1);
+  rb_define_method(cEot, "mu", func_mu, 1);
+  rb_define_method(cEot, "ml", func_ml, 1);
+  rb_define_method(cEot, "sin_al", func_sin_al_sun, 1);
+  rb_define_method(cEot, "sin_dec", func_sin_dec_sun, 1);
   rb_define_method(cEot, "sin_lat", func_sin_lat, 1);
-  rb_define_method(cEot, "sin_tl_sun", func_sin_tl_sun, 1);
+  rb_define_method(cEot, "sin_tl", func_sin_tl_sun, 1);
   rb_define_method(cEot, "sin_to_earth", func_sin_to_earth, 1);
-  rb_define_method(cEot, "sun", func_sun, 3); 
+  rb_define_method(cEot, "sun", func_sun, 3);
   rb_define_method(cEot, "sun_dec", func_sun_dec, 2);
   rb_define_method(cEot, "sun_ra", func_sun_ra, 2);
   rb_define_method(cEot, "ta", func_ta, 1);
   rb_define_method(cEot, "tl", func_tl, 1);
-  
+
 }

@@ -34,6 +34,13 @@ describe 'aliased_angles_displays using ajd of 2_456_885.0' do
     assert_equal '+220:38:04.598',
                  aliased_angles_displays.mean_anomaly_string
   end
+end
+
+describe 'aliased_angles_displays using ajd of 2_456_885.0' do
+  before(:each) do
+    aliased_angles_displays.jd = 2_456_885.0
+    aliased_angles_displays.set_t
+  end
 
   it 'expected from aliased_angles_displays.mean_obliquity_string \
                   +023:26:14.558 ' do
@@ -52,6 +59,13 @@ describe 'aliased_angles_displays using ajd of 2_456_885.0' do
     assert_equal '+219:24:27.798',
                  aliased_angles_displays.true_anomaly_string
   end
+end
+
+describe 'aliased_angles_displays using ajd of 2_456_885.0' do
+  before(:each) do
+    aliased_angles_displays.jd = 2_456_885.0
+    aliased_angles_displays.set_t
+  end
 
   it 'expected from aliased_angles_displays.true_longitude_string \
                   +142:35:47.318 ' do
@@ -69,10 +83,7 @@ end
 describe 'Eot angles_displays using ajd of 2_455_055.5' do
   before(:each) do
     aliased_angles_displays.jd = 2_455_055.5
-    ajd = aliased_angles_displays.ajd
     aliased_angles_displays.set_t
-    # check date for this ajd when needed.
-    aliased_angles_displays.date = aliased_angles_displays.ajd_to_datetime(ajd)
   end
 
   it 'expected from aliased_angles_displays.apparent_longitude_string \
@@ -93,6 +104,13 @@ describe 'Eot angles_displays using ajd of 2_455_055.5' do
     assert_equal '+217:28:44.029',
                  aliased_angles_displays.mean_anomaly_string
   end
+end
+
+describe 'Eot angles_displays using ajd of 2_455_055.5' do
+  before(:each) do
+    aliased_angles_displays.jd = 2_455_055.5
+    aliased_angles_displays.set_t
+  end
 
   it 'expected from aliased_angles_displays.mean_obliquity_string \
                   +023:26:16.904 ' do
@@ -110,6 +128,13 @@ describe 'Eot angles_displays using ajd of 2_455_055.5' do
                   +216:19:59.653 ' do
     assert_equal '+216:19:59.653',
                  aliased_angles_displays.true_anomaly_string
+  end
+end
+
+describe 'Eot angles_displays using ajd of 2_455_055.5' do
+  before(:each) do
+    aliased_angles_displays.jd = 2_455_055.5
+    aliased_angles_displays.set_t
   end
 
   it 'expected from aliased_angles_displays.true_longitude_string \

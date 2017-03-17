@@ -9,13 +9,10 @@ require 'eot'
 
 angles_displays = Eot.new
 
-describe 'Eot angles_displays using ajd of 2456885.0' do
-  before(:each) do
+describe 'Eot angles_displays using jd of 2_456_885.0' do
+  before(:all) do
     angles_displays.jd = 2_456_885.0
-    ajd = angles_displays.ajd
     angles_displays.ma_ta_set
-    # check date for this ajd when needed.
-    angles_displays.date = angles_displays.ajd_to_datetime(ajd)
   end
 
   it 'expected from angles_displays.degrees_to_s \
@@ -36,6 +33,13 @@ describe 'Eot angles_displays using ajd of 2456885.0' do
     assert_equal '5.023"',
                  angles_displays.string_arc_secs(5.023)
   end
+end
+
+describe 'Eot angles_displays using jd of 2_456_885.0' do
+  before(:all) do
+    angles_displays.jd = 2_456_885.0
+    angles_displays.ma_ta_set
+  end
 
   it 'expected from angles_displays.string_dec_sun \
                   +013:58:51.522 ' do
@@ -54,6 +58,13 @@ describe 'Eot angles_displays using ajd of 2456885.0' do
     assert_equal '+00:01.284',
                  angles_displays.string_delta_orbit
   end
+end
+
+describe 'Eot angles_displays using jd of 2_456_885.0' do
+  before(:all) do
+    angles_displays.jd = 2_456_885.0
+    angles_displays.ma_ta_set
+  end
 
   it 'expected from angles_displays.string_eqc \
                   -001:13:36.800 ' do
@@ -62,15 +73,22 @@ describe 'Eot angles_displays using ajd of 2456885.0' do
   end
 
   it 'expected from angles_displays.string_eot \
-                  -04m, 29.2s ' do
-    assert_equal '-04m, 29.2s',
+                  -04m, 29.76s ' do
+    assert_equal '-04m, 29.76s',
                  angles_displays.string_eot
   end
 
   it 'expected from angles_displays.string_gha(angles_displays.gha_sun) \
-                  356° 28\' 13.761" ' do
-    assert_equal "356\u00B0 28' 13.761\"",
+                  358° 52\' 56.211" ' do
+    assert_equal "358\u00B0 52' 56.211\"",
                  angles_displays.string_gha(angles_displays.gha_sun)
+  end
+end
+
+describe 'Eot angles_displays using jd of 2_456_885.0' do
+  before(:all) do
+    angles_displays.jd = 2_456_885.0
+    angles_displays.ma_ta_set
   end
 
   it 'expected from angles_displays.string_gha(angles_displays.tl_aries) \
@@ -89,6 +107,13 @@ describe 'Eot angles_displays using ajd of 2456885.0' do
                   +144:56:36.571 ' do
     assert_equal '+144:56:36.571',
                  angles_displays.string_ra_sun
+  end
+end
+
+describe 'Eot angles_displays using jd of 2_456_885.0' do
+  before(:all) do
+    angles_displays.jd = 2_456_885.0
+    angles_displays.ma_ta_set
   end
 
   it 'expected from angles_displays.string_ta_sun \
@@ -111,8 +136,8 @@ describe 'Eot angles_displays using ajd of 2456885.0' do
 end
 
 # sun longitude angle displays
-describe 'Eot angles_displays using ajd of 2_455_055.5' do
-  before(:each) do
+describe 'Eot angles_displays using jd of 2_455_055.5' do
+  before(:all) do
     angles_displays.jd = 2_455_055.5
     angles_displays.set_t
   end
@@ -137,8 +162,8 @@ describe 'Eot angles_displays using ajd of 2_455_055.5' do
 end
 
 # sun ra and dec angle displays
-describe 'Eot angles_displays using ajd of 2_455_055.5' do
-  before(:each) do
+describe 'Eot angles_displays using jd of 2_455_055.5' do
+  before(:all) do
     angles_displays.jd = 2_455_055.5
     angles_displays.set_t
   end
@@ -157,8 +182,8 @@ describe 'Eot angles_displays using ajd of 2_455_055.5' do
 end
 
 # sun anomalies displays
-describe 'Eot angles_displays using ajd of 2_455_055.5' do
-  before(:each) do
+describe 'Eot angles_displays using jd of 2_455_055.5' do
+  before(:all) do
     angles_displays.jd = 2_455_055.5
     angles_displays.set_t
   end
@@ -183,8 +208,8 @@ describe 'Eot angles_displays using ajd of 2_455_055.5' do
 end
 
 # delta displays
-describe 'Eot angles_displays using ajd of 2_455_055.5' do
-  before(:each) do
+describe 'Eot angles_displays using jd of 2_455_055.5' do
+  before(:all) do
     angles_displays.jd = 2_455_055.5
     angles_displays.set_t
   end
@@ -202,15 +227,15 @@ describe 'Eot angles_displays using ajd of 2_455_055.5' do
   end
 
   it 'expected from angles_displays.string_eot \
-                  -05m, 04.70s ' do
-    assert_equal '-05m, 04.70s',
+                  -05m, 05.53s ' do
+    assert_equal '-05m, 05.53s',
                  angles_displays.string_eot
   end
 end
 
 # earth tilt and degree displays
-describe 'Eot angles_displays using ajd of 2_455_055.5' do
-  before(:each) do
+describe 'Eot angles_displays using jd of 2_455_055.5' do
+  before(:all) do
     angles_displays.jd = 2_455_055.5
     angles_displays.set_t
   end

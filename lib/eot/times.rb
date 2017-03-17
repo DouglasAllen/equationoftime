@@ -42,6 +42,10 @@ class Eot
     ajd_to_datetime(civil_twilight_start_jd)
   end
 
+  def date_dt
+    ajd_to_datetime(@jd)
+  end
+
   # From times.rb:
   # Uses @ajd and @longitude attributes
   # Returns DateTime object of local noon or solar transit
@@ -68,7 +72,7 @@ class Eot
   # Returns EOT (equation of time) now in decimal minutes form
   def now
     @ajd = DateTime.now.to_time.utc.to_datetime.ajd
-    @ta = (@ajd - DJ00) / DJC
+    @t = (@ajd - DJ00) / DJC
     time_eot
   end
 
@@ -85,11 +89,18 @@ class Eot
   def sunset_dt
     ajd_to_datetime(sunset_jd)
   end
+
+  # From times.rb:
+  # Uses @ajd attribute
+  # Returns EOT as a float for decimal minutes time
+  def time_eot
+    (eot * R2D * 4.0).to_f.round(12)
+  end
 end
 
 if __FILE__ == $PROGRAM_NAME
 
-  spec = File.expand_path('../../../tests/minitest', __FILE__)
+  p spec = File.expand_path('../../../test/eot', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
   require 'times_spec'
 

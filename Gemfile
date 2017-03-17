@@ -1,26 +1,17 @@
 
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.0.0'
 
 gemspec
 
-# gem 'apigen', '>=0'
 
 group :development, :test do
+  gem 'development'
+  gem 'ffi'
   gem 'mustache'
   gem 'rubocop'
-  gem 'hoe'
-  gem 'rake-compiler'
-  gem 'guard'
-  gem 'minitest'
-  gem 'guard-minitest'
-  gem 'ZenTest'
-  gem 'rspec'
-  gem 'yard'
-  gem 'rdoc'
-  gem 'ffi'
+  gem 'shoulda'
   gem 'simplecov'
   gem 'test-unit'
-  gem 'shoulda'
 end

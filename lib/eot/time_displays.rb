@@ -18,19 +18,33 @@ class Eot
     show_minutes(now)
   end
 
+  def hours(jdf)
+    Integer(jdf * DAY_HOURS)
+  end
+
+  def minutes(jdf)
+    Integer((jdf - hours(jdf) / DAY_HOURS) * DAY_MINUTES)
+  end
+
+  def seconds(jdf)
+    Integer((jdf - hours(jdf) / 24.0 - minutes(jdf) / DAY_MINUTES) * DAY_SECONDS)
+  end
+
+  def format_fraction(jdf)
+    format('%02d:%02d:%02d',
+           hours(jdf),
+           minutes(jdf),
+           seconds(jdf))
+  end
+
   # From displays.rb
   # String formatter for fraction of Julian day number
-  def string_day_fraction_to_time(jpd_time = 0.0)
-    jpd_time.nil? ? jpd_time = 0.0 : jpd_time
-    fraction = jpd_time + 0.5 - Integer(jpd_time)
-    h = Integer(fraction * DAY_HOURS)
-    m = Integer((fraction - h / DAY_HOURS) * DAY_MINUTES)
-    s = Integer((fraction - h / 24.0 - m / DAY_MINUTES) * DAY_SECONDS)
-    format('%02d:', h) +
-      # ':' +
-      format('%02d', m) +
-      ':' +
-      format('%02d', s)
+  def string_day_fraction_to_time(jpd = 0.5)
+    jpd.nil? ? jpd = 0.5 : jpd
+    jpd.zero? ? jpd = 0.5 : jpd
+    jdf = jpd % 1.0 - 0.5
+    jdf = jpd % 1.0 if jpd < 0.5
+    format_fraction(jdf)
   end
   alias julian_period_day_fraction_to_time string_day_fraction_to_time
 

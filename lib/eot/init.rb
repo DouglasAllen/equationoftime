@@ -38,8 +38,6 @@ class Eot
   def set_t
     @t = ((@jd - DJ00) / DJC).to_f
     @ma = ma_sun
-    @date = ajd_to_datetime(@jd)
-    @ajd = @jd
   end
   alias ma_ta_set set_t
 
@@ -97,8 +95,10 @@ class Eot
   #   Eot::new
   #
   def initialize
-    d = DateTime.now.to_time.utc.to_datetime
-    @jd = d.jd
+    @d = DateTime.now.to_time.utc.to_datetime
+    @jd = @d.jd.to_f.round(12)
+    @ajd = @d.ajd.to_f.round(12)
+    @date = ajd2dt(@jd)
     set_t
     @latitude = 0.0
     @longitude = 0.0
@@ -107,7 +107,7 @@ end
 
 # we can run some tests from inside this file.
 if __FILE__ == $PROGRAM_NAME
-  lib = File.expand_path('../../../lib', __FILE__)
+  p lib = File.expand_path('../../../lib', __FILE__)
   $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
   require 'eot'
   eot = Eot.new
@@ -115,14 +115,14 @@ if __FILE__ == $PROGRAM_NAME
   p eot.date
   p eot.jd
   p eot.ma
-  p eot.ta
+  p eot.t
   p eot.addr
   p eot.latitude
   p eot.longitude
-  list = eot.public_methods(false).sort
-  list.each { |i| puts i.to_sym }
+  # list = eot.public_methods(false).sort
+  # list.each { |i| puts i.to_sym }
   spec = File.expand_path('../../../test/eot', __FILE__)
   $LOAD_PATH.unshift(spec) unless $LOAD_PATH.include?(spec)
-  require 'init_spec'
+  # require 'init_spec'
   # bundle exec rake
 end

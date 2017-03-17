@@ -13,14 +13,13 @@ describe 'aliased_displays using ajd of 2_456_885.0' do
   before(:each) do
     aliased_displays.jd = 2_456_885.0
     aliased_displays.ma_ta_set
-    aliased_displays.date =
-      aliased_displays.ajd_to_datetime(aliased_displays.jd)
+    aliased_displays.date = DateTime.jd(aliased_displays.jd + 0.5)
   end
 
-  it 'expected from aliased_displays.ajd \
+  it 'expected from aliased_displays.jd \
                  2_456_885.0 ' do
     assert_equal 2_456_885.0,
-                 aliased_displays.ajd
+                 aliased_displays.jd
   end
 
   it 'expected from aliased_displays.date.to_s \
@@ -29,10 +28,10 @@ describe 'aliased_displays using ajd of 2_456_885.0' do
                  aliased_displays.date.to_s
   end
 
-  it 'expected from aliased_displays.ma.round(10) \
-                 3.8508003966 ' do
-    assert_equal 3.8508003966,
-                 aliased_displays.ma.round(10)
+  it 'expected from aliased_displays.ma \
+                 3.850800396604 ' do
+    assert_equal 3.850800396604,
+                 aliased_displays.ma
   end
 end
 
@@ -40,8 +39,6 @@ describe 'aliased_displays using ajd of 2_456_885.0' do
   before(:each) do
     aliased_displays.jd = 2_456_885.0
     aliased_displays.ma_ta_set
-    aliased_displays.date =
-      aliased_displays.ajd_to_datetime(aliased_displays.jd)
   end
 
   it 'expected from aliased_displays.apparent_longitude_string \
@@ -58,8 +55,8 @@ describe 'aliased_displays using ajd of 2_456_885.0' do
   end
 
   it 'expected from aliased_displays.display_equation_of_time \
-                  -04m, 29.2s ' do
-    assert_equal '-04m, 29.2s',
+                  -04m, 29.76s ' do
+    assert_equal '-04m, 29.76s',
                  aliased_displays.display_equation_of_time
   end
 end
@@ -68,8 +65,6 @@ describe 'aliased_displays using ajd of 2_456_885.0' do
   before(:each) do
     aliased_displays.jd = 2_456_885.0
     aliased_displays.ma_ta_set
-    aliased_displays.date =
-      aliased_displays.ajd_to_datetime(aliased_displays.jd)
   end
 
   it 'expected from aliased_displays.display_time_string() \
@@ -97,30 +92,34 @@ describe 'aliased_displays using ajd of 2_456_885.0' do
   before(:each) do
     aliased_displays.jd = 2_456_885.0
     aliased_displays.ma_ta_set
-    aliased_displays.date =
-      aliased_displays.ajd_to_datetime(aliased_displays.jd)
+    aliased_displays.date = DateTime.jd(aliased_displays.jd + 0.5)
+    @date = aliased_displays.date
   end
 
   it 'expected from aliased_displays.display_time_string(aliased_displays.date) \
                   12:00:00.000' do
     assert_equal '12:00:00.000',
-                 aliased_displays.display_time_string(aliased_displays.date)
+                 aliased_displays.display_time_string(@date)
   end
 
-  it 'expected from aliased_displays.jd_to_date_string(aliased_displays.ajd) \
+  it 'expected from aliased_displays.jd_to_date_string(aliased_displays.jd) \
                   2014-08-15 ' do
     assert_equal '2014-08-15',
-                 aliased_displays.jd_to_date_string(aliased_displays.ajd)
+                 aliased_displays.jd_to_date_string(aliased_displays.jd)
   end
 
   it 'expected from aliased_displays.julian_period_day_fraction_to_time \
-                  12:00:00 ' do
-    assert_equal '12:00:00',
+                  00:00:00 ' do
+    assert_equal '00:00:00',
                  aliased_displays.julian_period_day_fraction_to_time
-    assert_equal '12:00:00',
+    assert_equal '00:00:00',
                  aliased_displays.julian_period_day_fraction_to_time(nil)
-    assert_equal '12:00:00',
+    assert_equal '00:00:00',
                  aliased_displays.julian_period_day_fraction_to_time(0)
+    assert_equal '00:00:00',
+                 aliased_displays.julian_period_day_fraction_to_time(0.5)
+    assert_equal '06:00:00',
+                 aliased_displays.julian_period_day_fraction_to_time(0.25)
   end
 end
 
@@ -128,8 +127,6 @@ describe 'aliased_displays using ajd of 2_456_885.0' do
   before(:each) do
     aliased_displays.jd = 2_456_885.0
     aliased_displays.ma_ta_set
-    aliased_displays.date =
-      aliased_displays.ajd_to_datetime(aliased_displays.jd)
   end
 
   it 'expected from aliased_displays.mean_anomaly_string \
@@ -155,8 +152,6 @@ describe 'aliased_displays using ajd of 2_456_885.0' do
   before(:each) do
     aliased_displays.jd = 2_456_885.0
     aliased_displays.ma_ta_set
-    aliased_displays.date =
-      aliased_displays.ajd_to_datetime(aliased_displays.jd)
   end
   it 'expected from aliased_displays.true_longitude_string \
                   +142:35:47.318 ' do
@@ -183,5 +178,49 @@ describe 'Eot aliased displays explicit values' do
     aliased_displays.date = Date.today.to_s
     assert_equal '17:59:16.800',
                  aliased_displays.display_time_string(17.988)
+  end
+end
+
+describe 'aliased_displays using ajd of 2_455_055.5' do
+  before(:each) do
+    aliased_displays.jd = 2_455_055.5
+    aliased_displays.ma_ta_set
+    aliased_displays.date = DateTime.jd(aliased_displays.jd + 0.5)
+    @date = aliased_displays.date
+  end
+
+  it 'expected from aliased_displays.display_time_string(aliased_displays.date) \
+                  00:00:00.000' do
+    assert_equal '00:00:00.000',
+                 aliased_displays.display_time_string(@date)
+  end
+
+  it 'expected from aliased_displays.jd_to_date_string(aliased_displays.jd) \
+                  2009-08-11 ' do
+    assert_equal '2009-08-11',
+                 aliased_displays.jd_to_date_string(aliased_displays.jd)
+  end
+end
+
+describe 'aliased_displays using ajd of 2_455_055.5' do
+  before(:each) do
+    aliased_displays.jd = 2_455_055.5
+    aliased_displays.ma_ta_set
+    aliased_displays.date = DateTime.jd(aliased_displays.jd + 0.5)
+    @date = aliased_displays.date
+  end
+
+  it 'expected from aliased_displays.julian_period_day_fraction_to_time \
+                  00:00:00 ' do
+    assert_equal '00:00:00',
+                 aliased_displays.julian_period_day_fraction_to_time
+    assert_equal '00:00:00',
+                 aliased_displays.julian_period_day_fraction_to_time(nil)
+    assert_equal '00:00:00',
+                 aliased_displays.julian_period_day_fraction_to_time(0)
+    assert_equal '00:00:00',
+                 aliased_displays.julian_period_day_fraction_to_time(0.5)
+    assert_equal '06:00:00',
+                 aliased_displays.julian_period_day_fraction_to_time(0.25)
   end
 end

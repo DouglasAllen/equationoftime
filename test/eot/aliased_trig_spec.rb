@@ -9,106 +9,114 @@ require 'eot'
 
 aliased_trig = Eot.new
 
-describe 'Tests ajd of 2_456_885.0 ' do
+describe 'Tests jd of 2_456_885.0 ' do
   before(:each) do
     aliased_trig.jd = 2_456_885.0
-    ajd = aliased_trig.ajd
     aliased_trig.ma_ta_set
-    # check date for this ajd when needed.
-    aliased_trig.date = aliased_trig.ajd_to_datetime(ajd)
   end
 
-  it 'expected from aliased_trig.cosine_apparent_longitude.round(10) \
-                 -0.794336157 ' do
-    assert_equal(-0.794336157,
-                 aliased_trig.cosine_apparent_longitude.round(10))
+  it 'expected from aliased_trig.cosine_apparent_longitude \
+                 -0.794336157045 ' do
+    assert_equal(-0.794336157045,
+                 aliased_trig.cosine_apparent_longitude)
   end
 
-  it 'expected from aliased_trig.cosalsun.round(10) \
-                 -0.794336157 ' do
-    assert_equal(-0.794336157,
-                 aliased_trig.cosalsun.round(10))
+  it 'expected from aliased_trig.cosalsun \
+                 -0.794336157045 ' do
+    assert_equal(-0.794336157045,
+                 aliased_trig.cosalsun)
   end
 
-  it 'expected from \ aliased_trig.cosine_true_longitude.round(10) \
-                 -0.794336157 ' do
-    assert_equal(-0.794336157,
-                 aliased_trig.cosine_true_longitude.round(10))
-  end
-
-  it 'expected from aliased_trig.cosine_true_obliquity.round(10) \
-                 0.9175115347 ' do
-    assert_equal(0.9175115347,
-                 aliased_trig.cosine_true_obliquity.round(10))
-  end
-
-  it 'expected from aliased_trig.sine_apparent_longitude.round(10) \
-                 0.607478452 ' do
-    assert_equal(0.607478452,
-                 aliased_trig.sine_apparent_longitude.round(10))
-  end
-
-  it 'expected from aliased_trig.sine_true_longitude.round(10) \
-                 -0.8381127163 ' do
-    assert_equal(-0.8381127163,
-                 aliased_trig.sine_true_longitude.round(10))
-  end
-
-  it 'expected from aliased_trig.sine_true_obliquity.round(10) \
-                 0.3977091698 ' do
-    assert_equal(0.3977091698,
-                 aliased_trig.sine_true_obliquity.round(10))
+  it 'expected from aliased_trig.cosine_true_longitude \
+                 -0.794336157045 ' do
+    assert_equal(-0.794336157045,
+                 aliased_trig.cosine_true_longitude)
   end
 end
 
-describe 'Tests ajd of 2455055.5 ' do
+describe 'Tests jd of 2_456_885.0 ' do
   before(:each) do
-    aliased_trig.jd = 2_455_055.0
-    ajd = aliased_trig.ajd
+    aliased_trig.jd = 2_456_885.0
     aliased_trig.ma_ta_set
-    # check date for this ajd when needed.
-    aliased_trig.date = aliased_trig.ajd_to_datetime(ajd)
   end
 
-  it 'expected from aliased_trig.cosine_apparent_longitude.round(10) \
-                 -0.754188697 ' do
-    assert_equal(-0.754188697,
-                 aliased_trig.cosine_apparent_longitude.round(10))
+  it 'expected from aliased_trig.cosine_true_obliquity \
+                 0.917511534681 ' do
+    assert_equal(0.917511534681,
+                 aliased_trig.cosine_true_obliquity)
   end
 
-  it 'expected from aliased_trig.cosalsun.round(10) \
-                 -0.754188697 ' do
-    assert_equal(-0.754188697,
-                 aliased_trig.cosalsun.round(10))
+  it 'expected from aliased_trig.sine_apparent_longitude \
+                 0.607478451973 ' do
+    assert_equal(0.607478451973,
+                 aliased_trig.sine_apparent_longitude)
   end
 
-  it 'expected from \ aliased_trig.cosine_true_longitude.round(10) \
-                 -0.754188697 ' do
-    assert_equal(-0.754188697,
-                 aliased_trig.cosine_true_longitude.round(10))
+  it 'expected from aliased_trig.sine_true_longitude \
+                 -0.838112716165 ' do
+    assert_equal(-0.838112716165,
+                 aliased_trig.sine_true_longitude)
   end
 
-  it 'expected from aliased_trig.cosine_true_obliquity.round(10) \
-                 0.9174818088 ' do
-    assert_equal(0.9174818088,
-                 aliased_trig.cosine_true_obliquity.round(10))
+  it 'expected from aliased_trig.sine_true_obliquity \
+                 0.39770916978 ' do
+    assert_equal(0.39770916978,
+                 aliased_trig.sine_true_obliquity)
+  end
+end
+
+describe 'Tests jd of 2455055.5 ' do
+  before(:each) do
+    aliased_trig.jd = 2_455_055.5
+    aliased_trig.ma_ta_set
   end
 
-  it 'expected from aliased_trig.sine_apparent_longitude.round(10) \
-                 0.6566577566 ' do
-    assert_equal(0.6566577566,
-                 aliased_trig.sine_apparent_longitude.round(10))
+  it 'expected from aliased_trig.cosine_apparent_longitude \
+                 -0.759661230863 ' do
+    assert_equal(-0.759661230863,
+                 aliased_trig.cosine_apparent_longitude)
   end
 
-  it 'expected from aliased_trig.sine_true_longitude.round(10) \
-                 0.9344039546 ' do
-    assert_equal(0.9344039546,
-                 aliased_trig.sine_true_longitude.round(10))
+  it 'expected from aliased_trig.cosalsun \
+                 -0.759661230863 ' do
+    assert_equal(-0.759661230863,
+                 aliased_trig.cosalsun)
   end
 
-  it 'expected from aliased_trig.sine_true_obliquity.round(10) \
-                 0.3977777401 ' do
-    assert_equal(0.3977777401,
-                 aliased_trig.sine_true_obliquity.round(10))
+  it 'expected from aliased_trig.cosine_true_longitude \
+                 -0.759661230863 ' do
+    assert_equal(-0.759661230863,
+                 aliased_trig.cosine_true_longitude)
+  end
+
+  it 'expected from aliased_trig.cosine_true_obliquity \
+                 0.917481838932 ' do
+    assert_equal(0.917481838932,
+                 aliased_trig.cosine_true_obliquity)
+  end
+end
+
+describe 'Tests jd of 2455055.5 ' do
+  before(:each) do
+    aliased_trig.jd = 2_455_055.5
+    aliased_trig.ma_ta_set
+  end
+
+  it 'expected from aliased_trig.sine_apparent_longitude \
+                 0.650319009659' do
+    assert_equal(0.650319009659,
+                 aliased_trig.sine_apparent_longitude)
+  end
+
+  it 'expected from aliased_trig.sine_true_longitude \
+                 0.809098060062 ' do
+    assert_equal(0.809098060062,
+                 aliased_trig.sine_true_longitude)
+  end
+
+  it 'expected from aliased_trig.sine_true_obliquity \
+                 0.397777670601 ' do
+    assert_equal(0.397777670601,
+                 aliased_trig.sine_true_obliquity)
   end
 end

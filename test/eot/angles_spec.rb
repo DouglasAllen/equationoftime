@@ -8,13 +8,13 @@ require 'eot'
 
 angles = Eot.new
 
-describe 'Tests ajd of 2_456_885.0 ' do
-  before(:each) do
+describe 'Tests jd of 2_456_885.0 ' do
+  before(:all) do
     angles.jd = 2_456_885.0
     angles.set_t
   end
 
-  it 'expected from angles.ajd \
+  it 'expected from angles.jd \
                  2_456_885.0' do
     assert_equal(2_456_885.0,
                  angles.jd)
@@ -23,266 +23,356 @@ describe 'Tests ajd of 2_456_885.0 ' do
   it 'expected from angles.date.to_s \
                  "2014-08-15T12:00:00+00:00"' do
     assert_equal('2014-08-15T12:00:00+00:00',
-                 angles.date.to_s)
+                 angles.date_dt.to_s)
   end
 
-  it 'expected from angles.al_sun().round(10) \
-                 2.4887103398 ' do
-    assert_equal(2.4887103398,
-                 angles.al_sun.round(10))
-  end
-
-  it 'expected from angles.centre.round(10) \
-                 -0.0214132497 ' do
-    assert_equal(-0.0214132497,
-                 angles.center.round(10))
-  end
-
-  it 'expected from angles.dec_sun.round(10) \
-                 0.2440141022 ' do
-    assert_equal(0.2440141022,
-                 angles.dec_sun.round(10))
-  end
-
-  it 'expected from angles.eccentricity_earth.round(10) \
-                 0.0167024685 ' do
-    assert_equal(0.0167024685,
-                 angles.eccentricity_earth.round(10))
-  end
-
-  it 'expected from angles.eq_of_equinox.round(10) \
-                 3.44129e-05 ' do
-    assert_equal(3.44129e-05,
-                 angles.eq_of_equinox.round(10))
-  end
-
-  it 'expected from angles.eot.round(10) \
-                 -0.0196175759 ' do
-    assert_equal(-0.0196175759,
-                 angles.eot.round(10))
-  end
-
-  it 'expected from angles.gha_sun.round(10) \
-                 6.2215570367 ' do
-    assert_equal(6.2215570367,
-                 angles.gha_sun.round(10))
-  end
-
-  it 'expected from angles.gml_sun.round(10) \
-                 2.5101912804 ' do
-    assert_equal(2.5101912804,
-                 angles.gml_sun.round(10))
-  end
-
-  it 'expected from angles.ha_sun(1).round(10) \
-                 1.5857841878 ' do
-    assert_equal(1.5857841878,
-                 angles.ha_sun(1).round(10))
-  end
-
-  it 'expected from angles.ma_sun.round(10) \
-                 3.8508003966 ' do
-    assert_equal(3.8508003966,
-                 angles.ma_sun.round(10))
-  end
-
-  it 'expected from angles.ml_aries.round(10) \
-                 2.510089865 ' do
-    assert_equal(2.510089865,
-                 angles.ml_aries.round(10))
-  end
-
-  it 'expected from angles.mo_earth.round(10) \
-                 0.4090594025 ' do
-    assert_equal(0.4090594025,
-                 angles.mo_earth.round(10))
-  end
-
-  #   it 'expected from angles.omega.round(10) \
-  #                  -2.7528817371 ' do
-  #     assert_equal(-2.7528817371,
-  #                  angles.omega.round(10))
-  #   end
-
-  it 'expected from angles.right_ascension_sun.round(10) \
-                 2.5297411654 ' do
-    assert_equal(2.5297411654,
-                 angles.right_ascension_sun.round(10))
-  end
-
-  it 'expected from angles.ta_sun.round(10) \
-                 3.8293871469 ' do
-    assert_equal(3.8293871469,
-                 angles.ta_sun.round(10))
-  end
-
-  it 'expected from angles.tl_aries.round(10) \
-                 2.5101242777 ' do
-    assert_equal(2.5101242777,
-                 angles.tl_aries.round(10))
-  end
-
-  it 'expected from angles.tl_sun.round(10) \
-                 2.4887780307' do
-    assert_equal(2.4887780307,
-                 angles.tl_sun.round(10))
-  end
-
-  it 'expected from angles.to_earth.round(10) \
-                 0.4090187046 ' do
-    assert_equal(0.4090187046,
-                 angles.to_earth.round(10))
+  it 'expected from angles.al_sun \
+                 2.488710339844 ' do
+    assert_equal(2.488710339844,
+                 angles.al_sun)
   end
 end
 
-describe 'Tests ajd of 2455055.5 ' do
-  before(:each) do
-    angles.jd = 2_455_055.0
+describe 'Tests jd of 2_456_885.0 ' do
+  before(:all) do
+    angles.jd = 2_456_885.0
     angles.set_t
   end
 
-  it 'expected from angles.ajd \
-                 2_455_055.0 ' do
-    assert_equal(2_455_055.0,
+  it 'expected from angles.centre \
+                 -0.021413249721 ' do
+    assert_equal(-0.021413249721,
+                 angles.center)
+  end
+
+  it 'expected from angles.dec_sun \
+                 0.244014102186 ' do
+    assert_equal(0.244014102186,
+                 angles.dec_sun)
+  end
+
+  it 'expected from angles.eccentricity_earth \
+                 0.016702468499 ' do
+    assert_equal(0.016702468499,
+                 angles.eccentricity_earth)
+  end
+end
+
+describe 'Tests jd of 2_456_885.0 ' do
+  before(:all) do
+    angles.jd = 2_456_885.0
+    angles.set_t
+  end
+
+  it 'expected from angles.eq_of_equinox \
+                 3.4412912e-05 ' do
+    assert_equal(3.4412912e-05,
+                 angles.eq_of_equinox)
+  end
+
+  it 'expected from angles.eot \
+                 -0.019617575867 ' do
+    assert_equal(-0.019617575867,
+                 angles.eot)
+  end
+
+  it 'expected from angles.gha_sun \
+                 6.263568419405 ' do
+    assert_equal(6.263568419405,
+                 angles.gha_sun)
+  end
+end
+
+describe 'Tests jd of 2_456_885.0 ' do
+  before(:all) do
+    angles.jd = 2_456_885.0
+    angles.set_t
+  end
+
+  it 'expected from angles.gml_sun \
+                 2.510191280414 ' do
+    assert_equal(2.510191280414,
+                 angles.gml_sun)
+  end
+
+  it 'expected from angles.ha_sun(1) \
+                 1.585784187794 ' do
+    assert_equal(1.585784187794,
+                 angles.ha_sun(1))
+  end
+
+  it 'expected from angles.ma_sun \
+                 3.850800396604 ' do
+    assert_equal(3.850800396604,
+                 angles.ma_sun)
+  end
+end
+
+describe 'Tests jd of 2_456_885.0 ' do
+  before(:all) do
+    angles.jd = 2_456_885.0
+    angles.set_t
+  end
+
+  it 'expected from angles.ml_aries \
+                 2.510089864987 ' do
+    assert_equal(2.510089864987,
+                 angles.ml_aries)
+  end
+
+  it 'expected from angles.mo_earth \
+                 0.409059402543 ' do
+    assert_equal(0.409059402543,
+                 angles.mo_earth)
+  end
+end
+
+describe 'Tests jd of 2_456_885.0 ' do
+  before(:all) do
+    angles.jd = 2_456_885.0
+    angles.set_t
+  end
+
+  #   it 'expected from angles.omega \
+  #                  -2.7528817371 ' do
+  #     assert_equal(-2.7528817371,
+  #                  angles.omega)
+  #   end
+
+  it 'expected from angles.right_ascension_sun \
+                 2.529741165432 ' do
+    assert_equal(2.529741165432,
+                 angles.right_ascension_sun)
+  end
+
+  it 'expected from angles.ta_sun \
+                 3.829387146883 ' do
+    assert_equal(3.829387146883,
+                 angles.ta_sun)
+  end
+end
+
+describe 'Tests jd of 2_456_885.0 ' do
+  before(:all) do
+    angles.jd = 2_456_885.0
+    angles.set_t
+  end
+
+  it 'expected from angles.tl_aries \
+                 2.510124277657 ' do
+    assert_equal(2.510124277657,
+                 angles.tl_aries)
+  end
+
+  it 'expected from angles.tl_sun \
+                 2.488778030693' do
+    assert_equal(2.488778030693,
+                 angles.tl_sun)
+  end
+
+  it 'expected from angles.to_earth \
+                 0.409018704616 ' do
+    assert_equal(0.409018704616,
+                 angles.to_earth)
+  end
+end
+
+describe 'Tests jd of 2_455_055.5 ' do
+  before(:each) do
+    angles.jd = 2_455_055.5
+    angles.set_t
+  end
+
+  it 'expected from angles.jd \
+                 2_455_055.5 ' do
+    assert_equal(2_455_055.5,
                  angles.jd)
   end
 
   it 'expected from angles.date.to_s \
-                  2009-08-11T12:00:00+00:00 ' do
-    assert_equal('2009-08-11T12:00:00+00:00',
-                 angles.date.to_s)
+                  2009-08-12T00:00:00+00:00 ' do
+    assert_equal('2009-08-12T00:00:00+00:00',
+                 angles.date_dt.to_s)
   end
 
-  it 'expected from \
-      angles.al_sun.round(10) \
-                 2.4252140646 ' do
-    assert_equal(2.4252140646,
-                 angles.al_sun.round(10))
+  it 'expected from angles.al_sun \
+                 2.433588355569 ' do
+    assert_equal(2.433588355569,
+                 angles.al_sun)
+  end
+end
+
+describe 'Tests jd of 2_455_055.5 ' do
+  before(:each) do
+    angles.jd = 2_455_055.5
+    angles.set_t
   end
 
-  it 'expected from angles.center.round(10) \
-                 -0.0197684135 ' do
-    assert_equal(-0.0197684135,
-                 angles.center.round(10))
+  it 'expected from angles.center \
+                 -0.01999553711 ' do
+    assert_equal(-0.01999553711,
+                 angles.center)
   end
 
-  it 'expected from angles.dec_sun.round(10) \
-                 0.2642691272 ' do
-    assert_equal(0.2642691272,
-                 angles.dec_sun.round(10))
+  it 'expected from angles.dec_sun \
+                 0.261657905194 ' do
+    assert_equal(0.261657905194,
+                 angles.dec_sun)
   end
 
-  it 'expected from angles.eccentricity_earth.round(10) \
-                 0.0167045762 ' do
-    assert_equal(0.0167045762,
-                 angles.eccentricity_earth.round(10))
+  it 'expected from angles.eccentricity_earth \
+                 0.016704575588 ' do
+    assert_equal(0.016704575588,
+                 angles.eccentricity_earth)
+  end
+end
+
+describe 'Tests jd of 2_455_055.5 ' do
+  before(:each) do
+    angles.jd = 2_455_055.5
+    angles.set_t
   end
 
-  it 'expected from angles.eq_of_equinox.round(10) \
-                 7.00788e-05 ' do
-    assert_equal(7.00788e-05,
-                 angles.eq_of_equinox.round(10))
+  it 'expected from angles.eq_of_equinox \
+                 6.99279e-05 ' do
+    assert_equal(6.99279e-05,
+                 angles.eq_of_equinox)
   end
 
-  it 'expected from angles.eot.round(10) \
-                 -0.0225806355' do
-    assert_equal(-0.0225806355,
-                 angles.eot.round(10))
+  it 'expected from angles.eot \
+                 -0.022219260849' do
+    assert_equal(-0.022219260849,
+                 angles.eot)
   end
 
-  it 'expected from angles.gha_sun.round(10) \
-                 6.2122303864 ' do
-    assert_equal(6.2122303864,
-                 angles.gha_sun.round(10))
+  it 'expected from angles.gha_sun \
+                 3.119368205931 ' do
+    assert_equal(3.119368205931,
+                 angles.gha_sun)
+  end
+end
+
+describe 'Tests jd of 2_455_055.5 ' do
+  before(:each) do
+    angles.jd = 2_455_055.5
+    angles.set_t
   end
 
-  it 'expected from angles.gml_sun.round(10) \
-                 2.4450089458 ' do
-    assert_equal(2.4450089458,
-                 angles.gml_sun.round(10))
+  it 'expected from angles.gml_sun \
+                 2.453610341653 ' do
+    assert_equal(2.453610341653,
+                 angles.gml_sun)
   end
 
-  it 'expected from angles.ha_sun(nil).round(10) \
-               1.5858632618 ' do
-    assert_equal(1.5858632618,
-                 angles.ha_sun(nil).round(10))
+  it 'expected from angles.ha_sun(nil) \
+                 1.585852673609 ' do
+    assert_equal(1.585852673609,
+                 angles.ha_sun(nil))
   end
 
-  it 'expected from angles.ha_sun(1).round(10) \
-                 1.5858632618 ' do
-    assert_equal(1.5858632618,
-                 angles.ha_sun(1).round(10))
+  it 'expected from angles.ha_sun(1) \
+                 1.585852673609 ' do
+    assert_equal(1.585852673609,
+                 angles.ha_sun(1))
+  end
+end
+
+describe 'Tests jd of 2_455_055.5 ' do
+  before(:each) do
+    angles.jd = 2_455_055.5
+    angles.set_t
   end
 
-  it 'expected from angles.ha_sun(2).round(10) \
-                 1.6792969059 ' do
-    assert_equal(1.6792969059,
-                 angles.ha_sun(2).round(10))
+  it 'expected from angles.ha_sun(2) \
+                 1.679220363624 ' do
+    assert_equal(1.679220363624,
+                 angles.ha_sun(2))
   end
 
-  it 'expected from angles.ha_sun(3).round(10) \
-                 1.7878867091 ' do
-    assert_equal(1.7878867091,
-                 angles.ha_sun(3).round(10))
+  it 'expected from angles.ha_sun(3) \
+                 1.787731722626 ' do
+    assert_equal(1.787731722626,
+                 angles.ha_sun(3))
   end
 
-  it 'expected from angles.ha_sun(4).round(10) \
-                 1.8966638356 ' do
-    assert_equal(1.8966638356,
-                 angles.ha_sun(4).round(10))
+  it 'expected from angles.ha_sun(4) \
+                 1.896426397231 ' do
+    assert_equal(1.896426397231,
+                 angles.ha_sun(4))
+  end
+end
+
+describe 'Tests jd of 2_455_055.5 ' do
+  before(:each) do
+    angles.jd = 2_455_055.5
+    angles.set_t
   end
 
-  it 'expected from angles.ma_sun.round(10) \
-                 3.7871218189 ' do
-    assert_equal(3.7871218189,
-                 angles.ma_sun.round(10))
+  it 'expected from angles.ma_sun \
+                 3.7957228039 ' do
+    assert_equal(3.7957228039,
+                 angles.ma_sun)
   end
 
-  it 'expected from angles.ml_aries.round(10) \
-                 2.4449073823 ' do
-    assert_equal(2.4449073823,
-                 angles.ml_aries.round(10))
+  it 'expected from angles.ml_aries \
+                 5.59510143176 ' do
+    assert_equal(5.59510143176,
+                 angles.ml_aries)
   end
 
-  it 'expected from angles.mo_earth.round(10) \
-                 0.4090707794 ' do
-    assert_equal(0.4090707794,
-                 angles.mo_earth.round(10))
+  it 'expected from angles.mo_earth \
+                 0.40907077629 ' do
+    assert_equal(0.40907077629,
+                 angles.mo_earth)
+  end
+end
+
+describe 'Tests jd of 2_455_055.5 ' do
+  before(:each) do
+    angles.jd = 2_455_055.5
+    angles.set_t
   end
 
-  #   it 'expected from angles.omega.round(10) \
+  #   it 'expected from angles.omega \
   #                  -1.0615640635 ' do
   #     assert_equal(-1.0615640635,
-  #                  angles.omega.round(10))
+  #                  angles.omega)
   #   end
 
-  it 'expected from angles.right_ascension_sun.round(10) \
-                 2.4675631135 ' do
-    assert_equal(2.4675631135,
-                 angles.right_ascension_sun.round(10))
+  it 'expected from angles.right_ascension_sun \
+                 2.475803153528 ' do
+    assert_equal(2.475803153528,
+                 angles.right_ascension_sun)
   end
 
-  it 'expected from angles.ta_sun.round(10) \
-                 3.7673534054' do
-    assert_equal(3.7673534054,
-                 angles.ta_sun.round(10))
+  it 'expected from angles.ta_sun \
+                 3.775727266791' do
+    assert_equal(3.775727266791,
+                 angles.ta_sun)
+  end
+end
+
+describe 'Tests jd of 2_455_055.5 ' do
+  before(:each) do
+    angles.jd = 2_455_055.5
+    angles.set_t
   end
 
-  it 'expected from angles.tl_aries.round(10) \
-                 2.4449774608 ' do
-    assert_equal(2.4449774608,
-                 angles.tl_aries.round(10))
+  it 'expected from angles.tl_aries \
+                 5.595171359459 ' do
+    assert_equal(5.595171359459,
+                 angles.tl_aries)
   end
 
-  it 'expected from angles.tl_sun.round(10) \
-                 2.4252405323 ' do
-    assert_equal(2.4252405323,
-                 angles.tl_sun.round(10))
+  it 'expected from angles.tl_sun \
+                 2.433614804543 ' do
+    assert_equal(2.433614804543,
+                 angles.tl_sun)
   end
 
-  it 'expected from angles.to_earth.round(10) \
-                 0.4090934409' do
-    assert_equal(0.4090934409,
-                 angles.to_earth.round(10))
+  it 'expected from angles.to_earth \
+                 0.409093365181' do
+    assert_equal(0.409093365181,
+                 angles.to_earth)
   end
 end

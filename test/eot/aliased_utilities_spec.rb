@@ -8,25 +8,22 @@ require 'eot'
 
 aliased_utilities = Eot.new
 
-describe 'tests ajd of 2456885.0' do
+describe 'tests jd of 2_456_885.0' do
   before(:each) do
     aliased_utilities.jd = 2_456_885.0
-    ajd = aliased_utilities.ajd
     aliased_utilities.ma_ta_set
-    # check date for this ajd when needed.
-    aliased_utilities.date = aliased_utilities.ajd_to_datetime(ajd)
   end
 
-  it 'expected from aliased_utilities.ajd \
+  it 'expected from aliased_utilities.jd \
                  2_456_885.0 ' do
     assert_equal 2_456_885.0,
-                 aliased_utilities.ajd
+                 aliased_utilities.jd
   end
 
-  it 'expected from aliased_utilities.ma.round(10) \
-                 3.8508003966 ' do
-    assert_equal 3.8508003966,
-                 aliased_utilities.ma.round(10)
+  it 'expected from aliased_utilities.ma \
+                 3.850800396604 ' do
+    assert_equal 3.850800396604,
+                 aliased_utilities.ma
   end
 
   it 'expected from aliased_utilities.truncate \

@@ -8,7 +8,7 @@ require 'eot'
 
 time_displays = Eot.new
 
-describe 'time_displays of dates for ajd of 2_456_885.0' do
+describe 'time_displays of dates for jd of 2_456_885.0' do
   before(:each) do
     time_displays.jd = 2_456_885.0
     time_displays.set_t
@@ -29,11 +29,11 @@ describe 'time_displays of dates for ajd of 2_456_885.0' do
   it 'expected from  time_displays.jd_to_date_string(time_displays.ajd) \
                   2014-08-15 ' do
     assert_equal '2014-08-15',
-                 time_displays.jd_to_date_string(time_displays.ajd)
+                 time_displays.jd_to_date_string(time_displays.jd)
   end
 end
 
-describe 'time_displays of time for ajd of 2456885.0' do
+describe 'time_displays of time for jd of 2456885.0' do
   before(:each) do
     time_displays.jd = 2_456_885.0
     time_displays.set_t
@@ -58,7 +58,7 @@ describe 'time_displays of time for ajd of 2456885.0' do
   end
 end
 
-describe 'time_displays of other for ajd of 2456885.0' do
+describe 'time_displays of other for jd of 2456885.0' do
   before(:each) do
     time_displays.jd = 2_456_885.0
     time_displays.set_t
@@ -67,18 +67,18 @@ describe 'time_displays of other for ajd of 2456885.0' do
   end
 
   it 'expected  from time_displays.string_day_fraction_to_time() \
-                  12:00:00 ' do
-    assert_equal '12:00:00',
+                  00:00:00 ' do
+    assert_equal '00:00:00',
                  time_displays.string_day_fraction_to_time
-    assert_equal '12:00:00',
+    assert_equal '00:00:00',
                  time_displays.string_day_fraction_to_time(nil)
-    assert_equal '12:00:00',
+    assert_equal '00:00:00',
                  time_displays.string_day_fraction_to_time(0)
   end
 
   it 'expected  from time_displays.string_eot \
-                  -04m, 29.2s ' do
-    assert_equal '-04m, 29.2s',
+                  -04m, 29.76s ' do
+    assert_equal '-04m, 29.76s',
                  time_displays.string_eot
   end
 end
@@ -92,18 +92,18 @@ describe 'time_displays of other for ajd of 2456885.0' do
   end
 
   it 'expected  from time_displays.string_day_fraction_to_time() \
-                  12:00:00 ' do
-    assert_equal '12:00:00',
+                  00:00:00 ' do
+    assert_equal '00:00:00',
                  time_displays.string_day_fraction_to_time
-    assert_equal '12:00:00',
+    assert_equal '00:00:00',
                  time_displays.string_day_fraction_to_time(nil)
-    assert_equal '12:00:00',
+    assert_equal '00:00:00',
                  time_displays.string_day_fraction_to_time(0)
   end
 
   it 'expected  from time_displays.string_eot \
-                  -04m, 29.2s ' do
-    assert_equal '-04m, 29.2s',
+                  -04m, 29.76s ' do
+    assert_equal '-04m, 29.76s',
                  time_displays.string_eot
   end
 end
@@ -117,18 +117,18 @@ describe 'time_displays of other for ajd of 2_455_055.5' do
   end
 
   it 'expected  from time_displays.string_day_fraction_to_time() \
-                  12:00:00 ' do
-    assert_equal '12:00:00',
+                  00:00:00 ' do
+    assert_equal '00:00:00',
                  time_displays.string_day_fraction_to_time
-    assert_equal '12:00:00',
+    assert_equal '00:00:00',
                  time_displays.string_day_fraction_to_time(nil)
-    assert_equal '12:00:00',
+    assert_equal '00:00:00',
                  time_displays.string_day_fraction_to_time(0)
   end
 
   it 'expected  from time_displays.string_eot \
-                  -05m, 04.70s ' do
-    assert_equal '-05m, 04.70s',
+                  -05m, 05.53s ' do
+    assert_equal '-05m, 05.53s',
                  time_displays.string_eot
   end
 end
@@ -239,6 +239,6 @@ describe 'time_displays of date for ajd of 2_455_055.5' do
   it 'expected from  time_displays.jd_to_date_string(time_displays.ajd) \
                   2009-08-11 ' do
     assert_equal '2009-08-11',
-                 time_displays.jd_to_date_string(time_displays.ajd)
+                 time_displays.jd_to_date_string(time_displays.jd)
   end
 end

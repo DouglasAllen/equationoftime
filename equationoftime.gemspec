@@ -1,4 +1,5 @@
 # coding: utf-8
+# frozen_string_literal: true
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot/version.rb'
@@ -23,7 +24,9 @@ Gem::Specification.new do |spec|
   #                      Dir.glob('lib/**/*.rb') + Dir.glob('.*')
   # spec.files         = `git ls-files -z`.split($/)#split("\x0")
   # spec.files         = `git ls-files -z`.split("\x0")
-  spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
+  spec.files = `git ls-files -z`.split("\x0").reject do |f|
+    f.match(%r{^(test|spec|features)/})
+  end
   spec.extensions << 'ext/eot/extconf.rb'
   # spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
@@ -37,15 +40,15 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'rest-client'
   spec.add_runtime_dependency 'celes'
   # note: the last good build was with these development dependencies below
-  spec.add_development_dependency 'bundler', '~> 1.7'
+  spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
-  # spec.add_development_dependency 'rake-compiler', '~> 0.9.3'
-  # spec.add_development_dependency "hoe", "~> 3.12.0"
-  # spec.add_development_dependency "guard", "~> 2.6.1"
-  # spec.add_development_dependency "guard-minitest", "~> 2.3.2"
-  # spec.add_development_dependency "minitest", "~> 5.4.1"
-  # spec.add_development_dependency "ZenTest", "~> 4.10.1"
-  # spec.add_development_dependency "rspec", "~> 3.1.0"
-  # spec.add_development_dependency "yard", "~> 0.8.7.4"
-  # spec.add_development_dependency "rdoc", "~> 4.1.2"
+  spec.add_development_dependency 'rake-compiler'
+  spec.add_development_dependency 'hoe'
+  spec.add_development_dependency 'guard'
+  spec.add_development_dependency 'guard-minitest'
+  spec.add_development_dependency 'minitest'
+  spec.add_development_dependency 'ZenTest'
+  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'yard'
+  spec.add_development_dependency 'rdoc'
 end
