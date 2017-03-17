@@ -18,14 +18,14 @@ describe 'Tests cosines for ajd of 2_456_885.0 ' do
   end
 
   it 'expected from angles.cosine_al_sun \
-                 -0.794336157045 ' do
-    assert_equal(-0.794336157045,
+                 -0.79433615704' do
+    assert_equal(-0.79433615704,
                  angles.cosine_al_sun)
   end
 
   it 'expected from angles.cosine_tl_sun \
-                 -0.794336157045 ' do
-    assert_equal(-0.794336157045,
+                 -0.79433615704' do
+    assert_equal(-0.79433615704,
                  angles.cosine_tl_sun)
   end
 
@@ -52,8 +52,8 @@ describe 'Tests sines for ajd of 2_456_885.0 ' do
   end
 
   it 'expected from angles.sine_tl_sun \
-                 -0.838112716165 ' do
-    assert_equal(-0.838112716165,
+                 -0.83811271616' do
+    assert_equal(-0.83811271616,
                  angles.sine_tl_sun)
   end
 
@@ -74,14 +74,14 @@ describe 'Tests cosines for ajd of 2_455_055.5 ' do
   end
 
   it 'expected from angles.cosine_al_sun \
-                 -0.754188696998 ' do
-    assert_equal(-0.754188696998,
+                 -0.754188697' do
+    assert_equal(-0.754188697,
                  angles.cosine_al_sun)
   end
 
   it 'expected from angles.cosine_tl_sun \
-                 -0.754188696998 ' do
-    assert_equal(-0.754188696998,
+                 -0.754188697' do
+    assert_equal(-0.754188697,
                  angles.cosine_tl_sun)
   end
 
@@ -108,8 +108,8 @@ describe 'Tests sines for ajd of 2_455_055.5 ' do
   end
 
   it 'expected from angles.sine_tl_sun \
-                 0.934403954679 ' do
-    assert_equal(0.934403954679,
+                 0.93440395468' do
+    assert_equal(0.93440395468,
                  angles.sine_tl_sun)
   end
 

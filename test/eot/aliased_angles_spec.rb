@@ -209,8 +209,8 @@ describe 'tests jd of 2_455_055.5 ' do
   end
 
   it 'expected from aliased_angles.cosine_apparent_longitude \
-                 -0.754188696998 ' do
-    assert_equal(-0.754188696998,
+                 -0.754188697' do
+    assert_equal(-0.754188697,
                  aliased_angles.cosine_apparent_longitude)
   end
 

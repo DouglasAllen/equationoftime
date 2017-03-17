@@ -16,20 +16,20 @@ describe 'Tests jd of 2_456_885.0 ' do
   end
 
   it 'expected from aliased_trig.cosine_apparent_longitude \
-                 -0.794336157045 ' do
-    assert_equal(-0.794336157045,
+                 -0.79433615704' do
+    assert_equal(-0.79433615704,
                  aliased_trig.cosine_apparent_longitude)
   end
 
   it 'expected from aliased_trig.cosalsun \
-                 -0.794336157045 ' do
-    assert_equal(-0.794336157045,
+                 -0.79433615704' do
+    assert_equal(-0.79433615704,
                  aliased_trig.cosalsun)
   end
 
   it 'expected from aliased_trig.cosine_true_longitude \
-                 -0.794336157045 ' do
-    assert_equal(-0.794336157045,
+                 -0.79433615704' do
+    assert_equal(-0.79433615704,
                  aliased_trig.cosine_true_longitude)
   end
 end
@@ -53,8 +53,8 @@ describe 'Tests jd of 2_456_885.0 ' do
   end
 
   it 'expected from aliased_trig.sine_true_longitude \
-                 -0.838112716165 ' do
-    assert_equal(-0.838112716165,
+                 -0.83811271616' do
+    assert_equal(-0.83811271616,
                  aliased_trig.sine_true_longitude)
   end
 
@@ -72,20 +72,20 @@ describe 'Tests jd of 2455055.5 ' do
   end
 
   it 'expected from aliased_trig.cosine_apparent_longitude \
-                 -0.759661230863 ' do
-    assert_equal(-0.759661230863,
+                 -0.75966123086' do
+    assert_equal(-0.75966123086,
                  aliased_trig.cosine_apparent_longitude)
   end
 
   it 'expected from aliased_trig.cosalsun \
-                 -0.759661230863 ' do
-    assert_equal(-0.759661230863,
+                 -0.75966123086' do
+    assert_equal(-0.75966123086,
                  aliased_trig.cosalsun)
   end
 
   it 'expected from aliased_trig.cosine_true_longitude \
-                 -0.759661230863 ' do
-    assert_equal(-0.759661230863,
+                 -0.75966123086' do
+    assert_equal(-0.75966123086,
                  aliased_trig.cosine_true_longitude)
   end
 
@@ -109,8 +109,8 @@ describe 'Tests jd of 2455055.5 ' do
   end
 
   it 'expected from aliased_trig.sine_true_longitude \
-                 0.809098060062 ' do
-    assert_equal(0.809098060062,
+                 0.80909806006' do
+    assert_equal(0.80909806006,
                  aliased_trig.sine_true_longitude)
   end
 

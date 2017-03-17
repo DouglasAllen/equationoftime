@@ -6,7 +6,7 @@ class Eot
   # cosine apparent longitude
   # could be useful when dividing
   def cosine_al_sun
-    cos_al(@t).to_f.round(12)
+    cos_al(@t).to_f.round(11)
   end
   alias cosine_apparent_longitude cosine_al_sun
   alias cosalsun cosine_al_sun
@@ -15,7 +15,7 @@ class Eot
   # cosine true longitude
   # used in solar right ascension
   def cosine_tl_sun
-    cos_tl(@t).to_f.round(12)
+    cos_tl(@t).to_f.round(11)
   end
   alias cosine_true_longitude cosine_tl_sun
 
@@ -39,7 +39,7 @@ class Eot
   # sine true longitude
   # used in solar right ascension
   def sine_tl_sun
-    sin_tl(tl_sun).to_f.round(12)
+    sin_tl(tl_sun).to_f.round(11)
   end
   alias sine_true_longitude sine_tl_sun
 
