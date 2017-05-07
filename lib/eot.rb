@@ -24,5 +24,3 @@ require 'json'
 # require 'rest-client'
 # require 'date'
 # require 'eot/all'
-
-

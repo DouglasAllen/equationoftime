@@ -9,7 +9,6 @@ require 'eot'
 #
 class TestMain < Minitest::Test
   describe 'Tests jd of 2_456_885.0 ' do
-
     before(:each) do
       @main = Main.new
       @main.jd = 2_456_885.0
@@ -41,7 +40,6 @@ end
 #
 class TestTrigAL < Minitest::Test
   describe 'Tests jd of 2_456_885.0 ' do
-
     before(:each) do
       @main = Main.new
       @main.jd = 2_456_885.0
@@ -49,7 +47,6 @@ class TestTrigAL < Minitest::Test
       @main.date = DateTime.jd(2_456_885.0 + 0.5)
       @main.set_t_ma
     end
-
 
     it 'expected from @main.cosine_apparent_longitude.round(12)
                    -0.794336157045' do
@@ -68,7 +65,6 @@ end
 #
 class TestTrigTL < Minitest::Test
   describe 'Tests jd of 2_456_885.0 ' do
-
     before(:each) do
       @main = Main.new
       @main.jd = 2_456_885.0
@@ -94,7 +90,6 @@ end
 #
 class TestTrigMO < Minitest::Test
   describe 'Tests jd of 2_456_885.0 ' do
-
     before(:each) do
       @main = Main.new
       @main.jd = 2_456_885.0
@@ -120,7 +115,6 @@ end
 #
 class TestMain < Minitest::Test
   describe 'Tests jd of 2_455_055.5 ' do
-
     before(:each) do
       @main = Main.new
       @main.jd = 2_455_055.0
@@ -152,7 +146,6 @@ end
 #
 class TestTrigAL < Minitest::Test
   describe 'Tests ajd of 2_455_055.5 ' do
-
     before(:each) do
       @main = Main.new
       @main.jd = 2_455_055.0
@@ -178,7 +171,6 @@ end
 #
 class TestTrigTL < Minitest::Test
   describe 'Tests ajd of 2_455_055.5 ' do
-
     before(:each) do
       @main = Main.new
       @main.jd = 2_455_055.0
@@ -204,7 +196,6 @@ end
 #
 class TestTrigMO < Minitest::Test
   describe 'Tests ajd of 2_455_055.5 ' do
-
     before(:each) do
       @main = Main.new
       @main.jd = 2_455_055.0

@@ -8,9 +8,9 @@ eqt = Eot.new
 p eqt.jd
 p eqt.ajd
 
-p "Okay! now set a new one"
+p 'Okay! now set a new one'
 
-eqt.ajd = Helio.date2ajd(2000, 01, 01) + 0.778
+eqt.ajd = Helio.date2ajd(2000, 0o1, 0o1) + 0.778
 eqt.ma_ta_set
 p eqt.ajd
 p eqt.jd

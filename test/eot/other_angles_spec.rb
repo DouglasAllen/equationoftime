@@ -6,11 +6,9 @@ require 'minitest/autorun'
 lib = File.expand_path('../../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eot'
-
+#
 class TestOtherAngles < Minitest::Test
-
   describe 'Tests ajd of 2_456_885.0 ' do
-
     before(:each) do
       @main = Main.new
       @main.jd = 2_456_885.0

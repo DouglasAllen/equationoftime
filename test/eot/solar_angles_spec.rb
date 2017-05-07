@@ -11,6 +11,8 @@ class TestMain < Minitest::Test
   describe 'Tests ajd of 2_455_885.0' do
     before(:each) do
       @main = Main.new
+      @main.latitude = 0
+      @main.longitude = 0
       @main.jd = 2_455_885.0
       @main.ajd = 2_455_885.0
       @main.date = DateTime.jd(2_455_885.0 + 0.5)
@@ -29,6 +31,13 @@ class TestMain < Minitest::Test
     it 'expected   5.498386312376 for @main.ma.round(12)' do
       assert_equal(5.498386312376, @main.ma.round(12))
     end
+
+    it 'expected from @main.ha_sun(1).round(12)' do
+      assert_equal(1.586124796588, @main.ha_sun(1).round(12))
+      assert_equal(1.681187754971, @main.ha_sun(2).round(12))
+      assert_equal(1.791716672017, @main.ha_sun(3).round(12))
+      assert_equal(1.902534816197, @main.ha_sun(4).round(12))
+    end
   end
 end
 
@@ -37,11 +46,8 @@ class TestSolarAngles < Minitest::Test
   describe 'Tests ajd of 2_455_885.0' do
     before(:each) do
       @main = Main.new
-      @main.latitude = 0
-      @main.longitude = 0
       @main.jd = 2_455_885.0
       @main.ajd = 2_455_885.0
-      @main.date = DateTime.jd(2_455_885.0 + 0.5)
       @main.set_t_ma
     end
 
@@ -61,13 +67,6 @@ class TestSolarAngles < Minitest::Test
     it 'expected from @main.eccentricity.round(12)
                    0.016703620305' do
       assert_equal(0.016703620305, @main.eccentricity.round(12))
-    end
-
-    it 'expected from @main.ha_sun(1).round(12)' do
-      assert_equal(1.586124796588, @main.ha_sun(1).round(12))
-      assert_equal(1.681187754971, @main.ha_sun(2).round(12))
-      assert_equal(1.791716672017, @main.ha_sun(3).round(12))
-      assert_equal(1.902534816197, @main.ha_sun(4).round(12))
     end
 
     it 'expected   15.633911123321 from  @main.right_ascension.round(12)' do

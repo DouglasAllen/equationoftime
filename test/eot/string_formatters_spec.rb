@@ -60,7 +60,7 @@ class TestEot < Minitest::Test
                    [4, 5, 6, 988]' do
       assert_equal [4, 5, 6, 988],
                    @main.dt_parts(DateTime.new(
-                                                 2001, 2, 3, 4, 5, 6.988
+                                    2001, 2, 3, 4, 5, 6.988
                    ))
     end
 

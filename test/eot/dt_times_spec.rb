@@ -11,7 +11,6 @@ class TestMain < Minitest::Test
   describe 'tests jd of 2_456_885.0 ' do
     before(:each) do
       @main = Main.new
-
       @main.longitude = 0
       @main.jd = 2_456_885.0
       @main.ajd = 2_456_885.0
@@ -43,8 +42,6 @@ class TestDtTimes < Minitest::Test
       @main.latitude = 0
       @main.longitude = 0
       @main.jd = 2_456_885.0
-      @main.ajd = 2_456_885.0
-      @main.date = DateTime.jd(2_456_885.0 + 0.5)
       @main.set_t_ma
     end
 
@@ -52,7 +49,7 @@ class TestDtTimes < Minitest::Test
       @main.ajd_to_datetime(@main.ajd).to_s
                    "2014-08-15T12:00:00+00:00"' do
       assert_equal '2014-08-15T12:00:00+00:00',
-                   @main.ajd_to_datetime(@main.ajd).to_s
+                   @main.ajd_to_datetime(@main.jd).to_s
     end
 
     it 'expected from
@@ -80,7 +77,6 @@ class TestDtTimes < Minitest::Test
       @main.longitude = 0
       @main.jd = 2_456_885.0
       @main.ajd = 2_456_885.0
-      @main.date = DateTime.jd(2_456_885.0 + 0.5)
       @main.set_t_ma
     end
 
