@@ -36,6 +36,8 @@ class TestJDTimesAstronomical < Minitest::Test
   describe 'tests jd of 2_456_885.0 ' do
     before(:each) do
       @main = Main.new
+      @main.latitude = 0
+      @main.longitude = 0
       @main.jd = 2_456_885.0
       @main.ajd = 2_456_885.0
       @main.date = DateTime.jd(2_456_885.0 + 0.5)
@@ -63,6 +65,8 @@ class TestJDTimesCivil < Minitest::Test
   describe 'tests jd of 2_456_885.0 ' do
     before(:each) do
       @main = Main.new
+      @main.longitude = 0
+      @main.latitude = 0
       @main.jd = 2_456_885.0
       @main.ajd = 2_456_885.0
       @main.date = DateTime.jd(2_456_885.0 + 0.5)
@@ -90,6 +94,8 @@ class TestJDTimesNautical < Minitest::Test
   describe 'tests jd of 2_456_885.0 ' do
     before(:each) do
       @main = Main.new
+      @main.longitude = 0
+      @main.latitude = 0
       @main.jd = 2_456_885.0
       @main.ajd = 2_456_885.0
       @main.date = DateTime.jd(2_456_885.0 + 0.5)
@@ -117,6 +123,8 @@ class TestJDTimesRiseSet < Minitest::Test
   describe 'tests jd of 2_456_885.0 ' do
     before(:each) do
       @main = Main.new
+      @main.longitude = 0
+      @main.latitude = 0
       @main.jd = 2_456_885.0
       @main.ajd = 2_456_885.0
       @main.date = DateTime.jd(2_456_885.0 + 0.5)
@@ -167,6 +175,8 @@ class TestJDTimesRiseSet < Minitest::Test
   describe 'tests ajd of 2_455_055.0 ' do
     before(:each) do
       @main = Main.new
+      @main.longitude = 0
+      @main.latitude = 0
       @main.jd = 2_455_055.0
       @main.ajd = 2_455_055.0
       @main.date = DateTime.jd(2_455_055.0 + 0.5)

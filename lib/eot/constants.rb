@@ -3,7 +3,7 @@
 # has the constants used and more
 require 'date'
 
-class Eot
+module Eot
 
   ##
   # Arc seconds in a degree = 3_600.0
@@ -38,12 +38,12 @@ class Eot
   # Astronomical unit (m) = 149597870e3
   # DAU         = 149597870e3
 
-  ##  
+  ##
   # Hours in a day = 24.0
 
   DAY_HOURS   = 24.0
 
-  ##  
+  ##
   # Minutes in a day = 1_440.0
 
   DAY_MINUTES = 1_440.0
@@ -173,7 +173,7 @@ class Eot
   # from desktop calculator Sidereal minutes =
   # 4.0 / 1.0027379093507953456536618754278
   # probably 3.989 would be close enough because
-  # it's not that constant anyway 
+  # it's not that constant anyway
 
   SM          = 4.0 / 1.0027379093507953456536618754278
 

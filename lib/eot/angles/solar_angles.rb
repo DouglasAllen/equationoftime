@@ -9,7 +9,7 @@ class Main
   # Apparent solar longitude = true longitude - aberation
 
   def apparent_longitude
-    @cs.apparent_longitude(@jd)
+    Eot.apparent_longitude(@jd)
   end
 
   ##
@@ -18,7 +18,7 @@ class Main
   # eccentricity of Earth orbit
 
   def eccentricity
-    @cs.eccentricity(@jd)
+    Eot.eccentricity(@jd)
   end
 
   ##
@@ -28,7 +28,7 @@ class Main
   # added to mean anomaly to get true anomaly.
 
   def equation_of_center
-    @cs.equation_of_center(@jd)
+    Eot.equation_of_center(@jd)
   end
 
   ##
@@ -37,7 +37,7 @@ class Main
   # solar declination
 
   def declination
-    @cs.declination(@jd)
+    Eot.declination(@jd)
   end
 
   ##
@@ -68,7 +68,7 @@ class Main
 
   def ha_sun(c)
     zenith = choice(c)
-    @cs.horizon_angle(zenith, @jd, @latitude).round(12)
+    Eot.horizon_angle(zenith, @jd, @latitude).round(12)
   end
 
   ##
@@ -77,7 +77,7 @@ class Main
   # solar right ascension
 
   def right_ascension
-    @cs.right_ascension(@jd)
+    Eot.right_ascension(@jd)
   end
 
 end

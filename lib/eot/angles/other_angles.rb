@@ -36,6 +36,6 @@ class Main
   # on the ecliptic plane measured from the mean equinox of date.
 
   def omega
-    @cs.omega(@jd)
+    Eot.omega(@jd)
   end
 end

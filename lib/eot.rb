@@ -1,5 +1,6 @@
+
 # eot.rb
-require 'eot/eot/eot'
+require 'eot/eot'
 require 'eot/version'
 require 'eot/constants'
 require 'eot/main'
@@ -17,10 +18,10 @@ require 'eot/strings/time_displays'
 require 'eot/times/dt_times'
 require 'eot/times/jd_times'
 require 'eot/trigonometric'
-require 'eot/geo/geo_lat_lng_smt'
-require 'addressable/uri'
+# require 'eot/geo/geo_lat_lng_smt'
+# require 'addressable/uri'
 require 'json'
-require 'rest-client'
+# require 'rest-client'
 # require 'date'
 # require 'eot/all'
 

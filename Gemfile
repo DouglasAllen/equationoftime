@@ -12,18 +12,18 @@ source 'https://rubygems.org'
 
 gemspec
 
+# gem 'crack'
+# gem 'geo_lat_lng_smt', '~> 0.0.1'
 gem 'hoe'
 # gem 'mini_portile'
 gem 'rake-compiler', '~> 0.9.3'
-gem 'geo_lat_lng_smt', '~> 0.0.1'
-gem 'crack'
 
 group :development, :test do
   # gem 'rubocop'
-  gem 'guard'
+  # gem 'guard'
+  # gem 'guard-minitest'
   gem 'minitest'
-  gem 'guard-minitest'
-  gem 'rspec'
-  gem 'yard'
-  gem 'rdoc'
+  # gem 'rdoc'
+  # gem 'rspec'
+  # gem 'yard'
 end

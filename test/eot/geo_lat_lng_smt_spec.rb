@@ -3,12 +3,12 @@
 gem 'minitest'
 require 'minitest/autorun'
 
-require 'geo_lat_lng_smt'
+# require 'geo_lat_lng_smt'
 #
 class TestGeoLatLng < Minitest::Test
   describe 'Geo defaults' do
     def setup
-      @geo = GeoLatLng.new('Blackheath Ave, London SE10 8XJ, UK')
+      # @geo = GeoLatLng.new('Blackheath Ave, London SE10 8XJ, UK')
     end
 
     it 'expected   "51.4770228, -0.0001147"' do

@@ -30,10 +30,10 @@ examples/t_sofa.rb
 examples/test_eot_c.rb
 examples/use_addr.rb
 examples/use_ajd.rb
-ext/helio/extconf.rb
-ext/helio/helio.c
-ext/helio/helio.h
-ext/helio/rhelio.c
+ext/eot/extconf.rb
+ext/eot/ceot.c
+ext/eot/ceot.h
+ext/eot/eot.c
 lib/eot.rb
 lib/eot/all.rb
 lib/eot/angles/delta_angles.rb

@@ -10,7 +10,7 @@ class Main
   # used in equation of time
 
   def true_anomaly
-    @cs.true_anomaly(@jd)
+    Eot.true_anomaly(@jd)
   end
 
   ##
@@ -31,7 +31,7 @@ class Main
   # used in equation of time
 
   def true_longitude
-    @cs.true_longitude(@jd)
+    Eot.true_longitude(@jd)
   end
 
   ##

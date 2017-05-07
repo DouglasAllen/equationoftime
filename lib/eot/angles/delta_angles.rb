@@ -12,13 +12,13 @@ class Main
   # From delta_angles.rb:
   # one time component to total equation of time
   def delta_oblique
-    @cs.apparent_longitude(@jd) - @cs.right_ascension(@jd) * 15.0 * Eot::D2R
+    Eot.apparent_longitude(@jd) - Eot.right_ascension(@jd) * 15.0 * Eot::D2R
   end
 
   # From delta_angles.rb:
   # one time component to total equation of time
   def delta_orbit
-    -1.0 * @cs.equation_of_center(@jd)
+    -1.0 * Eot.equation_of_center(@jd)
   end
 
   # From delta_angles.rb:

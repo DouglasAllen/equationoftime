@@ -29,12 +29,12 @@ class TestMain < Minitest::Test
       assert_equal('2014-08-15T12:00:00+00:00', @main.date.to_s)
     end
 
-    it 'expected   0.0 from @main.latitude' do
-      assert_equal(0.0, @main.latitude)
+    it 'expected   nil from @main.latitude' do
+      assert_nil(nil, @main.latitude)
     end
 
-    it 'expected   0.0 from @main.longitude' do
-      assert_equal(0.0, @main.longitude)
+    it 'expected   nil from @main.longitude' do
+      assert_nil(nil, @main.longitude)
     end
   end
 end

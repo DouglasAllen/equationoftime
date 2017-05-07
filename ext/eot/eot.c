@@ -586,57 +586,57 @@ C extension
 */
 void Init_eot(void)
 {
-  VALUE cEot = rb_define_class("Eot", rb_cObject);
+  VALUE cEot = rb_define_module("Eot");
   id_status = rb_intern("@status");
-  rb_define_method(cEot, "initialize", t_init, 0);
-  rb_define_method(cEot, "jc_time", func_jc, 1);
-  rb_define_method(cEot, "mean_anomaly", func_mu, 1);
-  rb_define_method(cEot, "eccentricity", func_eoe, 1);
-  rb_define_method(cEot, "equation_of_center", func_eqc, 1);
-  rb_define_method(cEot, "true_anomaly", func_ta, 1);
-  rb_define_method(cEot, "mean_longitude", func_ml, 1);
-  rb_define_method(cEot, "eccentric_anomaly", func_ea, 1);
-  rb_define_method(cEot, "obliquity_of_ecliptic", func_ooe, 1);
-  rb_define_method(cEot, "longitude_of_perihelion", func_lp, 1);
-  rb_define_method(cEot, "true_longitude", func_tl, 1);
-  rb_define_method(cEot, "true_longitude2", func_tl2, 1);
-  rb_define_method(cEot, "right_ascension", func_ra, 1);
-  rb_define_method(cEot, "declination", func_dec, 1);
-  rb_define_method(cEot,
+  // rb_define_method(cEot, "initialize", t_init, 0);
+  rb_define_singleton_method(cEot, "jc_time", func_jc, 1);
+  rb_define_singleton_method(cEot, "mean_anomaly", func_mu, 1);
+  rb_define_singleton_method(cEot, "eccentricity", func_eoe, 1);
+  rb_define_singleton_method(cEot, "equation_of_center", func_eqc, 1);
+  rb_define_singleton_method(cEot, "true_anomaly", func_ta, 1);
+  rb_define_singleton_method(cEot, "mean_longitude", func_ml, 1);
+  rb_define_singleton_method(cEot, "eccentric_anomaly", func_ea, 1);
+  rb_define_singleton_method(cEot, "obliquity_of_ecliptic", func_ooe, 1);
+  rb_define_singleton_method(cEot, "longitude_of_perihelion", func_lp, 1);
+  rb_define_singleton_method(cEot, "true_longitude", func_tl, 1);
+  rb_define_singleton_method(cEot, "true_longitude2", func_tl2, 1);
+  rb_define_singleton_method(cEot, "right_ascension", func_ra, 1);
+  rb_define_singleton_method(cEot, "declination", func_dec, 1);
+  rb_define_singleton_method(cEot,
   "sidereal_time", func_sidetime, 1);
-  rb_define_method(cEot,
+  rb_define_singleton_method(cEot,
   "local_sidereal_time", func_local_sidetime, 2);
-  rb_define_method(cEot,
+  rb_define_singleton_method(cEot,
   "dlt", func_dlt, 2);
-  rb_define_method(cEot,
+  rb_define_singleton_method(cEot,
   "diurnal_arc", func_diurnal_arc, 2);
-  rb_define_method(cEot,
+  rb_define_singleton_method(cEot,
   "t_south", func_t_south, 2);
-  rb_define_method(cEot,
+  rb_define_singleton_method(cEot,
   "t_rise", func_t_rise, 3);
-  rb_define_method(cEot,
+  rb_define_singleton_method(cEot,
   "t_set", func_t_set, 3);
-  rb_define_method(cEot,
+  rb_define_singleton_method(cEot,
   "t_mid_day", func_t_mid_day, 3);
-  rb_define_method(cEot, "apparent_longitude", func_al, 1);
-  rb_define_method(cEot, "omega", faom, 1);
-  rb_define_method(cEot, "mean_longitude_aries", func_mla, 1);
-  rb_define_method(cEot, "horizon_angle", func_sun, 3);
-  rb_define_method(cEot, "cosZ", func_cosZ, 1);
-  rb_define_method(cEot, "cos_al_sun", func_cos_al_sun, 1);
-  rb_define_method(cEot, "sin_al_sun", func_sin_al_sun, 1);
-  rb_define_method(cEot, "cos_tl_sun", func_cos_tl_sun, 1);
-  rb_define_method(cEot, "sin_tl_sun", func_sin_tl_sun, 1);
-  rb_define_method(cEot, "cos_mo_earth", func_cos_mo_earth, 1);
-  rb_define_method(cEot, "sin_mo_earth", func_sin_mo_earth, 1);
+  rb_define_singleton_method(cEot, "apparent_longitude", func_al, 1);
+  rb_define_singleton_method(cEot, "omega", faom, 1);
+  rb_define_singleton_method(cEot, "mean_longitude_aries", func_mla, 1);
+  rb_define_singleton_method(cEot, "horizon_angle", func_sun, 3);
+  rb_define_singleton_method(cEot, "cosZ", func_cosZ, 1);
+  rb_define_singleton_method(cEot, "cos_al_sun", func_cos_al_sun, 1);
+  rb_define_singleton_method(cEot, "sin_al_sun", func_sin_al_sun, 1);
+  rb_define_singleton_method(cEot, "cos_tl_sun", func_cos_tl_sun, 1);
+  rb_define_singleton_method(cEot, "sin_tl_sun", func_sin_tl_sun, 1);
+  rb_define_singleton_method(cEot, "cos_mo_earth", func_cos_mo_earth, 1);
+  rb_define_singleton_method(cEot, "sin_mo_earth", func_sin_mo_earth, 1);
   // rb_define_method(cEot, "cos_dec_sun", func_cos_dec_sun, 1);
   // rb_define_method(cEot, "cos_lat", func_cos_lat, 1);
   // rb_define_method(cEot, "et", func_et, 2);
   // rb_define_method(cEot, "sin_dec_sun", func_sin_dec_sun, 1);
   // rb_define_method(cEot, "sin_lat", func_sin_lat, 1);
   // rb_define_method(cEot, "sun_ra", func_sun_ra, 2);
-  rb_define_method(cEot, "jd", func_cjd, 0);
-  rb_define_method(cEot, "j2000_dif", func_jd_dif, 3);
+  rb_define_singleton_method(cEot, "jd", func_cjd, 0);
+  rb_define_singleton_method(cEot, "j2000_dif", func_jd_dif, 3);
   id_push = rb_intern("push");
   id_time = rb_intern("time");
 }

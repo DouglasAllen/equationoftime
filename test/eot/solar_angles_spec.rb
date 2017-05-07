@@ -37,6 +37,8 @@ class TestSolarAngles < Minitest::Test
   describe 'Tests ajd of 2_455_885.0' do
     before(:each) do
       @main = Main.new
+      @main.latitude = 0
+      @main.longitude = 0
       @main.jd = 2_455_885.0
       @main.ajd = 2_455_885.0
       @main.date = DateTime.jd(2_455_885.0 + 0.5)

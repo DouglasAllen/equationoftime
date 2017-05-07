@@ -48,43 +48,43 @@ class Main
   # From solar_strings.rb
   # String format of apparent longitude
   def degrees_apparent_longitude
-    degrees(@cs.apparent_longitude(@jd))
+    degrees(Eot.apparent_longitude(@jd))
   end
 
   # From solar_strings.rb
   # String format of declination
   def degrees_declination
-    degrees(@cs.declination(@jd))
+    degrees(Eot.declination(@jd))
   end
 
   # From solar_strings.rb
   # String format for centre
   def degrees_equation_of_center
-    degrees(@cs.equation_of_center(@jd))
+    degrees(Eot.equation_of_center(@jd))
   end
 
   # From solar_strings.rb
   # String format of mean anomaly
   def degrees_mean_anomaly
-    degrees(@cs.mean_anomaly(@jd))
+    degrees(Eot.mean_anomaly(@jd))
   end
 
   # From solar_strings.rb
   # String format of right ascension
   def degrees_right_ascension
-    degrees(@cs.right_ascension(@jd))
+    degrees(Eot.right_ascension(@jd))
   end
 
   # From solar_strings.rb
   # String format of true anomaly
   def degrees_true_anomaly
-    degrees(@cs.true_anomaly(@jd))
+    degrees(Eot.true_anomaly(@jd))
   end
 
   # From solar_strings.rb
   # String format of true longitude
   def degrees_true_longitude
-    degrees(@cs.true_longitude(@jd))
+    degrees(Eot.true_longitude(@jd))
   end
 
   # From solar_strings.rb

@@ -1,27 +1,37 @@
-# frozen_string_literal: true
-# require 'mini_portile'
+# encoding: utf-8
+
+require 'rubygems'
+require 'bundler'
+begin
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts 'Run `bundle install` to install missing gems'
+  exit e.status_code
+end
 require 'bundler/gem_tasks'
-# require "bundler/install_tasks"
-
-require 'rake/extensiontask'
-# require 'rake/testtask'
-# require "rake/win32"
-
-require 'rdoc/task'
-
-# require 'rspec/core/rake_task'
-
-require 'yard'
-
+# require 'bundler/install_tasks'
 require 'hoe'
 
-# begin
-#   require 'rubygems/gempackagetask'
-# rescue LoadError
-# end
-# require 'rake/clean'
-# require 'rbconfig'
-# include RbConfig
+require 'rake'
+require 'rake/clean'
+require 'rake/extensiontask'
+require 'rake/testtask'
+require 'rake/win32'
+# require 'rdoc/task'
+# require 'rspec/core/rake_task'
+# require 'yard'
+
+require 'rbconfig'
+include RbConfig
+
+begin
+  require 'rubygems/gempackagetask'
+rescue LoadError
+  # $stderr.puts e.message
+  $stderr.puts 'check your version of rubygems'
+  # exit e.status_code
+end
 
 # Hoe.plugins.delete :newb
 # Hoe.plugins.delete :test
@@ -59,9 +69,10 @@ require 'hoe'
 # Hoe.plugin :flog
 # Hoe.plugin :flay
 # Hoe.plugin :deps
-# Hoe.plugin :minitest
+Hoe.plugin :manifest
+Hoe.plugin :minitest
 # Hoe.plugin :rdoc
-# Hoe.plugin :travis
+Hoe.plugin :travis
 
 Hoe.spec 'equationoftime' do
   developer('Douglas Allen', 'kb9agt@gmail.com')
@@ -74,40 +85,44 @@ Hoe.spec 'equationoftime' do
   self.spec_extras = { extensions: ['ext/eot/extconf.rb'] }
 
   Rake::ExtensionTask.new('eot', spec) do |ext|
-    ext.lib_dir = File.join('lib', 'eot/eot')
+    ext.lib_dir = File.join('lib', 'eot')
   end
 end
 
 Rake::Task[:test].prerequisites << :compile
 
-# task default: [:test]
+task default: [:test]
 
-# Rake::TestTask.new(:test) do |t|
-# t.libs << 'test'
-# t.test_files = FileList['test/eot/*.rb']
-# t.verbose = true
-# t.options
-# end
-
-# RSpec::Core::RakeTask.new(:spec) do | t |
-# t.libs << 'test'
-# t.pattern = './test/eot/*.rb'
-# t.rspec_opts = []
-# end
-
-YARD::Rake::YardocTask.new(:yardoc) do |t|
-  t.files = ['lib/eot/*.rb']
-  #  puts t.methods
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'test'
+  t.test_files = FileList['test/eot/*_spec.rb']
+  t.verbose = true
+  t.options
 end
+
+desc 'Code coverage detail'
+task :simplecov do
+  ENV['COVERAGE'] = 'true'
+  Rake::Task['test'].execute
+end
+
+# RSpec::Core::RakeTask.new(:spec) do |t|
+#   t.libs << 'test'
+#   t.pattern = './test/eot/*_spec.rb'
+#   t.rspec_opts = []
+# end
+
+# YARD::Rake::YardocTask.new(:yardoc) do |t|
+#   t.files = ['lib/eot/*.rb']
+#   puts t.methods
+# end
 
 desc 'generate API documentation to rdocs/index.html'
-Rake::RDocTask.new(:docs) do |rd|
-  rd.rdoc_dir = 'rdocs'
-
-  rd.rdoc_files.include 'lib/eot/*.rb', 'README.rdoc', 'wiki.md'
-
-  rd.options << '--line-numbers'
-end
+# Rake::RDocTask.new(:docs) do |rd|
+#   rd.rdoc_dir = 'rdocs'
+#   rd.rdoc_files.include 'lib/eot/*.rb', 'README.rdoc', 'wiki.md'
+#   rd.options << '--line-numbers'
+# end
 
 # require 'rake/extensiontask'
 # spec = Gem::Specification.load('equationoftime.gemspec')

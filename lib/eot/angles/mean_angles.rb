@@ -10,7 +10,7 @@ class Main
   # needed to get true longitude for low accuracy.
 
   def mean_longitude
-    @cs.mean_longitude(@jd)
+    Eot.mean_longitude(@jd)
   end
 
   ##
@@ -21,7 +21,7 @@ class Main
   # and to get true anomaly true longitude via center equation
 
   def mean_anomaly
-    @ma = @cs.mean_anomaly(@jd)
+    @ma = Eot.mean_anomaly(@jd)
   end
 
   ##
@@ -31,7 +31,7 @@ class Main
   # # see http://www.iausofa.org/publications/aas04.pdf
 
   def mean_longitude_aries
-    @cs.mean_longitude_aries(@jd);
+    Eot.mean_longitude_aries(@jd);
   end
 
   ##
@@ -40,7 +40,7 @@ class Main
   # mean obliquity of Earth
 
   def mean_obliquity
-    @cs.obliquity_of_ecliptic(@jd)
+    Eot.obliquity_of_ecliptic(@jd)
   end
 
 end

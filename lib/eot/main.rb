@@ -19,8 +19,8 @@ class Main
   # init sets them using ajd initial Float value
   # see: :ajd attribute
   def set_t_ma
-    @t = @cs.jc_time(@jd)
-    @ma = @cs.mean_anomaly(@jd)
+    @t = Eot.jc_time(@jd)
+    @ma = Eot.mean_anomaly(@jd)
   end
 
   # From init.rb:
@@ -59,13 +59,7 @@ class Main
   # From main.rb:
   # Initialize to set attributes
   def initialize
-    d = DateTime.now.to_time.utc.to_datetime
-    @cs = Eot.new
-    @jd = @cs.j2000_dif(d.year, d.month, d.day) + Eot::DJ00
-    @ajd = @jd + d.day_fraction
-    @date = DateTime.jd(@jd + 0.5)
-    @latitude = 0.0
-    @longitude = 0.0
+
   end
 end
 
@@ -74,5 +68,6 @@ if __FILE__ == $PROGRAM_NAME
   lib = File.expand_path('../../../lib', __FILE__)
   $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
   require 'eot'
-
+  @main = Main.new
+  p @main.longitude
 end

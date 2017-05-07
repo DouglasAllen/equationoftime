@@ -11,6 +11,8 @@ class TestMain < Minitest::Test
   describe 'tests jd of 2_456_885.0 ' do
     before(:each) do
       @main = Main.new
+
+      @main.longitude = 0
       @main.jd = 2_456_885.0
       @main.ajd = 2_456_885.0
       @main.date = DateTime.jd(2_456_885.0 + 0.5)
@@ -38,6 +40,8 @@ class TestDtTimes < Minitest::Test
   describe 'tests jd of 2_456_885.0 ' do
     before(:each) do
       @main = Main.new
+      @main.latitude = 0
+      @main.longitude = 0
       @main.jd = 2_456_885.0
       @main.ajd = 2_456_885.0
       @main.date = DateTime.jd(2_456_885.0 + 0.5)
@@ -72,6 +76,8 @@ class TestDtTimes < Minitest::Test
   describe 'tests jd of 2_456_885.0 ' do
     before(:each) do
       @main = Main.new
+      @main.latitude = 0
+      @main.longitude = 0
       @main.jd = 2_456_885.0
       @main.ajd = 2_456_885.0
       @main.date = DateTime.jd(2_456_885.0 + 0.5)
@@ -105,6 +111,8 @@ class TestDtTimes < Minitest::Test
   describe 'tests jd of 2_456_885.0 ' do
     before(:each) do
       @main = Main.new
+      @main.latitude = 0
+      @main.longitude = 0
       @main.jd = 2_456_885.0
       @main.ajd = 2_456_885.0
       @main.date = DateTime.jd(2_456_885.0 + 0.5)
@@ -132,6 +140,8 @@ class TestDtTimes < Minitest::Test
   describe 'tests jd of 2_456_885.0 ' do
     before(:each) do
       @main = Main.new
+      @main.latitude = 0
+      @main.longitude = 0
       @main.jd = 2_456_885.0
       @main.ajd = 2_456_885.0
       @main.date = DateTime.jd(2_456_885.0 + 0.5)
@@ -157,6 +167,7 @@ class TestDtTimes < Minitest::Test
   describe 'tests ajd of 2_455_055.0 ' do
     before(:each) do
       @main = Main.new
+      @main.longitude = 0
       @main.jd = 2_455_055.0
       @main.ajd = 2_455_055.0
       @main.date = DateTime.jd(2_455_055.0 + 0.5)
@@ -183,6 +194,8 @@ class TestDtTimes < Minitest::Test
   describe 'tests ajd of 2_455_055.0 ' do
     before(:each) do
       @main = Main.new
+      @main.latitude = 0
+      @main.longitude = 0
       @main.jd = 2_455_055.0
       @main.ajd = 2_455_055.0
       @main.date = DateTime.jd(2_455_055.0 + 0.5)
