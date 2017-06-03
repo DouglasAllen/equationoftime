@@ -51,7 +51,7 @@ Lots of examples to play with for learning about Eot.
 
         eot.sunrise_dt.to_time.localtime("-06:00")          # the dates sunrise as DateTime
         eot.local_noon_dt.to_time.localtime("-06:00")       # the dates transit as DateTime
-        eot.sunrise_dt.to_time.localtime("-06:00")          # the dates sunset as a DateTime
+        eot.sunset_dt.to_time.localtime("-06:00")          # the dates sunset as a DateTime
 
 
         eot.ajd += 1            # the days after times can be read
@@ -59,7 +59,7 @@ Lots of examples to play with for learning about Eot.
 
         eot.sunrise_dt.to_time.localtime("-06:00")
         eot.local_noon_dt.to_time.localtime("-06:00")
-        eot.sunrise_dt.to_time.localtime("-06:00")
+        eot.sunset_dt.to_time.localtime("-06:00")
 
 
 == Gem patch:
