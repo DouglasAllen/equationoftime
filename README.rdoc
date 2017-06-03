@@ -36,7 +36,7 @@ Lots of examples to play with for learning about Eot.
         eot.ma_ta_set           # recalculate ma and ta after initialization
         eot.string_eot          # should be different than before
 
-        # check and set a new address                        
+        # check and set a new address
         geo = GeoLatLng.new
         geo.addr
         geo.addr = "houston, tx"     # set new location
@@ -47,7 +47,7 @@ Lots of examples to play with for learning about Eot.
         # Be shure you have the date set right
         eot.ajd = DateTime.new(2014,11,07).to_time.utc.to_datetime.jd.to_f
 
-        eot.set_t           # recalculate ma and ta after initialization
+        eot.ma_ta_set           # recalculate ma and ta after initialization
 
         eot.sunrise_jd          # the dates sunrise as a jd
         eot.sunset_jd           # the dates sunset as a jd
@@ -56,9 +56,9 @@ Lots of examples to play with for learning about Eot.
 
 
         eot.ajd += 1            # the days after times can be read
-        eot.set_t           # recalculate ma and ta after initialization 
-        eot.ajd = 2451545       # ajd set to 2001-01-01 12:00 
-        
+        eot.ma_ta_set           # recalculate ma and ta after initialization
+        eot.ajd = 2451545       # ajd set to 2001-01-01 12:00
+
 
 == Gem patch:
 
@@ -76,9 +76,9 @@ gem install equationoftime doesn't always. Hoe hoe hoe!
 
   $ bundle exec rake install
 
-  
+
 === Build with DEVKIT
- 
+
    cd to devkit dir and run devkitvars.bat
 
    or make a batchfile to start your envirnment with 'run devkitvars'
