@@ -45,7 +45,7 @@ Lots of examples to play with for learning about Eot.
         eot.longitude = geo.lng
 
         # Be shure you have the date set right
-        eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_f
+        eot.ajd = DateTime.now.to_time.utc.to_datetime.ajd.to_i
 
         eot.ma_ta_set           # recalculate ma and ta after initialization
 
