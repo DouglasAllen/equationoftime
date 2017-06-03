@@ -56,8 +56,12 @@ Lots of examples to play with for learning about Eot.
 
 
         eot.ajd += 1            # the days after times can be read
-        eot.ma_ta_set           # recalculate ma and ta after initialization
-        eot.ajd = 2451545       # ajd set to 2001-01-01 12:00
+        eot.ma_ta_set           # recalculate ma and ta after jd changes
+
+        eot.sunrise_jd
+        eot.sunset_jd
+        eot.sunrise_dt
+        eot.sunset_dt
 
 
 == Gem patch:
