@@ -31,7 +31,6 @@ Gem::Specification.new do |spec|
   # spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
-  spec.has_rdoc      = true
   spec.rdoc_options <<
     '--title' << 'Equation of Time -- Solar Position Calculator in Ruby' \
     '--line-numbers'
