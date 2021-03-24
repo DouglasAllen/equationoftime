@@ -1,12 +1,9 @@
-{<img src="https://travis-ci.org/DouglasAllen/gem-equationoftime.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/DouglasAllen/gem-equationoftime]
-
 = equationoftime
 
-Home    :: http://equationoftime.herokuapp.com/
-Code    :: https://github.com/DouglasAllen/equationoftime
-RDoc    :: http://www.rubydoc.info/github/DouglasAllen/gem-equationoftime/master
-Issues  :: https://github.com/DouglasAllen/equationoftime/issues
-
+home  :: http://equationoftime.herokuapp.com/
+code  :: https://github.com/DouglasAllen/equationoftime
+rdoc  :: http://www.rubydoc.info/github/DouglasAllen/gem-equationoftime/master
+bugs  :: https://github.com/DouglasAllen/equationoftime/issues
 
 == DESCRIPTION:
 
