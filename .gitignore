@@ -1,4 +1,4 @@
-lib/eot/eot.so
+ib/eot/eot.so
 .gem
 .rbc
 .rspec
@@ -8,12 +8,14 @@ lib/eot/eot.so
 .yardoc
 _yardoc
 Gemfile.lock
+.idea
 
 coverage
 doc
 lib/bundler/man
+lib/eot/eot.bundle
 pkg
-rdoc
+rdocs
 ri
 spec/reports
 test/tmp
